@@ -533,9 +533,13 @@ export default async function CommercialPage({
                           member.user_id !== userId &&
                           (isSuperAdmin ||
                             (selectedMembership?.role === "director" &&
-                              ["coordinator", "teacher"].includes(
+                              ["coordinator", "teacher", "student"].includes(
                                 member.role,
-                              )));
+                              )) ||
+                            (["coordinator", "teacher"].includes(
+                              selectedMembership?.role ?? "",
+                            ) &&
+                              member.role === "student"));
                         return (
                           <article
                             key={member.user_id}
