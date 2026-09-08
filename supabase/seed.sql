@@ -1,0 +1,2 @@
+-- Intentionally empty.
+-- Commercial users are created through Supabase Auth, not as shared seed accounts.
