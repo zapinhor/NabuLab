@@ -20,7 +20,7 @@ type Organization = { id: string; name: string; slug: string; kind: string; logo
 type Membership = { organization_id: string; user_id: string; role: string };
 type Profile = { id: string; full_name: string; email: string; username: string | null };
 type ClassRoom = { id: string; organization_id: string; name: string; description: string | null; academic_year: number | null; created_by: string };
-type Invite = { id: string; organization_id?: string; class_id?: string; email: string | null; role?: string; status: string; expires_at: string };
+type Invite = { id: string; organization_id?: string; class_id?: string; invitee_user_id?: string | null; email: string | null; role?: string; status: string; expires_at: string };
 
 const fieldClass = "mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm";
 const primaryButton = "rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-800";
@@ -42,6 +42,7 @@ export default async function CommercialPage({ searchParams }: { searchParams: P
   const { data: claimData } = await supabase.auth.getClaims();
   const userId = claimData?.claims?.sub;
   if (!userId) redirect("/entrar");
+  const userEmail = String(claimData.claims.email ?? "").toLowerCase();
 
   const [profileResult, adminResult, orgResult, memberResult, orgInviteResult, classInviteResult] = await Promise.all([
     supabase.from("profiles").select("id,full_name,email,username").eq("id", userId).single(),
@@ -49,14 +50,21 @@ export default async function CommercialPage({ searchParams }: { searchParams: P
     supabase.from("organizations").select("id,name,slug,kind,logo_url,primary_color,accent_color").order("name"),
     supabase.from("organization_members").select("organization_id,user_id,role"),
     supabase.from("organization_invites").select("id,organization_id,email,role,status,expires_at").eq("status", "pending").order("created_at", { ascending: false }),
-    supabase.from("class_invites").select("id,class_id,email,status,expires_at").eq("status", "pending").order("created_at", { ascending: false }),
+    supabase.from("class_invites").select("id,class_id,invitee_user_id,email,status,expires_at").eq("status", "pending").order("created_at", { ascending: false }),
   ]);
 
   const profile = profileResult.data as Profile | null;
   const organizations = (orgResult.data ?? []) as Organization[];
   const memberships = (memberResult.data ?? []) as Membership[];
-  const organizationInvites = (orgInviteResult.data ?? []) as Invite[];
-  const classInvites = (classInviteResult.data ?? []) as Invite[];
+  const now = Date.now();
+  const organizationInvites = ((orgInviteResult.data ?? []) as Invite[]).filter(
+    (invite) => invite.email?.toLowerCase() === userEmail && new Date(invite.expires_at).getTime() > now,
+  );
+  const classInvites = ((classInviteResult.data ?? []) as Invite[]).filter(
+    (invite) =>
+      (invite.invitee_user_id === userId || invite.email?.toLowerCase() === userEmail) &&
+      new Date(invite.expires_at).getTime() > now,
+  );
   const isSuperAdmin = Boolean(adminResult.data);
   const selectedOrganization = organizations.find((organization) => organization.id === params.org) ?? organizations[0] ?? null;
   const selectedMembership = memberships.find((membership) => membership.organization_id === selectedOrganization?.id && membership.user_id === userId);
