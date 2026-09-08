@@ -15,15 +15,24 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Fisio Simulado",
-    template: "%s | Fisio Simulado",
+    default: "NabuLab",
+    template: "%s | NabuLab",
   },
 
   description:
-    "Plataforma de simulados para estudo de anatomia, fisiologia e bioquímica.",
+    "Plataforma educacional de simulados, revisão e acompanhamento de desempenho.",
 
-  applicationName:
-    "Fisio Simulado",
+  applicationName: "NabuLab",
+
+  keywords: [
+    "NabuLab",
+    "educação",
+    "simulados",
+    "aprendizado",
+    "revisão",
+    "desempenho",
+    "estudos",
+  ],
 };
 
 export default function RootLayout({
@@ -36,34 +45,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[#f4f7fb] text-slate-900 antialiased`}
       >
-        {/*
-         * =====================================================
-         * PULAR PARA O CONTEÚDO
-         * =====================================================
-         *
-         * Normalmente fica invisível.
-         *
-         * Ao usuário pressionar Tab logo ao entrar na página,
-         * o botão aparece no canto superior esquerdo.
-         */}
-
         <a
           href="#conteudo-principal"
           className="fixed left-4 top-4 z-[9999] -translate-y-24 rounded-xl bg-slate-950 px-4 py-3 text-sm font-bold text-white shadow-xl transition-transform focus:translate-y-0 focus:outline-none focus:ring-4 focus:ring-blue-300"
         >
           Pular para o conteúdo
         </a>
-
-        {/*
-         * =====================================================
-         * CONTEÚDO DA ROTA
-         * =====================================================
-         *
-         * Não usamos <main> aqui porque as próprias páginas
-         * já possuem seus elementos <main>.
-         *
-         * Isso evita gerar <main> dentro de <main>.
-         */}
 
         <div
           id="conteudo-principal"

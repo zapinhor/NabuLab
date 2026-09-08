@@ -1,19 +1,40 @@
-export type Difficulty = "iniciante" | "medio" | "avancado";
+export type Difficulty =
+  | "iniciante"
+  | "medio"
+  | "avancado";
 
-export type QuestionType = "multiple-choice" | "true-false";
+export type QuestionType =
+  | "multiple-choice"
+  | "true-false";
+
+/*
+ * =========================================================
+ * MATÉRIAS
+ * =========================================================
+ */
 
 export type SubjectId =
-  | "sistema-respiratorio"
-  | "homeostase"
-  | "fisiologia-celular"
-  | "sistema-nervoso"
-  | "biologia-celular"
-  | "bioquimica-agua";
+  | "portugues"
+  | "matematica"
+  | "informatica"
+  | "ingles";
+
+/*
+ * =========================================================
+ * ALTERNATIVA
+ * =========================================================
+ */
 
 export interface QuestionAlternative {
   id: string;
   text: string;
 }
+
+/*
+ * =========================================================
+ * QUESTÃO
+ * =========================================================
+ */
 
 export interface Question {
   id: string;
@@ -40,7 +61,10 @@ export interface Question {
 
   explanation: string;
 
-  alternativeExplanations: Record<string, string>;
+  alternativeExplanations: Record<
+    string,
+    string
+  >;
 
   tags: string[];
 }

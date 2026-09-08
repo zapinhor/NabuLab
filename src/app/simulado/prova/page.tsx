@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -523,11 +524,6 @@ export default function ExamPage() {
    * =========================================================
    * FOCO AO TROCAR DE QUESTÃO
    * =========================================================
-   *
-   * Não rouba o foco no primeiro carregamento.
-   *
-   * Depois que o usuário troca de questão,
-   * o foco vai para o enunciado.
    */
 
   useEffect(() => {
@@ -912,22 +908,27 @@ export default function ExamPage() {
    * =========================================================
    */
 
-  function handleSubmit() {
-    if (
-      isSubmitting
-    ) {
-      return;
-    }
+function handleSubmit() {
+  if (
+    isSubmitting
+  ) {
+    return;
+  }
 
+  if (
+    !session ||
+    !progress
+  ) {
     setSubmitError(
-      null
+      "A sessão do simulado não está disponível. Recarregue a página e tente novamente."
     );
 
-    /*
-     * =======================================================
-     * QUESTÕES EM BRANCO
-     * =======================================================
-     */
+    return;
+  }
+
+  setSubmitError(
+    null
+  );
 
     if (
       unansweredCount >
@@ -962,12 +963,6 @@ export default function ExamPage() {
       "Finalizando o simulado."
     );
 
-    /*
-     * =======================================================
-     * CRIA SUBMISSÃO
-     * =======================================================
-     */
-
     const submission:
       ExamSubmission = {
       sessionId:
@@ -984,12 +979,6 @@ export default function ExamPage() {
         ...progress.reviewQuestionIds,
       ],
     };
-
-    /*
-     * =======================================================
-     * SESSION STORAGE
-     * =======================================================
-     */
 
     try {
       saveExamSubmission(
@@ -1018,12 +1007,6 @@ export default function ExamPage() {
       return;
     }
 
-    /*
-     * =======================================================
-     * INDEXEDDB
-     * =======================================================
-     */
-
     void saveCompletedExam({
       session,
       progress,
@@ -1039,12 +1022,6 @@ export default function ExamPage() {
         );
       }
     );
-
-    /*
-     * =======================================================
-     * RESULTADO
-     * =======================================================
-     */
 
     router.push(
       "/simulado/resultado"
@@ -1078,13 +1055,13 @@ export default function ExamPage() {
 
   return (
     <main
-      className="min-h-screen overflow-x-hidden bg-[#f4f7fb] pb-6"
+      className="min-h-screen overflow-x-hidden bg-[#F5F7FB] pb-6"
       aria-busy={
         isSubmitting
       }
     >
       {/* =====================================================
-          REGIÃO DE ANÚNCIOS
+          ATUALIZAÇÕES PARA TECNOLOGIA ASSISTIVA
       ====================================================== */}
 
       <div
@@ -1104,20 +1081,21 @@ export default function ExamPage() {
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4 md:px-8">
           {/* =================================================
-              LOGO
+              MARCA
           ================================================== */}
 
           <div className="flex min-w-0 items-center gap-3">
-            <div
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white sm:h-10 sm:w-10 sm:text-base"
-              aria-hidden="true"
-            >
-              F
-            </div>
+            <Image
+              src="/branding/icone-app.png"
+              alt=""
+              width={40}
+              height={40}
+              className="h-9 w-9 shrink-0 rounded-xl object-contain sm:h-10 sm:w-10"
+            />
 
             <div className="min-w-0">
               <p className="truncate text-sm font-bold text-slate-900 sm:text-base">
-                Fisio Simulado
+                NabuLab
               </p>
 
               <p className="hidden text-xs text-slate-500 sm:block">
@@ -1132,11 +1110,11 @@ export default function ExamPage() {
 
           <div className="flex shrink-0 items-center gap-2 sm:hidden">
             <div className="rounded-lg bg-blue-50 px-2.5 py-1.5 text-center">
-              <p className="text-[9px] font-semibold text-blue-400">
+              <p className="text-[9px] font-semibold text-[#3B82F6]">
                 Questão
               </p>
 
-              <p className="text-xs font-bold text-blue-700">
+              <p className="text-xs font-bold text-[#0B2D6B]">
                 {
                   currentIndex +
                   1
@@ -1231,7 +1209,7 @@ export default function ExamPage() {
           aria-valuetext={`${answeredCount} de ${questions.length} questões respondidas, ${percentage}%`}
         >
           <div
-            className="h-full bg-blue-600 transition-all duration-300"
+            className="h-full bg-[#3B82F6] transition-all duration-300"
             style={{
               width:
                 `${percentage}%`,
@@ -1336,7 +1314,7 @@ export default function ExamPage() {
                       }
                       className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-60 ${
                         active
-                          ? "border-blue-600 bg-blue-600 text-white"
+                          ? "border-[#0B2D6B] bg-[#0B2D6B] text-white"
                           : answered
                             ? "border-emerald-200 bg-emerald-50 text-emerald-700"
                             : "border-slate-200 bg-slate-50 text-slate-500"
@@ -1384,7 +1362,7 @@ export default function ExamPage() {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex min-w-0 flex-wrap items-center gap-2">
-                <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-bold text-blue-700 sm:px-3 sm:text-xs">
+                <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-bold text-[#0B2D6B] sm:px-3 sm:text-xs">
                   Questão{" "}
                   {
                     currentIndex +
@@ -1408,7 +1386,7 @@ export default function ExamPage() {
                   )}
                 </span>
 
-                <span className="hidden rounded-full bg-violet-50 px-2.5 py-1 text-[11px] font-semibold text-violet-600 sm:inline-flex sm:px-3 sm:text-xs">
+                <span className="hidden rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-[#3B82F6] sm:inline-flex sm:px-3 sm:text-xs">
                   {getQuestionTypeLabel(
                     currentQuestion.type
                   )}
@@ -1453,7 +1431,7 @@ export default function ExamPage() {
             ================================================== */}
 
             <div className="mt-3 sm:hidden">
-              <span className="rounded-full bg-violet-50 px-2.5 py-1 text-[10px] font-semibold text-violet-600">
+              <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-semibold text-[#3B82F6]">
                 {getQuestionTypeLabel(
                   currentQuestion.type
                 )}
@@ -1554,16 +1532,16 @@ export default function ExamPage() {
                         />
 
                         <span
-                          className={`flex min-h-[64px] w-full items-start gap-3 rounded-xl border p-3 text-left transition peer-focus-visible:outline peer-focus-visible:outline-3 peer-focus-visible:outline-offset-3 peer-focus-visible:outline-blue-500 sm:min-h-[72px] sm:gap-4 sm:rounded-2xl sm:p-4 ${
+                          className={`flex min-h-[64px] w-full items-start gap-3 rounded-xl border p-3 text-left transition peer-focus-visible:outline peer-focus-visible:outline-3 peer-focus-visible:outline-offset-3 peer-focus-visible:outline-[#3B82F6] sm:min-h-[72px] sm:gap-4 sm:rounded-2xl sm:p-4 ${
                             selected
-                              ? "border-blue-500 bg-blue-50 ring-2 ring-blue-100"
+                              ? "border-[#3B82F6] bg-blue-50 ring-2 ring-blue-100"
                               : "border-slate-200 bg-white hover:border-blue-300 hover:bg-slate-50"
                           }`}
                         >
                           <span
                             className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-bold sm:h-9 sm:w-9 sm:text-sm ${
                               selected
-                                ? "border-blue-600 bg-blue-600 text-white"
+                                ? "border-[#0B2D6B] bg-[#0B2D6B] text-white"
                                 : "border-slate-300 bg-white text-slate-500"
                             }`}
                             aria-hidden="true"
@@ -1576,7 +1554,7 @@ export default function ExamPage() {
                           <span
                             className={`min-w-0 flex-1 break-words pt-1 text-sm leading-6 sm:pt-1.5 ${
                               selected
-                                ? "font-semibold text-blue-900"
+                                ? "font-semibold text-[#0B2D6B]"
                                 : "text-slate-700"
                             }`}
                           >
@@ -1658,7 +1636,7 @@ export default function ExamPage() {
                         1
                     )
                   }
-                  className="min-h-12 rounded-xl bg-blue-600 px-3 py-3 text-xs font-bold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300 sm:px-5 sm:text-sm"
+                  className="min-h-12 rounded-xl bg-[#0B2D6B] px-3 py-3 text-xs font-bold text-white transition hover:bg-[#174EA6] disabled:cursor-not-allowed disabled:bg-slate-300 sm:px-5 sm:text-sm"
                 >
                   Próxima →
                 </button>
@@ -1746,10 +1724,6 @@ export default function ExamPage() {
               de submeter.
             </p>
 
-            {/* =================================================
-                BOTÕES DAS QUESTÕES
-            ================================================== */}
-
             <nav
               className="mt-5 grid grid-cols-5 gap-2"
               aria-label="Questões do simulado"
@@ -1812,7 +1786,7 @@ export default function ExamPage() {
                       }
                       className={`relative flex aspect-square items-center justify-center rounded-lg border text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-60 ${
                         active
-                          ? "border-blue-600 bg-blue-600 text-white"
+                          ? "border-[#0B2D6B] bg-[#0B2D6B] text-white"
                           : answered
                             ? "border-emerald-200 bg-emerald-50 text-emerald-700"
                             : "border-slate-200 bg-slate-50 text-slate-500 hover:border-blue-300"
@@ -1844,7 +1818,7 @@ export default function ExamPage() {
             <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-[10px] text-slate-500">
               <span className="flex items-center gap-1.5">
                 <span
-                  className="h-2.5 w-2.5 rounded-full bg-blue-600"
+                  className="h-2.5 w-2.5 rounded-full bg-[#0B2D6B]"
                   aria-hidden="true"
                 />
 
@@ -1927,7 +1901,7 @@ export default function ExamPage() {
                   Progresso
                 </span>
 
-                <strong className="text-blue-600">
+                <strong className="text-[#3B82F6]">
                   {
                     percentage
                   }

@@ -63,7 +63,6 @@ export interface ReviewSummary {
  */
 
 function getPriority({
-  attempts,
   errors,
   errorRate,
   lastAttemptCorrect,

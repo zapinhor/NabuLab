@@ -30,6 +30,8 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 import type {
   ExamMode,
 } from "@/types/exam";
@@ -609,31 +611,16 @@ export default function HistoryPage() {
    */
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Histórico inteligente
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand
+            subtitle="Histórico inteligente"
+          />
 
           <Link
             href="/"
@@ -655,10 +642,10 @@ export default function HistoryPage() {
             HERO
         ==================================================== */}
 
-        <section className="rounded-[24px] bg-gradient-to-r from-slate-900 via-slate-800 to-blue-900 p-5 text-white shadow-lg sm:rounded-[28px] sm:p-7 md:p-10">
+        <section className="rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="min-w-0 max-w-3xl">
-              <p className="text-xs font-bold text-blue-200 sm:text-sm">
+              <p className="text-xs font-bold text-[#F4C430] sm:text-sm">
                 Seu histórico de estudos
               </p>
 
@@ -666,7 +653,7 @@ export default function HistoryPage() {
                 Histórico inteligente
               </h1>
 
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:mt-4">
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-blue-50 sm:mt-4">
                 Compare seu desempenho
                 entre simulados manuais,
                 revisões de erros e provas
@@ -676,7 +663,7 @@ export default function HistoryPage() {
 
             <div className="grid min-w-0 grid-cols-3 gap-2 sm:gap-3 lg:min-w-[520px]">
               <div className="min-w-0 rounded-xl bg-white/10 p-3 sm:rounded-2xl sm:p-4">
-                <p className="text-[9px] text-slate-300 sm:text-xs">
+                <p className="text-[9px] text-blue-100 sm:text-xs">
                   Provas
                 </p>
 
@@ -688,7 +675,7 @@ export default function HistoryPage() {
               </div>
 
               <div className="min-w-0 rounded-xl bg-white/10 p-3 sm:rounded-2xl sm:p-4">
-                <p className="text-[9px] text-slate-300 sm:text-xs">
+                <p className="text-[9px] text-blue-100 sm:text-xs">
                   Média
                 </p>
 
@@ -700,8 +687,8 @@ export default function HistoryPage() {
                 </p>
               </div>
 
-              <div className="min-w-0 rounded-xl bg-white/10 p-3 sm:rounded-2xl sm:p-4">
-                <p className="text-[9px] text-slate-300 sm:text-xs">
+              <div className="min-w-0 rounded-xl border border-[#F4C430]/20 bg-[#F4C430]/15 p-3 sm:rounded-2xl sm:p-4">
+                <p className="text-[9px] text-[#FFF3B0] sm:text-xs">
                   Precisão
                 </p>
 
@@ -750,7 +737,7 @@ export default function HistoryPage() {
               Média geral
             </p>
 
-            <p className="mt-2 text-2xl font-bold text-blue-600 sm:text-3xl">
+            <p className="mt-2 text-2xl font-bold text-[#3B82F6] sm:text-3xl">
               {
                 data.averageScore
               }
@@ -777,7 +764,7 @@ export default function HistoryPage() {
         ==================================================== */}
 
         <section className="mt-7 sm:mt-9">
-          <p className="text-sm font-bold text-blue-600">
+          <p className="text-sm font-bold text-[#3B82F6]">
             Modalidades
           </p>
 
@@ -916,7 +903,7 @@ export default function HistoryPage() {
         <section className="mt-8 sm:mt-10">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm font-bold text-blue-600">
+              <p className="text-sm font-bold text-[#3B82F6]">
                 Provas realizadas
               </p>
 
@@ -937,7 +924,7 @@ export default function HistoryPage() {
 
             {/* ===============================================
                 FILTROS
-            ================================================ */}
+            ================================================= */}
 
             <div
               className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap"
@@ -968,7 +955,7 @@ export default function HistoryPage() {
                       }
                       className={`min-h-11 rounded-xl border px-3 py-2.5 text-xs font-bold transition sm:px-4 ${
                         selected
-                          ? "border-blue-600 bg-blue-600 text-white"
+                          ? "border-[#0B2D6B] bg-[#0B2D6B] text-white"
                           : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
                       }`}
                     >
@@ -992,12 +979,15 @@ export default function HistoryPage() {
 
           {/* ===============================================
               SEM RESULTADOS NO FILTRO
-          ================================================ */}
+          ================================================= */}
 
           {filteredExams.length ===
           0 ? (
             <div className="mt-5 rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-center sm:p-10">
-              <div className="text-4xl">
+              <div
+                className="text-4xl"
+                aria-hidden="true"
+              >
                 🔎
               </div>
 
@@ -1026,7 +1016,7 @@ export default function HistoryPage() {
 
                 <Link
                   href="/simulado/novo"
-                  className="min-h-12 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+                  className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
                 >
                   Novo simulado
                 </Link>
@@ -1149,7 +1139,7 @@ export default function HistoryPage() {
 
                           <Link
                             href={`/historico/${exam.id}`}
-                            className="flex min-h-[58px] items-center justify-center rounded-xl bg-blue-600 px-3 py-3 text-center text-xs font-bold text-white transition hover:bg-blue-700 sm:px-4"
+                            className="flex min-h-[58px] items-center justify-center rounded-xl bg-[#0B2D6B] px-3 py-3 text-center text-xs font-bold text-white transition hover:bg-[#174EA6] sm:px-4"
                           >
                             Ver detalhes
                           </Link>
@@ -1192,7 +1182,7 @@ export default function HistoryPage() {
 
             <Link
               href="/simulado/novo"
-              className="min-h-12 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+              className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
               Novo simulado
             </Link>

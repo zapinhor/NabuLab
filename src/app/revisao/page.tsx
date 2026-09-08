@@ -36,6 +36,8 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 /*
  * =========================================================
  * QUANTIDADE
@@ -100,7 +102,7 @@ function getPriorityInfo(
           "border-blue-200 bg-blue-50 text-blue-700",
 
         bar:
-          "bg-blue-500",
+          "bg-[#3B82F6]",
       };
   }
 }
@@ -492,31 +494,16 @@ export default function ReviewPage() {
    */
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Revisão inteligente
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand
+            subtitle="Revisão inteligente"
+          />
 
           <Link
             href="/"
@@ -538,9 +525,9 @@ export default function ReviewPage() {
             HERO
         ==================================================== */}
 
-        <section className="rounded-[24px] bg-gradient-to-r from-violet-600 via-blue-600 to-blue-700 p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
+        <section className="rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
           <div className="min-w-0">
-            <p className="text-xs font-bold text-blue-100 sm:text-sm">
+            <p className="text-xs font-bold text-[#F4C430] sm:text-sm">
               Revisão personalizada
             </p>
 
@@ -548,7 +535,7 @@ export default function ReviewPage() {
               Treinar meus erros
             </h1>
 
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-blue-100 sm:mt-4">
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-blue-50 sm:mt-4">
               O sistema analisa seu histórico
               e prioriza as questões que mais
               precisam de uma nova tentativa.
@@ -579,8 +566,8 @@ export default function ReviewPage() {
                 </p>
               </div>
 
-              <div className="min-w-0 rounded-xl bg-white/10 p-3 sm:rounded-2xl sm:p-4">
-                <p className="text-[9px] leading-4 text-blue-100 sm:text-xs">
+              <div className="min-w-0 rounded-xl border border-[#F4C430]/20 bg-[#F4C430]/15 p-3 sm:rounded-2xl sm:p-4">
+                <p className="text-[9px] leading-4 text-[#FFF3B0] sm:text-xs">
                   Prioridade alta
                 </p>
 
@@ -604,7 +591,7 @@ export default function ReviewPage() {
           ================================================== */}
 
           <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-            <p className="text-sm font-bold text-blue-600">
+            <p className="text-sm font-bold text-[#3B82F6]">
               Configuração
             </p>
 
@@ -619,7 +606,7 @@ export default function ReviewPage() {
 
             {/* ===============================================
                 QUANTIDADE
-            ================================================ */}
+            ================================================= */}
 
             <div
               className="mt-5 grid grid-cols-2 gap-3 sm:mt-6 sm:grid-cols-4"
@@ -663,7 +650,7 @@ export default function ReviewPage() {
                       }}
                       className={`min-h-12 rounded-xl border px-3 py-3 text-sm font-bold transition sm:px-4 sm:py-4 ${
                         selected
-                          ? "border-blue-600 bg-blue-50 text-blue-700 ring-2 ring-blue-100"
+                          ? "border-[#0B2D6B] bg-blue-50 text-[#0B2D6B] ring-2 ring-blue-100"
                           : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
                       } disabled:cursor-not-allowed disabled:opacity-40`}
                     >
@@ -679,7 +666,7 @@ export default function ReviewPage() {
 
             {/* ===============================================
                 EMBARALHAR
-            ================================================ */}
+            ================================================= */}
 
             <div className="mt-6 rounded-2xl bg-slate-50 p-4 sm:mt-7 sm:p-5">
               <div className="flex items-start justify-between gap-4 sm:items-center sm:gap-5">
@@ -720,7 +707,7 @@ export default function ReviewPage() {
                   }}
                   className={`relative mt-1 h-7 w-12 shrink-0 rounded-full transition sm:mt-0 ${
                     shuffleAlternatives
-                      ? "bg-blue-600"
+                      ? "bg-[#0B2D6B]"
                       : "bg-slate-300"
                   }`}
                 >
@@ -738,7 +725,7 @@ export default function ReviewPage() {
 
             {/* ===============================================
                 ERRO DE GERAÇÃO
-            ================================================ */}
+            ================================================= */}
 
             {generationError && (
               <div
@@ -791,7 +778,7 @@ export default function ReviewPage() {
                   Questões
                 </p>
 
-                <p className="text-xl font-bold text-blue-700">
+                <p className="text-xl font-bold text-[#0B2D6B]">
                   {
                     actualAmount
                   }
@@ -855,7 +842,7 @@ export default function ReviewPage() {
                   Baixa prioridade
                 </span>
 
-                <strong className="mt-1 block text-lg text-blue-600 xl:mt-0 xl:text-base">
+                <strong className="mt-1 block text-lg text-[#3B82F6] xl:mt-0 xl:text-base">
                   {
                     summary.lowPriority
                   }
@@ -873,7 +860,7 @@ export default function ReviewPage() {
               onClick={
                 handleStartReview
               }
-              className="mt-5 min-h-12 w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300 sm:mt-6 sm:px-5 sm:py-4"
+              className="mt-5 min-h-12 w-full rounded-xl bg-[#0B2D6B] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#174EA6] disabled:cursor-not-allowed disabled:bg-slate-300 sm:mt-6 sm:px-5 sm:py-4"
             >
               {generating
                 ? "Preparando treino..."
@@ -892,7 +879,7 @@ export default function ReviewPage() {
         ==================================================== */}
 
         <section className="mt-7 sm:mt-9">
-          <p className="text-sm font-bold text-violet-600">
+          <p className="text-sm font-bold text-[#3B82F6]">
             Próxima revisão
           </p>
 
@@ -963,7 +950,7 @@ export default function ReviewPage() {
                         </span>
                       </div>
 
-                      <p className="mt-4 break-words text-xs font-semibold text-blue-600">
+                      <p className="mt-4 break-words text-xs font-semibold text-[#3B82F6]">
                         {
                           item.subjectName
                         }
@@ -1057,8 +1044,8 @@ export default function ReviewPage() {
             EXPLICAÇÃO
         ==================================================== */}
 
-        <section className="mt-7 rounded-2xl border border-violet-100 bg-violet-50 p-5 sm:mt-9 sm:p-6">
-          <h3 className="font-bold text-violet-900">
+        <section className="mt-7 rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:mt-9 sm:p-6">
+          <h3 className="font-bold text-blue-900">
             Como a prioridade é calculada?
           </h3>
 
@@ -1096,7 +1083,7 @@ export default function ReviewPage() {
 
             <Link
               href="/simulado/novo"
-              className="min-h-12 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+              className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
               Novo simulado
             </Link>

@@ -38,6 +38,8 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 /*
  * =========================================================
  * CATEGORIA
@@ -496,31 +498,16 @@ export default function RecommendedQuizPage() {
    */
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Recomendação adaptativa V2
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand
+            subtitle="Recomendação adaptativa"
+          />
 
           <Link
             href="/"
@@ -542,16 +529,16 @@ export default function RecommendedQuizPage() {
             HERO
         ==================================================== */}
 
-        <section className="rounded-[24px] bg-gradient-to-r from-indigo-700 via-violet-700 to-purple-700 p-5 text-white shadow-lg sm:rounded-[28px] sm:p-7 md:p-10">
-          <p className="text-xs font-bold text-indigo-200 sm:text-sm">
-            Algoritmo adaptativo V2
+        <section className="rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
+          <p className="text-xs font-bold text-[#F4C430] sm:text-sm">
+            Seleção adaptativa
           </p>
 
           <h1 className="mt-2 break-words text-2xl font-bold sm:text-3xl md:text-4xl">
             Simulado recomendado
           </h1>
 
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-indigo-100 sm:mt-4">
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-blue-50 sm:mt-4">
             A seleção considera seus erros,
             desempenho recente, tendência de
             cada matéria, cobertura do
@@ -624,7 +611,7 @@ export default function RecommendedQuizPage() {
           ================================================== */}
 
           <aside className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 xl:sticky xl:top-6 xl:self-start">
-            <p className="text-sm font-bold text-indigo-600">
+            <p className="text-sm font-bold text-[#3B82F6]">
               Configuração
             </p>
 
@@ -639,7 +626,7 @@ export default function RecommendedQuizPage() {
 
             {/* ===============================================
                 QUANTIDADE
-            ================================================ */}
+            ================================================= */}
 
             <div className="mt-5 sm:mt-6">
               <p className="text-sm font-bold text-slate-800">
@@ -684,8 +671,8 @@ export default function RecommendedQuizPage() {
                         }}
                         className={`min-h-12 rounded-xl border px-4 py-3 text-sm font-bold transition ${
                           active
-                            ? "border-indigo-600 bg-indigo-600 text-white shadow-sm"
-                            : "border-slate-200 bg-white text-slate-600 hover:border-indigo-300 hover:bg-indigo-50"
+                            ? "border-[#0B2D6B] bg-[#0B2D6B] text-white shadow-sm"
+                            : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
                         }`}
                       >
                         {
@@ -700,7 +687,7 @@ export default function RecommendedQuizPage() {
 
             {/* ===============================================
                 EMBARALHAR
-            ================================================ */}
+            ================================================= */}
 
             <div className="mt-5 rounded-2xl bg-slate-50 p-4 sm:mt-6">
               <div className="flex items-start justify-between gap-4">
@@ -738,7 +725,7 @@ export default function RecommendedQuizPage() {
                   }}
                   className={`relative mt-1 h-7 w-12 shrink-0 rounded-full transition ${
                     shuffleAlternatives
-                      ? "bg-indigo-600"
+                      ? "bg-[#0B2D6B]"
                       : "bg-slate-300"
                   }`}
                 >
@@ -756,15 +743,15 @@ export default function RecommendedQuizPage() {
 
             {/* ===============================================
                 QUANTIDADE REAL
-            ================================================ */}
+            ================================================= */}
 
-            <div className="mt-5 rounded-xl border border-indigo-100 bg-indigo-50 p-4">
+            <div className="mt-5 rounded-xl border border-blue-100 bg-blue-50 p-4">
               <div className="flex items-center justify-between gap-4">
-                <span className="text-xs font-semibold text-indigo-600">
+                <span className="text-xs font-semibold text-blue-600">
                   Questões selecionadas
                 </span>
 
-                <strong className="text-xl text-indigo-700">
+                <strong className="text-xl text-[#0B2D6B]">
                   {
                     selected.length
                   }
@@ -773,7 +760,7 @@ export default function RecommendedQuizPage() {
 
               {selected.length <
                 amount && (
-                <p className="mt-2 text-[10px] leading-5 text-indigo-600">
+                <p className="mt-2 text-[10px] leading-5 text-blue-700">
                   Você solicitou{" "}
                   <strong>
                     {
@@ -794,7 +781,7 @@ export default function RecommendedQuizPage() {
 
             {/* ===============================================
                 ERRO
-            ================================================ */}
+            ================================================= */}
 
             {error && (
               <div
@@ -827,7 +814,7 @@ export default function RecommendedQuizPage() {
 
             {/* ===============================================
                 INICIAR
-            ================================================ */}
+            ================================================= */}
 
             <button
               type="button"
@@ -839,7 +826,7 @@ export default function RecommendedQuizPage() {
                   0 ||
                 isStarting
               }
-              className="mt-5 min-h-12 w-full rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:opacity-100 sm:mt-6"
+              className="mt-5 min-h-12 w-full rounded-xl bg-[#0B2D6B] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[#174EA6] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:opacity-100 sm:mt-6"
             >
               {isStarting
                 ? "Preparando simulado..."
@@ -859,10 +846,10 @@ export default function RecommendedQuizPage() {
           <div className="min-w-0">
             {/* ===============================================
                 COMPOSIÇÃO
-            ================================================ */}
+            ================================================= */}
 
             <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-              <p className="text-sm font-bold text-indigo-600">
+              <p className="text-sm font-bold text-[#3B82F6]">
                 Composição
               </p>
 
@@ -936,7 +923,7 @@ export default function RecommendedQuizPage() {
 
             {/* ===============================================
                 LISTA
-            ================================================ */}
+            ================================================= */}
 
             <div className="mt-4 space-y-4 sm:mt-5">
               {selected.map(
@@ -982,14 +969,14 @@ export default function RecommendedQuizPage() {
                               }
                             </span>
 
-                            <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[9px] font-bold text-indigo-600 sm:text-[10px]">
+                            <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[9px] font-bold text-blue-700 sm:text-[10px]">
                               {getTrendLabel(
                                 item.subjectTrend
                               )}
                             </span>
                           </div>
 
-                          <p className="mt-4 break-words text-[10px] font-bold leading-5 text-blue-600 sm:text-xs">
+                          <p className="mt-4 break-words text-[10px] font-bold leading-5 text-[#3B82F6] sm:text-xs">
                             {
                               item.question.subjectName
                             }{" "}
@@ -1083,12 +1070,12 @@ export default function RecommendedQuizPage() {
                             </p>
                           </div>
 
-                          <div className="min-w-0 rounded-xl bg-indigo-50 p-2.5 text-center sm:p-3 lg:col-span-2">
-                            <p className="text-[8px] text-indigo-400 sm:text-[10px]">
+                          <div className="min-w-0 rounded-xl bg-blue-50 p-2.5 text-center sm:p-3 lg:col-span-2">
+                            <p className="text-[8px] text-blue-400 sm:text-[10px]">
                               Prioridade
                             </p>
 
-                            <p className="mt-1 font-bold text-indigo-700">
+                            <p className="mt-1 font-bold text-[#0B2D6B]">
                               {
                                 item.score
                               }
@@ -1108,8 +1095,8 @@ export default function RecommendedQuizPage() {
             EXPLICAÇÃO
         ==================================================== */}
 
-        <section className="mt-7 rounded-2xl border border-indigo-100 bg-indigo-50 p-5 sm:mt-8 sm:p-6">
-          <h3 className="font-bold text-indigo-900">
+        <section className="mt-7 rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:mt-8 sm:p-6">
+          <h3 className="font-bold text-blue-900">
             Como funciona?
           </h3>
 

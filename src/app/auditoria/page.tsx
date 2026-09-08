@@ -5,6 +5,38 @@ import {
   type AuditIssue,
 } from "@/lib/question-bank-audit";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
+/*
+ * =========================================================
+ * UTILITÁRIOS
+ * =========================================================
+ */
+
+function getPercentage(
+  value: number,
+  total: number
+) {
+  if (
+    total <=
+    0
+  ) {
+    return 0;
+  }
+
+  return Math.min(
+    100,
+    Math.max(
+      0,
+      (
+        value /
+        total
+      ) *
+        100
+    )
+  );
+}
+
 /*
  * =========================================================
  * ISSUE
@@ -29,7 +61,7 @@ function IssueCard({
       }`}
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
+        <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <span
               className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${
@@ -50,13 +82,13 @@ function IssueCard({
             </span>
           </div>
 
-          <p className="mt-3 text-sm font-bold text-slate-900">
+          <p className="mt-3 break-words text-sm font-bold text-slate-900">
             {
               issue.questionId
             }
           </p>
 
-          <p className="mt-1 text-xs leading-5 text-slate-600">
+          <p className="mt-1 break-words text-xs leading-5 text-slate-600">
             {
               issue.message
             }
@@ -91,91 +123,103 @@ export default function AuditPage() {
         "warning"
     );
 
+  const multipleChoicePercentage =
+    getPercentage(
+      audit.byType
+        .multipleChoice,
+      audit.totalQuestions
+    );
+
+  const trueFalsePercentage =
+    getPercentage(
+      audit.byType
+        .trueFalse,
+      audit.totalQuestions
+    );
+
   return (
-    <main className="min-h-screen bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-5 py-4 md:px-8">
-          <Link
-            href="/"
-            className="flex items-center gap-3"
-          >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div>
-              <p className="font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="text-xs text-slate-500">
-                Auditoria do banco
-              </p>
-            </div>
-          </Link>
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
+          <NabuLabBrand
+            subtitle="Auditoria do banco"
+          />
 
           <Link
             href="/"
-            className="text-sm font-bold text-blue-600"
+            className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
-            ← Painel
+            <span className="sm:hidden">
+              ← Painel
+            </span>
+
+            <span className="hidden sm:inline">
+              ← Voltar ao painel
+            </span>
           </Link>
         </div>
       </header>
 
-      <div className="mx-auto max-w-[1500px] px-5 py-8 md:px-8">
+      <div className="mx-auto max-w-[1500px] px-4 py-6 sm:px-5 sm:py-8 md:px-8">
         {/* ===================================================
             HERO
         ==================================================== */}
 
         <section
-          className={`rounded-[28px] p-7 text-white shadow-lg md:p-10 ${
+          className={`rounded-[24px] p-5 text-white shadow-lg sm:rounded-[28px] sm:p-7 md:p-10 ${
             audit.structureValid
-              ? "bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-700"
-              : "bg-gradient-to-r from-red-600 via-rose-600 to-orange-600"
+              ? "bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] shadow-blue-100"
+              : "bg-gradient-to-br from-red-700 via-red-600 to-orange-600 shadow-red-100"
           }`}
         >
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-sm font-bold text-white/80">
-                Fase 17.4
+          <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+            <div className="min-w-0 max-w-3xl">
+              <p
+                className={`text-xs font-bold sm:text-sm ${
+                  audit.structureValid
+                    ? "text-[#F4C430]"
+                    : "text-red-100"
+                }`}
+              >
+                Qualidade do conteúdo
               </p>
 
-              <h1 className="mt-2 text-3xl font-bold md:text-4xl">
-                Auditoria do banco de
-                questões
+              <h1 className="mt-2 break-words text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
+                Auditoria do banco de questões
               </h1>
 
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/80">
-                O sistema verifica
-                automaticamente estrutura,
-                respostas, alternativas,
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-white/80 sm:mt-4">
+                O sistema verifica automaticamente
+                estrutura, respostas, alternativas,
                 identificadores, explicações,
                 matérias e distribuição das
                 questões.
               </p>
             </div>
 
-            <div className="rounded-2xl bg-white/10 p-6 lg:min-w-[320px]">
-              <p className="text-sm text-white/80">
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur sm:p-6 lg:min-w-[320px]">
+              <p className="text-xs font-semibold text-white/70 sm:text-sm">
                 Status estrutural
               </p>
 
-              <p className="mt-2 text-2xl font-bold">
+              <p className="mt-2 break-words text-xl font-bold sm:text-2xl">
                 {audit.structureValid
                   ? "✅ Banco válido"
                   : "❌ Problemas encontrados"}
               </p>
 
-              <p className="mt-3 text-xs text-white/70">
+              <p className="mt-3 text-xs leading-5 text-white/70">
                 {
                   audit.totalQuestions
                 }{" "}
-                questões analisadas
+                {audit.totalQuestions ===
+                1
+                  ? "questão analisada"
+                  : "questões analisadas"}
               </p>
             </div>
           </div>
@@ -185,25 +229,25 @@ export default function AuditPage() {
             RESUMO
         ==================================================== */}
 
-        <section className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-sm text-slate-500">
+        <section className="mt-5 grid grid-cols-2 gap-3 sm:mt-7 sm:gap-4 xl:grid-cols-4">
+          <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+            <p className="text-xs text-slate-500 sm:text-sm">
               Questões analisadas
             </p>
 
-            <p className="mt-2 text-3xl font-bold text-slate-900">
+            <p className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
               {
                 audit.totalQuestions
               }
             </p>
           </div>
 
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 shadow-sm">
-            <p className="text-sm text-emerald-600">
+          <div className="min-w-0 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 shadow-sm sm:p-5">
+            <p className="text-xs text-emerald-600 sm:text-sm">
               Questões válidas
             </p>
 
-            <p className="mt-2 text-3xl font-bold text-emerald-700">
+            <p className="mt-2 text-2xl font-bold text-emerald-700 sm:text-3xl">
               {
                 audit.validQuestions
               }
@@ -211,7 +255,7 @@ export default function AuditPage() {
           </div>
 
           <div
-            className={`rounded-2xl border p-5 shadow-sm ${
+            className={`min-w-0 rounded-2xl border p-4 shadow-sm sm:p-5 ${
               audit.totalErrors >
               0
                 ? "border-red-200 bg-red-50"
@@ -219,7 +263,7 @@ export default function AuditPage() {
             }`}
           >
             <p
-              className={`text-sm ${
+              className={`text-xs sm:text-sm ${
                 audit.totalErrors >
                 0
                   ? "text-red-600"
@@ -230,7 +274,7 @@ export default function AuditPage() {
             </p>
 
             <p
-              className={`mt-2 text-3xl font-bold ${
+              className={`mt-2 text-2xl font-bold sm:text-3xl ${
                 audit.totalErrors >
                   0
                   ? "text-red-700"
@@ -244,7 +288,7 @@ export default function AuditPage() {
           </div>
 
           <div
-            className={`rounded-2xl border p-5 shadow-sm ${
+            className={`min-w-0 rounded-2xl border p-4 shadow-sm sm:p-5 ${
               audit.totalWarnings >
               0
                 ? "border-amber-200 bg-amber-50"
@@ -252,7 +296,7 @@ export default function AuditPage() {
             }`}
           >
             <p
-              className={`text-sm ${
+              className={`text-xs sm:text-sm ${
                 audit.totalWarnings >
                   0
                   ? "text-amber-600"
@@ -263,7 +307,7 @@ export default function AuditPage() {
             </p>
 
             <p
-              className={`mt-2 text-3xl font-bold ${
+              className={`mt-2 text-2xl font-bold sm:text-3xl ${
                 audit.totalWarnings >
                   0
                   ? "text-amber-700"
@@ -282,8 +326,8 @@ export default function AuditPage() {
         ==================================================== */}
 
         <section className="mt-7 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-bold text-blue-600">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+            <p className="text-sm font-bold text-[#3B82F6]">
               Integridade
             </p>
 
@@ -292,13 +336,13 @@ export default function AuditPage() {
             </h2>
 
             <div className="mt-5 space-y-3">
-              <div className="flex items-center justify-between rounded-xl bg-slate-50 p-4">
+              <div className="flex items-center justify-between gap-4 rounded-xl bg-slate-50 p-4">
                 <span className="text-sm text-slate-600">
                   IDs duplicados
                 </span>
 
                 <span
-                  className={`font-bold ${
+                  className={`shrink-0 font-bold ${
                     audit
                       .duplicateIds
                       .length ===
@@ -318,13 +362,13 @@ export default function AuditPage() {
                 </span>
               </div>
 
-              <div className="flex items-center justify-between rounded-xl bg-slate-50 p-4">
+              <div className="flex items-center justify-between gap-4 rounded-xl bg-slate-50 p-4">
                 <span className="text-sm text-slate-600">
                   Questões inválidas
                 </span>
 
                 <span
-                  className={`font-bold ${
+                  className={`shrink-0 font-bold ${
                     audit.invalidQuestions ===
                     0
                       ? "text-emerald-600"
@@ -337,13 +381,13 @@ export default function AuditPage() {
                 </span>
               </div>
 
-              <div className="flex items-center justify-between rounded-xl bg-slate-50 p-4">
+              <div className="flex items-center justify-between gap-4 rounded-xl bg-slate-50 p-4">
                 <span className="text-sm text-slate-600">
                   Enunciados duplicados
                 </span>
 
                 <span
-                  className={`font-bold ${
+                  className={`shrink-0 font-bold ${
                     audit.duplicateStatements ===
                     0
                       ? "text-emerald-600"
@@ -358,8 +402,8 @@ export default function AuditPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-bold text-violet-600">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+            <p className="text-sm font-bold text-[#3B82F6]">
               Cobertura
             </p>
 
@@ -368,24 +412,24 @@ export default function AuditPage() {
             </h2>
 
             <div className="mt-5 grid grid-cols-2 gap-3">
-              <div className="rounded-xl bg-violet-50 p-4">
-                <p className="text-xs text-violet-500">
+              <div className="rounded-xl bg-blue-50 p-4">
+                <p className="text-xs text-blue-500">
                   Tópicos
                 </p>
 
-                <p className="mt-2 text-2xl font-bold text-violet-700">
+                <p className="mt-2 text-2xl font-bold text-[#0B2D6B]">
                   {
                     audit.totalTopics
                   }
                 </p>
               </div>
 
-              <div className="rounded-xl bg-blue-50 p-4">
-                <p className="text-xs text-blue-500">
+              <div className="rounded-xl bg-[#F4C430]/10 p-4">
+                <p className="text-xs text-amber-600">
                   Subtópicos
                 </p>
 
-                <p className="mt-2 text-2xl font-bold text-blue-700">
+                <p className="mt-2 text-2xl font-bold text-[#0B2D6B]">
                   {
                     audit.totalSubtopics
                   }
@@ -402,8 +446,8 @@ export default function AuditPage() {
         <section className="mt-7 grid gap-4 lg:grid-cols-2">
           {/* TIPO */}
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-bold text-blue-600">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+            <p className="text-sm font-bold text-[#3B82F6]">
               Tipos de questão
             </p>
 
@@ -411,14 +455,14 @@ export default function AuditPage() {
               Distribuição por formato
             </h2>
 
-            <div className="mt-5 space-y-4">
+            <div className="mt-5 space-y-5">
               <div>
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between gap-4 text-sm">
                   <span className="font-semibold text-slate-600">
                     Múltipla escolha
                   </span>
 
-                  <span className="font-bold text-blue-600">
+                  <span className="font-bold text-[#3B82F6]">
                     {
                       audit.byType
                         .multipleChoice
@@ -426,31 +470,35 @@ export default function AuditPage() {
                   </span>
                 </div>
 
-                <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+                <div
+                  className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100"
+                  role="progressbar"
+                  aria-label="Proporção de questões de múltipla escolha"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={
+                    Math.round(
+                      multipleChoicePercentage
+                    )
+                  }
+                >
                   <div
-                    className="h-full rounded-full bg-blue-600"
+                    className="h-full rounded-full bg-[#3B82F6]"
                     style={{
-                      width: `${
-                        (
-                          audit
-                            .byType
-                            .multipleChoice /
-                          audit.totalQuestions
-                        ) *
-                        100
-                      }%`,
+                      width:
+                        `${multipleChoicePercentage}%`,
                     }}
                   />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between gap-4 text-sm">
                   <span className="font-semibold text-slate-600">
                     Verdadeiro/Falso
                   </span>
 
-                  <span className="font-bold text-violet-600">
+                  <span className="font-bold text-[#0B2D6B]">
                     {
                       audit.byType
                         .trueFalse
@@ -458,19 +506,23 @@ export default function AuditPage() {
                   </span>
                 </div>
 
-                <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+                <div
+                  className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100"
+                  role="progressbar"
+                  aria-label="Proporção de questões de verdadeiro ou falso"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={
+                    Math.round(
+                      trueFalsePercentage
+                    )
+                  }
+                >
                   <div
-                    className="h-full rounded-full bg-violet-600"
+                    className="h-full rounded-full bg-[#0B2D6B]"
                     style={{
-                      width: `${
-                        (
-                          audit
-                            .byType
-                            .trueFalse /
-                          audit.totalQuestions
-                        ) *
-                        100
-                      }%`,
+                      width:
+                        `${trueFalsePercentage}%`,
                     }}
                   />
                 </div>
@@ -480,10 +532,10 @@ export default function AuditPage() {
 
           {/* DIFICULDADE */}
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-start justify-between gap-4">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
               <div>
-                <p className="text-sm font-bold text-emerald-600">
+                <p className="text-sm font-bold text-[#3B82F6]">
                   Dificuldade
                 </p>
 
@@ -493,7 +545,7 @@ export default function AuditPage() {
               </div>
 
               <span
-                className={`rounded-full px-3 py-1.5 text-xs font-bold ${
+                className={`w-fit rounded-full px-3 py-1.5 text-xs font-bold ${
                   audit.difficultyBalanced
                     ? "bg-emerald-50 text-emerald-700"
                     : "bg-amber-50 text-amber-700"
@@ -505,13 +557,13 @@ export default function AuditPage() {
               </span>
             </div>
 
-            <div className="mt-5 grid grid-cols-3 gap-3">
-              <div className="rounded-xl bg-emerald-50 p-4 text-center">
-                <p className="text-xs text-emerald-600">
+            <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="min-w-0 rounded-xl bg-emerald-50 p-3 text-center sm:p-4">
+                <p className="text-[10px] text-emerald-600 sm:text-xs">
                   Iniciante
                 </p>
 
-                <p className="mt-2 text-2xl font-bold text-emerald-700">
+                <p className="mt-2 text-xl font-bold text-emerald-700 sm:text-2xl">
                   {
                     audit
                       .byDifficulty
@@ -520,12 +572,12 @@ export default function AuditPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl bg-blue-50 p-4 text-center">
-                <p className="text-xs text-blue-600">
+              <div className="min-w-0 rounded-xl bg-blue-50 p-3 text-center sm:p-4">
+                <p className="text-[10px] text-blue-600 sm:text-xs">
                   Médio
                 </p>
 
-                <p className="mt-2 text-2xl font-bold text-blue-700">
+                <p className="mt-2 text-xl font-bold text-blue-700 sm:text-2xl">
                   {
                     audit
                       .byDifficulty
@@ -534,12 +586,12 @@ export default function AuditPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl bg-violet-50 p-4 text-center">
-                <p className="text-xs text-violet-600">
+              <div className="min-w-0 rounded-xl bg-amber-50 p-3 text-center sm:p-4">
+                <p className="text-[10px] text-amber-600 sm:text-xs">
                   Avançado
                 </p>
 
-                <p className="mt-2 text-2xl font-bold text-violet-700">
+                <p className="mt-2 text-xl font-bold text-amber-700 sm:text-2xl">
                   {
                     audit
                       .byDifficulty
@@ -549,7 +601,7 @@ export default function AuditPage() {
               </div>
             </div>
 
-            <p className="mt-4 text-xs text-slate-500">
+            <p className="mt-4 text-xs leading-5 text-slate-500">
               Diferença entre a categoria
               maior e menor:{" "}
               <strong>
@@ -566,20 +618,20 @@ export default function AuditPage() {
             MATÉRIAS
         ==================================================== */}
 
-        <section className="mt-7 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:p-7">
+        <section className="mt-7 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5 md:p-7">
           <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
             <div>
-              <p className="text-sm font-bold text-blue-600">
+              <p className="text-sm font-bold text-[#3B82F6]">
                 Distribuição
               </p>
 
-              <h2 className="mt-1 text-2xl font-bold text-slate-900">
+              <h2 className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">
                 Banco por matéria
               </h2>
             </div>
 
             <span
-              className={`rounded-full px-3 py-1.5 text-xs font-bold ${
+              className={`w-fit rounded-full px-3 py-1.5 text-xs font-bold ${
                 audit.subjectBalanced
                   ? "bg-emerald-50 text-emerald-700"
                   : "bg-amber-50 text-amber-700"
@@ -640,7 +692,7 @@ export default function AuditPage() {
                       key={
                         subject.subject
                       }
-                      className="border-b border-slate-100 text-sm"
+                      className="border-b border-slate-100 text-sm transition hover:bg-slate-50"
                     >
                       <td className="px-3 py-4">
                         <p className="font-bold text-slate-900">
@@ -662,43 +714,43 @@ export default function AuditPage() {
                         }
                       </td>
 
-                      <td className="px-3 py-4 text-center text-blue-600">
+                      <td className="px-3 py-4 text-center font-semibold text-[#3B82F6]">
                         {
                           subject.multipleChoice
                         }
                       </td>
 
-                      <td className="px-3 py-4 text-center text-violet-600">
+                      <td className="px-3 py-4 text-center font-semibold text-[#0B2D6B]">
                         {
                           subject.trueFalse
                         }
                       </td>
 
-                      <td className="px-3 py-4 text-center">
+                      <td className="px-3 py-4 text-center text-slate-600">
                         {
                           subject.iniciante
                         }
                       </td>
 
-                      <td className="px-3 py-4 text-center">
+                      <td className="px-3 py-4 text-center text-slate-600">
                         {
                           subject.medio
                         }
                       </td>
 
-                      <td className="px-3 py-4 text-center">
+                      <td className="px-3 py-4 text-center text-slate-600">
                         {
                           subject.avancado
                         }
                       </td>
 
-                      <td className="px-3 py-4 text-center">
+                      <td className="px-3 py-4 text-center text-slate-600">
                         {
                           subject.topics
                         }
                       </td>
 
-                      <td className="px-3 py-4 text-center">
+                      <td className="px-3 py-4 text-center text-slate-600">
                         {
                           subject.subtopics
                         }
@@ -716,26 +768,29 @@ export default function AuditPage() {
         ==================================================== */}
 
         <section className="mt-7">
-          <p className="text-sm font-bold text-blue-600">
+          <p className="text-sm font-bold text-[#3B82F6]">
             Diagnóstico
           </p>
 
-          <h2 className="mt-1 text-2xl font-bold text-slate-900">
+          <h2 className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">
             Problemas encontrados
           </h2>
 
           {audit.issues.length ===
           0 ? (
-            <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
-              <div className="text-5xl">
+            <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center sm:p-8">
+              <div
+                className="text-4xl sm:text-5xl"
+                aria-hidden="true"
+              >
                 ✅
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-emerald-800">
+              <h3 className="mt-4 text-lg font-bold text-emerald-800 sm:text-xl">
                 Nenhum problema encontrado
               </h3>
 
-              <p className="mt-2 text-sm text-emerald-700">
+              <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-emerald-700">
                 Todas as{" "}
                 {
                   audit.totalQuestions
@@ -811,7 +866,7 @@ export default function AuditPage() {
             REGRAS
         ==================================================== */}
 
-        <section className="mt-7 rounded-2xl border border-blue-100 bg-blue-50 p-6">
+        <section className="mt-7 rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
           <h3 className="font-bold text-blue-900">
             O que esta auditoria verifica?
           </h3>
@@ -874,20 +929,20 @@ export default function AuditPage() {
         <div className="mt-8 flex flex-col gap-3 border-t border-slate-200 pt-7 sm:flex-row sm:justify-between">
           <Link
             href="/"
-            className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600"
+            className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
             ← Voltar ao painel
           </Link>
 
           <Link
             href="/simulado/novo"
-            className="rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white"
+            className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
           >
             Criar simulado
           </Link>
         </div>
 
-        <footer className="py-8 text-center text-xs text-slate-400">
+        <footer className="py-8 text-center text-[10px] leading-5 text-slate-400 sm:text-xs">
           Auditoria executada sobre o banco
           local atual.
         </footer>

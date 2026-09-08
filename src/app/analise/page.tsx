@@ -21,6 +21,8 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 /*
  * =========================================================
  * CORES / STATUS
@@ -564,31 +566,16 @@ export default function AnalysisPage() {
     ];
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Análise de desempenho
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand
+            subtitle="Análise de desempenho"
+          />
 
           <Link
             href="/"
@@ -610,8 +597,8 @@ export default function AnalysisPage() {
             HERO
         ==================================================== */}
 
-        <section className="rounded-[24px] bg-gradient-to-r from-blue-600 to-indigo-700 p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
-          <p className="text-xs font-bold text-blue-100 sm:text-sm">
+        <section className="rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
+          <p className="text-xs font-bold text-[#F4C430] sm:text-sm">
             Análise personalizada
           </p>
 
@@ -620,7 +607,7 @@ export default function AnalysisPage() {
             e onde precisa revisar.
           </h1>
 
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-blue-100 sm:mt-4">
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-blue-50 sm:mt-4">
             Os dados abaixo são calculados
             automaticamente a partir de todas
             as questões realizadas no seu
@@ -629,7 +616,7 @@ export default function AnalysisPage() {
 
           {/* ===============================================
               RESUMO
-          ================================================ */}
+          ================================================= */}
 
           <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-7 sm:gap-3">
             <div className="min-w-0 rounded-xl bg-white/10 p-3 backdrop-blur sm:rounded-2xl sm:p-4">
@@ -686,8 +673,6 @@ export default function AnalysisPage() {
         {strongestSubject &&
           weakestSubject && (
           <section className="mt-5 grid gap-3 sm:mt-7 sm:gap-4 md:grid-cols-2">
-            {/* MELHOR */}
-
             <div className="min-w-0 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 sm:p-6">
               <p className="text-[10px] font-bold uppercase leading-4 tracking-wider text-emerald-600 sm:text-xs">
                 Matéria com melhor desempenho
@@ -726,8 +711,6 @@ export default function AnalysisPage() {
                 questões corretas.
               </p>
             </div>
-
-            {/* PRIORIDADE */}
 
             <div className="min-w-0 rounded-2xl border border-red-200 bg-red-50 p-5 sm:p-6">
               <p className="text-[10px] font-bold uppercase leading-4 tracking-wider text-red-600 sm:text-xs">
@@ -1124,7 +1107,7 @@ export default function AnalysisPage() {
 
             <Link
               href="/simulado/novo"
-              className="min-h-12 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+              className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
               Fazer novo simulado
             </Link>

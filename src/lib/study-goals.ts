@@ -10,12 +10,18 @@ import type {
 
 /*
  * =========================================================
- * STORAGE
+ * STORAGE — NABULAB
+ * =========================================================
+ *
+ * Esta chave é exclusiva do NabuLab.
+ *
+ * A chave de versões anteriores continua preservada
+ * no navegador e não será alterada.
  * =========================================================
  */
 
 const STUDY_GOALS_KEY =
-  "fisio-simulado-study-goals";
+  "nabulab:study-goals:v1";
 
 /*
  * =========================================================
@@ -190,7 +196,7 @@ export function loadStudyGoals():
     );
   } catch (error) {
     console.error(
-      "Erro ao carregar metas:",
+      "Erro ao carregar metas do NabuLab:",
       error
     );
 

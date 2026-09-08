@@ -23,6 +23,8 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 import type {
   SubjectId,
 } from "@/types/question";
@@ -437,9 +439,9 @@ function SubjectCard({
       aria-pressed={
         selected
       }
-      className={`min-w-0 w-full rounded-2xl border bg-white p-4 text-left shadow-sm outline-none transition focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 sm:p-5 ${
+      className={`min-w-0 w-full rounded-2xl border bg-white p-4 text-left shadow-sm outline-none transition focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 sm:p-5 ${
         selected
-          ? "border-blue-500 ring-2 ring-blue-100"
+          ? "border-[#3B82F6] ring-2 ring-blue-100"
           : "border-slate-200 hover:border-blue-200 hover:shadow-md"
       }`}
     >
@@ -794,31 +796,16 @@ export default function MasteryPage() {
    */
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Domínio de conteúdo
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand
+            subtitle="Domínio de conteúdo"
+          />
 
           <Link
             href="/"
@@ -840,10 +827,10 @@ export default function MasteryPage() {
             HERO
         ==================================================== */}
 
-        <section className="rounded-[24px] bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-700 p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
+        <section className="rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="min-w-0 max-w-3xl">
-              <p className="text-xs font-bold text-blue-100 sm:text-sm">
+              <p className="text-xs font-bold text-[#F4C430] sm:text-sm">
                 Mapa de aprendizagem
               </p>
 
@@ -851,7 +838,7 @@ export default function MasteryPage() {
                 Domínio dos conteúdos
               </h1>
 
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-blue-100 sm:mt-4">
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-blue-50 sm:mt-4">
                 O nível de domínio considera
                 precisão, quantidade de
                 tentativas, desempenho recente,
@@ -862,7 +849,7 @@ export default function MasteryPage() {
 
             {/* ===============================================
                 MÉTRICAS
-            ================================================ */}
+            ================================================= */}
 
             <div className="grid min-w-0 grid-cols-3 gap-2 sm:gap-3 lg:min-w-[520px]">
               <div className="min-w-0 rounded-xl bg-white/10 p-3 backdrop-blur sm:rounded-2xl sm:p-4">
@@ -935,7 +922,7 @@ export default function MasteryPage() {
 
               <Link
                 href="/simulado/novo"
-                className="min-h-12 shrink-0 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+                className="min-h-12 shrink-0 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
               >
                 Fazer primeiro simulado
               </Link>
@@ -1055,7 +1042,7 @@ export default function MasteryPage() {
           >
             {/* ===============================================
                 RESUMO DA MATÉRIA
-            ================================================ */}
+            ================================================= */}
 
             <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-7">
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
@@ -1179,7 +1166,7 @@ export default function MasteryPage() {
 
             {/* ===============================================
                 TÓPICOS
-            ================================================ */}
+            ================================================= */}
 
             <div className="mt-7 sm:mt-8">
               <p className="text-sm font-bold text-blue-600">
@@ -1225,7 +1212,7 @@ export default function MasteryPage() {
 
             {/* ===============================================
                 SUBTÓPICOS
-            ================================================ */}
+            ================================================= */}
 
             <div className="mt-7 sm:mt-9">
               <p className="text-sm font-bold text-violet-600">
@@ -1442,7 +1429,7 @@ export default function MasteryPage() {
 
             <Link
               href="/simulado/novo"
-              className="min-h-12 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+              className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
               Novo simulado
             </Link>

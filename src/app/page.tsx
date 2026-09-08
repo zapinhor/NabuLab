@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -11,13 +12,8 @@ import {
   type Ref,
 } from "react";
 
-import {
-  getTotalQuestions,
-} from "@/data/questions";
-
-import {
-  subjects,
-} from "@/data/subjects";
+import { getTotalQuestions } from "@/data/questions";
+import { subjects } from "@/data/subjects";
 
 import {
   getDashboardData,
@@ -40,9 +36,7 @@ import {
   loadStudyGoals,
 } from "@/lib/study-goals";
 
-import {
-  getExamModeInfo,
-} from "@/lib/exam-mode";
+import { getExamModeInfo } from "@/lib/exam-mode";
 
 import {
   getSubjectEvolutionSummary,
@@ -50,7 +44,6 @@ import {
 } from "@/lib/subject-evolution";
 
 import ScoreEvolutionChart from "@/components/dashboard/score-evolution-chart";
-
 import SubjectTrendSummary from "@/components/dashboard/subject-trend-summary";
 
 import {
@@ -58,17 +51,9 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
-import type {
-  StudyGoals,
-} from "@/types/study-goals";
-
-import type {
-  StoredExam,
-} from "@/types/storage";
-
-import type {
-  SubjectId,
-} from "@/types/question";
+import type { StudyGoals } from "@/types/study-goals";
+import type { StoredExam } from "@/types/storage";
+import type { SubjectId } from "@/types/question";
 
 /*
  * =========================================================
@@ -76,41 +61,20 @@ import type {
  * =========================================================
  */
 
-function formatDate(
-  value: string
-) {
-  return new Intl.DateTimeFormat(
-    "pt-BR",
-    {
-      day:
-        "2-digit",
-
-      month:
-        "2-digit",
-
-      year:
-        "numeric",
-
-      hour:
-        "2-digit",
-
-      minute:
-        "2-digit",
-    }
-  ).format(
-    new Date(
-      value
-    )
-  );
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(value));
 }
 
 function getDifficultyLabel(
-  difficulty:
-    StoredExam["difficulty"]
+  difficulty: StoredExam["difficulty"]
 ) {
-  switch (
-    difficulty
-  ) {
+  switch (difficulty) {
     case "iniciante":
       return "Iniciante";
 
@@ -128,23 +92,17 @@ function getDifficultyLabel(
   }
 }
 
-function getSubjectName(
-  id:
-    SubjectId
-) {
+function getSubjectName(id: SubjectId) {
   return (
     subjects.find(
       (subject) =>
-        subject.id ===
-        id
-    )?.name ??
-    id
+        subject.id === id
+    )?.name ?? id
   );
 }
 
 function getSubjectDescription(
-  subject:
-    DashboardSubjectStats
+  subject: DashboardSubjectStats
 ) {
   if (
     subject.totalQuestions ===
@@ -198,18 +156,13 @@ function GoalBar({
   percentage,
 }: {
   label: string;
-
   icon: string;
-
   current: number;
-
   target: number;
-
   percentage: number;
 }) {
   const completed =
-    current >=
-    target;
+    current >= target;
 
   const visualPercentage =
     Math.min(
@@ -228,15 +181,11 @@ function GoalBar({
             className="shrink-0"
             aria-hidden="true"
           >
-            {
-              icon
-            }
+            {icon}
           </span>
 
           <span className="truncate">
-            {
-              label
-            }
+            {label}
           </span>
         </span>
 
@@ -247,13 +196,7 @@ function GoalBar({
               : "text-blue-600"
           }`}
         >
-          {
-            current
-          }{" "}
-          /{" "}
-          {
-            target
-          }
+          {current} / {target}
         </span>
       </div>
 
@@ -272,21 +215,17 @@ function GoalBar({
           className={`h-full rounded-full transition-all ${
             completed
               ? "bg-emerald-500"
-              : "bg-blue-600"
+              : "bg-[#3B82F6]"
           }`}
           style={{
-            width:
-              `${visualPercentage}%`,
+            width: `${visualPercentage}%`,
           }}
         />
       </div>
 
       <div className="mt-2 flex items-center justify-between text-[10px]">
         <span className="text-slate-400">
-          {
-            percentage
-          }
-          %
+          {percentage}%
         </span>
 
         {completed && (
@@ -314,29 +253,17 @@ function MobileNavLink({
   linkRef,
 }: {
   href: string;
-
   icon: string;
-
   label: string;
-
   badge?: number | string;
-
   onNavigate: () => void;
-
-  linkRef?:
-    Ref<HTMLAnchorElement>;
+  linkRef?: Ref<HTMLAnchorElement>;
 }) {
   return (
     <Link
-      ref={
-        linkRef
-      }
-      href={
-        href
-      }
-      onClick={
-        onNavigate
-      }
+      ref={linkRef}
+      href={href}
+      onClick={onNavigate}
       className="flex min-h-12 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50"
     >
       <span className="flex min-w-0 items-center gap-3">
@@ -344,27 +271,20 @@ function MobileNavLink({
           className="shrink-0"
           aria-hidden="true"
         >
-          {
-            icon
-          }
+          {icon}
         </span>
 
         <span className="truncate">
-          {
-            label
-          }
+          {label}
         </span>
       </span>
 
-      {badge !==
-        undefined && (
+      {badge !== undefined && (
         <span
           className="shrink-0 rounded-full bg-blue-600 px-2 py-0.5 text-[10px] font-bold text-white"
           aria-label={`${badge}`}
         >
-          {
-            badge
-          }
+          {badge}
         </span>
       )}
     </Link>
@@ -425,9 +345,7 @@ export default function HomePage() {
     loading,
     setLoading,
   ] =
-    useState(
-      true
-    );
+    useState(true);
 
   const [
     error,
@@ -441,9 +359,7 @@ export default function HomePage() {
     mobileMenuOpen,
     setMobileMenuOpen,
   ] =
-    useState(
-      false
-    );
+    useState(false);
 
   /*
    * =========================================================
@@ -470,13 +386,8 @@ export default function HomePage() {
   const loadHome =
     useCallback(
       async () => {
-        setLoading(
-          true
-        );
-
-        setError(
-          null
-        );
+        setLoading(true);
+        setError(null);
 
         try {
           const [
@@ -533,9 +444,7 @@ export default function HomePage() {
               : "Não foi possível carregar o painel."
           );
         } finally {
-          setLoading(
-            false
-          );
+          setLoading(false);
         }
       },
       []
@@ -551,13 +460,6 @@ export default function HomePage() {
    * =========================================================
    * CONTROLE DO MENU MOBILE POR TECLADO
    * =========================================================
-   *
-   * Ao abrir:
-   * - o foco vai para o primeiro item.
-   *
-   * Escape:
-   * - fecha o menu;
-   * - devolve o foco ao botão que abriu.
    */
 
   useEffect(() => {
@@ -578,8 +480,7 @@ export default function HomePage() {
       );
 
     function handleKeyDown(
-      event:
-        KeyboardEvent
+      event: KeyboardEvent
     ) {
       if (
         event.key !==
@@ -843,34 +744,44 @@ export default function HomePage() {
    */
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <div className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           SIDEBAR DESKTOP
       ====================================================== */}
 
       <aside
-        className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col bg-slate-950 text-white lg:flex"
+        className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col bg-[#071A3D] text-white lg:flex"
         aria-label="Painel lateral"
       >
-        <div className="border-b border-white/10 px-6 py-6">
-          <div className="flex items-center gap-3">
-            <div
-              className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-lg font-bold"
-              aria-hidden="true"
-            >
-              F
-            </div>
+        {/* ===================================================
+            MARCA NABULAB
+        ==================================================== */}
 
-            <div>
-              <p className="font-bold">
-                Fisio Simulado
+        <div className="border-b border-white/10 px-5 py-5">
+          <Link
+            href="/"
+            aria-label="NabuLab — painel inicial"
+            className="flex items-center gap-3 rounded-xl"
+          >
+            <Image
+              src="/branding/icone-app.png"
+              alt=""
+              width={48}
+              height={48}
+              priority
+              className="h-12 w-12 shrink-0 rounded-xl object-contain"
+            />
+
+            <div className="min-w-0">
+              <p className="truncate text-lg font-bold text-white">
+                NabuLab
               </p>
 
-              <p className="text-xs text-slate-400">
-                Plataforma de estudos
+              <p className="mt-0.5 text-[11px] leading-4 text-slate-400">
+                Plataforma educacional
               </p>
             </div>
-          </div>
+          </Link>
         </div>
 
         <nav
@@ -884,7 +795,7 @@ export default function HomePage() {
                 "inicio"
               )
             }
-            className="flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold"
+            className="flex items-center gap-3 rounded-xl border border-[#3B82F6]/30 bg-[#0B2D6B] px-4 py-3 text-sm font-semibold shadow-sm"
           >
             <span aria-hidden="true">
               🏠
@@ -1108,23 +1019,25 @@ export default function HomePage() {
           <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 md:px-8">
             <Link
               href="/"
-              aria-label="Fisio Simulado — painel inicial"
+              aria-label="NabuLab — painel inicial"
               className="flex min-w-0 items-center gap-3"
             >
-              <div
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white"
-                aria-hidden="true"
-              >
-                F
-              </div>
+              <Image
+                src="/branding/icone-app.png"
+                alt=""
+                width={42}
+                height={42}
+                priority
+                className="h-10 w-10 shrink-0 rounded-xl object-contain sm:h-11 sm:w-11"
+              />
 
               <div className="min-w-0">
                 <p className="truncate text-sm font-bold text-slate-900 sm:text-base">
-                  Fisio Simulado
+                  NabuLab
                 </p>
 
                 <p className="hidden text-xs text-slate-500 sm:block">
-                  Painel de estudos
+                  Plataforma educacional
                 </p>
               </div>
             </Link>
@@ -1132,7 +1045,7 @@ export default function HomePage() {
             <div className="flex shrink-0 items-center gap-2">
               <Link
                 href="/simulado/novo"
-                className="hidden min-h-10 items-center rounded-xl bg-blue-600 px-3 text-xs font-bold text-white sm:flex"
+                className="hidden min-h-10 items-center rounded-xl bg-[#0B2D6B] px-3 text-xs font-bold text-white transition hover:bg-[#174EA6] sm:flex"
               >
                 + Simulado
               </Link>
@@ -1193,7 +1106,7 @@ export default function HomePage() {
           {mobileMenuOpen && (
             <div
               id="mobile-navigation-panel"
-              className="max-h-[calc(100vh-65px)] overflow-y-auto border-t border-slate-100 bg-[#f4f7fb] px-4 py-4 shadow-lg sm:px-5 md:px-8"
+              className="max-h-[calc(100vh-65px)] overflow-y-auto border-t border-slate-100 bg-[#F5F7FB] px-4 py-4 shadow-lg sm:px-5 md:px-8"
             >
               <nav
                 aria-label="Navegação principal"
@@ -1379,37 +1292,32 @@ export default function HomePage() {
               HERO
           ================================================== */}
 
-          <section className="overflow-hidden rounded-[24px] bg-gradient-to-r from-blue-600 via-blue-600 to-indigo-700 p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
+          <section className="overflow-hidden rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-200/60 sm:rounded-[28px] sm:p-7 md:p-10">
             <div className="flex flex-col gap-7 xl:flex-row xl:items-center xl:justify-between">
               <div className="min-w-0 max-w-3xl">
-                <p className="text-xs font-bold text-blue-100 sm:text-sm">
-                  Seu espaço de estudo
+                <p className="text-xs font-bold text-[#F4C430] sm:text-sm">
+                    NabuLab • Seu espaço de evolução
                 </p>
 
                 <h1 className="mt-2 break-words text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
-                  Continue evoluindo um
-                  simulado de cada vez.
+                  Cada tentativa é um passo. Cada correção, uma evolução.
                 </h1>
 
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-blue-100">
-                  Crie provas personalizadas,
-                  acompanhe seu desempenho,
-                  revise seus erros e mantenha
-                  uma rotina consistente de
-                  estudos.
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-blue-50">
+                  Pratique, acompanhe sua evolução e transforme cada erro em uma nova oportunidade de aprender.
                 </p>
 
                 <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
                   <Link
                     href="/simulado/novo"
-                    className="min-h-12 rounded-xl bg-white px-5 py-3 text-center text-sm font-bold text-blue-700 transition hover:bg-blue-50"
+                    className="min-h-12 rounded-xl bg-white px-5 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-[#F5F7FB]"
                   >
                     Criar novo simulado
                   </Link>
 
                   <Link
                     href="/recomendado"
-                    className="min-h-12 rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/15"
+                    className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:border-[#F4C430]/60 hover:bg-white/15"
                   >
                     <span aria-hidden="true">
                       ✨
@@ -1420,7 +1328,7 @@ export default function HomePage() {
                   {hasReviewQuestions && (
                     <Link
                       href="/revisao"
-                      className="min-h-12 rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/15"
+                      className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:border-[#F4C430]/60 hover:bg-white/15"
                     >
                       <span aria-hidden="true">
                         🎯
@@ -1474,8 +1382,8 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl bg-orange-500/20 p-4">
-                  <p className="text-[10px] text-orange-100 sm:text-xs">
+                <div className="rounded-2xl border border-[#F4C430]/20 bg-[#F4C430]/15 p-4">
+                  <p className="text-[10px] text-[#FFF3B0] sm:text-xs">
                     Sequência
                   </p>
 
@@ -1590,10 +1498,6 @@ export default function HomePage() {
           ================================================== */}
 
           <section className="mt-5 grid gap-4 sm:mt-7 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
-            {/* ===============================================
-                CONSISTÊNCIA
-            ================================================ */}
-
             <div className="min-w-0 rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-5 shadow-sm sm:p-6">
               <p className="text-sm font-bold text-orange-600">
                 <span aria-hidden="true">
@@ -1678,10 +1582,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            {/* ===============================================
-                METAS
-            ================================================ */}
 
             <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -2089,10 +1989,9 @@ export default function HomePage() {
                         aria-valuetext={`${subject.percentage}%`}
                       >
                         <div
-                          className="h-full rounded-full bg-blue-600"
+                          className="h-full rounded-full bg-[#3B82F6]"
                           style={{
-                            width:
-                              `${visualPercentage}%`,
+                            width: `${visualPercentage}%`,
                           }}
                         />
                       </div>
@@ -2301,7 +2200,7 @@ export default function HomePage() {
           ================================================== */}
 
           <footer className="mt-8 border-t border-slate-200 py-7 text-center text-[10px] leading-5 text-slate-400 sm:mt-10 sm:text-xs">
-            Fisio Simulado •{" "}
+            NabuLab •{" "}
             {
               totalBankQuestions
             }{" "}

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-
 import {
   useEffect,
   useMemo,
@@ -13,6 +12,8 @@ import {
 import {
   useRouter,
 } from "next/navigation";
+
+import NabuLabBrand from "@/components/ui/nabulab-brand";
 
 import {
   subjects,
@@ -68,45 +69,29 @@ const difficulties: {
   description: string;
 }[] = [
   {
-    id:
-      "iniciante",
-
-    label:
-      "Iniciante",
-
+    id: "iniciante",
+    label: "Iniciante",
     description:
       "Conceitos fundamentais e reconhecimento.",
   },
 
   {
-    id:
-      "medio",
-
-    label:
-      "Médio",
-
+    id: "medio",
+    label: "Médio",
     description:
-      "Relações fisiológicas e aplicação dos conceitos.",
+      "Aplicação prática e relação entre diferentes conceitos.",
   },
 
   {
-    id:
-      "avancado",
-
-    label:
-      "Avançado",
-
+    id: "avancado",
+    label: "Avançado",
     description:
       "Integração, cálculos e raciocínio mais aprofundado.",
   },
 
   {
-    id:
-      "misto",
-
-    label:
-      "Misto",
-
+    id: "misto",
+    label: "Misto",
     description:
       "Questões de todas as dificuldades.",
   },
@@ -119,45 +104,27 @@ const questionTypes: {
   icon: string;
 }[] = [
   {
-    id:
-      "multiple-choice",
-
-    label:
-      "Múltipla escolha",
-
+    id: "multiple-choice",
+    label: "Múltipla escolha",
     description:
       "Questões com quatro alternativas.",
-
-    icon:
-      "🔤",
+    icon: "🔤",
   },
 
   {
-    id:
-      "true-false",
-
-    label:
-      "Verdadeiro ou falso",
-
+    id: "true-false",
+    label: "Verdadeiro ou falso",
     description:
       "Afirmações para julgar como verdadeiras ou falsas.",
-
-    icon:
-      "⚖️",
+    icon: "⚖️",
   },
 
   {
-    id:
-      "misto",
-
-    label:
-      "Misto",
-
+    id: "misto",
+    label: "Misto",
     description:
       "Combina múltipla escolha e verdadeiro ou falso.",
-
-    icon:
-      "🔀",
+    icon: "🔀",
   },
 ];
 
@@ -168,8 +135,7 @@ const questionTypes: {
  */
 
 function getDifficultyLabel(
-  difficulty:
-    ExamDifficulty
+  difficulty: ExamDifficulty
 ) {
   return (
     difficulties.find(
@@ -182,8 +148,7 @@ function getDifficultyLabel(
 }
 
 function getQuestionTypeLabel(
-  type:
-    ExamQuestionType
+  type: ExamQuestionType
 ) {
   return (
     questionTypes.find(
@@ -219,8 +184,7 @@ export default function NewExamPage() {
     setConfig,
   ] =
     useState<ExamConfig>({
-      amount:
-        10,
+      amount: 10,
 
       subjects:
         subjects.map(
@@ -290,8 +254,7 @@ export default function NewExamPage() {
    */
 
   function toggleSubject(
-    subjectId:
-      SubjectId
+    subjectId: SubjectId
   ) {
     setGenerationError(
       null
@@ -357,9 +320,7 @@ export default function NewExamPage() {
     setConfig(
       (current) => ({
         ...current,
-
-        subjects:
-          [],
+        subjects: [],
       })
     );
   }
@@ -524,35 +485,14 @@ export default function NewExamPage() {
    */
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            aria-label="Fisio Simulado — voltar ao painel"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white"
-              aria-hidden="true"
-            >
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Criador de simulados
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand subtitle="Criador de simulados" />
 
           <Link
             href="/"
@@ -575,7 +515,7 @@ export default function NewExamPage() {
         ==================================================== */}
 
         <section aria-labelledby="new-exam-title">
-          <p className="text-sm font-semibold text-blue-600">
+          <p className="text-sm font-semibold text-[#3B82F6]">
             Novo simulado
           </p>
 
@@ -612,14 +552,14 @@ export default function NewExamPage() {
           <div className="min-w-0 space-y-5 sm:space-y-6">
             {/* ===============================================
                 QUANTIDADE
-            ================================================ */}
+            ================================================= */}
 
             <section
               aria-labelledby="amount-heading"
               className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6"
             >
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#3B82F6]">
                   Etapa 1
                 </p>
 
@@ -677,14 +617,13 @@ export default function NewExamPage() {
                               current
                             ) => ({
                               ...current,
-
                               amount,
                             })
                           );
                         }}
                         className={`min-h-12 rounded-xl border px-3 py-3 text-sm font-bold transition sm:min-w-[70px] sm:px-4 ${
                           selected
-                            ? "border-blue-600 bg-blue-600 text-white shadow-md shadow-blue-200"
+                            ? "border-[#0B2D6B] bg-[#0B2D6B] text-white shadow-md shadow-blue-100"
                             : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
                         }`}
                       >
@@ -784,14 +723,14 @@ export default function NewExamPage() {
                       })
                     );
                   }}
-                  className="mt-3 min-h-12 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base font-semibold text-slate-700 outline-none transition focus:border-blue-500 sm:max-w-[220px] sm:text-sm"
+                  className="mt-3 min-h-12 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base font-semibold text-slate-700 outline-none transition focus:border-[#3B82F6] sm:max-w-[220px] sm:text-sm"
                 />
               </div>
             </section>
 
             {/* ===============================================
                 MATÉRIAS
-            ================================================ */}
+            ================================================= */}
 
             <section
               aria-labelledby="subjects-heading"
@@ -799,7 +738,7 @@ export default function NewExamPage() {
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#3B82F6]">
                     Etapa 2
                   </p>
 
@@ -849,10 +788,6 @@ export default function NewExamPage() {
                 </div>
               </div>
 
-              {/* =============================================
-                  STATUS PARA TECNOLOGIA ASSISTIVA
-              ============================================== */}
-
               <p
                 id="subjects-selection-status"
                 className="sr-only"
@@ -868,10 +803,6 @@ export default function NewExamPage() {
                 }{" "}
                 matérias selecionadas.
               </p>
-
-              {/* =============================================
-                  NENHUMA MATÉRIA
-              ============================================== */}
 
               {config.subjects.length ===
                 0 && (
@@ -893,16 +824,12 @@ export default function NewExamPage() {
                 </div>
               )}
 
-              {/* =============================================
-                  TODAS
-              ============================================== */}
-
               {allSubjectsSelected && (
                 <div
                   role="status"
                   className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3"
                 >
-                  <p className="text-sm font-medium text-blue-700">
+                  <p className="text-sm font-medium text-[#0B2D6B]">
                     ✓ Todas as{" "}
                     {
                       subjects.length
@@ -912,10 +839,6 @@ export default function NewExamPage() {
                   </p>
                 </div>
               )}
-
-              {/* =============================================
-                  CARDS
-              ============================================== */}
 
               <div
                 className="mt-5 grid gap-3 lg:grid-cols-2"
@@ -948,7 +871,7 @@ export default function NewExamPage() {
                         }
                         className={`w-full rounded-2xl border p-4 text-left transition ${
                           selected
-                            ? "border-blue-500 bg-blue-50 ring-2 ring-blue-100"
+                            ? "border-[#3B82F6] bg-blue-50 ring-2 ring-blue-100"
                             : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
                         }`}
                       >
@@ -966,7 +889,7 @@ export default function NewExamPage() {
                             <p
                               className={`break-words text-sm font-bold ${
                                 selected
-                                  ? "text-blue-700"
+                                  ? "text-[#0B2D6B]"
                                   : "text-slate-800"
                               }`}
                             >
@@ -991,7 +914,7 @@ export default function NewExamPage() {
                           <div
                             className={`ml-auto flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
                               selected
-                                ? "border-blue-600 bg-blue-600 text-white"
+                                ? "border-[#0B2D6B] bg-[#0B2D6B] text-white"
                                 : "border-slate-300"
                             }`}
                             aria-hidden="true"
@@ -1012,13 +935,13 @@ export default function NewExamPage() {
 
             {/* ===============================================
                 DIFICULDADE
-            ================================================ */}
+            ================================================= */}
 
             <section
               aria-labelledby="difficulty-heading"
               className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6"
             >
-              <p className="text-xs font-bold uppercase tracking-wider text-blue-600">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#3B82F6]">
                 Etapa 3
               </p>
 
@@ -1079,14 +1002,14 @@ export default function NewExamPage() {
                         }}
                         className={`min-h-[92px] rounded-xl border p-4 text-left transition ${
                           selected
-                            ? "border-blue-500 bg-blue-50 ring-2 ring-blue-100"
+                            ? "border-[#3B82F6] bg-blue-50 ring-2 ring-blue-100"
                             : "border-slate-200 bg-white hover:border-blue-200"
                         }`}
                       >
                         <p
                           className={`font-bold ${
                             selected
-                              ? "text-blue-700"
+                              ? "text-[#0B2D6B]"
                               : "text-slate-800"
                           }`}
                         >
@@ -1109,13 +1032,13 @@ export default function NewExamPage() {
 
             {/* ===============================================
                 TIPO
-            ================================================ */}
+            ================================================= */}
 
             <section
               aria-labelledby="question-type-heading"
               className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6"
             >
-              <p className="text-xs font-bold uppercase tracking-wider text-blue-600">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#3B82F6]">
                 Etapa 4
               </p>
 
@@ -1176,7 +1099,7 @@ export default function NewExamPage() {
                         }}
                         className={`min-h-[120px] rounded-xl border p-4 text-left transition ${
                           selected
-                            ? "border-blue-500 bg-blue-50 ring-2 ring-blue-100"
+                            ? "border-[#3B82F6] bg-blue-50 ring-2 ring-blue-100"
                             : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
                         }`}
                       >
@@ -1192,7 +1115,7 @@ export default function NewExamPage() {
                         <p
                           className={`mt-3 text-sm font-bold ${
                             selected
-                              ? "text-blue-700"
+                              ? "text-[#0B2D6B]"
                               : "text-slate-800"
                           }`}
                         >
@@ -1216,9 +1139,9 @@ export default function NewExamPage() {
                 "misto" && (
                 <div
                   role="status"
-                  className="mt-4 rounded-xl border border-indigo-100 bg-indigo-50 p-4"
+                  className="mt-4 rounded-xl border border-blue-100 bg-blue-50 p-4"
                 >
-                  <p className="text-xs leading-5 text-indigo-700">
+                  <p className="text-xs leading-5 text-[#0B2D6B]">
                     No modo misto, o sistema
                     tenta montar aproximadamente{" "}
                     <strong>
@@ -1238,13 +1161,13 @@ export default function NewExamPage() {
 
             {/* ===============================================
                 OPÇÕES
-            ================================================ */}
+            ================================================= */}
 
             <section
               aria-labelledby="options-heading"
               className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6"
             >
-              <p className="text-xs font-bold uppercase tracking-wider text-blue-600">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#3B82F6]">
                 Etapa 5
               </p>
 
@@ -1260,10 +1183,6 @@ export default function NewExamPage() {
                 role="group"
                 aria-labelledby="options-heading"
               >
-                {/* ===========================================
-                    EMBARALHAR QUESTÕES
-                ============================================ */}
-
                 <label
                   htmlFor="shuffle-questions"
                   className="flex cursor-pointer flex-col gap-4 rounded-xl border border-slate-200 p-4 transition hover:bg-slate-50 sm:flex-row sm:items-center sm:justify-between"
@@ -1308,13 +1227,9 @@ export default function NewExamPage() {
                         })
                       );
                     }}
-                    className="h-6 w-6 shrink-0 accent-blue-600"
+                    className="h-6 w-6 shrink-0 accent-[#0B2D6B]"
                   />
                 </label>
-
-                {/* ===========================================
-                    EMBARALHAR ALTERNATIVAS
-                ============================================ */}
 
                 <label
                   htmlFor="shuffle-alternatives"
@@ -1370,7 +1285,7 @@ export default function NewExamPage() {
                         })
                       );
                     }}
-                    className="h-6 w-6 shrink-0 accent-blue-600"
+                    className="h-6 w-6 shrink-0 accent-[#0B2D6B]"
                   />
                 </label>
               </div>
@@ -1386,7 +1301,7 @@ export default function NewExamPage() {
             aria-labelledby="exam-summary-heading"
           >
             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-              <p className="text-sm font-semibold text-blue-600">
+              <p className="text-sm font-semibold text-[#3B82F6]">
                 Resumo da prova
               </p>
 
@@ -1398,10 +1313,6 @@ export default function NewExamPage() {
               </h2>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
-                {/* ===========================================
-                    SOLICITADAS
-                ============================================ */}
-
                 <div className="rounded-xl bg-slate-50 p-4">
                   <p className="text-xs font-medium text-slate-400">
                     Questões solicitadas
@@ -1413,10 +1324,6 @@ export default function NewExamPage() {
                     }
                   </p>
                 </div>
-
-                {/* ===========================================
-                    MATÉRIAS
-                ============================================ */}
 
                 <div className="rounded-xl bg-slate-50 p-4">
                   <p className="text-xs font-medium text-slate-400">
@@ -1439,10 +1346,6 @@ export default function NewExamPage() {
                   </p>
                 </div>
 
-                {/* ===========================================
-                    DIFICULDADE
-                ============================================ */}
-
                 <div className="rounded-xl bg-slate-50 p-4">
                   <p className="text-xs font-medium text-slate-400">
                     Dificuldade
@@ -1454,10 +1357,6 @@ export default function NewExamPage() {
                     )}
                   </p>
                 </div>
-
-                {/* ===========================================
-                    TIPO
-                ============================================ */}
 
                 <div className="rounded-xl bg-slate-50 p-4">
                   <p className="text-xs font-medium text-slate-400">
@@ -1471,10 +1370,6 @@ export default function NewExamPage() {
                   </p>
                 </div>
               </div>
-
-              {/* =============================================
-                  DISPONÍVEIS
-              ============================================== */}
 
               <div
                 id="exam-generation-status"
@@ -1515,10 +1410,6 @@ export default function NewExamPage() {
                 </p>
               </div>
 
-              {/* =============================================
-                  QUANTIDADE REDUZIDA
-              ============================================== */}
-
               {config.amount >
                 availableQuestions &&
                 availableQuestions >
@@ -1553,10 +1444,6 @@ export default function NewExamPage() {
                   </div>
                 )}
 
-              {/* =============================================
-                  SEM MATÉRIAS
-              ============================================== */}
-
               {config.subjects.length ===
                 0 && (
                 <div className="mt-5 rounded-xl border border-red-200 bg-red-50 p-3">
@@ -1567,10 +1454,6 @@ export default function NewExamPage() {
                   </p>
                 </div>
               )}
-
-              {/* =============================================
-                  SEM QUESTÕES
-              ============================================== */}
 
               {config.subjects.length >
                 0 &&
@@ -1586,10 +1469,6 @@ export default function NewExamPage() {
                     </p>
                   </div>
                 )}
-
-              {/* =============================================
-                  ERRO
-              ============================================== */}
 
               {generationError && (
                 <div
@@ -1614,10 +1493,6 @@ export default function NewExamPage() {
                 </div>
               )}
 
-              {/* =============================================
-                  BOTÃO
-              ============================================== */}
-
               <button
                 type="submit"
                 disabled={
@@ -1630,7 +1505,7 @@ export default function NewExamPage() {
                 aria-describedby="exam-generation-status"
                 className={`mt-6 min-h-14 w-full rounded-xl px-5 py-4 text-sm font-bold transition ${
                   canGenerate
-                    ? "bg-blue-600 text-white shadow-lg shadow-blue-200 hover:bg-blue-700"
+                    ? "bg-[#0B2D6B] text-white shadow-lg shadow-blue-100 hover:bg-[#174EA6]"
                     : "bg-slate-300 text-slate-700 shadow-none"
                 } ${
                   generating

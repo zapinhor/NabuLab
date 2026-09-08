@@ -1,86 +1,50 @@
 import {
-  respiratorioQuestions,
-} from "@/data/questions/respiratorio";
+  portuguesQuestions,
+} from "@/data/questions/portugues";
 
 import {
-  homeostaseQuestions,
-} from "@/data/questions/homeostase";
+  portuguesExtraQuestions,
+} from "@/data/questions/portugues-extra";
 
 import {
-  fisiologiaCelularQuestions,
-} from "@/data/questions/fisiologia-celular";
+  portuguesTrueFalseQuestions,
+} from "@/data/questions/portugues-vf";
 
 import {
-  sistemaNervosoQuestions,
-} from "@/data/questions/sistema-nervoso";
+  matematicaQuestions,
+} from "@/data/questions/matematica";
 
 import {
-  biologiaCelularQuestions,
-} from "@/data/questions/biologia-celular";
+  matematicaExtraQuestions,
+} from "@/data/questions/matematica-extra";
 
 import {
-  bioquimicaAguaQuestions,
-} from "@/data/questions/bioquimica-agua";
-
-/*
- * =========================================================
- * MÚLTIPLA ESCOLHA — EXPANSÃO
- * =========================================================
- */
+  matematicaTrueFalseQuestions,
+} from "@/data/questions/matematica-vf";
 
 import {
-  respiratorioExtraQuestions,
-} from "@/data/questions/respiratorio-extra";
+  informaticaQuestions,
+} from "@/data/questions/informatica";
 
 import {
-  homeostaseExtraQuestions,
-} from "@/data/questions/homeostase-extra";
+  informaticaExtraQuestions,
+} from "@/data/questions/informatica-extra";
 
 import {
-  fisiologiaCelularExtraQuestions,
-} from "@/data/questions/fisiologia-celular-extra";
+  informaticaTrueFalseQuestions,
+} from "@/data/questions/informatica-vf";
 
 import {
-  sistemaNervosoExtraQuestions,
-} from "@/data/questions/sistema-nervoso-extra";
+  inglesQuestions,
+} from "@/data/questions/ingles";
 
 import {
-  biologiaCelularExtraQuestions,
-} from "@/data/questions/biologia-celular-extra";
+  inglesExtraQuestions,
+} from "@/data/questions/ingles-extra";
 
 import {
-  bioquimicaAguaExtraQuestions,
-} from "@/data/questions/bioquimica-agua-extra";
-
-/*
- * =========================================================
- * VERDADEIRO / FALSO
- * =========================================================
- */
-
-import {
-  respiratorioTrueFalseQuestions,
-} from "@/data/questions/respiratorio-vf";
-
-import {
-  homeostaseTrueFalseQuestions,
-} from "@/data/questions/homeostase-vf";
-
-import {
-  fisiologiaCelularTrueFalseQuestions,
-} from "@/data/questions/fisiologia-celular-vf";
-
-import {
-  sistemaNervosoTrueFalseQuestions,
-} from "@/data/questions/sistema-nervoso-vf";
-
-import {
-  biologiaCelularTrueFalseQuestions,
-} from "@/data/questions/biologia-celular-vf";
-
-import {
-  bioquimicaAguaTrueFalseQuestions,
-} from "@/data/questions/bioquimica-agua-vf";
+  inglesTrueFalseQuestions,
+} from "@/data/questions/ingles-vf";
 
 import type {
   Difficulty,
@@ -91,64 +55,50 @@ import type {
 
 /*
  * =========================================================
- * BANCO COMPLETO
+ * BANCO COMPLETO — NABULAB
  * =========================================================
  */
 
 export const questionBank: Question[] = [
   /*
    * =======================================================
-   * MÚLTIPLA ESCOLHA — BANCO ORIGINAL
+   * PORTUGUÊS
    * =======================================================
    */
 
-  ...respiratorioQuestions,
-
-  ...homeostaseQuestions,
-
-  ...fisiologiaCelularQuestions,
-
-  ...sistemaNervosoQuestions,
-
-  ...biologiaCelularQuestions,
-
-  ...bioquimicaAguaQuestions,
+  ...portuguesQuestions,
+  ...portuguesExtraQuestions,
+  ...portuguesTrueFalseQuestions,
 
   /*
    * =======================================================
-   * MÚLTIPLA ESCOLHA — EXPANSÃO FASE 17
+   * MATEMÁTICA
    * =======================================================
    */
 
-  ...respiratorioExtraQuestions,
-
-  ...homeostaseExtraQuestions,
-
-  ...fisiologiaCelularExtraQuestions,
-
-  ...sistemaNervosoExtraQuestions,
-
-  ...biologiaCelularExtraQuestions,
-
-  ...bioquimicaAguaExtraQuestions,
+  ...matematicaQuestions,
+  ...matematicaExtraQuestions,
+  ...matematicaTrueFalseQuestions,
 
   /*
    * =======================================================
-   * VERDADEIRO / FALSO
+   * INFORMÁTICA
    * =======================================================
    */
 
-  ...respiratorioTrueFalseQuestions,
+  ...informaticaQuestions,
+  ...informaticaExtraQuestions,
+  ...informaticaTrueFalseQuestions,
 
-  ...homeostaseTrueFalseQuestions,
+  /*
+   * =======================================================
+   * INGLÊS
+   * =======================================================
+   */
 
-  ...fisiologiaCelularTrueFalseQuestions,
-
-  ...sistemaNervosoTrueFalseQuestions,
-
-  ...biologiaCelularTrueFalseQuestions,
-
-  ...bioquimicaAguaTrueFalseQuestions,
+  ...inglesQuestions,
+  ...inglesExtraQuestions,
+  ...inglesTrueFalseQuestions,
 ];
 
 /*

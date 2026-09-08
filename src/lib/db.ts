@@ -7,19 +7,45 @@ import type {
   StoredExam,
 } from "@/types/storage";
 
-export const db = new Dexie(
-  "FisioSimuladoDB"
-) as Dexie & {
-  exams: EntityTable<
-    StoredExam,
-    "id"
-  >;
+/*
+ * =========================================================
+ * BANCO LOCAL — NABULAB
+ * =========================================================
+ *
+ * O NabuLab utiliza um banco IndexedDB próprio para não
+ * compartilhar histórico com o projeto NabuLab.
+ *
+ * Importante:
+ * alterar o nome do banco NÃO apaga o banco antigo.
+ *
+ * NabuLab:
+ * NabuLabDB
+ *
+ * NabuLab:
+ * NabuLabDB
+ * =========================================================
+ */
 
-  answers: EntityTable<
-    StoredAnswer,
-    "id"
-  >;
-};
+export const db =
+  new Dexie(
+    "NabuLabDB"
+  ) as Dexie & {
+    exams: EntityTable<
+      StoredExam,
+      "id"
+    >;
+
+    answers: EntityTable<
+      StoredAnswer,
+      "id"
+    >;
+  };
+
+/*
+ * =========================================================
+ * ESTRUTURA DO BANCO
+ * =========================================================
+ */
 
 db.version(1).stores({
   exams:

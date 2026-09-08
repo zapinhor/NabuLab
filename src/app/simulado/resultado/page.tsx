@@ -9,6 +9,8 @@ import {
   useState,
 } from "react";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 import {
   loadExamSession,
   loadExamSubmission,
@@ -161,7 +163,7 @@ function ResultCard({
         "border-slate-200 bg-white",
 
       icon:
-        "bg-slate-100",
+        "bg-blue-50 text-[#0B2D6B]",
 
       value:
         "text-slate-900",
@@ -172,7 +174,7 @@ function ResultCard({
         "border-emerald-200 bg-emerald-50/40",
 
       icon:
-        "bg-emerald-100",
+        "bg-emerald-100 text-emerald-700",
 
       value:
         "text-emerald-700",
@@ -183,7 +185,7 @@ function ResultCard({
         "border-red-200 bg-red-50/40",
 
       icon:
-        "bg-red-100",
+        "bg-red-100 text-red-700",
 
       value:
         "text-red-700",
@@ -194,7 +196,7 @@ function ResultCard({
         "border-amber-200 bg-amber-50/40",
 
       icon:
-        "bg-amber-100",
+        "bg-amber-100 text-amber-700",
 
       value:
         "text-amber-700",
@@ -227,6 +229,7 @@ function ResultCard({
 
         <div
           className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-base sm:h-10 sm:w-10 ${style.icon}`}
+          aria-hidden="true"
         >
           {
             icon
@@ -468,7 +471,7 @@ export default function ExamResultPage() {
           wasAnswered
         ) {
           /*
-           * Questões em branco agora
+           * Questões em branco
            * NÃO entram como erro.
            */
 
@@ -639,31 +642,14 @@ export default function ExamResultPage() {
    */
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Resultado da prova
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand subtitle="Resultado da prova" />
 
           <Link
             href="/"
@@ -685,20 +671,26 @@ export default function ExamResultPage() {
             RESULTADO PRINCIPAL
         ==================================================== */}
 
-        <section className="overflow-hidden rounded-[24px] bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-5 text-white shadow-xl sm:rounded-[28px] sm:p-7 md:p-10">
+        <section
+          className="overflow-hidden rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-xl sm:rounded-[28px] sm:p-7 md:p-10"
+          aria-labelledby="result-title"
+        >
           <div className="grid min-w-0 gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div className="min-w-0">
-              <p className="text-xs font-semibold text-blue-200 sm:text-sm">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#F4C430] sm:text-sm">
                 Simulado finalizado
               </p>
 
-              <h1 className="mt-2 break-words text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
+              <h1
+                id="result-title"
+                className="mt-2 break-words text-2xl font-bold leading-tight sm:text-3xl md:text-4xl"
+              >
                 {
                   gradeMessage
                 }
               </h1>
 
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-blue-100">
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-blue-50">
                 Confira sua nota,
                 desempenho por matéria e
                 a explicação detalhada de
@@ -708,8 +700,8 @@ export default function ExamResultPage() {
 
             {/* NOTA */}
 
-            <div className="w-full rounded-2xl bg-white/10 px-5 py-6 text-center backdrop-blur sm:rounded-3xl sm:px-8 lg:min-w-[230px] lg:px-10 lg:py-7">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-blue-200 sm:text-xs">
+            <div className="w-full rounded-2xl border border-white/10 bg-white/10 px-5 py-6 text-center backdrop-blur sm:rounded-3xl sm:px-8 lg:min-w-[230px] lg:px-10 lg:py-7">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-blue-100 sm:text-xs">
                 Nota
               </p>
 
@@ -720,7 +712,7 @@ export default function ExamResultPage() {
                 %
               </p>
 
-              <p className="mt-2 text-xs text-blue-100 sm:text-sm">
+              <p className="mt-2 text-xs text-blue-50 sm:text-sm">
                 {
                   result.correct
                 }{" "}
@@ -738,7 +730,10 @@ export default function ExamResultPage() {
             CARDS
         ==================================================== */}
 
-        <section className="mt-5 grid grid-cols-2 gap-3 sm:mt-6 sm:gap-4 lg:grid-cols-4">
+        <section
+          className="mt-5 grid grid-cols-2 gap-3 sm:mt-6 sm:gap-4 lg:grid-cols-4"
+          aria-label="Resumo do resultado"
+        >
           <ResultCard
             icon="✓"
             title="Acertos"
@@ -788,17 +783,20 @@ export default function ExamResultPage() {
             AÇÕES RÁPIDAS
         ==================================================== */}
 
-        <section className="mt-5 grid gap-3 sm:grid-cols-3">
+        <section
+          className="mt-5 grid gap-3 sm:grid-cols-3"
+          aria-label="Ações após o resultado"
+        >
           <Link
             href="/simulado/novo"
-            className="min-h-12 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+            className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
           >
             Novo simulado
           </Link>
 
           <Link
             href="/revisao"
-            className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
+            className="min-h-12 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-blue-100"
           >
             🎯 Treinar erros
           </Link>
@@ -815,8 +813,14 @@ export default function ExamResultPage() {
             DESEMPENHO POR MATÉRIA
         ==================================================== */}
 
-        <section className="mt-7 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
-          <h2 className="text-lg font-bold text-slate-900 sm:text-xl">
+        <section
+          className="mt-7 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:mt-8 sm:p-6"
+          aria-labelledby="subject-performance-heading"
+        >
+          <h2
+            id="subject-performance-heading"
+            className="text-lg font-bold text-slate-900 sm:text-xl"
+          >
             Desempenho por matéria
           </h2>
 
@@ -840,6 +844,15 @@ export default function ExamResultPage() {
                       100
                   );
 
+                const safePercentage =
+                  Math.min(
+                    100,
+                    Math.max(
+                      0,
+                      percentage
+                    )
+                  );
+
                 return (
                   <article
                     key={
@@ -854,7 +867,7 @@ export default function ExamResultPage() {
                         }
                       </p>
 
-                      <span className="shrink-0 text-lg font-bold text-blue-600">
+                      <span className="shrink-0 text-lg font-bold text-[#0B2D6B]">
                         {
                           percentage
                         }
@@ -883,19 +896,15 @@ export default function ExamResultPage() {
                       aria-valuemin={0}
                       aria-valuemax={100}
                       aria-valuenow={
-                        percentage
+                        safePercentage
                       }
+                      aria-valuetext={`${safePercentage}% de acertos em ${subject.name}`}
                     >
                       <div
-                        className="h-full rounded-full bg-blue-600"
+                        className="h-full rounded-full bg-[#3B82F6]"
                         style={{
-                          width: `${Math.min(
-                            100,
-                            Math.max(
-                              0,
-                              percentage
-                            )
-                          )}%`,
+                          width:
+                            `${safePercentage}%`,
                         }}
                       />
                     </div>
@@ -910,13 +919,19 @@ export default function ExamResultPage() {
             GABARITO
         ==================================================== */}
 
-        <section className="mt-8 sm:mt-10">
+        <section
+          className="mt-8 sm:mt-10"
+          aria-labelledby="answer-key-heading"
+        >
           <div>
-            <p className="text-sm font-semibold text-blue-600">
+            <p className="text-sm font-semibold text-[#3B82F6]">
               Correção detalhada
             </p>
 
-            <h2 className="mt-1 text-2xl font-bold text-slate-900">
+            <h2
+              id="answer-key-heading"
+              className="mt-1 text-2xl font-bold text-slate-900"
+            >
               Gabarito comentado
             </h2>
 
@@ -970,6 +985,7 @@ export default function ExamResultPage() {
                             ? "bg-red-500"
                             : "bg-amber-400"
                       }`}
+                      aria-hidden="true"
                     />
 
                     <div className="p-4 sm:p-6 md:p-7">
@@ -1014,7 +1030,7 @@ export default function ExamResultPage() {
                           )}
                         </span>
 
-                        <span className="rounded-full bg-violet-50 px-2.5 py-1 text-[10px] font-semibold text-violet-600 sm:px-3 sm:text-xs">
+                        <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-semibold text-[#3B82F6] sm:px-3 sm:text-xs">
                           {getQuestionTypeLabel(
                             question.type
                           )}
@@ -1095,6 +1111,7 @@ export default function ExamResultPage() {
                                           ? "border-red-500 bg-red-500 text-white"
                                           : "border-slate-300 bg-white text-slate-600"
                                     }`}
+                                    aria-hidden="true"
                                   >
                                     {
                                       alternative.id
@@ -1124,7 +1141,7 @@ export default function ExamResultPage() {
 
                                       {isUser &&
                                         isCorrect && (
-                                          <span className="rounded-full bg-blue-100 px-2 py-1 text-[10px] font-bold text-blue-700">
+                                          <span className="rounded-full bg-blue-100 px-2 py-1 text-[10px] font-bold text-[#0B2D6B]">
                                             Sua resposta
                                           </span>
                                         )}
@@ -1232,17 +1249,20 @@ export default function ExamResultPage() {
             AÇÕES FINAIS
         ==================================================== */}
 
-        <section className="mt-8 grid gap-3 border-t border-slate-200 pt-7 sm:flex sm:flex-wrap sm:justify-center">
+        <section
+          className="mt-8 grid gap-3 border-t border-slate-200 pt-7 sm:flex sm:flex-wrap sm:justify-center"
+          aria-label="Próximas ações"
+        >
           <Link
             href="/simulado/novo"
-            className="min-h-12 rounded-xl bg-blue-600 px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+            className="min-h-12 rounded-xl bg-[#0B2D6B] px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
           >
             Fazer outro simulado
           </Link>
 
           <Link
             href="/recomendado"
-            className="min-h-12 rounded-xl border border-indigo-200 bg-indigo-50 px-6 py-3 text-center text-sm font-bold text-indigo-700 transition hover:bg-indigo-100"
+            className="min-h-12 rounded-xl border border-[#F4C430]/60 bg-[#FFFBEB] px-6 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-[#FEF3C7]"
           >
             ✨ Simulado recomendado
           </Link>
@@ -1263,8 +1283,8 @@ export default function ExamResultPage() {
         </section>
 
         <footer className="py-8 text-center text-xs text-slate-400">
-          Resultado calculado a partir
-          da prova submetida nesta sessão.
+          NabuLab • Cada tentativa é um passo.
+          Cada correção, uma evolução.
         </footer>
       </div>
     </main>

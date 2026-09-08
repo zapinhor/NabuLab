@@ -1,4 +1,6 @@
-import { SubjectId } from "@/types/question";
+import type {
+  SubjectId,
+} from "@/types/question";
 
 export interface SubjectInfo {
   id: SubjectId;
@@ -8,58 +10,46 @@ export interface SubjectInfo {
   icon: string;
 }
 
+/*
+ * =========================================================
+ * MATÉRIAS — NABULAB
+ * =========================================================
+ */
+
 export const subjects: SubjectInfo[] = [
   {
-    id: "sistema-respiratorio",
-    name: "Sistema Respiratório",
-    area: "Anatomia Funcional",
+    id: "portugues",
+    name: "Português",
+    area: "Linguagens",
     description:
-      "Vias aéreas, pulmões, pleuras, alvéolos, ventilação e mecânica respiratória.",
-    icon: "🫁",
+      "Interpretação de texto, gramática, ortografia, pontuação, sintaxe e semântica.",
+    icon: "📖",
   },
 
   {
-    id: "homeostase",
-    name: "Homeostase",
-    area: "Fisiologia Humana",
+    id: "matematica",
+    name: "Matemática",
+    area: "Matemática",
     description:
-      "Feedback, meio interno, receptores, efetores e controle fisiológico.",
-    icon: "⚖️",
+      "Aritmética, porcentagem, proporção, álgebra, geometria, estatística e probabilidade.",
+    icon: "📐",
   },
 
   {
-    id: "fisiologia-celular",
-    name: "Fisiologia Celular",
-    area: "Fisiologia Humana",
+    id: "informatica",
+    name: "Informática",
+    area: "Tecnologia",
     description:
-      "Membranas, transporte celular, osmose, gradientes e potenciais elétricos.",
-    icon: "🔬",
+      "Hardware, software, sistemas operacionais, internet, segurança digital e ferramentas de produtividade.",
+    icon: "💻",
   },
 
   {
-    id: "sistema-nervoso",
-    name: "Sistema Nervoso",
-    area: "Fisiologia Humana",
+    id: "ingles",
+    name: "Inglês",
+    area: "Linguagens",
     description:
-      "SNC, SNP, neurônios, sinapses, reflexos e controle motor.",
-    icon: "🧠",
-  },
-
-  {
-    id: "biologia-celular",
-    name: "Biologia Celular",
-    area: "Bioquímica Fundamental",
-    description:
-      "Organelas, ATP, mitocôndrias, síntese proteica e metabolismo celular.",
-    icon: "🧬",
-  },
-
-  {
-    id: "bioquimica-agua",
-    name: "Bioquímica da Água",
-    area: "Bioquímica Fundamental",
-    description:
-      "Polaridade, pH, tampões, osmolaridade e equilíbrio ácido-base.",
-    icon: "💧",
+      "Interpretação, vocabulário, gramática, estruturas da língua e compreensão de textos em inglês.",
+    icon: "🌐",
   },
 ];

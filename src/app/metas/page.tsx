@@ -26,6 +26,8 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 import type {
   StudyGoals,
 } from "@/types/study-goals";
@@ -84,6 +86,9 @@ function normalizeGoals(
         1,
         7
       ),
+
+    updatedAt:
+      goals.updatedAt,
   };
 }
 
@@ -191,7 +196,7 @@ function GoalProgressBar({
           className={`shrink-0 text-sm font-bold ${
             completed
               ? "text-emerald-600"
-              : "text-blue-600"
+              : "text-[#3B82F6]"
           }`}
         >
           {
@@ -220,7 +225,7 @@ function GoalProgressBar({
           className={`h-full rounded-full transition-all ${
             completed
               ? "bg-emerald-500"
-              : "bg-blue-600"
+              : "bg-[#3B82F6]"
           }`}
           style={{
             width:
@@ -326,7 +331,7 @@ function GoalInput({
             )
           )
         }
-        className="mt-3 min-h-12 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base font-bold text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 sm:text-sm"
+        className="mt-3 min-h-12 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base font-bold text-slate-900 outline-none transition focus:border-[#3B82F6] focus:ring-2 focus:ring-blue-100 sm:text-sm"
       />
 
       <p
@@ -791,31 +796,16 @@ export default function GoalsPage() {
    */
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Metas de estudo
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand
+            subtitle="Metas de estudo"
+          />
 
           <Link
             href="/"
@@ -837,10 +827,10 @@ export default function GoalsPage() {
             HERO
         ==================================================== */}
 
-        <section className="rounded-[24px] bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 p-5 text-white shadow-lg shadow-emerald-100 sm:rounded-[28px] sm:p-7 md:p-10">
+        <section className="rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="min-w-0 max-w-3xl">
-              <p className="text-xs font-bold text-emerald-100 sm:text-sm">
+              <p className="text-xs font-bold text-[#F4C430] sm:text-sm">
                 Consistência de estudos
               </p>
 
@@ -848,7 +838,7 @@ export default function GoalsPage() {
                 Metas semanais
               </h1>
 
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-emerald-100 sm:mt-4">
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-blue-50 sm:mt-4">
                 Defina objetivos realistas para
                 quantidade de questões,
                 simulados e dias de estudo.
@@ -860,7 +850,7 @@ export default function GoalsPage() {
 
             <div className="grid min-w-0 grid-cols-3 gap-2 sm:gap-3 lg:min-w-[520px]">
               <div className="min-w-0 rounded-xl bg-white/10 p-3 backdrop-blur sm:rounded-2xl sm:p-4">
-                <p className="text-[9px] leading-4 text-emerald-100 sm:text-xs">
+                <p className="text-[9px] leading-4 text-blue-100 sm:text-xs">
                   Metas
                   <span className="hidden sm:inline">
                     {" "}
@@ -880,7 +870,7 @@ export default function GoalsPage() {
               </div>
 
               <div className="min-w-0 rounded-xl bg-white/10 p-3 backdrop-blur sm:rounded-2xl sm:p-4">
-                <p className="text-[9px] leading-4 text-emerald-100 sm:text-xs">
+                <p className="text-[9px] leading-4 text-blue-100 sm:text-xs">
                   Dias
                   <span className="hidden sm:inline">
                     {" "}
@@ -895,8 +885,8 @@ export default function GoalsPage() {
                 </p>
               </div>
 
-              <div className="min-w-0 rounded-xl bg-white/10 p-3 backdrop-blur sm:rounded-2xl sm:p-4">
-                <p className="text-[9px] leading-4 text-emerald-100 sm:text-xs">
+              <div className="min-w-0 rounded-xl border border-[#F4C430]/20 bg-[#F4C430]/15 p-3 backdrop-blur sm:rounded-2xl sm:p-4">
+                <p className="text-[9px] leading-4 text-[#FFF3B0] sm:text-xs">
                   Questões
                   <span className="hidden sm:inline">
                     {" "}
@@ -937,7 +927,7 @@ export default function GoalsPage() {
 
               <Link
                 href="/simulado/novo"
-                className="min-h-12 shrink-0 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+                className="min-h-12 shrink-0 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
               >
                 Começar a estudar
               </Link>
@@ -950,7 +940,7 @@ export default function GoalsPage() {
         ==================================================== */}
 
         <section className="mt-7 sm:mt-9">
-          <p className="text-sm font-bold text-emerald-600">
+          <p className="text-sm font-bold text-[#3B82F6]">
             Semana atual
           </p>
 
@@ -1039,7 +1029,7 @@ export default function GoalsPage() {
           ================================================== */}
 
           <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-7">
-            <p className="text-sm font-bold text-blue-600">
+            <p className="text-sm font-bold text-[#3B82F6]">
               Configuração
             </p>
 
@@ -1177,7 +1167,7 @@ export default function GoalsPage() {
                   disabled={
                     !hasChanges
                   }
-                  className="min-h-12 rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                  className="min-h-12 rounded-xl bg-[#0B2D6B] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#174EA6] disabled:cursor-not-allowed disabled:bg-slate-300"
                 >
                   Salvar metas
                 </button>
@@ -1285,7 +1275,7 @@ export default function GoalsPage() {
                   Precisão
                 </span>
 
-                <strong className="mt-1 block text-xl text-blue-600 xl:mt-0 xl:text-base">
+                <strong className="mt-1 block text-xl text-[#3B82F6] xl:mt-0 xl:text-base">
                   {
                     consistency.accuracyThisWeek
                   }
@@ -1333,7 +1323,7 @@ export default function GoalsPage() {
 
             <Link
               href="/recomendado"
-              className="mt-5 block min-h-12 rounded-xl bg-indigo-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-indigo-700"
+              className="mt-5 block min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
               ✨ Fazer simulado recomendado
             </Link>
@@ -1375,14 +1365,14 @@ export default function GoalsPage() {
           <div className="grid gap-3 sm:flex sm:flex-wrap">
             <Link
               href="/recomendado"
-              className="min-h-12 rounded-xl border border-indigo-200 bg-indigo-50 px-5 py-3 text-center text-sm font-bold text-indigo-700 transition hover:bg-indigo-100"
+              className="min-h-12 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-center text-sm font-bold text-blue-700 transition hover:bg-blue-100"
             >
               ✨ Recomendado
             </Link>
 
             <Link
               href="/simulado/novo"
-              className="min-h-12 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+              className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
               Novo simulado
             </Link>

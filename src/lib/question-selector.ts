@@ -501,7 +501,7 @@ function generateMixedExamQuestions(
    * usando MC disponível.
    */
 
-  let selectedTotal =
+  const selectedTotal =
     multipleChoiceAmount +
     trueFalseAmount;
 

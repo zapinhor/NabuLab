@@ -5,14 +5,32 @@ import type {
   ExamSubmission,
 } from "@/types/exam";
 
+/*
+ * =========================================================
+ * STORAGE — NABULAB
+ * =========================================================
+ *
+ * Estas chaves são exclusivas do NabuLab.
+ *
+ * * As sessões de versões anteriores continuam
+ * preservadas no navegador.
+ * =========================================================
+ */
+
 const SESSION_KEY =
-  "fisio-simulado-current-session";
+  "nabulab:exam:current-session:v1";
 
 const PROGRESS_KEY =
-  "fisio-simulado-current-progress";
+  "nabulab:exam:current-progress:v1";
 
 const SUBMISSION_KEY =
-  "fisio-simulado-current-submission";
+  "nabulab:exam:current-submission:v1";
+
+/*
+ * =========================================================
+ * VALIDAR MODALIDADE
+ * =========================================================
+ */
 
 function isExamMode(
   value: unknown
@@ -41,11 +59,10 @@ export function saveExamSession(
   }
 
   /*
-   * A partir da Fase 14 NÃO aceitamos
-   * mais sessões sem modalidade.
+   * Não aceitamos sessões sem modalidade válida.
    *
-   * Isso evita que um problema seja
-   * silenciosamente convertido em manual.
+   * Isso evita que problemas de criação da sessão
+   * sejam silenciosamente convertidos em outro modo.
    */
 
   if (
@@ -112,14 +129,8 @@ export function loadExamSession():
     }
 
     /*
-     * IMPORTANTE:
-     *
-     * Não existe mais:
-     *
-     * mode ?? "manual"
-     *
-     * Se mode sumir, queremos descobrir
-     * o erro em vez de mascará-lo.
+     * Se a modalidade estiver ausente ou inválida,
+     * a sessão é rejeitada.
      */
 
     if (
@@ -157,7 +168,7 @@ export function loadExamSession():
     };
   } catch (error) {
     console.error(
-      "Erro ao carregar sessão:",
+      "Erro ao carregar sessão do NabuLab:",
       error
     );
 
@@ -231,7 +242,7 @@ export function loadExamProgress():
     ) as ExamProgress;
   } catch (error) {
     console.error(
-      "Erro ao carregar progresso:",
+      "Erro ao carregar progresso do NabuLab:",
       error
     );
 
@@ -287,7 +298,7 @@ export function loadExamSubmission():
     ) as ExamSubmission;
   } catch (error) {
     console.error(
-      "Erro ao carregar submissão:",
+      "Erro ao carregar submissão do NabuLab:",
       error
     );
 

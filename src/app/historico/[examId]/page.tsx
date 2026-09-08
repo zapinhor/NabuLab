@@ -36,6 +36,8 @@ import {
   LoadingState,
 } from "@/components/ui/page-state";
 
+import NabuLabBrand from "@/components/ui/nabulab-brand";
+
 import type {
   Question,
 } from "@/types/question";
@@ -556,7 +558,7 @@ export default function ExamHistoryDetailPage() {
     return (
       <EmptyState
         fullScreen
-        icon="🔎"
+        icon="🧾"
         eyebrow="Histórico"
         title="Simulado não encontrado"
         description="Não foi possível localizar esta prova no histórico armazenado neste navegador."
@@ -580,31 +582,16 @@ export default function ExamHistoryDetailPage() {
     );
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f4f7fb]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB]">
       {/* =====================================================
           HEADER
       ====================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
-          <Link
-            href="/"
-            className="flex min-w-0 items-center gap-3"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white">
-              F
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-bold text-slate-900">
-                Fisio Simulado
-              </p>
-
-              <p className="hidden text-xs text-slate-500 sm:block">
-                Resultado do histórico
-              </p>
-            </div>
-          </Link>
+          <NabuLabBrand
+            subtitle="Resultado do histórico"
+          />
 
           <Link
             href="/historico"
@@ -626,7 +613,7 @@ export default function ExamHistoryDetailPage() {
             HERO
         ==================================================== */}
 
-        <section className="overflow-hidden rounded-[24px] bg-gradient-to-r from-slate-900 via-slate-800 to-blue-900 p-5 text-white shadow-lg sm:rounded-[28px] sm:p-7 md:p-10">
+        <section className="overflow-hidden rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-100 sm:rounded-[28px] sm:p-7 md:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="min-w-0 max-w-3xl">
               <span
@@ -644,27 +631,29 @@ export default function ExamHistoryDetailPage() {
                 Resultado do simulado
               </h1>
 
-              <p className="mt-2 text-xs leading-5 text-slate-300 sm:mt-3 sm:text-sm">
+              <p className="mt-2 text-xs leading-5 text-blue-100 sm:mt-3 sm:text-sm">
                 {formatDate(
                   exam.submittedAt
                 )}
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2 sm:mt-5">
-                <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-slate-200 sm:px-3 sm:text-xs">
+                <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-blue-50 sm:px-3 sm:text-xs">
                   {getDifficultyLabel(
                     exam.difficulty
                   )}
                 </span>
 
-                <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-slate-200 sm:px-3 sm:text-xs">
+                <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-blue-50 sm:px-3 sm:text-xs">
                   {getQuestionTypeLabel(
                     exam.questionType
                   )}
                 </span>
 
-                <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-slate-200 sm:px-3 sm:text-xs">
-                  ⏱{" "}
+                <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-blue-50 sm:px-3 sm:text-xs">
+                  <span aria-hidden="true">
+                    ⏱️
+                  </span>{" "}
                   {formatDuration(
                     exam.durationSeconds
                   )}
@@ -674,11 +663,11 @@ export default function ExamHistoryDetailPage() {
 
             {/* ===============================================
                 NOTA
-            ================================================ */}
+            ================================================= */}
 
-            <div className="grid min-w-0 grid-cols-[auto_1fr] items-center gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur sm:rounded-3xl sm:p-6 lg:min-w-[260px] lg:grid-cols-1 lg:p-7 lg:text-center">
+            <div className="grid min-w-0 grid-cols-[auto_1fr] items-center gap-4 rounded-2xl border border-[#F4C430]/20 bg-[#F4C430]/15 p-4 backdrop-blur sm:rounded-3xl sm:p-6 lg:min-w-[260px] lg:grid-cols-1 lg:p-7 lg:text-center">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-wider text-slate-300 sm:text-xs">
+                <p className="text-[9px] font-bold uppercase tracking-wider text-[#FFF3B0] sm:text-xs">
                   Nota final
                 </p>
 
@@ -691,7 +680,7 @@ export default function ExamHistoryDetailPage() {
               </div>
 
               <div className="border-l border-white/10 pl-4 lg:border-l-0 lg:pl-0">
-                <p className="text-xs leading-5 text-slate-300 sm:text-sm">
+                <p className="text-xs leading-5 text-blue-50 sm:text-sm">
                   <strong className="text-white">
                     {
                       exam.correct
@@ -706,7 +695,7 @@ export default function ExamHistoryDetailPage() {
                   acertos
                 </p>
 
-                <p className="mt-1 text-[10px] text-slate-400 sm:text-xs">
+                <p className="mt-1 text-[10px] text-blue-100 sm:text-xs">
                   {
                     exam.unanswered
                   }{" "}
@@ -841,7 +830,7 @@ export default function ExamHistoryDetailPage() {
               "manual" && (
               <Link
                 href="/simulado/novo"
-                className="min-h-12 shrink-0 rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
+                className="min-h-12 shrink-0 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
               >
                 Novo simulado
               </Link>
@@ -880,7 +869,7 @@ export default function ExamHistoryDetailPage() {
         ==================================================== */}
 
         <section className="mt-7 sm:mt-9">
-          <p className="text-sm font-bold text-blue-600">
+          <p className="text-sm font-bold text-[#3B82F6]">
             Desempenho
           </p>
 
@@ -906,7 +895,7 @@ export default function ExamHistoryDetailPage() {
                       }
                     </h3>
 
-                    <span className="shrink-0 text-lg font-bold text-blue-600 sm:text-xl">
+                    <span className="shrink-0 text-lg font-bold text-[#3B82F6] sm:text-xl">
                       {
                         subject.percentage
                       }
@@ -925,7 +914,7 @@ export default function ExamHistoryDetailPage() {
                     }
                   >
                     <div
-                      className="h-full rounded-full bg-blue-600"
+                      className="h-full rounded-full bg-[#3B82F6]"
                       style={{
                         width:
                           `${Math.min(
@@ -1059,7 +1048,7 @@ export default function ExamHistoryDetailPage() {
 
                         {markedForReview && (
                           <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[9px] font-bold text-indigo-600 sm:text-[10px]">
-                            🚩 Marcada para revisão
+                            🔖 Marcada para revisão
                           </span>
                         )}
 
@@ -1205,7 +1194,7 @@ export default function ExamHistoryDetailPage() {
                     ====================================== */}
 
                     <div className="border-t border-blue-100 bg-blue-50 p-4 sm:p-5 md:p-6">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-blue-600 sm:text-xs">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#3B82F6] sm:text-xs">
                         Explicação
                       </p>
 
@@ -1251,7 +1240,7 @@ export default function ExamHistoryDetailPage() {
 
             <Link
               href="/recomendado"
-              className="min-h-12 rounded-xl bg-indigo-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-indigo-700"
+              className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
               ✨ Próximo recomendado
             </Link>
