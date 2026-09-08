@@ -87,6 +87,18 @@ export async function revokeOrganizationInvite(formData: FormData) {
   commercialRedirect("Convite revogado.", organizationId);
 }
 
+export async function revokeOrganizationMember(formData: FormData) {
+  const organizationId = value(formData, "organization_id");
+  const { supabase } = await authenticatedClient();
+  const { error } = await supabase.rpc("revoke_organization_member", {
+    p_organization_id: organizationId,
+    p_user_id: value(formData, "user_id"),
+  });
+  if (error) commercialRedirect(error.message, organizationId);
+  revalidatePath("/comercial");
+  commercialRedirect("Acesso do membro revogado.", organizationId);
+}
+
 export async function createClass(formData: FormData) {
   const organizationId = value(formData, "organization_id");
   const { supabase, userId } = await authenticatedClient();
