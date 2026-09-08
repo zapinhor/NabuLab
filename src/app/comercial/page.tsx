@@ -146,7 +146,7 @@ export default async function CommercialPage({
       .select("id,class_id,invitee_user_id,email,status,expires_at")
       .eq("status", "pending")
       .order("created_at", { ascending: false }),
-    supabase.from("classes").select("id,name"),
+    supabase.from("classes").select("id,name").eq("is_archived", false),
   ]);
 
   const profile = profileResult.data as Profile | null;
@@ -208,6 +208,7 @@ export default async function CommercialPage({
             "id,organization_id,name,description,academic_year,created_by",
           )
           .eq("organization_id", selectedOrganization.id)
+          .eq("is_archived", false)
           .order("created_at", { ascending: false }),
         supabase
           .from("organization_invites")
@@ -243,6 +244,9 @@ export default async function CommercialPage({
             </div>
           </Link>
           <div className="flex items-center gap-3">
+            <Link href="/" className={secondaryButton}>
+              Simulados
+            </Link>
             <span className="hidden text-sm text-slate-600 sm:inline">
               {profile?.full_name ?? profile?.email}
             </span>

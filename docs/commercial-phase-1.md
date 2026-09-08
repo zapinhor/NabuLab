@@ -66,9 +66,16 @@ Para executar o banco localmente, instale Docker Desktop ou Podman e então rode
 ```text
 npx supabase start
 npx supabase db reset
+npx supabase test db
 ```
 
 Sem um runtime de contêiner, a interface Next.js ainda pode ser validada contra o projeto Supabase remoto de desenvolvimento.
+
+## Envio real de convites por e-mail
+
+Os convites internos já aparecem na plataforma. O envio de e-mail da aplicação exige um provedor transacional separado, como Resend, Postmark, Brevo ou SendGrid. O SMTP configurado em **Authentication > Emails > SMTP Settings** cobre os e-mails do Supabase Auth, mas não envia automaticamente os convites de turma gravados nas tabelas comerciais.
+
+Antes de ativar essa etapa, escolha o provedor e configure um domínio remetente. A chave deve ficar como secret de uma Edge Function ou integração de backend, nunca em `NEXT_PUBLIC_` e nunca no navegador.
 
 ## Segurança implementada
 

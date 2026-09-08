@@ -966,6 +966,13 @@ export default function HomePage() {
 
             Novo simulado
           </Link>
+          <Link
+            href="/comercial"
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            <span aria-hidden="true">🏫</span>
+            Gestão institucional
+          </Link>
         </nav>
 
         <div className="border-t border-white/10 px-5 py-5">
@@ -1239,6 +1246,12 @@ export default function HomePage() {
                   onNavigate={
                     closeMobileMenu
                   }
+                />
+                <MobileNavLink
+                  href="/comercial"
+                  icon="🏫"
+                  label="Gestão institucional"
+                  onNavigate={closeMobileMenu}
                 />
               </nav>
 
