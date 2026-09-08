@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+/*
+ * =========================================================
+ * VARIÁVEIS GLOBAIS
+ * =========================================================
+ */
+
+:root {
+  --background: #f4f7fb;
+  --foreground: #172033;
+
+  --card: #ffffff;
+  --card-border: #e7ebf2;
+
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #eff6ff;
+
+  --secondary: #64748b;
+  --muted: #94a3b8;
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+
+  --sidebar: #0f172a;
+  --sidebar-light: #1e293b;
+
+  /*
+   * Cor padrão utilizada para indicar
+   * foco por teclado.
+   */
+  --focus-ring: #3b82f6;
+}
+
+/*
+ * =========================================================
+ * BOX MODEL
+ * =========================================================
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+ * =========================================================
+ * DOCUMENTO
+ * =========================================================
+ */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  /*
+   * Usa corretamente a Geist carregada
+   * pelo next/font no layout.tsx.
+   */
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * =========================================================
+ * TIPOGRAFIA MONO
+ * =========================================================
+ */
+
+code,
+pre,
+kbd,
+samp {
+  font-family:
+    var(--font-geist-mono),
+    "Courier New",
+    monospace;
+}
+
+/*
+ * =========================================================
+ * HERANÇA DA FONTE
+ * =========================================================
+ */
+
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/*
+ * =========================================================
+ * ELEMENTOS INTERATIVOS
+ * =========================================================
+ */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+}
+
+/*
+ * =========================================================
+ * FOCO POR TECLADO
+ * =========================================================
+ *
+ * :focus-visible evita mostrar o contorno
+ * quando o usuário simplesmente clica
+ * com o mouse.
+ *
+ * O foco aparece principalmente durante
+ * navegação por teclado.
+ */
+
+:where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [role="button"],
+    [role="link"],
+    [tabindex]
+  ):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/*
+ * O alvo do botão "Pular para o conteúdo"
+ * recebe foco programaticamente.
+ *
+ * Não queremos desenhar um contorno em torno
+ * de toda a aplicação nesse caso.
+ */
+
+#conteudo-principal:focus {
+  outline: none;
+}
+
+/*
+ * =========================================================
+ * LINKS
+ * =========================================================
+ */
+
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/*
+ * =========================================================
+ * CAMPOS DE FORMULÁRIO
+ * =========================================================
+ */
+
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/*
+ * Evita zoom automático em determinados
+ * navegadores móveis quando campos possuem
+ * fonte muito pequena.
+ */
+
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/*
+ * =========================================================
+ * IMAGENS / MÍDIA
+ * =========================================================
+ */
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/*
+ * =========================================================
+ * SELEÇÃO DE TEXTO
+ * =========================================================
+ */
+
+::selection {
+  background: #bfdbfe;
+  color: #172033;
+}
+
+/*
+ * =========================================================
+ * SCROLLBAR
+ * =========================================================
+ */
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/*
+ * =========================================================
+ * MOVIMENTO REDUZIDO
+ * =========================================================
+ *
+ * Se o usuário tiver ativado "reduzir
+ * movimento" no sistema operacional,
+ * animações e rolagens suaves são
+ * praticamente removidas.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/*
+ * =========================================================
+ * CONTRASTE FORÇADO
+ * =========================================================
+ *
+ * Ajuda usuários do modo de alto contraste
+ * do Windows.
+ */
+
+@media (forced-colors: active) {
+  :where(
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      summary,
+      [role="button"],
+      [role="link"],
+      [tabindex]
+    ):focus-visible {
+    outline: 2px solid Highlight;
+  }
+}
