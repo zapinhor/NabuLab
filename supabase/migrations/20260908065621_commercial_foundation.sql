@@ -558,6 +558,64 @@ begin
 end;
 $$;
 
+create function public.update_organization_branding(
+  p_organization_id uuid,
+  p_logo_url text,
+  p_primary_color text,
+  p_accent_color text
+)
+returns void
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  if v_user_id is null or (
+    not private.is_super_admin()
+    and not private.has_org_role(p_organization_id, array['director']::public.organization_role[])
+  ) then
+    raise exception 'Sem permissão para alterar a identidade visual' using errcode = '42501';
+  end if;
+  update public.organizations
+  set logo_url = nullif(btrim(p_logo_url), ''),
+      primary_color = upper(p_primary_color),
+      accent_color = upper(p_accent_color)
+  where id = p_organization_id;
+  if not found then raise exception 'Instituição não encontrada'; end if;
+  insert into public.audit_events (organization_id, actor_user_id, action, entity_type, entity_id)
+  values (p_organization_id, v_user_id, 'organization.branding_updated', 'organization', p_organization_id);
+end;
+$$;
+
+create function public.revoke_organization_invite(p_invite_id uuid)
+returns void
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_organization_id uuid;
+begin
+  select organization_id into v_organization_id
+  from public.organization_invites where id = p_invite_id;
+  if v_user_id is null or v_organization_id is null or (
+    not private.is_super_admin()
+    and not private.has_org_role(v_organization_id, array['director']::public.organization_role[])
+  ) then
+    raise exception 'Sem permissão para revogar o convite' using errcode = '42501';
+  end if;
+  update public.organization_invites
+  set status = 'revoked', revoked_at = now()
+  where id = p_invite_id and status = 'pending';
+  if not found then raise exception 'Convite pendente não encontrado'; end if;
+  insert into public.audit_events (organization_id, actor_user_id, action, entity_type, entity_id)
+  values (v_organization_id, v_user_id, 'organization_invite.revoked', 'organization_invite', p_invite_id);
+end;
+$$;
+
 create function public.respond_organization_invite(p_invite_id uuid, p_accept boolean)
 returns uuid
 language plpgsql
@@ -652,6 +710,9 @@ begin
   if p_expires_in <= interval '0 seconds' or p_expires_in > interval '30 days' then
     raise exception 'Validade do convite deve ficar entre 1 segundo e 30 dias';
   end if;
+  if left(v_identifier, 1) = '@' then
+    v_identifier := substr(v_identifier, 2);
+  end if;
   select id, email into v_invitee, v_email from public.profiles
   where lower(email) = v_identifier or lower(username) = v_identifier
   limit 1;
@@ -727,6 +788,8 @@ $$;
 revoke all on function public.is_super_admin() from public, anon;
 revoke all on function public.create_organization(text, text, public.organization_kind, text, text, text) from public, anon;
 revoke all on function public.create_organization_invite(uuid, text, public.organization_role, interval) from public, anon;
+revoke all on function public.update_organization_branding(uuid, text, text, text) from public, anon;
+revoke all on function public.revoke_organization_invite(uuid) from public, anon;
 revoke all on function public.respond_organization_invite(uuid, boolean) from public, anon;
 revoke all on function public.add_institution_student_to_class(uuid, uuid) from public, anon;
 revoke all on function public.create_class_invite(uuid, text, interval) from public, anon;
@@ -734,6 +797,8 @@ revoke all on function public.respond_class_invite(uuid, boolean) from public, a
 grant execute on function public.is_super_admin() to authenticated;
 grant execute on function public.create_organization(text, text, public.organization_kind, text, text, text) to authenticated;
 grant execute on function public.create_organization_invite(uuid, text, public.organization_role, interval) to authenticated;
+grant execute on function public.update_organization_branding(uuid, text, text, text) to authenticated;
+grant execute on function public.revoke_organization_invite(uuid) to authenticated;
 grant execute on function public.respond_organization_invite(uuid, boolean) to authenticated;
 grant execute on function public.add_institution_student_to_class(uuid, uuid) to authenticated;
 grant execute on function public.create_class_invite(uuid, text, interval) to authenticated;
@@ -743,14 +808,15 @@ revoke all on table public.profiles, public.platform_admins, public.organization
   public.organization_members, public.organization_invites, public.classes,
   public.class_members, public.class_invites, public.audit_events
 from anon, authenticated;
-grant select, update on public.profiles to authenticated;
+grant select on public.profiles to authenticated;
+grant update (username, full_name, avatar_url) on public.profiles to authenticated;
 grant select on public.platform_admins to authenticated;
-grant select, update on public.organizations to authenticated;
-grant select, insert, update, delete on public.organization_members to authenticated;
-grant select, update on public.organization_invites to authenticated;
-grant select, insert, update on public.classes to authenticated;
-grant select, insert, update, delete on public.class_members to authenticated;
-grant select, update on public.class_invites to authenticated;
+grant select on public.organizations to authenticated;
+grant select on public.organization_members to authenticated;
+grant select on public.organization_invites to authenticated;
+grant select, insert on public.classes to authenticated;
+grant select on public.class_members to authenticated;
+grant select on public.class_invites to authenticated;
 grant select on public.audit_events to authenticated;
 grant usage on schema public to anon, authenticated;
 

@@ -40,14 +40,12 @@ export async function createOrganization(formData: FormData) {
 export async function updateBranding(formData: FormData) {
   const organizationId = value(formData, "organization_id");
   const { supabase } = await authenticatedClient();
-  const { error } = await supabase
-    .from("organizations")
-    .update({
-      logo_url: value(formData, "logo_url") || null,
-      primary_color: value(formData, "primary_color"),
-      accent_color: value(formData, "accent_color"),
-    })
-    .eq("id", organizationId);
+  const { error } = await supabase.rpc("update_organization_branding", {
+    p_organization_id: organizationId,
+    p_logo_url: value(formData, "logo_url"),
+    p_primary_color: value(formData, "primary_color"),
+    p_accent_color: value(formData, "accent_color"),
+  });
   if (error) commercialRedirect(error.message, organizationId);
   revalidatePath("/comercial");
   commercialRedirect("Identidade visual atualizada.", organizationId);
@@ -81,11 +79,9 @@ export async function respondOrganizationInvite(formData: FormData) {
 export async function revokeOrganizationInvite(formData: FormData) {
   const organizationId = value(formData, "organization_id");
   const { supabase } = await authenticatedClient();
-  const { error } = await supabase
-    .from("organization_invites")
-    .update({ status: "revoked", revoked_at: new Date().toISOString() })
-    .eq("id", value(formData, "invite_id"))
-    .eq("status", "pending");
+  const { error } = await supabase.rpc("revoke_organization_invite", {
+    p_invite_id: value(formData, "invite_id"),
+  });
   if (error) commercialRedirect(error.message, organizationId);
   revalidatePath("/comercial");
   commercialRedirect("Convite revogado.", organizationId);
