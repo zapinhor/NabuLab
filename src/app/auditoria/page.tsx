@@ -644,7 +644,7 @@ export default function AuditPage() {
           </div>
 
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[900px] border-collapse text-left">
+            <table className="w-full min-w-[1250px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-400">
                   <th className="px-3 py-3">
@@ -673,6 +673,14 @@ export default function AuditPage() {
 
                   <th className="px-3 py-3 text-center">
                     Avanç.
+                  </th>
+
+                  <th className="px-3 py-3 text-center">
+                    MC I/M/A
+                  </th>
+
+                  <th className="px-3 py-3 text-center">
+                    V/F I/M/A
                   </th>
 
                   <th className="px-3 py-3 text-center">
@@ -742,6 +750,18 @@ export default function AuditPage() {
                         {
                           subject.avancado
                         }
+                      </td>
+
+                      <td className="px-3 py-4 text-center font-mono text-xs text-slate-600">
+                        {subject.combinations["multiple-choice"].iniciante}/
+                        {subject.combinations["multiple-choice"].medio}/
+                        {subject.combinations["multiple-choice"].avancado}
+                      </td>
+
+                      <td className="px-3 py-4 text-center font-mono text-xs text-slate-600">
+                        {subject.combinations["true-false"].iniciante}/
+                        {subject.combinations["true-false"].medio}/
+                        {subject.combinations["true-false"].avancado}
                       </td>
 
                       <td className="px-3 py-4 text-center text-slate-600">
@@ -918,6 +938,18 @@ export default function AuditPage() {
 
             <p>
               ✓ Tags e metadados
+            </p>
+
+            <p>
+              ✓ 1.224 questões e 72 por matéria
+            </p>
+
+            <p>
+              ✓ 12 questões em cada combinação
+            </p>
+
+            <p>
+              ✓ examTags, nível, habilidades e origem
             </p>
           </div>
         </section>

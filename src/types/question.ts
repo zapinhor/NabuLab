@@ -15,9 +15,38 @@ export type QuestionType =
 
 export type SubjectId =
   | "portugues"
+  | "literatura"
+  | "ingles"
+  | "espanhol"
+  | "arte"
+  | "educacao-fisica"
   | "matematica"
+  | "raciocinio-logico"
+  | "fisica"
+  | "quimica"
+  | "biologia"
+  | "ciencias"
+  | "historia"
+  | "geografia"
+  | "filosofia"
+  | "sociologia"
   | "informatica"
-  | "ingles";
+;
+
+export type ExamTag =
+  | "enem"
+  | "fuvest"
+  | "unesp"
+  | "fatec"
+  | "etec";
+
+export type EducationLevel =
+  | "ensino-fundamental"
+  | "ensino-medio"
+  | "fundamental-e-medio";
+
+export type QuestionOrigin =
+  | "nabulab";
 
 /*
  * =========================================================
@@ -67,4 +96,12 @@ export interface Question {
   >;
 
   tags: string[];
+
+  examTags?: ExamTag[];
+
+  educationLevel?: EducationLevel;
+
+  skills?: string[];
+
+  origin?: QuestionOrigin;
 }
