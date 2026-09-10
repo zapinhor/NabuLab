@@ -10,32 +10,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Regularidade",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência?",
+    "statement": "Observe a sequência 4, 7, 10, 13, ... Mantendo a regularidade, qual é o próximo termo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Padrão recursivo"
+        "text": "14"
       },
       {
         "id": "B",
-        "text": "Proposição lógica"
+        "text": "15"
       },
       {
         "id": "C",
-        "text": "Negação de todo"
+        "text": "16"
       },
       {
         "id": "D",
-        "text": "Diagrama de Venn"
+        "text": "17"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Por isso, a alternativa correta é Padrão recursivo.",
+    "correctAnswer": "C",
+    "explanation": "A sequência aumenta 3 unidades a cada passo. Assim, 13 + 3 = 16.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Por isso, a alternativa correta é Padrão recursivo.",
-      "B": "Esse conceito designa outra relação: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
-      "C": "A propriedade dessa alternativa é distinta: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
-      "D": "Não corresponde ao caso: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos."
+      "A": "Somar apenas 1 não mantém a diferença constante de 3.",
+      "B": "Esse valor corresponderia a acrescentar 2, não 3.",
+      "C": "Correta. As diferenças sucessivas são todas iguais a 3.",
+      "D": "Esse resultado acrescenta 4 ao último termo."
     },
     "tags": [
       "sequencias",
@@ -50,7 +50,8 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
+      "sequencias",
+      "identificacao-de-padroes",
       "aplicacao-direta"
     ],
     "origin": "nabulab"
@@ -64,32 +65,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Valor lógico",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido?",
+    "statement": "Qual das frases abaixo é uma proposição lógica, isto é, uma afirmação que pode ser classificada como verdadeira ou falsa?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conjunção lógica"
+        "text": "Feche a janela."
       },
       {
         "id": "B",
-        "text": "Proposição lógica"
+        "text": "Que horas são?"
       },
       {
         "id": "C",
-        "text": "Contrapositiva"
+        "text": "O número 12 é par."
       },
       {
         "id": "D",
-        "text": "Raciocínio por eliminação"
+        "text": "x + 2 = 7."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A distinção central está em uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido. Por isso, a alternativa correta é Proposição lógica.",
+    "correctAnswer": "C",
+    "explanation": "\"O número 12 é par\" é uma frase declarativa com valor lógico definido. Ordens, perguntas e sentenças abertas com variável não determinada não têm, nesse contexto, valor lógico definido.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
-      "B": "Correta. A distinção central está em uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido. Por isso, a alternativa correta é Proposição lógica.",
-      "C": "Não corresponde ao caso: a implicação se p então q é logicamente equivalente a se não q então não p.",
-      "D": "Diverge da descrição porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes."
+      "A": "É uma ordem, não uma afirmação avaliável como verdadeira ou falsa.",
+      "B": "É uma pergunta, portanto não possui valor lógico.",
+      "C": "Correta. Trata-se de uma afirmação verdadeira.",
+      "D": "Sem especificar x, a sentença é aberta e seu valor depende da variável."
     },
     "tags": [
       "proposicoes",
@@ -104,8 +105,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "proposicoes",
+      "valor-logico",
+      "classificacao"
     ],
     "origin": "nabulab"
   },
@@ -118,32 +120,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjunção",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras?",
+    "statement": "Considere p: \"Ana estuda\" e q: \"Ana trabalha\". Se p é verdadeira e q é falsa, qual é o valor lógico de \"p e q\"?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Disjunção inclusiva"
+        "text": "Verdadeiro"
       },
       {
         "id": "B",
-        "text": "Condição suficiente"
+        "text": "Falso"
       },
       {
         "id": "C",
-        "text": "Conjunção lógica"
+        "text": "Depende da ordem das frases"
       },
       {
         "id": "D",
-        "text": "Invariante"
+        "text": "Não é possível determinar"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Por isso, a alternativa correta é Conjunção lógica.",
+    "correctAnswer": "B",
+    "explanation": "Uma conjunção p e q só é verdadeira quando ambas as proposições são verdadeiras. Como q é falsa, a conjunção é falsa.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a expressão p ou q é falsa somente quando ambas as proposições são falsas.",
-      "B": "Não corresponde ao caso: quando p implica q, a ocorrência de p basta para garantir q.",
-      "C": "Correta. A resposta decorre da definição disciplinar a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Por isso, a alternativa correta é Conjunção lógica.",
-      "D": "Esse conceito designa outra relação: uma propriedade permanece constante durante transformações e restringe os resultados possíveis."
+      "A": "Seria verdadeira apenas se p e q fossem verdadeiras.",
+      "B": "Correta. Uma das parcelas da conjunção é falsa.",
+      "C": "A conjunção é comutativa; a ordem não altera seu valor lógico.",
+      "D": "Os valores de p e q foram informados, então o resultado pode ser determinado."
     },
     "tags": [
       "conectivos",
@@ -158,8 +160,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "conectivos",
+      "conjuncao",
+      "avaliacao-logica"
     ],
     "origin": "nabulab"
   },
@@ -172,32 +175,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Disjunção",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: a expressão p ou q é falsa somente quando ambas as proposições são falsas?",
+    "statement": "Uma regra diz que o aluno recebe certificado se participou da oficina ou entregou o projeto, usando \"ou\" no sentido inclusivo. Em qual situação o certificado NÃO é concedido?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Negação de todo"
+        "text": "O aluno participou da oficina e também entregou o projeto."
       },
       {
         "id": "B",
-        "text": "Diagrama de Venn"
+        "text": "O aluno participou da oficina e não entregou o projeto."
       },
       {
         "id": "C",
-        "text": "Tabela de dupla entrada"
+        "text": "O aluno não participou da oficina e entregou o projeto."
       },
       {
         "id": "D",
-        "text": "Disjunção inclusiva"
+        "text": "O aluno não participou da oficina e não entregou o projeto."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é a expressão p ou q é falsa somente quando ambas as proposições são falsas. Por isso, a alternativa correta é Disjunção inclusiva.",
+    "explanation": "Na disjunção inclusiva, a expressão só é falsa quando as duas condições são falsas. Portanto, o certificado não é concedido apenas a quem não participou nem entregou.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
-      "B": "Diverge da descrição porque regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos.",
-      "C": "Esse conceito designa outra relação: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
-      "D": "Correta. O critério relevante é a expressão p ou q é falsa somente quando ambas as proposições são falsas. Por isso, a alternativa correta é Disjunção inclusiva."
+      "A": "No \"ou\" inclusivo, as duas condições verdadeiras também satisfazem a regra.",
+      "B": "Participar da oficina já torna a condição suficiente para o certificado.",
+      "C": "Entregar o projeto já torna a condição suficiente para o certificado.",
+      "D": "Correta. Com as duas condições falsas, a disjunção é falsa."
     },
     "tags": [
       "conectivos",
@@ -212,8 +215,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "conectivos",
+      "disjuncao",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -226,32 +230,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Quantificadores",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui?",
+    "statement": "Qual é a negação correta de \"Todos os estudantes entregaram a atividade\"?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Negação de todo"
+        "text": "Nenhum estudante entregou a atividade."
       },
       {
         "id": "B",
-        "text": "Contrapositiva"
+        "text": "Pelo menos um estudante não entregou a atividade."
       },
       {
         "id": "C",
-        "text": "Raciocínio por eliminação"
+        "text": "Todos os estudantes deixaram de entregar a atividade."
       },
       {
         "id": "D",
-        "text": "Argumento válido"
+        "text": "Pelo menos um estudante entregou a atividade."
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "Neste caso negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Por isso, a alternativa correta é Negação de todo.",
+    "correctAnswer": "B",
+    "explanation": "Negar uma afirmação universal exige encontrar ao menos uma exceção: \"existe pelo menos um estudante que não entregou\".",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Por isso, a alternativa correta é Negação de todo.",
-      "B": "Esse conceito designa outra relação: a implicação se p então q é logicamente equivalente a se não q então não p.",
-      "C": "A propriedade dessa alternativa é distinta: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
-      "D": "Não corresponde ao caso: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa."
+      "A": "É uma afirmação mais forte que a negação; a frase original pode ser falsa mesmo que alguns tenham entregado.",
+      "B": "Correta. Uma única exceção basta para negar \"todos\".",
+      "C": "Também é mais forte do que necessário.",
+      "D": "Essa frase pode ser verdadeira ao mesmo tempo que a original; portanto não é sua negação."
     },
     "tags": [
       "negacao",
@@ -266,8 +270,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "negacao",
+      "quantificadores",
+      "equivalencia-logica"
     ],
     "origin": "nabulab"
   },
@@ -280,32 +285,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condicional",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: a implicação se p então q é logicamente equivalente a se não q então não p?",
+    "statement": "A frase \"Se o cartão é válido, então a catraca libera a entrada\" é logicamente equivalente a qual afirmação?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Condição suficiente"
+        "text": "Se a catraca não libera a entrada, então o cartão não é válido."
       },
       {
         "id": "B",
-        "text": "Contrapositiva"
+        "text": "Se a catraca libera a entrada, então o cartão é válido."
       },
       {
         "id": "C",
-        "text": "Invariante"
+        "text": "Se o cartão não é válido, então a catraca não libera a entrada."
       },
       {
         "id": "D",
-        "text": "Padrão recursivo"
+        "text": "O cartão é válido se, e somente se, a catraca libera a entrada."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A propriedade determinante é a implicação se p então q é logicamente equivalente a se não q então não p. Por isso, a alternativa correta é Contrapositiva.",
+    "correctAnswer": "A",
+    "explanation": "A contrapositiva de p → q é ¬q → ¬p. Ela é logicamente equivalente à implicação original.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: quando p implica q, a ocorrência de p basta para garantir q.",
-      "B": "Correta. A propriedade determinante é a implicação se p então q é logicamente equivalente a se não q então não p. Por isso, a alternativa correta é Contrapositiva.",
-      "C": "Não corresponde ao caso: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
-      "D": "Diverge da descrição porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência."
+      "A": "Correta. É exatamente a contrapositiva da implicação.",
+      "B": "É a recíproca; não é equivalente em geral.",
+      "C": "É a inversa; também não é equivalente em geral.",
+      "D": "Transforma uma condição suficiente em condição necessária e suficiente."
     },
     "tags": [
       "equivalencia",
@@ -320,8 +325,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "equivalencia",
+      "contrapositiva",
+      "raciocinio-logico"
     ],
     "origin": "nabulab"
   },
@@ -334,32 +340,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condição",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: quando p implica q, a ocorrência de p basta para garantir q?",
+    "statement": "Uma regra diz: \"Se a senha estiver correta, o sistema libera o acesso\". Considerando apenas essa regra, a senha correta é uma condição:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Diagrama de Venn"
+        "text": "necessária para o acesso"
       },
       {
         "id": "B",
-        "text": "Tabela de dupla entrada"
+        "text": "suficiente para o acesso"
       },
       {
         "id": "C",
-        "text": "Condição suficiente"
+        "text": "impossível para o acesso"
       },
       {
         "id": "D",
-        "text": "Proposição lógica"
+        "text": "equivalente à negação do acesso"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em quando p implica q, a ocorrência de p basta para garantir q. Por isso, a alternativa correta é Condição suficiente.",
+    "correctAnswer": "B",
+    "explanation": "A implicação afirma que senha correta garante acesso; portanto, a senha correta é condição suficiente para a liberação.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos.",
-      "B": "Não corresponde ao caso: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
-      "C": "Correta. A conclusão se apoia em quando p implica q, a ocorrência de p basta para garantir q. Por isso, a alternativa correta é Condição suficiente.",
-      "D": "Esse conceito designa outra relação: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido."
+      "A": "A regra não diz que todo acesso só ocorre com senha correta; isso exigiria a recíproca.",
+      "B": "Correta. A ocorrência da condição garante a consequência.",
+      "C": "Contraria diretamente a regra dada.",
+      "D": "Não há relação de equivalência com a negação do acesso."
     },
     "tags": [
       "implicacao",
@@ -374,8 +380,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "implicacao",
+      "condicao-suficiente",
+      "interpretacao"
     ],
     "origin": "nabulab"
   },
@@ -388,32 +395,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjuntos",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos?",
+    "statement": "Em uma turma, 20 alunos gostam de Matemática, 15 gostam de Física e 7 gostam das duas disciplinas. Quantos gostam de pelo menos uma das duas?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Raciocínio por eliminação"
+        "text": "28"
       },
       {
         "id": "B",
-        "text": "Argumento válido"
+        "text": "35"
       },
       {
         "id": "C",
-        "text": "Conjunção lógica"
+        "text": "42"
       },
       {
         "id": "D",
-        "text": "Diagrama de Venn"
+        "text": "12"
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "A distinção central está em regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos. Por isso, a alternativa correta é Diagrama de Venn.",
+    "correctAnswer": "A",
+    "explanation": "Pelo princípio da inclusão-exclusão, 20 + 15 − 7 = 28. Os 7 que gostam das duas não podem ser contados duas vezes.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
-      "B": "Diverge da descrição porque não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa.",
-      "C": "Esse conceito designa outra relação: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
-      "D": "Correta. A distinção central está em regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos. Por isso, a alternativa correta é Diagrama de Venn."
+      "A": "Correta. Soma-se cada grupo e subtrai-se a interseção uma vez.",
+      "B": "Conta os 7 alunos da interseção duas vezes.",
+      "C": "Soma a interseção em vez de descontá-la.",
+      "D": "Corresponde a uma diferença entre os grupos, não à união."
     },
     "tags": [
       "diagramas",
@@ -428,8 +435,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "conjuntos",
+      "diagrama-de-venn",
+      "contagem"
     ],
     "origin": "nabulab"
   },
@@ -442,32 +450,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Exclusão",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes?",
+    "statement": "Três caixas, A, B e C, guardam respectivamente um livro, uma caneca e um fone, um objeto por caixa. Sabe-se que o livro não está em A e a caneca está em B. Onde está o livro?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Raciocínio por eliminação"
+        "text": "A"
       },
       {
         "id": "B",
-        "text": "Invariante"
+        "text": "B"
       },
       {
         "id": "C",
-        "text": "Padrão recursivo"
+        "text": "C"
       },
       {
         "id": "D",
-        "text": "Disjunção inclusiva"
+        "text": "Não é possível determinar"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Por isso, a alternativa correta é Raciocínio por eliminação.",
+    "correctAnswer": "C",
+    "explanation": "Como B contém a caneca, o livro não pode estar em B. A pista também exclui A. Logo, o livro só pode estar em C.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Por isso, a alternativa correta é Raciocínio por eliminação.",
-      "B": "Esse conceito designa outra relação: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
-      "C": "A propriedade dessa alternativa é distinta: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
-      "D": "Não corresponde ao caso: a expressão p ou q é falsa somente quando ambas as proposições são falsas."
+      "A": "A primeira pista exclui essa caixa.",
+      "B": "B já contém a caneca.",
+      "C": "Correta. É a única caixa restante compatível com as pistas.",
+      "D": "As duas pistas são suficientes para determinar a posição do livro."
     },
     "tags": [
       "problemas-logicos",
@@ -482,8 +490,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "problemas-logicos",
+      "eliminacao",
+      "deducao"
     ],
     "origin": "nabulab"
   },
@@ -496,32 +505,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Invariantes",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: uma propriedade permanece constante durante transformações e restringe os resultados possíveis?",
+    "statement": "Começando com o número 7, uma operação permitida consiste apenas em somar ou subtrair 2. Qual dos números abaixo é impossível obter após qualquer quantidade de operações?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Tabela de dupla entrada"
+        "text": "1"
       },
       {
         "id": "B",
-        "text": "Invariante"
+        "text": "5"
       },
       {
         "id": "C",
-        "text": "Proposição lógica"
+        "text": "11"
       },
       {
         "id": "D",
-        "text": "Negação de todo"
+        "text": "12"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "O critério relevante é uma propriedade permanece constante durante transformações e restringe os resultados possíveis. Por isso, a alternativa correta é Invariante.",
+    "correctAnswer": "D",
+    "explanation": "Somar ou subtrair 2 preserva a paridade. Como 7 é ímpar, todos os números alcançáveis são ímpares. O número 12 é par.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
-      "B": "Correta. O critério relevante é uma propriedade permanece constante durante transformações e restringe os resultados possíveis. Por isso, a alternativa correta é Invariante.",
-      "C": "Não corresponde ao caso: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
-      "D": "Diverge da descrição porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui."
+      "A": "É alcançável: 7 − 2 − 2 − 2 = 1.",
+      "B": "É alcançável com uma subtração de 2.",
+      "C": "É alcançável com duas adições de 2.",
+      "D": "Correta. A paridade permanece ímpar em todas as operações."
     },
     "tags": [
       "raciocinio-quantitativo",
@@ -536,8 +545,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "raciocinio-quantitativo",
+      "invariantes",
+      "paridade"
     ],
     "origin": "nabulab"
   },
@@ -550,32 +560,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Tabelas",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações?",
+    "statement": "Uma tabela registra 18 alunos no turno da manhã e 12 à tarde. Entre os da manhã, 10 usam ônibus; entre os da tarde, 5 usam ônibus. Quantos alunos não usam ônibus?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Argumento válido"
+        "text": "7"
       },
       {
         "id": "B",
-        "text": "Conjunção lógica"
+        "text": "25"
       },
       {
         "id": "C",
-        "text": "Tabela de dupla entrada"
+        "text": "17"
       },
       {
         "id": "D",
-        "text": "Contrapositiva"
+        "text": "15"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "Neste caso duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Por isso, a alternativa correta é Tabela de dupla entrada.",
+    "correctAnswer": "D",
+    "explanation": "Há 18 − 10 = 8 alunos sem ônibus pela manhã e 12 − 5 = 7 à tarde. Total: 8 + 7 = 15.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa.",
-      "B": "Não corresponde ao caso: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
-      "C": "Correta. Neste caso duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Por isso, a alternativa correta é Tabela de dupla entrada.",
-      "D": "Esse conceito designa outra relação: a implicação se p então q é logicamente equivalente a se não q então não p."
+      "A": "Conta apenas os alunos da tarde que não usam ônibus.",
+      "B": "Esse valor não corresponde ao complemento dos usuários de ônibus.",
+      "C": "Esse resultado combina incorretamente os totais das linhas.",
+      "D": "Correta. Soma 8 da manhã e 7 da tarde."
     },
     "tags": [
       "organizacao",
@@ -590,8 +600,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "organizacao-de-informacoes",
+      "tabela",
+      "contagem"
     ],
     "origin": "nabulab"
   },
@@ -604,32 +615,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Validade",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa?",
+    "statement": "Considere o argumento: \"Se chove, a rua molha. Está chovendo. Portanto, a rua molha.\" Qual descrição é correta?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Padrão recursivo"
+        "text": "O argumento é válido."
       },
       {
         "id": "B",
-        "text": "Disjunção inclusiva"
+        "text": "A conclusão contradiz a primeira premissa."
       },
       {
         "id": "C",
-        "text": "Condição suficiente"
+        "text": "O argumento afirma o consequente."
       },
       {
         "id": "D",
-        "text": "Argumento válido"
+        "text": "A conclusão não depende das premissas."
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "A propriedade determinante é não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa. Por isso, a alternativa correta é Argumento válido.",
+    "correctAnswer": "A",
+    "explanation": "O argumento tem a forma p → q; p; logo q, conhecida como modus ponens. Se as premissas forem verdadeiras, a conclusão não pode ser falsa.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
-      "B": "Diverge da descrição porque a expressão p ou q é falsa somente quando ambas as proposições são falsas.",
-      "C": "Esse conceito designa outra relação: quando p implica q, a ocorrência de p basta para garantir q.",
-      "D": "Correta. A propriedade determinante é não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa. Por isso, a alternativa correta é Argumento válido."
+      "A": "Correta. A conclusão decorre diretamente das duas premissas.",
+      "B": "A conclusão é justamente a consequência prevista pela primeira premissa.",
+      "C": "Afirmar o consequente seria partir de q para concluir p.",
+      "D": "A conclusão é sustentada pelas premissas."
     },
     "tags": [
       "argumentacao",
@@ -644,8 +655,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "argumentacao",
+      "validade",
+      "modus-ponens"
     ],
     "origin": "nabulab"
   },
@@ -658,7 +670,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjunção",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Conjunção lógica” corresponde à seguinte descrição: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
+    "statement": "Se p é verdadeira e q é falsa, então a proposição \"p e q\" é falsa.",
     "alternatives": [
       {
         "id": "V",
@@ -670,10 +682,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Em Conectivos, o reconhecimento direto da propriedade de Conjunção resolve o item.",
+    "explanation": "Uma conjunção só é verdadeira quando os dois componentes são verdadeiros. Com q falsa, a conjunção é falsa.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Em Conectivos, o reconhecimento direto da propriedade de Conjunção resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Em Conectivos, o reconhecimento direto da propriedade de Conjunção resolve o item."
+      "V": "Correto. Basta uma das proposições ser falsa para a conjunção ser falsa.",
+      "F": "Incorreto. A tabela-verdade da conjunção confirma o valor falso."
     },
     "tags": [
       "conectivos",
@@ -688,8 +700,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "conectivos",
+      "conjuncao",
+      "tabela-verdade"
     ],
     "origin": "nabulab"
   },
@@ -702,7 +715,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Disjunção",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Negação de todo” corresponde à seguinte descrição: a expressão p ou q é falsa somente quando ambas as proposições são falsas.",
+    "statement": "Na disjunção inclusiva, se p e q são ambas verdadeiras, então \"p ou q\" também é verdadeira.",
     "alternatives": [
       {
         "id": "V",
@@ -713,11 +726,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Em Conectivos, o reconhecimento direto da propriedade de Disjunção resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "No \"ou\" inclusivo, basta pelo menos uma proposição ser verdadeira. Quando ambas são verdadeiras, a disjunção permanece verdadeira.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Em Conectivos, o reconhecimento direto da propriedade de Disjunção resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Em Conectivos, o reconhecimento direto da propriedade de Disjunção resolve o item."
+      "V": "Correto. A disjunção inclusiva só é falsa quando p e q são ambas falsas.",
+      "F": "Incorreto. Duas proposições verdadeiras satisfazem o \"ou\" inclusivo."
     },
     "tags": [
       "conectivos",
@@ -732,8 +745,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "conectivos",
+      "disjuncao",
+      "tabela-verdade"
     ],
     "origin": "nabulab"
   },
@@ -746,7 +760,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Quantificadores",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Negação de todo” corresponde à seguinte descrição: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
+    "statement": "A negação de \"Nenhum candidato faltou\" é \"Nenhum candidato compareceu\".",
     "alternatives": [
       {
         "id": "V",
@@ -757,11 +771,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Em Negação, o reconhecimento direto da propriedade de Quantificadores resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "\"Nenhum candidato faltou\" equivale a dizer que todos compareceram. Sua negação é \"Pelo menos um candidato faltou\", não \"ninguém compareceu\".",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Em Negação, o reconhecimento direto da propriedade de Quantificadores resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Em Negação, o reconhecimento direto da propriedade de Quantificadores resolve o item."
+      "V": "Incorreto. A frase proposta é muito mais forte e não representa a negação lógica.",
+      "F": "Correto. Basta existir ao menos uma falta para negar a afirmação original."
     },
     "tags": [
       "negacao",
@@ -776,8 +790,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "negacao",
+      "quantificadores",
+      "equivalencia-logica"
     ],
     "origin": "nabulab"
   },
@@ -790,7 +805,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condicional",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Condição suficiente” corresponde à seguinte descrição: a implicação se p então q é logicamente equivalente a se não q então não p.",
+    "statement": "A contrapositiva de \"Se estudo, então aprendo\" é \"Se não aprendo, então não estudo\".",
     "alternatives": [
       {
         "id": "V",
@@ -801,11 +816,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. Em Equivalência, o reconhecimento direto da propriedade de Condicional resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "A contrapositiva de p → q é ¬q → ¬p. Portanto, a frase apresentada é equivalente à implicação original.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. Em Equivalência, o reconhecimento direto da propriedade de Condicional resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. Em Equivalência, o reconhecimento direto da propriedade de Condicional resolve o item."
+      "V": "Correto. O consequente é negado e passa a antecedente; o antecedente é negado e passa a consequente.",
+      "F": "Incorreto. Essa é exatamente a contrapositiva da afirmação dada."
     },
     "tags": [
       "equivalencia",
@@ -820,8 +835,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "equivalencia",
+      "contrapositiva",
+      "analise-logica"
     ],
     "origin": "nabulab"
   },
@@ -834,7 +850,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condição",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Condição suficiente” corresponde à seguinte descrição: quando p implica q, a ocorrência de p basta para garantir q.",
+    "statement": "Da regra \"Se um número é múltiplo de 4, então ele é par\" conclui-se que ser múltiplo de 4 é condição necessária para ser par.",
     "alternatives": [
       {
         "id": "V",
@@ -845,11 +861,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. Em Implicação, o reconhecimento direto da propriedade de Condição resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "Ser múltiplo de 4 é suficiente para ser par, mas não necessário: 6, por exemplo, é par e não é múltiplo de 4.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. Em Implicação, o reconhecimento direto da propriedade de Condição resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. Em Implicação, o reconhecimento direto da propriedade de Condição resolve o item."
+      "V": "Incorreto. A regra garante suficiência, não necessidade.",
+      "F": "Correto. Existem números pares que não são múltiplos de 4."
     },
     "tags": [
       "implicacao",
@@ -864,8 +880,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "implicacao",
+      "condicao-necessaria",
+      "interpretacao"
     ],
     "origin": "nabulab"
   },
@@ -878,7 +895,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjuntos",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Raciocínio por eliminação” corresponde à seguinte descrição: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos.",
+    "statement": "Se 14 pessoas gostam de café, 9 gostam de chá e 5 gostam de ambos, então 23 pessoas gostam de pelo menos uma dessas bebidas.",
     "alternatives": [
       {
         "id": "V",
@@ -890,10 +907,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Em Diagramas, o reconhecimento direto da propriedade de Conjuntos resolve o item.",
+    "explanation": "A união é 14 + 9 − 5 = 18. Somar 14 + 9 conta as 5 pessoas da interseção duas vezes.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Em Diagramas, o reconhecimento direto da propriedade de Conjuntos resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Em Diagramas, o reconhecimento direto da propriedade de Conjuntos resolve o item."
+      "V": "Incorreto. O total de 23 não desconta a sobreposição.",
+      "F": "Correto. O número correto de pessoas na união é 18."
     },
     "tags": [
       "diagramas",
@@ -908,8 +925,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "conjuntos",
+      "diagrama-de-venn",
+      "contagem"
     ],
     "origin": "nabulab"
   },
@@ -922,7 +940,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Exclusão",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Raciocínio por eliminação” corresponde à seguinte descrição: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
+    "statement": "Em uma fila de três pessoas, Bia está à frente de Caio e Caio está à frente de Davi. Logo, Bia está à frente de Davi.",
     "alternatives": [
       {
         "id": "V",
@@ -934,10 +952,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Em Problemas lógicos, o reconhecimento direto da propriedade de Exclusão resolve o item.",
+    "explanation": "A relação de ordem é transitiva: se Bia vem antes de Caio e Caio antes de Davi, então Bia vem antes de Davi.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Em Problemas lógicos, o reconhecimento direto da propriedade de Exclusão resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Em Problemas lógicos, o reconhecimento direto da propriedade de Exclusão resolve o item."
+      "V": "Correto. As duas pistas determinam a ordem Bia, Caio, Davi.",
+      "F": "Incorreto. A conclusão é uma consequência necessária das duas pistas."
     },
     "tags": [
       "problemas-logicos",
@@ -952,8 +970,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "problemas-logicos",
+      "ordenacao",
+      "deducao"
     ],
     "origin": "nabulab"
   },
@@ -966,7 +985,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Invariantes",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Tabela de dupla entrada” corresponde à seguinte descrição: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
+    "statement": "Se começamos com um número par e, repetidamente, somamos 2, podemos obter um número ímpar.",
     "alternatives": [
       {
         "id": "V",
@@ -978,10 +997,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Invariante, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Em Raciocínio quantitativo, o reconhecimento direto da propriedade de Invariantes resolve o item.",
+    "explanation": "Somar 2 preserva a paridade. Um número par permanece par após qualquer quantidade dessas operações.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Invariante, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Em Raciocínio quantitativo, o reconhecimento direto da propriedade de Invariantes resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Invariante, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Em Raciocínio quantitativo, o reconhecimento direto da propriedade de Invariantes resolve o item."
+      "V": "Incorreto. A operação não altera a paridade.",
+      "F": "Correto. A paridade é um invariante nesse processo."
     },
     "tags": [
       "raciocinio-quantitativo",
@@ -996,8 +1015,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "raciocinio-quantitativo",
+      "invariantes",
+      "paridade"
     ],
     "origin": "nabulab"
   },
@@ -1010,7 +1030,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Tabelas",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Tabela de dupla entrada” corresponde à seguinte descrição: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
+    "statement": "Uma tabela mostra 8 alunos no grupo A e 11 no grupo B. Se os grupos não se sobrepõem, então há 20 alunos no total.",
     "alternatives": [
       {
         "id": "V",
@@ -1021,11 +1041,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Em Organização de informações, o reconhecimento direto da propriedade de Tabelas resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "Como os grupos são distintos e sem sobreposição, o total é 8 + 11 = 19, não 20.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Em Organização de informações, o reconhecimento direto da propriedade de Tabelas resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Em Organização de informações, o reconhecimento direto da propriedade de Tabelas resolve o item."
+      "V": "Incorreto. A soma dos dois grupos é 19.",
+      "F": "Correto. Sem sobreposição, não há qualquer elemento a descontar ou acrescentar."
     },
     "tags": [
       "organizacao",
@@ -1040,8 +1060,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "organizacao-de-informacoes",
+      "tabelas",
+      "contagem"
     ],
     "origin": "nabulab"
   },
@@ -1054,7 +1075,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Validade",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Padrão recursivo” corresponde à seguinte descrição: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa.",
+    "statement": "Do argumento \"Se Pedro corre, então se cansa. Pedro não se cansou. Logo, Pedro não correu\" a conclusão decorre validamente das premissas.",
     "alternatives": [
       {
         "id": "V",
@@ -1065,11 +1086,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Em Argumentação, o reconhecimento direto da propriedade de Validade resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "A primeira premissa garante que toda corrida de Pedro, nesse cenário, produziria cansaço. Como foi informado que ele não se cansou, a hipótese de que correu é incompatível com as premissas; portanto, conclui-se que não correu.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Em Argumentação, o reconhecimento direto da propriedade de Validade resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Em Argumentação, o reconhecimento direto da propriedade de Validade resolve o item."
+      "V": "Correto. A conclusão usa a contrapositiva da regra dada.",
+      "F": "Incorreto. Se Pedro tivesse corrido, a primeira premissa obrigaria o cansaço, contrariando a segunda informação."
     },
     "tags": [
       "argumentacao",
@@ -1084,8 +1105,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "argumentacao",
+      "validade",
+      "modus-tollens"
     ],
     "origin": "nabulab"
   },
@@ -1098,7 +1120,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Regularidade",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Padrão recursivo” corresponde à seguinte descrição: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
+    "statement": "Na sequência 1, 2, 4, 8, 16, mantendo a regra de duplicar o termo anterior, o próximo termo é 30.",
     "alternatives": [
       {
         "id": "V",
@@ -1109,11 +1131,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Em Sequências, o reconhecimento direto da propriedade de Regularidade resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "A regra de duplicação fornece 16 × 2 = 32. Portanto, 30 não mantém a regularidade indicada.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Em Sequências, o reconhecimento direto da propriedade de Regularidade resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Em Sequências, o reconhecimento direto da propriedade de Regularidade resolve o item."
+      "V": "Incorreto. O próximo termo deve ser 32.",
+      "F": "Correto. A afirmação rompe a regra multiplicativa da sequência."
     },
     "tags": [
       "sequencias",
@@ -1128,8 +1150,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "sequencias",
+      "regularidade",
+      "identificacao-de-padroes"
     ],
     "origin": "nabulab"
   },
@@ -1142,7 +1165,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Valor lógico",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Conjunção lógica” corresponde à seguinte descrição: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
+    "statement": "A frase declarativa \"O número 12 é par\" é uma proposição lógica.",
     "alternatives": [
       {
         "id": "V",
@@ -1153,11 +1176,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Em Proposições, o reconhecimento direto da propriedade de Valor lógico resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "A frase possui valor lógico definido — neste caso, verdadeiro — e por isso é uma proposição.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Em Proposições, o reconhecimento direto da propriedade de Valor lógico resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Em Proposições, o reconhecimento direto da propriedade de Valor lógico resolve o item."
+      "V": "Correto. É uma sentença declarativa que pode ser classificada como verdadeira ou falsa.",
+      "F": "Incorreto. A afirmação tem valor lógico definido e satisfaz o critério de proposição."
     },
     "tags": [
       "proposicoes",
@@ -1172,8 +1195,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "proposicoes",
+      "valor-logico",
+      "classificacao"
     ],
     "origin": "nabulab"
   },
@@ -1186,32 +1210,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Quantificadores",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui?",
+    "statement": "Qual é a negação correta da afirmação \"Todos os alunos que fizeram a prova entregaram o cartão-resposta\"?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Negação de todo"
+        "text": "Nenhum aluno que fez a prova entregou o cartão-resposta."
       },
       {
         "id": "B",
-        "text": "Condição suficiente"
+        "text": "Existe pelo menos um aluno que fez a prova e não entregou o cartão-resposta."
       },
       {
         "id": "C",
-        "text": "Invariante"
+        "text": "Existe pelo menos um aluno que não fez a prova e entregou o cartão-resposta."
       },
       {
         "id": "D",
-        "text": "Proposição lógica"
+        "text": "Todos os alunos que não fizeram a prova deixaram de entregar o cartão-resposta."
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Por isso, a alternativa correta é Negação de todo.",
+    "correctAnswer": "B",
+    "explanation": "A frase original pode ser escrita como: para todo aluno, se fez a prova, então entregou o cartão. Sua negação afirma a existência de pelo menos um aluno que fez a prova e não entregou o cartão.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Por isso, a alternativa correta é Negação de todo.",
-      "B": "Esse conceito designa outra relação: quando p implica q, a ocorrência de p basta para garantir q.",
-      "C": "A propriedade dessa alternativa é distinta: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
-      "D": "Não corresponde ao caso: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido."
+      "A": "É mais forte do que a negação: a original já seria falsa se apenas um aluno não entregasse.",
+      "B": "Correta. Uma única exceção entre os que fizeram a prova basta para negar a afirmação universal.",
+      "C": "Fala de alunos que não fizeram a prova e não contradiz a afirmação original.",
+      "D": "Também trata de um grupo que a frase original não restringe."
     },
     "tags": [
       "negacao",
@@ -1226,8 +1250,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "negacao",
+      "quantificadores",
+      "formalizacao"
     ],
     "origin": "nabulab"
   },
@@ -1240,32 +1265,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condicional",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: a implicação se p então q é logicamente equivalente a se não q então não p?",
+    "statement": "A afirmação \"Se o relatório foi aprovado, então o projeto pode seguir\" é falsa em qual situação?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Diagrama de Venn"
+        "text": "O relatório foi aprovado e o projeto pode seguir."
       },
       {
         "id": "B",
-        "text": "Contrapositiva"
+        "text": "O relatório não foi aprovado e o projeto não pode seguir."
       },
       {
         "id": "C",
-        "text": "Tabela de dupla entrada"
+        "text": "O relatório não foi aprovado e o projeto pode seguir."
       },
       {
         "id": "D",
-        "text": "Conjunção lógica"
+        "text": "O relatório foi aprovado e o projeto não pode seguir."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A distinção central está em a implicação se p então q é logicamente equivalente a se não q então não p. Por isso, a alternativa correta é Contrapositiva.",
+    "correctAnswer": "D",
+    "explanation": "Uma implicação p → q é falsa somente quando o antecedente p é verdadeiro e o consequente q é falso.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos.",
-      "B": "Correta. A distinção central está em a implicação se p então q é logicamente equivalente a se não q então não p. Por isso, a alternativa correta é Contrapositiva.",
-      "C": "Não corresponde ao caso: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
-      "D": "Diverge da descrição porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras."
+      "A": "Verdadeiro implica verdadeiro torna a condicional verdadeira.",
+      "B": "Com antecedente falso, a implicação é verdadeira na lógica proposicional.",
+      "C": "Também tem antecedente falso, portanto não falsifica a implicação.",
+      "D": "Correta. É o único caso em que p ocorre e q não ocorre."
     },
     "tags": [
       "equivalencia",
@@ -1280,8 +1305,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "equivalencia",
+      "condicional",
+      "tabela-verdade"
     ],
     "origin": "nabulab"
   },
@@ -1294,32 +1320,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condição",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: quando p implica q, a ocorrência de p basta para garantir q?",
+    "statement": "Uma escola estabelece: \"Para participar da olimpíada, é necessário estar matriculado e é suficiente ter sido classificado na seletiva\". Qual interpretação é correta?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Raciocínio por eliminação"
+        "text": "Todo matriculado participa da olimpíada."
       },
       {
         "id": "B",
-        "text": "Argumento válido"
+        "text": "Quem não foi classificado necessariamente não está matriculado."
       },
       {
         "id": "C",
-        "text": "Condição suficiente"
+        "text": "Quem participa necessariamente está matriculado; quem foi classificado na seletiva participa."
       },
       {
         "id": "D",
-        "text": "Disjunção inclusiva"
+        "text": "Estar matriculado e ser classificado são condições equivalentes."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar quando p implica q, a ocorrência de p basta para garantir q. Por isso, a alternativa correta é Condição suficiente.",
+    "explanation": "\"Necessário estar matriculado\" significa participação → matrícula. \"Suficiente ter sido classificado\" significa classificação → participação.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
-      "B": "Não corresponde ao caso: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa.",
-      "C": "Correta. A resposta decorre da definição disciplinar quando p implica q, a ocorrência de p basta para garantir q. Por isso, a alternativa correta é Condição suficiente.",
-      "D": "Esse conceito designa outra relação: a expressão p ou q é falsa somente quando ambas as proposições são falsas."
+      "A": "Matrícula é necessária, mas não foi declarada suficiente.",
+      "B": "A ausência de classificação não permite concluir nada sobre a matrícula.",
+      "C": "Correta. Traduz corretamente as duas relações condicionais.",
+      "D": "As condições desempenham papéis lógicos diferentes e não foram declaradas equivalentes."
     },
     "tags": [
       "implicacao",
@@ -1334,8 +1360,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "implicacao",
+      "condicao-necessaria",
+      "condicao-suficiente"
     ],
     "origin": "nabulab"
   },
@@ -1348,32 +1375,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjuntos",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos?",
+    "statement": "Em um grupo de 50 pessoas, 28 assistem à série A, 25 à série B e 12 assistem às duas. Quantas não assistem a nenhuma das duas séries?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Invariante"
+        "text": "21"
       },
       {
         "id": "B",
-        "text": "Padrão recursivo"
+        "text": "12"
       },
       {
         "id": "C",
-        "text": "Negação de todo"
+        "text": "9"
       },
       {
         "id": "D",
-        "text": "Diagrama de Venn"
+        "text": "41"
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "O critério relevante é regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos. Por isso, a alternativa correta é Diagrama de Venn.",
+    "correctAnswer": "C",
+    "explanation": "Assistindo a pelo menos uma: 28 + 25 − 12 = 41. Portanto, 50 − 41 = 9 não assistem a nenhuma.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
-      "B": "Diverge da descrição porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
-      "C": "Esse conceito designa outra relação: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
-      "D": "Correta. O critério relevante é regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos. Por isso, a alternativa correta é Diagrama de Venn."
+      "A": "Esse valor não decorre da inclusão-exclusão correta.",
+      "B": "12 é o tamanho da interseção, não do complemento.",
+      "C": "Correta. Primeiro calcula-se a união e depois seu complemento no grupo total.",
+      "D": "41 é o número que assiste a pelo menos uma série."
     },
     "tags": [
       "diagramas",
@@ -1388,8 +1415,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "diagramas",
+      "conjuntos",
+      "inclusao-exclusao"
     ],
     "origin": "nabulab"
   },
@@ -1402,32 +1430,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Exclusão",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes?",
+    "statement": "Quatro pessoas — Ana, Bruno, Carla e Diego — sentam-se em uma fila de quatro lugares. Bruno deve ficar imediatamente à esquerda de Carla, e Diego não pode ocupar uma ponta. Qual das ordens abaixo é possível?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Raciocínio por eliminação"
+        "text": "Diego, Bruno, Carla, Ana"
       },
       {
         "id": "B",
-        "text": "Tabela de dupla entrada"
+        "text": "Ana, Diego, Carla, Bruno"
       },
       {
         "id": "C",
-        "text": "Proposição lógica"
+        "text": "Bruno, Carla, Diego, Ana"
       },
       {
         "id": "D",
-        "text": "Contrapositiva"
+        "text": "Ana, Bruno, Diego, Carla"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "Neste caso possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Por isso, a alternativa correta é Raciocínio por eliminação.",
+    "correctAnswer": "C",
+    "explanation": "Na primeira ordem, Bruno está imediatamente à esquerda de Carla e Diego ocupa o terceiro lugar, que não é ponta. As demais violam pelo menos uma restrição.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Por isso, a alternativa correta é Raciocínio por eliminação.",
-      "B": "Esse conceito designa outra relação: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
-      "C": "A propriedade dessa alternativa é distinta: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
-      "D": "Não corresponde ao caso: a implicação se p então q é logicamente equivalente a se não q então não p."
+      "A": "Diego ocupa a primeira posição, que é uma ponta.",
+      "B": "Bruno não está imediatamente à esquerda de Carla.",
+      "C": "Correta. Satisfaz simultaneamente as duas condições.",
+      "D": "Bruno e Carla não estão adjacentes."
     },
     "tags": [
       "problemas-logicos",
@@ -1442,8 +1470,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "problemas-logicos",
+      "restricoes",
+      "eliminacao"
     ],
     "origin": "nabulab"
   },
@@ -1456,32 +1485,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Invariantes",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: uma propriedade permanece constante durante transformações e restringe os resultados possíveis?",
+    "statement": "Um tabuleiro começa com 7 peças pretas e 5 brancas. Em cada jogada, retiram-se duas peças da mesma cor e coloca-se uma peça preta. Qual propriedade permanece útil para analisar o processo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Argumento válido"
+        "text": "A paridade do número de peças brancas permanece ímpar."
       },
       {
         "id": "B",
-        "text": "Invariante"
+        "text": "O número total de peças permanece sempre 12."
       },
       {
         "id": "C",
-        "text": "Conjunção lógica"
+        "text": "A quantidade de peças pretas nunca se altera."
       },
       {
         "id": "D",
-        "text": "Condição suficiente"
+        "text": "O número de peças brancas aumenta a cada jogada."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A propriedade determinante é uma propriedade permanece constante durante transformações e restringe os resultados possíveis. Por isso, a alternativa correta é Invariante.",
+    "correctAnswer": "A",
+    "explanation": "Ao retirar duas brancas, a quantidade de brancas diminui em 2; ao retirar duas pretas, ela não muda. Portanto, a paridade das brancas permanece a mesma: inicialmente ímpar.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa.",
-      "B": "Correta. A propriedade determinante é uma propriedade permanece constante durante transformações e restringe os resultados possíveis. Por isso, a alternativa correta é Invariante.",
-      "C": "Não corresponde ao caso: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
-      "D": "Diverge da descrição porque quando p implica q, a ocorrência de p basta para garantir q."
+      "A": "Correta. A paridade das peças brancas é um invariante.",
+      "B": "Cada jogada reduz o total de peças em 1.",
+      "C": "A quantidade de pretas pode aumentar ou diminuir.",
+      "D": "A quantidade de brancas nunca aumenta."
     },
     "tags": [
       "raciocinio-quantitativo",
@@ -1496,8 +1525,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "raciocinio-quantitativo",
+      "invariantes",
+      "paridade"
     ],
     "origin": "nabulab"
   },
@@ -1510,32 +1540,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Tabelas",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações?",
+    "statement": "Uma pesquisa cruzou turno e meio de transporte. De 40 alunos da manhã, 18 vão de ônibus e 12 de carro; os demais vão a pé. De 30 alunos da tarde, 9 vão de ônibus e 15 de carro; os demais vão a pé. Quantos alunos vão a pé ao todo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Padrão recursivo"
+        "text": "10"
       },
       {
         "id": "B",
-        "text": "Disjunção inclusiva"
+        "text": "16"
       },
       {
         "id": "C",
-        "text": "Tabela de dupla entrada"
+        "text": "21"
       },
       {
         "id": "D",
-        "text": "Diagrama de Venn"
+        "text": "26"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Por isso, a alternativa correta é Tabela de dupla entrada.",
+    "correctAnswer": "B",
+    "explanation": "Pela manhã, 40 − 18 − 12 = 10 vão a pé. À tarde, 30 − 9 − 15 = 6. No total, 16.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
-      "B": "Não corresponde ao caso: a expressão p ou q é falsa somente quando ambas as proposições são falsas.",
-      "C": "Correta. A conclusão se apoia em duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Por isso, a alternativa correta é Tabela de dupla entrada.",
-      "D": "Esse conceito designa outra relação: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos."
+      "A": "Conta apenas os alunos da manhã que vão a pé.",
+      "B": "Correta. Soma 10 da manhã e 6 da tarde.",
+      "C": "Esse resultado combina incorretamente categorias de transporte.",
+      "D": "Esse valor não é o complemento correto dos demais meios."
     },
     "tags": [
       "organizacao",
@@ -1550,8 +1580,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "organizacao-de-informacoes",
+      "tabela",
+      "analise-de-dados"
     ],
     "origin": "nabulab"
   },
@@ -1564,32 +1595,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Validade",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa?",
+    "statement": "Considere: \"Se a biblioteca está aberta, então há um funcionário no balcão. Não há funcionário no balcão.\" Qual conclusão é logicamente válida?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Proposição lógica"
+        "text": "A biblioteca está aberta."
       },
       {
         "id": "B",
-        "text": "Negação de todo"
+        "text": "A biblioteca não está aberta."
       },
       {
         "id": "C",
-        "text": "Raciocínio por eliminação"
+        "text": "Há um funcionário em outra sala."
       },
       {
         "id": "D",
-        "text": "Argumento válido"
+        "text": "A biblioteca nunca abre."
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "A distinção central está em não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa. Por isso, a alternativa correta é Argumento válido.",
+    "correctAnswer": "B",
+    "explanation": "A estrutura é p → q e ¬q; logo ¬p, um modus tollens válido.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
-      "B": "Diverge da descrição porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
-      "C": "Esse conceito designa outra relação: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
-      "D": "Correta. A distinção central está em não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa. Por isso, a alternativa correta é Argumento válido."
+      "A": "Contradiz a conclusão obtida pela contrapositiva.",
+      "B": "Correta. A ausência do consequente permite negar o antecedente.",
+      "C": "Pode ser possível no mundo real, mas não decorre das premissas.",
+      "D": "As premissas tratam apenas da situação considerada, não de todos os momentos."
     },
     "tags": [
       "argumentacao",
@@ -1604,8 +1635,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "argumentacao",
+      "validade",
+      "modus-tollens"
     ],
     "origin": "nabulab"
   },
@@ -1618,32 +1650,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Regularidade",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência?",
+    "statement": "A sequência é definida por a₁ = 2 e aₙ₊₁ = 2aₙ + 1. Qual é o quarto termo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Padrão recursivo"
+        "text": "11"
       },
       {
         "id": "B",
-        "text": "Conjunção lógica"
+        "text": "15"
       },
       {
         "id": "C",
-        "text": "Contrapositiva"
+        "text": "17"
       },
       {
         "id": "D",
-        "text": "Invariante"
+        "text": "23"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Por isso, a alternativa correta é Padrão recursivo.",
+    "correctAnswer": "D",
+    "explanation": "a₂ = 5, a₃ = 11 e a₄ = 23.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Por isso, a alternativa correta é Padrão recursivo.",
-      "B": "Esse conceito designa outra relação: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
-      "C": "A propriedade dessa alternativa é distinta: a implicação se p então q é logicamente equivalente a se não q então não p.",
-      "D": "Não corresponde ao caso: uma propriedade permanece constante durante transformações e restringe os resultados possíveis."
+      "A": "11 é o terceiro termo, não o quarto.",
+      "B": "Esse resultado não aplica corretamente a recorrência.",
+      "C": "Esse valor não segue a regra 2aₙ + 1.",
+      "D": "Correta. Três aplicações sucessivas da regra levam a 23."
     },
     "tags": [
       "sequencias",
@@ -1658,8 +1690,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "sequencias",
+      "recorrencia",
+      "calculo"
     ],
     "origin": "nabulab"
   },
@@ -1672,32 +1705,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Valor lógico",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido?",
+    "statement": "Considere p verdadeira, q falsa e r verdadeira. Qual é o valor lógico de (p e q) ou r?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Disjunção inclusiva"
+        "text": "Verdadeiro"
       },
       {
         "id": "B",
-        "text": "Proposição lógica"
+        "text": "Falso"
       },
       {
         "id": "C",
-        "text": "Condição suficiente"
+        "text": "Indeterminado"
       },
       {
         "id": "D",
-        "text": "Tabela de dupla entrada"
+        "text": "Depende do valor de p"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "O critério relevante é uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido. Por isso, a alternativa correta é Proposição lógica.",
+    "correctAnswer": "A",
+    "explanation": "p e q é falsa. Então falsa ou r, com r verdadeira, resulta em verdadeira.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a expressão p ou q é falsa somente quando ambas as proposições são falsas.",
-      "B": "Correta. O critério relevante é uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido. Por isso, a alternativa correta é Proposição lógica.",
-      "C": "Não corresponde ao caso: quando p implica q, a ocorrência de p basta para garantir q.",
-      "D": "Diverge da descrição porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações."
+      "A": "Correta. A disjunção final contém r verdadeira.",
+      "B": "Embora p e q seja falsa, r torna a disjunção verdadeira.",
+      "C": "Todos os valores necessários foram informados.",
+      "D": "O valor de p já foi dado."
     },
     "tags": [
       "proposicoes",
@@ -1712,8 +1745,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "proposicoes",
+      "valor-logico",
+      "avaliacao-de-expressao"
     ],
     "origin": "nabulab"
   },
@@ -1726,32 +1760,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjunção",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras?",
+    "statement": "Uma porta abre se o cartão é válido e a senha está correta. O cartão de Léo é válido, mas a senha digitada está incorreta. O que se conclui pela regra?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Negação de todo"
+        "text": "A porta abre, porque uma condição é verdadeira."
       },
       {
         "id": "B",
-        "text": "Diagrama de Venn"
+        "text": "Nada pode ser concluído."
       },
       {
         "id": "C",
-        "text": "Conjunção lógica"
+        "text": "A porta abre somente se o cartão for inválido."
       },
       {
         "id": "D",
-        "text": "Argumento válido"
+        "text": "A porta não abre, porque a conjunção exige as duas condições."
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "Neste caso a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Por isso, a alternativa correta é Conjunção lógica.",
+    "correctAnswer": "D",
+    "explanation": "A condição de abertura é uma conjunção. Com cartão válido e senha incorreta, uma das parcelas é falsa, então a condição completa não é satisfeita.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
-      "B": "Não corresponde ao caso: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos.",
-      "C": "Correta. Neste caso a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Por isso, a alternativa correta é Conjunção lógica.",
-      "D": "Esse conceito designa outra relação: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa."
+      "A": "Essa interpretação trataria a conjunção como uma disjunção.",
+      "B": "Os valores das duas condições foram informados.",
+      "C": "Não há regra relacionando cartão inválido à abertura.",
+      "D": "Correta. As duas condições precisam ocorrer simultaneamente."
     },
     "tags": [
       "conectivos",
@@ -1766,8 +1800,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "conectivos",
+      "conjuncao",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -1780,32 +1815,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Disjunção",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: a expressão p ou q é falsa somente quando ambas as proposições são falsas?",
+    "statement": "Uma vaga exige experiência em Python ou Java, usando \"ou\" inclusivo. Carla tem experiência nas duas linguagens; Diego não tem experiência em nenhuma. Quem satisfaz a condição?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Contrapositiva"
+        "text": "Somente Carla"
       },
       {
         "id": "B",
-        "text": "Raciocínio por eliminação"
+        "text": "Somente Diego"
       },
       {
         "id": "C",
-        "text": "Padrão recursivo"
+        "text": "Carla e Diego"
       },
       {
         "id": "D",
-        "text": "Disjunção inclusiva"
+        "text": "Nenhum dos dois"
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "A propriedade determinante é a expressão p ou q é falsa somente quando ambas as proposições são falsas. Por isso, a alternativa correta é Disjunção inclusiva.",
+    "correctAnswer": "A",
+    "explanation": "Com \"ou\" inclusivo, ter experiência em pelo menos uma linguagem é suficiente. Carla satisfaz a condição por ter ambas; Diego não satisfaz nenhuma.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a implicação se p então q é logicamente equivalente a se não q então não p.",
-      "B": "Diverge da descrição porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
-      "C": "Esse conceito designa outra relação: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
-      "D": "Correta. A propriedade determinante é a expressão p ou q é falsa somente quando ambas as proposições são falsas. Por isso, a alternativa correta é Disjunção inclusiva."
+      "A": "Correta. Duas condições verdadeiras também tornam o \"ou\" inclusivo verdadeiro.",
+      "B": "Diego apresenta as duas condições falsas.",
+      "C": "Diego não atende ao requisito.",
+      "D": "Carla atende ao requisito em ambas as linguagens."
     },
     "tags": [
       "conectivos",
@@ -1820,8 +1855,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "conectivos",
+      "disjuncao",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -1834,7 +1870,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condição",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “quando p implica q, a ocorrência de p basta para garantir q”, é correto associá-lo a Condição suficiente.",
+    "statement": "Da afirmação \"Se um arquivo foi criptografado corretamente, então não pode ser lido sem a chave\" e do fato de que um arquivo pôde ser lido sem a chave, conclui-se validamente que ele não foi criptografado corretamente.",
     "alternatives": [
       {
         "id": "V",
@@ -1846,10 +1882,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. A resolução relaciona a situação descrita aos critérios de Condição, no campo de Implicação.",
+    "explanation": "A estrutura é modus tollens: p → q e ¬q implicam ¬p.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. A resolução relaciona a situação descrita aos critérios de Condição, no campo de Implicação.",
-      "F": "Incorreto. A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. A resolução relaciona a situação descrita aos critérios de Condição, no campo de Implicação."
+      "V": "Correto. A leitura sem chave nega a consequência prevista para a criptografia correta.",
+      "F": "Incorreto. A conclusão decorre da contrapositiva da regra."
     },
     "tags": [
       "implicacao",
@@ -1864,8 +1900,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "implicacao",
+      "condicional",
+      "modus-tollens"
     ],
     "origin": "nabulab"
   },
@@ -1878,7 +1915,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjuntos",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos”, é correto associá-lo a Padrão recursivo.",
+    "statement": "Em uma turma de 60 alunos, 35 estudam Inglês, 30 estudam Espanhol e 15 estudam ambos. Logo, 12 alunos não estudam nenhum dos dois idiomas.",
     "alternatives": [
       {
         "id": "V",
@@ -1890,10 +1927,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A resolução relaciona a situação descrita aos critérios de Conjuntos, no campo de Diagramas.",
+    "explanation": "A união tem 35 + 30 − 15 = 50 alunos; portanto, 10 não estudam nenhum dos dois.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A resolução relaciona a situação descrita aos critérios de Conjuntos, no campo de Diagramas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A resolução relaciona a situação descrita aos critérios de Conjuntos, no campo de Diagramas."
+      "V": "Incorreto. O complemento da união contém 10 alunos.",
+      "F": "Correto. O total 12 não resulta da inclusão-exclusão."
     },
     "tags": [
       "diagramas",
@@ -1908,8 +1945,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "diagramas",
+      "conjuntos",
+      "inclusao-exclusao"
     ],
     "origin": "nabulab"
   },
@@ -1922,7 +1960,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Exclusão",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes”, é correto associá-lo a Raciocínio por eliminação.",
+    "statement": "Três tarefas X, Y e Z serão executadas uma por vez. Se X deve ocorrer antes de Y e Z deve ocorrer depois de Y, então a única ordem possível é X, Y, Z.",
     "alternatives": [
       {
         "id": "V",
@@ -1934,10 +1972,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A resolução relaciona a situação descrita aos critérios de Exclusão, no campo de Problemas lógicos.",
+    "explanation": "As relações X < Y e Y < Z impõem a cadeia X < Y < Z.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A resolução relaciona a situação descrita aos critérios de Exclusão, no campo de Problemas lógicos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A resolução relaciona a situação descrita aos critérios de Exclusão, no campo de Problemas lógicos."
+      "V": "Correto. As duas restrições determinam completamente a ordem.",
+      "F": "Incorreto. Qualquer outra permutação viola ao menos uma restrição."
     },
     "tags": [
       "problemas-logicos",
@@ -1952,8 +1990,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "problemas-logicos",
+      "ordenacao",
+      "deducao"
     ],
     "origin": "nabulab"
   },
@@ -1966,7 +2005,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Invariantes",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “uma propriedade permanece constante durante transformações e restringe os resultados possíveis”, é correto associá-lo a Conjunção lógica.",
+    "statement": "Se uma operação transforma qualquer número inteiro n em n + 4, então a classe de resto de n na divisão por 2 permanece invariável após qualquer número de operações.",
     "alternatives": [
       {
         "id": "V",
@@ -1977,11 +2016,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Invariante, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A resolução relaciona a situação descrita aos critérios de Invariantes, no campo de Raciocínio quantitativo.",
+    "correctAnswer": "V",
+    "explanation": "Adicionar 4 não altera a paridade, pois 4 é múltiplo de 2.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Invariante, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A resolução relaciona a situação descrita aos critérios de Invariantes, no campo de Raciocínio quantitativo.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Invariante, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A resolução relaciona a situação descrita aos critérios de Invariantes, no campo de Raciocínio quantitativo."
+      "V": "Correto. n e n+4 têm o mesmo resto módulo 2.",
+      "F": "Incorreto. A diferença entre estados consecutivos é par."
     },
     "tags": [
       "raciocinio-quantitativo",
@@ -1996,8 +2035,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "raciocinio-quantitativo",
+      "invariantes",
+      "aritmetica-modular"
     ],
     "origin": "nabulab"
   },
@@ -2010,7 +2050,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Tabelas",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações”, é correto associá-lo a Tabela de dupla entrada.",
+    "statement": "Uma tabela registra 24 vendas no setor A, sendo 15 à vista, e 36 no setor B, sendo 18 à vista. Portanto, exatamente 25 vendas foram a prazo.",
     "alternatives": [
       {
         "id": "V",
@@ -2021,11 +2061,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A resolução relaciona a situação descrita aos critérios de Tabelas, no campo de Organização de informações.",
+    "correctAnswer": "F",
+    "explanation": "Há 9 vendas a prazo no setor A e 18 no B, totalizando 27.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A resolução relaciona a situação descrita aos critérios de Tabelas, no campo de Organização de informações.",
-      "F": "Incorreto. A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A resolução relaciona a situação descrita aos critérios de Tabelas, no campo de Organização de informações."
+      "V": "Incorreto. A soma correta é 27.",
+      "F": "Correto. O total afirmado subestima em duas unidades as vendas a prazo."
     },
     "tags": [
       "organizacao",
@@ -2040,8 +2080,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "organizacao-de-informacoes",
+      "tabelas",
+      "analise-de-dados"
     ],
     "origin": "nabulab"
   },
@@ -2054,7 +2095,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Validade",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa”, é correto associá-lo a Negação de todo.",
+    "statement": "O argumento \"Se a taxa sobe, o financiamento fica mais caro. O financiamento ficou mais caro. Logo, a taxa subiu\" é logicamente válido apenas com as premissas apresentadas.",
     "alternatives": [
       {
         "id": "V",
@@ -2066,10 +2107,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A resolução relaciona a situação descrita aos critérios de Validade, no campo de Argumentação.",
+    "explanation": "A forma p → q; q; logo p é a falácia da afirmação do consequente.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A resolução relaciona a situação descrita aos critérios de Validade, no campo de Argumentação.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A resolução relaciona a situação descrita aos critérios de Validade, no campo de Argumentação."
+      "V": "Incorreto. O consequente verdadeiro não garante o antecedente.",
+      "F": "Correto. O financiamento pode ter encarecido por outra causa."
     },
     "tags": [
       "argumentacao",
@@ -2084,8 +2125,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "argumentacao",
+      "validade",
+      "falacias"
     ],
     "origin": "nabulab"
   },
@@ -2098,7 +2140,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Regularidade",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência”, é correto associá-lo a Padrão recursivo.",
+    "statement": "Na sequência 2, 6, 12, 20, 30, as diferenças entre termos consecutivos são 4, 6, 8 e 10; por isso, mantendo o padrão, o próximo termo é 42.",
     "alternatives": [
       {
         "id": "V",
@@ -2110,10 +2152,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A resolução relaciona a situação descrita aos critérios de Regularidade, no campo de Sequências.",
+    "explanation": "As diferenças crescem de 2 em 2; a próxima é 12, então 30 + 12 = 42.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A resolução relaciona a situação descrita aos critérios de Regularidade, no campo de Sequências.",
-      "F": "Incorreto. A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A resolução relaciona a situação descrita aos critérios de Regularidade, no campo de Sequências."
+      "V": "Correto. O padrão das diferenças determina o próximo termo.",
+      "F": "Incorreto. A regularidade apresentada conduz a 42."
     },
     "tags": [
       "sequencias",
@@ -2128,8 +2170,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "sequencias",
+      "regularidade",
+      "analise-de-padroes"
     ],
     "origin": "nabulab"
   },
@@ -2142,7 +2185,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Valor lógico",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido”, é correto associá-lo a Condição suficiente.",
+    "statement": "Na lógica proposicional, uma condicional com antecedente falso e consequente verdadeiro assume valor lógico falso.",
     "alternatives": [
       {
         "id": "V",
@@ -2154,10 +2197,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. A resolução relaciona a situação descrita aos critérios de Valor lógico, no campo de Proposições.",
+    "explanation": "Uma implicação só é falsa no caso verdadeiro → falso. Falso → verdadeiro é verdadeiro.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. A resolução relaciona a situação descrita aos critérios de Valor lógico, no campo de Proposições.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. A resolução relaciona a situação descrita aos critérios de Valor lógico, no campo de Proposições."
+      "V": "Incorreto. O caso F→V torna a condicional verdadeira.",
+      "F": "Correto. A frase troca a única combinação que torna a implicação falsa."
     },
     "tags": [
       "proposicoes",
@@ -2172,8 +2215,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "proposicoes",
+      "valor-logico",
+      "tabela-verdade"
     ],
     "origin": "nabulab"
   },
@@ -2186,7 +2230,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjunção",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras”, é correto associá-lo a Conjunção lógica.",
+    "statement": "A expressão ¬(p e q) é logicamente equivalente a (¬p ou ¬q).",
     "alternatives": [
       {
         "id": "V",
@@ -2198,10 +2242,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A resolução relaciona a situação descrita aos critérios de Conjunção, no campo de Conectivos.",
+    "explanation": "É uma aplicação direta da lei de De Morgan.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A resolução relaciona a situação descrita aos critérios de Conjunção, no campo de Conectivos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A resolução relaciona a situação descrita aos critérios de Conjunção, no campo de Conectivos."
+      "V": "Correto. ¬(p∧q) ≡ ¬p∨¬q.",
+      "F": "Incorreto. A equivalência apresentada é válida."
     },
     "tags": [
       "conectivos",
@@ -2216,8 +2260,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "conectivos",
+      "conjuncao",
+      "leis-de-de-morgan"
     ],
     "origin": "nabulab"
   },
@@ -2230,7 +2275,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Disjunção",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “a expressão p ou q é falsa somente quando ambas as proposições são falsas”, é correto associá-lo a Raciocínio por eliminação.",
+    "statement": "Se p é verdadeira e q é falsa, então (p ou q) e (¬q) é falsa.",
     "alternatives": [
       {
         "id": "V",
@@ -2242,10 +2287,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A resolução relaciona a situação descrita aos critérios de Disjunção, no campo de Conectivos.",
+    "explanation": "p ou q é verdadeira e ¬q também é verdadeira; portanto, a conjunção final é verdadeira.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A resolução relaciona a situação descrita aos critérios de Disjunção, no campo de Conectivos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A resolução relaciona a situação descrita aos critérios de Disjunção, no campo de Conectivos."
+      "V": "Incorreto. A expressão composta tem valor verdadeiro.",
+      "F": "Correto. Avaliar os conectivos mostra que a afirmação está errada."
     },
     "tags": [
       "conectivos",
@@ -2260,8 +2305,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "conectivos",
+      "disjuncao",
+      "avaliacao-de-expressao"
     ],
     "origin": "nabulab"
   },
@@ -2274,7 +2320,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Quantificadores",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui”, é correto associá-lo a Negação de todo.",
+    "statement": "A negação de \"Existe pelo menos um servidor que falhou\" é \"Existe pelo menos um servidor que não falhou\".",
     "alternatives": [
       {
         "id": "V",
@@ -2285,11 +2331,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A resolução relaciona a situação descrita aos critérios de Quantificadores, no campo de Negação.",
+    "correctAnswer": "F",
+    "explanation": "A negação correta é \"Nenhum servidor falhou\" ou \"Todos os servidores não falharam\".",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A resolução relaciona a situação descrita aos critérios de Quantificadores, no campo de Negação.",
-      "F": "Incorreto. A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A resolução relaciona a situação descrita aos critérios de Quantificadores, no campo de Negação."
+      "V": "Incorreto. As duas frases podem ser verdadeiras ao mesmo tempo.",
+      "F": "Correto. Negar uma existência exige afirmar a ausência de qualquer caso."
     },
     "tags": [
       "negacao",
@@ -2304,8 +2350,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "negacao",
+      "quantificadores",
+      "formalizacao"
     ],
     "origin": "nabulab"
   },
@@ -2318,7 +2365,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condicional",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “a implicação se p então q é logicamente equivalente a se não q então não p”, é correto associá-lo a Tabela de dupla entrada.",
+    "statement": "As proposições \"Se p, então q\" e \"Se não q, então não p\" têm sempre o mesmo valor lógico.",
     "alternatives": [
       {
         "id": "V",
@@ -2329,11 +2376,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A resolução relaciona a situação descrita aos critérios de Condicional, no campo de Equivalência.",
+    "correctAnswer": "V",
+    "explanation": "A segunda é a contrapositiva da primeira; são logicamente equivalentes.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A resolução relaciona a situação descrita aos critérios de Condicional, no campo de Equivalência.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A resolução relaciona a situação descrita aos critérios de Condicional, no campo de Equivalência."
+      "V": "Correto. Coincidem em todas as linhas da tabela-verdade.",
+      "F": "Incorreto. A contrapositiva preserva o valor lógico da implicação."
     },
     "tags": [
       "equivalencia",
@@ -2348,8 +2395,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "equivalencia",
+      "condicional",
+      "contrapositiva"
     ],
     "origin": "nabulab"
   },
@@ -2362,32 +2410,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Exclusão",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes?",
+    "statement": "Quatro apresentações — A, B, C e D — ocorrerão em quatro horários consecutivos. Sabe-se que A ocorre antes de C; B não pode ser a primeira nem a última; e D ocorre imediatamente depois de A. Qual ordem satisfaz todas as restrições?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Raciocínio por eliminação"
+        "text": "A, D, B, C"
       },
       {
         "id": "B",
-        "text": "Argumento válido"
+        "text": "B, A, D, C"
       },
       {
         "id": "C",
-        "text": "Disjunção inclusiva"
+        "text": "A, B, D, C"
       },
       {
         "id": "D",
-        "text": "Condição suficiente"
+        "text": "C, A, D, B"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Por isso, a alternativa correta é Raciocínio por eliminação.",
+    "explanation": "A ordem A, D, B, C satisfaz as três condições simultaneamente.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. Por isso, a alternativa correta é Raciocínio por eliminação.",
-      "B": "Esse conceito designa outra relação: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa.",
-      "C": "A propriedade dessa alternativa é distinta: a expressão p ou q é falsa somente quando ambas as proposições são falsas.",
-      "D": "Não corresponde ao caso: quando p implica q, a ocorrência de p basta para garantir q."
+      "A": "Correta. A vem antes de C, D está imediatamente após A e B está em posição interna.",
+      "B": "B ocupa a primeira posição.",
+      "C": "D não está imediatamente após A.",
+      "D": "C aparece antes de A e B ocupa a última posição."
     },
     "tags": [
       "problemas-logicos",
@@ -2402,8 +2450,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "problemas-logicos",
+      "restricoes",
+      "deducao"
     ],
     "origin": "nabulab"
   },
@@ -2416,32 +2465,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Invariantes",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: uma propriedade permanece constante durante transformações e restringe os resultados possíveis?",
+    "statement": "Um tabuleiro 8×8, colorido como um tabuleiro de xadrez, tem dois cantos opostos removidos. Deseja-se cobrir todas as casas restantes com dominós 1×2, cada um ocupando duas casas adjacentes. Qual conclusão é correta?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Padrão recursivo"
+        "text": "É sempre possível, pois restam 62 casas, um número par."
       },
       {
         "id": "B",
-        "text": "Invariante"
+        "text": "É impossível apenas se os cantos removidos forem pretos."
       },
       {
         "id": "C",
-        "text": "Negação de todo"
+        "text": "É impossível, pois os dois cantos opostos têm a mesma cor e cada dominó cobre uma casa de cada cor."
       },
       {
         "id": "D",
-        "text": "Diagrama de Venn"
+        "text": "É possível usando exatamente 31 dominós, independentemente das cores removidas."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A distinção central está em uma propriedade permanece constante durante transformações e restringe os resultados possíveis. Por isso, a alternativa correta é Invariante.",
+    "correctAnswer": "C",
+    "explanation": "Cantos opostos têm a mesma cor. Após removê-los, sobram 30 casas de uma cor e 32 da outra, enquanto cada dominó cobre uma de cada cor.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
-      "B": "Correta. A distinção central está em uma propriedade permanece constante durante transformações e restringe os resultados possíveis. Por isso, a alternativa correta é Invariante.",
-      "C": "Não corresponde ao caso: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
-      "D": "Diverge da descrição porque regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos."
+      "A": "Paridade do total não basta; o desequilíbrio entre as cores impede a cobertura.",
+      "B": "A impossibilidade vale para qualquer par de cantos opostos.",
+      "C": "Correta. A coloração fornece o invariante decisivo.",
+      "D": "Ter 62 casas não garante um ladrilhamento válido."
     },
     "tags": [
       "raciocinio-quantitativo",
@@ -2456,8 +2505,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "raciocinio-quantitativo",
+      "invariantes",
+      "coloracao"
     ],
     "origin": "nabulab"
   },
@@ -2470,32 +2520,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Tabelas",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações?",
+    "statement": "Uma empresa classificou 120 atendimentos por turno e resultado. Pela manhã, 40 foram resolvidos e 20 não; à tarde, 45 foram resolvidos e 15 não. Escolhendo ao acaso um atendimento que não foi resolvido, qual é a probabilidade de ele ter ocorrido pela manhã?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Proposição lógica"
+        "text": "1/6"
       },
       {
         "id": "B",
-        "text": "Contrapositiva"
+        "text": "1/2"
       },
       {
         "id": "C",
-        "text": "Tabela de dupla entrada"
+        "text": "2/3"
       },
       {
         "id": "D",
-        "text": "Raciocínio por eliminação"
+        "text": "4/7"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Por isso, a alternativa correta é Tabela de dupla entrada.",
+    "correctAnswer": "D",
+    "explanation": "Entre os 35 atendimentos não resolvidos, 20 ocorreram pela manhã; logo, a probabilidade é 20/35 = 4/7.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
-      "B": "Não corresponde ao caso: a implicação se p então q é logicamente equivalente a se não q então não p.",
-      "C": "Correta. A resposta decorre da definição disciplinar duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. Por isso, a alternativa correta é Tabela de dupla entrada.",
-      "D": "Esse conceito designa outra relação: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes."
+      "A": "Usa 20 sobre o total de 120 e ignora o condicionamento.",
+      "B": "Supõe divisão igual, apesar dos dados 20 e 15.",
+      "C": "Esse valor está relacionado a outra razão da tabela.",
+      "D": "Correta. O espaço amostral contém apenas os 35 não resolvidos."
     },
     "tags": [
       "organizacao",
@@ -2510,8 +2560,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "organizacao-de-informacoes",
+      "tabela",
+      "probabilidade-condicional"
     ],
     "origin": "nabulab"
   },
@@ -2524,32 +2575,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Validade",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa?",
+    "statement": "Considere as premissas: (1) Se o sensor falha, então o alarme dispara. (2) Se o alarme dispara, então a equipe é avisada. (3) A equipe não foi avisada. Qual conclusão decorre necessariamente?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conjunção lógica"
+        "text": "O sensor falhou, mas o alarme não disparou."
       },
       {
         "id": "B",
-        "text": "Condição suficiente"
+        "text": "Nada pode ser concluído sobre o alarme."
       },
       {
         "id": "C",
-        "text": "Invariante"
+        "text": "O sensor não falhou, mas o alarme pode ter disparado."
       },
       {
         "id": "D",
-        "text": "Argumento válido"
+        "text": "O alarme não disparou e o sensor não falhou."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa. Por isso, a alternativa correta é Argumento válido.",
+    "explanation": "Da segunda premissa e da ausência de aviso, conclui-se que o alarme não disparou. Da primeira e da ausência de alarme, conclui-se que o sensor não falhou.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
-      "B": "Diverge da descrição porque quando p implica q, a ocorrência de p basta para garantir q.",
-      "C": "Esse conceito designa outra relação: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
-      "D": "Correta. O critério relevante é não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa. Por isso, a alternativa correta é Argumento válido."
+      "A": "Contradiz as conclusões obtidas por modus tollens.",
+      "B": "A premissa 2 determina que o alarme não disparou.",
+      "C": "Se o alarme tivesse disparado, a equipe teria sido avisada.",
+      "D": "Correta. São duas aplicações sucessivas de modus tollens."
     },
     "tags": [
       "argumentacao",
@@ -2564,8 +2615,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "argumentacao",
+      "validade",
+      "encadeamento-logico"
     ],
     "origin": "nabulab"
   },
@@ -2578,32 +2630,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Regularidade",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência?",
+    "statement": "A sequência 1, 2, 6, 15, 31, ... é construída somando ao termo anterior os quadrados 1², 2², 3², 4², ... respectivamente. Qual é o sexto termo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Padrão recursivo"
+        "text": "47"
       },
       {
         "id": "B",
-        "text": "Disjunção inclusiva"
+        "text": "50"
       },
       {
         "id": "C",
-        "text": "Diagrama de Venn"
+        "text": "56"
       },
       {
         "id": "D",
-        "text": "Tabela de dupla entrada"
+        "text": "61"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "Neste caso cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Por isso, a alternativa correta é Padrão recursivo.",
+    "correctAnswer": "C",
+    "explanation": "A próxima diferença é 5² = 25; portanto, 31 + 25 = 56.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. Por isso, a alternativa correta é Padrão recursivo.",
-      "B": "Esse conceito designa outra relação: a expressão p ou q é falsa somente quando ambas as proposições são falsas.",
-      "C": "A propriedade dessa alternativa é distinta: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos.",
-      "D": "Não corresponde ao caso: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações."
+      "A": "Repete a diferença 16.",
+      "B": "Soma 19, que não é o próximo quadrado.",
+      "C": "Correta. A quinta diferença é 25.",
+      "D": "Soma 30 ao último termo."
     },
     "tags": [
       "sequencias",
@@ -2618,8 +2670,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "sequencias",
+      "regularidade",
+      "diferencas-sucessivas"
     ],
     "origin": "nabulab"
   },
@@ -2632,32 +2685,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Valor lógico",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido?",
+    "statement": "Para quantas atribuições de valores lógicos a p, q e r a proposição (p → q) e (q → r) e p é verdadeira?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Negação de todo"
+        "text": "1"
       },
       {
         "id": "B",
-        "text": "Proposição lógica"
+        "text": "2"
       },
       {
         "id": "C",
-        "text": "Raciocínio por eliminação"
+        "text": "3"
       },
       {
         "id": "D",
-        "text": "Argumento válido"
+        "text": "4"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A propriedade determinante é uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido. Por isso, a alternativa correta é Proposição lógica.",
+    "correctAnswer": "A",
+    "explanation": "A conjunção exige p verdadeira; então p→q força q verdadeira, e q→r força r verdadeira. Só V,V,V satisfaz tudo.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui.",
-      "B": "Correta. A propriedade determinante é uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido. Por isso, a alternativa correta é Proposição lógica.",
-      "C": "Não corresponde ao caso: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
-      "D": "Diverge da descrição porque não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa."
+      "A": "Correta. Há um único trio possível.",
+      "B": "Tornar q ou r falso quebra uma das implicações.",
+      "C": "As restrições não deixam três casos.",
+      "D": "Esse número ignora as implicações encadeadas."
     },
     "tags": [
       "proposicoes",
@@ -2672,8 +2725,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "proposicoes",
+      "valor-logico",
+      "satisfatibilidade"
     ],
     "origin": "nabulab"
   },
@@ -2686,32 +2740,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjunção",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras?",
+    "statement": "Considere a expressão (p ou q) e (¬p ou r). Sabendo que q é falsa e que a expressão inteira é verdadeira, quais valores de p e r são necessários?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Contrapositiva"
+        "text": "p = V e r = V"
       },
       {
         "id": "B",
-        "text": "Invariante"
+        "text": "p = V e r = F"
       },
       {
         "id": "C",
-        "text": "Conjunção lógica"
+        "text": "p = F e r = V"
       },
       {
         "id": "D",
-        "text": "Padrão recursivo"
+        "text": "p = F e r = F"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Por isso, a alternativa correta é Conjunção lógica.",
+    "correctAnswer": "A",
+    "explanation": "Com q falsa, a primeira disjunção força p verdadeira. Então ¬p é falsa e a segunda disjunção força r verdadeira.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a implicação se p então q é logicamente equivalente a se não q então não p.",
-      "B": "Não corresponde ao caso: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
-      "C": "Correta. A conclusão se apoia em a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. Por isso, a alternativa correta é Conjunção lógica.",
-      "D": "Esse conceito designa outra relação: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência."
+      "A": "Correta. As duas partes determinam p e r.",
+      "B": "Com r falsa, a segunda disjunção falha.",
+      "C": "Com p falsa, a primeira disjunção falha.",
+      "D": "A primeira disjunção já seria falsa."
     },
     "tags": [
       "conectivos",
@@ -2726,8 +2780,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "conectivos",
+      "conjuncao",
+      "satisfatibilidade"
     ],
     "origin": "nabulab"
   },
@@ -2740,32 +2795,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Disjunção",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: a expressão p ou q é falsa somente quando ambas as proposições são falsas?",
+    "statement": "Uma regra de acesso usa a condição (A ou B) e não(A e B), em que A e B representam duas credenciais. Em quais situações o acesso é liberado?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Condição suficiente"
+        "text": "Somente quando A e B são ambas verdadeiras."
       },
       {
         "id": "B",
-        "text": "Tabela de dupla entrada"
+        "text": "Somente quando A e B são ambas falsas."
       },
       {
         "id": "C",
-        "text": "Proposição lógica"
+        "text": "Quando pelo menos uma é verdadeira, inclusive as duas."
       },
       {
         "id": "D",
-        "text": "Disjunção inclusiva"
+        "text": "Quando exatamente uma entre A e B é verdadeira."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em a expressão p ou q é falsa somente quando ambas as proposições são falsas. Por isso, a alternativa correta é Disjunção inclusiva.",
+    "explanation": "A primeira parte exige ao menos uma credencial e a segunda proíbe as duas simultaneamente; portanto, exatamente uma deve ser verdadeira.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: quando p implica q, a ocorrência de p basta para garantir q.",
-      "B": "Diverge da descrição porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
-      "C": "Esse conceito designa outra relação: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
-      "D": "Correta. A distinção central está em a expressão p ou q é falsa somente quando ambas as proposições são falsas. Por isso, a alternativa correta é Disjunção inclusiva."
+      "A": "Com as duas verdadeiras, a negação da conjunção é falsa.",
+      "B": "Com ambas falsas, A ou B é falsa.",
+      "C": "Essa seria apenas a disjunção inclusiva.",
+      "D": "Correta. A expressão representa a disjunção exclusiva."
     },
     "tags": [
       "conectivos",
@@ -2780,8 +2835,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "conectivos",
+      "disjuncao",
+      "equivalencia-logica"
     ],
     "origin": "nabulab"
   },
@@ -2794,32 +2850,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Quantificadores",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui?",
+    "statement": "Qual é a negação lógica de \"Para todo servidor existe pelo menos um backup que pode restaurá-lo\"?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Negação de todo"
+        "text": "Para todo servidor, nenhum backup pode restaurá-lo."
       },
       {
         "id": "B",
-        "text": "Diagrama de Venn"
+        "text": "Existe pelo menos um servidor para o qual nenhum backup pode restaurá-lo."
       },
       {
         "id": "C",
-        "text": "Argumento válido"
+        "text": "Existe pelo menos um backup que não restaura nenhum servidor."
       },
       {
         "id": "D",
-        "text": "Conjunção lógica"
+        "text": "Nenhum servidor possui mais de um backup."
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Por isso, a alternativa correta é Negação de todo.",
+    "correctAnswer": "B",
+    "explanation": "Negar ∀ servidor ∃ backup troca os quantificadores e nega a relação: existe um servidor para o qual nenhum backup funciona.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. Por isso, a alternativa correta é Negação de todo.",
-      "B": "Esse conceito designa outra relação: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos.",
-      "C": "A propriedade dessa alternativa é distinta: não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa.",
-      "D": "Não corresponde ao caso: a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras."
+      "A": "Afirma falha para todos os servidores, mais forte que a negação.",
+      "B": "Correta. Uma única exceção basta para negar a frase universal.",
+      "C": "Um backup inútil não impede que existam outros adequados.",
+      "D": "A quantidade de backups não é o ponto lógico da frase."
     },
     "tags": [
       "negacao",
@@ -2834,8 +2890,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "negacao",
+      "quantificadores",
+      "formalizacao"
     ],
     "origin": "nabulab"
   },
@@ -2848,32 +2905,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condicional",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: a implicação se p então q é logicamente equivalente a se não q então não p?",
+    "statement": "A proposição (p → q) e (p → ¬q) é logicamente equivalente a:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Raciocínio por eliminação"
+        "text": "p"
       },
       {
         "id": "B",
-        "text": "Contrapositiva"
+        "text": "q"
       },
       {
         "id": "C",
-        "text": "Padrão recursivo"
+        "text": "¬p"
       },
       {
         "id": "D",
-        "text": "Disjunção inclusiva"
+        "text": "p ou q"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "O critério relevante é a implicação se p então q é logicamente equivalente a se não q então não p. Por isso, a alternativa correta é Contrapositiva.",
+    "correctAnswer": "C",
+    "explanation": "Se p fosse verdadeira, as duas implicações exigiriam q e ¬q ao mesmo tempo. Com p falsa, ambas são verdadeiras. Logo, a expressão equivale a ¬p.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes.",
-      "B": "Correta. O critério relevante é a implicação se p então q é logicamente equivalente a se não q então não p. Por isso, a alternativa correta é Contrapositiva.",
-      "C": "Não corresponde ao caso: cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência.",
-      "D": "Diverge da descrição porque a expressão p ou q é falsa somente quando ambas as proposições são falsas."
+      "A": "Com p verdadeira, a expressão é impossível.",
+      "B": "q não determina sozinho o resultado.",
+      "C": "Correta. A expressão é verdadeira exatamente quando p é falsa.",
+      "D": "Pode ser verdadeira em casos em que a expressão original é falsa."
     },
     "tags": [
       "equivalencia",
@@ -2888,8 +2945,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "equivalencia",
+      "condicional",
+      "simplificacao-logica"
     ],
     "origin": "nabulab"
   },
@@ -2902,32 +2960,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condição",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: quando p implica q, a ocorrência de p basta para garantir q?",
+    "statement": "Considere as propriedades de um número inteiro n: P = \"n é múltiplo de 12\" e Q = \"n é múltiplo de 4\". Qual relação é correta?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Invariante"
+        "text": "P é necessária, mas não suficiente para Q."
       },
       {
         "id": "B",
-        "text": "Proposição lógica"
+        "text": "P é suficiente, mas não necessária para Q."
       },
       {
         "id": "C",
-        "text": "Condição suficiente"
+        "text": "P e Q são equivalentes."
       },
       {
         "id": "D",
-        "text": "Negação de todo"
+        "text": "P não é nem necessária nem suficiente para Q."
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "Neste caso quando p implica q, a ocorrência de p basta para garantir q. Por isso, a alternativa correta é Condição suficiente.",
+    "correctAnswer": "B",
+    "explanation": "Todo múltiplo de 12 é múltiplo de 4, então P é suficiente. Mas 8 é múltiplo de 4 e não de 12, logo P não é necessária.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: uma propriedade permanece constante durante transformações e restringe os resultados possíveis.",
-      "B": "Não corresponde ao caso: uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido.",
-      "C": "Correta. Neste caso quando p implica q, a ocorrência de p basta para garantir q. Por isso, a alternativa correta é Condição suficiente.",
-      "D": "Esse conceito designa outra relação: negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui."
+      "A": "Inverte os papéis lógicos.",
+      "B": "Correta. P→Q, mas Q não implica P.",
+      "C": "A recíproca falha, por exemplo em n=8.",
+      "D": "P é suficiente para Q."
     },
     "tags": [
       "implicacao",
@@ -2942,8 +3000,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "implicacao",
+      "condicao",
+      "necessaria-suficiente"
     ],
     "origin": "nabulab"
   },
@@ -2956,32 +3015,32 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjuntos",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos?",
+    "statement": "Em um grupo de 100 estudantes, 55 cursam Inglês, 45 Espanhol e 35 Francês. Sabe-se que 20 cursam Inglês e Espanhol, 18 Inglês e Francês, 15 Espanhol e Francês e 8 cursam os três. Quantos não cursam nenhum dos três?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Tabela de dupla entrada"
+        "text": "2"
       },
       {
         "id": "B",
-        "text": "Conjunção lógica"
+        "text": "10"
       },
       {
         "id": "C",
-        "text": "Contrapositiva"
+        "text": "18"
       },
       {
         "id": "D",
-        "text": "Diagrama de Venn"
+        "text": "26"
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "A propriedade determinante é regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos. Por isso, a alternativa correta é Diagrama de Venn.",
+    "correctAnswer": "B",
+    "explanation": "A união tem 55+45+35−20−18−15+8 = 90 estudantes. Logo, 10 ficam fora dos três conjuntos.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações.",
-      "B": "Diverge da descrição porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras.",
-      "C": "Esse conceito designa outra relação: a implicação se p então q é logicamente equivalente a se não q então não p.",
-      "D": "Correta. A propriedade determinante é regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos. Por isso, a alternativa correta é Diagrama de Venn."
+      "A": "Compensa incorretamente a interseção tripla.",
+      "B": "Correta. O complemento da união é 10.",
+      "C": "É o tamanho de uma interseção dupla.",
+      "D": "Não decorre da inclusão-exclusão."
     },
     "tags": [
       "diagramas",
@@ -2996,8 +3055,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "diagramas",
+      "conjuntos",
+      "inclusao-exclusao"
     ],
     "origin": "nabulab"
   },
@@ -3010,7 +3070,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Tabelas",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Tabela de dupla entrada de Diagrama de Venn, a característica “duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações” deve ser atribuída ao primeiro conceito.",
+    "statement": "Uma tabela mostra que, no turno da manhã, 30 de 50 atendimentos foram resolvidos e, à tarde, 42 de 70 foram resolvidos. Como as duas taxas são de 60%, pode-se concluir que, escolhendo um atendimento resolvido ao acaso, a chance de ele ter ocorrido à tarde é 50%.",
     "alternatives": [
       {
         "id": "V",
@@ -3021,11 +3081,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A avaliação exige delimitar as condições de Tabelas e distingui-las de relações próximas em Organização de informações.",
+    "correctAnswer": "F",
+    "explanation": "Entre os 72 atendimentos resolvidos, 42 são da tarde; a probabilidade é 42/72 = 7/12 ≈ 58,3%.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A avaliação exige delimitar as condições de Tabelas e distingui-las de relações próximas em Organização de informações.",
-      "F": "Incorreto. A proposição é verdadeira, pois Tabela de dupla entrada se caracteriza porque duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A avaliação exige delimitar as condições de Tabelas e distingui-las de relações próximas em Organização de informações."
+      "V": "Incorreto. Taxas iguais não implicam quantidades absolutas iguais.",
+      "F": "Correto. O condicionamento deve usar os 72 atendimentos resolvidos."
     },
     "tags": [
       "organizacao",
@@ -3040,8 +3100,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "organizacao-de-informacoes",
+      "tabelas",
+      "probabilidade-condicional"
     ],
     "origin": "nabulab"
   },
@@ -3054,7 +3115,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Validade",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Argumento válido de Raciocínio por eliminação, a característica “não existe situação em que todas as premissas sejam verdadeiras e a conclusão seja falsa” deve ser atribuída ao segundo conceito.",
+    "statement": "Das premissas \"p ou q\", \"se p então r\", \"se q então r\" conclui-se validamente r.",
     "alternatives": [
       {
         "id": "V",
@@ -3065,11 +3126,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A avaliação exige delimitar as condições de Validade e distingui-las de relações próximas em Argumentação.",
+    "correctAnswer": "V",
+    "explanation": "Se p ocorrer, a segunda premissa fornece r; se q ocorrer, a terceira fornece r. Como p ou q garante ao menos um dos casos, r é necessário.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A avaliação exige delimitar as condições de Validade e distingui-las de relações próximas em Argumentação.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Argumento válido, enquanto Raciocínio por eliminação se refere a possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A avaliação exige delimitar as condições de Validade e distingui-las de relações próximas em Argumentação."
+      "V": "Correto. É uma prova por casos.",
+      "F": "Incorreto. Não há atribuição com todas as premissas verdadeiras e r falsa."
     },
     "tags": [
       "argumentacao",
@@ -3084,8 +3145,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "argumentacao",
+      "validade",
+      "prova-por-casos"
     ],
     "origin": "nabulab"
   },
@@ -3098,7 +3160,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Regularidade",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Padrão recursivo de Invariante, a característica “cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência” deve ser atribuída ao primeiro conceito.",
+    "statement": "Se a sequência é definida por a₁ = 1 e aₙ₊₁ = 2aₙ + 1, então aₙ = 2ⁿ para todo n ≥ 1.",
     "alternatives": [
       {
         "id": "V",
@@ -3109,11 +3171,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A avaliação exige delimitar as condições de Regularidade e distingui-las de relações próximas em Sequências.",
+    "correctAnswer": "F",
+    "explanation": "A fórmula já falha em n=1, pois daria 2. A expressão compatível é aₙ = 2ⁿ − 1.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A avaliação exige delimitar as condições de Regularidade e distingui-las de relações próximas em Sequências.",
-      "F": "Incorreto. A proposição é verdadeira, pois Padrão recursivo se caracteriza porque cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A avaliação exige delimitar as condições de Regularidade e distingui-las de relações próximas em Sequências."
+      "V": "Incorreto. A fórmula 2ⁿ não reproduz a condição inicial.",
+      "F": "Correto. A forma fechada correta é 2ⁿ − 1."
     },
     "tags": [
       "sequencias",
@@ -3128,8 +3190,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "sequencias",
+      "regularidade",
+      "raciocinio-indutivo"
     ],
     "origin": "nabulab"
   },
@@ -3142,7 +3205,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Valor lógico",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Proposição lógica de Tabela de dupla entrada, a característica “uma frase declarativa admite classificação como verdadeira ou falsa, ainda que seu valor não seja conhecido” deve ser atribuída ao segundo conceito.",
+    "statement": "A proposição (p → q) ou (q → p) é falsa para alguma atribuição de valores lógicos a p e q.",
     "alternatives": [
       {
         "id": "V",
@@ -3154,10 +3217,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A avaliação exige delimitar as condições de Valor lógico e distingui-las de relações próximas em Proposições.",
+    "explanation": "Se p e q têm o mesmo valor, ambas as implicações são verdadeiras; se diferem, uma das duas direções é verdadeira. A disjunção é sempre verdadeira.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A avaliação exige delimitar as condições de Valor lógico e distingui-las de relações próximas em Proposições.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Proposição lógica, enquanto Tabela de dupla entrada se refere a duas categorias são cruzadas em linhas e colunas para organizar simultaneamente suas relações. A avaliação exige delimitar as condições de Valor lógico e distingui-las de relações próximas em Proposições."
+      "V": "Incorreto. Não existe linha da tabela-verdade em que as duas implicações sejam simultaneamente falsas.",
+      "F": "Correto. A expressão é uma tautologia."
     },
     "tags": [
       "proposicoes",
@@ -3172,8 +3235,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "proposicoes",
+      "valor-logico",
+      "tautologia"
     ],
     "origin": "nabulab"
   },
@@ -3186,7 +3250,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjunção",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Conjunção lógica de Argumento válido, a característica “a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras” deve ser atribuída ao primeiro conceito.",
+    "statement": "A negação de (p e (q ou r)) é logicamente equivalente a (¬p) ou ((¬q) e (¬r)).",
     "alternatives": [
       {
         "id": "V",
@@ -3198,10 +3262,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A avaliação exige delimitar as condições de Conjunção e distingui-las de relações próximas em Conectivos.",
+    "explanation": "Aplicando De Morgan duas vezes: ¬[p∧(q∨r)] = ¬p∨¬(q∨r) = ¬p∨(¬q∧¬r).",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A avaliação exige delimitar as condições de Conjunção e distingui-las de relações próximas em Conectivos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conjunção lógica se caracteriza porque a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A avaliação exige delimitar as condições de Conjunção e distingui-las de relações próximas em Conectivos."
+      "V": "Correto. A transformação preserva equivalência lógica.",
+      "F": "Incorreto. A equivalência segue diretamente das leis de De Morgan."
     },
     "tags": [
       "conectivos",
@@ -3216,8 +3280,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "conectivos",
+      "conjuncao",
+      "leis-de-de-morgan"
     ],
     "origin": "nabulab"
   },
@@ -3230,7 +3295,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Disjunção",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Disjunção inclusiva de Padrão recursivo, a característica “a expressão p ou q é falsa somente quando ambas as proposições são falsas” deve ser atribuída ao segundo conceito.",
+    "statement": "A expressão (p ou q) e ¬(p e q) é verdadeira exatamente quando p e q têm valores lógicos diferentes.",
     "alternatives": [
       {
         "id": "V",
@@ -3241,11 +3306,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A avaliação exige delimitar as condições de Disjunção e distingui-las de relações próximas em Conectivos.",
+    "correctAnswer": "V",
+    "explanation": "A primeira parte exige ao menos uma verdadeira e a segunda impede que ambas sejam verdadeiras. Restam os casos V/F e F/V.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A avaliação exige delimitar as condições de Disjunção e distingui-las de relações próximas em Conectivos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Disjunção inclusiva, enquanto Padrão recursivo se refere a cada termo é obtido por uma regra que utiliza um ou mais termos anteriores da sequência. A avaliação exige delimitar as condições de Disjunção e distingui-las de relações próximas em Conectivos."
+      "V": "Correto. A expressão representa a disjunção exclusiva.",
+      "F": "Incorreto. Nos casos V/V e F/F, a expressão é falsa."
     },
     "tags": [
       "conectivos",
@@ -3260,8 +3325,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "conectivos",
+      "disjuncao",
+      "equivalencia-logica"
     ],
     "origin": "nabulab"
   },
@@ -3274,7 +3340,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Quantificadores",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Negação de todo de Proposição lógica, a característica “negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui” deve ser atribuída ao primeiro conceito.",
+    "statement": "A negação de \"Existe um aluno que resolveu todos os problemas\" é \"Todo aluno deixou de resolver pelo menos um problema\".",
     "alternatives": [
       {
         "id": "V",
@@ -3286,10 +3352,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A avaliação exige delimitar as condições de Quantificadores e distingui-las de relações próximas em Negação.",
+    "explanation": "Negar ∃ aluno ∀ problema R produz ∀ aluno ∃ problema ¬R.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A avaliação exige delimitar as condições de Quantificadores e distingui-las de relações próximas em Negação.",
-      "F": "Incorreto. A proposição é verdadeira, pois Negação de todo se caracteriza porque negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A avaliação exige delimitar as condições de Quantificadores e distingui-las de relações próximas em Negação."
+      "V": "Correto. A negação troca os quantificadores e nega a relação.",
+      "F": "Incorreto. A equivalência formal confirma a afirmação."
     },
     "tags": [
       "negacao",
@@ -3304,8 +3370,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "negacao",
+      "quantificadores",
+      "formalizacao"
     ],
     "origin": "nabulab"
   },
@@ -3318,7 +3385,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condicional",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Contrapositiva de Conjunção lógica, a característica “a implicação se p então q é logicamente equivalente a se não q então não p” deve ser atribuída ao segundo conceito.",
+    "statement": "A proposição \"Se p, então q\" é logicamente equivalente a \"Se q, então p\".",
     "alternatives": [
       {
         "id": "V",
@@ -3330,10 +3397,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A avaliação exige delimitar as condições de Condicional e distingui-las de relações próximas em Equivalência.",
+    "explanation": "A segunda é a recíproca. Com p falsa e q verdadeira, p→q é verdadeira e q→p é falsa.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A avaliação exige delimitar as condições de Condicional e distingui-las de relações próximas em Equivalência.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Contrapositiva, enquanto Conjunção lógica se refere a a expressão p e q é verdadeira somente quando as duas proposições são verdadeiras. A avaliação exige delimitar as condições de Condicional e distingui-las de relações próximas em Equivalência."
+      "V": "Incorreto. Uma implicação não equivale, em geral, à sua recíproca.",
+      "F": "Correto. A equivalência válida é com a contrapositiva."
     },
     "tags": [
       "equivalencia",
@@ -3348,8 +3415,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "equivalencia",
+      "condicional",
+      "contraexemplo"
     ],
     "origin": "nabulab"
   },
@@ -3362,7 +3430,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Condição",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Condição suficiente de Disjunção inclusiva, a característica “quando p implica q, a ocorrência de p basta para garantir q” deve ser atribuída ao primeiro conceito.",
+    "statement": "Se P é condição suficiente para Q e Q é condição suficiente para R, então P é condição suficiente para R.",
     "alternatives": [
       {
         "id": "V",
@@ -3374,10 +3442,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. A avaliação exige delimitar as condições de Condição e distingui-las de relações próximas em Implicação.",
+    "explanation": "P→Q e Q→R implicam P→R pela transitividade.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. A avaliação exige delimitar as condições de Condição e distingui-las de relações próximas em Implicação.",
-      "F": "Incorreto. A proposição é verdadeira, pois Condição suficiente se caracteriza porque quando p implica q, a ocorrência de p basta para garantir q. A avaliação exige delimitar as condições de Condição e distingui-las de relações próximas em Implicação."
+      "V": "Correto. O encadeamento garante R sempre que P ocorre.",
+      "F": "Incorreto. A suficiência se transmite ao longo das implicações."
     },
     "tags": [
       "implicacao",
@@ -3392,8 +3460,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "implicacao",
+      "condicao",
+      "encadeamento-logico"
     ],
     "origin": "nabulab"
   },
@@ -3406,7 +3475,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Conjuntos",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Diagrama de Venn de Negação de todo, a característica “regiões sobrepostas representam interseções e permitem visualizar relações entre conjuntos” deve ser atribuída ao segundo conceito.",
+    "statement": "Em um universo de 80 elementos, |A|=42, |B|=35 e |A∩B|=17. Se 20 elementos não pertencem nem a A nem a B, os dados são inconsistentes.",
     "alternatives": [
       {
         "id": "V",
@@ -3418,10 +3487,10 @@ export const raciocinioLogicoQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A avaliação exige delimitar as condições de Conjuntos e distingui-las de relações próximas em Diagramas.",
+    "explanation": "|A∪B| = 42+35−17 = 60. Como o universo tem 80 elementos, exatamente 20 ficam fora da união.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A avaliação exige delimitar as condições de Conjuntos e distingui-las de relações próximas em Diagramas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Diagrama de Venn, enquanto Negação de todo se refere a negar que todos possuem uma propriedade equivale a afirmar que pelo menos um não a possui. A avaliação exige delimitar as condições de Conjuntos e distingui-las de relações próximas em Diagramas."
+      "V": "Incorreto. Os dados são consistentes.",
+      "F": "Correto. O complemento da união possui exatamente 20 elementos."
     },
     "tags": [
       "diagramas",
@@ -3436,8 +3505,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "diagramas",
+      "conjuntos",
+      "inclusao-exclusao"
     ],
     "origin": "nabulab"
   },
@@ -3450,7 +3520,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Exclusão",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Raciocínio por eliminação de Contrapositiva, a característica “possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes” deve ser atribuída ao primeiro conceito.",
+    "statement": "Cinco pessoas A, B, C, D e E serão ordenadas em fila. Se A deve vir antes de B, C imediatamente depois de B e E antes de A, então D não pode ocupar a primeira posição.",
     "alternatives": [
       {
         "id": "V",
@@ -3461,11 +3531,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A avaliação exige delimitar as condições de Exclusão e distingui-las de relações próximas em Problemas lógicos.",
+    "correctAnswer": "F",
+    "explanation": "A ordem D, E, A, B, C satisfaz todas as restrições e coloca D em primeiro. Logo, a proibição não decorre das pistas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A avaliação exige delimitar as condições de Exclusão e distingui-las de relações próximas em Problemas lógicos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Raciocínio por eliminação se caracteriza porque possibilidades incompatíveis com as pistas são descartadas até restarem as soluções consistentes. A avaliação exige delimitar as condições de Exclusão e distingui-las de relações próximas em Problemas lógicos."
+      "V": "Incorreto. Existe um contraexemplo válido com D em primeiro.",
+      "F": "Correto. Uma única ordem válida com D na primeira posição refuta a afirmação."
     },
     "tags": [
       "problemas-logicos",
@@ -3480,8 +3550,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "problemas-logicos",
+      "exclusao",
+      "contraexemplo"
     ],
     "origin": "nabulab"
   },
@@ -3494,7 +3565,7 @@ export const raciocinioLogicoQuestions: Question[] = [
     "subtopic": "Invariantes",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Invariante de Condição suficiente, a característica “uma propriedade permanece constante durante transformações e restringe os resultados possíveis” deve ser atribuída ao segundo conceito.",
+    "statement": "Começando com o número 0, são permitidas apenas as operações somar 6 ou subtrair 4. Após qualquer quantidade de operações, é impossível obter um número ímpar.",
     "alternatives": [
       {
         "id": "V",
@@ -3505,11 +3576,11 @@ export const raciocinioLogicoQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Invariante, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. A avaliação exige delimitar as condições de Invariantes e distingui-las de relações próximas em Raciocínio quantitativo.",
+    "correctAnswer": "V",
+    "explanation": "Ambas as operações alteram o valor por uma quantidade par. Partindo de 0, a paridade permanece par.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Invariante, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. A avaliação exige delimitar as condições de Invariantes e distingui-las de relações próximas em Raciocínio quantitativo.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Invariante, enquanto Condição suficiente se refere a quando p implica q, a ocorrência de p basta para garantir q. A avaliação exige delimitar as condições de Invariantes e distingui-las de relações próximas em Raciocínio quantitativo."
+      "V": "Correto. A paridade é um invariante do processo.",
+      "F": "Incorreto. Nenhuma combinação de incrementos pares produz um número ímpar."
     },
     "tags": [
       "raciocinio-quantitativo",
@@ -3524,8 +3595,9 @@ export const raciocinioLogicoQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "raciocinio-quantitativo",
+      "invariantes",
+      "paridade"
     ],
     "origin": "nabulab"
   }

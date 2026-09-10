@@ -10,32 +10,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Memória",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas?",
+    "statement": "Um computador possui SSD de 512 GB e 4 GB de memória RAM. Ao abrir simultaneamente navegador, editor de texto e videoconferência, o sistema fica lento, embora ainda haja muito espaço livre no SSD. Qual melhoria tende a ajudar mais nesse cenário?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Memória RAM"
+        "text": "Aumentar a quantidade de memória RAM"
       },
       {
         "id": "B",
-        "text": "Software de código aberto"
+        "text": "Trocar o monitor por um de maior resolução"
       },
       {
         "id": "C",
-        "text": "Endereço IP"
+        "text": "Aumentar apenas a capacidade do SSD para 1 TB"
       },
       {
         "id": "D",
-        "text": "SaaS"
+        "text": "Instalar um segundo teclado"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A propriedade determinante é o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. Por isso, a alternativa correta é Memória RAM.",
+    "explanation": "A RAM mantém temporariamente dados e instruções dos programas em execução. Com apenas 4 GB e vários aplicativos abertos, pode faltar memória de trabalho, levando o sistema a recorrer mais ao armazenamento secundário, que é mais lento.",
     "alternativeExplanations": {
-      "A": "Correta. A propriedade determinante é o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. Por isso, a alternativa correta é Memória RAM.",
-      "B": "Diverge da descrição porque o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo.",
-      "C": "Esse conceito designa outra relação: um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP.",
-      "D": "A propriedade dessa alternativa é distinta: o usuário acessa pela rede uma aplicação administrada pelo provedor sem gerenciar a infraestrutura subjacente."
+      "A": "Correta. Mais RAM permite manter mais dados dos programas ativos em memória sem recorrer tanto à memória virtual.",
+      "B": "A resolução do monitor não resolve a limitação de memória descrita.",
+      "C": "Mais capacidade de armazenamento não aumenta, por si só, a quantidade de memória disponível aos programas em execução.",
+      "D": "O teclado não interfere na capacidade de memória do computador."
     },
     "tags": [
       "hardware",
@@ -49,8 +49,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "hardware",
+      "memoria",
+      "diagnostico-basico"
     ],
     "origin": "nabulab"
   },
@@ -63,32 +64,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Licenciamento",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo?",
+    "statement": "Uma escola deseja utilizar um programa cujo código-fonte possa ser estudado e modificado por sua equipe, respeitando os termos da licença. Qual característica deve procurar?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escalonamento de processos"
-      },
-      {
-        "id": "B",
         "text": "Software de código aberto"
       },
       {
+        "id": "B",
+        "text": "Programa obrigatoriamente gratuito e sem licença"
+      },
+      {
         "id": "C",
-        "text": "Phishing"
+        "text": "Arquivo executável sem acesso ao código-fonte"
       },
       {
         "id": "D",
-        "text": "Estilo de parágrafo"
+        "text": "Software que só pode ser usado conectado à internet"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A conclusão se apoia em o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo. Por isso, a alternativa correta é Software de código aberto.",
+    "correctAnswer": "A",
+    "explanation": "Software de código aberto disponibiliza o código-fonte sob uma licença que define direitos e obrigações de uso, estudo, modificação e redistribuição.",
     "alternativeExplanations": {
-      "A": "Diverge da descrição porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar.",
-      "B": "Correta. A conclusão se apoia em o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo. Por isso, a alternativa correta é Software de código aberto.",
-      "C": "A propriedade dessa alternativa é distinta: uma mensagem fraudulenta imita fonte confiável para induzir a vítima a revelar dados ou executar uma ação.",
-      "D": "Não corresponde ao caso: um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente."
+      "A": "Correta. O acesso ao código e as permissões concedidas pela licença atendem ao requisito.",
+      "B": "Código aberto não significa ausência de licença nem implica necessariamente gratuidade.",
+      "C": "Ter apenas o executável não permite estudar ou modificar o código-fonte.",
+      "D": "A necessidade de internet não define o modelo de licenciamento do software."
     },
     "tags": [
       "software",
@@ -102,8 +103,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "software",
+      "licenciamento",
+      "aplicacao-de-conceito"
     ],
     "origin": "nabulab"
   },
@@ -116,32 +118,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Processos",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar?",
+    "statement": "Em um computador com vários programas abertos, o sistema operacional alterna o uso do processador entre navegador, reprodutor de música e editor de texto. Qual função do sistema operacional está diretamente envolvida nessa distribuição do tempo de CPU?",
     "alternatives": [
       {
         "id": "A",
-        "text": "HTTPS"
+        "text": "Formatação de disco"
       },
       {
         "id": "B",
-        "text": "Minimização de dados"
-      },
-      {
-        "id": "C",
         "text": "Escalonamento de processos"
       },
       {
+        "id": "C",
+        "text": "Compactação de arquivos"
+      },
+      {
         "id": "D",
-        "text": "Referência absoluta"
+        "text": "Resolução de nomes de domínio"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "A distinção central está em o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. Por isso, a alternativa correta é Escalonamento de processos.",
+    "correctAnswer": "B",
+    "explanation": "O escalonador do sistema operacional decide qual processo pronto para executar utilizará o processador em cada momento.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: o protocolo combina HTTP com criptografia de transporte para proteger dados entre cliente e servidor.",
-      "B": "A propriedade dessa alternativa é distinta: somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados.",
-      "C": "Correta. A distinção central está em o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. Por isso, a alternativa correta é Escalonamento de processos.",
-      "D": "Diverge da descrição porque o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada."
+      "A": "Formatação organiza um sistema de arquivos em uma unidade de armazenamento, não distribui tempo de CPU.",
+      "B": "Correta. O escalonamento coordena o compartilhamento do processador entre processos.",
+      "C": "Compactação reduz ou reorganiza dados de arquivos, sem decidir qual processo usa a CPU.",
+      "D": "Resolução de nomes relaciona domínios a endereços de rede e não é a função descrita."
     },
     "tags": [
       "sistema-operacional",
@@ -155,8 +157,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "sistemas-operacionais",
+      "processos",
+      "identificacao-de-funcao"
     ],
     "origin": "nabulab"
   },
@@ -169,7 +172,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Processos",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Escalonamento de processos” corresponde à seguinte descrição: o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar.",
+    "statement": "Um processo pode ser entendido como um programa em execução, com recursos como memória e estado de execução administrados pelo sistema operacional.",
     "alternatives": [
       {
         "id": "V",
@@ -181,10 +184,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. Em Sistemas operacionais, o reconhecimento direto da propriedade de Processos resolve o item.",
+    "explanation": "Um arquivo de programa armazenado e uma instância desse programa em execução não são a mesma coisa. Quando executado, ele passa a existir como processo, cujo estado e recursos são gerenciados pelo sistema operacional.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. Em Sistemas operacionais, o reconhecimento direto da propriedade de Processos resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. Em Sistemas operacionais, o reconhecimento direto da propriedade de Processos resolve o item."
+      "V": "Correto. Processos representam instâncias em execução e são unidades administradas pelo sistema operacional.",
+      "F": "Incorreto. A descrição corresponde ao funcionamento básico de um processo."
     },
     "tags": [
       "sistema-operacional",
@@ -198,8 +201,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "sistemas-operacionais",
+      "processos",
+      "compreensao"
     ],
     "origin": "nabulab"
   },
@@ -212,7 +216,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Web",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Endereço IP” corresponde à seguinte descrição: o protocolo combina HTTP com criptografia de transporte para proteger dados entre cliente e servidor.",
+    "statement": "A presença de HTTPS em um endereço garante que o site é legítimo e que nenhum conteúdo malicioso pode existir nele.",
     "alternatives": [
       {
         "id": "V",
@@ -224,10 +228,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a HTTPS, enquanto Endereço IP se refere a um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Em Internet, o reconhecimento direto da propriedade de Web resolve o item.",
+    "explanation": "HTTPS protege a comunicação entre cliente e servidor por meio de criptografia e autenticação do servidor por certificado, mas não garante que o conteúdo do site seja confiável ou livre de golpes.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a HTTPS, enquanto Endereço IP se refere a um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Em Internet, o reconhecimento direto da propriedade de Web resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a HTTPS, enquanto Endereço IP se refere a um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Em Internet, o reconhecimento direto da propriedade de Web resolve o item."
+      "V": "Incorreto. Um site malicioso também pode usar HTTPS.",
+      "F": "Correto. HTTPS protege o transporte dos dados, não certifica a honestidade do conteúdo."
     },
     "tags": [
       "internet",
@@ -241,8 +245,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "internet",
+      "https",
+      "seguranca-na-web"
     ],
     "origin": "nabulab"
   },
@@ -255,7 +260,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Endereçamento",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Endereço IP” corresponde à seguinte descrição: um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP.",
+    "statement": "Dois dispositivos configurados manualmente com o mesmo endereço IPv4 na mesma rede local podem usar esse endereço simultaneamente sem risco de conflito, pois seus endereços físicos são diferentes.",
     "alternatives": [
       {
         "id": "V",
@@ -266,11 +271,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Endereço IP se caracteriza porque um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Em Redes, o reconhecimento direto da propriedade de Endereçamento resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "Mesmo com endereços físicos distintos, a duplicidade de endereço IPv4 na mesma rede pode causar conflito e falhas de comunicação.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Endereço IP se caracteriza porque um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Em Redes, o reconhecimento direto da propriedade de Endereçamento resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Endereço IP se caracteriza porque um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Em Redes, o reconhecimento direto da propriedade de Endereçamento resolve o item."
+      "V": "Incorreto. O endereço físico não torna seguro o uso simultâneo do mesmo IPv4 por dois dispositivos na mesma rede.",
+      "F": "Correto. Cada interface precisa de endereçamento IP adequado para evitar ambiguidades na entrega dos pacotes."
     },
     "tags": [
       "redes",
@@ -284,8 +289,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "redes",
+      "enderecamento-ip",
+      "diagnostico-basico"
     ],
     "origin": "nabulab"
   },
@@ -298,7 +304,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Engenharia social",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Minimização de dados” corresponde à seguinte descrição: uma mensagem fraudulenta imita fonte confiável para induzir a vítima a revelar dados ou executar uma ação.",
+    "statement": "Uma mensagem que imita o banco do usuário, cria senso de urgência e pede que ele clique em um link para confirmar a senha apresenta características típicas de phishing.",
     "alternatives": [
       {
         "id": "V",
@@ -309,11 +315,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Phishing, enquanto Minimização de dados se refere a somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Em Segurança, o reconhecimento direto da propriedade de Engenharia social resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "Phishing usa engenharia social para se passar por uma fonte confiável e induzir a vítima a fornecer dados, abrir arquivos ou acessar páginas fraudulentas.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Phishing, enquanto Minimização de dados se refere a somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Em Segurança, o reconhecimento direto da propriedade de Engenharia social resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Phishing, enquanto Minimização de dados se refere a somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Em Segurança, o reconhecimento direto da propriedade de Engenharia social resolve o item."
+      "V": "Correto. A imitação de identidade, a urgência e a solicitação de credenciais são sinais comuns desse golpe.",
+      "F": "Incorreto. O cenário descrito é compatível com uma tentativa de phishing."
     },
     "tags": [
       "seguranca",
@@ -327,8 +333,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "seguranca",
+      "phishing",
+      "reconhecimento-de-risco"
     ],
     "origin": "nabulab"
   },
@@ -341,7 +348,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Dados pessoais",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Minimização de dados” corresponde à seguinte descrição: somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados.",
+    "statement": "Se um formulário precisa apenas confirmar se o usuário é maior de 18 anos, solicitar também CPF, endereço completo e renda sem outra finalidade pode contrariar o princípio de minimização de dados.",
     "alternatives": [
       {
         "id": "V",
@@ -353,10 +360,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Minimização de dados se caracteriza porque somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Em Privacidade, o reconhecimento direto da propriedade de Dados pessoais resolve o item.",
+    "explanation": "Minimização de dados orienta que sejam coletados apenas os dados adequados, relevantes e necessários à finalidade informada.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Minimização de dados se caracteriza porque somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Em Privacidade, o reconhecimento direto da propriedade de Dados pessoais resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Minimização de dados se caracteriza porque somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Em Privacidade, o reconhecimento direto da propriedade de Dados pessoais resolve o item."
+      "V": "Correto. Os dados extras precisam de uma finalidade legítima própria; sem ela, a coleta é excessiva para o objetivo descrito.",
+      "F": "Incorreto. Coletar dados desnecessários à finalidade pode contrariar a minimização."
     },
     "tags": [
       "privacidade",
@@ -370,8 +377,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "privacidade",
+      "minimizacao-de-dados",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -384,7 +392,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Serviços",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Estilo de parágrafo” corresponde à seguinte descrição: o usuário acessa pela rede uma aplicação administrada pelo provedor sem gerenciar a infraestrutura subjacente.",
+    "statement": "Em um serviço SaaS acessado pelo navegador, é responsabilidade normal do usuário administrar diretamente o sistema operacional e os servidores em que a aplicação é executada.",
     "alternatives": [
       {
         "id": "V",
@@ -396,10 +404,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a SaaS, enquanto Estilo de parágrafo se refere a um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Em Computação em nuvem, o reconhecimento direto da propriedade de Serviços resolve o item.",
+    "explanation": "No modelo SaaS, a aplicação é fornecida pela rede e a infraestrutura subjacente é administrada pelo provedor, não pelo usuário final.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a SaaS, enquanto Estilo de parágrafo se refere a um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Em Computação em nuvem, o reconhecimento direto da propriedade de Serviços resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a SaaS, enquanto Estilo de parágrafo se refere a um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Em Computação em nuvem, o reconhecimento direto da propriedade de Serviços resolve o item."
+      "V": "Incorreto. Administrar servidores e sistema operacional subjacente não é a responsabilidade típica do consumidor de SaaS.",
+      "F": "Correto. O usuário utiliza a aplicação enquanto o provedor gerencia a infraestrutura necessária para executá-la."
     },
     "tags": [
       "nuvem",
@@ -413,8 +421,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "computacao-em-nuvem",
+      "saas",
+      "compreensao"
     ],
     "origin": "nabulab"
   },
@@ -427,7 +436,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Formatação",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Estilo de parágrafo” corresponde à seguinte descrição: um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente.",
+    "statement": "Usar estilos de título em um editor de texto ajuda a manter a formatação consistente e pode facilitar recursos como geração automática de sumário.",
     "alternatives": [
       {
         "id": "V",
@@ -439,10 +448,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Estilo de parágrafo se caracteriza porque um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Em Editores de texto, o reconhecimento direto da propriedade de Formatação resolve o item.",
+    "explanation": "Estilos aplicam conjuntos reutilizáveis de propriedades a elementos do documento e permitem que programas reconheçam semanticamente títulos e níveis de seção.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Estilo de parágrafo se caracteriza porque um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Em Editores de texto, o reconhecimento direto da propriedade de Formatação resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Estilo de parágrafo se caracteriza porque um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Em Editores de texto, o reconhecimento direto da propriedade de Formatação resolve o item."
+      "V": "Correto. Além da consistência visual, estilos podem apoiar navegação e sumários automáticos.",
+      "F": "Incorreto. A utilização de estilos oferece justamente essas vantagens sobre a formatação manual isolada."
     },
     "tags": [
       "editor-de-texto",
@@ -456,8 +465,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "editores-de-texto",
+      "estilos",
+      "produtividade"
     ],
     "origin": "nabulab"
   },
@@ -470,7 +480,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Referências",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Chave primária” corresponde à seguinte descrição: o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada.",
+    "statement": "Em uma planilha, a referência $B$2 permanece apontando para a célula B2 quando a fórmula é copiada para outra posição.",
     "alternatives": [
       {
         "id": "V",
@@ -481,11 +491,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Referência absoluta, enquanto Chave primária se refere a um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Em Planilhas, o reconhecimento direto da propriedade de Referências resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "Os cifrões fixam tanto a coluna B quanto a linha 2, tornando a referência absoluta.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Referência absoluta, enquanto Chave primária se refere a um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Em Planilhas, o reconhecimento direto da propriedade de Referências resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Referência absoluta, enquanto Chave primária se refere a um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Em Planilhas, o reconhecimento direto da propriedade de Referências resolve o item."
+      "V": "Correto. Nem a linha nem a coluna são ajustadas durante a cópia.",
+      "F": "Incorreto. $B$2 é uma referência absoluta justamente porque mantém as duas coordenadas fixas."
     },
     "tags": [
       "planilhas",
@@ -499,8 +509,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "planilhas",
+      "referencia-absoluta",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -513,7 +524,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Chaves",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Chave primária” corresponde à seguinte descrição: um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela.",
+    "statement": "Uma coluna escolhida como chave primária pode repetir o mesmo valor em vários registros, desde que as demais colunas sejam diferentes.",
     "alternatives": [
       {
         "id": "V",
@@ -524,11 +535,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Em Banco de dados, o reconhecimento direto da propriedade de Chaves resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "A chave primária precisa identificar cada registro de forma única. Portanto, seus valores — ou combinações de valores, quando composta — não podem se repetir entre registros.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Em Banco de dados, o reconhecimento direto da propriedade de Chaves resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Em Banco de dados, o reconhecimento direto da propriedade de Chaves resolve o item."
+      "V": "Incorreto. Repetições impediriam a identificação única das linhas.",
+      "F": "Correto. A unicidade é uma propriedade essencial da chave primária."
     },
     "tags": [
       "banco-de-dados",
@@ -542,8 +553,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "banco-de-dados",
+      "chave-primaria",
+      "compreensao"
     ],
     "origin": "nabulab"
   },
@@ -556,32 +568,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Endereçamento",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP?",
+    "statement": "Um computador está configurado com IPv4 192.168.10.25 e máscara 255.255.255.0. Qual endereço pertence à mesma rede local, considerando essa máscara?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Endereço IP"
+        "text": "192.168.10.80"
       },
       {
         "id": "B",
-        "text": "Minimização de dados"
+        "text": "192.168.11.25"
       },
       {
         "id": "C",
-        "text": "Referência absoluta"
+        "text": "192.168.20.10"
       },
       {
         "id": "D",
-        "text": "Software de código aberto"
+        "text": "10.0.0.25"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A propriedade determinante é um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Por isso, a alternativa correta é Endereço IP.",
+    "explanation": "Com máscara 255.255.255.0 (/24), os três primeiros octetos identificam a rede. Assim, endereços 192.168.10.x pertencem à mesma sub-rede, respeitadas as reservas de rede e broadcast.",
     "alternativeExplanations": {
-      "A": "Correta. A propriedade determinante é um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. Por isso, a alternativa correta é Endereço IP.",
-      "B": "Diverge da descrição porque somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados.",
-      "C": "Esse conceito designa outra relação: o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada.",
-      "D": "A propriedade dessa alternativa é distinta: o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo."
+      "A": "Correta. 192.168.10.80 compartilha o prefixo 192.168.10 com o computador.",
+      "B": "O terceiro octeto muda de 10 para 11, indicando outra rede /24.",
+      "C": "Também possui terceiro octeto diferente e pertence a outra rede /24.",
+      "D": "O prefixo é completamente diferente do endereço informado."
     },
     "tags": [
       "redes",
@@ -595,8 +607,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "redes",
+      "enderecamento-ip",
+      "sub-redes"
     ],
     "origin": "nabulab"
   },
@@ -609,32 +622,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Engenharia social",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: uma mensagem fraudulenta imita fonte confiável para induzir a vítima a revelar dados ou executar uma ação?",
+    "statement": "Um funcionário recebe um e-mail com logotipo da empresa dizendo que sua conta será bloqueada em 10 minutos. O link aponta para `portal-empresa-seguranca.example`, diferente do domínio corporativo real. Qual é a conduta mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "SaaS"
+        "text": "Clicar rapidamente para evitar o bloqueio."
       },
       {
         "id": "B",
-        "text": "Phishing"
+        "text": "Responder ao e-mail enviando a senha para confirmar identidade."
       },
       {
         "id": "C",
-        "text": "Chave primária"
+        "text": "Não usar o link, acessar o serviço pelo endereço oficial e reportar a mensagem ao setor responsável."
       },
       {
         "id": "D",
-        "text": "Escalonamento de processos"
+        "text": "Encaminhar o e-mail a colegas para saber se o link funciona."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "A conclusão se apoia em uma mensagem fraudulenta imita fonte confiável para induzir a vítima a revelar dados ou executar uma ação. Por isso, a alternativa correta é Phishing.",
+    "correctAnswer": "C",
+    "explanation": "Urgência artificial, imitação visual e domínio diferente são sinais de phishing. A forma segura de verificar a situação é acessar o serviço por um caminho conhecido e reportar a tentativa.",
     "alternativeExplanations": {
-      "A": "Diverge da descrição porque o usuário acessa pela rede uma aplicação administrada pelo provedor sem gerenciar a infraestrutura subjacente.",
-      "B": "Correta. A conclusão se apoia em uma mensagem fraudulenta imita fonte confiável para induzir a vítima a revelar dados ou executar uma ação. Por isso, a alternativa correta é Phishing.",
-      "C": "A propriedade dessa alternativa é distinta: um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela.",
-      "D": "Não corresponde ao caso: o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar."
+      "A": "A urgência é justamente um mecanismo usado para reduzir a atenção da vítima.",
+      "B": "Senhas não devem ser enviadas por e-mail e a solicitação reforça a suspeita de golpe.",
+      "C": "Correta. Evita o link suspeito e verifica a conta por um canal confiável.",
+      "D": "Encaminhar o link pode ampliar a exposição de outras pessoas ao golpe."
     },
     "tags": [
       "seguranca",
@@ -648,8 +661,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "seguranca",
+      "phishing",
+      "tomada-de-decisao"
     ],
     "origin": "nabulab"
   },
@@ -662,32 +676,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Dados pessoais",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados?",
+    "statement": "Uma plataforma de inscrição precisa confirmar apenas a faixa etária e a cidade do participante para gerar estatísticas. Qual formulário aplica melhor o princípio de minimização de dados?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Estilo de parágrafo"
+        "text": "Nome completo, CPF, endereço, renda, telefone, faixa etária e cidade."
       },
       {
         "id": "B",
-        "text": "Estrutura de repetição"
+        "text": "CPF, data de nascimento completa e cidade."
       },
       {
         "id": "C",
-        "text": "Minimização de dados"
+        "text": "Faixa etária e cidade."
       },
       {
         "id": "D",
-        "text": "HTTPS"
+        "text": "Nome completo, foto e cidade."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A distinção central está em somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Por isso, a alternativa correta é Minimização de dados.",
+    "explanation": "Se a finalidade declarada exige somente faixa etária e cidade, esses são os dados suficientes para realizar a análise proposta.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente.",
-      "B": "A propriedade dessa alternativa é distinta: um bloco de instruções é executado novamente enquanto uma condição ou coleção determinar.",
-      "C": "Correta. A distinção central está em somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. Por isso, a alternativa correta é Minimização de dados.",
-      "D": "Diverge da descrição porque o protocolo combina HTTP com criptografia de transporte para proteger dados entre cliente e servidor."
+      "A": "Coleta diversas informações que não são necessárias à finalidade descrita.",
+      "B": "CPF e data completa de nascimento são mais dados do que o necessário para obter apenas a faixa etária.",
+      "C": "Correta. Limita a coleta ao conjunto necessário para a finalidade.",
+      "D": "Nome e foto não são necessários às estatísticas informadas."
     },
     "tags": [
       "privacidade",
@@ -701,8 +715,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "privacidade",
+      "minimizacao-de-dados",
+      "analise-de-cenario"
     ],
     "origin": "nabulab"
   },
@@ -715,7 +730,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Dados pessoais",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados”, é correto associá-lo a Minimização de dados.",
+    "statement": "Substituir o CPF de cada pessoa por um código interno reversivelmente associado ao CPF elimina, por si só, o caráter pessoal dos dados.",
     "alternatives": [
       {
         "id": "V",
@@ -726,11 +741,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Minimização de dados se caracteriza porque somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. A resolução relaciona a situação descrita aos critérios de Dados pessoais, no campo de Privacidade.",
+    "correctAnswer": "F",
+    "explanation": "Se a organização consegue reverter ou relacionar o código à pessoa por meio de informação adicional, há pseudonimização, não necessariamente anonimização. Os dados continuam vinculáveis ao titular.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Minimização de dados se caracteriza porque somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. A resolução relaciona a situação descrita aos critérios de Dados pessoais, no campo de Privacidade.",
-      "F": "Incorreto. A proposição é verdadeira, pois Minimização de dados se caracteriza porque somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. A resolução relaciona a situação descrita aos critérios de Dados pessoais, no campo de Privacidade."
+      "V": "Incorreto. A possibilidade de reidentificação mantém relevância de proteção aos dados.",
+      "F": "Correto. Trocar o identificador visível por um código não garante anonimização."
     },
     "tags": [
       "privacidade",
@@ -744,8 +759,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "privacidade",
+      "dados-pessoais",
+      "pseudonimizacao"
     ],
     "origin": "nabulab"
   },
@@ -758,7 +774,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Serviços",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “o usuário acessa pela rede uma aplicação administrada pelo provedor sem gerenciar a infraestrutura subjacente”, é correto associá-lo a Memória RAM.",
+    "statement": "Usar um aplicativo no modelo SaaS elimina a necessidade de pensar em backup e recuperação dos dados, porque qualquer serviço em nuvem garante cópias recuperáveis para o usuário.",
     "alternatives": [
       {
         "id": "V",
@@ -770,10 +786,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a SaaS, enquanto Memória RAM se refere a o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A resolução relaciona a situação descrita aos critérios de Serviços, no campo de Computação em nuvem.",
+    "explanation": "SaaS descreve a forma de disponibilização da aplicação, não uma garantia universal de retenção, histórico ou recuperação. Essas condições dependem do serviço contratado e de sua política.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a SaaS, enquanto Memória RAM se refere a o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A resolução relaciona a situação descrita aos critérios de Serviços, no campo de Computação em nuvem.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a SaaS, enquanto Memória RAM se refere a o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A resolução relaciona a situação descrita aos critérios de Serviços, no campo de Computação em nuvem."
+      "V": "Incorreto. O modelo SaaS não substitui uma estratégia de proteção e recuperação dos dados.",
+      "F": "Correto. É preciso verificar as garantias específicas do provedor e, quando necessário, manter mecanismos adicionais."
     },
     "tags": [
       "nuvem",
@@ -787,8 +803,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "computacao-em-nuvem",
+      "saas",
+      "avaliacao-de-risco"
     ],
     "origin": "nabulab"
   },
@@ -801,7 +818,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Formatação",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente”, é correto associá-lo a Estilo de parágrafo.",
+    "statement": "Em um documento longo, aplicar manualmente fonte e tamanho em cada título oferece a mesma facilidade de manutenção global que usar um estilo de título compartilhado.",
     "alternatives": [
       {
         "id": "V",
@@ -812,11 +829,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Estilo de parágrafo se caracteriza porque um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. A resolução relaciona a situação descrita aos critérios de Formatação, no campo de Editores de texto.",
+    "correctAnswer": "F",
+    "explanation": "Com um estilo compartilhado, uma alteração na definição pode ser propagada aos elementos que usam esse estilo. Formatação manual exige alterar ocorrências individualmente ou usar outros recursos de busca e substituição.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Estilo de parágrafo se caracteriza porque um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. A resolução relaciona a situação descrita aos critérios de Formatação, no campo de Editores de texto.",
-      "F": "Incorreto. A proposição é verdadeira, pois Estilo de parágrafo se caracteriza porque um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. A resolução relaciona a situação descrita aos critérios de Formatação, no campo de Editores de texto."
+      "V": "Incorreto. Os estilos reduzem retrabalho e favorecem consistência em documentos extensos.",
+      "F": "Correto. A manutenção global é uma das vantagens práticas dos estilos."
     },
     "tags": [
       "editor-de-texto",
@@ -830,8 +847,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "editores-de-texto",
+      "estilos",
+      "manutencao-de-documentos"
     ],
     "origin": "nabulab"
   },
@@ -844,7 +862,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Referências",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada”, é correto associá-lo a Escalonamento de processos.",
+    "statement": "Se a fórmula `=$A1*B$2` está na célula C3 e é copiada uma coluna para a direita e duas linhas para baixo, a referência resultante será `=$A3*C$2`.",
     "alternatives": [
       {
         "id": "V",
@@ -855,11 +873,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Referência absoluta, enquanto Escalonamento de processos se refere a o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A resolução relaciona a situação descrita aos critérios de Referências, no campo de Planilhas.",
+    "correctAnswer": "V",
+    "explanation": "A coluna A está fixa e a linha 1 é relativa, passando a 3. Em B$2, a coluna B é relativa e passa a C, enquanto a linha 2 permanece fixa.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Referência absoluta, enquanto Escalonamento de processos se refere a o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A resolução relaciona a situação descrita aos critérios de Referências, no campo de Planilhas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Referência absoluta, enquanto Escalonamento de processos se refere a o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A resolução relaciona a situação descrita aos critérios de Referências, no campo de Planilhas."
+      "V": "Correto. A combinação de referências absolutas e relativas produz exatamente `=$A3*C$2`.",
+      "F": "Incorreto. É preciso observar separadamente quais partes possuem cifrão e quais devem se deslocar."
     },
     "tags": [
       "planilhas",
@@ -873,8 +891,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "planilhas",
+      "referencias-mistas",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -887,7 +906,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Chaves",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela”, é correto associá-lo a Chave primária.",
+    "statement": "Em uma tabela `matriculas`, o par (`aluno_id`, `disciplina_id`) pode ser usado como chave primária composta quando a combinação deve ser única, ainda que cada coluna isoladamente se repita.",
     "alternatives": [
       {
         "id": "V",
@@ -899,10 +918,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A resolução relaciona a situação descrita aos critérios de Chaves, no campo de Banco de dados.",
+    "explanation": "Uma chave primária pode ser formada por mais de uma coluna. Nesse caso, a unicidade é exigida para o conjunto dos valores, permitindo que um aluno apareça em várias disciplinas e uma disciplina em vários alunos.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A resolução relaciona a situação descrita aos critérios de Chaves, no campo de Banco de dados.",
-      "F": "Incorreto. A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A resolução relaciona a situação descrita aos critérios de Chaves, no campo de Banco de dados."
+      "V": "Correto. O par identifica cada matrícula mesmo que seus componentes se repitam isoladamente.",
+      "F": "Incorreto. Chaves primárias não precisam ser obrigatoriamente formadas por uma única coluna."
     },
     "tags": [
       "banco-de-dados",
@@ -916,8 +935,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "banco-de-dados",
+      "chave-composta",
+      "modelagem"
     ],
     "origin": "nabulab"
   },
@@ -930,7 +950,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Controle",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “um bloco de instruções é executado novamente enquanto uma condição ou coleção determinar”, é correto associá-lo a Endereço IP.",
+    "statement": "No pseudocódigo `i = 1; enquanto i <= 5: exibir(i); i = i + 1`, os valores exibidos são 1, 2, 3, 4 e 5.",
     "alternatives": [
       {
         "id": "V",
@@ -941,11 +961,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Estrutura de repetição, enquanto Endereço IP se refere a um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. A resolução relaciona a situação descrita aos critérios de Controle, no campo de Algoritmos.",
+    "correctAnswer": "V",
+    "explanation": "A condição é avaliada antes de cada iteração. Os valores de 1 a 5 satisfazem `i <= 5`; após exibir 5, i passa a 6 e o laço termina.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Estrutura de repetição, enquanto Endereço IP se refere a um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. A resolução relaciona a situação descrita aos critérios de Controle, no campo de Algoritmos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Estrutura de repetição, enquanto Endereço IP se refere a um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. A resolução relaciona a situação descrita aos critérios de Controle, no campo de Algoritmos."
+      "V": "Correto. O limite 5 está incluído pela condição `<=`.",
+      "F": "Incorreto. A condição permite uma quinta iteração com i igual a 5."
     },
     "tags": [
       "algoritmos",
@@ -959,8 +979,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "algoritmos",
+      "estruturas-de-repeticao",
+      "rastreio"
     ],
     "origin": "nabulab"
   },
@@ -973,7 +994,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Memória",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas”, é correto associá-lo a Memória RAM.",
+    "statement": "Adicionar mais memória RAM pode reduzir o uso de memória virtual quando faltava RAM, mas não torna automaticamente o processador mais rápido.",
     "alternatives": [
       {
         "id": "V",
@@ -985,10 +1006,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Memória RAM se caracteriza porque o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A resolução relaciona a situação descrita aos critérios de Memória, no campo de Hardware.",
+    "explanation": "Mais RAM pode diminuir acessos ao armazenamento usados como extensão de memória, melhorando a responsividade em cenários limitados por memória. A frequência e a capacidade de processamento da CPU, porém, não são aumentadas por isso.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Memória RAM se caracteriza porque o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A resolução relaciona a situação descrita aos critérios de Memória, no campo de Hardware.",
-      "F": "Incorreto. A proposição é verdadeira, pois Memória RAM se caracteriza porque o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A resolução relaciona a situação descrita aos critérios de Memória, no campo de Hardware."
+      "V": "Correto. O ganho depende do gargalo; RAM e CPU desempenham funções diferentes.",
+      "F": "Incorreto. Aumentar RAM não altera diretamente a velocidade de execução do processador."
     },
     "tags": [
       "hardware",
@@ -1002,8 +1023,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "hardware",
+      "memoria",
+      "analise-de-desempenho"
     ],
     "origin": "nabulab"
   },
@@ -1016,7 +1038,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Licenciamento",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo”, é correto associá-lo a Minimização de dados.",
+    "statement": "Todo software de código aberto pertence ao domínio público e, por isso, pode ser usado sem observar qualquer condição de licença.",
     "alternatives": [
       {
         "id": "V",
@@ -1028,10 +1050,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Software de código aberto, enquanto Minimização de dados se refere a somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. A resolução relaciona a situação descrita aos critérios de Licenciamento, no campo de Software.",
+    "explanation": "Código aberto normalmente é distribuído sob uma licença que concede permissões e também pode impor condições. Domínio público e software de código aberto são conceitos diferentes.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Software de código aberto, enquanto Minimização de dados se refere a somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. A resolução relaciona a situação descrita aos critérios de Licenciamento, no campo de Software.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Software de código aberto, enquanto Minimização de dados se refere a somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados. A resolução relaciona a situação descrita aos critérios de Licenciamento, no campo de Software."
+      "V": "Incorreto. A licença continua relevante mesmo quando o código-fonte é aberto.",
+      "F": "Correto. É necessário respeitar os termos da licença aplicável."
     },
     "tags": [
       "software",
@@ -1045,8 +1067,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "software",
+      "licenciamento",
+      "diferenciacao-de-conceitos"
     ],
     "origin": "nabulab"
   },
@@ -1059,7 +1082,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Processos",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar”, é correto associá-lo a Escalonamento de processos.",
+    "statement": "Mesmo em um computador com um único núcleo de CPU, vários processos podem permanecer no estado de pronto, enquanto o escalonador decide qual deles executará a seguir.",
     "alternatives": [
       {
         "id": "V",
@@ -1071,10 +1094,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A resolução relaciona a situação descrita aos critérios de Processos, no campo de Sistemas operacionais.",
+    "explanation": "O estado de pronto indica que o processo pode executar quando receber tempo de CPU. Com um único núcleo, vários processos podem aguardar nesse estado, embora apenas um execute naquele núcleo em um instante.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A resolução relaciona a situação descrita aos critérios de Processos, no campo de Sistemas operacionais.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A resolução relaciona a situação descrita aos critérios de Processos, no campo de Sistemas operacionais."
+      "V": "Correto. Concorrência não exige que todos os processos estejam executando simultaneamente.",
+      "F": "Incorreto. A fila de processos prontos é justamente uma situação administrada pelo escalonador."
     },
     "tags": [
       "sistema-operacional",
@@ -1088,8 +1111,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "sistemas-operacionais",
+      "processos",
+      "escalonamento"
     ],
     "origin": "nabulab"
   },
@@ -1102,32 +1126,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Formatação",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente?",
+    "statement": "Um relatório de 180 páginas possui dezenas de títulos de nível 1 e 2. A equipe precisa alterar a aparência de todos os títulos de nível 1 e gerar um sumário automático confiável. Qual estratégia é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Estilo de parágrafo"
+        "text": "Aplicar estilos estruturados aos títulos e modificar a definição do estilo de nível 1."
       },
       {
         "id": "B",
-        "text": "Estrutura de repetição"
+        "text": "Selecionar manualmente cada título e alterar fonte e tamanho um a um."
       },
       {
         "id": "C",
-        "text": "HTTPS"
+        "text": "Inserir os títulos como imagens para impedir alterações."
       },
       {
         "id": "D",
-        "text": "Minimização de dados"
+        "text": "Usar somente espaços e tabulações para diferenciar os níveis."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A propriedade determinante é um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Por isso, a alternativa correta é Estilo de parágrafo.",
+    "explanation": "Estilos permitem associar formatação e estrutura semântica aos títulos. Alterar a definição de um estilo pode atualizar suas ocorrências, e os níveis reconhecidos pelo editor podem alimentar o sumário automático.",
     "alternativeExplanations": {
-      "A": "Correta. A propriedade determinante é um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. Por isso, a alternativa correta é Estilo de parágrafo.",
-      "B": "Diverge da descrição porque um bloco de instruções é executado novamente enquanto uma condição ou coleção determinar.",
-      "C": "Esse conceito designa outra relação: o protocolo combina HTTP com criptografia de transporte para proteger dados entre cliente e servidor.",
-      "D": "A propriedade dessa alternativa é distinta: somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados."
+      "A": "Correta. Resolve simultaneamente consistência, manutenção global e reconhecimento estrutural.",
+      "B": "Pode produzir aparência semelhante, mas aumenta retrabalho e não oferece a mesma estrutura reutilizável.",
+      "C": "Imagens dificultam edição, acessibilidade e geração automática de sumário.",
+      "D": "Espaços e tabulações não fornecem estrutura semântica confiável ao documento."
     },
     "tags": [
       "editor-de-texto",
@@ -1141,8 +1165,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "editores-de-texto",
+      "estilos",
+      "estrutura-de-documentos"
     ],
     "origin": "nabulab"
   },
@@ -1155,32 +1180,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Referências",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada?",
+    "statement": "Na célula C2 de uma planilha está a fórmula `=$A2*B$1`. Ela é copiada para a célula D4. Qual fórmula aparecerá em D4?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Memória RAM"
+        "text": "=$A2*B$1"
       },
       {
         "id": "B",
-        "text": "Referência absoluta"
+        "text": "=$A4*C$1"
       },
       {
         "id": "C",
-        "text": "Endereço IP"
+        "text": "=A4*C1"
       },
       {
         "id": "D",
-        "text": "SaaS"
+        "text": "=$B4*C$3"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A conclusão se apoia em o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada. Por isso, a alternativa correta é Referência absoluta.",
+    "explanation": "O deslocamento é de uma coluna à direita e duas linhas abaixo. Em `$A2`, a coluna A fica fixa e a linha passa de 2 para 4. Em `B$1`, a coluna passa de B para C e a linha 1 permanece fixa.",
     "alternativeExplanations": {
-      "A": "Diverge da descrição porque o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas.",
-      "B": "Correta. A conclusão se apoia em o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada. Por isso, a alternativa correta é Referência absoluta.",
-      "C": "A propriedade dessa alternativa é distinta: um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP.",
-      "D": "Não corresponde ao caso: o usuário acessa pela rede uma aplicação administrada pelo provedor sem gerenciar a infraestrutura subjacente."
+      "A": "Ignora as partes relativas das duas referências.",
+      "B": "Correta. O resultado respeita os componentes fixos e relativos.",
+      "C": "Remove os cifrões, mudando o tipo de referência.",
+      "D": "Move também a coluna A e a linha 1, embora estejam fixas."
     },
     "tags": [
       "planilhas",
@@ -1194,8 +1219,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "planilhas",
+      "referencias-mistas",
+      "rastreio-de-formula"
     ],
     "origin": "nabulab"
   },
@@ -1208,32 +1234,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Chaves",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela?",
+    "statement": "Uma tabela `matriculas` registra alunos inscritos em disciplinas. Um aluno pode cursar várias disciplinas e uma disciplina pode conter vários alunos, mas o mesmo aluno não pode ser matriculado duas vezes na mesma disciplina. Qual chave representa diretamente essa regra?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Software de código aberto"
+        "text": "Somente `aluno_id` como chave primária"
       },
       {
         "id": "B",
-        "text": "Phishing"
+        "text": "Somente `disciplina_id` como chave primária"
       },
       {
         "id": "C",
-        "text": "Chave primária"
+        "text": "O par (`aluno_id`, `disciplina_id`) como chave composta ou restrição de unicidade equivalente"
       },
       {
         "id": "D",
-        "text": "Estilo de parágrafo"
+        "text": "O nome do aluno como única chave, mesmo que existam homônimos"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A distinção central está em um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Por isso, a alternativa correta é Chave primária.",
+    "explanation": "A regra de negócio exige unicidade da combinação aluno-disciplina. Cada coluna isoladamente precisa poder se repetir para representar a relação muitos-para-muitos.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo.",
-      "B": "A propriedade dessa alternativa é distinta: uma mensagem fraudulenta imita fonte confiável para induzir a vítima a revelar dados ou executar uma ação.",
-      "C": "Correta. A distinção central está em um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. Por isso, a alternativa correta é Chave primária.",
-      "D": "Diverge da descrição porque um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente."
+      "A": "Impediria que o mesmo aluno aparecesse em mais de uma disciplina.",
+      "B": "Impediria que uma disciplina tivesse vários alunos.",
+      "C": "Correta. A combinação identifica unicamente cada matrícula.",
+      "D": "Nomes podem se repetir e não representam a relação entre aluno e disciplina."
     },
     "tags": [
       "banco-de-dados",
@@ -1247,8 +1273,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "banco-de-dados",
+      "chaves",
+      "modelagem-relacional"
     ],
     "origin": "nabulab"
   },
@@ -1261,32 +1288,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Controle",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: um bloco de instruções é executado novamente enquanto uma condição ou coleção determinar?",
+    "statement": "Considere o pseudocódigo:\n\n`total = 0`\n`para i de 1 até 4:`\n`    para j de 1 até i:`\n`        total = total + j`\n\nQual será o valor de `total` ao final?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escalonamento de processos"
+        "text": "10"
       },
       {
         "id": "B",
-        "text": "Minimização de dados"
+        "text": "16"
       },
       {
         "id": "C",
-        "text": "Referência absoluta"
+        "text": "20"
       },
       {
         "id": "D",
-        "text": "Estrutura de repetição"
+        "text": "24"
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "A resposta decorre da definição disciplinar um bloco de instruções é executado novamente enquanto uma condição ou coleção determinar. Por isso, a alternativa correta é Estrutura de repetição.",
+    "correctAnswer": "C",
+    "explanation": "Para i=1 soma-se 1; para i=2, 1+2=3; para i=3, 1+2+3=6; para i=4, 1+2+3+4=10. Logo, total = 1+3+6+10 = 20.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar.",
-      "B": "Não corresponde ao caso: somente dados adequados, relevantes e necessários à finalidade declarada devem ser coletados.",
-      "C": "Diverge da descrição porque o uso de marcadores como cifrões impede que linha ou coluna mudem quando a fórmula é copiada.",
-      "D": "Correta. A resposta decorre da definição disciplinar um bloco de instruções é executado novamente enquanto uma condição ou coleção determinar. Por isso, a alternativa correta é Estrutura de repetição."
+      "A": "10 é apenas a soma executada na última passagem do laço externo.",
+      "B": "Esse valor não considera corretamente todas as iterações acumuladas.",
+      "C": "Correta. O acumulador recebe 1, depois 3, depois 6 e depois 10.",
+      "D": "Superestima o número ou o valor das somas realizadas."
     },
     "tags": [
       "algoritmos",
@@ -1300,8 +1327,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "algoritmos",
+      "estruturas-de-repeticao",
+      "rastreio-de-execucao"
     ],
     "origin": "nabulab"
   },
@@ -1314,32 +1342,32 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Memória",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas?",
+    "statement": "Um computador possui 4 GB de RAM e apresenta uso intenso de memória virtual ao executar uma aplicação que trabalha frequentemente com um conjunto de dados de 7 GB. Qual alteração tende a reduzir mais diretamente a paginação para o armazenamento, mantendo o restante do sistema igual?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Memória RAM"
+        "text": "Aumentar a RAM para uma capacidade capaz de comportar melhor o conjunto de trabalho."
       },
       {
         "id": "B",
-        "text": "HTTPS"
+        "text": "Trocar o mouse por um modelo com maior taxa de atualização."
       },
       {
         "id": "C",
-        "text": "SaaS"
+        "text": "Aumentar a resolução do monitor."
       },
       {
         "id": "D",
-        "text": "Chave primária"
+        "text": "Renomear o arquivo da aplicação."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "O critério relevante é o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. Por isso, a alternativa correta é Memória RAM.",
+    "explanation": "Quando o conjunto de trabalho excede significativamente a RAM disponível, o sistema pode transferir páginas entre RAM e armazenamento com frequência. Aumentar a memória física disponível tende a reduzir essa pressão.",
     "alternativeExplanations": {
-      "A": "Correta. O critério relevante é o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. Por isso, a alternativa correta é Memória RAM.",
-      "B": "Diverge da descrição porque o protocolo combina HTTP com criptografia de transporte para proteger dados entre cliente e servidor.",
-      "C": "Esse conceito designa outra relação: o usuário acessa pela rede uma aplicação administrada pelo provedor sem gerenciar a infraestrutura subjacente.",
-      "D": "A propriedade dessa alternativa é distinta: um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela."
+      "A": "Correta. Ataca diretamente o gargalo de capacidade de memória física descrito.",
+      "B": "O periférico não altera a capacidade de memória do sistema.",
+      "C": "A resolução da tela não resolve a pressão causada pelo conjunto de dados da aplicação.",
+      "D": "O nome do arquivo não interfere no gerenciamento de páginas de memória."
     },
     "tags": [
       "hardware",
@@ -1353,8 +1381,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "hardware",
+      "memoria",
+      "memoria-virtual"
     ],
     "origin": "nabulab"
   },
@@ -1367,7 +1396,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Chaves",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Chave primária de SaaS, a característica “um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela” deve ser atribuída ao primeiro conceito.",
+    "statement": "Adicionar uma coluna `id` autoincremental como chave primária em `matriculas` garante, por si só, que o mesmo par (`aluno_id`, `disciplina_id`) nunca seja inserido duas vezes.",
     "alternatives": [
       {
         "id": "V",
@@ -1378,11 +1407,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A avaliação exige delimitar as condições de Chaves e distingui-las de relações próximas em Banco de dados.",
+    "correctAnswer": "F",
+    "explanation": "A chave `id` garante unicidade apenas de seu próprio valor. Para impedir matrículas duplicadas, é necessária também uma restrição de unicidade sobre (`aluno_id`, `disciplina_id`) ou uma chave composta equivalente.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A avaliação exige delimitar as condições de Chaves e distingui-las de relações próximas em Banco de dados.",
-      "F": "Incorreto. A proposição é verdadeira, pois Chave primária se caracteriza porque um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A avaliação exige delimitar as condições de Chaves e distingui-las de relações próximas em Banco de dados."
+      "V": "Incorreto. Registros diferentes podem ter IDs distintos e repetir o mesmo aluno e disciplina.",
+      "F": "Correto. A regra de negócio precisa de uma restrição própria além da chave substituta."
     },
     "tags": [
       "banco-de-dados",
@@ -1396,8 +1425,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "banco-de-dados",
+      "chaves",
+      "integridade-de-dados"
     ],
     "origin": "nabulab"
   },
@@ -1410,7 +1440,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Controle",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Estrutura de repetição de Estilo de parágrafo, a característica “um bloco de instruções é executado novamente enquanto uma condição ou coleção determinar” deve ser atribuída ao segundo conceito.",
+    "statement": "No pseudocódigo `i = 1; enquanto i < 20: i = i * 2`, o corpo do laço é executado cinco vezes.",
     "alternatives": [
       {
         "id": "V",
@@ -1421,11 +1451,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Estrutura de repetição, enquanto Estilo de parágrafo se refere a um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. A avaliação exige delimitar as condições de Controle e distingui-las de relações próximas em Algoritmos.",
+    "correctAnswer": "V",
+    "explanation": "Os valores de i no início das iterações são 1, 2, 4, 8 e 16. Depois da quinta execução, i passa a 32 e a condição `i < 20` se torna falsa.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Estrutura de repetição, enquanto Estilo de parágrafo se refere a um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. A avaliação exige delimitar as condições de Controle e distingui-las de relações próximas em Algoritmos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Estrutura de repetição, enquanto Estilo de parágrafo se refere a um conjunto reutilizável de propriedades mantém títulos e textos com formatação consistente. A avaliação exige delimitar as condições de Controle e distingui-las de relações próximas em Algoritmos."
+      "V": "Correto. Há cinco avaliações verdadeiras da condição antes de i alcançar 32.",
+      "F": "Incorreto. Contar apenas os valores finais pode levar a erro; o corpo executa com i igual a 1, 2, 4, 8 e 16."
     },
     "tags": [
       "algoritmos",
@@ -1439,8 +1469,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "algoritmos",
+      "estruturas-de-repeticao",
+      "analise-de-execucao"
     ],
     "origin": "nabulab"
   },
@@ -1453,7 +1484,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Memória",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Memória RAM de Referência absoluta, a característica “o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas” deve ser atribuída ao primeiro conceito.",
+    "statement": "Quando a RAM está esgotada, o uso de memória virtual em SSD oferece necessariamente o mesmo desempenho que manter os mesmos dados diretamente na RAM.",
     "alternatives": [
       {
         "id": "V",
@@ -1464,11 +1495,11 @@ export const informaticaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Memória RAM se caracteriza porque o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A avaliação exige delimitar as condições de Memória e distingui-las de relações próximas em Hardware.",
+    "correctAnswer": "F",
+    "explanation": "Memória virtual permite ampliar o espaço endereçável usando armazenamento secundário, mas acesso a SSD continua muito mais lento e com características diferentes de acesso à RAM. Paginação intensa pode degradar bastante o desempenho.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Memória RAM se caracteriza porque o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A avaliação exige delimitar as condições de Memória e distingui-las de relações próximas em Hardware.",
-      "F": "Incorreto. A proposição é verdadeira, pois Memória RAM se caracteriza porque o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A avaliação exige delimitar as condições de Memória e distingui-las de relações próximas em Hardware."
+      "V": "Incorreto. Capacidade adicional por memória virtual não equivale a desempenho de RAM física.",
+      "F": "Correto. Memória virtual é um mecanismo de gerenciamento e não uma substituição de desempenho equivalente à RAM."
     },
     "tags": [
       "hardware",
@@ -1482,8 +1513,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "hardware",
+      "memoria",
+      "memoria-virtual"
     ],
     "origin": "nabulab"
   },
@@ -1496,7 +1528,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Licenciamento",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Software de código aberto de Chave primária, a característica “o código-fonte é disponibilizado sob licença que permite estudá-lo e, conforme seus termos, modificá-lo e redistribuí-lo” deve ser atribuída ao segundo conceito.",
+    "statement": "Uma licença de código aberto necessariamente proíbe que o software seja vendido ou utilizado em atividade comercial.",
     "alternatives": [
       {
         "id": "V",
@@ -1508,10 +1540,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Software de código aberto, enquanto Chave primária se refere a um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A avaliação exige delimitar as condições de Licenciamento e distingui-las de relações próximas em Software.",
+    "explanation": "Licenças de código aberto podem permitir uso e distribuição comerciais. O que deve ser observado são as condições específicas da licença, como obrigações de atribuição, disponibilização de código em certas distribuições ou preservação de avisos.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Software de código aberto, enquanto Chave primária se refere a um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A avaliação exige delimitar as condições de Licenciamento e distingui-las de relações próximas em Software.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Software de código aberto, enquanto Chave primária se refere a um atributo ou conjunto de atributos identifica de modo único cada registro de uma tabela. A avaliação exige delimitar as condições de Licenciamento e distingui-las de relações próximas em Software."
+      "V": "Incorreto. Código aberto não significa proibição geral de uso comercial.",
+      "F": "Correto. É a licença específica que define as condições aplicáveis."
     },
     "tags": [
       "software",
@@ -1525,8 +1557,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "software",
+      "licenciamento",
+      "analise-de-licenca"
     ],
     "origin": "nabulab"
   },
@@ -1539,7 +1572,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Processos",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Escalonamento de processos de Estrutura de repetição, a característica “o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar” deve ser atribuída ao primeiro conceito.",
+    "statement": "Em escalonamento Round-Robin, reduzir muito o quantum de tempo pode aumentar a frequência de trocas de contexto e, portanto, o overhead do sistema.",
     "alternatives": [
       {
         "id": "V",
@@ -1551,10 +1584,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A avaliação exige delimitar as condições de Processos e distingui-las de relações próximas em Sistemas operacionais.",
+    "explanation": "No Round-Robin, processos recebem fatias de tempo. Quanto menor o quantum, mais frequentemente o sistema pode precisar interromper um processo e alternar para outro, elevando o custo das trocas de contexto.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A avaliação exige delimitar as condições de Processos e distingui-las de relações próximas em Sistemas operacionais.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escalonamento de processos se caracteriza porque o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A avaliação exige delimitar as condições de Processos e distingui-las de relações próximas em Sistemas operacionais."
+      "V": "Correto. Um quantum pequeno melhora a frequência de alternância, mas pode aumentar o overhead.",
+      "F": "Incorreto. O tamanho do quantum influencia diretamente a frequência potencial de preempções e trocas."
     },
     "tags": [
       "sistema-operacional",
@@ -1568,8 +1601,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "sistemas-operacionais",
+      "processos",
+      "escalonamento"
     ],
     "origin": "nabulab"
   },
@@ -1582,7 +1616,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Web",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre HTTPS de Memória RAM, a característica “o protocolo combina HTTP com criptografia de transporte para proteger dados entre cliente e servidor” deve ser atribuída ao segundo conceito.",
+    "statement": "Se uma página usa HTTPS e apresenta certificado válido, pode-se concluir que qualquer dado digitado nela será usado de forma legítima e que o site não pode ser uma página de phishing.",
     "alternatives": [
       {
         "id": "V",
@@ -1594,10 +1628,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a HTTPS, enquanto Memória RAM se refere a o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A avaliação exige delimitar as condições de Web e distingui-las de relações próximas em Internet.",
+    "explanation": "HTTPS fornece proteção criptográfica do canal e ajuda a autenticar o domínio apresentado pelo certificado, mas um atacante pode operar um domínio próprio com certificado válido. A legitimidade da finalidade e do conteúdo precisa ser avaliada separadamente.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a HTTPS, enquanto Memória RAM se refere a o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A avaliação exige delimitar as condições de Web e distingui-las de relações próximas em Internet.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a HTTPS, enquanto Memória RAM se refere a o armazenamento volátil mantém temporariamente dados e instruções em uso pelos programas. A avaliação exige delimitar as condições de Web e distingui-las de relações próximas em Internet."
+      "V": "Incorreto. Certificado válido não transforma automaticamente um domínio malicioso em confiável.",
+      "F": "Correto. É necessário verificar domínio, contexto e finalidade, além da segurança do transporte."
     },
     "tags": [
       "internet",
@@ -1611,8 +1645,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "internet",
+      "https",
+      "avaliacao-de-seguranca"
     ],
     "origin": "nabulab"
   },
@@ -1625,7 +1660,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Endereçamento",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Endereço IP de Software de código aberto, a característica “um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP” deve ser atribuída ao primeiro conceito.",
+    "statement": "Uma sub-rede IPv4 `192.168.1.0/26` possui 64 endereços no total e, no modelo tradicional, 62 podem ser usados como endereços de hosts, pois um é reservado para a rede e outro para broadcast.",
     "alternatives": [
       {
         "id": "V",
@@ -1637,10 +1672,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Endereço IP se caracteriza porque um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. A avaliação exige delimitar as condições de Endereçamento e distingui-las de relações próximas em Redes.",
+    "explanation": "Uma máscara /26 deixa 6 bits para endereços dentro da sub-rede: 2⁶ = 64 endereços. Descontando endereço de rede e broadcast, restam 62 endereços de host no uso tradicional.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Endereço IP se caracteriza porque um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. A avaliação exige delimitar as condições de Endereçamento e distingui-las de relações próximas em Redes.",
-      "F": "Incorreto. A proposição é verdadeira, pois Endereço IP se caracteriza porque um identificador lógico permite localizar uma interface e encaminhar pacotes em redes baseadas no protocolo IP. A avaliação exige delimitar as condições de Endereçamento e distingui-las de relações próximas em Redes."
+      "V": "Correto. O cálculo de tamanho da sub-rede e das reservas resulta em 62 hosts utilizáveis.",
+      "F": "Incorreto. /26 corresponde a blocos de 64 endereços, não de 256."
     },
     "tags": [
       "redes",
@@ -1654,8 +1689,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "redes",
+      "enderecamento-ip",
+      "cidr"
     ],
     "origin": "nabulab"
   },
@@ -1668,7 +1704,7 @@ export const informaticaQuestions: Question[] = [
     "subtopic": "Engenharia social",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Phishing de Escalonamento de processos, a característica “uma mensagem fraudulenta imita fonte confiável para induzir a vítima a revelar dados ou executar uma ação” deve ser atribuída ao segundo conceito.",
+    "statement": "A ativação de autenticação em dois fatores torna impossível um ataque de phishing obter acesso à conta do usuário.",
     "alternatives": [
       {
         "id": "V",
@@ -1680,10 +1716,10 @@ export const informaticaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Phishing, enquanto Escalonamento de processos se refere a o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A avaliação exige delimitar as condições de Engenharia social e distingui-las de relações próximas em Segurança.",
+    "explanation": "Autenticação em dois fatores aumenta muito a segurança, mas não elimina todos os ataques. Técnicas de engenharia social, roubo de sessão, páginas intermediárias em tempo real e outros métodos podem tentar contornar fatores adicionais.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Phishing, enquanto Escalonamento de processos se refere a o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A avaliação exige delimitar as condições de Engenharia social e distingui-las de relações próximas em Segurança.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Phishing, enquanto Escalonamento de processos se refere a o sistema operacional decide como distribuir o tempo do processador entre tarefas prontas para executar. A avaliação exige delimitar as condições de Engenharia social e distingui-las de relações próximas em Segurança."
+      "V": "Incorreto. A proteção adicional reduz o risco, mas não permite afirmar impossibilidade absoluta.",
+      "F": "Correto. Segurança deve ser tratada em camadas, sem considerar um único controle infalível."
     },
     "tags": [
       "seguranca",
@@ -1697,8 +1733,9 @@ export const informaticaQuestions: Question[] = [
     ],
     "educationLevel": "fundamental-e-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "seguranca",
+      "phishing",
+      "autenticacao"
     ],
     "origin": "nabulab"
   }

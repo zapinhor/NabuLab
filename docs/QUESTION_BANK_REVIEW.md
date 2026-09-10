@@ -4,7 +4,7 @@
 
 A revisão técnica foi concluída, mas a aprovação pedagógica final permanece pendente. A amostragem manual obrigatória identificou questões avançadas baseadas apenas em associação conceitual e itens V/F falsos construídos com conceitos excessivamente distantes. Por esse motivo, este documento não declara o banco pedagogicamente aprovado.
 
-No estado publicado por esta versão, **Física, Química e Biologia** concluíram a revisão pedagógica individual aprofundada e foram aprovadas em suas amostragens disciplinares. As outras 14 matérias permanecem no estado técnico materializado atual e serão revisadas pedagogicamente em etapas posteriores; elas não são declaradas aprovadas.
+No estado atual, **Física, Química, Biologia e História** concluíram a revisão pedagógica individual aprofundada e foram aprovadas em suas amostragens disciplinares. As outras 13 matérias permanecem no estado técnico materializado atual e serão revisadas pedagogicamente em etapas posteriores; elas não são declaradas aprovadas.
 
 ## Estrutura preservada
 
@@ -158,6 +158,41 @@ Resultado da amostra: **12 aprovadas, 0 reprovadas**. Foram avaliados correção
 O lote contempla citologia e transporte de membrana; enzimas; respiração e fermentação; genética mendeliana e ligada ao sexo; PCR e controles experimentais; seleção natural, deriva e filogenia; fluxo de energia, eutrofização e biomagnificação; tecidos e fisiologia vegetal; estrutura e função animal; controle glicêmico; vírus, bactérias e resistência a antibióticos; vacinação, imunidade adaptativa e memória imunológica.
 
 ### Validações após Biologia
+
+- `npm run audit`: aprovado — 1.224 questões, 17 matérias, 0 erros e 0 warnings.
+- `npm run verify:bank`: aprovado — 204 combinações de matéria, dificuldade e tipo.
+- `npm run typecheck`: aprovado.
+- `npm run lint`: aprovado.
+- `npm run build`: aprovado — compilação e geração das páginas concluídas.
+
+## Lote disciplinar — História
+
+As 72 questões de História foram analisadas individualmente. Nenhuma foi preservada sem alteração pedagógica: o molde anterior afetava também os itens iniciantes e médios, além de reduzir as avançadas a reconhecimento conceitual. As 72 foram completamente reescritas, preservando IDs, tipos, dificuldades e metadados estruturais. Foram corrigidas as 24 avançadas, as 18 V/F falsas originalmente identificadas e as 12 MC médias prioritárias. Ao final, os 36 conjuntos de alternativas MC, as 72 explicações principais e as 216 explicações por alternativa estavam revisados.
+
+### Amostra manual de História
+
+| ID | Tópico | Dificuldade | Tipo | Resultado | Justificativa |
+| --- | --- | --- | --- | --- | --- |
+| historia-vest-v1-mc-i-01 | Antiguidade | iniciante | MC | aprovada | Identifica os limites da cidadania ateniense com distratores historicamente próximos. |
+| historia-vest-v1-vf-i-04 | Brasil Império | iniciante | V/F | aprovada | Corrige a confusão plausível entre monarquia constitucional e função apenas simbólica. |
+| historia-vest-v1-mc-i-08 | Era Vargas | iniciante | MC | aprovada | Relaciona direitos trabalhistas e tutela sindical em linguagem adequada ao nível. |
+| historia-vest-v1-vf-i-10 | História indígena | iniciante | V/F | aprovada | Rejeita a homogeneização das estratégias indígenas sem negar a violência colonial. |
+| historia-vest-v1-mc-m-01 | Brasil Colônia | médio | MC | aprovada | Infere agência escrava a partir de anúncio de fuga e contextualiza o trabalho de ganho. |
+| historia-vest-v1-vf-m-03 | Guerras Mundiais | médio | V/F | aprovada | Exige relacionar tecnologia defensiva, trincheiras e impasse militar. |
+| historia-vest-v1-mc-m-06 | Guerra Fria | médio | MC | aprovada | Interpreta a projeção regional da bipolaridade por meio da Guerra da Coreia. |
+| historia-vest-v1-vf-m-10 | Revoluções | médio | V/F | aprovada | Distingue direitos proclamados de inclusão política imediata e universal. |
+| historia-vest-v1-mc-a-03 | Ditadura Militar | avançado | MC | aprovada | Compara autoria, finalidade e convergência entre fontes contraditórias. |
+| historia-vest-v1-vf-a-04 | Idade Média | avançado | V/F | aprovada | Relaciona demografia, mercado de trabalho e variação institucional após a Peste Negra. |
+| historia-vest-v1-mc-a-09 | Brasil Colônia | avançado | MC | aprovada | Infere conexões entre produção, tráfico e crédito sem transformar correlação em monocausalidade. |
+| historia-vest-v1-vf-a-12 | Guerra Fria | avançado | V/F | aprovada | Evita tratar o Não Alinhamento como neutralidade absoluta e uniforme. |
+
+Resultado da amostra: **12 aprovadas, 0 reprovadas**. Foram avaliados correção histórica, cronologia, autoria e crítica de fontes, relações de causa e consequência, dificuldade, plausibilidade dos distratores, qualidade das afirmações V/F, explicações, naturalidade e ausência do molde anterior.
+
+### Cobertura de História
+
+O lote contempla democracia e imperialismo atenienses; sociedade feudal, transformações medievais e Peste Negra; mercantilismo e colonialismo; Revolução Francesa e Revolução Haitiana; escravidão, resistência e economia atlântica; Estado imperial, Poder Moderador e abolição; coronelismo e Revolta da Vacina; trabalhismo e Estado Novo; Primeira Guerra, Versalhes e nazismo; bipolaridade, conflitos regionais, Crise dos Mísseis e Não Alinhamento; ditadura, repressão, abertura e memória; agência, alianças e políticas indigenistas.
+
+### Validações após História
 
 - `npm run audit`: aprovado — 1.224 questões, 17 matérias, 0 erros e 0 warnings.
 - `npm run verify:bank`: aprovado — 204 combinações de matéria, dificuldade e tipo.

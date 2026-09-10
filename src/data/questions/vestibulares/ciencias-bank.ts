@@ -10,32 +10,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Propriedades",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes?",
+    "statement": "Dois blocos têm o mesmo volume de 100 cm³. O bloco X tem massa de 200 g e o bloco Y, massa de 500 g. Qual deles é mais denso?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Densidade"
+        "text": "O bloco Y"
       },
       {
         "id": "B",
-        "text": "Conservação de energia"
+        "text": "O bloco X"
       },
       {
         "id": "C",
-        "text": "Célula"
+        "text": "Os dois têm a mesma densidade"
       },
       {
         "id": "D",
-        "text": "Força de atrito"
+        "text": "Não é possível comparar sem conhecer a temperatura"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Por isso, a alternativa correta é Densidade.",
+    "explanation": "Densidade é a razão entre massa e volume. Como os volumes são iguais, o bloco de maior massa é o mais denso: Y tem 500 g em 100 cm³, enquanto X tem 200 g em 100 cm³.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Por isso, a alternativa correta é Densidade.",
-      "B": "Esse conceito designa outra relação: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
-      "C": "A propriedade dessa alternativa é distinta: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
-      "D": "Não corresponde ao caso: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento."
+      "A": "Correta. Para volumes iguais, maior massa significa maior densidade.",
+      "B": "X tem menor massa para o mesmo volume, portanto menor densidade.",
+      "C": "As massas são diferentes, então as densidades também são diferentes.",
+      "D": "A temperatura pode influenciar a densidade em alguns casos, mas os dados fornecidos já permitem comparar os blocos."
     },
     "tags": [
       "materia",
@@ -49,7 +49,8 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
+      "densidade",
+      "comparacao",
       "aplicacao-direta"
     ],
     "origin": "nabulab"
@@ -63,32 +64,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Transformações",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns?",
+    "statement": "Uma lâmpada transforma energia elétrica principalmente em luz e calor. O que acontece com a energia durante esse processo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Circulação pulmonar"
+        "text": "Ela desaparece ao produzir luz"
       },
       {
         "id": "B",
-        "text": "Conservação de energia"
+        "text": "Ela é transformada em outras formas"
       },
       {
         "id": "C",
-        "text": "Tectônica de placas"
+        "text": "Ela é criada dentro da lâmpada"
       },
       {
         "id": "D",
-        "text": "Equilíbrio térmico"
+        "text": "Ela fica armazenada indefinidamente no fio"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns. Por isso, a alternativa correta é Conservação de energia.",
+    "explanation": "A energia elétrica não é criada nem destruída no funcionamento comum da lâmpada; ela é convertida principalmente em energia luminosa e térmica.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
-      "B": "Correta. A distinção central está em a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns. Por isso, a alternativa correta é Conservação de energia.",
-      "C": "Não corresponde ao caso: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
-      "D": "Diverge da descrição porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura."
+      "A": "A energia não desaparece; parte dela é convertida em luz e parte em calor.",
+      "B": "Correta. O aparelho transforma energia elétrica em outras formas.",
+      "C": "A lâmpada não cria energia; ela recebe energia elétrica da fonte.",
+      "D": "A energia não fica acumulada indefinidamente no fio durante o funcionamento."
     },
     "tags": [
       "energia",
@@ -102,8 +103,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "energia",
+      "transformacoes",
+      "conservacao"
     ],
     "origin": "nabulab"
   },
@@ -116,32 +118,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circulação",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração?",
+    "statement": "No circuito pulmonar, para onde o sangue vai depois de sair do lado direito do coração?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Decompositor"
+        "text": "Para o fígado e depois aos rins"
       },
       {
         "id": "B",
-        "text": "Inclinação do eixo terrestre"
+        "text": "Diretamente para o cérebro"
       },
       {
         "id": "C",
-        "text": "Circulação pulmonar"
+        "text": "Para os pulmões"
       },
       {
         "id": "D",
-        "text": "Circuito fechado"
+        "text": "Para todo o corpo ao mesmo tempo"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Por isso, a alternativa correta é Circulação pulmonar.",
+    "explanation": "Na circulação pulmonar, o sangue sai do lado direito do coração em direção aos pulmões, onde participa das trocas gasosas, e depois retorna ao lado esquerdo do coração.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente.",
-      "B": "Não corresponde ao caso: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
-      "C": "Correta. A resposta decorre da definição disciplinar o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Por isso, a alternativa correta é Circulação pulmonar.",
-      "D": "Esse conceito designa outra relação: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte."
+      "A": "Fígado e rins também fazem parte da circulação sistêmica, não do circuito pulmonar.",
+      "B": "O cérebro recebe sangue pela circulação sistêmica.",
+      "C": "Correta. Os pulmões são o destino do sangue nesse circuito.",
+      "D": "A distribuição para os demais órgãos ocorre na circulação sistêmica."
     },
     "tags": [
       "corpo-humano",
@@ -155,8 +157,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "corpo-humano",
+      "circulacao",
+      "fluxo-sanguineo"
     ],
     "origin": "nabulab"
   },
@@ -169,32 +172,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Decomposição",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente?",
+    "statement": "Folhas caídas no solo são decompostas ao longo do tempo. Qual grupo de seres vivos participa diretamente desse processo e ajuda a devolver nutrientes ao ambiente?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Célula"
+        "text": "Somente predadores"
       },
       {
         "id": "B",
-        "text": "Força de atrito"
+        "text": "Somente animais herbívoros"
       },
       {
         "id": "C",
-        "text": "Filtração"
+        "text": "Apenas plantas adultas"
       },
       {
         "id": "D",
-        "text": "Decompositor"
+        "text": "Fungos e bactérias decompositoras"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente. Por isso, a alternativa correta é Decompositor.",
+    "explanation": "Fungos e muitas bactérias decompõem matéria orgânica morta, liberando substâncias que podem voltar a ser utilizadas por outros organismos.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
-      "B": "Diverge da descrição porque a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento.",
-      "C": "Esse conceito designa outra relação: uma barreira porosa separa um sólido insolúvel de um fluido.",
-      "D": "Correta. O critério relevante é fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente. Por isso, a alternativa correta é Decompositor."
+      "A": "Predadores obtêm alimento de outros animais e não cumprem o papel ecológico descrito.",
+      "B": "Herbívoros consomem organismos vivos ou partes deles, mas não são os principais responsáveis pela decomposição.",
+      "C": "Plantas absorvem nutrientes, porém não realizam sozinhas a decomposição das folhas.",
+      "D": "Correta. Decompositores atuam diretamente sobre a matéria orgânica morta."
     },
     "tags": [
       "ecologia",
@@ -208,8 +211,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "ecologia",
+      "decomposicao",
+      "ciclagem-de-nutrientes"
     ],
     "origin": "nabulab"
   },
@@ -222,32 +226,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Célula",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida?",
+    "statement": "Ao observar uma película de cebola ao microscópio, um estudante identifica várias estruturas delimitadas, cada uma com conteúdo próprio. Essas unidades básicas dos seres vivos são chamadas de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Célula"
+        "text": "células"
       },
       {
         "id": "B",
-        "text": "Tectônica de placas"
+        "text": "órgãos"
       },
       {
         "id": "C",
-        "text": "Equilíbrio térmico"
+        "text": "tecidos"
       },
       {
         "id": "D",
-        "text": "Vacinação"
+        "text": "moléculas"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Por isso, a alternativa correta é Célula.",
+    "explanation": "A célula é a unidade estrutural e funcional básica dos seres vivos. Tecidos e órgãos são formados pela organização de muitas células.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Por isso, a alternativa correta é Célula.",
-      "B": "Esse conceito designa outra relação: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
-      "C": "A propriedade dessa alternativa é distinta: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
-      "D": "Não corresponde ao caso: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune."
+      "A": "Correta. As unidades observadas são células.",
+      "B": "Órgãos são estruturas formadas por diferentes tecidos.",
+      "C": "Tecidos são conjuntos organizados de células, portanto correspondem a um nível acima.",
+      "D": "Moléculas compõem as células, mas não são a unidade estrutural básica de um organismo."
     },
     "tags": [
       "seres-vivos",
@@ -261,8 +265,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "seres-vivos",
+      "celula",
+      "organizacao-biologica"
     ],
     "origin": "nabulab"
   },
@@ -275,32 +280,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Placas tectônicas",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas?",
+    "statement": "Regiões próximas aos limites de placas tectônicas apresentam maior frequência de terremotos porque:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Inclinação do eixo terrestre"
+        "text": "as placas ficam completamente imóveis nesses locais"
       },
       {
         "id": "B",
-        "text": "Tectônica de placas"
+        "text": "o movimento relativo entre placas acumula e libera tensões nas rochas"
       },
       {
         "id": "C",
-        "text": "Circuito fechado"
+        "text": "a luz solar aquece mais intensamente esses limites"
       },
       {
         "id": "D",
-        "text": "Densidade"
+        "text": "os oceanos impedem o movimento da crosta"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas. Por isso, a alternativa correta é Tectônica de placas.",
+    "explanation": "As placas tectônicas se movem lentamente. Em seus limites, tensões podem se acumular nas rochas e ser liberadas de forma brusca, produzindo terremotos.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
-      "B": "Correta. A propriedade determinante é grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas. Por isso, a alternativa correta é Tectônica de placas.",
-      "C": "Não corresponde ao caso: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
-      "D": "Diverge da descrição porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes."
+      "A": "Os limites são justamente regiões de movimento relativo entre placas.",
+      "B": "Correta. A liberação de tensão acumulada está ligada a muitos terremotos.",
+      "C": "A energia solar não é a causa principal da tectônica de placas.",
+      "D": "Oceanos não interrompem o movimento das placas; há limites tectônicos também no fundo oceânico."
     },
     "tags": [
       "terra",
@@ -314,8 +319,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "terra",
+      "placas-tectonicas",
+      "causa-e-efeito"
     ],
     "origin": "nabulab"
   },
@@ -328,32 +334,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Estações",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações?",
+    "statement": "Quando é verão no Hemisfério Sul, é comum ser inverno no Hemisfério Norte. Qual fator explica principalmente essa diferença?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Força de atrito"
+        "text": "A Terra fica muito mais perto do Sol no verão do Sul"
       },
       {
         "id": "B",
-        "text": "Filtração"
+        "text": "A Lua bloqueia parte da luz no Hemisfério Norte"
       },
       {
         "id": "C",
-        "text": "Inclinação do eixo terrestre"
+        "text": "A inclinação do eixo terrestre faz os hemisférios receberem luz solar de maneira diferente ao longo do ano"
       },
       {
         "id": "D",
-        "text": "Conservação de energia"
+        "text": "A rotação da Terra muda de velocidade entre os hemisférios"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Por isso, a alternativa correta é Inclinação do eixo terrestre.",
+    "explanation": "A inclinação do eixo terrestre, combinada ao movimento de translação, altera o ângulo de incidência solar e a duração dos dias em cada hemisfério ao longo do ano.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento.",
-      "B": "Não corresponde ao caso: uma barreira porosa separa um sólido insolúvel de um fluido.",
-      "C": "Correta. A conclusão se apoia em a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Por isso, a alternativa correta é Inclinação do eixo terrestre.",
-      "D": "Esse conceito designa outra relação: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns."
+      "A": "A distância ao Sol não explica a oposição das estações entre os hemisférios.",
+      "B": "A Lua não causa as estações do ano.",
+      "C": "Correta. A inclinação do eixo é o fator decisivo para as estações.",
+      "D": "A rotação não muda de velocidade de modo a produzir as estações."
     },
     "tags": [
       "astronomia",
@@ -367,8 +373,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "astronomia",
+      "estacoes",
+      "interpretacao"
     ],
     "origin": "nabulab"
   },
@@ -381,32 +388,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Atrito",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento?",
+    "statement": "Ao empurrar uma caixa sobre o chão, a pessoa precisa fazer mais força em uma superfície áspera do que em uma superfície lisa. A diferença ocorre principalmente por causa:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Equilíbrio térmico"
+        "text": "da luz refletida pelo piso"
       },
       {
         "id": "B",
-        "text": "Vacinação"
+        "text": "da força magnética"
       },
       {
         "id": "C",
-        "text": "Circulação pulmonar"
+        "text": "da pressão atmosférica"
       },
       {
         "id": "D",
-        "text": "Força de atrito"
+        "text": "da força de atrito"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento. Por isso, a alternativa correta é Força de atrito.",
+    "explanation": "Superfícies mais ásperas tendem a oferecer maior resistência ao deslizamento, aumentando a força de atrito que se opõe ao movimento.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
-      "B": "Diverge da descrição porque a apresentação segura de antígenos estimula proteção específica e memória do sistema imune.",
-      "C": "Esse conceito designa outra relação: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
-      "D": "Correta. A distinção central está em a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento. Por isso, a alternativa correta é Força de atrito."
+      "A": "A quantidade de luz refletida não determina a resistência mecânica ao deslizamento.",
+      "B": "Não há informação sobre ímãs ou materiais magnéticos.",
+      "C": "A pressão atmosférica não explica a diferença principal entre os dois pisos.",
+      "D": "Correta. O atrito entre as superfícies dificulta o deslizamento."
     },
     "tags": [
       "forca",
@@ -420,8 +427,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "forca-e-movimento",
+      "atrito",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -434,32 +442,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Temperatura",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura?",
+    "statement": "Uma colher metálica fria é colocada dentro de uma sopa quente. Depois de algum tempo, colher e sopa tendem a ficar com temperaturas mais próximas porque:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Equilíbrio térmico"
+        "text": "há transferência de calor até se aproximarem do equilíbrio térmico"
       },
       {
         "id": "B",
-        "text": "Circuito fechado"
+        "text": "a colher cria calor do nada"
       },
       {
         "id": "C",
-        "text": "Densidade"
+        "text": "a sopa perde toda a sua energia"
       },
       {
         "id": "D",
-        "text": "Decompositor"
+        "text": "o metal impede qualquer troca de energia"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Por isso, a alternativa correta é Equilíbrio térmico.",
+    "explanation": "Enquanto há diferença de temperatura, ocorre transferência de energia térmica do corpo mais quente para o mais frio. A troca líquida diminui quando as temperaturas se aproximam do equilíbrio.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Por isso, a alternativa correta é Equilíbrio térmico.",
-      "B": "Esse conceito designa outra relação: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
-      "C": "A propriedade dessa alternativa é distinta: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
-      "D": "Não corresponde ao caso: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente."
+      "A": "Correta. A diferença de temperatura provoca fluxo de calor.",
+      "B": "A colher não cria energia; ela recebe calor da sopa.",
+      "C": "A sopa não perde toda a energia térmica, apenas parte dela.",
+      "D": "Metais são bons condutores e facilitam a transferência de calor."
     },
     "tags": [
       "calor",
@@ -473,8 +481,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "calor",
+      "equilibrio-termico",
+      "transferencia-de-energia"
     ],
     "origin": "nabulab"
   },
@@ -487,32 +496,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circuitos",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte?",
+    "statement": "Uma pilha, fios e uma lâmpada estão conectados. A lâmpada não acende porque um dos fios está desconectado. Para que haja corrente elétrica no circuito, é necessário:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Filtração"
+        "text": "retirar a pilha do circuito"
       },
       {
         "id": "B",
-        "text": "Circuito fechado"
+        "text": "fechar o caminho condutor entre os terminais da pilha"
       },
       {
         "id": "C",
-        "text": "Conservação de energia"
+        "text": "cortar todos os fios"
       },
       {
         "id": "D",
-        "text": "Célula"
+        "text": "deixar apenas um terminal da lâmpada ligado"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte. Por isso, a alternativa correta é Circuito fechado.",
+    "explanation": "A corrente precisa de um caminho condutor contínuo. Quando há uma interrupção, o circuito fica aberto e a corrente não percorre o trajeto completo.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: uma barreira porosa separa um sólido insolúvel de um fluido.",
-      "B": "Correta. O critério relevante é um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte. Por isso, a alternativa correta é Circuito fechado.",
-      "C": "Não corresponde ao caso: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
-      "D": "Diverge da descrição porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida."
+      "A": "Sem a fonte, o circuito deixa de ter a diferença de potencial fornecida pela pilha.",
+      "B": "Correta. Reconectar o fio fecha o circuito e permite a circulação de corrente.",
+      "C": "Cortar fios criaria ainda mais interrupções.",
+      "D": "A lâmpada precisa estar conectada de forma a integrar um caminho fechado."
     },
     "tags": [
       "eletricidade",
@@ -526,8 +535,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "eletricidade",
+      "circuitos",
+      "diagnostico"
     ],
     "origin": "nabulab"
   },
@@ -540,15 +550,15 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Separação",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: uma barreira porosa separa um sólido insolúvel de um fluido?",
+    "statement": "Uma mistura contém areia e água. Qual procedimento simples permite separar a areia da água?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Vacinação"
+        "text": "Imantação"
       },
       {
         "id": "B",
-        "text": "Circulação pulmonar"
+        "text": "Fusão"
       },
       {
         "id": "C",
@@ -556,16 +566,16 @@ export const cienciasQuestions: Question[] = [
       },
       {
         "id": "D",
-        "text": "Tectônica de placas"
+        "text": "Evaporação do sólido"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso uma barreira porosa separa um sólido insolúvel de um fluido. Por isso, a alternativa correta é Filtração.",
+    "explanation": "A areia é um sólido insolúvel em água. Um filtro deixa o líquido passar e retém a maior parte das partículas sólidas.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune.",
-      "B": "Não corresponde ao caso: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
-      "C": "Correta. Neste caso uma barreira porosa separa um sólido insolúvel de um fluido. Por isso, a alternativa correta é Filtração.",
-      "D": "Esse conceito designa outra relação: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas."
+      "A": "Imantação exige material atraído por ímã, o que não caracteriza a areia comum.",
+      "B": "Fusão muda o estado físico de uma substância e não é o método indicado.",
+      "C": "Correta. A filtração é adequada para separar um sólido insolúvel de um líquido.",
+      "D": "A areia não precisa ser evaporada; o componente líquido é que poderia evaporar."
     },
     "tags": [
       "misturas",
@@ -579,8 +589,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "misturas",
+      "filtracao",
+      "separacao"
     ],
     "origin": "nabulab"
   },
@@ -593,32 +604,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Vacinação",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune?",
+    "statement": "Qual é um dos principais objetivos da vacinação?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Densidade"
+        "text": "Impedir o corpo de produzir anticorpos"
       },
       {
         "id": "B",
-        "text": "Decompositor"
+        "text": "Substituir permanentemente os glóbulos brancos"
       },
       {
         "id": "C",
-        "text": "Inclinação do eixo terrestre"
+        "text": "Eliminar qualquer microrganismo do ambiente"
       },
       {
         "id": "D",
-        "text": "Vacinação"
+        "text": "Estimular o sistema imune a reconhecer determinados agentes antes de um contato futuro"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é a apresentação segura de antígenos estimula proteção específica e memória do sistema imune. Por isso, a alternativa correta é Vacinação.",
+    "explanation": "Vacinas apresentam antígenos ou instruções relacionadas a eles de forma segura, estimulando resposta imune e memória que podem tornar a reação futura mais rápida e eficaz.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
-      "B": "Diverge da descrição porque fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente.",
-      "C": "Esse conceito designa outra relação: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
-      "D": "Correta. A propriedade determinante é a apresentação segura de antígenos estimula proteção específica e memória do sistema imune. Por isso, a alternativa correta é Vacinação."
+      "A": "Ao contrário, muitas vacinas estimulam respostas que incluem a produção de anticorpos.",
+      "B": "Vacinas não substituem permanentemente as células do sistema imune.",
+      "C": "A vacinação não elimina todos os microrganismos do ambiente.",
+      "D": "Correta. A memória imunológica é uma das bases da proteção vacinal."
     },
     "tags": [
       "saude",
@@ -632,8 +643,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "saude",
+      "vacinacao",
+      "imunidade"
     ],
     "origin": "nabulab"
   },
@@ -646,7 +658,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circulação",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Circulação pulmonar” corresponde à seguinte descrição: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
+    "statement": "Na circulação pulmonar, o sangue vai do coração aos pulmões e retorna ao coração.",
     "alternatives": [
       {
         "id": "V",
@@ -658,10 +670,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Em Corpo humano, o reconhecimento direto da propriedade de Circulação resolve o item.",
+    "explanation": "Esse circuito permite que o sangue participe das trocas gasosas nos pulmões antes de seguir novamente para o restante do corpo pela circulação sistêmica.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Em Corpo humano, o reconhecimento direto da propriedade de Circulação resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Em Corpo humano, o reconhecimento direto da propriedade de Circulação resolve o item."
+      "V": "Correto. O percurso coração–pulmões–coração caracteriza a circulação pulmonar.",
+      "F": "Incorreto. A afirmação descreve corretamente o circuito pulmonar."
     },
     "tags": [
       "corpo-humano",
@@ -675,8 +687,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "corpo-humano",
+      "circulacao",
+      "compreensao"
     ],
     "origin": "nabulab"
   },
@@ -689,7 +702,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Decomposição",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Célula” corresponde à seguinte descrição: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente.",
+    "statement": "Decompositores retiram nutrientes do ambiente sem devolver substâncias ao solo ou à água.",
     "alternatives": [
       {
         "id": "V",
@@ -701,10 +714,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Decompositor, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Em Ecologia, o reconhecimento direto da propriedade de Decomposição resolve o item.",
+    "explanation": "Ao degradar matéria orgânica, decompositores liberam substâncias simples que podem retornar ao ambiente e ser reutilizadas por produtores.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Decompositor, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Em Ecologia, o reconhecimento direto da propriedade de Decomposição resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Decompositor, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Em Ecologia, o reconhecimento direto da propriedade de Decomposição resolve o item."
+      "V": "Incorreto. A decomposição participa da ciclagem de nutrientes.",
+      "F": "Correto. A afirmação ignora o retorno de nutrientes ao ambiente."
     },
     "tags": [
       "ecologia",
@@ -718,8 +731,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "ecologia",
+      "decomposicao",
+      "ciclagem-de-nutrientes"
     ],
     "origin": "nabulab"
   },
@@ -732,7 +746,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Célula",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Célula” corresponde à seguinte descrição: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
+    "statement": "Todos os seres vivos conhecidos são formados por uma ou mais células.",
     "alternatives": [
       {
         "id": "V",
@@ -744,10 +758,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Em Seres vivos, o reconhecimento direto da propriedade de Célula resolve o item.",
+    "explanation": "A teoria celular estabelece a célula como unidade básica dos organismos vivos. Há seres unicelulares e pluricelulares.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Em Seres vivos, o reconhecimento direto da propriedade de Célula resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Em Seres vivos, o reconhecimento direto da propriedade de Célula resolve o item."
+      "V": "Correto. Organismos podem ter uma única célula ou muitas células.",
+      "F": "Incorreto. A organização celular é uma característica fundamental dos seres vivos."
     },
     "tags": [
       "seres-vivos",
@@ -761,8 +775,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "seres-vivos",
+      "celula",
+      "teoria-celular"
     ],
     "origin": "nabulab"
   },
@@ -775,7 +790,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Placas tectônicas",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Inclinação do eixo terrestre” corresponde à seguinte descrição: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
+    "statement": "Terremotos e vulcões ocorrem exclusivamente no interior das placas tectônicas, longe de seus limites.",
     "alternatives": [
       {
         "id": "V",
@@ -787,10 +802,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Em Terra, o reconhecimento direto da propriedade de Placas tectônicas resolve o item.",
+    "explanation": "Muitos terremotos e vulcões se concentram justamente em limites de placas, onde há convergência, afastamento ou deslizamento relativo.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Em Terra, o reconhecimento direto da propriedade de Placas tectônicas resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Em Terra, o reconhecimento direto da propriedade de Placas tectônicas resolve o item."
+      "V": "Incorreto. Os limites tectônicos são regiões especialmente ativas.",
+      "F": "Correto. A palavra 'exclusivamente' torna a afirmação incompatível com a distribuição observada desses fenômenos."
     },
     "tags": [
       "terra",
@@ -804,8 +819,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "terra",
+      "placas-tectonicas",
+      "distribuicao-de-fenomenos"
     ],
     "origin": "nabulab"
   },
@@ -818,7 +834,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Estações",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Inclinação do eixo terrestre” corresponde à seguinte descrição: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
+    "statement": "As estações do ano estão relacionadas principalmente à inclinação do eixo da Terra e ao movimento de translação.",
     "alternatives": [
       {
         "id": "V",
@@ -830,10 +846,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Em Astronomia, o reconhecimento direto da propriedade de Estações resolve o item.",
+    "explanation": "Esses fatores modificam a distribuição de luz solar recebida pelos hemisférios ao longo do ano.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Em Astronomia, o reconhecimento direto da propriedade de Estações resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Em Astronomia, o reconhecimento direto da propriedade de Estações resolve o item."
+      "V": "Correto. A combinação de inclinação axial e translação explica a alternância sazonal.",
+      "F": "Incorreto. A afirmação apresenta os fatores centrais para as estações."
     },
     "tags": [
       "astronomia",
@@ -847,8 +863,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "astronomia",
+      "estacoes",
+      "causa-e-efeito"
     ],
     "origin": "nabulab"
   },
@@ -861,7 +878,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Atrito",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Equilíbrio térmico” corresponde à seguinte descrição: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento.",
+    "statement": "A força de atrito sempre favorece o deslizamento entre duas superfícies.",
     "alternatives": [
       {
         "id": "V",
@@ -873,10 +890,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Em Força e movimento, o reconhecimento direto da propriedade de Atrito resolve o item.",
+    "explanation": "O atrito tende a se opor ao deslizamento relativo ou à tendência de deslizamento entre superfícies. Em várias situações ele também é essencial para caminhar ou frear.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Em Força e movimento, o reconhecimento direto da propriedade de Atrito resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Em Força e movimento, o reconhecimento direto da propriedade de Atrito resolve o item."
+      "V": "Incorreto. O atrito não atua, em geral, para aumentar o deslizamento.",
+      "F": "Correto. A afirmação inverte o papel típico da força de atrito."
     },
     "tags": [
       "forca",
@@ -890,8 +907,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "forca-e-movimento",
+      "atrito",
+      "interpretacao"
     ],
     "origin": "nabulab"
   },
@@ -904,7 +922,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Temperatura",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Equilíbrio térmico” corresponde à seguinte descrição: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
+    "statement": "Quando dois corpos em contato atingem a mesma temperatura, deixa de haver transferência líquida de calor entre eles.",
     "alternatives": [
       {
         "id": "V",
@@ -916,10 +934,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Em Calor, o reconhecimento direto da propriedade de Temperatura resolve o item.",
+    "explanation": "No equilíbrio térmico, trocas microscópicas podem continuar, mas não existe fluxo líquido de energia térmica de um corpo para o outro.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Em Calor, o reconhecimento direto da propriedade de Temperatura resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Em Calor, o reconhecimento direto da propriedade de Temperatura resolve o item."
+      "V": "Correto. Temperaturas iguais caracterizam o equilíbrio térmico entre os corpos em contato.",
+      "F": "Incorreto. A igualdade de temperatura elimina a transferência líquida de calor."
     },
     "tags": [
       "calor",
@@ -933,8 +951,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "calor",
+      "equilibrio-termico",
+      "compreensao"
     ],
     "origin": "nabulab"
   },
@@ -947,7 +966,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circuitos",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Filtração” corresponde à seguinte descrição: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
+    "statement": "Uma lâmpada ligada a uma pilha pode permanecer acesa mesmo que o circuito esteja interrompido em um dos fios.",
     "alternatives": [
       {
         "id": "V",
@@ -959,10 +978,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. Em Eletricidade, o reconhecimento direto da propriedade de Circuitos resolve o item.",
+    "explanation": "Uma interrupção no caminho condutor abre o circuito e impede a corrente elétrica contínua necessária ao funcionamento da lâmpada.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. Em Eletricidade, o reconhecimento direto da propriedade de Circuitos resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. Em Eletricidade, o reconhecimento direto da propriedade de Circuitos resolve o item."
+      "V": "Incorreto. Um circuito aberto não sustenta a corrente no trajeto.",
+      "F": "Correto. Para a lâmpada permanecer acesa, o circuito precisa estar fechado."
     },
     "tags": [
       "eletricidade",
@@ -976,8 +995,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "eletricidade",
+      "circuitos",
+      "diagnostico"
     ],
     "origin": "nabulab"
   },
@@ -990,7 +1010,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Separação",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Filtração” corresponde à seguinte descrição: uma barreira porosa separa um sólido insolúvel de um fluido.",
+    "statement": "A filtração pode separar areia de água porque as partículas sólidas ficam retidas em uma barreira porosa enquanto o líquido atravessa o filtro.",
     "alternatives": [
       {
         "id": "V",
@@ -1002,10 +1022,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. Em Misturas, o reconhecimento direto da propriedade de Separação resolve o item.",
+    "explanation": "Esse é o princípio básico da filtração de uma mistura heterogênea sólido-líquido.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. Em Misturas, o reconhecimento direto da propriedade de Separação resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. Em Misturas, o reconhecimento direto da propriedade de Separação resolve o item."
+      "V": "Correto. O método explora a diferença entre o tamanho das partículas e os poros do filtro.",
+      "F": "Incorreto. A descrição corresponde ao funcionamento da filtração."
     },
     "tags": [
       "misturas",
@@ -1019,8 +1039,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "misturas",
+      "filtracao",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -1033,7 +1054,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Vacinação",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Densidade” corresponde à seguinte descrição: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune.",
+    "statement": "Vacinas são usadas apenas para tratar uma doença depois que seus sintomas já apareceram.",
     "alternatives": [
       {
         "id": "V",
@@ -1045,10 +1066,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Vacinação, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Em Saúde, o reconhecimento direto da propriedade de Vacinação resolve o item.",
+    "explanation": "A principal função das vacinas é preventiva: preparar o sistema imune antes de uma futura exposição ao agente ou a componentes relacionados a ele.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Vacinação, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Em Saúde, o reconhecimento direto da propriedade de Vacinação resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Vacinação, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Em Saúde, o reconhecimento direto da propriedade de Vacinação resolve o item."
+      "V": "Incorreto. Vacinação é principalmente uma estratégia de prevenção.",
+      "F": "Correto. A afirmação confunde prevenção por vacinação com tratamento de uma doença já instalada."
     },
     "tags": [
       "saude",
@@ -1062,8 +1083,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "saude",
+      "vacinacao",
+      "prevencao"
     ],
     "origin": "nabulab"
   },
@@ -1076,7 +1098,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Propriedades",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Densidade” corresponde à seguinte descrição: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
+    "statement": "Se dois objetos têm o mesmo volume, o que possui maior massa também possui maior densidade.",
     "alternatives": [
       {
         "id": "V",
@@ -1088,10 +1110,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Em Matéria, o reconhecimento direto da propriedade de Propriedades resolve o item.",
+    "explanation": "Como densidade = massa/volume, mantendo o volume igual, a densidade aumenta com a massa.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Em Matéria, o reconhecimento direto da propriedade de Propriedades resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Em Matéria, o reconhecimento direto da propriedade de Propriedades resolve o item."
+      "V": "Correto. A comparação pode ser feita diretamente quando os volumes são iguais.",
+      "F": "Incorreto. Para volumes iguais, a maior massa corresponde à maior densidade."
     },
     "tags": [
       "materia",
@@ -1105,8 +1127,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "materia",
+      "densidade",
+      "comparacao"
     ],
     "origin": "nabulab"
   },
@@ -1119,7 +1142,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Transformações",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Circulação pulmonar” corresponde à seguinte descrição: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
+    "statement": "Em um aparelho elétrico, toda a energia recebida precisa se transformar em uma única forma de energia.",
     "alternatives": [
       {
         "id": "V",
@@ -1131,10 +1154,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Em Energia, o reconhecimento direto da propriedade de Transformações resolve o item.",
+    "explanation": "Um aparelho pode converter a energia recebida em várias formas ao mesmo tempo. Uma lâmpada, por exemplo, produz luz e também calor.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Em Energia, o reconhecimento direto da propriedade de Transformações resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Em Energia, o reconhecimento direto da propriedade de Transformações resolve o item."
+      "V": "Incorreto. Transformações de energia podem gerar várias formas simultaneamente.",
+      "F": "Correto. A afirmação impõe uma condição que não existe na conservação de energia."
     },
     "tags": [
       "energia",
@@ -1148,8 +1171,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "energia",
+      "transformacoes",
+      "conservacao"
     ],
     "origin": "nabulab"
   },
@@ -1162,32 +1186,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Célula",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida?",
+    "statement": "Uma célula animal e uma célula vegetal possuem membrana plasmática, citoplasma e material genético. Qual estrutura é característica das células vegetais e está diretamente relacionada à fotossíntese?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Célula"
+        "text": "Cloroplasto"
       },
       {
         "id": "B",
-        "text": "Inclinação do eixo terrestre"
+        "text": "Mitocôndria"
       },
       {
         "id": "C",
-        "text": "Circuito fechado"
+        "text": "Ribossomo"
       },
       {
         "id": "D",
-        "text": "Conservação de energia"
+        "text": "Membrana plasmática"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Por isso, a alternativa correta é Célula.",
+    "explanation": "Cloroplastos contêm pigmentos como a clorofila e participam da fotossíntese. Mitocôndrias, ribossomos e membrana plasmática também estão presentes em células animais.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Por isso, a alternativa correta é Célula.",
-      "B": "Esse conceito designa outra relação: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
-      "C": "A propriedade dessa alternativa é distinta: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
-      "D": "Não corresponde ao caso: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns."
+      "A": "Correta. O cloroplasto é a organela associada à fotossíntese em células vegetais.",
+      "B": "Mitocôndrias realizam respiração celular e existem tanto em células animais quanto vegetais.",
+      "C": "Ribossomos participam da síntese de proteínas em diversos tipos celulares.",
+      "D": "A membrana plasmática envolve tanto células animais quanto vegetais."
     },
     "tags": [
       "seres-vivos",
@@ -1201,8 +1225,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "seres-vivos",
+      "celula",
+      "comparacao-celular"
     ],
     "origin": "nabulab"
   },
@@ -1215,32 +1240,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Placas tectônicas",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas?",
+    "statement": "Uma cadeia de montanhas apresenta terremotos frequentes e está localizada na região de encontro entre duas placas continentais. Qual processo tectônico é mais compatível com esse cenário?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Força de atrito"
+        "text": "Afastamento de placas sem deformação"
       },
       {
         "id": "B",
-        "text": "Tectônica de placas"
+        "text": "Convergência e compressão da crosta"
       },
       {
         "id": "C",
-        "text": "Filtração"
+        "text": "Ausência de movimento entre placas"
       },
       {
         "id": "D",
-        "text": "Circulação pulmonar"
+        "text": "Somente erosão provocada pela chuva"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas. Por isso, a alternativa correta é Tectônica de placas.",
+    "explanation": "Quando placas continentais convergem, a compressão pode dobrar e elevar rochas, formando cadeias montanhosas, além de gerar sismos.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento.",
-      "B": "Correta. A distinção central está em grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas. Por isso, a alternativa correta é Tectônica de placas.",
-      "C": "Não corresponde ao caso: uma barreira porosa separa um sólido insolúvel de um fluido.",
-      "D": "Diverge da descrição porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração."
+      "A": "O afastamento de placas está associado a outros tipos de limites e não explica bem uma cadeia montanhosa continental por compressão.",
+      "B": "Correta. A convergência continental pode produzir montanhas e terremotos.",
+      "C": "A ocorrência frequente de terremotos indica atividade tectônica, não ausência de movimento.",
+      "D": "A erosão modifica o relevo, mas não explica a formação tectônica de grandes cadeias de montanhas."
     },
     "tags": [
       "terra",
@@ -1254,8 +1279,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "terra",
+      "placas-tectonicas",
+      "interpretacao-geologica"
     ],
     "origin": "nabulab"
   },
@@ -1268,32 +1294,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Estações",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações?",
+    "statement": "Em dezembro, o Hemisfério Sul recebe, em média, luz solar mais diretamente e apresenta dias mais longos que o Hemisfério Norte. Qual conclusão é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Equilíbrio térmico"
+        "text": "O Sol se aproxima apenas do Hemisfério Sul"
       },
       {
         "id": "B",
-        "text": "Vacinação"
+        "text": "A Terra para de girar durante o verão"
       },
       {
         "id": "C",
-        "text": "Inclinação do eixo terrestre"
+        "text": "O Hemisfério Sul está inclinado mais favoravelmente em direção ao Sol nessa época"
       },
       {
         "id": "D",
-        "text": "Decompositor"
+        "text": "A Lua aumenta a duração dos dias no Sul"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Por isso, a alternativa correta é Inclinação do eixo terrestre.",
+    "explanation": "A inclinação do eixo terrestre faz com que, em dezembro, o Hemisfério Sul fique mais voltado para o Sol, recebendo maior insolação média e tendo dias mais longos.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
-      "B": "Não corresponde ao caso: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune.",
-      "C": "Correta. A resposta decorre da definição disciplinar a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Por isso, a alternativa correta é Inclinação do eixo terrestre.",
-      "D": "Esse conceito designa outra relação: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente."
+      "A": "A distância Terra-Sol é praticamente a mesma para os dois hemisférios em um dado instante.",
+      "B": "A rotação da Terra continua ocorrendo normalmente.",
+      "C": "Correta. A geometria entre eixo terrestre e posição orbital explica a diferença sazonal.",
+      "D": "A Lua não é responsável pela duração sazonal dos dias."
     },
     "tags": [
       "astronomia",
@@ -1307,8 +1333,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "astronomia",
+      "estacoes",
+      "interpretacao-de-fenomenos"
     ],
     "origin": "nabulab"
   },
@@ -1321,32 +1348,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Atrito",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento?",
+    "statement": "Um bloco é puxado horizontalmente sobre duas superfícies com a mesma força aplicada. Na superfície P ele acelera mais do que na superfície Q. Considerando o mesmo bloco, qual explicação é mais provável?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Circuito fechado"
+        "text": "O atrito em P é maior"
       },
       {
         "id": "B",
-        "text": "Densidade"
+        "text": "A gravidade deixa de agir em P"
       },
       {
         "id": "C",
-        "text": "Célula"
+        "text": "A massa do bloco aumenta em Q"
       },
       {
         "id": "D",
-        "text": "Força de atrito"
+        "text": "O atrito em Q é maior"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento. Por isso, a alternativa correta é Força de atrito.",
+    "explanation": "Com a mesma força aplicada e o mesmo bloco, maior resistência por atrito reduz a força resultante e, portanto, a aceleração. Como a aceleração é menor em Q, é provável que o atrito seja maior em Q.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
-      "B": "Diverge da descrição porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
-      "C": "Esse conceito designa outra relação: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
-      "D": "Correta. O critério relevante é a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento. Por isso, a alternativa correta é Força de atrito."
+      "A": "Se o atrito fosse maior em P, esperaríamos menor aceleração nessa superfície.",
+      "B": "A gravidade continua atuando em ambas as situações.",
+      "C": "O enunciado informa que é o mesmo bloco, portanto sua massa não muda por trocar de superfície.",
+      "D": "Correta. Maior atrito em Q reduz a força resultante."
     },
     "tags": [
       "forca",
@@ -1360,8 +1387,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "forca-e-movimento",
+      "atrito",
+      "analise-de-forcas"
     ],
     "origin": "nabulab"
   },
@@ -1374,32 +1402,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Temperatura",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura?",
+    "statement": "Misturam-se 200 g de água a 80 °C com 200 g de água a 20 °C, em um recipiente ideal que não troca calor com o ambiente. Desprezando perdas, qual temperatura final é esperada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Equilíbrio térmico"
+        "text": "50 °C"
       },
       {
         "id": "B",
-        "text": "Filtração"
+        "text": "40 °C"
       },
       {
         "id": "C",
-        "text": "Conservação de energia"
+        "text": "20 °C"
       },
       {
         "id": "D",
-        "text": "Tectônica de placas"
+        "text": "80 °C"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Por isso, a alternativa correta é Equilíbrio térmico.",
+    "explanation": "Como as massas e a substância são iguais, a energia perdida pela porção quente é igual à recebida pela fria. A temperatura de equilíbrio fica no ponto médio: (80 + 20)/2 = 50 °C.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Por isso, a alternativa correta é Equilíbrio térmico.",
-      "B": "Esse conceito designa outra relação: uma barreira porosa separa um sólido insolúvel de um fluido.",
-      "C": "A propriedade dessa alternativa é distinta: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
-      "D": "Não corresponde ao caso: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas."
+      "A": "Correta. Para massas iguais de água, a temperatura final ideal é a média das temperaturas iniciais.",
+      "B": "Não equilibra as trocas de energia entre massas iguais da mesma substância.",
+      "C": "Isso significaria que toda a água quente esfriou sem aquecer a água fria.",
+      "D": "Isso exigiria que a água fria atingisse 80 °C sem resfriar a quente."
     },
     "tags": [
       "calor",
@@ -1413,8 +1441,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "calor",
+      "equilibrio-termico",
+      "balanco-de-energia"
     ],
     "origin": "nabulab"
   },
@@ -1427,32 +1456,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circuitos",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte?",
+    "statement": "Duas lâmpadas idênticas estão ligadas em série a uma pilha. Se uma delas for retirada e o circuito ficar aberto no ponto onde ela estava, o que acontece com a outra lâmpada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Vacinação"
+        "text": "Fica mais brilhante"
       },
       {
         "id": "B",
-        "text": "Circuito fechado"
+        "text": "Apaga"
       },
       {
         "id": "C",
-        "text": "Circulação pulmonar"
+        "text": "Continua acesa do mesmo modo"
       },
       {
         "id": "D",
-        "text": "Inclinação do eixo terrestre"
+        "text": "Passa a funcionar sem corrente"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte. Por isso, a alternativa correta é Circuito fechado.",
+    "explanation": "Em um circuito em série, a corrente percorre um único caminho. Ao retirar uma lâmpada sem fechar o circuito, o caminho é interrompido e a corrente deixa de circular por ambas.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune.",
-      "B": "Correta. A propriedade determinante é um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte. Por isso, a alternativa correta é Circuito fechado.",
-      "C": "Não corresponde ao caso: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
-      "D": "Diverge da descrição porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações."
+      "A": "A interrupção do caminho impede a corrente; não há aumento de brilho.",
+      "B": "Correta. A retirada abre o circuito e a outra lâmpada também apaga.",
+      "C": "Sem caminho fechado, não há corrente sustentada no circuito.",
+      "D": "Uma lâmpada elétrica precisa de corrente para funcionar."
     },
     "tags": [
       "eletricidade",
@@ -1466,8 +1495,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "eletricidade",
+      "circuitos",
+      "serie"
     ],
     "origin": "nabulab"
   },
@@ -1480,32 +1510,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Separação",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: uma barreira porosa separa um sólido insolúvel de um fluido?",
+    "statement": "Uma mistura contém limalha de ferro, areia e sal de cozinha. Qual sequência permite separar os três componentes usando procedimentos simples?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Densidade"
+        "text": "Filtração, imantação e fusão"
       },
       {
         "id": "B",
-        "text": "Decompositor"
+        "text": "Evaporação, imantação e decantação"
       },
       {
         "id": "C",
-        "text": "Filtração"
+        "text": "Imantação, dissolução do sal em água, filtração e evaporação"
       },
       {
         "id": "D",
-        "text": "Força de atrito"
+        "text": "Somente filtração"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em uma barreira porosa separa um sólido insolúvel de um fluido. Por isso, a alternativa correta é Filtração.",
+    "explanation": "Primeiro, um ímã remove a limalha de ferro. Depois, água dissolve o sal, mas não a areia. A filtração separa a areia da solução e a evaporação da água recupera o sal.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
-      "B": "Não corresponde ao caso: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente.",
-      "C": "Correta. A conclusão se apoia em uma barreira porosa separa um sólido insolúvel de um fluido. Por isso, a alternativa correta é Filtração.",
-      "D": "Esse conceito designa outra relação: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento."
+      "A": "Filtração inicial não separa adequadamente três sólidos secos, e fusão não é necessária.",
+      "B": "Evaporação antes de dissolver o sal não resolve a mistura de sólidos.",
+      "C": "Correta. Cada etapa explora uma propriedade diferente dos componentes.",
+      "D": "Uma única filtração não separa ferro, areia e sal secos."
     },
     "tags": [
       "misturas",
@@ -1519,8 +1549,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "misturas",
+      "separacao",
+      "planejamento-de-procedimento"
     ],
     "origin": "nabulab"
   },
@@ -1533,32 +1564,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Vacinação",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune?",
+    "statement": "Em uma comunidade com baixa cobertura vacinal, aumenta o número de pessoas suscetíveis a uma doença contagiosa. Qual consequência coletiva pode ocorrer?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conservação de energia"
+        "text": "Fim da necessidade de vigilância epidemiológica"
       },
       {
         "id": "B",
-        "text": "Célula"
+        "text": "Desaparecimento automático do agente infeccioso"
       },
       {
         "id": "C",
-        "text": "Equilíbrio térmico"
+        "text": "Imunidade imediata em quem nunca foi vacinado"
       },
       {
         "id": "D",
-        "text": "Vacinação"
+        "text": "Maior facilidade de transmissão e ocorrência de surtos"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em a apresentação segura de antígenos estimula proteção específica e memória do sistema imune. Por isso, a alternativa correta é Vacinação.",
+    "explanation": "Quando há mais pessoas suscetíveis, o agente encontra mais oportunidades de transmissão. Isso pode favorecer surtos e reduzir a proteção indireta da comunidade.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
-      "B": "Diverge da descrição porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
-      "C": "Esse conceito designa outra relação: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
-      "D": "Correta. A distinção central está em a apresentação segura de antígenos estimula proteção específica e memória do sistema imune. Por isso, a alternativa correta é Vacinação."
+      "A": "Vigilância continua importante para detectar e controlar a transmissão.",
+      "B": "O agente não desaparece automaticamente com baixa vacinação.",
+      "C": "Pessoas não vacinadas não adquirem imunidade apenas porque outras pessoas também não foram vacinadas.",
+      "D": "Correta. Baixa cobertura pode aumentar a circulação do agente e a ocorrência de casos."
     },
     "tags": [
       "saude",
@@ -1572,8 +1603,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "saude",
+      "vacinacao",
+      "saude-coletiva"
     ],
     "origin": "nabulab"
   },
@@ -1586,32 +1618,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Propriedades",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes?",
+    "statement": "Uma pedra tem massa de 270 g e volume de 100 cm³. Ao ser colocada em um líquido de densidade 1,0 g/cm³, qual comportamento é mais provável, desconsiderando bolhas de ar?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Densidade"
+        "text": "Afundar"
       },
       {
         "id": "B",
-        "text": "Circulação pulmonar"
+        "text": "Ficar suspensa no meio do líquido"
       },
       {
         "id": "C",
-        "text": "Tectônica de placas"
+        "text": "Flutuar completamente na superfície"
       },
       {
         "id": "D",
-        "text": "Circuito fechado"
+        "text": "Evaporar"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Por isso, a alternativa correta é Densidade.",
+    "explanation": "A densidade da pedra é 270/100 = 2,7 g/cm³, maior que a do líquido. Um objeto mais denso que o fluido tende a afundar.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Por isso, a alternativa correta é Densidade.",
-      "B": "Esse conceito designa outra relação: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
-      "C": "A propriedade dessa alternativa é distinta: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
-      "D": "Não corresponde ao caso: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte."
+      "A": "Correta. A pedra é significativamente mais densa que o líquido.",
+      "B": "Suspensão exige densidades aproximadamente iguais.",
+      "C": "Flutuação seria esperada se a densidade média do objeto fosse menor que a do líquido.",
+      "D": "A densidade relativa não provoca evaporação do sólido."
     },
     "tags": [
       "materia",
@@ -1625,8 +1657,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "materia",
+      "densidade",
+      "aplicacao-quantitativa"
     ],
     "origin": "nabulab"
   },
@@ -1639,32 +1672,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Transformações",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns?",
+    "statement": "Uma montanha-russa inicia a descida de um ponto alto. Desprezando perdas por atrito, qual transformação de energia predomina durante a descida?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Decompositor"
+        "text": "Energia cinética em energia potencial gravitacional"
       },
       {
         "id": "B",
-        "text": "Conservação de energia"
+        "text": "Energia potencial gravitacional em energia cinética"
       },
       {
         "id": "C",
-        "text": "Inclinação do eixo terrestre"
+        "text": "Energia térmica em energia nuclear"
       },
       {
         "id": "D",
-        "text": "Filtração"
+        "text": "Energia luminosa em energia química"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns. Por isso, a alternativa correta é Conservação de energia.",
+    "explanation": "À medida que a altura diminui, a energia potencial gravitacional diminui e a velocidade aumenta, elevando a energia cinética. Sem perdas, a energia mecânica total se conserva.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente.",
-      "B": "Correta. O critério relevante é a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns. Por isso, a alternativa correta é Conservação de energia.",
-      "C": "Não corresponde ao caso: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
-      "D": "Diverge da descrição porque uma barreira porosa separa um sólido insolúvel de um fluido."
+      "A": "Essa transformação seria característica de uma subida, não da descida.",
+      "B": "Correta. A diminuição de altura acompanha o aumento de velocidade.",
+      "C": "Não há processo nuclear envolvido.",
+      "D": "Essas formas de energia não são as relevantes para o movimento descrito."
     },
     "tags": [
       "energia",
@@ -1678,8 +1711,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "energia",
+      "transformacoes",
+      "energia-mecanica"
     ],
     "origin": "nabulab"
   },
@@ -1692,32 +1726,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circulação",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração?",
+    "statement": "Durante exercício intenso, os músculos consomem mais oxigênio. Qual resposta do sistema circulatório ajuda a atender essa demanda?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Célula"
+        "text": "Redução obrigatória da frequência cardíaca"
       },
       {
         "id": "B",
-        "text": "Força de atrito"
+        "text": "Interrupção do fluxo sanguíneo aos músculos"
       },
       {
         "id": "C",
-        "text": "Circulação pulmonar"
+        "text": "Aumento do débito cardíaco e do fluxo para tecidos ativos"
       },
       {
         "id": "D",
-        "text": "Vacinação"
+        "text": "Fechamento permanente dos vasos pulmonares"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Por isso, a alternativa correta é Circulação pulmonar.",
+    "explanation": "O aumento da frequência cardíaca e do volume de sangue bombeado por minuto pode elevar o fornecimento de oxigênio e nutrientes aos músculos ativos.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
-      "B": "Não corresponde ao caso: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento.",
-      "C": "Correta. Neste caso o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Por isso, a alternativa correta é Circulação pulmonar.",
-      "D": "Esse conceito designa outra relação: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune."
+      "A": "Durante esforço, a frequência cardíaca geralmente aumenta para atender à demanda.",
+      "B": "Reduzir o fluxo aos músculos dificultaria o fornecimento de oxigênio.",
+      "C": "Correta. Maior débito cardíaco ajuda a transportar mais oxigênio.",
+      "D": "Fechar vasos pulmonares comprometeria as trocas gasosas."
     },
     "tags": [
       "corpo-humano",
@@ -1731,8 +1765,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "corpo-humano",
+      "circulacao",
+      "fisiologia-do-exercicio"
     ],
     "origin": "nabulab"
   },
@@ -1745,32 +1780,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Decomposição",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente?",
+    "statement": "Em um terrário fechado, folhas secas se acumulam e quase não há fungos nem bactérias decompositoras. Com o tempo, qual efeito é mais provável?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Tectônica de placas"
+        "text": "A matéria orgânica morta será reciclada mais rapidamente"
       },
       {
         "id": "B",
-        "text": "Equilíbrio térmico"
+        "text": "O solo produzirá nutrientes do nada"
       },
       {
         "id": "C",
-        "text": "Densidade"
+        "text": "A fotossíntese substituirá completamente a decomposição"
       },
       {
         "id": "D",
-        "text": "Decompositor"
+        "text": "A decomposição diminuirá e nutrientes ficarão menos disponíveis para reutilização"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente. Por isso, a alternativa correta é Decompositor.",
+    "explanation": "Decompositores são importantes para transformar matéria orgânica morta e devolver nutrientes ao ambiente. Com poucos deles, esse processo tende a ficar mais lento.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
-      "B": "Diverge da descrição porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
-      "C": "Esse conceito designa outra relação: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
-      "D": "Correta. A propriedade determinante é fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente. Por isso, a alternativa correta é Decompositor."
+      "A": "A ausência de decompositores reduz, não acelera, a decomposição.",
+      "B": "Nutrientes não são criados do nada; eles circulam entre os componentes do sistema.",
+      "C": "Fotossíntese e decomposição desempenham papéis diferentes no ecossistema.",
+      "D": "Correta. Menor decomposição pode atrasar a ciclagem de nutrientes."
     },
     "tags": [
       "ecologia",
@@ -1784,8 +1819,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "ecologia",
+      "decomposicao",
+      "ciclagem-de-materia"
     ],
     "origin": "nabulab"
   },
@@ -1798,7 +1834,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Estações",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações”, é correto associá-lo a Inclinação do eixo terrestre.",
+    "statement": "As estações do ano seriam igualmente marcadas nos dois hemisférios mesmo se o eixo de rotação da Terra não fosse inclinado em relação ao plano de sua órbita.",
     "alternatives": [
       {
         "id": "V",
@@ -1809,11 +1845,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A resolução relaciona a situação descrita aos critérios de Estações, no campo de Astronomia.",
+    "correctAnswer": "F",
+    "explanation": "Sem inclinação axial significativa, a variação sazonal da incidência solar e da duração dos dias seria muito menor. A inclinação do eixo é essencial para o padrão atual das estações.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A resolução relaciona a situação descrita aos critérios de Estações, no campo de Astronomia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A resolução relaciona a situação descrita aos critérios de Estações, no campo de Astronomia."
+      "V": "Incorreto. A inclinação axial é um fator central para a intensidade das estações.",
+      "F": "Correto. A afirmação desconsidera a principal causa geométrica da sazonalidade."
     },
     "tags": [
       "astronomia",
@@ -1827,8 +1863,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "astronomia",
+      "estacoes",
+      "raciocinio-causal"
     ],
     "origin": "nabulab"
   },
@@ -1841,7 +1878,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Atrito",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento”, é correto associá-lo a Densidade.",
+    "statement": "Ao caminhar sem escorregar, o atrito entre o pé e o chão pode atuar para frente sobre a pessoa e contribuir para seu movimento.",
     "alternatives": [
       {
         "id": "V",
@@ -1852,11 +1889,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A resolução relaciona a situação descrita aos critérios de Atrito, no campo de Força e movimento.",
+    "correctAnswer": "V",
+    "explanation": "Ao empurrar o chão para trás, o pé tende a deslizar para trás. O atrito estático do chão sobre o pé pode atuar para frente, permitindo a aceleração do corpo.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A resolução relaciona a situação descrita aos critérios de Atrito, no campo de Força e movimento.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A resolução relaciona a situação descrita aos critérios de Atrito, no campo de Força e movimento."
+      "V": "Correto. Atrito não significa necessariamente uma força para trás em relação ao movimento do corpo.",
+      "F": "Incorreto. Nesse caso, o atrito estático pode ser justamente a força horizontal que impulsiona a pessoa."
     },
     "tags": [
       "forca",
@@ -1870,8 +1907,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "forca-e-movimento",
+      "atrito",
+      "interpretacao-de-forcas"
     ],
     "origin": "nabulab"
   },
@@ -1884,7 +1922,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Temperatura",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura”, é correto associá-lo a Equilíbrio térmico.",
+    "statement": "Dois corpos de materiais diferentes podem estar em equilíbrio térmico mesmo que possuam massas diferentes.",
     "alternatives": [
       {
         "id": "V",
@@ -1896,10 +1934,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A resolução relaciona a situação descrita aos critérios de Temperatura, no campo de Calor.",
+    "explanation": "Equilíbrio térmico depende de terem a mesma temperatura e não exige igualdade de massa ou de material.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A resolução relaciona a situação descrita aos critérios de Temperatura, no campo de Calor.",
-      "F": "Incorreto. A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A resolução relaciona a situação descrita aos critérios de Temperatura, no campo de Calor."
+      "V": "Correto. Corpos distintos podem atingir a mesma temperatura.",
+      "F": "Incorreto. Massa e composição não precisam ser iguais para que não haja fluxo líquido de calor entre eles."
     },
     "tags": [
       "calor",
@@ -1913,8 +1951,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "calor",
+      "equilibrio-termico",
+      "diferenciacao-de-conceitos"
     ],
     "origin": "nabulab"
   },
@@ -1927,7 +1966,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circuitos",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte”, é correto associá-lo a Circulação pulmonar.",
+    "statement": "Em duas lâmpadas idênticas ligadas em paralelo a uma fonte ideal, a retirada de uma delas necessariamente interrompe o caminho elétrico da outra.",
     "alternatives": [
       {
         "id": "V",
@@ -1939,10 +1978,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A resolução relaciona a situação descrita aos critérios de Circuitos, no campo de Eletricidade.",
+    "explanation": "Em paralelo, cada ramo possui seu próprio caminho entre os terminais da fonte. Retirar uma lâmpada de um ramo não precisa abrir o outro ramo.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A resolução relaciona a situação descrita aos critérios de Circuitos, no campo de Eletricidade.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A resolução relaciona a situação descrita aos critérios de Circuitos, no campo de Eletricidade."
+      "V": "Incorreto. A independência dos ramos é uma característica importante de ligações em paralelo.",
+      "F": "Correto. A outra lâmpada pode continuar conectada a um caminho fechado."
     },
     "tags": [
       "eletricidade",
@@ -1956,8 +1995,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "eletricidade",
+      "circuitos",
+      "paralelo"
     ],
     "origin": "nabulab"
   },
@@ -1970,7 +2010,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Separação",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “uma barreira porosa separa um sólido insolúvel de um fluido”, é correto associá-lo a Filtração.",
+    "statement": "Para separar uma solução de sal em água por filtração comum, basta usar um filtro de papel, pois o sal dissolvido ficará retido.",
     "alternatives": [
       {
         "id": "V",
@@ -1981,11 +2021,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. A resolução relaciona a situação descrita aos critérios de Separação, no campo de Misturas.",
+    "correctAnswer": "F",
+    "explanation": "O sal dissolvido está disperso em escala molecular/iónica e atravessa um filtro de papel junto com a água. Para recuperar o sal, pode-se usar evaporação ou cristalização.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. A resolução relaciona a situação descrita aos critérios de Separação, no campo de Misturas.",
-      "F": "Incorreto. A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. A resolução relaciona a situação descrita aos critérios de Separação, no campo de Misturas."
+      "V": "Incorreto. Filtração comum não separa um soluto dissolvido de seu solvente.",
+      "F": "Correto. O método proposto é inadequado para uma solução verdadeira."
     },
     "tags": [
       "misturas",
@@ -1999,8 +2039,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "misturas",
+      "separacao",
+      "escolha-de-metodo"
     ],
     "origin": "nabulab"
   },
@@ -2013,7 +2054,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Vacinação",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “a apresentação segura de antígenos estimula proteção específica e memória do sistema imune”, é correto associá-lo a Célula.",
+    "statement": "Uma pessoa vacinada nunca poderá ser infectada pelo agente contra o qual recebeu a vacina.",
     "alternatives": [
       {
         "id": "V",
@@ -2025,10 +2066,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Vacinação, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A resolução relaciona a situação descrita aos critérios de Vacinação, no campo de Saúde.",
+    "explanation": "Vacinas reduzem o risco de doença e, em muitos casos, de infecção, mas nenhuma proteção deve ser tratada como absoluta para todas as pessoas e circunstâncias.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Vacinação, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A resolução relaciona a situação descrita aos critérios de Vacinação, no campo de Saúde.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Vacinação, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A resolução relaciona a situação descrita aos critérios de Vacinação, no campo de Saúde."
+      "V": "Incorreto. A palavra 'nunca' torna a afirmação cientificamente inadequada.",
+      "F": "Correto. Vacinação reduz riscos, mas não implica proteção absoluta em todos os casos."
     },
     "tags": [
       "saude",
@@ -2042,8 +2083,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "saude",
+      "vacinacao",
+      "avaliacao-de-afirmacoes"
     ],
     "origin": "nabulab"
   },
@@ -2056,7 +2098,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Propriedades",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes”, é correto associá-lo a Densidade.",
+    "statement": "Dois objetos com a mesma massa podem ter densidades diferentes se seus volumes forem diferentes.",
     "alternatives": [
       {
         "id": "V",
@@ -2068,10 +2110,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A resolução relaciona a situação descrita aos critérios de Propriedades, no campo de Matéria.",
+    "explanation": "Como densidade = massa/volume, mantendo a massa constante, um volume diferente produz uma densidade diferente.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A resolução relaciona a situação descrita aos critérios de Propriedades, no campo de Matéria.",
-      "F": "Incorreto. A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A resolução relaciona a situação descrita aos critérios de Propriedades, no campo de Matéria."
+      "V": "Correto. Um objeto mais compacto pode ter maior densidade mesmo com a mesma massa total.",
+      "F": "Incorreto. A igualdade de massa não garante igualdade de densidade."
     },
     "tags": [
       "materia",
@@ -2085,8 +2127,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "materia",
+      "densidade",
+      "raciocinio-proporcional"
     ],
     "origin": "nabulab"
   },
@@ -2099,7 +2142,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Transformações",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns”, é correto associá-lo a Inclinação do eixo terrestre.",
+    "statement": "Em um freio de bicicleta, parte da energia cinética do movimento pode ser transformada em energia térmica por atrito.",
     "alternatives": [
       {
         "id": "V",
@@ -2110,11 +2153,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A resolução relaciona a situação descrita aos critérios de Transformações, no campo de Energia.",
+    "correctAnswer": "V",
+    "explanation": "O atrito entre componentes do freio e a roda dissipa energia mecânica em forma de calor, reduzindo a velocidade.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A resolução relaciona a situação descrita aos critérios de Transformações, no campo de Energia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A resolução relaciona a situação descrita aos critérios de Transformações, no campo de Energia."
+      "V": "Correto. A energia não desaparece; parte dela é convertida em energia interna/térmica.",
+      "F": "Incorreto. O aquecimento dos freios é uma evidência dessa transformação."
     },
     "tags": [
       "energia",
@@ -2128,8 +2171,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "energia",
+      "transformacoes",
+      "conservacao"
     ],
     "origin": "nabulab"
   },
@@ -2142,7 +2186,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circulação",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração”, é correto associá-lo a Circulação pulmonar.",
+    "statement": "Na circulação sistêmica, o sangue que sai do lado esquerdo do coração é distribuído aos tecidos do corpo antes de retornar ao lado direito.",
     "alternatives": [
       {
         "id": "V",
@@ -2154,10 +2198,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A resolução relaciona a situação descrita aos critérios de Circulação, no campo de Corpo humano.",
+    "explanation": "O ventrículo esquerdo impulsiona sangue para a circulação sistêmica; após passar pelos tecidos, o sangue retorna pelas veias ao lado direito do coração.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A resolução relaciona a situação descrita aos critérios de Circulação, no campo de Corpo humano.",
-      "F": "Incorreto. A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A resolução relaciona a situação descrita aos critérios de Circulação, no campo de Corpo humano."
+      "V": "Correto. Esse é o trajeto geral do circuito sistêmico.",
+      "F": "Incorreto. A afirmação distingue corretamente a circulação sistêmica da pulmonar."
     },
     "tags": [
       "corpo-humano",
@@ -2171,8 +2215,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "corpo-humano",
+      "circulacao",
+      "fluxo-sanguineo"
     ],
     "origin": "nabulab"
   },
@@ -2185,7 +2230,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Decomposição",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente”, é correto associá-lo a Equilíbrio térmico.",
+    "statement": "A decomposição da matéria orgânica só é importante para remover restos do ambiente e não participa da disponibilidade de nutrientes aos produtores.",
     "alternatives": [
       {
         "id": "V",
@@ -2197,10 +2242,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Decompositor, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A resolução relaciona a situação descrita aos critérios de Decomposição, no campo de Ecologia.",
+    "explanation": "Além de degradar restos, decompositores liberam nutrientes minerais que podem retornar ao solo e à água e ser utilizados por produtores.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Decompositor, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A resolução relaciona a situação descrita aos critérios de Decomposição, no campo de Ecologia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Decompositor, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A resolução relaciona a situação descrita aos critérios de Decomposição, no campo de Ecologia."
+      "V": "Incorreto. A decomposição integra a ciclagem de matéria nos ecossistemas.",
+      "F": "Correto. A afirmação reduz indevidamente a função ecológica dos decompositores."
     },
     "tags": [
       "ecologia",
@@ -2214,8 +2259,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "ecologia",
+      "decomposicao",
+      "ciclagem-de-nutrientes"
     ],
     "origin": "nabulab"
   },
@@ -2228,7 +2274,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Célula",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “a menor unidade estrutural e funcional capaz de realizar processos característicos da vida”, é correto associá-lo a Célula.",
+    "statement": "Células musculares e células nervosas de um mesmo indivíduo podem apresentar formas e funções diferentes mesmo contendo, em geral, o mesmo conjunto básico de DNA.",
     "alternatives": [
       {
         "id": "V",
@@ -2240,10 +2286,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A resolução relaciona a situação descrita aos critérios de Célula, no campo de Seres vivos.",
+    "explanation": "A diferenciação celular envolve diferentes padrões de expressão gênica. Assim, células do mesmo organismo podem especializar-se em funções distintas sem possuir genomas totalmente diferentes.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A resolução relaciona a situação descrita aos critérios de Célula, no campo de Seres vivos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A resolução relaciona a situação descrita aos critérios de Célula, no campo de Seres vivos."
+      "V": "Correto. Especialização celular depende de quais genes são ativados e de características estruturais específicas.",
+      "F": "Incorreto. Ter o mesmo material genético básico não impede a existência de tipos celulares muito diferentes."
     },
     "tags": [
       "seres-vivos",
@@ -2257,8 +2303,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "seres-vivos",
+      "celula",
+      "diferenciacao-celular"
     ],
     "origin": "nabulab"
   },
@@ -2271,7 +2318,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Placas tectônicas",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas”, é correto associá-lo a Filtração.",
+    "statement": "O movimento das placas tectônicas é rápido o suficiente para deslocar continentes vários quilômetros por ano.",
     "alternatives": [
       {
         "id": "V",
@@ -2283,10 +2330,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. A resolução relaciona a situação descrita aos critérios de Placas tectônicas, no campo de Terra.",
+    "explanation": "As placas se movem tipicamente a taxas da ordem de centímetros por ano, não quilômetros por ano.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. A resolução relaciona a situação descrita aos critérios de Placas tectônicas, no campo de Terra.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. A resolução relaciona a situação descrita aos critérios de Placas tectônicas, no campo de Terra."
+      "V": "Incorreto. O movimento é lento em escala humana, embora produza grandes deslocamentos ao longo de milhões de anos.",
+      "F": "Correto. A afirmação superestima enormemente a velocidade das placas."
     },
     "tags": [
       "terra",
@@ -2300,8 +2347,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "terra",
+      "placas-tectonicas",
+      "escala-temporal"
     ],
     "origin": "nabulab"
   },
@@ -2314,32 +2362,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Temperatura",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura?",
+    "statement": "Três recipientes isolados contêm água: A tem 100 g a 80 °C; B tem 200 g a 20 °C. Toda a água de A é misturada à de B, sem perdas de calor. Qual temperatura de equilíbrio é esperada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Equilíbrio térmico"
+        "text": "40 °C"
       },
       {
         "id": "B",
-        "text": "Vacinação"
+        "text": "50 °C"
       },
       {
         "id": "C",
-        "text": "Decompositor"
+        "text": "60 °C"
       },
       {
         "id": "D",
-        "text": "Inclinação do eixo terrestre"
+        "text": "70 °C"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Por isso, a alternativa correta é Equilíbrio térmico.",
+    "explanation": "Como é a mesma substância e não há perdas, a temperatura final é uma média ponderada pelas massas: Tf = (100×80 + 200×20)/(300) = 40 °C.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. Por isso, a alternativa correta é Equilíbrio térmico.",
-      "B": "Esse conceito designa outra relação: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune.",
-      "C": "A propriedade dessa alternativa é distinta: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente.",
-      "D": "Não corresponde ao caso: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações."
+      "A": "Correta. A maior massa de água fria puxa a temperatura de equilíbrio para mais perto de 20 °C.",
+      "B": "50 °C seria a média simples das temperaturas, válida apenas para massas iguais da mesma substância.",
+      "C": "Esse valor ficaria excessivamente próximo da porção quente, apesar de ela ter metade da massa da porção fria.",
+      "D": "Não satisfaz o balanço de energia entre as duas porções."
     },
     "tags": [
       "calor",
@@ -2353,8 +2401,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "calor",
+      "equilibrio-termico",
+      "balanco-de-energia"
     ],
     "origin": "nabulab"
   },
@@ -2367,32 +2416,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circuitos",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte?",
+    "statement": "Duas lâmpadas idênticas estão ligadas em paralelo a uma fonte ideal. Uma terceira lâmpada idêntica é acrescentada em um novo ramo paralelo. Qual mudança é esperada, supondo que a tensão da fonte se mantenha constante?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Densidade"
+        "text": "As lâmpadas anteriores apagam"
       },
       {
         "id": "B",
-        "text": "Circuito fechado"
+        "text": "A corrente total fornecida pela fonte aumenta, enquanto cada lâmpada continua submetida à mesma tensão"
       },
       {
         "id": "C",
-        "text": "Célula"
+        "text": "A corrente total diminui porque há mais caminhos"
       },
       {
         "id": "D",
-        "text": "Força de atrito"
+        "text": "A tensão em cada lâmpada passa obrigatoriamente a um terço"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte. Por isso, a alternativa correta é Circuito fechado.",
+    "explanation": "Em paralelo, cada ramo recebe a tensão da fonte. Acrescentar um ramo reduz a resistência equivalente do conjunto e aumenta a corrente total demandada da fonte ideal.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
-      "B": "Correta. A distinção central está em um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte. Por isso, a alternativa correta é Circuito fechado.",
-      "C": "Não corresponde ao caso: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
-      "D": "Diverge da descrição porque a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento."
+      "A": "Os ramos antigos continuam formando caminhos fechados e não precisam apagar.",
+      "B": "Correta. A tensão dos ramos se mantém e a fonte passa a alimentar mais corrente total.",
+      "C": "Mais ramos em paralelo reduzem a resistência equivalente, aumentando a corrente total para tensão fixa.",
+      "D": "Divisão de tensão entre componentes é característica de outras configurações, não de ramos paralelos diretamente ligados à fonte."
     },
     "tags": [
       "eletricidade",
@@ -2406,8 +2455,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "eletricidade",
+      "circuitos",
+      "paralelo"
     ],
     "origin": "nabulab"
   },
@@ -2420,32 +2470,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Separação",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: uma barreira porosa separa um sólido insolúvel de um fluido?",
+    "statement": "Uma mistura contém água, sal dissolvido e areia. O objetivo é obter separadamente a areia e o sal sólido. Qual sequência é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conservação de energia"
+        "text": "Evaporar toda a mistura e depois filtrar"
       },
       {
         "id": "B",
-        "text": "Tectônica de placas"
+        "text": "Usar apenas um ímã"
       },
       {
         "id": "C",
-        "text": "Filtração"
+        "text": "Filtrar primeiro e depois evaporar a água do filtrado"
       },
       {
         "id": "D",
-        "text": "Equilíbrio térmico"
+        "text": "Decantar e descartar o líquido"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar uma barreira porosa separa um sólido insolúvel de um fluido. Por isso, a alternativa correta é Filtração.",
+    "explanation": "A filtração retém a areia e deixa passar a solução de sal. Depois, a evaporação ou cristalização da água permite recuperar o sal sólido.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
-      "B": "Não corresponde ao caso: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
-      "C": "Correta. A resposta decorre da definição disciplinar uma barreira porosa separa um sólido insolúvel de um fluido. Por isso, a alternativa correta é Filtração.",
-      "D": "Esse conceito designa outra relação: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura."
+      "A": "Após evaporar a água, sal e areia continuariam misturados como sólidos, e a filtração comum não os separaria.",
+      "B": "Nem areia nem sal de cozinha são separados da água por magnetismo.",
+      "C": "Correta. A sequência explora primeiro a insolubilidade da areia e depois a volatilidade da água.",
+      "D": "Descartar a fase líquida faria perder o sal dissolvido."
     },
     "tags": [
       "misturas",
@@ -2459,8 +2509,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "misturas",
+      "separacao",
+      "planejamento-experimental"
     ],
     "origin": "nabulab"
   },
@@ -2473,32 +2524,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Vacinação",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune?",
+    "statement": "Em uma escola, 95% dos alunos vacinados contra determinada doença desenvolveram resposta imune detectável, enquanto uma pequena parcela não respondeu adequadamente. Qual conclusão é cientificamente mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Circulação pulmonar"
+        "text": "A vacina falhou, porque não protegeu 100% dos alunos"
       },
       {
         "id": "B",
-        "text": "Inclinação do eixo terrestre"
+        "text": "Vacinação e memória imunológica não têm relação"
       },
       {
         "id": "C",
-        "text": "Circuito fechado"
+        "text": "Os alunos sem resposta imune não possuem sistema imunológico"
       },
       {
         "id": "D",
-        "text": "Vacinação"
+        "text": "A resposta à vacinação pode variar entre indivíduos, e alta eficácia não significa proteção absoluta"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é a apresentação segura de antígenos estimula proteção específica e memória do sistema imune. Por isso, a alternativa correta é Vacinação.",
+    "explanation": "Vacinas podem apresentar alta eficácia sem produzir exatamente a mesma resposta em todos os indivíduos. Idade, condições de saúde e variações biológicas podem influenciar a resposta.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
-      "B": "Diverge da descrição porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
-      "C": "Esse conceito designa outra relação: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
-      "D": "Correta. O critério relevante é a apresentação segura de antígenos estimula proteção específica e memória do sistema imune. Por isso, a alternativa correta é Vacinação."
+      "A": "Eficácia elevada não exige resposta idêntica em 100% das pessoas.",
+      "B": "A memória imunológica é uma das bases de muitas estratégias vacinais.",
+      "C": "Ausência de resposta detectável a uma vacina não significa ausência completa de sistema imune.",
+      "D": "Correta. A conclusão reconhece a variabilidade biológica sem negar o efeito coletivo da vacinação."
     },
     "tags": [
       "saude",
@@ -2512,8 +2563,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "saude",
+      "vacinacao",
+      "interpretacao-de-dados"
     ],
     "origin": "nabulab"
   },
@@ -2526,32 +2578,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Propriedades",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes?",
+    "statement": "Um objeto de massa 240 g é totalmente mergulhado em uma proveta, fazendo o nível da água subir de 150 mL para 230 mL. Qual é a densidade média do objeto?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Densidade"
+        "text": "3,0 g/cm³"
       },
       {
         "id": "B",
-        "text": "Decompositor"
+        "text": "1,9 g/cm³"
       },
       {
         "id": "C",
-        "text": "Força de atrito"
+        "text": "0,75 g/cm³"
       },
       {
         "id": "D",
-        "text": "Filtração"
+        "text": "80 g/cm³"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Por isso, a alternativa correta é Densidade.",
+    "explanation": "O volume deslocado é 230 − 150 = 80 mL = 80 cm³. A densidade é 240/80 = 3,0 g/cm³.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. Por isso, a alternativa correta é Densidade.",
-      "B": "Esse conceito designa outra relação: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente.",
-      "C": "A propriedade dessa alternativa é distinta: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento.",
-      "D": "Não corresponde ao caso: uma barreira porosa separa um sólido insolúvel de um fluido."
+      "A": "Correta. O deslocamento de água fornece o volume do objeto.",
+      "B": "Resulta de usar 150 mL ou outra base incorreta no cálculo.",
+      "C": "Inverte ou combina incorretamente massa e volume.",
+      "D": "80 cm³ é o volume do objeto, não sua densidade."
     },
     "tags": [
       "materia",
@@ -2565,8 +2617,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "materia",
+      "densidade",
+      "medicao-indireta"
     ],
     "origin": "nabulab"
   },
@@ -2579,32 +2632,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Transformações",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns?",
+    "statement": "Um carrinho parte do repouso do alto de uma rampa e chega ao final com menos energia cinética do que a diminuição de sua energia potencial gravitacional sugeriria. Qual explicação é mais consistente com a conservação da energia?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Célula"
+        "text": "Parte da energia foi destruída durante a descida"
       },
       {
         "id": "B",
-        "text": "Conservação de energia"
+        "text": "Parte da energia mecânica foi transformada em calor e som por forças dissipativas"
       },
       {
         "id": "C",
-        "text": "Equilíbrio térmico"
+        "text": "A gravidade deixou de atuar antes do fim da rampa"
       },
       {
         "id": "D",
-        "text": "Vacinação"
+        "text": "A massa do carrinho desapareceu parcialmente"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns. Por isso, a alternativa correta é Conservação de energia.",
+    "explanation": "A energia total se conserva, mas a energia mecânica pode ser convertida em outras formas, como energia térmica por atrito e energia sonora.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida.",
-      "B": "Correta. A propriedade determinante é a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns. Por isso, a alternativa correta é Conservação de energia.",
-      "C": "Não corresponde ao caso: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
-      "D": "Diverge da descrição porque a apresentação segura de antígenos estimula proteção específica e memória do sistema imune."
+      "A": "A conservação da energia não permite interpretar a diferença como destruição de energia.",
+      "B": "Correta. Atrito e outras forças dissipativas transformam parte da energia mecânica.",
+      "C": "A gravidade continua atuando ao longo da descida.",
+      "D": "Não há indicação de perda de massa; a diferença energética é explicada por transformações."
     },
     "tags": [
       "energia",
@@ -2618,8 +2671,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "energia",
+      "transformacoes",
+      "analise-de-sistema"
     ],
     "origin": "nabulab"
   },
@@ -2632,32 +2686,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circulação",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração?",
+    "statement": "Um paciente apresenta obstrução importante na artéria pulmonar. Considerando o trajeto da circulação, qual consequência direta é mais provável?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Tectônica de placas"
+        "text": "Maior facilidade para o sangue chegar aos pulmões"
       },
       {
         "id": "B",
-        "text": "Circuito fechado"
+        "text": "Interrupção exclusiva do sangue que vai do lado esquerdo do coração ao corpo"
       },
       {
         "id": "C",
-        "text": "Circulação pulmonar"
+        "text": "Dificuldade de levar sangue do lado direito do coração aos pulmões para realizar trocas gasosas"
       },
       {
         "id": "D",
-        "text": "Densidade"
+        "text": "Aumento imediato da quantidade de oxigênio no sangue por redução do fluxo pulmonar"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Por isso, a alternativa correta é Circulação pulmonar.",
+    "explanation": "A artéria pulmonar conduz sangue do lado direito do coração para os pulmões. Uma obstrução importante pode reduzir esse fluxo e comprometer a passagem do sangue pelo circuito de trocas gasosas.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
-      "B": "Não corresponde ao caso: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
-      "C": "Correta. A conclusão se apoia em o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. Por isso, a alternativa correta é Circulação pulmonar.",
-      "D": "Esse conceito designa outra relação: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes."
+      "A": "Uma obstrução aumenta a resistência ao fluxo, não a facilidade.",
+      "B": "A circulação sistêmica sai principalmente do lado esquerdo; a obstrução descrita está no circuito pulmonar.",
+      "C": "Correta. A posição da artéria pulmonar no circuito permite prever essa consequência.",
+      "D": "Reduzir o fluxo pulmonar não aumenta automaticamente a oxigenação do sangue."
     },
     "tags": [
       "corpo-humano",
@@ -2671,8 +2725,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "corpo-humano",
+      "circulacao",
+      "relacao-estrutura-funcao"
     ],
     "origin": "nabulab"
   },
@@ -2685,32 +2740,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Decomposição",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente?",
+    "statement": "Dois recipientes recebem a mesma massa de folhas secas. No recipiente X há solo úmido e aerado; no Y, o solo foi esterilizado e mantido muito seco. Após algumas semanas, em qual condição se espera maior decomposição e por quê?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Inclinação do eixo terrestre"
+        "text": "Nos dois, obrigatoriamente na mesma velocidade"
       },
       {
         "id": "B",
-        "text": "Filtração"
+        "text": "Em Y, porque a esterilização aumenta a quantidade de microrganismos"
       },
       {
         "id": "C",
-        "text": "Conservação de energia"
+        "text": "Em Y, porque a falta de água acelera todas as reações biológicas"
       },
       {
         "id": "D",
-        "text": "Decompositor"
+        "text": "Em X, porque umidade e presença de decompositores favorecem sua atividade"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente. Por isso, a alternativa correta é Decompositor.",
+    "explanation": "A decomposição biológica depende da atividade de organismos como fungos e bactérias, que em geral precisam de condições adequadas de umidade e ambiente. Esterilização e secura reduzem essa atividade.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações.",
-      "B": "Diverge da descrição porque uma barreira porosa separa um sólido insolúvel de um fluido.",
-      "C": "Esse conceito designa outra relação: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
-      "D": "Correta. A distinção central está em fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente. Por isso, a alternativa correta é Decompositor."
+      "A": "As condições ambientais são muito diferentes, portanto não há motivo para esperar a mesma taxa.",
+      "B": "Esterilização reduz a população de microrganismos em vez de aumentá-la.",
+      "C": "Falta de água tende a limitar processos metabólicos de decompositores.",
+      "D": "Correta. X oferece condições mais favoráveis à atividade decompositora."
     },
     "tags": [
       "ecologia",
@@ -2724,8 +2779,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "ecologia",
+      "decomposicao",
+      "controle-de-variaveis"
     ],
     "origin": "nabulab"
   },
@@ -2738,32 +2794,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Célula",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida?",
+    "statement": "Células da pele e neurônios de uma mesma pessoa possuem funções e formas muito diferentes. Qual explicação melhor relaciona esse fato à organização celular?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Célula"
+        "text": "Células especializadas podem expressar conjuntos diferentes de genes do mesmo genoma"
       },
       {
         "id": "B",
-        "text": "Força de atrito"
+        "text": "Cada tipo celular possui necessariamente um DNA completamente diferente"
       },
       {
         "id": "C",
-        "text": "Vacinação"
+        "text": "Neurônios não são células"
       },
       {
         "id": "D",
-        "text": "Circulação pulmonar"
+        "text": "Somente células da pele possuem membrana plasmática"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Por isso, a alternativa correta é Célula.",
+    "explanation": "Em organismos multicelulares, diferentes tipos celulares geralmente compartilham o mesmo genoma, mas ativam e silenciam genes de maneiras diferentes, produzindo proteínas e estruturas compatíveis com funções distintas.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. Por isso, a alternativa correta é Célula.",
-      "B": "Esse conceito designa outra relação: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento.",
-      "C": "A propriedade dessa alternativa é distinta: a apresentação segura de antígenos estimula proteção específica e memória do sistema imune.",
-      "D": "Não corresponde ao caso: o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração."
+      "A": "Correta. Diferentes padrões de expressão gênica ajudam a explicar a diferenciação.",
+      "B": "A especialização não exige genomas completamente diferentes entre os tipos celulares do mesmo indivíduo.",
+      "C": "Neurônios são células especializadas do sistema nervoso.",
+      "D": "Neurônios também possuem membrana plasmática."
     },
     "tags": [
       "seres-vivos",
@@ -2777,8 +2833,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "seres-vivos",
+      "celula",
+      "diferenciacao-celular"
     ],
     "origin": "nabulab"
   },
@@ -2791,32 +2848,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Placas tectônicas",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas?",
+    "statement": "Em uma região oceânica, uma placa mais densa mergulha sob outra em um limite convergente. Qual conjunto de fenômenos é mais compatível com esse processo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Equilíbrio térmico"
+        "text": "Ausência completa de sismos e vulcões"
       },
       {
         "id": "B",
-        "text": "Tectônica de placas"
+        "text": "Formação de fossa oceânica, terremotos e atividade vulcânica"
       },
       {
         "id": "C",
-        "text": "Densidade"
+        "text": "Somente formação de dunas por ação do vento"
       },
       {
         "id": "D",
-        "text": "Decompositor"
+        "text": "Desaparecimento instantâneo da crosta sem liberação de energia"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas. Por isso, a alternativa correta é Tectônica de placas.",
+    "explanation": "Em zonas de subducção, uma placa mergulha sob outra, formando fossas oceânicas e favorecendo intensa atividade sísmica e vulcanismo associado.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura.",
-      "B": "Correta. O critério relevante é grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas. Por isso, a alternativa correta é Tectônica de placas.",
-      "C": "Não corresponde ao caso: a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes.",
-      "D": "Diverge da descrição porque fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente."
+      "A": "Subducção está associada a forte atividade geológica.",
+      "B": "Correta. Esse conjunto é típico de muitas zonas de subducção.",
+      "C": "Dunas são feições superficiais controladas principalmente por transporte de sedimentos pelo vento.",
+      "D": "A placa não desaparece instantaneamente; o processo ocorre ao longo de grandes escalas de tempo e envolve deformação e liberação de energia."
     },
     "tags": [
       "terra",
@@ -2830,8 +2887,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "terra",
+      "placas-tectonicas",
+      "subduccao"
     ],
     "origin": "nabulab"
   },
@@ -2844,32 +2902,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Estações",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações?",
+    "statement": "Duas cidades estão aproximadamente na mesma latitude, uma no Hemisfério Norte e outra no Hemisfério Sul. Em junho, a cidade do Norte tem dias mais longos. Qual previsão é mais coerente para dezembro?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Circuito fechado"
+        "text": "A cidade do Norte continuará necessariamente com dias mais longos"
       },
       {
         "id": "B",
-        "text": "Conservação de energia"
+        "text": "As duas terão sempre exatamente 12 horas de luz"
       },
       {
         "id": "C",
-        "text": "Inclinação do eixo terrestre"
+        "text": "A tendência se inverte: a cidade do Sul passa a ter dias mais longos"
       },
       {
         "id": "D",
-        "text": "Célula"
+        "text": "A duração do dia deixa de depender da inclinação do eixo terrestre"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Por isso, a alternativa correta é Inclinação do eixo terrestre.",
+    "explanation": "A inclinação axial faz os hemisférios alternarem qual deles está mais voltado para o Sol ao longo da órbita. Em dezembro, o Hemisfério Sul está em sua estação de maior insolação.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte.",
-      "B": "Não corresponde ao caso: a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns.",
-      "C": "Correta. Neste caso a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. Por isso, a alternativa correta é Inclinação do eixo terrestre.",
-      "D": "Esse conceito designa outra relação: a menor unidade estrutural e funcional capaz de realizar processos característicos da vida."
+      "A": "A vantagem sazonal de iluminação alterna entre os hemisférios.",
+      "B": "Dias de 12 horas aproximadamente ocorrem nos equinócios, não durante todo o ano.",
+      "C": "Correta. Em dezembro, o padrão sazonal se inverte em relação a junho.",
+      "D": "A inclinação axial continua sendo a causa central dessas diferenças."
     },
     "tags": [
       "astronomia",
@@ -2883,8 +2941,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "astronomia",
+      "estacoes",
+      "previsao-cientifica"
     ],
     "origin": "nabulab"
   },
@@ -2897,32 +2956,32 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Atrito",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento?",
+    "statement": "Um estudante quer comparar o atrito entre um mesmo bloco e três superfícies. Para que o teste seja mais confiável, qual procedimento é melhor?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Filtração"
+        "text": "Usar blocos de massas diferentes em cada superfície"
       },
       {
         "id": "B",
-        "text": "Circulação pulmonar"
+        "text": "Alterar simultaneamente a inclinação e o material da superfície"
       },
       {
         "id": "C",
-        "text": "Tectônica de placas"
+        "text": "Medir apenas uma superfície e generalizar o resultado"
       },
       {
         "id": "D",
-        "text": "Força de atrito"
+        "text": "Manter o bloco e o modo de aplicação da força iguais, variando apenas a superfície"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento. Por isso, a alternativa correta é Força de atrito.",
+    "explanation": "Um experimento comparativo deve controlar as demais variáveis relevantes e alterar principalmente a variável cujo efeito se deseja investigar, neste caso a superfície.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: uma barreira porosa separa um sólido insolúvel de um fluido.",
-      "B": "Diverge da descrição porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração.",
-      "C": "Esse conceito designa outra relação: grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas.",
-      "D": "Correta. A propriedade determinante é a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento. Por isso, a alternativa correta é Força de atrito."
+      "A": "Mudar a massa junto com a superfície introduz outra variável que pode afetar o resultado.",
+      "B": "Alterar duas condições ao mesmo tempo dificulta identificar qual delas causou a diferença.",
+      "C": "Sem comparação entre superfícies, não é possível testar adequadamente a hipótese.",
+      "D": "Correta. O controle de variáveis torna a comparação entre superfícies mais informativa."
     },
     "tags": [
       "forca",
@@ -2936,8 +2995,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "forca-e-movimento",
+      "atrito",
+      "planejamento-experimental"
     ],
     "origin": "nabulab"
   },
@@ -2950,7 +3010,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Separação",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Filtração de Força de atrito, a característica “uma barreira porosa separa um sólido insolúvel de um fluido” deve ser atribuída ao primeiro conceito.",
+    "statement": "Uma solução de sal em água atravessa um filtro de papel comum e, por isso, o líquido coletado deixa de conter sal dissolvido.",
     "alternatives": [
       {
         "id": "V",
@@ -2961,11 +3021,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. A avaliação exige delimitar as condições de Separação e distingui-las de relações próximas em Misturas.",
+    "correctAnswer": "F",
+    "explanation": "O filtro retém partículas sólidas suficientemente grandes, mas íons e moléculas dissolvidos passam pelos poros com a água. Para separar sal dissolvido, são necessários outros processos, como evaporação, cristalização ou técnicas de membrana apropriadas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. A avaliação exige delimitar as condições de Separação e distingui-las de relações próximas em Misturas.",
-      "F": "Incorreto. A proposição é verdadeira, pois Filtração se caracteriza porque uma barreira porosa separa um sólido insolúvel de um fluido. A avaliação exige delimitar as condições de Separação e distingui-las de relações próximas em Misturas."
+      "V": "Incorreto. A filtração comum não remove um soluto verdadeiramente dissolvido.",
+      "F": "Correto. O filtrado continua contendo o sal dissolvido."
     },
     "tags": [
       "misturas",
@@ -2979,8 +3039,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "misturas",
+      "separacao",
+      "limitacoes-de-metodo"
     ],
     "origin": "nabulab"
   },
@@ -2993,7 +3054,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Vacinação",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Vacinação de Equilíbrio térmico, a característica “a apresentação segura de antígenos estimula proteção específica e memória do sistema imune” deve ser atribuída ao segundo conceito.",
+    "statement": "A ocorrência de alguns casos da doença entre pessoas vacinadas não prova, por si só, que a vacina não possui efeito protetor.",
     "alternatives": [
       {
         "id": "V",
@@ -3004,11 +3065,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Vacinação, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A avaliação exige delimitar as condições de Vacinação e distingui-las de relações próximas em Saúde.",
+    "correctAnswer": "V",
+    "explanation": "Proteção vacinal é avaliada pela redução de risco na população, não pela ausência absoluta de casos. Mesmo uma vacina eficaz pode não impedir todos os casos entre pessoas vacinadas.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Vacinação, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A avaliação exige delimitar as condições de Vacinação e distingui-las de relações próximas em Saúde.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Vacinação, enquanto Equilíbrio térmico se refere a corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A avaliação exige delimitar as condições de Vacinação e distingui-las de relações próximas em Saúde."
+      "V": "Correto. Casos individuais podem ocorrer mesmo quando a vacinação reduz de forma relevante a probabilidade de adoecimento.",
+      "F": "Incorreto. Para concluir que não há efeito protetor, seria necessário avaliar comparativamente o risco entre grupos e outras evidências, não apenas observar alguns casos."
     },
     "tags": [
       "saude",
@@ -3022,8 +3083,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "saude",
+      "vacinacao",
+      "interpretacao-de-evidencias"
     ],
     "origin": "nabulab"
   },
@@ -3036,7 +3098,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Propriedades",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Densidade de Circuito fechado, a característica “a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes” deve ser atribuída ao primeiro conceito.",
+    "statement": "Um corpo de densidade 0,8 g/cm³ pode flutuar parcialmente em água de densidade aproximada de 1,0 g/cm³, desde que as demais condições permitam o equilíbrio.",
     "alternatives": [
       {
         "id": "V",
@@ -3048,10 +3110,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A avaliação exige delimitar as condições de Propriedades e distingui-las de relações próximas em Matéria.",
+    "explanation": "Um objeto menos denso que o líquido pode deslocar uma quantidade de fluido cujo peso equilibre seu peso antes de ficar totalmente submerso, permanecendo parcialmente fora da água.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A avaliação exige delimitar as condições de Propriedades e distingui-las de relações próximas em Matéria.",
-      "F": "Incorreto. A proposição é verdadeira, pois Densidade se caracteriza porque a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A avaliação exige delimitar as condições de Propriedades e distingui-las de relações próximas em Matéria."
+      "V": "Correto. A densidade média menor que a da água é compatível com flutuação.",
+      "F": "Incorreto. Não é necessário que as densidades sejam iguais para um objeto flutuar parcialmente."
     },
     "tags": [
       "materia",
@@ -3065,8 +3127,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "materia",
+      "densidade",
+      "flutuacao"
     ],
     "origin": "nabulab"
   },
@@ -3079,7 +3142,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Transformações",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Conservação de energia de Filtração, a característica “a energia muda de forma em um sistema, mas não é criada nem destruída em processos físicos comuns” deve ser atribuída ao segundo conceito.",
+    "statement": "Se um processo apresenta atrito, a energia mecânica perdida deixa de existir e, por isso, a energia total do sistema não se conserva.",
     "alternatives": [
       {
         "id": "V",
@@ -3091,10 +3154,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. A avaliação exige delimitar as condições de Transformações e distingui-las de relações próximas em Energia.",
+    "explanation": "Atrito pode transformar energia mecânica em energia interna, calor e som. A energia total continua sendo contabilizada quando o sistema e suas formas de energia são considerados adequadamente.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. A avaliação exige delimitar as condições de Transformações e distingui-las de relações próximas em Energia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Conservação de energia, enquanto Filtração se refere a uma barreira porosa separa um sólido insolúvel de um fluido. A avaliação exige delimitar as condições de Transformações e distingui-las de relações próximas em Energia."
+      "V": "Incorreto. A redução de energia mecânica não significa destruição de energia.",
+      "F": "Correto. É necessário distinguir conservação da energia total de conservação da energia mecânica."
     },
     "tags": [
       "energia",
@@ -3108,8 +3171,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "energia",
+      "transformacoes",
+      "conservacao"
     ],
     "origin": "nabulab"
   },
@@ -3122,7 +3186,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circulação",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Circulação pulmonar de Vacinação, a característica “o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração” deve ser atribuída ao primeiro conceito.",
+    "statement": "Durante exercício, aumentar o débito cardíaco pode elevar a quantidade de oxigênio transportada aos músculos por unidade de tempo, desde que a oxigenação do sangue e outros fatores sejam adequados.",
     "alternatives": [
       {
         "id": "V",
@@ -3134,10 +3198,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A avaliação exige delimitar as condições de Circulação e distingui-las de relações próximas em Corpo humano.",
+    "explanation": "Débito cardíaco é o volume de sangue bombeado por minuto. Maior fluxo pode aumentar a entrega de oxigênio aos tecidos ativos, especialmente quando combinado com adequada oxigenação e redistribuição do fluxo.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A avaliação exige delimitar as condições de Circulação e distingui-las de relações próximas em Corpo humano.",
-      "F": "Incorreto. A proposição é verdadeira, pois Circulação pulmonar se caracteriza porque o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A avaliação exige delimitar as condições de Circulação e distingui-las de relações próximas em Corpo humano."
+      "V": "Correto. A circulação responde à maior demanda metabólica dos músculos.",
+      "F": "Incorreto. A relação entre fluxo sanguíneo e oferta de oxigênio é fisiologicamente importante durante o esforço."
     },
     "tags": [
       "corpo-humano",
@@ -3151,8 +3215,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "corpo-humano",
+      "circulacao",
+      "fisiologia"
     ],
     "origin": "nabulab"
   },
@@ -3165,7 +3230,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Decomposição",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Decompositor de Densidade, a característica “fungos e bactérias degradam matéria orgânica e devolvem nutrientes ao ambiente” deve ser atribuída ao segundo conceito.",
+    "statement": "Em um ecossistema fechado, a ausência prolongada de decompositores não afetaria a ciclagem de nutrientes, pois produtores conseguem criar novos elementos químicos a partir da luz solar.",
     "alternatives": [
       {
         "id": "V",
@@ -3177,10 +3242,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Decompositor, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A avaliação exige delimitar as condições de Decomposição e distingui-las de relações próximas em Ecologia.",
+    "explanation": "Produtores transformam energia luminosa e incorporam substâncias disponíveis, mas não criam elementos químicos do nada. Sem decomposição, nutrientes presentes em matéria orgânica morta ficam menos disponíveis para recirculação.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Decompositor, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A avaliação exige delimitar as condições de Decomposição e distingui-las de relações próximas em Ecologia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Decompositor, enquanto Densidade se refere a a razão entre massa e volume ajuda a explicar por que materiais de mesmo tamanho podem ter massas diferentes. A avaliação exige delimitar as condições de Decomposição e distingui-las de relações próximas em Ecologia."
+      "V": "Incorreto. A matéria precisa ser reciclada; luz fornece energia, não novos elementos químicos.",
+      "F": "Correto. A decomposição é crucial para devolver nutrientes ao ambiente."
     },
     "tags": [
       "ecologia",
@@ -3194,8 +3259,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "ecologia",
+      "decomposicao",
+      "ciclagem-de-materia"
     ],
     "origin": "nabulab"
   },
@@ -3208,7 +3274,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Célula",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Célula de Conservação de energia, a característica “a menor unidade estrutural e funcional capaz de realizar processos característicos da vida” deve ser atribuída ao primeiro conceito.",
+    "statement": "Uma célula vegetal colocada em solução muito concentrada de solutos pode perder água por osmose, alterando seu volume mesmo sem ruptura imediata da parede celular.",
     "alternatives": [
       {
         "id": "V",
@@ -3220,10 +3286,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A avaliação exige delimitar as condições de Célula e distingui-las de relações próximas em Seres vivos.",
+    "explanation": "A água tende a deslocar-se através da membrana em resposta à diferença de concentração de solutos. Em meio hipertônico, a célula vegetal pode perder água e sofrer plasmólise, enquanto a parede celular mantém sua estrutura externa.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A avaliação exige delimitar as condições de Célula e distingui-las de relações próximas em Seres vivos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Célula se caracteriza porque a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A avaliação exige delimitar as condições de Célula e distingui-las de relações próximas em Seres vivos."
+      "V": "Correto. A membrana e a parede celular têm funções diferentes no comportamento osmótico.",
+      "F": "Incorreto. A presença da parede não impede a movimentação de água pela membrana plasmática."
     },
     "tags": [
       "seres-vivos",
@@ -3237,8 +3303,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "seres-vivos",
+      "celula",
+      "osmose"
     ],
     "origin": "nabulab"
   },
@@ -3251,7 +3318,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Placas tectônicas",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Tectônica de placas de Circulação pulmonar, a característica “grandes blocos da litosfera movem-se lentamente e suas interações produzem sismos, vulcões e montanhas” deve ser atribuída ao segundo conceito.",
+    "statement": "O fato de continentes atualmente separados apresentarem fósseis semelhantes é incompatível com a tectônica de placas, pois organismos terrestres não poderiam atravessar oceanos.",
     "alternatives": [
       {
         "id": "V",
@@ -3263,10 +3330,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A avaliação exige delimitar as condições de Placas tectônicas e distingui-las de relações próximas em Terra.",
+    "explanation": "Semelhanças fossilíferas entre continentes hoje separados são uma das linhas de evidência de que essas massas continentais já estiveram unidas ou mais próximas no passado.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A avaliação exige delimitar as condições de Placas tectônicas e distingui-las de relações próximas em Terra.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Tectônica de placas, enquanto Circulação pulmonar se refere a o sangue sai do coração em direção aos pulmões para realizar trocas gasosas e retorna ao coração. A avaliação exige delimitar as condições de Placas tectônicas e distingui-las de relações próximas em Terra."
+      "V": "Incorreto. A distribuição de fósseis pode ser explicada pela história do movimento continental.",
+      "F": "Correto. A afirmação interpreta ao contrário uma evidência clássica de mobilidade dos continentes."
     },
     "tags": [
       "terra",
@@ -3280,8 +3347,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "terra",
+      "placas-tectonicas",
+      "evidencias-cientificas"
     ],
     "origin": "nabulab"
   },
@@ -3294,7 +3362,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Estações",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Inclinação do eixo terrestre de Decompositor, a característica “a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações” deve ser atribuída ao primeiro conceito.",
+    "statement": "A ocorrência do verão no Hemisfério Sul em dezembro é explicada principalmente pelo fato de a Terra estar mais próxima do Sol nesse mês.",
     "alternatives": [
       {
         "id": "V",
@@ -3305,11 +3373,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A avaliação exige delimitar as condições de Estações e distingui-las de relações próximas em Astronomia.",
+    "correctAnswer": "F",
+    "explanation": "A principal causa das estações é a inclinação do eixo terrestre. A distância Terra-Sol varia ao longo da órbita, mas não explica estações opostas nos dois hemisférios.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A avaliação exige delimitar as condições de Estações e distingui-las de relações próximas em Astronomia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Inclinação do eixo terrestre se caracteriza porque a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A avaliação exige delimitar as condições de Estações e distingui-las de relações próximas em Astronomia."
+      "V": "Incorreto. Se a distância fosse a causa principal, os dois hemisférios tenderiam a ter a mesma estação ao mesmo tempo.",
+      "F": "Correto. A geometria da incidência solar causada pela inclinação axial explica a oposição sazonal."
     },
     "tags": [
       "astronomia",
@@ -3323,8 +3391,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "astronomia",
+      "estacoes",
+      "avaliacao-de-modelos"
     ],
     "origin": "nabulab"
   },
@@ -3337,7 +3406,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Atrito",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Força de atrito de Célula, a característica “a interação entre superfícies tende a se opor ao deslizamento ou à tendência de deslizamento” deve ser atribuída ao segundo conceito.",
+    "statement": "Se um objeto desliza para a direita sobre uma superfície horizontal, a força de atrito cinético exercida pela superfície sobre o objeto aponta para a esquerda, desde que não haja outro movimento relativo local relevante.",
     "alternatives": [
       {
         "id": "V",
@@ -3348,11 +3417,11 @@ export const cienciasQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A avaliação exige delimitar as condições de Atrito e distingui-las de relações próximas em Força e movimento.",
+    "correctAnswer": "V",
+    "explanation": "O atrito cinético atua em sentido oposto ao deslizamento relativo entre as superfícies. Se o objeto desliza para a direita em relação ao chão, o atrito sobre ele atua para a esquerda.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A avaliação exige delimitar as condições de Atrito e distingui-las de relações próximas em Força e movimento.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Força de atrito, enquanto Célula se refere a a menor unidade estrutural e funcional capaz de realizar processos característicos da vida. A avaliação exige delimitar as condições de Atrito e distingui-las de relações próximas em Força e movimento."
+      "V": "Correto. A direção do atrito é determinada pelo movimento relativo na interface.",
+      "F": "Incorreto. O atrito cinético não aponta, nesse caso, no mesmo sentido do deslizamento."
     },
     "tags": [
       "forca",
@@ -3366,8 +3435,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "forca-e-movimento",
+      "atrito",
+      "vetores"
     ],
     "origin": "nabulab"
   },
@@ -3380,7 +3450,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Temperatura",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Equilíbrio térmico de Tectônica de placas, a característica “corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura” deve ser atribuída ao primeiro conceito.",
+    "statement": "Ao misturar dois corpos isolados termicamente, o corpo inicialmente mais quente sempre cede exatamente a mesma quantidade de energia que o corpo inicialmente mais frio recebe, desde que não ocorram mudanças de fase ou outras formas relevantes de armazenamento de energia.",
     "alternatives": [
       {
         "id": "V",
@@ -3392,10 +3462,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A avaliação exige delimitar as condições de Temperatura e distingui-las de relações próximas em Calor.",
+    "explanation": "Em um sistema termicamente isolado e sob as condições indicadas, a conservação de energia exige que o calor perdido por um corpo tenha o mesmo módulo do calor ganho pelo outro.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A avaliação exige delimitar as condições de Temperatura e distingui-las de relações próximas em Calor.",
-      "F": "Incorreto. A proposição é verdadeira, pois Equilíbrio térmico se caracteriza porque corpos em contato deixam de trocar calor líquido quando atingem a mesma temperatura. A avaliação exige delimitar as condições de Temperatura e distingui-las de relações próximas em Calor."
+      "V": "Correto. Essa igualdade fundamenta os cálculos de equilíbrio térmico em sistemas ideais isolados.",
+      "F": "Incorreto. A diferença de massas ou materiais altera a variação de temperatura, mas não a igualdade entre energia cedida e recebida no sistema isolado."
     },
     "tags": [
       "calor",
@@ -3409,8 +3479,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "calor",
+      "equilibrio-termico",
+      "conservacao-de-energia"
     ],
     "origin": "nabulab"
   },
@@ -3423,7 +3494,7 @@ export const cienciasQuestions: Question[] = [
     "subtopic": "Circuitos",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Circuito fechado de Inclinação do eixo terrestre, a característica “um caminho condutor contínuo permite a circulação de corrente elétrica entre os terminais da fonte” deve ser atribuída ao segundo conceito.",
+    "statement": "Em um circuito ideal com dois resistores idênticos em paralelo, retirar um dos ramos e manter a fonte de tensão constante aumenta a corrente total fornecida pela fonte.",
     "alternatives": [
       {
         "id": "V",
@@ -3435,10 +3506,10 @@ export const cienciasQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A avaliação exige delimitar as condições de Circuitos e distingui-las de relações próximas em Eletricidade.",
+    "explanation": "Dois resistores idênticos em paralelo oferecem resistência equivalente menor que um único resistor. Ao retirar um ramo, a resistência equivalente aumenta e a corrente total da fonte diminui.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A avaliação exige delimitar as condições de Circuitos e distingui-las de relações próximas em Eletricidade.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Circuito fechado, enquanto Inclinação do eixo terrestre se refere a a orientação inclinada do eixo combinada à translação altera a incidência solar e origina as estações. A avaliação exige delimitar as condições de Circuitos e distingui-las de relações próximas em Eletricidade."
+      "V": "Incorreto. Menos ramos paralelos significam maior resistência equivalente e menor corrente total para a mesma tensão.",
+      "F": "Correto. A afirmação inverte o efeito de remover um ramo paralelo."
     },
     "tags": [
       "eletricidade",
@@ -3452,8 +3523,9 @@ export const cienciasQuestions: Question[] = [
     ],
     "educationLevel": "ensino-fundamental",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "eletricidade",
+      "circuitos",
+      "resistencia-equivalente"
     ],
     "origin": "nabulab"
   }
