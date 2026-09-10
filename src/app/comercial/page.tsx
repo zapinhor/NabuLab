@@ -60,6 +60,10 @@ const primaryButton =
 const secondaryButton =
   "rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-50";
 
+function getCurrentTimestamp() {
+  return Date.now();
+}
+
 function Section({
   title,
   description,
@@ -152,7 +156,7 @@ export default async function CommercialPage({
   const profile = profileResult.data as Profile | null;
   const organizations = (orgResult.data ?? []) as Organization[];
   const memberships = (memberResult.data ?? []) as Membership[];
-  const now = Date.now();
+  const now = getCurrentTimestamp();
   const organizationInvites = ((orgInviteResult.data ?? []) as Invite[]).filter(
     (invite) =>
       invite.email?.toLowerCase() === userEmail &&

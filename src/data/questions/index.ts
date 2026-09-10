@@ -46,6 +46,10 @@ import {
   inglesTrueFalseQuestions,
 } from "@/data/questions/ingles-vf";
 
+import {
+  vestibularQuestions,
+} from "@/data/questions/vestibulares";
+
 import type {
   Difficulty,
   Question,
@@ -59,7 +63,7 @@ import type {
  * =========================================================
  */
 
-export const questionBank: Question[] = [
+const legacyQuestions: Question[] = [
   /*
    * =======================================================
    * PORTUGUÊS
@@ -99,6 +103,40 @@ export const questionBank: Question[] = [
   ...inglesQuestions,
   ...inglesExtraQuestions,
   ...inglesTrueFalseQuestions,
+];
+
+/*
+ * As 140 questões originais são preservadas e recebem metadados
+ * compatíveis com o Banco Vestibulares v1 durante a montagem.
+ */
+
+const normalizedLegacyQuestions: Question[] =
+  legacyQuestions.map((question) => ({
+    ...question,
+    examTags:
+      question.subject === "informatica"
+        ? ["fatec", "etec"]
+        : question.subject === "ingles"
+          ? ["enem", "fuvest", "fatec"]
+          : question.difficulty === "avancado"
+            ? ["fuvest", "unesp", "enem"]
+            : ["enem", "fuvest", "fatec"],
+    educationLevel:
+      question.subject === "informatica"
+        ? "fundamental-e-medio"
+        : "ensino-medio",
+    skills:
+      question.difficulty === "iniciante"
+        ? ["reconhecimento-conceitual", "aplicacao-direta"]
+        : question.difficulty === "medio"
+          ? ["interpretacao", "resolucao-de-problemas"]
+          : ["analise", "integracao-de-conceitos"],
+    origin: "nabulab",
+  }));
+
+export const questionBank: Question[] = [
+  ...normalizedLegacyQuestions,
+  ...vestibularQuestions,
 ];
 
 /*

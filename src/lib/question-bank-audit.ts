@@ -8,6 +8,8 @@ import {
 
 import type {
   Difficulty,
+  EducationLevel,
+  ExamTag,
   QuestionType,
   SubjectId,
 } from "@/types/question";
@@ -50,6 +52,11 @@ export interface SubjectAuditStats {
   medio: number;
 
   avancado: number;
+
+  combinations: Record<
+    QuestionType,
+    Record<Difficulty, number>
+  >;
 
   topics: number;
 
@@ -135,6 +142,20 @@ const TRUE_FALSE_IDS = [
   "F",
 ];
 
+const VALID_EXAM_TAGS: ExamTag[] = [
+  "enem",
+  "fuvest",
+  "unesp",
+  "fatec",
+  "etec",
+];
+
+const VALID_EDUCATION_LEVELS: EducationLevel[] = [
+  "ensino-fundamental",
+  "ensino-medio",
+  "fundamental-e-medio",
+];
+
 /*
  * =========================================================
  * UTILITÁRIOS
@@ -153,6 +174,34 @@ function normalizeText(
       /\s+/g,
       " "
     );
+}
+
+const PEDAGOGICAL_BOILERPLATE = [
+  "a análise correta mobiliza",
+  "o ponto decisivo é interpretar",
+  "sem acrescentar condições inexistentes",
+  "ignora a informação central apresentada",
+  "apenas porque pertence à mesma matéria",
+  "descartar o contexto",
+  "limita a conclusão ao que as evidências permitem afirmar",
+  "não autoriza generalização automática",
+  "ii exige restringir o alcance",
+  "a sequência entre i e ii demonstra causalidade",
+];
+
+function tokenSet(value: string) {
+  return new Set(
+    normalizeText(value)
+      .replace(/[^\p{L}\p{N}\s]/gu, "")
+      .split(" ")
+      .filter((token) => token.length > 2)
+  );
+}
+
+function jaccard(first: Set<string>, second: Set<string>) {
+  const intersection = [...first].filter((token) => second.has(token)).length;
+  const union = new Set([...first, ...second]).size;
+  return union === 0 ? 0 : intersection / union;
 }
 
 function arraysContainSameValues(
@@ -412,6 +461,24 @@ export function auditQuestionBank(): QuestionBankAudit {
             question.explanation,
         },
       ];
+
+      const pedagogicalText = normalizeText([
+        question.statement,
+        question.explanation,
+        ...question.alternatives.map((alternative) => alternative.text),
+        ...Object.values(question.alternativeExplanations),
+      ].join(" "));
+
+      for (const pattern of PEDAGOGICAL_BOILERPLATE) {
+        if (pedagogicalText.includes(pattern)) {
+          addIssue({
+            severity: "error",
+            code: "PEDAGOGICAL_BOILERPLATE",
+            questionId,
+            message: `A questão contém o padrão artificial proibido: "${pattern}".`,
+          }, questionIndex);
+        }
+      }
 
       for (
         const field of
@@ -1063,6 +1130,88 @@ export function auditQuestionBank(): QuestionBankAudit {
           }
         );
       }
+
+      if (
+        !question.examTags ||
+        question.examTags.length === 0
+      ) {
+        addIssue(
+          {
+            severity: "error",
+            code: "NO_EXAM_TAGS",
+            questionId,
+            message: "A questão não possui examTags.",
+          },
+          questionIndex
+        );
+      } else {
+        const invalidExamTags = question.examTags.filter(
+          (examTag) => !VALID_EXAM_TAGS.includes(examTag)
+        );
+
+        if (invalidExamTags.length > 0) {
+          addIssue(
+            {
+              severity: "error",
+              code: "INVALID_EXAM_TAG",
+              questionId,
+              message: `examTags inválidas: ${invalidExamTags.join(", ")}.`,
+            },
+            questionIndex
+          );
+        }
+
+        if (new Set(question.examTags).size !== question.examTags.length) {
+          addIssue(
+            {
+              severity: "error",
+              code: "DUPLICATE_EXAM_TAG",
+              questionId,
+              message: "A questão possui examTags duplicadas.",
+            },
+            questionIndex
+          );
+        }
+      }
+
+      if (
+        !question.educationLevel ||
+        !VALID_EDUCATION_LEVELS.includes(question.educationLevel)
+      ) {
+        addIssue(
+          {
+            severity: "error",
+            code: "INVALID_EDUCATION_LEVEL",
+            questionId,
+            message: "A questão possui educationLevel ausente ou inválido.",
+          },
+          questionIndex
+        );
+      }
+
+      if (!question.skills || question.skills.length === 0) {
+        addIssue(
+          {
+            severity: "error",
+            code: "NO_SKILLS",
+            questionId,
+            message: "A questão não possui habilidades associadas.",
+          },
+          questionIndex
+        );
+      }
+
+      if (question.origin !== "nabulab") {
+        addIssue(
+          {
+            severity: "error",
+            code: "INVALID_ORIGIN",
+            questionId,
+            message: 'A origem da questão deve ser "nabulab".',
+          },
+          questionIndex
+        );
+      }
     }
   );
 
@@ -1148,6 +1297,22 @@ export function auditQuestionBank(): QuestionBankAudit {
     }
   }
 
+  const explanationTokens = questionBank.map((question) => tokenSet(question.explanation));
+  for (let firstIndex = 0; firstIndex < questionBank.length; firstIndex += 1) {
+    for (let secondIndex = firstIndex + 1; secondIndex < questionBank.length; secondIndex += 1) {
+      if (questionBank[firstIndex].subject !== questionBank[secondIndex].subject) continue;
+      if (explanationTokens[firstIndex].size < 12 || explanationTokens[secondIndex].size < 12) continue;
+      if (jaccard(explanationTokens[firstIndex], explanationTokens[secondIndex]) >= 0.94) {
+        addIssue({
+          severity: "warning",
+          code: "NEAR_DUPLICATE_EXPLANATION",
+          questionId: questionBank[secondIndex].id,
+          message: `Explicação quase idêntica à questão ${questionBank[firstIndex].id}.`,
+        });
+      }
+    }
+  }
+
   /*
    * =======================================================
    * DISTRIBUIÇÃO POR MATÉRIA
@@ -1213,6 +1378,31 @@ export function auditQuestionBank(): QuestionBankAudit {
                 "avancado"
             ).length,
 
+          combinations: {
+            "multiple-choice": {
+              iniciante: questions.filter(
+                (question) => question.type === "multiple-choice" && question.difficulty === "iniciante"
+              ).length,
+              medio: questions.filter(
+                (question) => question.type === "multiple-choice" && question.difficulty === "medio"
+              ).length,
+              avancado: questions.filter(
+                (question) => question.type === "multiple-choice" && question.difficulty === "avancado"
+              ).length,
+            },
+            "true-false": {
+              iniciante: questions.filter(
+                (question) => question.type === "true-false" && question.difficulty === "iniciante"
+              ).length,
+              medio: questions.filter(
+                (question) => question.type === "true-false" && question.difficulty === "medio"
+              ).length,
+              avancado: questions.filter(
+                (question) => question.type === "true-false" && question.difficulty === "avancado"
+              ).length,
+            },
+          },
+
           topics:
             new Set(
               questions.map(
@@ -1276,6 +1466,71 @@ export function auditQuestionBank(): QuestionBankAudit {
           "avancado"
       ).length,
   };
+
+  if (questionBank.length !== 1224) {
+    addIssue({
+      severity: "error",
+      code: "INVALID_TOTAL_COUNT",
+      questionId: "BANCO",
+      message: `O Banco Vestibulares v1 deve possuir 1224 questões, mas possui ${questionBank.length}.`,
+    });
+  }
+
+  const expectedGlobalCounts = [
+    ["multiple-choice", byType.multipleChoice, 612],
+    ["true-false", byType.trueFalse, 612],
+    ["iniciante", byDifficulty.iniciante, 408],
+    ["medio", byDifficulty.medio, 408],
+    ["avancado", byDifficulty.avancado, 408],
+  ] as const;
+
+  for (const [label, actual, expected] of expectedGlobalCounts) {
+    if (actual !== expected) {
+      addIssue({
+        severity: "error",
+        code: "INVALID_GLOBAL_DISTRIBUTION",
+        questionId: "BANCO",
+        message: `A distribuição global de ${label} deveria ser ${expected}, mas é ${actual}.`,
+      });
+    }
+  }
+
+  for (const subject of subjectStats) {
+    const expectedSubjectCounts = [
+      ["total", subject.total, 72],
+      ["múltipla escolha", subject.multipleChoice, 36],
+      ["verdadeiro/falso", subject.trueFalse, 36],
+      ["iniciante", subject.iniciante, 24],
+      ["médio", subject.medio, 24],
+      ["avançado", subject.avancado, 24],
+    ] as const;
+
+    for (const [label, actual, expected] of expectedSubjectCounts) {
+      if (actual !== expected) {
+        addIssue({
+          severity: "error",
+          code: "INVALID_SUBJECT_DISTRIBUTION",
+          questionId: subject.subject,
+          message: `${subject.subjectName}: ${label} deveria ser ${expected}, mas é ${actual}.`,
+        });
+      }
+    }
+
+    for (const type of VALID_TYPES) {
+      for (const difficulty of VALID_DIFFICULTIES) {
+        const actual = subject.combinations[type][difficulty];
+
+        if (actual !== 12) {
+          addIssue({
+            severity: "error",
+            code: "INVALID_SUBJECT_CELL",
+            questionId: subject.subject,
+            message: `${subject.subjectName}: ${type} + ${difficulty} deveria conter 12 questões, mas contém ${actual}.`,
+          });
+        }
+      }
+    }
+  }
 
   /*
    * =======================================================
