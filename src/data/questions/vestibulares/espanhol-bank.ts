@@ -10,32 +10,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Idea principal",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: la información central articula el propósito y los argumentos más relevantes de un texto?",
+    "statement": "Lee el aviso: \"El museo abrirá a las once el domingo por trabajos de mantenimiento. De lunes a sábado mantiene su horario habitual.\" ¿Cuál es la idea principal?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Idea principal"
+        "text": "El domingo el museo abrirá más tarde de lo normal."
       },
       {
         "id": "B",
-        "text": "Inferencia contextual"
+        "text": "El museo cerrará definitivamente."
       },
       {
         "id": "C",
-        "text": "Pronombre de objeto directo"
+        "text": "Todos los horarios cambian esta semana."
       },
       {
         "id": "D",
-        "text": "Conector por lo tanto"
+        "text": "El mantenimiento durará todos los días."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em la información central articula el propósito y los argumentos más relevantes de un texto. Por isso, a alternativa correta é Idea principal.",
+    "explanation": "El aviso comunica un cambio puntual para el domingo y aclara que los demás días conservan el horario habitual.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em la información central articula el propósito y los argumentos más relevantes de un texto. Por isso, a alternativa correta é Idea principal.",
-      "B": "Esse conceito designa outra relação: el lector deduce información no explícita mediante pistas presentes en el texto.",
-      "C": "A propriedade dessa alternativa é distinta: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
-      "D": "Não corresponde ao caso: la expresión presenta una consecuencia derivada de información anterior."
+      "A": "Correta. Resume la información central.",
+      "B": "Incorreta. Convierte un cambio puntual en definitivo.",
+      "C": "Incorreta. Contradice la aclaración sobre los demás días.",
+      "D": "Incorreta. Generaliza el mantenimiento sin apoyo textual."
     },
     "tags": [
       "comprension",
@@ -49,8 +49,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -63,32 +64,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Inferencia",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: el lector deduce información no explícita mediante pistas presentes en el texto?",
+    "statement": "Lee: \"Al llegar a casa, Lucía dejó el paraguas abierto para secarse y puso sus zapatos mojados junto a la puerta.\" ¿Qué es razonable inferir?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Falso cognado embarazada"
+        "text": "Lucía compró zapatos nuevos."
       },
       {
         "id": "B",
-        "text": "Inferencia contextual"
+        "text": "Probablemente llovió antes de que llegara."
       },
       {
         "id": "C",
-        "text": "Pretérito perfecto compuesto"
+        "text": "La casa estaba inundada."
       },
       {
         "id": "D",
-        "text": "Preposición para"
+        "text": "Lucía perdió el paraguas."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em el lector deduce información no explícita mediante pistas presentes en el texto. Por isso, a alternativa correta é Inferencia contextual.",
+    "explanation": "El paraguas puesto a secar y los zapatos mojados son pistas convergentes de que probablemente llovió.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: la palabra española embarazada significa grávida y no corresponde a envergonhada.",
-      "B": "Correta. A distinção central está em el lector deduce información no explícita mediante pistas presentes en el texto. Por isso, a alternativa correta é Inferencia contextual.",
-      "C": "Não corresponde ao caso: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
-      "D": "Diverge da descrição porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo."
+      "A": "Incorreta. No hay información sobre una compra.",
+      "B": "Correta. Es la inferencia mejor respaldada por las pistas.",
+      "C": "Incorreta. Los zapatos mojados no prueban una inundación de la casa.",
+      "D": "Incorreta. El paraguas está con Lucía."
     },
     "tags": [
       "comprension",
@@ -102,8 +103,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -116,32 +118,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Falsos cognados",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: la palabra española embarazada significa grávida y no corresponde a envergonhada?",
+    "statement": "En \"Mi hermana está embarazada de seis meses\", la palabra \"embarazada\" significa:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Artículo neutro lo"
+        "text": "avergonzada"
       },
       {
         "id": "B",
-        "text": "Conector sin embargo"
+        "text": "cansada"
       },
       {
         "id": "C",
-        "text": "Falso cognado embarazada"
+        "text": "grávida"
       },
       {
         "id": "D",
-        "text": "Ironía textual"
+        "text": "preocupada"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar la palabra española embarazada significa grávida y no corresponde a envergonhada. Por isso, a alternativa correta é Falso cognado embarazada.",
+    "explanation": "\"Embarazada\" es un falso cognado para hablantes de portugués y significa \"grávida\".",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo.",
-      "B": "Não corresponde ao caso: la expresión introduce una oposición o restricción respecto de la idea anterior.",
-      "C": "Correta. A resposta decorre da definição disciplinar la palabra española embarazada significa grávida y no corresponde a envergonhada. Por isso, a alternativa correta é Falso cognado embarazada.",
-      "D": "Esse conceito designa outra relação: el sentido pretendido se distancia del significado literal para producir crítica o humor."
+      "A": "Incorreta. La semejanza con 'embaraçada' induce a esta traducción incorrecta.",
+      "B": "Incorreta. El contexto no expresa cansancio.",
+      "C": "Correta. Es el significado correcto, reforzado por 'de seis meses'.",
+      "D": "Incorreta. El enunciado no informa preocupación."
     },
     "tags": [
       "vocabulario",
@@ -155,8 +157,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "vocabulario",
+      "sentido-contextual",
+      "comparacion-linguistica"
     ],
     "origin": "nabulab"
   },
@@ -169,32 +172,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Artículo neutro",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo?",
+    "statement": "¿En qué oración \"lo\" funciona como artículo neutro?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pronombre de objeto directo"
+        "text": "Lo vi ayer."
       },
       {
         "id": "B",
-        "text": "Conector por lo tanto"
+        "text": "El libro lo compré aquí."
       },
       {
         "id": "C",
-        "text": "Voseo"
+        "text": "A Pablo lo llamaron temprano."
       },
       {
         "id": "D",
-        "text": "Artículo neutro lo"
+        "text": "Lo importante es participar."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo. Por isso, a alternativa correta é Artículo neutro lo.",
+    "explanation": "En \"Lo importante\", el artículo neutro sustantiva el adjetivo \"importante\".",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
-      "B": "Diverge da descrição porque la expresión presenta una consecuencia derivada de información anterior.",
-      "C": "Esse conceito designa outra relação: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
-      "D": "Correta. O critério relevante é la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo. Por isso, a alternativa correta é Artículo neutro lo."
+      "A": "Incorreta. Aquí 'lo' es pronombre de objeto directo.",
+      "B": "Incorreta. Aquí retoma 'el libro'.",
+      "C": "Incorreta. Aquí retoma a Pablo.",
+      "D": "Correta. Aquí forma una expresión neutra con un adjetivo."
     },
     "tags": [
       "articulos",
@@ -208,8 +211,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "gramatica",
+      "articulos",
+      "analisis-contextual"
     ],
     "origin": "nabulab"
   },
@@ -222,32 +226,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Objeto directo",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal?",
+    "statement": "Completa: \"Compré las entradas y ___ guardé en la mochila.\"",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pronombre de objeto directo"
+        "text": "las"
       },
       {
         "id": "B",
-        "text": "Pretérito perfecto compuesto"
+        "text": "los"
       },
       {
         "id": "C",
-        "text": "Preposición para"
+        "text": "la"
       },
       {
         "id": "D",
-        "text": "Diversidad léxica hispánica"
+        "text": "lo"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Por isso, a alternativa correta é Pronombre de objeto directo.",
+    "explanation": "\"Las entradas\" es femenino plural y funciona como objeto directo; por eso se sustituye con \"las\".",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Por isso, a alternativa correta é Pronombre de objeto directo.",
-      "B": "Esse conceito designa outra relação: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
-      "C": "A propriedade dessa alternativa é distinta: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
-      "D": "Não corresponde ao caso: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior."
+      "A": "Correta. Concuerda con el referente femenino plural.",
+      "B": "Incorreta. Es masculino plural.",
+      "C": "Incorreta. Es femenino singular.",
+      "D": "Incorreta. Es masculino singular."
     },
     "tags": [
       "pronombres",
@@ -261,8 +265,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "gramatica",
+      "pronombres",
+      "referencia"
     ],
     "origin": "nabulab"
   },
@@ -275,32 +280,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Pretérito",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente?",
+    "statement": "¿Qué oración contiene pretérito perfecto compuesto?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conector sin embargo"
+        "text": "Ayer fui al cine."
       },
       {
         "id": "B",
-        "text": "Pretérito perfecto compuesto"
+        "text": "Esta semana he visto dos películas."
       },
       {
         "id": "C",
-        "text": "Ironía textual"
+        "text": "Mañana veré una película."
       },
       {
         "id": "D",
-        "text": "Idea principal"
+        "text": "De niño veía películas los domingos."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente. Por isso, a alternativa correta é Pretérito perfecto compuesto.",
+    "explanation": "\"He visto\" se forma con haber en presente más participio y, aquí, relaciona el hecho pasado con el periodo todavía vigente \"esta semana\".",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: la expresión introduce una oposición o restricción respecto de la idea anterior.",
-      "B": "Correta. A propriedade determinante é la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente. Por isso, a alternativa correta é Pretérito perfecto compuesto.",
-      "C": "Não corresponde ao caso: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
-      "D": "Diverge da descrição porque la información central articula el propósito y los argumentos más relevantes de un texto."
+      "A": "Incorreta. Es pretérito perfecto simple.",
+      "B": "Correta. Es la forma compuesta solicitada.",
+      "C": "Incorreta. Está en futuro.",
+      "D": "Incorreta. Está en pretérito imperfecto."
     },
     "tags": [
       "verbos",
@@ -314,8 +319,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "gramatica",
+      "verbos",
+      "uso-en-contexto"
     ],
     "origin": "nabulab"
   },
@@ -328,32 +334,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Contraste",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: la expresión introduce una oposición o restricción respecto de la idea anterior?",
+    "statement": "Completa: \"El viaje fue largo; ___, todos llegaron de buen humor.\"",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conector por lo tanto"
+        "text": "por lo tanto"
       },
       {
         "id": "B",
-        "text": "Voseo"
+        "text": "porque"
       },
       {
         "id": "C",
-        "text": "Conector sin embargo"
+        "text": "sin embargo"
       },
       {
         "id": "D",
-        "text": "Inferencia contextual"
+        "text": "para"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em la expresión introduce una oposición o restricción respecto de la idea anterior. Por isso, a alternativa correta é Conector sin embargo.",
+    "explanation": "\"Sin embargo\" introduce un contraste entre la duración del viaje y el buen humor al llegar.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: la expresión presenta una consecuencia derivada de información anterior.",
-      "B": "Não corresponde ao caso: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
-      "C": "Correta. A conclusão se apoia em la expresión introduce una oposición o restricción respecto de la idea anterior. Por isso, a alternativa correta é Conector sin embargo.",
-      "D": "Esse conceito designa outra relação: el lector deduce información no explícita mediante pistas presentes en el texto."
+      "A": "Incorreta. Marca consecuencia, no oposición.",
+      "B": "Incorreta. Introduciría causa.",
+      "C": "Correta. Es el conector adversativo adecuado.",
+      "D": "Incorreta. No funciona como conector de contraste."
     },
     "tags": [
       "conectores",
@@ -367,8 +373,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -381,32 +388,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Consecuencia",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: la expresión presenta una consecuencia derivada de información anterior?",
+    "statement": "Completa: \"Llovió toda la noche; ___, varias calles amanecieron inundadas.\"",
     "alternatives": [
       {
         "id": "A",
-        "text": "Preposición para"
+        "text": "sin embargo"
       },
       {
         "id": "B",
-        "text": "Diversidad léxica hispánica"
+        "text": "aunque"
       },
       {
         "id": "C",
-        "text": "Falso cognado embarazada"
+        "text": "mientras"
       },
       {
         "id": "D",
-        "text": "Conector por lo tanto"
+        "text": "por lo tanto"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em la expresión presenta una consecuencia derivada de información anterior. Por isso, a alternativa correta é Conector por lo tanto.",
+    "explanation": "La inundación se presenta como consecuencia de la lluvia; \"por lo tanto\" explicita esa relación.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
-      "B": "Diverge da descrição porque un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior.",
-      "C": "Esse conceito designa outra relação: la palabra española embarazada significa grávida y no corresponde a envergonhada.",
-      "D": "Correta. A distinção central está em la expresión presenta una consecuencia derivada de información anterior. Por isso, a alternativa correta é Conector por lo tanto."
+      "A": "Incorreta. Marcaría contraste.",
+      "B": "Incorreta. Introduce concesión.",
+      "C": "Incorreta. Suele indicar simultaneidad o contraste.",
+      "D": "Correta. Introduce la consecuencia."
     },
     "tags": [
       "conectores",
@@ -420,8 +427,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -434,32 +442,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Finalidad",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo?",
+    "statement": "¿En qué oración \"para\" expresa finalidad?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Preposición para"
+        "text": "Estudio para aprender más."
       },
       {
         "id": "B",
-        "text": "Ironía textual"
+        "text": "Este regalo es para Ana."
       },
       {
         "id": "C",
-        "text": "Idea principal"
+        "text": "Salimos para Madrid."
       },
       {
         "id": "D",
-        "text": "Artículo neutro lo"
+        "text": "Para mí, fue una buena decisión."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Por isso, a alternativa correta é Preposición para.",
+    "explanation": "En \"Estudio para aprender más\", la acción de aprender es el objetivo de estudiar.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Por isso, a alternativa correta é Preposición para.",
-      "B": "Esse conceito designa outra relação: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
-      "C": "A propriedade dessa alternativa é distinta: la información central articula el propósito y los argumentos más relevantes de un texto.",
-      "D": "Não corresponde ao caso: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo."
+      "A": "Correta. Expresa finalidad.",
+      "B": "Incorreta. Indica destinatario.",
+      "C": "Incorreta. Indica destino.",
+      "D": "Incorreta. Introduce punto de vista."
     },
     "tags": [
       "preposiciones",
@@ -473,8 +481,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "gramatica",
+      "preposiciones",
+      "valor-semantico"
     ],
     "origin": "nabulab"
   },
@@ -487,32 +496,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Ironía",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: el sentido pretendido se distancia del significado literal para producir crítica o humor?",
+    "statement": "Lee: \"¡Qué puntual eres! Solo llegaste cuarenta minutos tarde.\" El efecto predominante es:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Voseo"
+        "text": "elogio literal"
       },
       {
         "id": "B",
-        "text": "Ironía textual"
+        "text": "ironía"
       },
       {
         "id": "C",
-        "text": "Inferencia contextual"
+        "text": "miedo"
       },
       {
         "id": "D",
-        "text": "Pronombre de objeto directo"
+        "text": "duda"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é el sentido pretendido se distancia del significado literal para producir crítica o humor. Por isso, a alternativa correta é Ironía textual.",
+    "explanation": "El elogio aparente choca con el retraso de cuarenta minutos, por lo que el sentido es irónico.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
-      "B": "Correta. O critério relevante é el sentido pretendido se distancia del significado literal para producir crítica o humor. Por isso, a alternativa correta é Ironía textual.",
-      "C": "Não corresponde ao caso: el lector deduce información no explícita mediante pistas presentes en el texto.",
-      "D": "Diverge da descrição porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal."
+      "A": "Incorreta. La segunda frase impide una lectura literal coherente.",
+      "B": "Correta. El contraste produce ironía.",
+      "C": "Incorreta. No hay indicios de miedo.",
+      "D": "Incorreta. El retraso se presenta como un hecho, no como una duda."
     },
     "tags": [
       "interpretacion",
@@ -526,8 +535,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "interpretacion",
+      "ironia",
+      "pragmatica"
     ],
     "origin": "nabulab"
   },
@@ -540,32 +550,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Voseo",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular?",
+    "statement": "¿Cuál es un ejemplo de voseo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Diversidad léxica hispánica"
+        "text": "Tú tienes razón."
       },
       {
         "id": "B",
-        "text": "Falso cognado embarazada"
+        "text": "Usted tiene razón."
       },
       {
         "id": "C",
-        "text": "Voseo"
+        "text": "Vos tenés razón."
       },
       {
         "id": "D",
-        "text": "Pretérito perfecto compuesto"
+        "text": "Vosotros tenéis razón."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Por isso, a alternativa correta é Voseo.",
+    "explanation": "\"Vos tenés\" combina el pronombre vos con una forma verbal propia del voseo, común en varias regiones hispanoamericanas.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior.",
-      "B": "Não corresponde ao caso: la palabra española embarazada significa grávida y no corresponde a envergonhada.",
-      "C": "Correta. Neste caso en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Por isso, a alternativa correta é Voseo.",
-      "D": "Esse conceito designa outra relação: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente."
+      "A": "Incorreta. Es tuteo.",
+      "B": "Incorreta. Es tratamiento con usted.",
+      "C": "Correta. Es voseo.",
+      "D": "Incorreta. Es segunda persona plural con vosotros."
     },
     "tags": [
       "variacion-linguistica",
@@ -579,8 +589,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -593,32 +604,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Diversidad",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior?",
+    "statement": "En distintos países, un autobús urbano puede llamarse \"autobús\", \"bus\", \"colectivo\" o \"guagua\". ¿Qué muestra este hecho?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Idea principal"
+        "text": "Solo una palabra es correcta."
       },
       {
         "id": "B",
-        "text": "Artículo neutro lo"
+        "text": "Todas se usan igual en cualquier lugar."
       },
       {
         "id": "C",
-        "text": "Conector sin embargo"
+        "text": "La variación regional es un error."
       },
       {
         "id": "D",
-        "text": "Diversidad léxica hispánica"
+        "text": "Puede haber diversidad léxica para un mismo referente."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior. Por isso, a alternativa correta é Diversidad léxica hispánica.",
+    "explanation": "El español presenta variación regional: distintas comunidades pueden usar palabras diferentes para referirse a una misma realidad.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: la información central articula el propósito y los argumentos más relevantes de un texto.",
-      "B": "Diverge da descrição porque la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo.",
-      "C": "Esse conceito designa outra relação: la expresión introduce una oposición o restricción respecto de la idea anterior.",
-      "D": "Correta. A propriedade determinante é un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior. Por isso, a alternativa correta é Diversidad léxica hispánica."
+      "A": "Incorreta. No existe una única forma válida para todas las regiones.",
+      "B": "Incorreta. La distribución depende de la región.",
+      "C": "Incorreta. Variación no equivale a error.",
+      "D": "Correta. Es la interpretación sociolingüística adecuada."
     },
     "tags": [
       "variacion-linguistica",
@@ -632,8 +643,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -646,7 +658,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Falsos cognados",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Falso cognado embarazada” corresponde à seguinte descrição: la palabra española embarazada significa grávida y no corresponde a envergonhada.",
+    "statement": "En \"Estoy embarazada de tres meses\", \"embarazada\" significa \"envergonhada\".",
     "alternatives": [
       {
         "id": "V",
@@ -657,11 +669,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. Em Vocabulario, o reconhecimento direto da propriedade de Falsos cognados resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "\"Embarazada\" significa \"grávida\"; la semejanza con el portugués produce un falso cognado.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. Em Vocabulario, o reconhecimento direto da propriedade de Falsos cognados resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. Em Vocabulario, o reconhecimento direto da propriedade de Falsos cognados resolve o item."
+      "V": "Incorreto. A afirmação é falsa: \"Embarazada\" significa \"grávida\"; la semejanza con el portugués produce un falso cognado.",
+      "F": "Correto. \"Embarazada\" significa \"grávida\"; la semejanza con el portugués produce un falso cognado."
     },
     "tags": [
       "vocabulario",
@@ -675,8 +687,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "vocabulario",
+      "sentido-contextual",
+      "comparacion-linguistica"
     ],
     "origin": "nabulab"
   },
@@ -689,7 +702,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Artículo neutro",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Pronombre de objeto directo” corresponde à seguinte descrição: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo.",
+    "statement": "En \"Lo difícil es empezar\", \"lo\" sustantiva el adjetivo \"difícil\".",
     "alternatives": [
       {
         "id": "V",
@@ -700,11 +713,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Em Artículos, o reconhecimento direto da propriedade de Artículo neutro resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "El artículo neutro \"lo\" forma una expresión equivalente a \"aquello que es difícil\".",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Em Artículos, o reconhecimento direto da propriedade de Artículo neutro resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Em Artículos, o reconhecimento direto da propriedade de Artículo neutro resolve o item."
+      "V": "Correto. El artículo neutro \"lo\" forma una expresión equivalente a \"aquello que es difícil\".",
+      "F": "Incorreto. A afirmação é verdadeira: el artículo neutro \"lo\" forma una expresión equivalente a \"aquello que es difícil\"."
     },
     "tags": [
       "articulos",
@@ -718,8 +731,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "gramatica",
+      "articulos",
+      "analisis-contextual"
     ],
     "origin": "nabulab"
   },
@@ -732,7 +746,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Objeto directo",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Pronombre de objeto directo” corresponde à seguinte descrição: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
+    "statement": "En \"Vi la película y la recomendé\", \"la\" retoma \"la película\".",
     "alternatives": [
       {
         "id": "V",
@@ -744,10 +758,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Em Pronombres, o reconhecimento direto da propriedade de Objeto directo resolve o item.",
+    "explanation": "El pronombre de objeto directo femenino singular \"la\" sustituye a \"la película\".",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Em Pronombres, o reconhecimento direto da propriedade de Objeto directo resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Em Pronombres, o reconhecimento direto da propriedade de Objeto directo resolve o item."
+      "V": "Correto. El pronombre de objeto directo femenino singular \"la\" sustituye a \"la película\".",
+      "F": "Incorreto. A afirmação é verdadeira: el pronombre de objeto directo femenino singular \"la\" sustituye a \"la película\"."
     },
     "tags": [
       "pronombres",
@@ -761,8 +775,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "gramatica",
+      "pronombres",
+      "referencia"
     ],
     "origin": "nabulab"
   },
@@ -775,7 +790,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Pretérito",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Conector sin embargo” corresponde à seguinte descrição: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
+    "statement": "\"Ayer he visitado a mi abuela\" es la única forma válida en todas las variedades del español para hablar de una visita terminada ayer.",
     "alternatives": [
       {
         "id": "V",
@@ -787,10 +802,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. Em Verbos, o reconhecimento direto da propriedade de Pretérito resolve o item.",
+    "explanation": "El uso de los tiempos pasados varía regionalmente; \"Ayer visité a mi abuela\" es muy frecuente en amplias zonas.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. Em Verbos, o reconhecimento direto da propriedade de Pretérito resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. Em Verbos, o reconhecimento direto da propriedade de Pretérito resolve o item."
+      "V": "Incorreto. A afirmação é falsa: el uso de los tiempos pasados varía regionalmente; \"Ayer visité a mi abuela\" es muy frecuente en amplias zonas.",
+      "F": "Correto. El uso de los tiempos pasados varía regionalmente; \"Ayer visité a mi abuela\" es muy frecuente en amplias zonas."
     },
     "tags": [
       "verbos",
@@ -804,8 +819,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "gramatica",
+      "verbos",
+      "uso-en-contexto"
     ],
     "origin": "nabulab"
   },
@@ -818,7 +834,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Contraste",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Conector sin embargo” corresponde à seguinte descrição: la expresión introduce una oposición o restricción respecto de la idea anterior.",
+    "statement": "En \"Quería salir; sin embargo, empezó a llover\", \"sin embargo\" introduce contraste.",
     "alternatives": [
       {
         "id": "V",
@@ -830,10 +846,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. Em Conectores, o reconhecimento direto da propriedade de Contraste resolve o item.",
+    "explanation": "El conector contrapone el deseo de salir al inicio de la lluvia.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. Em Conectores, o reconhecimento direto da propriedade de Contraste resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. Em Conectores, o reconhecimento direto da propriedade de Contraste resolve o item."
+      "V": "Correto. El conector contrapone el deseo de salir al inicio de la lluvia.",
+      "F": "Incorreto. A afirmação é verdadeira: el conector contrapone el deseo de salir al inicio de la lluvia."
     },
     "tags": [
       "conectores",
@@ -847,8 +863,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -861,7 +878,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Consecuencia",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Preposición para” corresponde à seguinte descrição: la expresión presenta una consecuencia derivada de información anterior.",
+    "statement": "En \"Perdimos el autobús; por lo tanto, llegamos tarde\", \"por lo tanto\" expresa contraste.",
     "alternatives": [
       {
         "id": "V",
@@ -873,10 +890,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Em Conectores, o reconhecimento direto da propriedade de Consecuencia resolve o item.",
+    "explanation": "\"Por lo tanto\" presenta la llegada tardía como consecuencia de haber perdido el autobús.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Em Conectores, o reconhecimento direto da propriedade de Consecuencia resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Em Conectores, o reconhecimento direto da propriedade de Consecuencia resolve o item."
+      "V": "Incorreto. A afirmação é falsa: \"Por lo tanto\" presenta la llegada tardía como consecuencia de haber perdido el autobús.",
+      "F": "Correto. \"Por lo tanto\" presenta la llegada tardía como consecuencia de haber perdido el autobús."
     },
     "tags": [
       "conectores",
@@ -890,8 +907,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -904,7 +922,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Finalidad",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Preposición para” corresponde à seguinte descrição: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
+    "statement": "En \"Trabajo para pagar mis estudios\", \"para\" indica finalidad.",
     "alternatives": [
       {
         "id": "V",
@@ -916,10 +934,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Em Preposiciones, o reconhecimento direto da propriedade de Finalidad resolve o item.",
+    "explanation": "\"Pagar mis estudios\" es el propósito de la acción de trabajar.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Em Preposiciones, o reconhecimento direto da propriedade de Finalidad resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Em Preposiciones, o reconhecimento direto da propriedade de Finalidad resolve o item."
+      "V": "Correto. \"Pagar mis estudios\" es el propósito de la acción de trabajar.",
+      "F": "Incorreto. A afirmação é verdadeira: \"Pagar mis estudios\" es el propósito de la acción de trabajar."
     },
     "tags": [
       "preposiciones",
@@ -933,8 +951,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "gramatica",
+      "preposiciones",
+      "valor-semantico"
     ],
     "origin": "nabulab"
   },
@@ -947,7 +966,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Ironía",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Voseo” corresponde à seguinte descrição: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
+    "statement": "En \"¡Genial! Se rompió el ordenador justo antes de entregar el trabajo\", \"genial\" debe entenderse literalmente como satisfacción.",
     "alternatives": [
       {
         "id": "V",
@@ -959,10 +978,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Em Interpretación, o reconhecimento direto da propriedade de Ironía resolve o item.",
+    "explanation": "El contexto negativo favorece una lectura irónica de la palabra positiva.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Em Interpretación, o reconhecimento direto da propriedade de Ironía resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Em Interpretación, o reconhecimento direto da propriedade de Ironía resolve o item."
+      "V": "Incorreto. A afirmação é falsa: el contexto negativo favorece una lectura irónica de la palabra positiva.",
+      "F": "Correto. El contexto negativo favorece una lectura irónica de la palabra positiva."
     },
     "tags": [
       "interpretacion",
@@ -976,8 +995,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "interpretacion",
+      "ironia",
+      "pragmatica"
     ],
     "origin": "nabulab"
   },
@@ -990,7 +1010,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Voseo",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Voseo” corresponde à seguinte descrição: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
+    "statement": "\"Vos podés\" es un ejemplo de voseo en variedades que usan \"vos\" con formas verbales propias.",
     "alternatives": [
       {
         "id": "V",
@@ -1002,10 +1022,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Em Variaciones lingüísticas, o reconhecimento direto da propriedade de Voseo resolve o item.",
+    "explanation": "La combinación de \"vos\" con \"podés\" es característica de variedades voseantes.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Em Variaciones lingüísticas, o reconhecimento direto da propriedade de Voseo resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Em Variaciones lingüísticas, o reconhecimento direto da propriedade de Voseo resolve o item."
+      "V": "Correto. La combinación de \"vos\" con \"podés\" es característica de variedades voseantes.",
+      "F": "Incorreto. A afirmação é verdadeira: la combinación de \"vos\" con \"podés\" es característica de variedades voseantes."
     },
     "tags": [
       "variacion-linguistica",
@@ -1019,8 +1039,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -1033,7 +1054,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Diversidad",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Idea principal” corresponde à seguinte descrição: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior.",
+    "statement": "Si una región usa \"ordenador\" y otra \"computadora\", una de las dos formas es necesariamente incorrecta.",
     "alternatives": [
       {
         "id": "V",
@@ -1045,10 +1066,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. Em Variaciones lingüísticas, o reconhecimento direto da propriedade de Diversidad resolve o item.",
+    "explanation": "Ambas pueden ser formas legítimas de variedades regionales del español.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. Em Variaciones lingüísticas, o reconhecimento direto da propriedade de Diversidad resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. Em Variaciones lingüísticas, o reconhecimento direto da propriedade de Diversidad resolve o item."
+      "V": "Incorreto. A afirmação é falsa: ambas pueden ser formas legítimas de variedades regionales del español.",
+      "F": "Correto. Ambas pueden ser formas legítimas de variedades regionales del español."
     },
     "tags": [
       "variacion-linguistica",
@@ -1062,8 +1083,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -1076,7 +1098,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Idea principal",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Idea principal” corresponde à seguinte descrição: la información central articula el propósito y los argumentos más relevantes de un texto.",
+    "statement": "Si un texto trata varias medidas para ahorrar agua, decir que su idea principal es solo \"cerrar el grifo al cepillarse\" puede reducir el texto a un detalle.",
     "alternatives": [
       {
         "id": "V",
@@ -1088,10 +1110,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. Em Comprensión textual, o reconhecimento direto da propriedade de Idea principal resolve o item.",
+    "explanation": "La idea principal debe abarcar la organización global del texto, no un ejemplo aislado.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. Em Comprensión textual, o reconhecimento direto da propriedade de Idea principal resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. Em Comprensión textual, o reconhecimento direto da propriedade de Idea principal resolve o item."
+      "V": "Correto. La idea principal debe abarcar la organización global del texto, no un ejemplo aislado.",
+      "F": "Incorreto. A afirmação é verdadeira: la idea principal debe abarcar la organización global del texto, no un ejemplo aislado."
     },
     "tags": [
       "comprension",
@@ -1105,8 +1127,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -1119,7 +1142,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Inferencia",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Falso cognado embarazada” corresponde à seguinte descrição: el lector deduce información no explícita mediante pistas presentes en el texto.",
+    "statement": "Leer un cartel que dice \"Cerrado\" permite concluir con certeza quién decidió cerrar el establecimiento.",
     "alternatives": [
       {
         "id": "V",
@@ -1131,10 +1154,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. Em Comprensión textual, o reconhecimento direto da propriedade de Inferencia resolve o item.",
+    "explanation": "El cartel indica el estado del local, pero no identifica a la persona que tomó la decisión.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. Em Comprensión textual, o reconhecimento direto da propriedade de Inferencia resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. Em Comprensión textual, o reconhecimento direto da propriedade de Inferencia resolve o item."
+      "V": "Incorreto. A afirmação é falsa: el cartel indica el estado del local, pero no identifica a la persona que tomó la decisión.",
+      "F": "Correto. El cartel indica el estado del local, pero no identifica a la persona que tomó la decisión."
     },
     "tags": [
       "comprension",
@@ -1148,8 +1171,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -1162,32 +1186,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Objeto directo",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal?",
+    "statement": "Completa: \"Compramos las revistas ayer y ya ___ hemos leído.\"",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pronombre de objeto directo"
+        "text": "las"
       },
       {
         "id": "B",
-        "text": "Conector sin embargo"
+        "text": "los"
       },
       {
         "id": "C",
-        "text": "Ironía textual"
+        "text": "lo"
       },
       {
         "id": "D",
-        "text": "Inferencia contextual"
+        "text": "le"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Por isso, a alternativa correta é Pronombre de objeto directo.",
+    "explanation": "\"Las revistas\" es objeto directo femenino plural, por eso se sustituye con \"las\".",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Por isso, a alternativa correta é Pronombre de objeto directo.",
-      "B": "Esse conceito designa outra relação: la expresión introduce una oposición o restricción respecto de la idea anterior.",
-      "C": "A propriedade dessa alternativa é distinta: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
-      "D": "Não corresponde ao caso: el lector deduce información no explícita mediante pistas presentes en el texto."
+      "A": "Correta. Concuerda con el referente.",
+      "B": "Incorreta. Es masculino plural.",
+      "C": "Incorreta. Es singular.",
+      "D": "Incorreta. No sustituye aquí el objeto directo femenino plural."
     },
     "tags": [
       "pronombres",
@@ -1201,8 +1225,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "gramatica",
+      "pronombres",
+      "referencia"
     ],
     "origin": "nabulab"
   },
@@ -1215,32 +1240,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Pretérito",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente?",
+    "statement": "Lee: \"Este año he viajado dos veces a Chile, pero el año pasado viajé a Argentina.\" ¿Qué explica mejor el contraste verbal en variedades que mantienen esta oposición?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conector por lo tanto"
+        "text": "Los dos verbos están en presente."
       },
       {
         "id": "B",
-        "text": "Pretérito perfecto compuesto"
+        "text": "El primer hecho se vincula a un periodo aún vigente; el segundo, a uno concluido."
       },
       {
         "id": "C",
-        "text": "Voseo"
+        "text": "'Viajé' indica futuro."
       },
       {
         "id": "D",
-        "text": "Falso cognado embarazada"
+        "text": "La diferencia es solo ortográfica."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente. Por isso, a alternativa correta é Pretérito perfecto compuesto.",
+    "explanation": "El perfecto compuesto puede asociarse a un periodo aún abierto (\"este año\") y el perfecto simple a uno cerrado (\"el año pasado\").",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: la expresión presenta una consecuencia derivada de información anterior.",
-      "B": "Correta. A distinção central está em la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente. Por isso, a alternativa correta é Pretérito perfecto compuesto.",
-      "C": "Não corresponde ao caso: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
-      "D": "Diverge da descrição porque la palabra española embarazada significa grávida y no corresponde a envergonhada."
+      "A": "Incorreta. Ambas formas expresan pasado.",
+      "B": "Correta. Es la distinción temporal pertinente.",
+      "C": "Incorreta. 'Viajé' no es futuro.",
+      "D": "Incorreta. Hay diferencia de tiempo/aspecto, no solo de escritura."
     },
     "tags": [
       "verbos",
@@ -1254,8 +1279,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "gramatica",
+      "verbos",
+      "uso-en-contexto"
     ],
     "origin": "nabulab"
   },
@@ -1268,32 +1294,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Contraste",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: la expresión introduce una oposición o restricción respecto de la idea anterior?",
+    "statement": "Completa: \"La propuesta parecía barata; ___, los costos de mantenimiento eran muy altos.\"",
     "alternatives": [
       {
         "id": "A",
-        "text": "Preposición para"
+        "text": "por lo tanto"
       },
       {
         "id": "B",
-        "text": "Diversidad léxica hispánica"
+        "text": "porque"
       },
       {
         "id": "C",
-        "text": "Conector sin embargo"
+        "text": "sin embargo"
       },
       {
         "id": "D",
-        "text": "Artículo neutro lo"
+        "text": "para"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar la expresión introduce una oposición o restricción respecto de la idea anterior. Por isso, a alternativa correta é Conector sin embargo.",
+    "explanation": "La segunda información limita la primera y \"sin embargo\" introduce esa oposición.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
-      "B": "Não corresponde ao caso: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior.",
-      "C": "Correta. A resposta decorre da definição disciplinar la expresión introduce una oposición o restricción respecto de la idea anterior. Por isso, a alternativa correta é Conector sin embargo.",
-      "D": "Esse conceito designa outra relação: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo."
+      "A": "Incorreta. Marcaría consecuencia.",
+      "B": "Incorreta. Marcaría causa.",
+      "C": "Correta. Es el conector adversativo adecuado.",
+      "D": "Incorreta. No cumple función adversativa."
     },
     "tags": [
       "conectores",
@@ -1307,8 +1333,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -1321,32 +1348,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Consecuencia",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: la expresión presenta una consecuencia derivada de información anterior?",
+    "statement": "Completa: \"El sistema detectó una fuga de agua. ___, el edificio cerró temporalmente el suministro.\"",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ironía textual"
+        "text": "sin embargo"
       },
       {
         "id": "B",
-        "text": "Idea principal"
+        "text": "aunque"
       },
       {
         "id": "C",
-        "text": "Pronombre de objeto directo"
+        "text": "mientras"
       },
       {
         "id": "D",
-        "text": "Conector por lo tanto"
+        "text": "por lo tanto"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é la expresión presenta una consecuencia derivada de información anterior. Por isso, a alternativa correta é Conector por lo tanto.",
+    "explanation": "\"Por lo tanto\" presenta el cierre como consecuencia de la fuga detectada.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
-      "B": "Diverge da descrição porque la información central articula el propósito y los argumentos más relevantes de un texto.",
-      "C": "Esse conceito designa outra relação: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
-      "D": "Correta. O critério relevante é la expresión presenta una consecuencia derivada de información anterior. Por isso, a alternativa correta é Conector por lo tanto."
+      "A": "Incorreta. Crearía oposición.",
+      "B": "Incorreta. Introduce concesión.",
+      "C": "Incorreta. No expresa la relación principal.",
+      "D": "Correta. Es la consecuencia adecuada."
     },
     "tags": [
       "conectores",
@@ -1360,8 +1387,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -1374,32 +1402,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Finalidad",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo?",
+    "statement": "¿En qué frase \"para\" indica destinatario, no finalidad?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Preposición para"
+        "text": "Este paquete es para Lucía."
       },
       {
         "id": "B",
-        "text": "Voseo"
+        "text": "Estudio para aprobar."
       },
       {
         "id": "C",
-        "text": "Inferencia contextual"
+        "text": "Salimos temprano para evitar tráfico."
       },
       {
         "id": "D",
-        "text": "Pretérito perfecto compuesto"
+        "text": "Ahorro para viajar."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Por isso, a alternativa correta é Preposición para.",
+    "explanation": "En \"para Lucía\", Lucía es quien recibe el paquete.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Por isso, a alternativa correta é Preposición para.",
-      "B": "Esse conceito designa outra relação: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
-      "C": "A propriedade dessa alternativa é distinta: el lector deduce información no explícita mediante pistas presentes en el texto.",
-      "D": "Não corresponde ao caso: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente."
+      "A": "Correta. Indica destinatario.",
+      "B": "Incorreta. Indica finalidad.",
+      "C": "Incorreta. Indica finalidad.",
+      "D": "Incorreta. Indica finalidad."
     },
     "tags": [
       "preposiciones",
@@ -1413,8 +1441,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "gramatica",
+      "preposiciones",
+      "valor-semantico"
     ],
     "origin": "nabulab"
   },
@@ -1427,32 +1456,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Ironía",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: el sentido pretendido se distancia del significado literal para producir crítica o humor?",
+    "statement": "Lee: \"Qué alegría: otra reunión que podría haberse resuelto con un correo.\" El tono es principalmente:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Diversidad léxica hispánica"
+        "text": "entusiasmo sincero"
       },
       {
         "id": "B",
-        "text": "Ironía textual"
+        "text": "irónico y crítico"
       },
       {
         "id": "C",
-        "text": "Falso cognado embarazada"
+        "text": "miedo"
       },
       {
         "id": "D",
-        "text": "Conector sin embargo"
+        "text": "neutralidad"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é el sentido pretendido se distancia del significado literal para producir crítica o humor. Por isso, a alternativa correta é Ironía textual.",
+    "explanation": "\"Qué alegría\" se interpreta de forma irónica porque el resto de la frase presenta la reunión como innecesaria.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior.",
-      "B": "Correta. A propriedade determinante é el sentido pretendido se distancia del significado literal para producir crítica o humor. Por isso, a alternativa correta é Ironía textual.",
-      "C": "Não corresponde ao caso: la palabra española embarazada significa grávida y no corresponde a envergonhada.",
-      "D": "Diverge da descrição porque la expresión introduce una oposición o restricción respecto de la idea anterior."
+      "A": "Incorreta. No encaja con la crítica posterior.",
+      "B": "Correta. Es la lectura pragmática más coherente.",
+      "C": "Incorreta. No hay amenaza.",
+      "D": "Incorreta. Hay valoración clara."
     },
     "tags": [
       "interpretacion",
@@ -1466,8 +1495,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "interpretacion",
+      "ironia",
+      "pragmatica"
     ],
     "origin": "nabulab"
   },
@@ -1480,32 +1510,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Voseo",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular?",
+    "statement": "Una estudiante argentina dice: \"¿Vos querés venir conmigo?\" ¿Qué análisis es adecuado?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Idea principal"
+        "text": "Es incorrecto porque solo existe 'tú'."
       },
       {
         "id": "B",
-        "text": "Artículo neutro lo"
+        "text": "'Vos' equivale a 'vosotros'."
       },
       {
         "id": "C",
-        "text": "Voseo"
+        "text": "Es voseo legítimo en variedades como la rioplatense."
       },
       {
         "id": "D",
-        "text": "Conector por lo tanto"
+        "text": "Es una forma exclusivamente medieval."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Por isso, a alternativa correta é Voseo.",
+    "explanation": "\"Vos querés\" es una combinación normal de pronombre y flexión verbal en variedades voseantes.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: la información central articula el propósito y los argumentos más relevantes de un texto.",
-      "B": "Não corresponde ao caso: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo.",
-      "C": "Correta. A conclusão se apoia em en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Por isso, a alternativa correta é Voseo.",
-      "D": "Esse conceito designa outra relação: la expresión presenta una consecuencia derivada de información anterior."
+      "A": "Incorreta. Ignora la diversidad gramatical.",
+      "B": "Incorreta. Confunde singular y plural.",
+      "C": "Correta. Es el análisis correcto.",
+      "D": "Incorreta. El voseo sigue vivo."
     },
     "tags": [
       "variacion-linguistica",
@@ -1519,8 +1549,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -1533,32 +1564,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Diversidad",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior?",
+    "statement": "En Argentina aparece \"frutilla\" y en España \"fresa\" para la misma fruta. La mejor explicación es:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Inferencia contextual"
+        "text": "una de las palabras es un error"
       },
       {
         "id": "B",
-        "text": "Pronombre de objeto directo"
+        "text": "son lenguas distintas"
       },
       {
         "id": "C",
-        "text": "Preposición para"
+        "text": "solo se usan informalmente"
       },
       {
         "id": "D",
-        "text": "Diversidad léxica hispánica"
+        "text": "son variantes léxicas regionales"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior. Por isso, a alternativa correta é Diversidad léxica hispánica.",
+    "explanation": "\"Frutilla\" y \"fresa\" ilustran diversidad léxica dentro del español.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: el lector deduce información no explícita mediante pistas presentes en el texto.",
-      "B": "Diverge da descrição porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
-      "C": "Esse conceito designa outra relação: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
-      "D": "Correta. A distinção central está em un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior. Por isso, a alternativa correta é Diversidad léxica hispánica."
+      "A": "Incorreta. Las dos son legítimas en sus variedades.",
+      "B": "Incorreta. No basta para hablar de lenguas distintas.",
+      "C": "Incorreta. No es una diferencia limitada al registro informal.",
+      "D": "Correta. Es variación regional."
     },
     "tags": [
       "variacion-linguistica",
@@ -1572,8 +1603,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -1586,32 +1618,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Idea principal",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: la información central articula el propósito y los argumentos más relevantes de un texto?",
+    "statement": "Lee: \"La ciudad amplió las ciclovías, instaló aparcamientos para bicicletas y redujo la velocidad en varias calles. Las medidas buscan hacer más seguros los desplazamientos sin automóvil.\" ¿Cuál es la idea principal?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Idea principal"
+        "text": "La ciudad impulsa desplazamientos más seguros por medios alternativos al automóvil."
       },
       {
         "id": "B",
-        "text": "Falso cognado embarazada"
+        "text": "Todos los automóviles fueron prohibidos."
       },
       {
         "id": "C",
-        "text": "Pretérito perfecto compuesto"
+        "text": "Se eliminaron los aparcamientos."
       },
       {
         "id": "D",
-        "text": "Ironía textual"
+        "text": "La velocidad aumentó."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar la información central articula el propósito y los argumentos más relevantes de un texto. Por isso, a alternativa correta é Idea principal.",
+    "explanation": "Las acciones enumeradas forman parte de una política para favorecer desplazamientos más seguros sin automóvil.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar la información central articula el propósito y los argumentos más relevantes de un texto. Por isso, a alternativa correta é Idea principal.",
-      "B": "Esse conceito designa outra relação: la palabra española embarazada significa grávida y no corresponde a envergonhada.",
-      "C": "A propriedade dessa alternativa é distinta: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
-      "D": "Não corresponde ao caso: el sentido pretendido se distancia del significado literal para producir crítica o humor."
+      "A": "Correta. Sintetiza medidas y finalidad.",
+      "B": "Incorreta. El texto no habla de prohibición total.",
+      "C": "Incorreta. Se instalaron aparcamientos.",
+      "D": "Incorreta. La velocidad se redujo."
     },
     "tags": [
       "comprension",
@@ -1625,8 +1657,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -1639,32 +1672,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Inferencia",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: el lector deduce información no explícita mediante pistas presentes en el texto?",
+    "statement": "Lee: \"Al entrar, Elena vio globos escondidos y oyó a sus compañeros decir: 'Todavía no llega'.\" ¿Qué inferencia está mejor respaldada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Artículo neutro lo"
+        "text": "La sala cerrará para siempre."
       },
       {
         "id": "B",
-        "text": "Inferencia contextual"
+        "text": "Pueden estar preparando una sorpresa para alguien."
       },
       {
         "id": "C",
-        "text": "Conector sin embargo"
+        "text": "Elena sabe quién recibirá la sorpresa."
       },
       {
         "id": "D",
-        "text": "Voseo"
+        "text": "Hablan de un examen."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é el lector deduce información no explícita mediante pistas presentes en el texto. Por isso, a alternativa correta é Inferencia contextual.",
+    "explanation": "Los globos y la espera de alguien sugieren una sorpresa, pero no identifican con certeza a su destinatario.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo.",
-      "B": "Correta. O critério relevante é el lector deduce información no explícita mediante pistas presentes en el texto. Por isso, a alternativa correta é Inferencia contextual.",
-      "C": "Não corresponde ao caso: la expresión introduce una oposición o restricción respecto de la idea anterior.",
-      "D": "Diverge da descrição porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular."
+      "A": "Incorreta. No hay indicio de cierre.",
+      "B": "Correta. Es una inferencia prudente.",
+      "C": "Incorreta. El texto no atribuye ese conocimiento a Elena.",
+      "D": "Incorreta. Los datos no apuntan a un examen."
     },
     "tags": [
       "comprension",
@@ -1678,8 +1711,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -1692,32 +1726,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Falsos cognados",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: la palabra española embarazada significa grávida y no corresponde a envergonhada?",
+    "statement": "En \"Guardé los documentos en una carpeta\", \"carpeta\" significa, en este contexto:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pronombre de objeto directo"
+        "text": "carpete"
       },
       {
         "id": "B",
-        "text": "Conector por lo tanto"
+        "text": "gaveta"
       },
       {
         "id": "C",
-        "text": "Falso cognado embarazada"
+        "text": "pasta"
       },
       {
         "id": "D",
-        "text": "Diversidad léxica hispánica"
+        "text": "cadeira"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso la palabra española embarazada significa grávida y no corresponde a envergonhada. Por isso, a alternativa correta é Falso cognado embarazada.",
+    "explanation": "\"Carpeta\" significa aquí \"pasta\", por lo que puede funcionar como falso cognado para un hablante de portugués.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
-      "B": "Não corresponde ao caso: la expresión presenta una consecuencia derivada de información anterior.",
-      "C": "Correta. Neste caso la palabra española embarazada significa grávida y no corresponde a envergonhada. Por isso, a alternativa correta é Falso cognado embarazada.",
-      "D": "Esse conceito designa outra relação: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior."
+      "A": "Incorreta. Es la traducción inducida erróneamente por semejanza gráfica.",
+      "B": "Incorreta. No corresponde al objeto de guardar documentos.",
+      "C": "Correta. Es el significado contextual correcto.",
+      "D": "Incorreta. No corresponde al contexto."
     },
     "tags": [
       "vocabulario",
@@ -1731,8 +1765,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "vocabulario",
+      "sentido-contextual",
+      "comparacion-linguistica"
     ],
     "origin": "nabulab"
   },
@@ -1745,32 +1780,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Artículo neutro",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo?",
+    "statement": "¿En qué frase \"lo\" NO funciona como artículo neutro?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pretérito perfecto compuesto"
+        "text": "Lo mejor fue el viaje."
       },
       {
         "id": "B",
-        "text": "Preposición para"
+        "text": "No sabes lo difícil que fue."
       },
       {
         "id": "C",
-        "text": "Idea principal"
+        "text": "Lo interesante es el contraste."
       },
       {
         "id": "D",
-        "text": "Artículo neutro lo"
+        "text": "El libro lo compré ayer."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo. Por isso, a alternativa correta é Artículo neutro lo.",
+    "explanation": "En \"El libro lo compré ayer\", \"lo\" es pronombre de objeto directo que retoma \"el libro\".",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
-      "B": "Diverge da descrição porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
-      "C": "Esse conceito designa outra relação: la información central articula el propósito y los argumentos más relevantes de un texto.",
-      "D": "Correta. A propriedade determinante é la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo. Por isso, a alternativa correta é Artículo neutro lo."
+      "A": "Incorreta. Es artículo neutro.",
+      "B": "Incorreta. Integra una construcción neutra intensificadora.",
+      "C": "Incorreta. Es artículo neutro.",
+      "D": "Correta. Es pronombre con referente nominal."
     },
     "tags": [
       "articulos",
@@ -1784,8 +1819,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "gramatica",
+      "articulos",
+      "analisis-contextual"
     ],
     "origin": "nabulab"
   },
@@ -1798,7 +1834,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Contraste",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “la expresión introduce una oposición o restricción respecto de la idea anterior”, é correto associá-lo a Conector sin embargo.",
+    "statement": "En \"No tenía tiempo; sin embargo, terminó el informe\", \"sin embargo\" expresa consecuencia.",
     "alternatives": [
       {
         "id": "V",
@@ -1809,11 +1845,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. A resolução relaciona a situação descrita aos critérios de Contraste, no campo de Conectores.",
+    "correctAnswer": "F",
+    "explanation": "El conector expresa contraste: a pesar de la falta de tiempo, el informe fue terminado.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. A resolução relaciona a situação descrita aos critérios de Contraste, no campo de Conectores.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. A resolução relaciona a situação descrita aos critérios de Contraste, no campo de Conectores."
+      "V": "Incorreto. A afirmação é falsa: el conector expresa contraste: a pesar de la falta de tiempo, el informe fue terminado.",
+      "F": "Correto. El conector expresa contraste: a pesar de la falta de tiempo, el informe fue terminado."
     },
     "tags": [
       "conectores",
@@ -1827,8 +1863,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -1841,7 +1878,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Consecuencia",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “la expresión presenta una consecuencia derivada de información anterior”, é correto associá-lo a Idea principal.",
+    "statement": "En \"El tren se averió; por lo tanto, los pasajeros llegaron tarde\", el segundo hecho se presenta como consecuencia del primero.",
     "alternatives": [
       {
         "id": "V",
@@ -1852,11 +1889,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. A resolução relaciona a situação descrita aos critérios de Consecuencia, no campo de Conectores.",
+    "correctAnswer": "V",
+    "explanation": "\"Por lo tanto\" introduce una conclusión o consecuencia derivada de la avería.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. A resolução relaciona a situação descrita aos critérios de Consecuencia, no campo de Conectores.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. A resolução relaciona a situação descrita aos critérios de Consecuencia, no campo de Conectores."
+      "V": "Correto. \"Por lo tanto\" introduce una conclusión o consecuencia derivada de la avería.",
+      "F": "Incorreto. A afirmação é verdadeira: \"Por lo tanto\" introduce una conclusión o consecuencia derivada de la avería."
     },
     "tags": [
       "conectores",
@@ -1870,8 +1907,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -1884,7 +1922,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Finalidad",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo”, é correto associá-lo a Preposición para.",
+    "statement": "En \"Este libro es para Marta\" y \"Leo para aprender\", \"para\" tiene exactamente el mismo valor semántico.",
     "alternatives": [
       {
         "id": "V",
@@ -1895,11 +1933,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A resolução relaciona a situação descrita aos critérios de Finalidad, no campo de Preposiciones.",
+    "correctAnswer": "F",
+    "explanation": "En la primera frase indica destinatario; en la segunda, finalidad.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A resolução relaciona a situação descrita aos critérios de Finalidad, no campo de Preposiciones.",
-      "F": "Incorreto. A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A resolução relaciona a situação descrita aos critérios de Finalidad, no campo de Preposiciones."
+      "V": "Incorreto. A afirmação é falsa: en la primera frase indica destinatario; en la segunda, finalidad.",
+      "F": "Correto. En la primera frase indica destinatario; en la segunda, finalidad."
     },
     "tags": [
       "preposiciones",
@@ -1913,8 +1951,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "gramatica",
+      "preposiciones",
+      "valor-semantico"
     ],
     "origin": "nabulab"
   },
@@ -1927,7 +1966,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Ironía",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “el sentido pretendido se distancia del significado literal para producir crítica o humor”, é correto associá-lo a Falso cognado embarazada.",
+    "statement": "En \"¡Perfecto! Perdimos el último tren\", \"perfecto\" puede interpretarse irónicamente.",
     "alternatives": [
       {
         "id": "V",
@@ -1938,11 +1977,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. A resolução relaciona a situação descrita aos critérios de Ironía, no campo de Interpretación.",
+    "correctAnswer": "V",
+    "explanation": "La valoración positiva choca con un hecho normalmente indeseado.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. A resolução relaciona a situação descrita aos critérios de Ironía, no campo de Interpretación.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. A resolução relaciona a situação descrita aos critérios de Ironía, no campo de Interpretación."
+      "V": "Correto. La valoración positiva choca con un hecho normalmente indeseado.",
+      "F": "Incorreto. A afirmação é verdadeira: la valoración positiva choca con un hecho normalmente indeseado."
     },
     "tags": [
       "interpretacion",
@@ -1956,8 +1995,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "interpretacion",
+      "ironia",
+      "pragmatica"
     ],
     "origin": "nabulab"
   },
@@ -1970,7 +2010,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Voseo",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular”, é correto associá-lo a Voseo.",
+    "statement": "El voseo cambia solamente el pronombre y nunca puede afectar la forma verbal.",
     "alternatives": [
       {
         "id": "V",
@@ -1981,11 +2021,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A resolução relaciona a situação descrita aos critérios de Voseo, no campo de Variaciones lingüísticas.",
+    "correctAnswer": "F",
+    "explanation": "En muchas variedades aparecen formas como \"vos tenés\", \"vos querés\" o \"vení\".",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A resolução relaciona a situação descrita aos critérios de Voseo, no campo de Variaciones lingüísticas.",
-      "F": "Incorreto. A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A resolução relaciona a situação descrita aos critérios de Voseo, no campo de Variaciones lingüísticas."
+      "V": "Incorreto. A afirmação é falsa: en muchas variedades aparecen formas como \"vos tenés\", \"vos querés\" o \"vení\".",
+      "F": "Correto. En muchas variedades aparecen formas como \"vos tenés\", \"vos querés\" o \"vení\"."
     },
     "tags": [
       "variacion-linguistica",
@@ -1999,8 +2039,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -2013,7 +2054,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Diversidad",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior”, é correto associá-lo a Pronombre de objeto directo.",
+    "statement": "El uso de \"ordenador\" en unas regiones y \"computadora\" en otras ejemplifica diversidad léxica sin implicar inferioridad de una variedad.",
     "alternatives": [
       {
         "id": "V",
@@ -2024,11 +2065,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A resolução relaciona a situação descrita aos critérios de Diversidad, no campo de Variaciones lingüísticas.",
+    "correctAnswer": "V",
+    "explanation": "Las dos formas son legítimas y su frecuencia depende de la comunidad lingüística.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A resolução relaciona a situação descrita aos critérios de Diversidad, no campo de Variaciones lingüísticas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A resolução relaciona a situação descrita aos critérios de Diversidad, no campo de Variaciones lingüísticas."
+      "V": "Correto. Las dos formas son legítimas y su frecuencia depende de la comunidad lingüística.",
+      "F": "Incorreto. A afirmação é verdadeira: las dos formas son legítimas y su frecuencia depende de la comunidad lingüística."
     },
     "tags": [
       "variacion-linguistica",
@@ -2042,8 +2083,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -2056,7 +2098,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Idea principal",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “la información central articula el propósito y los argumentos más relevantes de un texto”, é correto associá-lo a Idea principal.",
+    "statement": "Una frase específica que aparece al inicio de un texto es necesariamente su idea principal.",
     "alternatives": [
       {
         "id": "V",
@@ -2067,11 +2109,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. A resolução relaciona a situação descrita aos critérios de Idea principal, no campo de Comprensión textual.",
+    "correctAnswer": "F",
+    "explanation": "La idea principal depende de la función y del alcance global de la información, no solo de la posición.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. A resolução relaciona a situação descrita aos critérios de Idea principal, no campo de Comprensión textual.",
-      "F": "Incorreto. A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. A resolução relaciona a situação descrita aos critérios de Idea principal, no campo de Comprensión textual."
+      "V": "Incorreto. A afirmação é falsa: la idea principal depende de la función y del alcance global de la información, no solo de la posición.",
+      "F": "Correto. La idea principal depende de la función y del alcance global de la información, no solo de la posición."
     },
     "tags": [
       "comprension",
@@ -2085,8 +2127,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -2099,7 +2142,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Inferencia",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “el lector deduce información no explícita mediante pistas presentes en el texto”, é correto associá-lo a Conector sin embargo.",
+    "statement": "En \"Carlos llegó con el pelo mojado y dejó un impermeable junto a la puerta\", inferir que probablemente llovió es una conclusión apoyada por pistas.",
     "alternatives": [
       {
         "id": "V",
@@ -2110,11 +2153,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. A resolução relaciona a situação descrita aos critérios de Inferencia, no campo de Comprensión textual.",
+    "correctAnswer": "V",
+    "explanation": "El cabello mojado y el impermeable constituyen evidencias contextuales compatibles con lluvia.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. A resolução relaciona a situação descrita aos critérios de Inferencia, no campo de Comprensión textual.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. A resolução relaciona a situação descrita aos critérios de Inferencia, no campo de Comprensión textual."
+      "V": "Correto. El cabello mojado y el impermeable constituyen evidencias contextuales compatibles con lluvia.",
+      "F": "Incorreto. A afirmação é verdadeira: el cabello mojado y el impermeable constituyen evidencias contextuales compatibles con lluvia."
     },
     "tags": [
       "comprension",
@@ -2128,8 +2171,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -2142,7 +2186,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Falsos cognados",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “la palabra española embarazada significa grávida y no corresponde a envergonhada”, é correto associá-lo a Falso cognado embarazada.",
+    "statement": "Toda palabra española parecida a una palabra portuguesa tiene exactamente el mismo significado.",
     "alternatives": [
       {
         "id": "V",
@@ -2153,11 +2197,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. A resolução relaciona a situação descrita aos critérios de Falsos cognados, no campo de Vocabulario.",
+    "correctAnswer": "F",
+    "explanation": "La existencia de falsos cognados demuestra que la semejanza formal no garantiza equivalencia semántica.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. A resolução relaciona a situação descrita aos critérios de Falsos cognados, no campo de Vocabulario.",
-      "F": "Incorreto. A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. A resolução relaciona a situação descrita aos critérios de Falsos cognados, no campo de Vocabulario."
+      "V": "Incorreto. A afirmação é falsa: la existencia de falsos cognados demuestra que la semejanza formal no garantiza equivalencia semántica.",
+      "F": "Correto. La existencia de falsos cognados demuestra que la semejanza formal no garantiza equivalencia semántica."
     },
     "tags": [
       "vocabulario",
@@ -2171,8 +2215,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "vocabulario",
+      "sentido-contextual",
+      "comparacion-linguistica"
     ],
     "origin": "nabulab"
   },
@@ -2185,7 +2230,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Artículo neutro",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo”, é correto associá-lo a Preposición para.",
+    "statement": "En \"Lo bueno de viajar es conocer otras costumbres\", \"lo\" funciona como artículo neutro.",
     "alternatives": [
       {
         "id": "V",
@@ -2196,11 +2241,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A resolução relaciona a situação descrita aos critérios de Artículo neutro, no campo de Artículos.",
+    "correctAnswer": "V",
+    "explanation": "\"Lo bueno\" sustantiva la cualidad expresada por \"bueno\".",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A resolução relaciona a situação descrita aos critérios de Artículo neutro, no campo de Artículos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A resolução relaciona a situação descrita aos critérios de Artículo neutro, no campo de Artículos."
+      "V": "Correto. \"Lo bueno\" sustantiva la cualidad expresada por \"bueno\".",
+      "F": "Incorreto. A afirmação é verdadeira: \"Lo bueno\" sustantiva la cualidad expresada por \"bueno\"."
     },
     "tags": [
       "articulos",
@@ -2214,8 +2259,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "gramatica",
+      "articulos",
+      "analisis-contextual"
     ],
     "origin": "nabulab"
   },
@@ -2228,7 +2274,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Objeto directo",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal”, é correto associá-lo a Pronombre de objeto directo.",
+    "statement": "En \"Las llaves las dejé en la mesa\", la segunda \"las\" es un artículo que acompaña a un sustantivo omitido.",
     "alternatives": [
       {
         "id": "V",
@@ -2239,11 +2285,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A resolução relaciona a situação descrita aos critérios de Objeto directo, no campo de Pronombres.",
+    "correctAnswer": "F",
+    "explanation": "La segunda \"las\" es pronombre de objeto directo que retoma \"las llaves\".",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A resolução relaciona a situação descrita aos critérios de Objeto directo, no campo de Pronombres.",
-      "F": "Incorreto. A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A resolução relaciona a situação descrita aos critérios de Objeto directo, no campo de Pronombres."
+      "V": "Incorreto. A afirmação é falsa: la segunda \"las\" es pronombre de objeto directo que retoma \"las llaves\".",
+      "F": "Correto. La segunda \"las\" es pronombre de objeto directo que retoma \"las llaves\"."
     },
     "tags": [
       "pronombres",
@@ -2257,8 +2303,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "gramatica",
+      "pronombres",
+      "referencia"
     ],
     "origin": "nabulab"
   },
@@ -2271,7 +2318,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Pretérito",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente”, é correto associá-lo a Voseo.",
+    "statement": "El contraste entre \"Hoy he hablado con Ana\" y \"Ayer hablé con Ana\" puede relacionarse con un periodo aún vigente frente a otro concluido, en variedades que mantienen esa oposición.",
     "alternatives": [
       {
         "id": "V",
@@ -2282,11 +2329,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A resolução relaciona a situação descrita aos critérios de Pretérito, no campo de Verbos.",
+    "correctAnswer": "V",
+    "explanation": "La elección de los pasados interactúa con la referencia temporal y también varía regionalmente.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A resolução relaciona a situação descrita aos critérios de Pretérito, no campo de Verbos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A resolução relaciona a situação descrita aos critérios de Pretérito, no campo de Verbos."
+      "V": "Correto. La elección de los pasados interactúa con la referencia temporal y también varía regionalmente.",
+      "F": "Incorreto. A afirmação é verdadeira: la elección de los pasados interactúa con la referencia temporal y también varía regionalmente."
     },
     "tags": [
       "verbos",
@@ -2300,8 +2347,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "gramatica",
+      "verbos",
+      "uso-en-contexto"
     ],
     "origin": "nabulab"
   },
@@ -2314,32 +2362,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Finalidad",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo?",
+    "statement": "Compara: I \"Compré flores para mi abuela.\" II \"Ahorro para viajar.\" III \"Salimos para Bogotá.\" ¿Qué valores predominan?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Preposición para"
+        "text": "destinatario — finalidad — destino"
       },
       {
         "id": "B",
-        "text": "Diversidad léxica hispánica"
+        "text": "finalidad — destinatario — causa"
       },
       {
         "id": "C",
-        "text": "Artículo neutro lo"
+        "text": "destino — finalidad — destinatario"
       },
       {
         "id": "D",
-        "text": "Conector sin embargo"
+        "text": "causa — destino — finalidad"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Por isso, a alternativa correta é Preposición para.",
+    "explanation": "Los tres usos muestran, respectivamente, destinatario, propósito y dirección/destino.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. Por isso, a alternativa correta é Preposición para.",
-      "B": "Esse conceito designa outra relação: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior.",
-      "C": "A propriedade dessa alternativa é distinta: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo.",
-      "D": "Não corresponde ao caso: la expresión introduce una oposición o restricción respecto de la idea anterior."
+      "A": "Correta. Es la secuencia correcta.",
+      "B": "Incorreta. Invierte funciones.",
+      "C": "Incorreta. Confunde destinatario y destino.",
+      "D": "Incorreta. No corresponde a ninguno de los tres contextos."
     },
     "tags": [
       "preposiciones",
@@ -2353,8 +2401,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "gramatica",
+      "preposiciones",
+      "valor-semantico"
     ],
     "origin": "nabulab"
   },
@@ -2367,32 +2416,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Ironía",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: el sentido pretendido se distancia del significado literal para producir crítica o humor?",
+    "statement": "Lee: \"El alcalde celebró la obra como 'un ejemplo de rapidez administrativa'. Había sido anunciada ocho años antes.\" El efecto es principalmente:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Idea principal"
+        "text": "elogio literal"
       },
       {
         "id": "B",
-        "text": "Ironía textual"
+        "text": "ironía crítica"
       },
       {
         "id": "C",
-        "text": "Pronombre de objeto directo"
+        "text": "neutralidad absoluta"
       },
       {
         "id": "D",
-        "text": "Conector por lo tanto"
+        "text": "duda sobre la existencia de la obra"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em el sentido pretendido se distancia del significado literal para producir crítica o humor. Por isso, a alternativa correta é Ironía textual.",
+    "explanation": "El intervalo de ocho años entra en conflicto con el elogio a la rapidez, generando ironía.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: la información central articula el propósito y los argumentos más relevantes de un texto.",
-      "B": "Correta. A distinção central está em el sentido pretendido se distancia del significado literal para producir crítica o humor. Por isso, a alternativa correta é Ironía textual.",
-      "C": "Não corresponde ao caso: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
-      "D": "Diverge da descrição porque la expresión presenta una consecuencia derivada de información anterior."
+      "A": "Incorreta. El dato temporal cuestiona el elogio.",
+      "B": "Correta. Es la lectura más coherente.",
+      "C": "Incorreta. Existe una evaluación implícita.",
+      "D": "Incorreta. La inauguración no se pone en duda."
     },
     "tags": [
       "interpretacion",
@@ -2406,8 +2455,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "interpretacion",
+      "ironia",
+      "pragmatica"
     ],
     "origin": "nabulab"
   },
@@ -2420,32 +2470,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Voseo",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular?",
+    "statement": "En una entrevista argentina se oye: \"Si vos querés, vení mañana y te muestro el proyecto.\" ¿Qué análisis es correcto?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Inferencia contextual"
+        "text": "Es un error por usar 'vos'."
       },
       {
         "id": "B",
-        "text": "Pretérito perfecto compuesto"
+        "text": "'Vos' equivale a 'vosotros'."
       },
       {
         "id": "C",
-        "text": "Voseo"
+        "text": "'Vos querés' y 'vení' son formas voseantes legítimas."
       },
       {
         "id": "D",
-        "text": "Preposición para"
+        "text": "Es una construcción exclusivamente antigua."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Por isso, a alternativa correta é Voseo.",
+    "explanation": "El ejemplo combina pronombre, presente e imperativo propios del voseo rioplatense.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: el lector deduce información no explícita mediante pistas presentes en el texto.",
-      "B": "Não corresponde ao caso: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
-      "C": "Correta. A resposta decorre da definição disciplinar en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. Por isso, a alternativa correta é Voseo.",
-      "D": "Esse conceito designa outra relação: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo."
+      "A": "Incorreta. El voseo es contemporáneo y legítimo.",
+      "B": "Incorreta. Confunde segunda persona singular y plural.",
+      "C": "Correta. Es el análisis adecuado.",
+      "D": "Incorreta. No es un uso desaparecido."
     },
     "tags": [
       "variacion-linguistica",
@@ -2459,8 +2509,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -2473,32 +2524,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Diversidad",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior?",
+    "statement": "Un portal mexicano usa \"computadora\" y un periódico español usa \"ordenador\". ¿Qué conclusión es más adecuada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Falso cognado embarazada"
+        "text": "Solo la forma europea es correcta."
       },
       {
         "id": "B",
-        "text": "Conector sin embargo"
+        "text": "Son lenguas diferentes."
       },
       {
         "id": "C",
-        "text": "Ironía textual"
+        "text": "La formalidad exige eliminar diferencias regionales."
       },
       {
         "id": "D",
-        "text": "Diversidad léxica hispánica"
+        "text": "El español admite normas y usos léxicos regionales legítimos."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior. Por isso, a alternativa correta é Diversidad léxica hispánica.",
+    "explanation": "El español es pluricéntrico y mantiene diferencias regionales sin que una variedad invalide a las demás.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: la palabra española embarazada significa grávida y no corresponde a envergonhada.",
-      "B": "Diverge da descrição porque la expresión introduce una oposición o restricción respecto de la idea anterior.",
-      "C": "Esse conceito designa outra relação: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
-      "D": "Correta. O critério relevante é un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior. Por isso, a alternativa correta é Diversidad léxica hispánica."
+      "A": "Incorreta. No existe una única forma panhispánica obligatoria.",
+      "B": "Incorreta. Una diferencia léxica no basta para separar lenguas.",
+      "C": "Incorreta. Los registros formales también pueden ser regionales.",
+      "D": "Correta. Es la conclusión sociolingüística adecuada."
     },
     "tags": [
       "variacion-linguistica",
@@ -2512,8 +2563,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -2526,32 +2578,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Idea principal",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: la información central articula el propósito y los argumentos más relevantes de un texto?",
+    "statement": "Lee: \"Durante años la movilidad urbana se pensó casi solo en función del automóvil. Sin embargo, el tráfico y la contaminación han obligado a revisar ese modelo. Más ciudades amplían el transporte público, las ciclovías y los espacios peatonales. El desafío ya no es mover más vehículos, sino permitir que más personas se desplacen de forma eficiente.\" ¿Cuál es la idea principal?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Idea principal"
+        "text": "La movilidad se está repensando para priorizar el desplazamiento eficiente de personas por distintos medios."
       },
       {
         "id": "B",
-        "text": "Artículo neutro lo"
+        "text": "Hay que prohibir todos los coches."
       },
       {
         "id": "C",
-        "text": "Conector por lo tanto"
+        "text": "Las ciclovías son la única solución."
       },
       {
         "id": "D",
-        "text": "Voseo"
+        "text": "La contaminación no influye en el debate."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso la información central articula el propósito y los argumentos más relevantes de un texto. Por isso, a alternativa correta é Idea principal.",
+    "explanation": "El texto contrasta un modelo centrado en automóviles con otro enfocado en la movilidad de personas mediante varios modos.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso la información central articula el propósito y los argumentos más relevantes de un texto. Por isso, a alternativa correta é Idea principal.",
-      "B": "Esse conceito designa outra relação: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo.",
-      "C": "A propriedade dessa alternativa é distinta: la expresión presenta una consecuencia derivada de información anterior.",
-      "D": "Não corresponde ao caso: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular."
+      "A": "Correta. Sintetiza todo el argumento.",
+      "B": "Incorreta. El texto no propone prohibición total.",
+      "C": "Incorreta. Las ciclovías son solo una medida.",
+      "D": "Incorreta. La contaminación aparece como una causa de la revisión."
     },
     "tags": [
       "comprension",
@@ -2565,8 +2617,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -2579,32 +2632,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Inferencia",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: el lector deduce información no explícita mediante pistas presentes en el texto?",
+    "statement": "Lee: \"Cuando Julia llegó, vio una taza con su nombre, un sobre cerrado junto al teclado y a sus compañeros fingiendo concentrarse.\" ¿Cuál es la inferencia más prudente?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pronombre de objeto directo"
+        "text": "Julia fue despedida."
       },
       {
         "id": "B",
-        "text": "Inferencia contextual"
+        "text": "Sus compañeros pueden estar preparando algo para ella, pero no sabemos exactamente qué."
       },
       {
         "id": "C",
-        "text": "Preposición para"
+        "text": "El sobre contiene dinero."
       },
       {
         "id": "D",
-        "text": "Diversidad léxica hispánica"
+        "text": "La taza pertenece a otra persona."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é el lector deduce información no explícita mediante pistas presentes en el texto. Por isso, a alternativa correta é Inferencia contextual.",
+    "explanation": "Las pistas sugieren una preparación dirigida a Julia, pero no permiten determinar con certeza su naturaleza.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal.",
-      "B": "Correta. A propriedade determinante é el lector deduce información no explícita mediante pistas presentes en el texto. Por isso, a alternativa correta é Inferencia contextual.",
-      "C": "Não corresponde ao caso: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
-      "D": "Diverge da descrição porque un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior."
+      "A": "Incorreta. Es demasiado específica y no tiene apoyo suficiente.",
+      "B": "Correta. Reconoce la inferencia sin exceder la evidencia.",
+      "C": "Incorreta. El contenido del sobre es desconocido.",
+      "D": "Incorreta. El nombre de Julia hace menos plausible esa conclusión."
     },
     "tags": [
       "comprension",
@@ -2618,8 +2671,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -2632,32 +2686,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Falsos cognados",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: la palabra española embarazada significa grávida y no corresponde a envergonhada?",
+    "statement": "Un estudiante traduce automáticamente cualquier palabra española parecida al portugués. ¿Qué estrategia evita mejor errores con falsos cognados?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pretérito perfecto compuesto"
+        "text": "Usar siempre la forma portuguesa más parecida."
       },
       {
         "id": "B",
-        "text": "Ironía textual"
+        "text": "Evitar toda palabra semejante."
       },
       {
         "id": "C",
-        "text": "Falso cognado embarazada"
+        "text": "Interpretar la palabra según contexto, uso y variedad antes de traducir."
       },
       {
         "id": "D",
-        "text": "Idea principal"
+        "text": "Traducir solo por la ortografía."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em la palabra española embarazada significa grávida y no corresponde a envergonhada. Por isso, a alternativa correta é Falso cognado embarazada.",
+    "explanation": "La semejanza formal puede ayudar, pero no garantiza identidad de sentido; el contexto es decisivo.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
-      "B": "Não corresponde ao caso: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
-      "C": "Correta. A conclusão se apoia em la palabra española embarazada significa grávida y no corresponde a envergonhada. Por isso, a alternativa correta é Falso cognado embarazada.",
-      "D": "Esse conceito designa outra relação: la información central articula el propósito y los argumentos más relevantes de un texto."
+      "A": "Incorreta. Puede producir falsos cognados.",
+      "B": "Incorreta. Muchos cognados verdaderos son semejantes.",
+      "C": "Correta. Es la estrategia lingüísticamente adecuada.",
+      "D": "Incorreta. La grafía por sí sola no determina significado."
     },
     "tags": [
       "vocabulario",
@@ -2671,8 +2725,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "vocabulario",
+      "sentido-contextual",
+      "comparacion-linguistica"
     ],
     "origin": "nabulab"
   },
@@ -2685,32 +2740,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Artículo neutro",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo?",
+    "statement": "Compara: I \"Lo interesante del artículo es su conclusión.\" II \"El artículo lo leí ayer.\" ¿Qué análisis es correcto?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conector sin embargo"
+        "text": "En ambos, 'lo' es artículo neutro."
       },
       {
         "id": "B",
-        "text": "Voseo"
+        "text": "En I es pronombre y en II artículo."
       },
       {
         "id": "C",
-        "text": "Inferencia contextual"
+        "text": "En ambos es pronombre."
       },
       {
         "id": "D",
-        "text": "Artículo neutro lo"
+        "text": "En I es artículo neutro y en II pronombre de objeto directo."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo. Por isso, a alternativa correta é Artículo neutro lo.",
+    "explanation": "En I, 'lo interesante' sustantiva una cualidad; en II, 'lo' retoma 'el artículo'.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: la expresión introduce una oposición o restricción respecto de la idea anterior.",
-      "B": "Diverge da descrição porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
-      "C": "Esse conceito designa outra relação: el lector deduce información no explícita mediante pistas presentes en el texto.",
-      "D": "Correta. A distinção central está em la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo. Por isso, a alternativa correta é Artículo neutro lo."
+      "A": "Incorreta. Ignora el referente de II.",
+      "B": "Incorreta. Invierte las funciones.",
+      "C": "Incorreta. Las funciones no son iguales.",
+      "D": "Correta. Es la distinción correcta."
     },
     "tags": [
       "articulos",
@@ -2724,8 +2779,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "gramatica",
+      "articulos",
+      "analisis-contextual"
     ],
     "origin": "nabulab"
   },
@@ -2738,32 +2794,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Objeto directo",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal?",
+    "statement": "Reescribe sin repetir: \"Vi a Marta y a Elena. Saludé a Marta y a Elena.\" La sustitución adecuada es:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Pronombre de objeto directo"
+        "text": "Las saludé."
       },
       {
         "id": "B",
-        "text": "Conector por lo tanto"
+        "text": "Los saludé."
       },
       {
         "id": "C",
-        "text": "Diversidad léxica hispánica"
+        "text": "Le saludé."
       },
       {
         "id": "D",
-        "text": "Falso cognado embarazada"
+        "text": "Lo saludé."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Por isso, a alternativa correta é Pronombre de objeto directo.",
+    "explanation": "Marta y Elena forman un referente femenino plural que funciona como objeto directo; por eso corresponde 'las'.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. Por isso, a alternativa correta é Pronombre de objeto directo.",
-      "B": "Esse conceito designa outra relação: la expresión presenta una consecuencia derivada de información anterior.",
-      "C": "A propriedade dessa alternativa é distinta: un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior.",
-      "D": "Não corresponde ao caso: la palabra española embarazada significa grávida y no corresponde a envergonhada."
+      "A": "Correta. Es la sustitución adecuada.",
+      "B": "Incorreta. Sería masculino plural.",
+      "C": "Incorreta. Es singular y no corresponde al objeto directo plural.",
+      "D": "Incorreta. Es masculino singular."
     },
     "tags": [
       "pronombres",
@@ -2777,8 +2833,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "gramatica",
+      "pronombres",
+      "referencia"
     ],
     "origin": "nabulab"
   },
@@ -2791,32 +2848,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Pretérito",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente?",
+    "statement": "Compara: I \"Esta mañana he hablado con el director.\" II \"Esta mañana hablé con el director.\" ¿Qué afirmación es más adecuada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Preposición para"
+        "text": "Solo I es gramatical."
       },
       {
         "id": "B",
-        "text": "Pretérito perfecto compuesto"
+        "text": "Las dos pueden ser naturales según la variedad regional."
       },
       {
         "id": "C",
-        "text": "Idea principal"
+        "text": "Solo II es gramatical."
       },
       {
         "id": "D",
-        "text": "Artículo neutro lo"
+        "text": "Las dos expresan futuro."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente. Por isso, a alternativa correta é Pretérito perfecto compuesto.",
+    "explanation": "La distribución del perfecto compuesto y del perfecto simple varía entre el español peninsular y muchas variedades americanas.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo.",
-      "B": "Correta. O critério relevante é la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente. Por isso, a alternativa correta é Pretérito perfecto compuesto.",
-      "C": "Não corresponde ao caso: la información central articula el propósito y los argumentos más relevantes de un texto.",
-      "D": "Diverge da descrição porque la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo."
+      "A": "Incorreta. Excluye usos americanos legítimos.",
+      "B": "Correta. Reconoce la variación real.",
+      "C": "Incorreta. Excluye usos peninsulares legítimos.",
+      "D": "Incorreta. Ambas formas son pasadas."
     },
     "tags": [
       "verbos",
@@ -2830,8 +2887,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "gramatica",
+      "verbos",
+      "uso-en-contexto"
     ],
     "origin": "nabulab"
   },
@@ -2844,32 +2902,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Contraste",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: la expresión introduce una oposición o restricción respecto de la idea anterior?",
+    "statement": "Lee: \"El plan reduce costos a corto plazo; sin embargo, exige una inversión inicial elevada.\" ¿Qué función cumple \"sin embargo\"?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ironía textual"
+        "text": "Presentar una causa."
       },
       {
         "id": "B",
-        "text": "Inferencia contextual"
+        "text": "Repetir la misma idea."
       },
       {
         "id": "C",
-        "text": "Conector sin embargo"
+        "text": "Introducir una salvedad que complica una valoración simplista."
       },
       {
         "id": "D",
-        "text": "Pronombre de objeto directo"
+        "text": "Indicar finalidad."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso la expresión introduce una oposición o restricción respecto de la idea anterior. Por isso, a alternativa correta é Conector sin embargo.",
+    "explanation": "El conector contrapone una ventaja y una desventaja, evitando una lectura unilateral del plan.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: el sentido pretendido se distancia del significado literal para producir crítica o humor.",
-      "B": "Não corresponde ao caso: el lector deduce información no explícita mediante pistas presentes en el texto.",
-      "C": "Correta. Neste caso la expresión introduce una oposición o restricción respecto de la idea anterior. Por isso, a alternativa correta é Conector sin embargo.",
-      "D": "Esse conceito designa outra relação: las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal."
+      "A": "Incorreta. No expresa causalidad.",
+      "B": "Incorreta. Las dos ideas no son equivalentes.",
+      "C": "Correta. Es su función argumentativa.",
+      "D": "Incorreta. No expresa propósito."
     },
     "tags": [
       "conectores",
@@ -2883,8 +2941,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -2897,32 +2956,32 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Consecuencia",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: la expresión presenta una consecuencia derivada de información anterior?",
+    "statement": "En \"La temperatura cayó bajo cero; por lo tanto, varias tuberías se congelaron\", sustituir \"por lo tanto\" por \"sin embargo\" haría que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Voseo"
+        "text": "nada cambiara"
       },
       {
         "id": "B",
-        "text": "Falso cognado embarazada"
+        "text": "la segunda oración expresara finalidad"
       },
       {
         "id": "C",
-        "text": "Pretérito perfecto compuesto"
+        "text": "la primera se volviera pregunta"
       },
       {
         "id": "D",
-        "text": "Conector por lo tanto"
+        "text": "la relación explícita cambiara de consecuencia a contraste"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é la expresión presenta una consecuencia derivada de información anterior. Por isso, a alternativa correta é Conector por lo tanto.",
+    "explanation": "\"Por lo tanto\" y \"sin embargo\" orientan relaciones lógicas diferentes; la sustitución alteraría la coherencia argumentativa.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular.",
-      "B": "Diverge da descrição porque la palabra española embarazada significa grávida y no corresponde a envergonhada.",
-      "C": "Esse conceito designa outra relação: la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente.",
-      "D": "Correta. A propriedade determinante é la expresión presenta una consecuencia derivada de información anterior. Por isso, a alternativa correta é Conector por lo tanto."
+      "A": "Incorreta. Los conectores no son equivalentes.",
+      "B": "Incorreta. No introduce finalidad.",
+      "C": "Incorreta. No cambia el tipo oracional.",
+      "D": "Correta. Es el efecto correcto."
     },
     "tags": [
       "conectores",
@@ -2936,8 +2995,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -2950,7 +3010,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Voseo",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Voseo de Conector por lo tanto, a característica “en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular” deve ser atribuída ao primeiro conceito.",
+    "statement": "\"Vos tenés\" y \"vení\" pueden formar parte de una norma regional legítima de voseo.",
     "alternatives": [
       {
         "id": "V",
@@ -2962,10 +3022,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A avaliação exige delimitar as condições de Voseo e distingui-las de relações próximas em Variaciones lingüísticas.",
+    "explanation": "El voseo posee paradigmas propios y es un rasgo consolidado de varias variedades hispanoamericanas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A avaliação exige delimitar as condições de Voseo e distingui-las de relações próximas em Variaciones lingüísticas.",
-      "F": "Incorreto. A proposição é verdadeira, pois Voseo se caracteriza porque en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A avaliação exige delimitar as condições de Voseo e distingui-las de relações próximas em Variaciones lingüísticas."
+      "V": "Correto. El voseo posee paradigmas propios y es un rasgo consolidado de varias variedades hispanoamericanas.",
+      "F": "Incorreto. A afirmação é verdadeira: el voseo posee paradigmas propios y es un rasgo consolidado de varias variedades hispanoamericanas."
     },
     "tags": [
       "variacion-linguistica",
@@ -2979,8 +3039,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -2993,7 +3054,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Diversidad",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Diversidad léxica hispánica de Preposición para, a característica “un mismo referente puede recibir nombres distintos según la región, sin que una variedad sea intrínsecamente inferior” deve ser atribuída ao segundo conceito.",
+    "statement": "Como el español es una sola lengua, las diferencias regionales de vocabulario deben eliminarse para que exista comunicación correcta.",
     "alternatives": [
       {
         "id": "V",
@@ -3005,10 +3066,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A avaliação exige delimitar as condições de Diversidad e distingui-las de relações próximas em Variaciones lingüísticas.",
+    "explanation": "Una lengua puede ser pluricéntrica y mantener diversidad léxica legítima entre regiones.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A avaliação exige delimitar as condições de Diversidad e distingui-las de relações próximas em Variaciones lingüísticas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Diversidad léxica hispánica, enquanto Preposición para se refere a la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A avaliação exige delimitar as condições de Diversidad e distingui-las de relações próximas em Variaciones lingüísticas."
+      "V": "Incorreto. A afirmação é falsa: una lengua puede ser pluricéntrica y mantener diversidad léxica legítima entre regiones.",
+      "F": "Correto. Una lengua puede ser pluricéntrica y mantener diversidad léxica legítima entre regiones."
     },
     "tags": [
       "variacion-linguistica",
@@ -3022,8 +3083,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "variacion-linguistica",
+      "sociolinguistica",
+      "adecuacion"
     ],
     "origin": "nabulab"
   },
@@ -3036,7 +3098,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Idea principal",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Idea principal de Ironía textual, a característica “la información central articula el propósito y los argumentos más relevantes de un texto” deve ser atribuída ao primeiro conceito.",
+    "statement": "Una afirmación verdadera y relevante de un texto puede ser un detalle sin constituir por sí sola la idea principal.",
     "alternatives": [
       {
         "id": "V",
@@ -3048,10 +3110,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. A avaliação exige delimitar as condições de Idea principal e distingui-las de relações próximas em Comprensión textual.",
+    "explanation": "Centralidad textual y veracidad no son lo mismo; la idea principal debe abarcar el propósito global.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. A avaliação exige delimitar as condições de Idea principal e distingui-las de relações próximas em Comprensión textual.",
-      "F": "Incorreto. A proposição é verdadeira, pois Idea principal se caracteriza porque la información central articula el propósito y los argumentos más relevantes de un texto. A avaliação exige delimitar as condições de Idea principal e distingui-las de relações próximas em Comprensión textual."
+      "V": "Correto. Centralidad textual y veracidad no son lo mismo; la idea principal debe abarcar el propósito global.",
+      "F": "Incorreto. A afirmação é verdadeira: centralidad textual y veracidad no son lo mismo; la idea principal debe abarcar el propósito global."
     },
     "tags": [
       "comprension",
@@ -3065,8 +3127,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -3079,7 +3142,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Inferencia",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Inferencia contextual de Voseo, a característica “el lector deduce información no explícita mediante pistas presentes en el texto” deve ser atribuída ao segundo conceito.",
+    "statement": "Si un personaje \"mira el reloj cada treinta segundos y mueve la pierna sin parar\", afirmar que está nervioso es una inferencia, no una información literalmente declarada.",
     "alternatives": [
       {
         "id": "V",
@@ -3090,11 +3153,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A avaliação exige delimitar as condições de Inferencia e distingui-las de relações próximas em Comprensión textual.",
+    "correctAnswer": "V",
+    "explanation": "El estado emocional se deduce de comportamientos descritos, aunque la palabra \"nervioso\" no aparezca.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A avaliação exige delimitar as condições de Inferencia e distingui-las de relações próximas em Comprensión textual.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Inferencia contextual, enquanto Voseo se refere a en varias regiones hispanoamericanas se usa vos con formas verbales propias para la segunda persona singular. A avaliação exige delimitar as condições de Inferencia e distingui-las de relações próximas em Comprensión textual."
+      "V": "Correto. El estado emocional se deduce de comportamientos descritos, aunque la palabra \"nervioso\" no aparezca.",
+      "F": "Incorreto. A afirmação é verdadeira: el estado emocional se deduce de comportamientos descritos, aunque la palabra \"nervioso\" no aparezca."
     },
     "tags": [
       "comprension",
@@ -3108,8 +3171,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "comprension-textual",
+      "interpretacion",
+      "evidencia"
     ],
     "origin": "nabulab"
   },
@@ -3122,7 +3186,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Falsos cognados",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Falso cognado embarazada de Diversidad léxica hispánica, a característica “la palabra española embarazada significa grávida y no corresponde a envergonhada” deve ser atribuída ao primeiro conceito.",
+    "statement": "La semejanza gráfica entre una palabra española y una portuguesa garantiza que ambas tienen el mismo significado.",
     "alternatives": [
       {
         "id": "V",
@@ -3133,11 +3197,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. A avaliação exige delimitar as condições de Falsos cognados e distingui-las de relações próximas em Vocabulario.",
+    "correctAnswer": "F",
+    "explanation": "Los falsos cognados muestran que la forma gráfica no basta para establecer equivalencia semántica.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. A avaliação exige delimitar as condições de Falsos cognados e distingui-las de relações próximas em Vocabulario.",
-      "F": "Incorreto. A proposição é verdadeira, pois Falso cognado embarazada se caracteriza porque la palabra española embarazada significa grávida y no corresponde a envergonhada. A avaliação exige delimitar as condições de Falsos cognados e distingui-las de relações próximas em Vocabulario."
+      "V": "Incorreto. A afirmação é falsa: los falsos cognados muestran que la forma gráfica no basta para establecer equivalencia semántica.",
+      "F": "Correto. Los falsos cognados muestran que la forma gráfica no basta para establecer equivalencia semántica."
     },
     "tags": [
       "vocabulario",
@@ -3151,8 +3215,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "vocabulario",
+      "sentido-contextual",
+      "comparacion-linguistica"
     ],
     "origin": "nabulab"
   },
@@ -3165,7 +3230,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Artículo neutro",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Artículo neutro lo de Idea principal, a característica “la forma lo sustantiva adjetivos o construcciones y no acompaña directamente a un sustantivo” deve ser atribuída ao segundo conceito.",
+    "statement": "En \"No sabes lo mucho que te agradezco\", \"lo\" retoma obligatoriamente un sustantivo masculino omitido.",
     "alternatives": [
       {
         "id": "V",
@@ -3177,10 +3242,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. A avaliação exige delimitar as condições de Artículo neutro e distingui-las de relações próximas em Artículos.",
+    "explanation": "La secuencia \"lo mucho que\" integra una construcción neutra/intensificadora y no exige un antecedente masculino.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. A avaliação exige delimitar as condições de Artículo neutro e distingui-las de relações próximas em Artículos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Artículo neutro lo, enquanto Idea principal se refere a la información central articula el propósito y los argumentos más relevantes de un texto. A avaliação exige delimitar as condições de Artículo neutro e distingui-las de relações próximas em Artículos."
+      "V": "Incorreto. A afirmação é falsa: la secuencia \"lo mucho que\" integra una construcción neutra/intensificadora y no exige un antecedente masculino.",
+      "F": "Correto. La secuencia \"lo mucho que\" integra una construcción neutra/intensificadora y no exige un antecedente masculino."
     },
     "tags": [
       "articulos",
@@ -3194,8 +3259,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "gramatica",
+      "articulos",
+      "analisis-contextual"
     ],
     "origin": "nabulab"
   },
@@ -3208,7 +3274,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Objeto directo",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Pronombre de objeto directo de Inferencia contextual, a característica “las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal” deve ser atribuída ao primeiro conceito.",
+    "statement": "En \"Las propuestas las revisaremos mañana\", la segunda \"las\" puede retomar el objeto topicalizado \"las propuestas\".",
     "alternatives": [
       {
         "id": "V",
@@ -3220,10 +3286,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A avaliação exige delimitar as condições de Objeto directo e distingui-las de relações próximas em Pronombres.",
+    "explanation": "La duplicación pronominal puede aparecer en estructuras de tópico y el pronombre mantiene el referente.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A avaliação exige delimitar as condições de Objeto directo e distingui-las de relações próximas em Pronombres.",
-      "F": "Incorreto. A proposição é verdadeira, pois Pronombre de objeto directo se caracteriza porque las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A avaliação exige delimitar as condições de Objeto directo e distingui-las de relações próximas em Pronombres."
+      "V": "Correto. La duplicación pronominal puede aparecer en estructuras de tópico y el pronombre mantiene el referente.",
+      "F": "Incorreto. A afirmação é verdadeira: la duplicación pronominal puede aparecer en estructuras de tópico y el pronombre mantiene el referente."
     },
     "tags": [
       "pronombres",
@@ -3237,8 +3303,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "gramatica",
+      "pronombres",
+      "referencia"
     ],
     "origin": "nabulab"
   },
@@ -3251,7 +3318,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Pretérito",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Pretérito perfecto compuesto de Falso cognado embarazada, a característica “la forma he hablado conecta un hecho pasado con un periodo temporal todavía relacionado con el presente” deve ser atribuída ao segundo conceito.",
+    "statement": "Las diferencias regionales entre usos de \"he comido\" y \"comí\" demuestran que uno de los dos tiempos es agramatical fuera de España.",
     "alternatives": [
       {
         "id": "V",
@@ -3263,10 +3330,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. A avaliação exige delimitar as condições de Pretérito e distingui-las de relações próximas em Verbos.",
+    "explanation": "Ambos tiempos son gramaticales; lo que varía es su distribución y frecuencia según la variedad y el contexto.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. A avaliação exige delimitar as condições de Pretérito e distingui-las de relações próximas em Verbos.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Pretérito perfecto compuesto, enquanto Falso cognado embarazada se refere a la palabra española embarazada significa grávida y no corresponde a envergonhada. A avaliação exige delimitar as condições de Pretérito e distingui-las de relações próximas em Verbos."
+      "V": "Incorreto. A afirmação é falsa: ambos tiempos son gramaticales; lo que varía es su distribución y frecuencia según la variedad y el contexto.",
+      "F": "Correto. Ambos tiempos son gramaticales; lo que varía es su distribución y frecuencia según la variedad y el contexto."
     },
     "tags": [
       "verbos",
@@ -3280,8 +3347,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "gramatica",
+      "verbos",
+      "uso-en-contexto"
     ],
     "origin": "nabulab"
   },
@@ -3294,7 +3362,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Contraste",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Conector sin embargo de Artículo neutro lo, a característica “la expresión introduce una oposición o restricción respecto de la idea anterior” deve ser atribuída ao primeiro conceito.",
+    "statement": "En \"El proyecto era costoso; sin embargo, ofrecía beneficios\", cambiar \"sin embargo\" por \"por lo tanto\" preserva exactamente la relación argumentativa.",
     "alternatives": [
       {
         "id": "V",
@@ -3305,11 +3373,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. A avaliação exige delimitar as condições de Contraste e distingui-las de relações próximas em Conectores.",
+    "correctAnswer": "F",
+    "explanation": "\"Sin embargo\" marca contraste; \"por lo tanto\" marca consecuencia, por lo que la relación cambia.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. A avaliação exige delimitar as condições de Contraste e distingui-las de relações próximas em Conectores.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conector sin embargo se caracteriza porque la expresión introduce una oposición o restricción respecto de la idea anterior. A avaliação exige delimitar as condições de Contraste e distingui-las de relações próximas em Conectores."
+      "V": "Incorreto. A afirmação é falsa: \"Sin embargo\" marca contraste; \"por lo tanto\" marca consecuencia, por lo que la relación cambia.",
+      "F": "Correto. \"Sin embargo\" marca contraste; \"por lo tanto\" marca consecuencia, por lo que la relación cambia."
     },
     "tags": [
       "conectores",
@@ -3323,8 +3391,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -3337,7 +3406,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Consecuencia",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Conector por lo tanto de Pronombre de objeto directo, a característica “la expresión presenta una consecuencia derivada de información anterior” deve ser atribuída ao segundo conceito.",
+    "statement": "En \"No hubo transporte público; por lo tanto, muchos trabajadores llegaron tarde\", el retraso se presenta como consecuencia.",
     "alternatives": [
       {
         "id": "V",
@@ -3348,11 +3417,11 @@ export const espanholQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A avaliação exige delimitar as condições de Consecuencia e distingui-las de relações próximas em Conectores.",
+    "correctAnswer": "V",
+    "explanation": "El conector explicita una conclusión causal-consecutiva en el argumento.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A avaliação exige delimitar as condições de Consecuencia e distingui-las de relações próximas em Conectores.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Conector por lo tanto, enquanto Pronombre de objeto directo se refere a las formas lo, la, los y las pueden sustituir el complemento que recibe directamente la acción verbal. A avaliação exige delimitar as condições de Consecuencia e distingui-las de relações próximas em Conectores."
+      "V": "Correto. El conector explicita una conclusión causal-consecutiva en el argumento.",
+      "F": "Incorreto. A afirmação é verdadeira: el conector explicita una conclusión causal-consecutiva en el argumento."
     },
     "tags": [
       "conectores",
@@ -3366,8 +3435,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "cohesion",
+      "conectores",
+      "relaciones-logicas"
     ],
     "origin": "nabulab"
   },
@@ -3380,7 +3450,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Finalidad",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Preposición para de Pretérito perfecto compuesto, a característica “la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo” deve ser atribuída ao primeiro conceito.",
+    "statement": "En \"Este manual fue escrito para orientar a los nuevos empleados\", \"para\" introduce la finalidad del manual.",
     "alternatives": [
       {
         "id": "V",
@@ -3392,10 +3462,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A avaliação exige delimitar as condições de Finalidad e distingui-las de relações próximas em Preposiciones.",
+    "explanation": "La oración infinitiva explica para qué fue escrito el manual.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A avaliação exige delimitar as condições de Finalidad e distingui-las de relações próximas em Preposiciones.",
-      "F": "Incorreto. A proposição é verdadeira, pois Preposición para se caracteriza porque la preposición puede indicar finalidad, destinatario o dirección hacia un objetivo. A avaliação exige delimitar as condições de Finalidad e distingui-las de relações próximas em Preposiciones."
+      "V": "Correto. La oración infinitiva explica para qué fue escrito el manual.",
+      "F": "Incorreto. A afirmação é verdadeira: la oración infinitiva explica para qué fue escrito el manual."
     },
     "tags": [
       "preposiciones",
@@ -3409,8 +3479,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "gramatica",
+      "preposiciones",
+      "valor-semantico"
     ],
     "origin": "nabulab"
   },
@@ -3423,7 +3494,7 @@ export const espanholQuestions: Question[] = [
     "subtopic": "Ironía",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Ironía textual de Conector sin embargo, a característica “el sentido pretendido se distancia del significado literal para producir crítica o humor” deve ser atribuída ao segundo conceito.",
+    "statement": "En \"¡Excelente idea! Dejemos la ventana abierta durante la tormenta\", el elogio solo puede interpretarse literalmente.",
     "alternatives": [
       {
         "id": "V",
@@ -3435,10 +3506,10 @@ export const espanholQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. A avaliação exige delimitar as condições de Ironía e distingui-las de relações próximas em Interpretación.",
+    "explanation": "La incompatibilidad entre elogio y situación permite una lectura irónica, dependiendo del contexto.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. A avaliação exige delimitar as condições de Ironía e distingui-las de relações próximas em Interpretación.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ironía textual, enquanto Conector sin embargo se refere a la expresión introduce una oposición o restricción respecto de la idea anterior. A avaliação exige delimitar as condições de Ironía e distingui-las de relações próximas em Interpretación."
+      "V": "Incorreto. A afirmação é falsa: la incompatibilidad entre elogio y situación permite una lectura irónica, dependiendo del contexto.",
+      "F": "Correto. La incompatibilidad entre elogio y situación permite una lectura irónica, dependiendo del contexto."
     },
     "tags": [
       "interpretacion",
@@ -3452,8 +3523,9 @@ export const espanholQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "interpretacion",
+      "ironia",
+      "pragmatica"
     ],
     "origin": "nabulab"
   }

@@ -10,32 +10,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Significados",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais?",
+    "statement": "Em uma aula, estudantes analisam capoeira, futebol, danças populares e ginásticas não apenas\n    como movimentos do corpo, mas também como práticas que carregam história, regras, valores\n    e diferentes significados sociais.\n\n    Essa abordagem se relaciona à ideia de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cultura corporal de movimento"
+        "text": "cultura corporal de movimento"
       },
       {
         "id": "B",
-        "text": "Esporte de invasão"
+        "text": "capacidade cardiorrespiratória"
       },
       {
         "id": "C",
-        "text": "Dança como linguagem"
+        "text": "comportamento sedentário"
       },
       {
         "id": "D",
-        "text": "Atividade física"
+        "text": "esporte de invasão"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Por isso, a alternativa correta é Cultura corporal de movimento.",
+    "explanation": "A cultura corporal de movimento compreende práticas corporais como produções históricas e sociais, e não apenas como execução biomecânica de gestos.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Por isso, a alternativa correta é Cultura corporal de movimento.",
-      "B": "Esse conceito designa outra relação: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
-      "C": "A propriedade dessa alternativa é distinta: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
-      "D": "Não corresponde ao caso: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso."
+      "A": "Correta. A cultura corporal de movimento compreende práticas corporais como produções históricas e sociais, e não apenas como execução biomecânica de gestos.",
+      "B": "Esse conceito se refere ao funcionamento integrado dos sistemas respiratório e circulatório durante esforços prolongados.",
+      "C": "Esse conceito diz respeito a longos períodos acordados em atividades de baixo gasto energético, geralmente sentadas ou reclinadas.",
+      "D": "É uma classificação específica de modalidades esportivas e não abrange o conjunto de práticas citado."
     },
     "tags": [
       "cultura-corporal",
@@ -49,8 +49,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "cultura-corporal",
+      "significados",
+      "contexto-social"
     ],
     "origin": "nabulab"
   },
@@ -63,32 +64,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Classificação",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria?",
+    "statement": "No handebol, duas equipes compartilham a quadra, procuram avançar em direção ao gol adversário\n    e precisam proteger simultaneamente a própria meta.\n\n    Por essas características, o handebol é classificado como:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Jogo cooperativo"
+        "text": "esporte de marca"
       },
       {
         "id": "B",
-        "text": "Esporte de invasão"
+        "text": "esporte de invasão"
       },
       {
         "id": "C",
-        "text": "Ginástica de condicionamento físico"
+        "text": "esporte de precisão"
       },
       {
         "id": "D",
-        "text": "Comportamento sedentário"
+        "text": "jogo exclusivamente cooperativo"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria. Por isso, a alternativa correta é Esporte de invasão.",
+    "explanation": "Esportes de invasão envolvem disputa simultânea por um espaço comum, com tentativa de atingir uma meta adversária enquanto se protege a própria.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
-      "B": "Correta. A distinção central está em equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria. Por isso, a alternativa correta é Esporte de invasão.",
-      "C": "Não corresponde ao caso: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
-      "D": "Diverge da descrição porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo."
+      "A": "Esportes de marca comparam resultados mensuráveis, como tempo, distância ou peso.",
+      "B": "Correta. Esportes de invasão envolvem disputa simultânea por um espaço comum, com tentativa de atingir uma meta adversária enquanto se protege a própria.",
+      "C": "Esportes de precisão priorizam a aproximação de um alvo ou resultado exato.",
+      "D": "No handebol há cooperação dentro da equipe, mas também oposição entre equipes."
     },
     "tags": [
       "esporte",
@@ -102,8 +103,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "esportes",
+      "classificacao",
+      "invasao"
     ],
     "origin": "nabulab"
   },
@@ -116,32 +118,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Cooperação",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro?",
+    "statement": "Em uma atividade, todos os participantes precisam transportar juntos vários objetos até uma área final.\n    Se uma pessoa ficar para trás, o grupo inteiro deve voltar e ajudá-la.\n\n    A dinâmica prioriza:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Luta corporal"
+        "text": "eliminação progressiva dos participantes"
       },
       {
         "id": "B",
-        "text": "Exercício aeróbico"
+        "text": "recorde individual de velocidade"
       },
       {
         "id": "C",
-        "text": "Jogo cooperativo"
+        "text": "cooperação para alcançar um objetivo comum"
       },
       {
         "id": "D",
-        "text": "Construção social do corpo"
+        "text": "oposição corporal regulamentada"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Por isso, a alternativa correta é Jogo cooperativo.",
+    "explanation": "Jogos cooperativos organizam o desafio em torno de coordenação e ajuda mútua, sem colocar a eliminação do adversário como objetivo principal.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle.",
-      "B": "Não corresponde ao caso: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
-      "C": "Correta. A resposta decorre da definição disciplinar os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Por isso, a alternativa correta é Jogo cooperativo.",
-      "D": "Esse conceito designa outra relação: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos."
+      "A": "A regra valoriza manter todos envolvidos.",
+      "B": "O sucesso é coletivo, não determinado por um único desempenho.",
+      "C": "Correta. Jogos cooperativos organizam o desafio em torno de coordenação e ajuda mútua, sem colocar a eliminação do adversário como objetivo principal.",
+      "D": "Essa descrição é mais adequada a determinadas lutas."
     },
     "tags": [
       "jogos",
@@ -155,8 +157,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "jogos",
+      "cooperacao",
+      "objetivo-comum"
     ],
     "origin": "nabulab"
   },
@@ -169,32 +172,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Princípios",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle?",
+    "statement": "Em uma aula de judô, dois praticantes tentam aplicar técnicas sobre o oponente dentro de regras,\n    interrompem a ação quando o professor sinaliza e devem respeitar limites de segurança.\n\n    Isso mostra que uma luta corporal:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Dança como linguagem"
+        "text": "é sinônimo de agressão sem regras"
       },
       {
         "id": "B",
-        "text": "Atividade física"
+        "text": "elimina qualquer necessidade de respeito ao oponente"
       },
       {
         "id": "C",
-        "text": "Espetacularização do esporte"
+        "text": "é necessariamente um jogo cooperativo"
       },
       {
         "id": "D",
-        "text": "Luta corporal"
+        "text": "combina oposição direta com técnicas, regras e controle"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle. Por isso, a alternativa correta é Luta corporal.",
+    "explanation": "Lutas envolvem enfrentamento corporal regulamentado, com princípios técnicos, estratégicos e éticos.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
-      "B": "Diverge da descrição porque qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso.",
-      "C": "Esse conceito designa outra relação: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
-      "D": "Correta. O critério relevante é oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle. Por isso, a alternativa correta é Luta corporal."
+      "A": "A existência de regras e controle diferencia a prática esportiva ou cultural da violência desregulada.",
+      "B": "Respeito e segurança fazem parte da prática ensinada.",
+      "C": "Pode haver cooperação no treino, mas a lógica do confronto inclui oposição direta.",
+      "D": "Correta. Lutas envolvem enfrentamento corporal regulamentado, com princípios técnicos, estratégicos e éticos."
     },
     "tags": [
       "lutas",
@@ -208,8 +211,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "lutas",
+      "principios",
+      "oposicao-regulamentada"
     ],
     "origin": "nabulab"
   },
@@ -222,32 +226,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Expressão",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos?",
+    "statement": "Em uma apresentação, mudanças de direção, ritmo, nível e intensidade corporal\n    são usadas para representar tensão e aproximação entre personagens.\n\n    Isso evidencia a dança como:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Dança como linguagem"
+        "text": "linguagem capaz de produzir sentidos por meio do corpo e do movimento"
       },
       {
         "id": "B",
-        "text": "Ginástica de condicionamento físico"
+        "text": "apenas exercício para aumentar gasto energético"
       },
       {
         "id": "C",
-        "text": "Comportamento sedentário"
+        "text": "esporte de invasão"
       },
       {
         "id": "D",
-        "text": "Adaptação inclusiva"
+        "text": "comportamento sedentário"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Por isso, a alternativa correta é Dança como linguagem.",
+    "explanation": "Na dança, gestos, espaço, ritmo, energia e relações entre corpos podem organizar comunicação e expressão.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Por isso, a alternativa correta é Dança como linguagem.",
-      "B": "Esse conceito designa outra relação: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
-      "C": "A propriedade dessa alternativa é distinta: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
-      "D": "Não corresponde ao caso: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante."
+      "A": "Correta. Na dança, gestos, espaço, ritmo, energia e relações entre corpos podem organizar comunicação e expressão.",
+      "B": "A dança pode envolver esforço físico, mas o exemplo enfatiza produção de sentido.",
+      "C": "Não há disputa por meta adversária.",
+      "D": "A situação envolve movimento corporal expressivo."
     },
     "tags": [
       "danca",
@@ -261,8 +265,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "danca",
+      "linguagem",
+      "expressao"
     ],
     "origin": "nabulab"
   },
@@ -275,32 +280,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Condicionamento",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade?",
+    "statement": "Uma sequência de exercícios é planejada para desenvolver força, resistência e flexibilidade,\n    com progressão de intensidade ao longo das semanas.\n\n    A atividade se aproxima da:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Exercício aeróbico"
+        "text": "dança como linguagem"
       },
       {
         "id": "B",
-        "text": "Ginástica de condicionamento físico"
+        "text": "ginástica de condicionamento físico"
       },
       {
         "id": "C",
-        "text": "Construção social do corpo"
+        "text": "jogo cooperativo"
       },
       {
         "id": "D",
-        "text": "Cultura corporal de movimento"
+        "text": "espetacularização do esporte"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade. Por isso, a alternativa correta é Ginástica de condicionamento físico.",
+    "explanation": "Ginásticas de condicionamento organizam exercícios sistematicamente para desenvolver capacidades físicas.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
-      "B": "Correta. A propriedade determinante é exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade. Por isso, a alternativa correta é Ginástica de condicionamento físico.",
-      "C": "Não corresponde ao caso: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
-      "D": "Diverge da descrição porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais."
+      "A": "O objetivo central descrito é o desenvolvimento de capacidades físicas.",
+      "B": "Correta. Ginásticas de condicionamento organizam exercícios sistematicamente para desenvolver capacidades físicas.",
+      "C": "Não há desafio coletivo lúdico estruturando a atividade.",
+      "D": "Esse conceito trata de relações entre esporte, mídia e mercado."
     },
     "tags": [
       "ginastica",
@@ -314,8 +319,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "ginastica",
+      "condicionamento",
+      "capacidades-fisicas"
     ],
     "origin": "nabulab"
   },
@@ -328,32 +334,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Capacidade cardiorrespiratória",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado?",
+    "statement": "Caminhada rápida, corrida leve, ciclismo e natação contínua podem exigir trabalho prolongado\n    de grandes grupos musculares e aumento sustentado do transporte de oxigênio.\n\n    Elas são exemplos típicos de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Atividade física"
+        "text": "comportamento sedentário"
       },
       {
         "id": "B",
-        "text": "Espetacularização do esporte"
+        "text": "esporte de precisão"
       },
       {
         "id": "C",
-        "text": "Exercício aeróbico"
+        "text": "atividades de predominância aeróbica"
       },
       {
         "id": "D",
-        "text": "Esporte de invasão"
+        "text": "adaptação inclusiva"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Por isso, a alternativa correta é Exercício aeróbico.",
+    "explanation": "Em esforços contínuos de duração maior, o metabolismo aeróbico participa de forma importante do fornecimento de energia.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso.",
-      "B": "Não corresponde ao caso: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
-      "C": "Correta. A conclusão se apoia em atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Por isso, a alternativa correta é Exercício aeróbico.",
-      "D": "Esse conceito designa outra relação: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria."
+      "A": "Essas atividades elevam o gasto energético e envolvem movimento.",
+      "B": "O critério descrito é fisiológico, não uma classificação esportiva.",
+      "C": "Correta. Em esforços contínuos de duração maior, o metabolismo aeróbico participa de forma importante do fornecimento de energia.",
+      "D": "Inclusão diz respeito a condições de participação, não ao sistema energético predominante."
     },
     "tags": [
       "saude",
@@ -367,8 +373,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "saude",
+      "capacidade-cardiorrespiratoria",
+      "aerobico"
     ],
     "origin": "nabulab"
   },
@@ -381,32 +388,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Conceitos",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso?",
+    "statement": "Subir escadas, caminhar até o mercado, brincar no parque e realizar tarefas domésticas\n    envolvem movimento corporal e gasto energético acima do repouso.\n\n    Esses exemplos podem ser classificados como:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Comportamento sedentário"
+        "text": "apenas exercício físico"
       },
       {
         "id": "B",
-        "text": "Adaptação inclusiva"
+        "text": "comportamento sedentário"
       },
       {
         "id": "C",
-        "text": "Jogo cooperativo"
+        "text": "esporte de invasão"
       },
       {
         "id": "D",
-        "text": "Atividade física"
+        "text": "atividade física"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso. Por isso, a alternativa correta é Atividade física.",
+    "explanation": "Atividade física é um conceito amplo que inclui movimentos corporais que elevam o gasto energético em relação ao repouso.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
-      "B": "Diverge da descrição porque regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante.",
-      "C": "Esse conceito designa outra relação: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
-      "D": "Correta. A distinção central está em qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso. Por isso, a alternativa correta é Atividade física."
+      "A": "Exercício é uma subcategoria planejada e estruturada; nem todos os exemplos são necessariamente exercícios.",
+      "B": "Os exemplos envolvem movimento e gasto energético maior.",
+      "C": "Não há necessariamente competição nem metas adversárias.",
+      "D": "Correta. Atividade física é um conceito amplo que inclui movimentos corporais que elevam o gasto energético em relação ao repouso."
     },
     "tags": [
       "atividade-fisica",
@@ -420,8 +427,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "atividade-fisica",
+      "conceito",
+      "movimento"
     ],
     "origin": "nabulab"
   },
@@ -434,32 +442,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Comportamento sedentário",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo?",
+    "statement": "Uma estudante pratica esporte três vezes por semana, mas passa grande parte do restante do dia\n    sentada estudando, viajando de ônibus e usando telas.\n\n    Qual conclusão é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Comportamento sedentário"
+        "text": "ela pode cumprir períodos de exercício e ainda acumular muito comportamento sedentário"
       },
       {
         "id": "B",
-        "text": "Construção social do corpo"
+        "text": "o esporte elimina automaticamente qualquer comportamento sedentário"
       },
       {
         "id": "C",
-        "text": "Cultura corporal de movimento"
+        "text": "comportamento sedentário significa simplesmente não praticar esportes"
       },
       {
         "id": "D",
-        "text": "Luta corporal"
+        "text": "usar telas é sempre exercício físico leve"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Por isso, a alternativa correta é Comportamento sedentário.",
+    "explanation": "Atividade física e comportamento sedentário são dimensões relacionadas, mas distintas; uma pessoa pode apresentar valores altos em ambas.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Por isso, a alternativa correta é Comportamento sedentário.",
-      "B": "Esse conceito designa outra relação: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
-      "C": "A propriedade dessa alternativa é distinta: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
-      "D": "Não corresponde ao caso: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle."
+      "A": "Correta. Atividade física e comportamento sedentário são dimensões relacionadas, mas distintas; uma pessoa pode apresentar valores altos em ambas.",
+      "B": "Tempo prolongado sentado continua existindo.",
+      "C": "O conceito se refere a atividades de baixo gasto energético realizadas acordado, geralmente sentadas ou reclinadas.",
+      "D": "Uso de telas sentado geralmente é comportamento sedentário."
     },
     "tags": [
       "sedentarismo",
@@ -473,8 +481,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "sedentarismo",
+      "comportamento-sedentario",
+      "distincao"
     ],
     "origin": "nabulab"
   },
@@ -487,32 +496,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Padrões corporais",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos?",
+    "statement": "Em épocas diferentes, o mesmo tipo de corpo pode ser elogiado, criticado ou associado\n    a ideias distintas de beleza, saúde e sucesso.\n\n    Isso mostra que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Espetacularização do esporte"
+        "text": "padrões corporais são definidos apenas pela genética"
       },
       {
         "id": "B",
-        "text": "Construção social do corpo"
+        "text": "os significados atribuídos ao corpo também são social e historicamente construídos"
       },
       {
         "id": "C",
-        "text": "Esporte de invasão"
+        "text": "ideais de beleza são universais e imutáveis"
       },
       {
         "id": "D",
-        "text": "Dança como linguagem"
+        "text": "o corpo não possui qualquer dimensão biológica"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos. Por isso, a alternativa correta é Construção social do corpo.",
+    "explanation": "Valores sobre aparência e corpo variam entre grupos e períodos e são influenciados por mídia, instituições e relações sociais.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
-      "B": "Correta. O critério relevante é valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos. Por isso, a alternativa correta é Construção social do corpo.",
-      "C": "Não corresponde ao caso: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
-      "D": "Diverge da descrição porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos."
+      "A": "Genética influencia características físicas, mas não determina sozinha valores sociais.",
+      "B": "Correta. Valores sobre aparência e corpo variam entre grupos e períodos e são influenciados por mídia, instituições e relações sociais.",
+      "C": "Eles variam historicamente.",
+      "D": "A análise social não nega a materialidade biológica."
     },
     "tags": [
       "corpo-e-sociedade",
@@ -526,8 +535,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "corpo-e-sociedade",
+      "padroes-corporais",
+      "historicidade"
     ],
     "origin": "nabulab"
   },
@@ -540,32 +550,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Espetacularização",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado?",
+    "statement": "Uma liga muda o horário de uma final para coincidir com a maior audiência televisiva\n    e cria intervalos adicionais para inserções comerciais.\n\n    O caso exemplifica:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Adaptação inclusiva"
+        "text": "jogo cooperativo"
       },
       {
         "id": "B",
-        "text": "Jogo cooperativo"
+        "text": "adaptação inclusiva"
       },
       {
         "id": "C",
-        "text": "Espetacularização do esporte"
+        "text": "influência da lógica midiática e de mercado sobre o espetáculo esportivo"
       },
       {
         "id": "D",
-        "text": "Ginástica de condicionamento físico"
+        "text": "capacidade cardiorrespiratória"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Por isso, a alternativa correta é Espetacularização do esporte.",
+    "explanation": "O esporte profissional pode ser reorganizado por interesses de transmissão, publicidade e audiência.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante.",
-      "B": "Não corresponde ao caso: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
-      "C": "Correta. Neste caso regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Por isso, a alternativa correta é Espetacularização do esporte.",
-      "D": "Esse conceito designa outra relação: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade."
+      "A": "A questão não trata de cooperação entre participantes.",
+      "B": "A mudança não foi feita para ampliar acesso de praticantes.",
+      "C": "Correta. O esporte profissional pode ser reorganizado por interesses de transmissão, publicidade e audiência.",
+      "D": "O foco é econômico e midiático."
     },
     "tags": [
       "esporte-e-midia",
@@ -579,8 +589,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "esporte-e-midia",
+      "espetacularizacao",
+      "mercado"
     ],
     "origin": "nabulab"
   },
@@ -593,32 +604,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Esporte adaptado",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante?",
+    "statement": "Em uma aula de vôlei, uma estudante com mobilidade reduzida participa usando uma área menor,\n    uma bola mais leve e regras ajustadas, sem ser retirada da atividade coletiva.\n\n    A estratégia exemplifica:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cultura corporal de movimento"
+        "text": "redução automática do valor da aula"
       },
       {
         "id": "B",
-        "text": "Luta corporal"
+        "text": "comportamento sedentário"
       },
       {
         "id": "C",
-        "text": "Exercício aeróbico"
+        "text": "espetacularização do esporte"
       },
       {
         "id": "D",
-        "text": "Adaptação inclusiva"
+        "text": "adaptação inclusiva da prática"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante. Por isso, a alternativa correta é Adaptação inclusiva.",
+    "explanation": "Adaptar materiais, espaço ou regras pode ampliar participação significativa sem excluir o objetivo pedagógico da atividade.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
-      "B": "Diverge da descrição porque oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle.",
-      "C": "Esse conceito designa outra relação: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
-      "D": "Correta. A propriedade determinante é regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante. Por isso, a alternativa correta é Adaptação inclusiva."
+      "A": "Adaptação não significa menor dignidade ou aprendizagem.",
+      "B": "A estudante está participando ativamente.",
+      "C": "O caso não envolve mídia nem mercado.",
+      "D": "Correta. Adaptar materiais, espaço ou regras pode ampliar participação significativa sem excluir o objetivo pedagógico da atividade."
     },
     "tags": [
       "inclusao",
@@ -632,8 +643,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "inclusao",
+      "adaptacao",
+      "participacao"
     ],
     "origin": "nabulab"
   },
@@ -646,7 +658,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Cooperação",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Jogo cooperativo” corresponde à seguinte descrição: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
+    "statement": "Em um jogo cooperativo, participantes podem enfrentar um desafio difícil sem que\n    precisem derrotar uns aos outros.",
     "alternatives": [
       {
         "id": "V",
@@ -658,10 +670,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Em Jogos, o reconhecimento direto da propriedade de Cooperação resolve o item.",
+    "explanation": "O desafio pode estar no tempo, no percurso, em uma tarefa coletiva ou em outras condições, mantendo a cooperação como eixo principal.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Em Jogos, o reconhecimento direto da propriedade de Cooperação resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Em Jogos, o reconhecimento direto da propriedade de Cooperação resolve o item."
+      "V": "Correto. Cooperação não significa ausência de desafio.",
+      "F": "Incorreto. Competição direta não é necessária para que exista desafio lúdico."
     },
     "tags": [
       "jogos",
@@ -675,8 +687,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "jogos",
+      "cooperacao",
+      "desafio"
     ],
     "origin": "nabulab"
   },
@@ -689,7 +702,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Princípios",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Dança como linguagem” corresponde à seguinte descrição: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle.",
+    "statement": "Luta corporal e violência são sinônimos, pois qualquer situação de oposição física\n    implica ausência de regras e intenção de ferir.",
     "alternatives": [
       {
         "id": "V",
@@ -701,10 +714,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Em Lutas, o reconhecimento direto da propriedade de Princípios resolve o item.",
+    "explanation": "Lutas podem ser práticas culturais e esportivas regulamentadas, com técnicas, respeito, segurança e controle da intensidade.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Em Lutas, o reconhecimento direto da propriedade de Princípios resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Em Lutas, o reconhecimento direto da propriedade de Princípios resolve o item."
+      "V": "Incorreto. Oposição corporal não equivale automaticamente a violência.",
+      "F": "Correto. A afirmação ignora regras e valores presentes em muitas lutas."
     },
     "tags": [
       "lutas",
@@ -718,8 +731,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "lutas",
+      "violencia",
+      "regras"
     ],
     "origin": "nabulab"
   },
@@ -732,7 +746,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Expressão",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Dança como linguagem” corresponde à seguinte descrição: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
+    "statement": "Dança só pode comunicar ideias quando acompanhada por palavras faladas.",
     "alternatives": [
       {
         "id": "V",
@@ -743,11 +757,11 @@ export const educacaoFisicaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Em Dança, o reconhecimento direto da propriedade de Expressão resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "Movimento, ritmo, espaço, expressão facial e relação entre corpos podem produzir sentido sem fala.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Em Dança, o reconhecimento direto da propriedade de Expressão resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Em Dança, o reconhecimento direto da propriedade de Expressão resolve o item."
+      "V": "Incorreto. Linguagem corporal não depende necessariamente de texto verbal.",
+      "F": "Correto. A afirmação restringe indevidamente a comunicação em dança."
     },
     "tags": [
       "danca",
@@ -761,8 +775,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "danca",
+      "expressao",
+      "linguagem"
     ],
     "origin": "nabulab"
   },
@@ -775,7 +790,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Condicionamento",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Exercício aeróbico” corresponde à seguinte descrição: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
+    "statement": "Uma sessão de ginástica de condicionamento pode ser organizada para desenvolver capacidades físicas específicas, como força ou resistência.",
     "alternatives": [
       {
         "id": "V",
@@ -786,11 +801,11 @@ export const educacaoFisicaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Em Ginástica, o reconhecimento direto da propriedade de Condicionamento resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "Planejamento de condicionamento pode priorizar diferentes capacidades de acordo com objetivos e nível do praticante.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Em Ginástica, o reconhecimento direto da propriedade de Condicionamento resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Em Ginástica, o reconhecimento direto da propriedade de Condicionamento resolve o item."
+      "V": "Correto. Nem toda sessão precisa trabalhar todas as capacidades ao mesmo tempo.",
+      "F": "Incorreto. O condicionamento pode ter objetivos específicos."
     },
     "tags": [
       "ginastica",
@@ -804,8 +819,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "ginastica",
+      "condicionamento",
+      "planejamento"
     ],
     "origin": "nabulab"
   },
@@ -818,7 +834,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Capacidade cardiorrespiratória",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Exercício aeróbico” corresponde à seguinte descrição: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
+    "statement": "Atividades aeróbicas contínuas podem elevar a demanda dos sistemas cardiovascular e respiratório durante o esforço.",
     "alternatives": [
       {
         "id": "V",
@@ -830,10 +846,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Em Saúde, o reconhecimento direto da propriedade de Capacidade cardiorrespiratória resolve o item.",
+    "explanation": "Grandes grupos musculares ativos aumentam a necessidade de transporte de oxigênio e nutrientes.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Em Saúde, o reconhecimento direto da propriedade de Capacidade cardiorrespiratória resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Em Saúde, o reconhecimento direto da propriedade de Capacidade cardiorrespiratória resolve o item."
+      "V": "Correto. Respostas circulatórias e respiratórias aumentam conforme a exigência.",
+      "F": "Incorreto. O organismo ajusta esses sistemas durante o exercício."
     },
     "tags": [
       "saude",
@@ -847,8 +863,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "saude",
+      "cardiorrespiratorio",
+      "respostas-agudas"
     ],
     "origin": "nabulab"
   },
@@ -861,7 +878,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Conceitos",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Comportamento sedentário” corresponde à seguinte descrição: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso.",
+    "statement": "Toda atividade física é necessariamente um exercício planejado, estruturado e repetitivo.",
     "alternatives": [
       {
         "id": "V",
@@ -873,10 +890,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Atividade física, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Em Atividade física, o reconhecimento direto da propriedade de Conceitos resolve o item.",
+    "explanation": "Exercício físico é uma forma de atividade física planejada e estruturada, mas deslocamentos e tarefas cotidianas também podem ser atividade física.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Atividade física, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Em Atividade física, o reconhecimento direto da propriedade de Conceitos resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Atividade física, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Em Atividade física, o reconhecimento direto da propriedade de Conceitos resolve o item."
+      "V": "Incorreto. O conceito de atividade física é mais amplo.",
+      "F": "Correto. A afirmação confunde categoria geral e subcategoria."
     },
     "tags": [
       "atividade-fisica",
@@ -890,8 +907,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "atividade-fisica",
+      "exercicio",
+      "distincao"
     ],
     "origin": "nabulab"
   },
@@ -904,7 +922,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Comportamento sedentário",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Comportamento sedentário” corresponde à seguinte descrição: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
+    "statement": "Uma pessoa fisicamente ativa em parte do dia pode, ainda assim, acumular muitas horas de comportamento sedentário.",
     "alternatives": [
       {
         "id": "V",
@@ -916,10 +934,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Em Sedentarismo, o reconhecimento direto da propriedade de Comportamento sedentário resolve o item.",
+    "explanation": "Atividade física e tempo sedentário são dimensões diferentes e podem coexistir em níveis altos.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Em Sedentarismo, o reconhecimento direto da propriedade de Comportamento sedentário resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Em Sedentarismo, o reconhecimento direto da propriedade de Comportamento sedentário resolve o item."
+      "V": "Correto. Exercício não apaga automaticamente as horas sentado.",
+      "F": "Incorreto. O conceito de comportamento sedentário precisa ser medido separadamente."
     },
     "tags": [
       "sedentarismo",
@@ -933,8 +951,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "sedentarismo",
+      "atividade-fisica",
+      "distincao"
     ],
     "origin": "nabulab"
   },
@@ -947,7 +966,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Padrões corporais",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Espetacularização do esporte” corresponde à seguinte descrição: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
+    "statement": "Ideais de beleza e valorização corporal podem variar entre sociedades e períodos históricos.",
     "alternatives": [
       {
         "id": "V",
@@ -958,11 +977,11 @@ export const educacaoFisicaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Em Corpo e sociedade, o reconhecimento direto da propriedade de Padrões corporais resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "Padrões corporais são influenciados por cultura, mídia, relações sociais e mudanças históricas.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Em Corpo e sociedade, o reconhecimento direto da propriedade de Padrões corporais resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Em Corpo e sociedade, o reconhecimento direto da propriedade de Padrões corporais resolve o item."
+      "V": "Correto. Não existe um único padrão social de corpo em todas as épocas.",
+      "F": "Incorreto. Evidências históricas mostram forte variação."
     },
     "tags": [
       "corpo-e-sociedade",
@@ -976,8 +995,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "corpo-e-sociedade",
+      "padroes",
+      "cultura"
     ],
     "origin": "nabulab"
   },
@@ -990,7 +1010,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Espetacularização",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Espetacularização do esporte” corresponde à seguinte descrição: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
+    "statement": "A mídia apenas registra o esporte e nunca influencia horários, narrativas ou formatos de apresentação das competições.",
     "alternatives": [
       {
         "id": "V",
@@ -1001,11 +1021,11 @@ export const educacaoFisicaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Em Esporte e mídia, o reconhecimento direto da propriedade de Espetacularização resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "Audiência, publicidade e transmissão podem influenciar decisões do esporte-espetáculo.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Em Esporte e mídia, o reconhecimento direto da propriedade de Espetacularização resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Em Esporte e mídia, o reconhecimento direto da propriedade de Espetacularização resolve o item."
+      "V": "Incorreto. Mídia também participa da organização e do enquadramento.",
+      "F": "Correto. A afirmação trata a mídia como observadora neutra."
     },
     "tags": [
       "esporte-e-midia",
@@ -1019,8 +1039,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "esporte-e-midia",
+      "espetacularizacao",
+      "transmissao"
     ],
     "origin": "nabulab"
   },
@@ -1033,7 +1054,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Esporte adaptado",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Cultura corporal de movimento” corresponde à seguinte descrição: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante.",
+    "statement": "Para ser inclusiva, uma aula precisa obrigatoriamente aplicar exatamente as mesmas regras,\n    materiais e exigências a todos os participantes.",
     "alternatives": [
       {
         "id": "V",
@@ -1045,10 +1066,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Em Inclusão, o reconhecimento direto da propriedade de Esporte adaptado resolve o item.",
+    "explanation": "Igualdade de participação pode exigir adaptações diferentes conforme barreiras e necessidades.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Em Inclusão, o reconhecimento direto da propriedade de Esporte adaptado resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Em Inclusão, o reconhecimento direto da propriedade de Esporte adaptado resolve o item."
+      "V": "Incorreto. Tratar todos de forma idêntica pode manter exclusões.",
+      "F": "Correto. Equidade pode exigir ajustes para garantir acesso e participação."
     },
     "tags": [
       "inclusao",
@@ -1062,8 +1083,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "inclusao",
+      "equidade",
+      "adaptacao"
     ],
     "origin": "nabulab"
   },
@@ -1076,7 +1098,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Significados",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Cultura corporal de movimento” corresponde à seguinte descrição: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
+    "statement": "Práticas como jogos, danças, lutas e esportes podem carregar sentidos históricos e sociais além de seus movimentos técnicos.",
     "alternatives": [
       {
         "id": "V",
@@ -1088,10 +1110,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Em Cultura corporal, o reconhecimento direto da propriedade de Significados resolve o item.",
+    "explanation": "A cultura corporal considera práticas corporais como produções culturais.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Em Cultura corporal, o reconhecimento direto da propriedade de Significados resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Em Cultura corporal, o reconhecimento direto da propriedade de Significados resolve o item."
+      "V": "Correto. Técnica é apenas uma das dimensões.",
+      "F": "Incorreto. Contexto e significado também fazem parte da análise."
     },
     "tags": [
       "cultura-corporal",
@@ -1105,8 +1127,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "cultura-corporal",
+      "praticas-corporais",
+      "significados"
     ],
     "origin": "nabulab"
   },
@@ -1119,7 +1142,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Classificação",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Jogo cooperativo” corresponde à seguinte descrição: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
+    "statement": "O voleibol é um esporte de invasão porque as equipes avançam fisicamente pelo mesmo espaço para atingir uma meta adversária.",
     "alternatives": [
       {
         "id": "V",
@@ -1131,10 +1154,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Em Esportes, o reconhecimento direto da propriedade de Classificação resolve o item.",
+    "explanation": "No voleibol, as equipes são separadas por uma rede e não disputam um espaço comum de invasão. Sua lógica é diferente da de modalidades como futebol, basquete e handebol.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Em Esportes, o reconhecimento direto da propriedade de Classificação resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Em Esportes, o reconhecimento direto da propriedade de Classificação resolve o item."
+      "V": "Incorreto. A presença da rede separa os campos e impede a lógica de invasão do espaço adversário.",
+      "F": "Correto. O voleibol é classificado em outra lógica esportiva, ligada a rede/quadra dividida."
     },
     "tags": [
       "esporte",
@@ -1148,8 +1171,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "esportes",
+      "classificacao",
+      "criterios"
     ],
     "origin": "nabulab"
   },
@@ -1162,32 +1186,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Expressão",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos?",
+    "statement": "Uma mesma sequência de passos é executada primeiro de forma rápida e leve e depois\n    lentamente, com pausas longas e movimentos pesados.\n\n    Embora os passos sejam semelhantes, por que o sentido percebido pode mudar?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Dança como linguagem"
+        "text": "qualidades de movimento, tempo e dinâmica também participam da linguagem da dança"
       },
       {
         "id": "B",
-        "text": "Exercício aeróbico"
+        "text": "porque a dança só comunica quando troca completamente os passos"
       },
       {
         "id": "C",
-        "text": "Construção social do corpo"
+        "text": "porque velocidade é o único elemento expressivo da dança"
       },
       {
         "id": "D",
-        "text": "Esporte de invasão"
+        "text": "porque repetir passos torna impossível qualquer mudança de interpretação"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Por isso, a alternativa correta é Dança como linguagem.",
+    "explanation": "Sentido coreográfico não depende apenas da ordem dos passos; intensidade, ritmo, duração e uso do espaço alteram a leitura.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Por isso, a alternativa correta é Dança como linguagem.",
-      "B": "Esse conceito designa outra relação: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
-      "C": "A propriedade dessa alternativa é distinta: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
-      "D": "Não corresponde ao caso: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria."
+      "A": "Correta. Sentido coreográfico não depende apenas da ordem dos passos; intensidade, ritmo, duração e uso do espaço alteram a leitura.",
+      "B": "Outras qualidades do movimento também produzem significado.",
+      "C": "Vários parâmetros corporais e espaciais participam da expressão.",
+      "D": "O exemplo demonstra o contrário."
     },
     "tags": [
       "danca",
@@ -1201,8 +1225,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "danca",
+      "linguagem",
+      "qualidades-do-movimento"
     ],
     "origin": "nabulab"
   },
@@ -1215,32 +1240,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Condicionamento",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade?",
+    "statement": "Uma pessoa aumenta abruptamente a carga de todos os exercícios para \"evoluir mais rápido\",\n    perde qualidade de execução e passa a não conseguir completar as séries planejadas.\n\n    Qual princípio de organização do treinamento foi mais claramente ignorado?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Atividade física"
+        "text": "variação cultural das práticas corporais"
       },
       {
         "id": "B",
-        "text": "Ginástica de condicionamento físico"
+        "text": "progressão adequada da sobrecarga"
       },
       {
         "id": "C",
-        "text": "Espetacularização do esporte"
+        "text": "classificação dos esportes de invasão"
       },
       {
         "id": "D",
-        "text": "Jogo cooperativo"
+        "text": "espetacularização midiática"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade. Por isso, a alternativa correta é Ginástica de condicionamento físico.",
+    "explanation": "A adaptação exige estímulo, mas aumentos precisam ser graduais e compatíveis com capacidade de execução, recuperação e objetivo.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso.",
-      "B": "Correta. A distinção central está em exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade. Por isso, a alternativa correta é Ginástica de condicionamento físico.",
-      "C": "Não corresponde ao caso: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
-      "D": "Diverge da descrição porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro."
+      "A": "Embora relevante em outros contextos, não explica o problema de carga.",
+      "B": "Correta. A adaptação exige estímulo, mas aumentos precisam ser graduais e compatíveis com capacidade de execução, recuperação e objetivo.",
+      "C": "O caso é de treinamento físico.",
+      "D": "Mídia não é o fator central apresentado."
     },
     "tags": [
       "ginastica",
@@ -1254,8 +1279,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "ginastica",
+      "condicionamento",
+      "progressao"
     ],
     "origin": "nabulab"
   },
@@ -1268,32 +1294,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Capacidade cardiorrespiratória",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado?",
+    "statement": "Duas pessoas caminham juntas na mesma velocidade. Uma está treinada e relata esforço confortável;\n    a outra está iniciando e apresenta esforço muito maior.\n\n    O caso mostra que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Comportamento sedentário"
+        "text": "velocidade define sozinha a intensidade para qualquer pessoa"
       },
       {
         "id": "B",
-        "text": "Adaptação inclusiva"
+        "text": "condicionamento não interfere na percepção de esforço"
       },
       {
         "id": "C",
-        "text": "Exercício aeróbico"
+        "text": "a mesma carga externa pode representar intensidades internas diferentes para pessoas distintas"
       },
       {
         "id": "D",
-        "text": "Luta corporal"
+        "text": "todo exercício produz exatamente o mesmo efeito em qualquer praticante"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Por isso, a alternativa correta é Exercício aeróbico.",
+    "explanation": "Resposta ao exercício depende de condicionamento, idade, saúde, ambiente e outras características individuais.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
-      "B": "Não corresponde ao caso: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante.",
-      "C": "Correta. A resposta decorre da definição disciplinar atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Por isso, a alternativa correta é Exercício aeróbico.",
-      "D": "Esse conceito designa outra relação: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle."
+      "A": "A resposta interna varia entre indivíduos.",
+      "B": "Nível de treinamento altera respostas fisiológicas e percepção.",
+      "C": "Correta. Resposta ao exercício depende de condicionamento, idade, saúde, ambiente e outras características individuais.",
+      "D": "Há grande variabilidade individual."
     },
     "tags": [
       "saude",
@@ -1307,8 +1333,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "saude",
+      "intensidade",
+      "individualidade"
     ],
     "origin": "nabulab"
   },
@@ -1321,32 +1348,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Conceitos",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso?",
+    "statement": "Uma pessoa não pratica academia nem esporte organizado, mas trabalha em pé, pedala para se deslocar\n    e cuida diariamente de um jardim.\n\n    Qual conclusão é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Construção social do corpo"
+        "text": "sem academia não existe atividade física relevante"
       },
       {
         "id": "B",
-        "text": "Cultura corporal de movimento"
+        "text": "somente esportes competitivos contam como atividade física"
       },
       {
         "id": "C",
-        "text": "Dança como linguagem"
+        "text": "qualquer tempo em pé equivale automaticamente a exercício vigoroso"
       },
       {
         "id": "D",
-        "text": "Atividade física"
+        "text": "ela pode acumular atividade física mesmo sem participar de exercício formal"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso. Por isso, a alternativa correta é Atividade física.",
+    "explanation": "Atividade física pode ocorrer no trabalho, deslocamento, lazer e tarefas domésticas; exercício estruturado é apenas uma forma possível.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
-      "B": "Diverge da descrição porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
-      "C": "Esse conceito designa outra relação: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
-      "D": "Correta. O critério relevante é qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso. Por isso, a alternativa correta é Atividade física."
+      "A": "A definição não depende de frequentar academia.",
+      "B": "Atividades cotidianas também podem envolver gasto energético.",
+      "C": "Intensidade depende da atividade e do contexto.",
+      "D": "Correta. Atividade física pode ocorrer no trabalho, deslocamento, lazer e tarefas domésticas; exercício estruturado é apenas uma forma possível."
     },
     "tags": [
       "atividade-fisica",
@@ -1360,8 +1387,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "atividade-fisica",
+      "dominios",
+      "conceito"
     ],
     "origin": "nabulab"
   },
@@ -1374,32 +1402,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Comportamento sedentário",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo?",
+    "statement": "Uma empresa cria pausas breves para que trabalhadores interrompam longos períodos sentados,\n    embora eles continuem praticando a mesma quantidade de exercício fora do trabalho.\n\n    Qual dimensão a intervenção busca modificar diretamente?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Comportamento sedentário"
+        "text": "a duração e continuidade do comportamento sedentário ao longo do expediente"
       },
       {
         "id": "B",
-        "text": "Espetacularização do esporte"
+        "text": "a classificação dos esportes praticados"
       },
       {
         "id": "C",
-        "text": "Esporte de invasão"
+        "text": "a capacidade técnica em uma modalidade"
       },
       {
         "id": "D",
-        "text": "Ginástica de condicionamento físico"
+        "text": "a quantidade de sono noturno"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Por isso, a alternativa correta é Comportamento sedentário.",
+    "explanation": "A proposta não substitui o exercício estruturado; ela reduz blocos prolongados de tempo sentado durante o dia.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Por isso, a alternativa correta é Comportamento sedentário.",
-      "B": "Esse conceito designa outra relação: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
-      "C": "A propriedade dessa alternativa é distinta: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
-      "D": "Não corresponde ao caso: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade."
+      "A": "Correta. A proposta não substitui o exercício estruturado; ela reduz blocos prolongados de tempo sentado durante o dia.",
+      "B": "O objetivo é alterar o padrão sedentário.",
+      "C": "Não há ensino esportivo no caso.",
+      "D": "A intervenção ocorre durante o período acordado de trabalho."
     },
     "tags": [
       "sedentarismo",
@@ -1413,8 +1441,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "sedentarismo",
+      "pausas",
+      "padrao-diario"
     ],
     "origin": "nabulab"
   },
@@ -1427,32 +1456,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Padrões corporais",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos?",
+    "statement": "Uma campanha publicitária associa determinado corpo a disciplina e sucesso,\n    enquanto corpos diferentes aparecem ligados a fracasso ou falta de cuidado.\n\n    Qual problema crítico pode ser identificado?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Adaptação inclusiva"
+        "text": "a publicidade apenas descreve diferenças biológicas de forma neutra"
       },
       {
         "id": "B",
-        "text": "Construção social do corpo"
+        "text": "a campanha transforma características corporais em julgamentos morais e sociais"
       },
       {
         "id": "C",
-        "text": "Jogo cooperativo"
+        "text": "qualquer referência ao corpo é necessariamente discriminatória"
       },
       {
         "id": "D",
-        "text": "Exercício aeróbico"
+        "text": "padrões corporais não têm relação com mídia"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos. Por isso, a alternativa correta é Construção social do corpo.",
+    "explanation": "Representações midiáticas podem naturalizar a ideia de que aparência revela caráter, esforço ou valor pessoal, reforçando estigmas.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante.",
-      "B": "Correta. A propriedade determinante é valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos. Por isso, a alternativa correta é Construção social do corpo.",
-      "C": "Não corresponde ao caso: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
-      "D": "Diverge da descrição porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado."
+      "A": "O exemplo associa aparência a mérito e fracasso.",
+      "B": "Correta. Representações midiáticas podem naturalizar a ideia de que aparência revela caráter, esforço ou valor pessoal, reforçando estigmas.",
+      "C": "O problema depende de como a representação atribui valor e hierarquia.",
+      "D": "A mídia é um agente importante de circulação desses padrões."
     },
     "tags": [
       "corpo-e-sociedade",
@@ -1466,8 +1495,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "corpo-e-sociedade",
+      "midia",
+      "estigma"
     ],
     "origin": "nabulab"
   },
@@ -1480,32 +1510,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Espetacularização",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado?",
+    "statement": "Um canal repete constantemente lances violentos de uma modalidade porque eles geram\n    mais compartilhamentos, embora sejam raros em relação ao conjunto das partidas.\n\n    Qual efeito essa seleção pode produzir?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cultura corporal de movimento"
+        "text": "garantir que a audiência veja uma amostra estatisticamente neutra"
       },
       {
         "id": "B",
-        "text": "Luta corporal"
+        "text": "eliminar qualquer interpretação do espectador"
       },
       {
         "id": "C",
-        "text": "Espetacularização do esporte"
+        "text": "criar uma percepção pública distorcida ao destacar eventos excepcionais como se fossem representativos"
       },
       {
         "id": "D",
-        "text": "Atividade física"
+        "text": "provar que todo praticante age da mesma maneira"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Por isso, a alternativa correta é Espetacularização do esporte.",
+    "explanation": "A mídia seleciona e enquadra acontecimentos; frequência de exposição não é necessariamente igual à frequência real do fenômeno.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
-      "B": "Não corresponde ao caso: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle.",
-      "C": "Correta. A conclusão se apoia em regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Por isso, a alternativa correta é Espetacularização do esporte.",
-      "D": "Esse conceito designa outra relação: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso."
+      "A": "A seleção foi guiada por engajamento.",
+      "B": "Públicos interpretam conteúdos, embora sejam influenciados pelo enquadramento.",
+      "C": "Correta. A mídia seleciona e enquadra acontecimentos; frequência de exposição não é necessariamente igual à frequência real do fenômeno.",
+      "D": "Os lances raros não permitem essa generalização."
     },
     "tags": [
       "esporte-e-midia",
@@ -1519,8 +1549,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "esporte-e-midia",
+      "enquadramento",
+      "representacao"
     ],
     "origin": "nabulab"
   },
@@ -1533,32 +1564,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Esporte adaptado",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante?",
+    "statement": "Em uma atividade, um aluno com deficiência é sempre colocado como \"árbitro\"\n    enquanto os colegas jogam, embora ele queira participar do jogo e existam adaptações possíveis.\n\n    Qual problema existe?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Esporte de invasão"
+        "text": "todo aluno deve desempenhar exatamente a mesma função"
       },
       {
         "id": "B",
-        "text": "Dança como linguagem"
+        "text": "arbitragem nunca pode ser uma atividade válida"
       },
       {
         "id": "C",
-        "text": "Comportamento sedentário"
+        "text": "adaptações são sempre desnecessárias"
       },
       {
         "id": "D",
-        "text": "Adaptação inclusiva"
+        "text": "a presença física foi garantida, mas não a participação significativa desejada pelo estudante"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante. Por isso, a alternativa correta é Adaptação inclusiva.",
+    "explanation": "Inclusão não se reduz a estar no mesmo espaço; é preciso considerar acesso às experiências, autonomia e escolhas do participante.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
-      "B": "Diverge da descrição porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
-      "C": "Esse conceito designa outra relação: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
-      "D": "Correta. A distinção central está em regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante. Por isso, a alternativa correta é Adaptação inclusiva."
+      "A": "Funções podem variar, mas não devem ser impostas de forma excludente.",
+      "B": "Pode ser válida quando escolhida e integrada aos objetivos.",
+      "C": "Adaptações podem remover barreiras.",
+      "D": "Correta. Inclusão não se reduz a estar no mesmo espaço; é preciso considerar acesso às experiências, autonomia e escolhas do participante."
     },
     "tags": [
       "inclusao",
@@ -1572,8 +1603,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "inclusao",
+      "participacao",
+      "barreiras"
     ],
     "origin": "nabulab"
   },
@@ -1586,32 +1618,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Significados",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais?",
+    "statement": "Uma modalidade tradicional sofre mudanças nas regras, no vestuário e nos espaços de prática\n    ao longo de várias gerações. Ainda assim, o grupo continua reconhecendo-a como parte de sua identidade.\n\n    O caso mostra que práticas da cultura corporal:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cultura corporal de movimento"
+        "text": "podem manter continuidade cultural mesmo passando por transformações históricas"
       },
       {
         "id": "B",
-        "text": "Jogo cooperativo"
+        "text": "só são culturais quando permanecem exatamente iguais"
       },
       {
         "id": "C",
-        "text": "Ginástica de condicionamento físico"
+        "text": "deixam de ter história quando entram em instituições formais"
       },
       {
         "id": "D",
-        "text": "Construção social do corpo"
+        "text": "possuem significado exclusivamente biológico"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Por isso, a alternativa correta é Cultura corporal de movimento.",
+    "explanation": "Práticas corporais não são formas congeladas; regras, técnicas e sentidos podem mudar enquanto certos vínculos identitários permanecem.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Por isso, a alternativa correta é Cultura corporal de movimento.",
-      "B": "Esse conceito designa outra relação: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
-      "C": "A propriedade dessa alternativa é distinta: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
-      "D": "Não corresponde ao caso: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos."
+      "A": "Correta. Práticas corporais não são formas congeladas; regras, técnicas e sentidos podem mudar enquanto certos vínculos identitários permanecem.",
+      "B": "A cultura é dinâmica e pode combinar permanência e mudança.",
+      "C": "Institucionalização também faz parte de processos históricos.",
+      "D": "O exemplo destaca sentidos coletivos e identidade social."
     },
     "tags": [
       "cultura-corporal",
@@ -1625,8 +1657,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "cultura-corporal",
+      "historicidade",
+      "identidade"
     ],
     "origin": "nabulab"
   },
@@ -1639,32 +1672,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Classificação",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria?",
+    "statement": "Um professor agrupa futebol, basquete e hóquei juntos, enquanto separa atletismo de pista\n    e tiro com arco em outras categorias.\n\n    Qual critério explica melhor esse agrupamento?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Luta corporal"
+        "text": "apenas a popularidade de cada esporte"
       },
       {
         "id": "B",
-        "text": "Esporte de invasão"
+        "text": "a lógica interna das modalidades, incluindo relação com espaço, adversário e objetivo"
       },
       {
         "id": "C",
-        "text": "Exercício aeróbico"
+        "text": "o país em que cada esporte surgiu"
       },
       {
         "id": "D",
-        "text": "Espetacularização do esporte"
+        "text": "o número de atletas profissionais"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria. Por isso, a alternativa correta é Esporte de invasão.",
+    "explanation": "Classificações esportivas podem considerar como se disputa o espaço, como ocorre a oposição e qual tipo de objetivo organiza a modalidade.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle.",
-      "B": "Correta. O critério relevante é equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria. Por isso, a alternativa correta é Esporte de invasão.",
-      "C": "Não corresponde ao caso: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
-      "D": "Diverge da descrição porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado."
+      "A": "Popularidade não explica a semelhança estrutural entre as modalidades citadas.",
+      "B": "Correta. Classificações esportivas podem considerar como se disputa o espaço, como ocorre a oposição e qual tipo de objetivo organiza a modalidade.",
+      "C": "Origem histórica não é o critério central do agrupamento.",
+      "D": "Quantidade de profissionais não define a lógica interna de uma modalidade."
     },
     "tags": [
       "esporte",
@@ -1678,8 +1711,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "esportes",
+      "classificacao",
+      "logica-interna"
     ],
     "origin": "nabulab"
   },
@@ -1692,32 +1726,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Cooperação",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro?",
+    "statement": "Em um jogo escolar, a turma percebe que os alunos mais habilidosos fazem quase todas as ações.\n    O professor muda a regra: um ponto só vale se todos os integrantes da equipe tiverem participado da jogada.\n\n    Qual efeito pedagógico a mudança busca?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Dança como linguagem"
+        "text": "garantir que todos tenham desempenho técnico idêntico"
       },
       {
         "id": "B",
-        "text": "Atividade física"
+        "text": "eliminar qualquer possibilidade de estratégia"
       },
       {
         "id": "C",
-        "text": "Jogo cooperativo"
+        "text": "redistribuir a participação e tornar a cooperação necessária para o sucesso coletivo"
       },
       {
         "id": "D",
-        "text": "Adaptação inclusiva"
+        "text": "substituir o jogo por exercício individual"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Por isso, a alternativa correta é Jogo cooperativo.",
+    "explanation": "Modificar regras pode alterar relações entre participantes e estimular inclusão, tomada de decisão e responsabilidade compartilhada.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
-      "B": "Não corresponde ao caso: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso.",
-      "C": "Correta. Neste caso os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Por isso, a alternativa correta é Jogo cooperativo.",
-      "D": "Esse conceito designa outra relação: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante."
+      "A": "A regra amplia participação, mas não torna habilidades iguais.",
+      "B": "A nova regra cria outras demandas estratégicas.",
+      "C": "Correta. Modificar regras pode alterar relações entre participantes e estimular inclusão, tomada de decisão e responsabilidade compartilhada.",
+      "D": "A atividade continua sendo coletiva."
     },
     "tags": [
       "jogos",
@@ -1731,8 +1765,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "jogos",
+      "cooperacao",
+      "modificacao-de-regras"
     ],
     "origin": "nabulab"
   },
@@ -1745,32 +1780,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Princípios",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle?",
+    "statement": "Em um treino, a regra permite desequilibrar o oponente, mas proíbe golpes em determinadas regiões.\n    Os praticantes precisam decidir quando atacar, defender e interromper a ação.\n\n    O exemplo evidencia que lutas:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ginástica de condicionamento físico"
+        "text": "consistem apenas em repetir movimentos sem oposição"
       },
       {
         "id": "B",
-        "text": "Comportamento sedentário"
+        "text": "dispensam qualquer decisão porque todas as ações são previamente fixadas"
       },
       {
         "id": "C",
-        "text": "Cultura corporal de movimento"
+        "text": "não podem ser ensinadas em ambiente escolar"
       },
       {
         "id": "D",
-        "text": "Luta corporal"
+        "text": "envolvem leitura do adversário e tomada de decisão dentro de limites regulamentados"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle. Por isso, a alternativa correta é Luta corporal.",
+    "explanation": "Lutas possuem dimensão estratégica: técnicas são aplicadas em resposta às ações do oponente e às regras de segurança.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
-      "B": "Diverge da descrição porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
-      "C": "Esse conceito designa outra relação: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
-      "D": "Correta. A propriedade determinante é oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle. Por isso, a alternativa correta é Luta corporal."
+      "A": "A leitura do adversário é central no exemplo.",
+      "B": "O confronto exige decisões em tempo real.",
+      "C": "Práticas de luta podem ser tematizadas pedagogicamente com segurança e adequação.",
+      "D": "Correta. Lutas possuem dimensão estratégica: técnicas são aplicadas em resposta às ações do oponente e às regras de segurança."
     },
     "tags": [
       "lutas",
@@ -1784,8 +1819,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "lutas",
+      "estrategia",
+      "tomada-de-decisao"
     ],
     "origin": "nabulab"
   },
@@ -1798,7 +1834,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Capacidade cardiorrespiratória",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado”, é correto associá-lo a Exercício aeróbico.",
+    "statement": "Uma mesma atividade pode representar intensidades internas diferentes para pessoas com níveis de condicionamento distintos.",
     "alternatives": [
       {
         "id": "V",
@@ -1810,10 +1846,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A resolução relaciona a situação descrita aos critérios de Capacidade cardiorrespiratória, no campo de Saúde.",
+    "explanation": "Carga externa semelhante pode provocar respostas diferentes de frequência cardíaca, ventilação e percepção de esforço.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A resolução relaciona a situação descrita aos critérios de Capacidade cardiorrespiratória, no campo de Saúde.",
-      "F": "Incorreto. A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A resolução relaciona a situação descrita aos critérios de Capacidade cardiorrespiratória, no campo de Saúde."
+      "V": "Correto. Intensidade relativa depende das características do praticante.",
+      "F": "Incorreto. O mesmo ritmo não produz necessariamente a mesma exigência relativa."
     },
     "tags": [
       "saude",
@@ -1827,8 +1863,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "saude",
+      "intensidade",
+      "individualidade"
     ],
     "origin": "nabulab"
   },
@@ -1841,7 +1878,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Conceitos",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso”, é correto associá-lo a Cultura corporal de movimento.",
+    "statement": "Atividade física só existe quando é planejada previamente como exercício.",
     "alternatives": [
       {
         "id": "V",
@@ -1853,10 +1890,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Atividade física, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A resolução relaciona a situação descrita aos critérios de Conceitos, no campo de Atividade física.",
+    "explanation": "Atividade física inclui também deslocamentos, tarefas domésticas, trabalho e lazer não estruturado.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Atividade física, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A resolução relaciona a situação descrita aos critérios de Conceitos, no campo de Atividade física.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Atividade física, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A resolução relaciona a situação descrita aos critérios de Conceitos, no campo de Atividade física."
+      "V": "Incorreto. O conceito é mais amplo que exercício planejado.",
+      "F": "Correto. Exercício é uma subcategoria de atividade física."
     },
     "tags": [
       "atividade-fisica",
@@ -1870,8 +1907,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "atividade-fisica",
+      "dominios",
+      "contexto"
     ],
     "origin": "nabulab"
   },
@@ -1884,7 +1922,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Comportamento sedentário",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo”, é correto associá-lo a Comportamento sedentário.",
+    "statement": "Interromper longos períodos sentado pode modificar o padrão sedentário mesmo sem aumentar o número de sessões de exercício.",
     "alternatives": [
       {
         "id": "V",
@@ -1896,10 +1934,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A resolução relaciona a situação descrita aos critérios de Comportamento sedentário, no campo de Sedentarismo.",
+    "explanation": "Comportamento sedentário possui distribuição própria durante o dia e pode ser reduzido por pausas e mudanças de postura.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A resolução relaciona a situação descrita aos critérios de Comportamento sedentário, no campo de Sedentarismo.",
-      "F": "Incorreto. A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A resolução relaciona a situação descrita aos critérios de Comportamento sedentário, no campo de Sedentarismo."
+      "V": "Correto. Sedentarismo e exercício são dimensões relacionadas, mas distintas.",
+      "F": "Incorreto. Alterar tempo sentado muda o padrão sedentário."
     },
     "tags": [
       "sedentarismo",
@@ -1913,8 +1951,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "sedentarismo",
+      "pausas",
+      "padrao-de-comportamento"
     ],
     "origin": "nabulab"
   },
@@ -1927,7 +1966,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Padrões corporais",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos”, é correto associá-lo a Jogo cooperativo.",
+    "statement": "Padrões corporais divulgados pela mídia são biologicamente universais e não variam entre períodos históricos.",
     "alternatives": [
       {
         "id": "V",
@@ -1939,10 +1978,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A resolução relaciona a situação descrita aos critérios de Padrões corporais, no campo de Corpo e sociedade.",
+    "explanation": "Ideais de beleza e significados corporais mudam historicamente e entre grupos sociais.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A resolução relaciona a situação descrita aos critérios de Padrões corporais, no campo de Corpo e sociedade.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A resolução relaciona a situação descrita aos critérios de Padrões corporais, no campo de Corpo e sociedade."
+      "V": "Incorreto. Padrões corporais possuem dimensão cultural.",
+      "F": "Correto. A afirmação naturaliza uma construção histórica."
     },
     "tags": [
       "corpo-e-sociedade",
@@ -1956,8 +1995,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "corpo-e-sociedade",
+      "midia",
+      "representacao"
     ],
     "origin": "nabulab"
   },
@@ -1970,7 +2010,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Espetacularização",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado”, é correto associá-lo a Espetacularização do esporte.",
+    "statement": "A cobertura midiática pode selecionar determinados acontecimentos esportivos e influenciar a percepção do público sobre uma modalidade.",
     "alternatives": [
       {
         "id": "V",
@@ -1982,10 +2022,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A resolução relaciona a situação descrita aos critérios de Espetacularização, no campo de Esporte e mídia.",
+    "explanation": "Enquadramentos, repetição e escolha de narrativas podem destacar aspectos específicos do esporte.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A resolução relaciona a situação descrita aos critérios de Espetacularização, no campo de Esporte e mídia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A resolução relaciona a situação descrita aos critérios de Espetacularização, no campo de Esporte e mídia."
+      "V": "Correto. Mídia não funciona apenas como espelho neutro.",
+      "F": "Incorreto. Seleção e edição influenciam interpretação."
     },
     "tags": [
       "esporte-e-midia",
@@ -1999,8 +2039,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "esporte-e-midia",
+      "visibilidade",
+      "desigualdade"
     ],
     "origin": "nabulab"
   },
@@ -2013,7 +2054,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Esporte adaptado",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante”, é correto associá-lo a Dança como linguagem.",
+    "statement": "Garantir presença no mesmo espaço é suficiente para assegurar inclusão, mesmo quando o participante não consegue acessar a atividade.",
     "alternatives": [
       {
         "id": "V",
@@ -2025,10 +2066,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A resolução relaciona a situação descrita aos critérios de Esporte adaptado, no campo de Inclusão.",
+    "explanation": "Inclusão exige participação significativa e remoção de barreiras, não apenas presença física.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A resolução relaciona a situação descrita aos critérios de Esporte adaptado, no campo de Inclusão.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A resolução relaciona a situação descrita aos critérios de Esporte adaptado, no campo de Inclusão."
+      "V": "Incorreto. Acesso real à experiência também importa.",
+      "F": "Correto. Presença e participação não são equivalentes."
     },
     "tags": [
       "inclusao",
@@ -2042,8 +2083,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "inclusao",
+      "adaptacao",
+      "acessibilidade"
     ],
     "origin": "nabulab"
   },
@@ -2056,7 +2098,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Significados",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais”, é correto associá-lo a Cultura corporal de movimento.",
+    "statement": "Práticas corporais podem conservar vínculos identitários mesmo passando por mudanças históricas.",
     "alternatives": [
       {
         "id": "V",
@@ -2068,10 +2110,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A resolução relaciona a situação descrita aos critérios de Significados, no campo de Cultura corporal.",
+    "explanation": "Cultura corporal é dinâmica e pode combinar continuidade e transformação.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A resolução relaciona a situação descrita aos critérios de Significados, no campo de Cultura corporal.",
-      "F": "Incorreto. A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A resolução relaciona a situação descrita aos critérios de Significados, no campo de Cultura corporal."
+      "V": "Correto. Mudança não elimina automaticamente identidade cultural.",
+      "F": "Incorreto. Tradições não precisam permanecer congeladas."
     },
     "tags": [
       "cultura-corporal",
@@ -2085,8 +2127,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "cultura-corporal",
+      "institucionalizacao",
+      "cultura"
     ],
     "origin": "nabulab"
   },
@@ -2099,7 +2142,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Classificação",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria”, é correto associá-lo a Exercício aeróbico.",
+    "statement": "Classificar modalidades por sua lógica interna significa afirmar que todos os esportes de uma mesma categoria possuem regras idênticas.",
     "alternatives": [
       {
         "id": "V",
@@ -2111,10 +2154,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A resolução relaciona a situação descrita aos critérios de Classificação, no campo de Esportes.",
+    "explanation": "Categorias reúnem princípios comuns sem eliminar regras e técnicas particulares.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A resolução relaciona a situação descrita aos critérios de Classificação, no campo de Esportes.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A resolução relaciona a situação descrita aos critérios de Classificação, no campo de Esportes."
+      "V": "Incorreto. Classificação não significa identidade total.",
+      "F": "Correto. O enunciado exagera o alcance da categoria."
     },
     "tags": [
       "esporte",
@@ -2128,8 +2171,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "esportes",
+      "classificacao",
+      "comparacao"
     ],
     "origin": "nabulab"
   },
@@ -2142,7 +2186,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Cooperação",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro”, é correto associá-lo a Jogo cooperativo.",
+    "statement": "Modificar regras de um jogo pode redistribuir oportunidades de participação entre os jogadores.",
     "alternatives": [
       {
         "id": "V",
@@ -2154,10 +2198,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A resolução relaciona a situação descrita aos critérios de Cooperação, no campo de Jogos.",
+    "explanation": "Regras influenciam quem recebe a bola, decide, coopera ou fica excluído.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A resolução relaciona a situação descrita aos critérios de Cooperação, no campo de Jogos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A resolução relaciona a situação descrita aos critérios de Cooperação, no campo de Jogos."
+      "V": "Correto. Organização do jogo também possui efeitos sociais.",
+      "F": "Incorreto. Regras não são neutras em relação à participação."
     },
     "tags": [
       "jogos",
@@ -2171,8 +2215,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "jogos",
+      "cooperacao",
+      "criterios"
     ],
     "origin": "nabulab"
   },
@@ -2185,7 +2230,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Princípios",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle”, é correto associá-lo a Comportamento sedentário.",
+    "statement": "Regras de segurança transformam uma luta em atividade sem oposição nem tomada de decisão.",
     "alternatives": [
       {
         "id": "V",
@@ -2197,10 +2242,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A resolução relaciona a situação descrita aos critérios de Princípios, no campo de Lutas.",
+    "explanation": "Segurança limita ações perigosas, mas oposição e estratégia continuam presentes.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A resolução relaciona a situação descrita aos critérios de Princípios, no campo de Lutas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A resolução relaciona a situação descrita aos critérios de Princípios, no campo de Lutas."
+      "V": "Incorreto. Regulamentação não elimina a lógica do confronto.",
+      "F": "Correto. O enunciado confunde segurança com ausência de oposição."
     },
     "tags": [
       "lutas",
@@ -2214,8 +2259,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "lutas",
+      "seguranca",
+      "estrategia"
     ],
     "origin": "nabulab"
   },
@@ -2228,7 +2274,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Expressão",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos”, é correto associá-lo a Dança como linguagem.",
+    "statement": "Mudanças de ritmo, intensidade e uso do espaço podem alterar o sentido de uma mesma sequência de dança.",
     "alternatives": [
       {
         "id": "V",
@@ -2240,10 +2286,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A resolução relaciona a situação descrita aos critérios de Expressão, no campo de Dança.",
+    "explanation": "Esses elementos participam da linguagem corporal e modificam a leitura da coreografia.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A resolução relaciona a situação descrita aos critérios de Expressão, no campo de Dança.",
-      "F": "Incorreto. A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A resolução relaciona a situação descrita aos critérios de Expressão, no campo de Dança."
+      "V": "Correto. Passos não são a única dimensão expressiva.",
+      "F": "Incorreto. Qualidades do movimento influenciam interpretação."
     },
     "tags": [
       "danca",
@@ -2257,8 +2303,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "danca",
+      "linguagem",
+      "interpretacao"
     ],
     "origin": "nabulab"
   },
@@ -2271,7 +2318,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Condicionamento",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade”, é correto associá-lo a Espetacularização do esporte.",
+    "statement": "Quanto mais rapidamente se aumenta a carga de treinamento, melhor é o resultado, independentemente de técnica e recuperação.",
     "alternatives": [
       {
         "id": "V",
@@ -2283,10 +2330,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A resolução relaciona a situação descrita aos critérios de Condicionamento, no campo de Ginástica.",
+    "explanation": "Progressão deve considerar objetivo, capacidade de execução, recuperação e resposta individual.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A resolução relaciona a situação descrita aos critérios de Condicionamento, no campo de Ginástica.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A resolução relaciona a situação descrita aos critérios de Condicionamento, no campo de Ginástica."
+      "V": "Incorreto. Aumento abrupto pode comprometer qualidade e tolerância ao estímulo.",
+      "F": "Correto. O enunciado apresenta uma generalização inadequada."
     },
     "tags": [
       "ginastica",
@@ -2300,8 +2347,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "ginastica",
+      "condicionamento",
+      "critica-de-afirmacao"
     ],
     "origin": "nabulab"
   },
@@ -2314,32 +2362,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Comportamento sedentário",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo?",
+    "statement": "Uma pesquisa encontra associação entre maior tempo sentado e pior saúde em adultos.\n    O estudo é observacional e não controla completamente alimentação, renda, doenças prévias\n    ou nível geral de atividade física.\n\n    Qual conclusão é metodologicamente mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Comportamento sedentário"
+        "text": "a associação é relevante, mas não permite atribuir causalidade isolada ao tempo sentado sem considerar fatores de confusão"
       },
       {
         "id": "B",
-        "text": "Adaptação inclusiva"
+        "text": "a associação prova definitivamente que sentar é a única causa"
       },
       {
         "id": "C",
-        "text": "Luta corporal"
+        "text": "o estudo não possui qualquer valor por não ser experimento"
       },
       {
         "id": "D",
-        "text": "Exercício aeróbico"
+        "text": "qualquer variável não controlada torna todos os dados falsos"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Por isso, a alternativa correta é Comportamento sedentário.",
+    "explanation": "Estudos observacionais podem revelar padrões importantes, porém causalidade exige cuidado com variáveis associadas tanto à exposição quanto aos desfechos.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. Por isso, a alternativa correta é Comportamento sedentário.",
-      "B": "Esse conceito designa outra relação: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante.",
-      "C": "A propriedade dessa alternativa é distinta: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle.",
-      "D": "Não corresponde ao caso: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado."
+      "A": "Correta. Estudos observacionais podem revelar padrões importantes, porém causalidade exige cuidado com variáveis associadas tanto à exposição quanto aos desfechos.",
+      "B": "O desenho não isola todos os fatores relevantes.",
+      "C": "Evidência observacional pode ser útil, desde que interpretada adequadamente.",
+      "D": "Limitações reduzem força causal, mas não anulam automaticamente os resultados."
     },
     "tags": [
       "sedentarismo",
@@ -2353,8 +2401,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "sedentarismo",
+      "epidemiologia",
+      "interpretacao-de-evidencias"
     ],
     "origin": "nabulab"
   },
@@ -2367,32 +2416,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Padrões corporais",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos?",
+    "statement": "Uma política de saúde usa apenas imagens de corpos jovens e magros para representar\n    \"vida saudável\". Pessoas idosas, gordas ou com deficiência criticam a campanha\n    por confundir saúde com uma aparência corporal específica.\n\n    Qual questão crítica está em jogo?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cultura corporal de movimento"
+        "text": "a impossibilidade de campanhas públicas usarem imagens de pessoas"
       },
       {
         "id": "B",
-        "text": "Construção social do corpo"
+        "text": "a naturalização de um padrão corporal como se fosse medida universal de saúde"
       },
       {
         "id": "C",
-        "text": "Dança como linguagem"
+        "text": "a ideia de que nenhuma característica corporal possui dimensão biológica"
       },
       {
         "id": "D",
-        "text": "Atividade física"
+        "text": "a obrigação de considerar todos os corpos fisiologicamente idênticos"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos. Por isso, a alternativa correta é Construção social do corpo.",
+    "explanation": "Saúde é multidimensional e não pode ser inferida exclusivamente pela aparência; campanhas podem reforçar estigmas ao transformar um padrão estético em norma moral e sanitária.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
-      "B": "Correta. A distinção central está em valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos. Por isso, a alternativa correta é Construção social do corpo.",
-      "C": "Não corresponde ao caso: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
-      "D": "Diverge da descrição porque qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso."
+      "A": "O problema não é usar imagens, mas como representam diversidade e saúde.",
+      "B": "Correta. Saúde é multidimensional e não pode ser inferida exclusivamente pela aparência; campanhas podem reforçar estigmas ao transformar um padrão estético em norma moral e sanitária.",
+      "C": "A crítica é à equivalência simplista entre aparência e saúde.",
+      "D": "Diversidade não significa identidade fisiológica."
     },
     "tags": [
       "corpo-e-sociedade",
@@ -2406,8 +2455,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "corpo-e-sociedade",
+      "saude",
+      "estigma"
     ],
     "origin": "nabulab"
   },
@@ -2420,32 +2470,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Espetacularização",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado?",
+    "statement": "Uma plataforma transmite competições e usa dados de audiência para decidir quais modalidades\n    receberão destaque na página inicial. As modalidades mais expostas ganham novos patrocinadores,\n    aumentando ainda mais sua capacidade de produzir conteúdo.\n\n    Qual dinâmica é observada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Esporte de invasão"
+        "text": "neutralidade automática do algoritmo por usar dados numéricos"
       },
       {
         "id": "B",
-        "text": "Ginástica de condicionamento físico"
+        "text": "desaparecimento da influência comercial no esporte"
       },
       {
         "id": "C",
-        "text": "Espetacularização do esporte"
+        "text": "um ciclo de retroalimentação entre visibilidade algorítmica, audiência e recursos econômicos"
       },
       {
         "id": "D",
-        "text": "Comportamento sedentário"
+        "text": "garantia de diversidade esportiva porque há muitas modalidades cadastradas"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Por isso, a alternativa correta é Espetacularização do esporte.",
+    "explanation": "A seleção de conteúdo pode reforçar desigualdades preexistentes: maior exposição gera audiência e recursos, que por sua vez favorecem nova exposição.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
-      "B": "Não corresponde ao caso: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
-      "C": "Correta. A resposta decorre da definição disciplinar regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. Por isso, a alternativa correta é Espetacularização do esporte.",
-      "D": "Esse conceito designa outra relação: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo."
+      "A": "Critérios algorítmicos podem reproduzir prioridades de mercado.",
+      "B": "Patrocínio e audiência são centrais no ciclo descrito.",
+      "C": "Correta. A seleção de conteúdo pode reforçar desigualdades preexistentes: maior exposição gera audiência e recursos, que por sua vez favorecem nova exposição.",
+      "D": "Disponibilidade não significa visibilidade equivalente."
     },
     "tags": [
       "esporte-e-midia",
@@ -2459,8 +2509,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "esporte-e-midia",
+      "algoritmos",
+      "visibilidade"
     ],
     "origin": "nabulab"
   },
@@ -2473,32 +2524,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Esporte adaptado",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante?",
+    "statement": "Uma escola compra equipamentos esportivos adaptados, mas mantém aulas em espaço inacessível\n    e professores sem formação para utilizá-los. A direção afirma que \"a inclusão está resolvida\".\n\n    Qual avaliação é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Jogo cooperativo"
+        "text": "equipamento adaptado garante participação independentemente do contexto"
       },
       {
         "id": "B",
-        "text": "Exercício aeróbico"
+        "text": "formação docente não interfere em práticas inclusivas"
       },
       {
         "id": "C",
-        "text": "Construção social do corpo"
+        "text": "acessibilidade é responsabilidade exclusiva do aluno"
       },
       {
         "id": "D",
-        "text": "Adaptação inclusiva"
+        "text": "inclusão depende de remover um conjunto de barreiras e não apenas de adquirir equipamentos"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante. Por isso, a alternativa correta é Adaptação inclusiva.",
+    "explanation": "Acessibilidade física, formação, comunicação, atitudes e organização pedagógica podem ser tão importantes quanto materiais adaptados.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
-      "B": "Diverge da descrição porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
-      "C": "Esse conceito designa outra relação: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
-      "D": "Correta. O critério relevante é regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante. Por isso, a alternativa correta é Adaptação inclusiva."
+      "A": "Outras barreiras podem impedir o uso efetivo.",
+      "B": "Conhecimento pedagógico influencia planejamento e adaptação.",
+      "C": "Barreiras também são produzidas pelo ambiente e pela instituição.",
+      "D": "Correta. Acessibilidade física, formação, comunicação, atitudes e organização pedagógica podem ser tão importantes quanto materiais adaptados."
     },
     "tags": [
       "inclusao",
@@ -2512,8 +2563,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "inclusao",
+      "barreiras",
+      "acessibilidade"
     ],
     "origin": "nabulab"
   },
@@ -2526,32 +2578,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Significados",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais?",
+    "statement": "Uma manifestação corporal de origem popular é incorporada por academias, competições,\n    publicidade e políticas de patrimônio. Diferentes grupos passam a disputar quais movimentos,\n    roupas e narrativas seriam \"autênticos\".\n\n    Qual análise é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cultura corporal de movimento"
+        "text": "a prática corporal é um campo de disputas sobre identidade, memória, mercado e legitimidade"
       },
       {
         "id": "B",
-        "text": "Luta corporal"
+        "text": "a entrada no mercado elimina automaticamente qualquer valor cultural"
       },
       {
         "id": "C",
-        "text": "Atividade física"
+        "text": "a versão mais antiga conhecida deve ser considerada a única legítima"
       },
       {
         "id": "D",
-        "text": "Espetacularização do esporte"
+        "text": "os significados da prática são definidos apenas pelo movimento biomecânico"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Por isso, a alternativa correta é Cultura corporal de movimento.",
+    "explanation": "Quando uma prática circula entre grupos e instituições, seus sentidos podem ser negociados e disputados; não existe necessariamente uma única versão socialmente neutra de autenticidade.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. Por isso, a alternativa correta é Cultura corporal de movimento.",
-      "B": "Esse conceito designa outra relação: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle.",
-      "C": "A propriedade dessa alternativa é distinta: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso.",
-      "D": "Não corresponde ao caso: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado."
+      "A": "Correta. Quando uma prática circula entre grupos e instituições, seus sentidos podem ser negociados e disputados; não existe necessariamente uma única versão socialmente neutra de autenticidade.",
+      "B": "Mercantilização pode alterar sentidos, mas não apaga necessariamente todas as dimensões culturais.",
+      "C": "Práticas culturais se transformam e são apropriadas por diferentes grupos.",
+      "D": "Narrativas, identidade e reconhecimento social também constroem significado."
     },
     "tags": [
       "cultura-corporal",
@@ -2565,8 +2617,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "cultura-corporal",
+      "identidade",
+      "disputas-de-significado"
     ],
     "origin": "nabulab"
   },
@@ -2579,32 +2632,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Classificação",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria?",
+    "statement": "Uma escola ensina princípios táticos comuns a futebol, basquete e handebol — criar linhas de passe,\n    ocupar espaços livres e reorganizar a defesa após perder a posse — antes de aprofundar regras específicas.\n\n    Qual justificativa pedagógica sustenta essa estratégia?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Dança como linguagem"
+        "text": "as três modalidades possuem exatamente as mesmas regras"
       },
       {
         "id": "B",
-        "text": "Esporte de invasão"
+        "text": "modalidades de invasão compartilham problemas táticos que podem favorecer transferência de aprendizagem"
       },
       {
         "id": "C",
-        "text": "Comportamento sedentário"
+        "text": "técnica específica é irrelevante em qualquer esporte"
       },
       {
         "id": "D",
-        "text": "Adaptação inclusiva"
+        "text": "todo esporte coletivo é obrigatoriamente de invasão"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria. Por isso, a alternativa correta é Esporte de invasão.",
+    "explanation": "Ao identificar princípios comuns da lógica interna, o ensino pode trabalhar leitura de jogo e tomada de decisão antes de especializar técnicas de cada modalidade.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos.",
-      "B": "Correta. A propriedade determinante é equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria. Por isso, a alternativa correta é Esporte de invasão.",
-      "C": "Não corresponde ao caso: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
-      "D": "Diverge da descrição porque regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante."
+      "A": "Elas compartilham princípios, mas têm regras diferentes.",
+      "B": "Correta. Ao identificar princípios comuns da lógica interna, o ensino pode trabalhar leitura de jogo e tomada de decisão antes de especializar técnicas de cada modalidade.",
+      "C": "Técnica continua importante, apenas pode ser articulada à compreensão tática.",
+      "D": "Existem esportes coletivos com outras lógicas, como rede/parede."
     },
     "tags": [
       "esporte",
@@ -2618,8 +2671,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "esportes",
+      "invasao",
+      "transferencia-de-aprendizagem"
     ],
     "origin": "nabulab"
   },
@@ -2632,32 +2686,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Cooperação",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro?",
+    "statement": "Uma turma joga uma atividade competitiva e, depois, uma versão cooperativa construída\n    com os mesmos materiais. Em seguida, compara emoções, estratégias, exclusões e formas de comunicação\n    que surgiram em cada versão.\n\n    Qual aprendizagem está sendo favorecida?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ginástica de condicionamento físico"
+        "text": "provar que competição é sempre moralmente errada"
       },
       {
         "id": "B",
-        "text": "Construção social do corpo"
+        "text": "mostrar que materiais determinam sozinhos o comportamento dos jogadores"
       },
       {
         "id": "C",
-        "text": "Jogo cooperativo"
+        "text": "analisar criticamente como regras diferentes produzem relações sociais distintas dentro do jogo"
       },
       {
         "id": "D",
-        "text": "Cultura corporal de movimento"
+        "text": "eliminar a necessidade de refletir sobre o jogo"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Por isso, a alternativa correta é Jogo cooperativo.",
+    "explanation": "Regras não apenas organizam movimentos; elas também distribuem oportunidades, incentivam comportamentos e moldam formas de interação.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
-      "B": "Não corresponde ao caso: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
-      "C": "Correta. A conclusão se apoia em os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. Por isso, a alternativa correta é Jogo cooperativo.",
-      "D": "Esse conceito designa outra relação: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais."
+      "A": "A comparação permite análise, não exige uma condenação absoluta.",
+      "B": "As regras e objetivos alterados também são decisivos.",
+      "C": "Correta. Regras não apenas organizam movimentos; elas também distribuem oportunidades, incentivam comportamentos e moldam formas de interação.",
+      "D": "A reflexão pós-atividade é parte central da proposta."
     },
     "tags": [
       "jogos",
@@ -2671,8 +2725,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "jogos",
+      "regras",
+      "analise-critica"
     ],
     "origin": "nabulab"
   },
@@ -2685,32 +2740,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Princípios",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle?",
+    "statement": "Uma escola ensina capoeira discutindo esquivas e golpes, mas também música, roda,\n    memória da escravidão, resistência cultural e diferentes processos de institucionalização.\n\n    Por que essa abordagem é mais ampla?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Exercício aeróbico"
+        "text": "porque aspectos técnicos deixam de ter qualquer valor"
       },
       {
         "id": "B",
-        "text": "Espetacularização do esporte"
+        "text": "porque toda luta possui exatamente a mesma história"
       },
       {
         "id": "C",
-        "text": "Esporte de invasão"
+        "text": "porque a dimensão cultural substitui completamente o movimento corporal"
       },
       {
         "id": "D",
-        "text": "Luta corporal"
+        "text": "porque trata a luta como prática corporal técnica e também como produção histórica e cultural"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle. Por isso, a alternativa correta é Luta corporal.",
+    "explanation": "A capoeira não se reduz a um repertório motor; seus sentidos dependem de história, música, sociabilidade, identidade e disputas de reconhecimento.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado.",
-      "B": "Diverge da descrição porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
-      "C": "Esse conceito designa outra relação: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
-      "D": "Correta. A distinção central está em oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle. Por isso, a alternativa correta é Luta corporal."
+      "A": "Técnica continua fazendo parte da prática.",
+      "B": "Cada prática tem trajetórias específicas.",
+      "C": "As dimensões podem ser estudadas de forma articulada.",
+      "D": "Correta. A capoeira não se reduz a um repertório motor; seus sentidos dependem de história, música, sociabilidade, identidade e disputas de reconhecimento."
     },
     "tags": [
       "lutas",
@@ -2724,8 +2779,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "lutas",
+      "capoeira",
+      "cultura-e-historia"
     ],
     "origin": "nabulab"
   },
@@ -2738,32 +2794,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Expressão",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos?",
+    "statement": "Uma coreografia tradicional é apresentada em um festival com mudanças de figurino,\n    iluminação e organização espacial. Parte do público considera a versão inovadora;\n    outra parte afirma que ela descaracteriza a tradição.\n\n    Qual questão é mais pertinente?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Dança como linguagem"
+        "text": "como tradições corporais são recriadas e negociadas quando circulam em novos contextos"
       },
       {
         "id": "B",
-        "text": "Atividade física"
+        "text": "qual versão possui objetivamente a única estética correta"
       },
       {
         "id": "C",
-        "text": "Adaptação inclusiva"
+        "text": "se qualquer transformação elimina automaticamente a tradição"
       },
       {
         "id": "D",
-        "text": "Jogo cooperativo"
+        "text": "se figurino e iluminação não influenciam a percepção da dança"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Por isso, a alternativa correta é Dança como linguagem.",
+    "explanation": "A dança como prática cultural pode transformar-se ao mudar de palco, público e finalidade, gerando disputas sobre identidade e autenticidade.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. Por isso, a alternativa correta é Dança como linguagem.",
-      "B": "Esse conceito designa outra relação: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso.",
-      "C": "A propriedade dessa alternativa é distinta: regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante.",
-      "D": "Não corresponde ao caso: os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro."
+      "A": "Correta. A dança como prática cultural pode transformar-se ao mudar de palco, público e finalidade, gerando disputas sobre identidade e autenticidade.",
+      "B": "A análise sociocultural não pressupõe uma única resposta estética universal.",
+      "C": "Tradições vivas podem ser recriadas.",
+      "D": "Elementos cênicos também participam da produção de sentido."
     },
     "tags": [
       "danca",
@@ -2777,8 +2833,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "danca",
+      "tradicao",
+      "recriacao"
     ],
     "origin": "nabulab"
   },
@@ -2791,32 +2848,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Condicionamento",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade?",
+    "statement": "Dois programas possuem o mesmo volume semanal total. Um concentra todo o estímulo em um único dia;\n    o outro distribui as sessões ao longo da semana, com objetivos e intensidades diferentes.\n\n    Por que não é possível concluir que produzirão exatamente as mesmas respostas?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Comportamento sedentário"
+        "text": "porque volume semanal nunca tem qualquer importância"
       },
       {
         "id": "B",
-        "text": "Ginástica de condicionamento físico"
+        "text": "a adaptação depende também da distribuição do estímulo, intensidade, recuperação e especificidade"
       },
       {
         "id": "C",
-        "text": "Cultura corporal de movimento"
+        "text": "porque todos os praticantes respondem da mesma maneira a qualquer programa"
       },
       {
         "id": "D",
-        "text": "Luta corporal"
+        "text": "porque apenas a duração da sessão determina adaptação"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade. Por isso, a alternativa correta é Ginástica de condicionamento físico.",
+    "explanation": "Volume é apenas uma variável do treinamento; frequência, intensidade, tipo de exercício e recuperação alteram a resposta ao programa.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo.",
-      "B": "Correta. O critério relevante é exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade. Por isso, a alternativa correta é Ginástica de condicionamento físico.",
-      "C": "Não corresponde ao caso: práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais.",
-      "D": "Diverge da descrição porque oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle."
+      "A": "Volume é relevante, mas não é o único fator.",
+      "B": "Correta. Volume é apenas uma variável do treinamento; frequência, intensidade, tipo de exercício e recuperação alteram a resposta ao programa.",
+      "C": "Existe variabilidade individual.",
+      "D": "Adaptação depende de múltiplas variáveis."
     },
     "tags": [
       "ginastica",
@@ -2830,8 +2887,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "ginastica",
+      "condicionamento",
+      "variaveis-do-treinamento"
     ],
     "origin": "nabulab"
   },
@@ -2844,32 +2902,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Capacidade cardiorrespiratória",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado?",
+    "statement": "Um programa escolar mede frequência cardíaca, percepção subjetiva de esforço e tempo de recuperação\n    para acompanhar estudantes em atividades contínuas. Os valores são interpretados individualmente,\n    em vez de aplicar o mesmo limite absoluto a todos.\n\n    Qual princípio está sendo respeitado?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Construção social do corpo"
+        "text": "todo estudante deve atingir exatamente a mesma frequência cardíaca"
       },
       {
         "id": "B",
-        "text": "Esporte de invasão"
+        "text": "apenas desempenho competitivo indica condicionamento"
       },
       {
         "id": "C",
-        "text": "Exercício aeróbico"
+        "text": "a intensidade do esforço deve ser interpretada de forma relativa às características do praticante"
       },
       {
         "id": "D",
-        "text": "Dança como linguagem"
+        "text": "percepção de esforço não possui qualquer valor"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Por isso, a alternativa correta é Exercício aeróbico.",
+    "explanation": "Indicadores fisiológicos e perceptivos ganham significado quando relacionados a condicionamento, idade, contexto e resposta individual.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos.",
-      "B": "Não corresponde ao caso: equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria.",
-      "C": "Correta. Neste caso atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. Por isso, a alternativa correta é Exercício aeróbico.",
-      "D": "Esse conceito designa outra relação: gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos."
+      "A": "Respostas fisiológicas variam entre pessoas.",
+      "B": "Saúde e aptidão podem ser avaliadas por vários indicadores.",
+      "C": "Correta. Indicadores fisiológicos e perceptivos ganham significado quando relacionados a condicionamento, idade, contexto e resposta individual.",
+      "D": "Escalas de esforço podem complementar medidas objetivas."
     },
     "tags": [
       "saude",
@@ -2883,8 +2941,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "saude",
+      "capacidade-cardiorrespiratoria",
+      "intensidade-relativa"
     ],
     "origin": "nabulab"
   },
@@ -2897,32 +2956,32 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Conceitos",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso?",
+    "statement": "Dois bairros apresentam índices semelhantes de atividade física no lazer.\n    Um deles, porém, tem muito mais deslocamentos a pé porque oferece calçadas, transporte público\n    e serviços próximos às moradias.\n\n    O caso mostra que níveis de atividade física:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Espetacularização do esporte"
+        "text": "resultam exclusivamente de força de vontade"
       },
       {
         "id": "B",
-        "text": "Jogo cooperativo"
+        "text": "não possuem relação com planejamento urbano"
       },
       {
         "id": "C",
-        "text": "Ginástica de condicionamento físico"
+        "text": "são determinados apenas pela participação em esportes"
       },
       {
         "id": "D",
-        "text": "Atividade física"
+        "text": "também são influenciados por características do ambiente construído e das oportunidades de deslocamento"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso. Por isso, a alternativa correta é Atividade física.",
+    "explanation": "Comportamentos corporais não dependem apenas de decisão individual; infraestrutura, segurança, distância e organização urbana podem facilitar ou dificultar movimento.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado.",
-      "B": "Diverge da descrição porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro.",
-      "C": "Esse conceito designa outra relação: exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade.",
-      "D": "Correta. A propriedade determinante é qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso. Por isso, a alternativa correta é Atividade física."
+      "A": "O ambiente pode alterar oportunidades concretas de movimento.",
+      "B": "O exemplo evidencia essa relação.",
+      "C": "Deslocamentos cotidianos também contam como atividade física.",
+      "D": "Correta. Comportamentos corporais não dependem apenas de decisão individual; infraestrutura, segurança, distância e organização urbana podem facilitar ou dificultar movimento."
     },
     "tags": [
       "atividade-fisica",
@@ -2936,8 +2995,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "atividade-fisica",
+      "ambiente-construido",
+      "determinantes-sociais"
     ],
     "origin": "nabulab"
   },
@@ -2950,7 +3010,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Espetacularização",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Espetacularização do esporte de Atividade física, a característica “regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado” deve ser atribuída ao primeiro conceito.",
+    "statement": "A espetacularização do esporte envolve também narrativas, publicidade, audiência e decisões comerciais, não apenas a transmissão das partidas.",
     "alternatives": [
       {
         "id": "V",
@@ -2962,10 +3022,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A avaliação exige delimitar as condições de Espetacularização e distingui-las de relações próximas em Esporte e mídia.",
+    "explanation": "O esporte-espetáculo é produzido por relações entre mídia, mercado, formatos de competição e formas de apresentação ao público.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A avaliação exige delimitar as condições de Espetacularização e distingui-las de relações próximas em Esporte e mídia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Espetacularização do esporte se caracteriza porque regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A avaliação exige delimitar as condições de Espetacularização e distingui-las de relações próximas em Esporte e mídia."
+      "V": "Correto. A transmissão é apenas uma dimensão do processo.",
+      "F": "Incorreto. O conceito é mais amplo que a presença de câmeras."
     },
     "tags": [
       "esporte-e-midia",
@@ -2979,8 +3039,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "esporte-e-midia",
+      "espetacularizacao",
+      "mercado"
     ],
     "origin": "nabulab"
   },
@@ -2993,7 +3054,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Esporte adaptado",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Adaptação inclusiva de Comportamento sedentário, a característica “regras, materiais ou espaços são ajustados para garantir participação significativa sem reduzir a dignidade do praticante” deve ser atribuída ao segundo conceito.",
+    "statement": "Aplicar exatamente a mesma tarefa a todos garante inclusão em qualquer situação, porque adaptações geram necessariamente privilégio.",
     "alternatives": [
       {
         "id": "V",
@@ -3005,10 +3066,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A avaliação exige delimitar as condições de Esporte adaptado e distingui-las de relações próximas em Inclusão.",
+    "explanation": "Equidade pode exigir ajustes diferentes para remover barreiras e garantir participação significativa.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A avaliação exige delimitar as condições de Esporte adaptado e distingui-las de relações próximas em Inclusão.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Adaptação inclusiva, enquanto Comportamento sedentário se refere a longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A avaliação exige delimitar as condições de Esporte adaptado e distingui-las de relações próximas em Inclusão."
+      "V": "Incorreto. Igualdade formal não garante igualdade de acesso.",
+      "F": "Correto. A afirmação confunde tratamento idêntico com justiça."
     },
     "tags": [
       "inclusao",
@@ -3022,8 +3083,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "inclusao",
+      "equidade",
+      "justica"
     ],
     "origin": "nabulab"
   },
@@ -3036,7 +3098,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Significados",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Cultura corporal de movimento de Construção social do corpo, a característica “práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais” deve ser atribuída ao primeiro conceito.",
+    "statement": "Os significados de uma prática corporal podem mudar quando ela passa da comunidade para a escola, o mercado ou o esporte institucionalizado.",
     "alternatives": [
       {
         "id": "V",
@@ -3048,10 +3110,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A avaliação exige delimitar as condições de Significados e distingui-las de relações próximas em Cultura corporal.",
+    "explanation": "Mudanças de contexto alteram regras, valores, públicos e formas de reconhecimento.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A avaliação exige delimitar as condições de Significados e distingui-las de relações próximas em Cultura corporal.",
-      "F": "Incorreto. A proposição é verdadeira, pois Cultura corporal de movimento se caracteriza porque práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A avaliação exige delimitar as condições de Significados e distingui-las de relações próximas em Cultura corporal."
+      "V": "Correto. Práticas corporais são historicamente situadas.",
+      "F": "Incorreto. O sentido não é fixo independentemente do contexto."
     },
     "tags": [
       "cultura-corporal",
@@ -3065,8 +3127,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "cultura-corporal",
+      "historicidade",
+      "significados"
     ],
     "origin": "nabulab"
   },
@@ -3079,7 +3142,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Classificação",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Esporte de invasão de Espetacularização do esporte, a característica “equipes disputam um espaço comum e procuram atingir a meta adversária enquanto defendem a própria” deve ser atribuída ao segundo conceito.",
+    "statement": "Pertencer à mesma categoria esportiva exige que duas modalidades tenham regras, técnicas e número de jogadores idênticos.",
     "alternatives": [
       {
         "id": "V",
@@ -3091,10 +3154,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A avaliação exige delimitar as condições de Classificação e distingui-las de relações próximas em Esportes.",
+    "explanation": "Categorias reúnem princípios estruturais comuns, mas modalidades mantêm características próprias.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A avaliação exige delimitar as condições de Classificação e distingui-las de relações próximas em Esportes.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Esporte de invasão, enquanto Espetacularização do esporte se refere a regras, horários e narrativas esportivas podem ser moldados por interesses de audiência e mercado. A avaliação exige delimitar as condições de Classificação e distingui-las de relações próximas em Esportes."
+      "V": "Incorreto. Classificação não elimina diferenças específicas.",
+      "F": "Correto. A afirmação confunde semelhança estrutural com identidade."
     },
     "tags": [
       "esporte",
@@ -3108,8 +3171,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "esportes",
+      "classificacao",
+      "logica-interna"
     ],
     "origin": "nabulab"
   },
@@ -3122,7 +3186,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Cooperação",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Jogo cooperativo de Adaptação inclusiva, a característica “os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro” deve ser atribuída ao primeiro conceito.",
+    "statement": "Mudanças nas regras de um jogo podem produzir efeitos motores e também sociais, como ampliar ou restringir participação.",
     "alternatives": [
       {
         "id": "V",
@@ -3134,10 +3198,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A avaliação exige delimitar as condições de Cooperação e distingui-las de relações próximas em Jogos.",
+    "explanation": "Regras distribuem oportunidades de ação e influenciam estratégias, cooperação e centralização.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A avaliação exige delimitar as condições de Cooperação e distingui-las de relações próximas em Jogos.",
-      "F": "Incorreto. A proposição é verdadeira, pois Jogo cooperativo se caracteriza porque os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A avaliação exige delimitar as condições de Cooperação e distingui-las de relações próximas em Jogos."
+      "V": "Correto. O jogo é uma estrutura de relações.",
+      "F": "Incorreto. Regras afetam mais do que a dificuldade física."
     },
     "tags": [
       "jogos",
@@ -3151,8 +3215,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "jogos",
+      "regras",
+      "participacao"
     ],
     "origin": "nabulab"
   },
@@ -3165,7 +3230,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Princípios",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Luta corporal de Cultura corporal de movimento, a característica “oponentes utilizam técnicas e estratégias regulamentadas de ataque e defesa, com respeito e controle” deve ser atribuída ao segundo conceito.",
+    "statement": "Para compreender uma luta como prática cultural, história, ritual e institucionalização podem ser ignorados se os golpes forem descritos corretamente.",
     "alternatives": [
       {
         "id": "V",
@@ -3177,10 +3242,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A avaliação exige delimitar as condições de Princípios e distingui-las de relações próximas em Lutas.",
+    "explanation": "Técnica é apenas uma dimensão; história e contexto ajudam a explicar significados e formas de organização.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A avaliação exige delimitar as condições de Princípios e distingui-las de relações próximas em Lutas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Luta corporal, enquanto Cultura corporal de movimento se refere a práticas como jogos, danças, lutas, esportes e ginásticas carregam sentidos históricos e sociais. A avaliação exige delimitar as condições de Princípios e distingui-las de relações próximas em Lutas."
+      "V": "Incorreto. A análise cultural exige mais do que descrição motora.",
+      "F": "Correto. O enunciado reduz a prática aos golpes."
     },
     "tags": [
       "lutas",
@@ -3194,8 +3259,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "lutas",
+      "cultura",
+      "historicidade"
     ],
     "origin": "nabulab"
   },
@@ -3208,7 +3274,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Expressão",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Dança como linguagem de Esporte de invasão, a característica “gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos” deve ser atribuída ao primeiro conceito.",
+    "statement": "A dança pode ser analisada simultaneamente como organização formal do movimento e como prática cultural.",
     "alternatives": [
       {
         "id": "V",
@@ -3220,10 +3286,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A avaliação exige delimitar as condições de Expressão e distingui-las de relações próximas em Dança.",
+    "explanation": "Ritmo, espaço e dinâmica articulam-se a identidades, tradições e contextos sociais.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A avaliação exige delimitar as condições de Expressão e distingui-las de relações próximas em Dança.",
-      "F": "Incorreto. A proposição é verdadeira, pois Dança como linguagem se caracteriza porque gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A avaliação exige delimitar as condições de Expressão e distingui-las de relações próximas em Dança."
+      "V": "Correto. Forma e cultura não são dimensões excludentes.",
+      "F": "Incorreto. A linguagem da dança possui dimensões múltiplas."
     },
     "tags": [
       "danca",
@@ -3237,8 +3303,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "danca",
+      "linguagem",
+      "cultura"
     ],
     "origin": "nabulab"
   },
@@ -3251,7 +3318,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Condicionamento",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Ginástica de condicionamento físico de Jogo cooperativo, a característica “exercícios sistematizados desenvolvem capacidades como força, resistência e flexibilidade” deve ser atribuída ao segundo conceito.",
+    "statement": "Programas de treinamento com o mesmo volume total produzem obrigatoriamente adaptações idênticas, independentemente de intensidade, frequência e recuperação.",
     "alternatives": [
       {
         "id": "V",
@@ -3263,10 +3330,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A avaliação exige delimitar as condições de Condicionamento e distingui-las de relações próximas em Ginástica.",
+    "explanation": "Adaptação depende de múltiplas variáveis do treinamento e de características individuais.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A avaliação exige delimitar as condições de Condicionamento e distingui-las de relações próximas em Ginástica.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ginástica de condicionamento físico, enquanto Jogo cooperativo se refere a os participantes coordenam ações para alcançar um objetivo comum em vez de priorizar a eliminação do outro. A avaliação exige delimitar as condições de Condicionamento e distingui-las de relações próximas em Ginástica."
+      "V": "Incorreto. Volume isolado não determina toda a resposta.",
+      "F": "Correto. A afirmação ignora intensidade, frequência e recuperação."
     },
     "tags": [
       "ginastica",
@@ -3280,8 +3347,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "ginastica",
+      "condicionamento",
+      "variaveis"
     ],
     "origin": "nabulab"
   },
@@ -3294,7 +3362,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Capacidade cardiorrespiratória",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Exercício aeróbico de Luta corporal, a característica “atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado” deve ser atribuída ao primeiro conceito.",
+    "statement": "A intensidade de um esforço pode ser interpretada de forma relativa ao condicionamento e à resposta individual do praticante.",
     "alternatives": [
       {
         "id": "V",
@@ -3306,10 +3374,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A avaliação exige delimitar as condições de Capacidade cardiorrespiratória e distingui-las de relações próximas em Saúde.",
+    "explanation": "Uma mesma carga externa pode representar exigências fisiológicas distintas em pessoas diferentes.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A avaliação exige delimitar as condições de Capacidade cardiorrespiratória e distingui-las de relações próximas em Saúde.",
-      "F": "Incorreto. A proposição é verdadeira, pois Exercício aeróbico se caracteriza porque atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A avaliação exige delimitar as condições de Capacidade cardiorrespiratória e distingui-las de relações próximas em Saúde."
+      "V": "Correto. Individualidade é relevante para interpretar o esforço.",
+      "F": "Incorreto. Valores absolutos não possuem o mesmo significado para todos."
     },
     "tags": [
       "saude",
@@ -3323,8 +3391,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "saude",
+      "monitoramento",
+      "individualidade"
     ],
     "origin": "nabulab"
   },
@@ -3337,7 +3406,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Conceitos",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Atividade física de Dança como linguagem, a característica “qualquer movimento corporal produzido pelos músculos aumenta o gasto energético acima do repouso” deve ser atribuída ao segundo conceito.",
+    "statement": "Características do ambiente urbano, como segurança, calçadas e proximidade de serviços, não interferem nas oportunidades de atividade física cotidiana.",
     "alternatives": [
       {
         "id": "V",
@@ -3349,10 +3418,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Atividade física, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A avaliação exige delimitar as condições de Conceitos e distingui-las de relações próximas em Atividade física.",
+    "explanation": "Ambiente construído pode facilitar ou dificultar deslocamentos ativos e outras formas de movimento.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Atividade física, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A avaliação exige delimitar as condições de Conceitos e distingui-las de relações próximas em Atividade física.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Atividade física, enquanto Dança como linguagem se refere a gestos, ritmo, espaço e intenção comunicam sentidos culturais e expressivos. A avaliação exige delimitar as condições de Conceitos e distingui-las de relações próximas em Atividade física."
+      "V": "Incorreto. Oportunidades de atividade física também são social e espacialmente produzidas.",
+      "F": "Correto. A afirmação individualiza um comportamento influenciado pelo ambiente."
     },
     "tags": [
       "atividade-fisica",
@@ -3366,8 +3435,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "atividade-fisica",
+      "determinantes-sociais",
+      "ambiente"
     ],
     "origin": "nabulab"
   },
@@ -3380,7 +3450,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Comportamento sedentário",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Comportamento sedentário de Ginástica de condicionamento físico, a característica “longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo” deve ser atribuída ao primeiro conceito.",
+    "statement": "Em estudos observacionais, associação entre muito tempo sentado e um desfecho de saúde deve ser interpretada considerando possíveis fatores de confusão.",
     "alternatives": [
       {
         "id": "V",
@@ -3392,10 +3462,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A avaliação exige delimitar as condições de Comportamento sedentário e distingui-las de relações próximas em Sedentarismo.",
+    "explanation": "Renda, doenças prévias, alimentação e nível de atividade podem estar relacionados tanto à exposição quanto ao desfecho.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A avaliação exige delimitar as condições de Comportamento sedentário e distingui-las de relações próximas em Sedentarismo.",
-      "F": "Incorreto. A proposição é verdadeira, pois Comportamento sedentário se caracteriza porque longos períodos acordados são passados sentados ou reclinados com gasto energético muito baixo. A avaliação exige delimitar as condições de Comportamento sedentário e distingui-las de relações próximas em Sedentarismo."
+      "V": "Correto. Associação não equivale automaticamente a causalidade isolada.",
+      "F": "Incorreto. Controle de variáveis é importante para interpretação causal."
     },
     "tags": [
       "sedentarismo",
@@ -3409,8 +3479,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "sedentarismo",
+      "evidencia",
+      "causalidade"
     ],
     "origin": "nabulab"
   },
@@ -3423,7 +3494,7 @@ export const educacaoFisicaQuestions: Question[] = [
     "subtopic": "Padrões corporais",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Construção social do corpo de Exercício aeróbico, a característica “valores históricos, mídia e relações sociais influenciam os significados atribuídos aos corpos” deve ser atribuída ao segundo conceito.",
+    "statement": "Questionar padrões corporais socialmente construídos exige negar qualquer influência biológica sobre o corpo.",
     "alternatives": [
       {
         "id": "V",
@@ -3435,10 +3506,10 @@ export const educacaoFisicaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A avaliação exige delimitar as condições de Padrões corporais e distingui-las de relações próximas em Corpo e sociedade.",
+    "explanation": "Dimensões biológicas e socioculturais podem ser analisadas conjuntamente; criticar naturalizações sociais não elimina a biologia.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A avaliação exige delimitar as condições de Padrões corporais e distingui-las de relações próximas em Corpo e sociedade.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Construção social do corpo, enquanto Exercício aeróbico se refere a atividades contínuas envolvendo grandes grupos musculares elevam a demanda de oxigênio por tempo prolongado. A avaliação exige delimitar as condições de Padrões corporais e distingui-las de relações próximas em Corpo e sociedade."
+      "V": "Incorreto. Oposição entre biologia e cultura não é necessária.",
+      "F": "Correto. O enunciado cria um falso dilema."
     },
     "tags": [
       "corpo-e-sociedade",
@@ -3452,8 +3523,9 @@ export const educacaoFisicaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "corpo-e-sociedade",
+      "biologia-e-cultura",
+      "padroes"
     ],
     "origin": "nabulab"
   }

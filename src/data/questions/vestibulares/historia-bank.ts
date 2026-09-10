@@ -7,35 +7,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Antiguidade",
-    "subtopic": "Atenas",
+    "subtopic": "Democracia ateniense",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos?",
+    "statement": "Na Atenas clássica, qual grupo participava diretamente da Assembleia e das decisões políticas?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Democracia ateniense"
+        "text": "Cidadãos homens adultos, filhos de atenienses"
       },
       {
         "id": "B",
-        "text": "Relações de suserania e vassalagem"
+        "text": "Todos os habitantes livres da cidade"
       },
       {
         "id": "C",
-        "text": "Escravidão atlântica"
+        "text": "Mulheres nascidas em Atenas e estrangeiros residentes"
       },
       {
         "id": "D",
-        "text": "Trabalhismo varguista"
+        "text": "Pessoas escravizadas que servissem ao Estado"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Por isso, a alternativa correta é Democracia ateniense.",
+    "explanation": "A cidadania ateniense era restrita a homens adultos reconhecidos como cidadãos. Mulheres, metecos e escravizados permaneciam excluídos da participação política.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Por isso, a alternativa correta é Democracia ateniense.",
-      "B": "Esse conceito designa outra relação: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
-      "C": "A propriedade dessa alternativa é distinta: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
-      "D": "Não corresponde ao caso: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial."
+      "A": "Correta: esse grupo podia falar e votar na Assembleia.",
+      "B": "A liberdade não bastava; metecos livres não eram cidadãos.",
+      "C": "Mulheres e estrangeiros residentes não possuíam direitos políticos.",
+      "D": "A escravização excluía a pessoa da cidadania."
     },
     "tags": [
       "antiguidade",
@@ -61,35 +61,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Média",
-    "subtopic": "Feudalismo",
+    "subtopic": "Sociedade feudal",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios?",
+    "statement": "No feudalismo europeu, a relação pela qual um nobre jurava fidelidade a outro em troca de proteção e de um benefício era chamada de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Mercantilismo"
+        "text": "servidão"
       },
       {
         "id": "B",
-        "text": "Relações de suserania e vassalagem"
+        "text": "suserania e vassalagem"
       },
       {
         "id": "C",
-        "text": "Poder Moderador"
+        "text": "corveia"
       },
       {
         "id": "D",
-        "text": "Guerra total"
+        "text": "assalariamento"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios. Por isso, a alternativa correta é Relações de suserania e vassalagem.",
+    "explanation": "Suserania e vassalagem ligavam membros da nobreza por compromissos recíprocos. Servidão e corveia dizem respeito às obrigações dos camponeses.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
-      "B": "Correta. A distinção central está em nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios. Por isso, a alternativa correta é Relações de suserania e vassalagem.",
-      "C": "Não corresponde ao caso: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
-      "D": "Diverge da descrição porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito."
+      "A": "Servidão vinculava camponeses à terra e a obrigações senhoriais.",
+      "B": "Correta: designa o pacto político-militar entre nobres.",
+      "C": "Corveia era trabalho obrigatório devido pelo servo.",
+      "D": "Assalariamento não define o vínculo vassálico."
     },
     "tags": [
       "idade-media",
@@ -118,32 +118,32 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Mercantilismo",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável?",
+    "statement": "Qual medida é característica das políticas mercantilistas adotadas por monarquias europeias na Idade Moderna?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Queda dos privilégios estamentais"
+        "text": "Eliminar tarifas para garantir livre-comércio irrestrito"
       },
       {
         "id": "B",
-        "text": "Coronelismo"
+        "text": "Transferir todo o comércio colonial a assembleias locais"
       },
       {
         "id": "C",
-        "text": "Mercantilismo"
+        "text": "Proteger a produção interna e buscar balança comercial favorável"
       },
       {
         "id": "D",
-        "text": "Ordem bipolar"
+        "text": "Proibir a acumulação de metais preciosos pelo Estado"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Por isso, a alternativa correta é Mercantilismo.",
+    "explanation": "O mercantilismo combinou intervenção estatal, protecionismo, controle colonial e busca de superávit comercial e metais preciosos.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil.",
-      "B": "Não corresponde ao caso: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
-      "C": "Correta. A resposta decorre da definição disciplinar monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Por isso, a alternativa correta é Mercantilismo.",
-      "D": "Esse conceito designa outra relação: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica."
+      "A": "O protecionismo recorria a tarifas e restrições, não ao livre-comércio irrestrito.",
+      "B": "As metrópoles procuravam controlar o comércio colonial.",
+      "C": "Correta: reúne protecionismo e balança favorável.",
+      "D": "A acumulação de metais era valorizada por práticas metalistas."
     },
     "tags": [
       "idade-moderna",
@@ -172,32 +172,32 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Revolução Francesa",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil?",
+    "statement": "A abolição dos privilégios feudais pela Assembleia Nacional, em 1789, atingiu diretamente qual fundamento do Antigo Regime?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escravidão atlântica"
+        "text": "A igualdade jurídica entre os habitantes"
       },
       {
         "id": "B",
-        "text": "Trabalhismo varguista"
+        "text": "A soberania popular exercida pelo voto universal"
       },
       {
         "id": "C",
-        "text": "Ato Institucional nº 5"
+        "text": "A separação entre Igreja e Estado já consolidada"
       },
       {
         "id": "D",
-        "text": "Queda dos privilégios estamentais"
+        "text": "A divisão da sociedade em ordens com direitos desiguais"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil. Por isso, a alternativa correta é Queda dos privilégios estamentais.",
+    "explanation": "O Antigo Regime legitimava privilégios jurídicos e fiscais de clero e nobreza. Sua abolição atacou a organização estamental.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
-      "B": "Diverge da descrição porque direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial.",
-      "C": "Esse conceito designa outra relação: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
-      "D": "Correta. O critério relevante é a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil. Por isso, a alternativa correta é Queda dos privilégios estamentais."
+      "A": "A igualdade jurídica era uma reivindicação revolucionária, não fundamento anterior.",
+      "B": "O voto universal não caracterizava o Antigo Regime.",
+      "C": "Igreja e monarquia mantinham vínculos importantes.",
+      "D": "Correta: os privilégios dependiam da desigualdade entre ordens."
     },
     "tags": [
       "revolucoes",
@@ -226,32 +226,32 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Escravidão",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada?",
+    "statement": "Na América portuguesa, a escravidão africana esteve diretamente ligada:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escravidão atlântica"
+        "text": "ao tráfico atlântico e ao trabalho compulsório em atividades urbanas e rurais"
       },
       {
         "id": "B",
-        "text": "Poder Moderador"
+        "text": "à concessão generalizada de cidadania aos africanos desembarcados"
       },
       {
         "id": "C",
-        "text": "Guerra total"
+        "text": "ao predomínio exclusivo do trabalho assalariado nos engenhos"
       },
       {
         "id": "D",
-        "text": "Protagonismo indígena"
+        "text": "ao fim das hierarquias jurídicas baseadas na condição social"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Por isso, a alternativa correta é Escravidão atlântica.",
+    "explanation": "O tráfico atlântico abasteceu uma ordem escravista que empregou africanos e seus descendentes em múltiplas atividades e sustentou hierarquias racializadas.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Por isso, a alternativa correta é Escravidão atlântica.",
-      "B": "Esse conceito designa outra relação: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
-      "C": "A propriedade dessa alternativa é distinta: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
-      "D": "Não corresponde ao caso: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais."
+      "A": "Correta: relaciona tráfico, coerção e diversidade do trabalho escravizado.",
+      "B": "Pessoas escravizadas não recebiam cidadania ao desembarcar.",
+      "C": "O trabalho compulsório foi central nos engenhos.",
+      "D": "A escravidão produziu e reforçou desigualdades jurídicas e sociais."
     },
     "tags": [
       "brasil-colonia",
@@ -277,14 +277,14 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Império",
-    "subtopic": "Política",
+    "subtopic": "Constituição de 1824",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes?",
+    "statement": "Pela Constituição brasileira de 1824, qual poder permitia ao imperador nomear senadores, dissolver a Câmara e intervir nos demais poderes?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Coronelismo"
+        "text": "Poder Executivo provincial"
       },
       {
         "id": "B",
@@ -292,20 +292,20 @@ export const historiaQuestions: Question[] = [
       },
       {
         "id": "C",
-        "text": "Ordem bipolar"
+        "text": "Poder Legislativo municipal"
       },
       {
         "id": "D",
-        "text": "Democracia ateniense"
+        "text": "Poder Judiciário eleitoral"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes. Por isso, a alternativa correta é Poder Moderador.",
+    "explanation": "O Poder Moderador, atribuído ao imperador, colocava-o como árbitro da organização política e ampliava sua capacidade de intervenção.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
-      "B": "Correta. A propriedade determinante é a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes. Por isso, a alternativa correta é Poder Moderador.",
-      "C": "Não corresponde ao caso: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
-      "D": "Diverge da descrição porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos."
+      "A": "As províncias não concentravam essas prerrogativas imperiais.",
+      "B": "Correta: eram competências vinculadas ao Poder Moderador.",
+      "C": "A Câmara municipal não dissolvia a Câmara dos Deputados.",
+      "D": "A Constituição não criou um Judiciário eleitoral com essas funções."
     },
     "tags": [
       "brasil-imperio",
@@ -331,35 +331,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "República",
-    "subtopic": "Primeira República",
+    "subtopic": "Coronelismo",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais?",
+    "statement": "Na Primeira República, o controle de votos por chefes locais mediante favores, dependência econômica e pressão sobre eleitores ficou conhecido como:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Trabalhismo varguista"
+        "text": "tenentismo"
       },
       {
         "id": "B",
-        "text": "Ato Institucional nº 5"
+        "text": "parlamentarismo"
       },
       {
         "id": "C",
-        "text": "Coronelismo"
+        "text": "coronelismo"
       },
       {
         "id": "D",
-        "text": "Relações de suserania e vassalagem"
+        "text": "queremismo"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Por isso, a alternativa correta é Coronelismo.",
+    "explanation": "O coronelismo articulava poder privado local, controle eleitoral e troca de favores com governos estaduais e federal.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial.",
-      "B": "Não corresponde ao caso: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
-      "C": "Correta. A conclusão se apoia em chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Por isso, a alternativa correta é Coronelismo.",
-      "D": "Esse conceito designa outra relação: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios."
+      "A": "Tenentismo foi um movimento de jovens oficiais crítico à ordem oligárquica.",
+      "B": "Parlamentarismo é uma forma de governo, não uma rede local de coerção eleitoral.",
+      "C": "Correta: descreve o mando dos coronéis e o voto de cabresto.",
+      "D": "Queremismo foi mobilização ligada à permanência de Vargas em 1945."
     },
     "tags": [
       "republica",
@@ -385,35 +385,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Era Vargas",
-    "subtopic": "Trabalho",
+    "subtopic": "Trabalhismo",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial?",
+    "statement": "Qual característica marcou a política trabalhista do governo Vargas?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Guerra total"
+        "text": "Autonomia sindical completa em relação ao Estado"
       },
       {
         "id": "B",
-        "text": "Protagonismo indígena"
+        "text": "Revogação da legislação social criada desde 1930"
       },
       {
         "id": "C",
-        "text": "Mercantilismo"
+        "text": "Proibição permanente da carteira de trabalho"
       },
       {
         "id": "D",
-        "text": "Trabalhismo varguista"
+        "text": "Concessão de direitos acompanhada de controle estatal dos sindicatos"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial. Por isso, a alternativa correta é Trabalhismo varguista.",
+    "explanation": "O varguismo ampliou direitos e institucionalizou relações de trabalho, mas subordinou sindicatos ao reconhecimento e à tutela do Estado.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
-      "B": "Diverge da descrição porque povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais.",
-      "C": "Esse conceito designa outra relação: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
-      "D": "Correta. A distinção central está em direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial. Por isso, a alternativa correta é Trabalhismo varguista."
+      "A": "A estrutura sindical ficou submetida a forte controle estatal.",
+      "B": "O período consolidou, em vez de revogar, parte importante da legislação social.",
+      "C": "A carteira de trabalho foi incorporada ao sistema de regulação.",
+      "D": "Correta: expressa a combinação de direitos e tutela política."
     },
     "tags": [
       "era-vargas",
@@ -439,35 +439,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerras Mundiais",
-    "subtopic": "Primeira Guerra",
+    "subtopic": "Primeira Guerra Mundial",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito?",
+    "statement": "O uso de racionamento, propaganda estatal e mobilização industrial durante a Primeira Guerra Mundial indica:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Guerra total"
+        "text": "a transformação do conflito em guerra total"
       },
       {
         "id": "B",
-        "text": "Ordem bipolar"
+        "text": "a neutralidade econômica das potências"
       },
       {
         "id": "C",
-        "text": "Democracia ateniense"
+        "text": "o isolamento dos civis em relação à guerra"
       },
       {
         "id": "D",
-        "text": "Queda dos privilégios estamentais"
+        "text": "o abandono das novas tecnologias militares"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Por isso, a alternativa correta é Guerra total.",
+    "explanation": "A guerra total mobiliza recursos econômicos, científicos e humanos da sociedade, atingindo também a população civil.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Por isso, a alternativa correta é Guerra total.",
-      "B": "Esse conceito designa outra relação: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
-      "C": "A propriedade dessa alternativa é distinta: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
-      "D": "Não corresponde ao caso: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil."
+      "A": "Correta: os Estados reorganizaram sociedade e economia para o conflito.",
+      "B": "As economias foram direcionadas ao esforço de guerra.",
+      "C": "Civis foram afetados por propaganda, escassez e violência.",
+      "D": "Metralhadoras, gases, aviões e tanques ampliaram a dimensão tecnológica."
     },
     "tags": [
       "guerras-mundiais",
@@ -496,32 +496,32 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Bipolaridade",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica?",
+    "statement": "Durante a Guerra Fria, a expressão “mundo bipolar” referia-se principalmente:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ato Institucional nº 5"
+        "text": "à divisão religiosa entre católicos e protestantes"
       },
       {
         "id": "B",
-        "text": "Ordem bipolar"
+        "text": "à liderança de Estados Unidos e União Soviética em blocos rivais"
       },
       {
         "id": "C",
-        "text": "Relações de suserania e vassalagem"
+        "text": "à aliança militar permanente entre as duas superpotências"
       },
       {
         "id": "D",
-        "text": "Escravidão atlântica"
+        "text": "ao desaparecimento dos conflitos nas regiões periféricas"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica. Por isso, a alternativa correta é Ordem bipolar.",
+    "explanation": "Estados Unidos e União Soviética organizaram alianças e modelos econômicos e políticos concorrentes, embora outros países mantivessem graus variados de autonomia.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
-      "B": "Correta. O critério relevante é Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica. Por isso, a alternativa correta é Ordem bipolar.",
-      "C": "Não corresponde ao caso: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
-      "D": "Diverge da descrição porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada."
+      "A": "A bipolaridade era geopolítica e ideológica, não uma divisão confessional.",
+      "B": "Correta: identifica os dois polos centrais.",
+      "C": "As superpotências lideravam alianças opostas.",
+      "D": "Guerras e disputas ocorreram intensamente na Ásia, África e América Latina."
     },
     "tags": [
       "guerra-fria",
@@ -547,35 +547,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Ditadura Militar",
-    "subtopic": "Repressão",
+    "subtopic": "AI-5",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias?",
+    "statement": "Decretado em 1968, o AI-5 aprofundou a ditadura brasileira ao permitir:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Protagonismo indígena"
+        "text": "eleições presidenciais diretas e pluripartidarismo"
       },
       {
         "id": "B",
-        "text": "Mercantilismo"
+        "text": "anistia imediata a todos os opositores"
       },
       {
         "id": "C",
-        "text": "Ato Institucional nº 5"
+        "text": "fechamento do Congresso, cassações e suspensão de garantias"
       },
       {
         "id": "D",
-        "text": "Poder Moderador"
+        "text": "retorno dos militares aos quartéis e posse civil"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Por isso, a alternativa correta é Ato Institucional nº 5.",
+    "explanation": "O AI-5 ampliou poderes excepcionais do Executivo, restringiu garantias e abriu a fase mais repressiva do regime.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais.",
-      "B": "Não corresponde ao caso: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
-      "C": "Correta. Neste caso o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Por isso, a alternativa correta é Ato Institucional nº 5.",
-      "D": "Esse conceito designa outra relação: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes."
+      "A": "O ato restringiu a participação política e não restaurou eleições diretas.",
+      "B": "A anistia seria aprovada apenas em 1979 e com limites.",
+      "C": "Correta: resume instrumentos centrais do ato.",
+      "D": "O governo militar permaneceu e intensificou a repressão."
     },
     "tags": [
       "ditadura-militar",
@@ -601,35 +601,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "História indígena",
-    "subtopic": "Agência histórica",
+    "subtopic": "Agência indígena",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais?",
+    "statement": "Considerar os povos indígenas como sujeitos históricos significa reconhecer que eles:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Democracia ateniense"
+        "text": "formavam um único povo com respostas idênticas à colonização"
       },
       {
         "id": "B",
-        "text": "Queda dos privilégios estamentais"
+        "text": "permaneceram isolados e sem contato com outros grupos"
       },
       {
         "id": "C",
-        "text": "Coronelismo"
+        "text": "apenas sofreram passivamente decisões coloniais"
       },
       {
         "id": "D",
-        "text": "Protagonismo indígena"
+        "text": "negociaram, resistiram e construíram estratégias diversas diante dos colonizadores"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais. Por isso, a alternativa correta é Protagonismo indígena.",
+    "explanation": "A noção de agência destaca decisões, alianças, conflitos e adaptações dos diferentes povos, sem negar a violência colonial.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
-      "B": "Diverge da descrição porque a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil.",
-      "C": "Esse conceito designa outra relação: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
-      "D": "Correta. A propriedade determinante é povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais. Por isso, a alternativa correta é Protagonismo indígena."
+      "A": "Havia grande diversidade política, linguística e cultural.",
+      "B": "Muitos grupos estabeleceram contatos, alianças e conflitos.",
+      "C": "A violência não eliminou a capacidade de ação histórica.",
+      "D": "Correta: reconhece estratégias indígenas múltiplas."
     },
     "tags": [
       "historia-indigena",
@@ -658,7 +658,7 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Mercantilismo",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Mercantilismo” corresponde à seguinte descrição: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
+    "statement": "As monarquias mercantilistas costumavam proteger mercados e controlar o comércio colonial para fortalecer o Estado.",
     "alternatives": [
       {
         "id": "V",
@@ -670,10 +670,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Em Idade Moderna, o reconhecimento direto da propriedade de Mercantilismo resolve o item.",
+    "explanation": "Verdadeira. Protecionismo e exclusivo colonial foram instrumentos recorrentes para acumular recursos e ampliar o poder monárquico.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Em Idade Moderna, o reconhecimento direto da propriedade de Mercantilismo resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Em Idade Moderna, o reconhecimento direto da propriedade de Mercantilismo resolve o item."
+      "V": "Correto: a afirmação relaciona intervenção econômica e fortalecimento estatal.",
+      "F": "Incorreto: livre-comércio irrestrito não foi a orientação predominante dessas políticas."
     },
     "tags": [
       "idade-moderna",
@@ -702,7 +702,7 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Revolução Francesa",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Escravidão atlântica” corresponde à seguinte descrição: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil.",
+    "statement": "A Declaração dos Direitos do Homem manteve os privilégios fiscais exclusivos do clero e da nobreza como direitos naturais.",
     "alternatives": [
       {
         "id": "V",
@@ -714,10 +714,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Em Revoluções, o reconhecimento direto da propriedade de Revolução Francesa resolve o item.",
+    "explanation": "Falsa. A linguagem de igualdade jurídica e direitos universais atacava privilégios de nascimento próprios da sociedade estamental.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Em Revoluções, o reconhecimento direto da propriedade de Revolução Francesa resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Em Revoluções, o reconhecimento direto da propriedade de Revolução Francesa resolve o item."
+      "V": "Incorreto: privilégios estamentais eram alvo central da ruptura revolucionária.",
+      "F": "Correto: a declaração afirmava igualdade de direitos, embora sua aplicação fosse limitada."
     },
     "tags": [
       "revolucoes",
@@ -746,7 +746,7 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Escravidão",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Escravidão atlântica” corresponde à seguinte descrição: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
+    "statement": "A escravidão na América portuguesa utilizou mão de obra africana tanto em atividades rurais quanto urbanas.",
     "alternatives": [
       {
         "id": "V",
@@ -758,10 +758,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Em Brasil Colônia, o reconhecimento direto da propriedade de Escravidão resolve o item.",
+    "explanation": "Verdadeira. Pessoas escravizadas trabalharam em engenhos, minas, fazendas, casas, oficinas, comércio e serviços urbanos.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Em Brasil Colônia, o reconhecimento direto da propriedade de Escravidão resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Em Brasil Colônia, o reconhecimento direto da propriedade de Escravidão resolve o item."
+      "V": "Correto: o trabalho escravizado teve usos econômicos variados.",
+      "F": "Incorreto: ele não ficou restrito às grandes propriedades rurais."
     },
     "tags": [
       "brasil-colonia",
@@ -787,10 +787,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Império",
-    "subtopic": "Política",
+    "subtopic": "Constituição de 1824",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Coronelismo” corresponde à seguinte descrição: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
+    "statement": "O Poder Moderador limitava o imperador a funções simbólicas e o impedia de dissolver a Câmara dos Deputados.",
     "alternatives": [
       {
         "id": "V",
@@ -802,10 +802,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Em Brasil Império, o reconhecimento direto da propriedade de Política resolve o item.",
+    "explanation": "Falsa. O Poder Moderador dava ao monarca prerrogativas efetivas, inclusive dissolver a Câmara e nomear senadores.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Em Brasil Império, o reconhecimento direto da propriedade de Política resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Em Brasil Império, o reconhecimento direto da propriedade de Política resolve o item."
+      "V": "Incorreto: a Constituição conferia ao imperador capacidade concreta de intervenção.",
+      "F": "Correto: o poder imperial não era apenas cerimonial."
     },
     "tags": [
       "brasil-imperio",
@@ -831,10 +831,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "República",
-    "subtopic": "Primeira República",
+    "subtopic": "Coronelismo",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Coronelismo” corresponde à seguinte descrição: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
+    "statement": "O coronelismo combinava influência econômica local, troca de favores e controle do voto.",
     "alternatives": [
       {
         "id": "V",
@@ -846,10 +846,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Em República, o reconhecimento direto da propriedade de Primeira República resolve o item.",
+    "explanation": "Verdadeira. Chefes locais articulavam dependência pessoal e eleitoral às alianças com governos estaduais.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Em República, o reconhecimento direto da propriedade de Primeira República resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Em República, o reconhecimento direto da propriedade de Primeira República resolve o item."
+      "V": "Correto: resume mecanismos do mando oligárquico local.",
+      "F": "Incorreto: o fenômeno não se reduzia a uma patente militar formal."
     },
     "tags": [
       "republica",
@@ -875,10 +875,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Era Vargas",
-    "subtopic": "Trabalho",
+    "subtopic": "Trabalhismo",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Guerra total” corresponde à seguinte descrição: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial.",
+    "statement": "A legislação trabalhista varguista garantiu autonomia sindical plena, sem fiscalização ou reconhecimento do Estado.",
     "alternatives": [
       {
         "id": "V",
@@ -890,10 +890,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Em Era Vargas, o reconhecimento direto da propriedade de Trabalho resolve o item.",
+    "explanation": "Falsa. A ampliação de direitos ocorreu junto a mecanismos de enquadramento, reconhecimento e controle estatal dos sindicatos.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Em Era Vargas, o reconhecimento direto da propriedade de Trabalho resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Em Era Vargas, o reconhecimento direto da propriedade de Trabalho resolve o item."
+      "V": "Incorreto: separa os direitos da tutela política que os acompanhou.",
+      "F": "Correto: o Estado regulava a organização sindical."
     },
     "tags": [
       "era-vargas",
@@ -919,10 +919,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerras Mundiais",
-    "subtopic": "Primeira Guerra",
+    "subtopic": "Primeira Guerra Mundial",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Guerra total” corresponde à seguinte descrição: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
+    "statement": "Na Primeira Guerra, a mobilização das indústrias e da população civil tornou o conflito mais amplo que o combate entre exércitos.",
     "alternatives": [
       {
         "id": "V",
@@ -934,10 +934,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Em Guerras Mundiais, o reconhecimento direto da propriedade de Primeira Guerra resolve o item.",
+    "explanation": "Verdadeira. Produção, propaganda, abastecimento e trabalho civil foram incorporados ao esforço de guerra.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Em Guerras Mundiais, o reconhecimento direto da propriedade de Primeira Guerra resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Em Guerras Mundiais, o reconhecimento direto da propriedade de Primeira Guerra resolve o item."
+      "V": "Correto: isso caracteriza a dimensão total do conflito.",
+      "F": "Incorreto: a guerra afetou profundamente a retaguarda civil."
     },
     "tags": [
       "guerras-mundiais",
@@ -966,7 +966,7 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Bipolaridade",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Ato Institucional nº 5” corresponde à seguinte descrição: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
+    "statement": "A bipolaridade significou que Estados Unidos e União Soviética integravam o mesmo bloco militar contra países não alinhados.",
     "alternatives": [
       {
         "id": "V",
@@ -978,10 +978,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Em Guerra Fria, o reconhecimento direto da propriedade de Bipolaridade resolve o item.",
+    "explanation": "Falsa. As superpotências lideravam blocos rivais, associados respectivamente à OTAN e ao Pacto de Varsóvia.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Em Guerra Fria, o reconhecimento direto da propriedade de Bipolaridade resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Em Guerra Fria, o reconhecimento direto da propriedade de Bipolaridade resolve o item."
+      "V": "Incorreto: transforma antagonismo em aliança.",
+      "F": "Correto: a rivalidade estruturou a ordem bipolar."
     },
     "tags": [
       "guerra-fria",
@@ -1007,10 +1007,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Ditadura Militar",
-    "subtopic": "Repressão",
+    "subtopic": "AI-5",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Ato Institucional nº 5” corresponde à seguinte descrição: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
+    "statement": "O AI-5 ampliou a repressão ao autorizar cassações e restringir garantias políticas e jurídicas.",
     "alternatives": [
       {
         "id": "V",
@@ -1022,10 +1022,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Em Ditadura Militar, o reconhecimento direto da propriedade de Repressão resolve o item.",
+    "explanation": "Verdadeira. O ato concentrou poderes e permitiu medidas de exceção que aprofundaram o autoritarismo.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Em Ditadura Militar, o reconhecimento direto da propriedade de Repressão resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Em Ditadura Militar, o reconhecimento direto da propriedade de Repressão resolve o item."
+      "V": "Correto: identifica o sentido político do ato.",
+      "F": "Incorreto: o AI-5 não iniciou uma abertura democrática."
     },
     "tags": [
       "ditadura-militar",
@@ -1051,10 +1051,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "História indígena",
-    "subtopic": "Agência histórica",
+    "subtopic": "Agência indígena",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Democracia ateniense” corresponde à seguinte descrição: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais.",
+    "statement": "Todos os povos indígenas adotaram a mesma estratégia de resistência e recusaram qualquer aliança durante a colonização.",
     "alternatives": [
       {
         "id": "V",
@@ -1066,10 +1066,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Em História indígena, o reconhecimento direto da propriedade de Agência histórica resolve o item.",
+    "explanation": "Falsa. Povos distintos combinaram guerra, negociação, deslocamento e alianças conforme seus interesses e contextos.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Em História indígena, o reconhecimento direto da propriedade de Agência histórica resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Em História indígena, o reconhecimento direto da propriedade de Agência histórica resolve o item."
+      "V": "Incorreto: homogeneíza sociedades e escolhas diversas.",
+      "F": "Correto: agência histórica implica respostas múltiplas, não uniformidade."
     },
     "tags": [
       "historia-indigena",
@@ -1095,10 +1095,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Antiguidade",
-    "subtopic": "Atenas",
+    "subtopic": "Democracia ateniense",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Democracia ateniense” corresponde à seguinte descrição: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
+    "statement": "A democracia ateniense era direta, mas excluía da cidadania política grande parte dos habitantes da pólis.",
     "alternatives": [
       {
         "id": "V",
@@ -1110,10 +1110,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Em Antiguidade, o reconhecimento direto da propriedade de Atenas resolve o item.",
+    "explanation": "Verdadeira. Os cidadãos decidiam diretamente, porém mulheres, estrangeiros e escravizados não participavam.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Em Antiguidade, o reconhecimento direto da propriedade de Atenas resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Em Antiguidade, o reconhecimento direto da propriedade de Atenas resolve o item."
+      "V": "Correto: distingue forma de participação e limites da cidadania.",
+      "F": "Incorreto: participação direta não significava sufrágio universal."
     },
     "tags": [
       "antiguidade",
@@ -1139,10 +1139,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Média",
-    "subtopic": "Feudalismo",
+    "subtopic": "Sociedade feudal",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Mercantilismo” corresponde à seguinte descrição: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
+    "statement": "A vassalagem ligava exclusivamente servos e senhores por meio do pagamento da corveia.",
     "alternatives": [
       {
         "id": "V",
@@ -1154,10 +1154,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Em Idade Média, o reconhecimento direto da propriedade de Feudalismo resolve o item.",
+    "explanation": "Falsa. A vassalagem era um vínculo entre nobres; corveia era uma obrigação de trabalho camponesa.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Em Idade Média, o reconhecimento direto da propriedade de Feudalismo resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Em Idade Média, o reconhecimento direto da propriedade de Feudalismo resolve o item."
+      "V": "Incorreto: mistura duas relações sociais distintas.",
+      "F": "Correto: diferencia pacto nobiliárquico e obrigação servil."
     },
     "tags": [
       "idade-media",
@@ -1183,35 +1183,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Colônia",
-    "subtopic": "Escravidão",
+    "subtopic": "Resistência escrava",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada?",
+    "statement": "Um anúncio de 1820 descreve um homem escravizado fugitivo como conhecedor dos caminhos, capaz de ler e trabalhador de ganho. O documento permite concluir que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escravidão atlântica"
+        "text": "pessoas escravizadas podiam construir conhecimentos e redes usados em estratégias de fuga"
       },
       {
         "id": "B",
-        "text": "Coronelismo"
+        "text": "a alfabetização concedia liberdade automática pela lei colonial"
       },
       {
         "id": "C",
-        "text": "Ordem bipolar"
+        "text": "trabalhadores de ganho estavam fora das relações escravistas"
       },
       {
         "id": "D",
-        "text": "Relações de suserania e vassalagem"
+        "text": "as fugas ocorriam apenas por desconhecimento das cidades"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Por isso, a alternativa correta é Escravidão atlântica.",
+    "explanation": "O anúncio, embora produzido pelo senhor, revela habilidades e circulação que podiam ampliar margens de ação e favorecer a fuga, sem eliminar a condição escrava.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Por isso, a alternativa correta é Escravidão atlântica.",
-      "B": "Esse conceito designa outra relação: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
-      "C": "A propriedade dessa alternativa é distinta: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
-      "D": "Não corresponde ao caso: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios."
+      "A": "Correta: infere agência a partir das informações da fonte.",
+      "B": "Alfabetização não produzia alforria automática.",
+      "C": "O ganho era uma modalidade de trabalho dentro da escravidão urbana.",
+      "D": "Conhecer caminhos podia facilitar, e não impedir, a fuga."
     },
     "tags": [
       "brasil-colonia",
@@ -1237,35 +1237,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Império",
-    "subtopic": "Política",
+    "subtopic": "Poder Moderador",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes?",
+    "statement": "Em 1847, criou-se o cargo de presidente do Conselho de Ministros, mas o imperador continuou podendo demitir o gabinete e dissolver a Câmara. Por que esse arranjo é chamado de “parlamentarismo às avessas”?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Trabalhismo varguista"
+        "text": "Porque a Câmara escolhia o imperador por maioria simples"
       },
       {
         "id": "B",
-        "text": "Poder Moderador"
+        "text": "Porque o gabinete dependia da confiança parlamentar e também da autoridade do monarca"
       },
       {
         "id": "C",
-        "text": "Ato Institucional nº 5"
+        "text": "Porque o Senado passou a ser eleito por sufrágio universal"
       },
       {
         "id": "D",
-        "text": "Mercantilismo"
+        "text": "Porque as províncias adquiriram soberania para rejeitar ministros"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes. Por isso, a alternativa correta é Poder Moderador.",
+    "explanation": "Diferentemente do parlamentarismo clássico, o imperador conservava papel decisivo na formação e queda dos gabinetes por meio do Poder Moderador.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial.",
-      "B": "Correta. A distinção central está em a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes. Por isso, a alternativa correta é Poder Moderador.",
-      "C": "Não corresponde ao caso: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
-      "D": "Diverge da descrição porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável."
+      "A": "O monarca era hereditário, não eleito pela Câmara.",
+      "B": "Correta: identifica a dupla dependência do gabinete.",
+      "C": "O Senado era vitalício e o voto continuava restrito.",
+      "D": "As províncias não se tornaram soberanas."
     },
     "tags": [
       "brasil-imperio",
@@ -1291,35 +1291,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "República",
-    "subtopic": "Primeira República",
+    "subtopic": "Política dos governadores",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais?",
+    "statement": "Na Primeira República, o governo federal apoiava oligarquias estaduais, que por sua vez garantiam bancadas governistas por meio de chefes municipais. Esse circuito sustentava:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Guerra total"
+        "text": "a independência dos eleitores em relação aos poderes locais"
       },
       {
         "id": "B",
-        "text": "Protagonismo indígena"
+        "text": "a competição partidária nacional sem interferência estadual"
       },
       {
         "id": "C",
-        "text": "Coronelismo"
+        "text": "a política dos governadores articulada ao coronelismo"
       },
       {
         "id": "D",
-        "text": "Queda dos privilégios estamentais"
+        "text": "a eleição direta e secreta para presidente"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Por isso, a alternativa correta é Coronelismo.",
+    "explanation": "A política dos governadores conectava Executivo federal, oligarquias estaduais e coronéis locais, reduzindo a competição e controlando resultados eleitorais.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
-      "B": "Não corresponde ao caso: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais.",
-      "C": "Correta. A resposta decorre da definição disciplinar chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Por isso, a alternativa correta é Coronelismo.",
-      "D": "Esse conceito designa outra relação: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil."
+      "A": "Dependência e coerção limitavam a autonomia do voto.",
+      "B": "Partidos e máquinas estaduais dominavam o sistema.",
+      "C": "Correta: relaciona os níveis federal, estadual e municipal.",
+      "D": "O voto era aberto, o que favorecia pressões locais."
     },
     "tags": [
       "republica",
@@ -1345,35 +1345,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Era Vargas",
-    "subtopic": "Trabalho",
+    "subtopic": "Legislação trabalhista",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial?",
+    "statement": "A carteira de trabalho registrava direitos e vínculos, enquanto sindicatos precisavam de reconhecimento estatal. Em conjunto, essas medidas indicam:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ordem bipolar"
+        "text": "retirada completa do Estado das relações entre capital e trabalho"
       },
       {
         "id": "B",
-        "text": "Democracia ateniense"
+        "text": "substituição do trabalho assalariado pela servidão"
       },
       {
         "id": "C",
-        "text": "Escravidão atlântica"
+        "text": "autonomia sindical acompanhada do fim da legislação social"
       },
       {
         "id": "D",
-        "text": "Trabalhismo varguista"
+        "text": "incorporação dos trabalhadores urbanos à cidadania social sob tutela estatal"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial. Por isso, a alternativa correta é Trabalhismo varguista.",
+    "explanation": "O Estado reconheceu direitos e construiu canais de inclusão social, mas enquadrou sindicatos e vinculou benefícios à ordem corporativa.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
-      "B": "Diverge da descrição porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
-      "C": "Esse conceito designa outra relação: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
-      "D": "Correta. O critério relevante é direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial. Por isso, a alternativa correta é Trabalhismo varguista."
+      "A": "Houve forte intervenção e regulação estatal.",
+      "B": "A legislação organizava o trabalho assalariado urbano.",
+      "C": "Direitos cresceram, mas a autonomia sindical era limitada.",
+      "D": "Correta: expressa simultaneamente inclusão e controle."
     },
     "tags": [
       "era-vargas",
@@ -1399,35 +1399,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerras Mundiais",
-    "subtopic": "Primeira Guerra",
+    "subtopic": "Tratado de Versalhes",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito?",
+    "statement": "Ao impor reparações, perdas territoriais e limitações militares à Alemanha, o Tratado de Versalhes contribuiu para:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Guerra total"
+        "text": "alimentar ressentimentos explorados posteriormente pelo nazismo"
       },
       {
         "id": "B",
-        "text": "Ato Institucional nº 5"
+        "text": "integrar imediatamente a Alemanha em condições iguais à ordem europeia"
       },
       {
         "id": "C",
-        "text": "Relações de suserania e vassalagem"
+        "text": "eliminar as crises econômicas da República de Weimar"
       },
       {
         "id": "D",
-        "text": "Poder Moderador"
+        "text": "impedir qualquer nacionalismo expansionista no período entreguerras"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Por isso, a alternativa correta é Guerra total.",
+    "explanation": "As punições não causaram sozinhas o nazismo, mas agravaram tensões políticas e econômicas e forneceram material à propaganda revanchista.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Por isso, a alternativa correta é Guerra total.",
-      "B": "Esse conceito designa outra relação: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
-      "C": "A propriedade dessa alternativa é distinta: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
-      "D": "Não corresponde ao caso: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes."
+      "A": "Correta: estabelece uma contribuição histórica sem monocausalidade.",
+      "B": "A Alemanha foi inicialmente marginalizada e responsabilizada.",
+      "C": "Reparações e instabilidade agravaram dificuldades econômicas.",
+      "D": "O expansionismo ressurgiu e foi central à política nazista."
     },
     "tags": [
       "guerras-mundiais",
@@ -1453,35 +1453,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerra Fria",
-    "subtopic": "Bipolaridade",
+    "subtopic": "Conflitos periféricos",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica?",
+    "statement": "Na Guerra da Coreia, Estados Unidos apoiaram o Sul e China e União Soviética apoiaram o Norte, sem confronto militar direto entre as duas superpotências. O caso exemplifica:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Protagonismo indígena"
+        "text": "o fim da disputa ideológica após 1945"
       },
       {
         "id": "B",
-        "text": "Ordem bipolar"
+        "text": "a projeção da rivalidade bipolar por meio de conflitos regionais"
       },
       {
         "id": "C",
-        "text": "Mercantilismo"
+        "text": "a neutralidade das potências diante da descolonização"
       },
       {
         "id": "D",
-        "text": "Coronelismo"
+        "text": "a unificação pacífica da península sob mediação soviética"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica. Por isso, a alternativa correta é Ordem bipolar.",
+    "explanation": "A competição global foi frequentemente travada por alianças, apoio militar e guerras localizadas, evitando choque nuclear direto entre as superpotências.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais.",
-      "B": "Correta. A propriedade determinante é Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica. Por isso, a alternativa correta é Ordem bipolar.",
-      "C": "Não corresponde ao caso: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
-      "D": "Diverge da descrição porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais."
+      "A": "A rivalidade se intensificou no pós-guerra.",
+      "B": "Correta: liga dinâmica global e guerra regional.",
+      "C": "As potências intervieram política e militarmente.",
+      "D": "A guerra terminou com a península dividida."
     },
     "tags": [
       "guerra-fria",
@@ -1507,35 +1507,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Ditadura Militar",
-    "subtopic": "Repressão",
+    "subtopic": "Repressão e resistência",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias?",
+    "statement": "Depois do AI-5, cresceram a censura, as cassações e a repressão clandestina. Ao mesmo tempo, parte da oposição adotou a luta armada. Qual interpretação é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Democracia ateniense"
+        "text": "A luta armada causou o golpe de 1964, ocorrido quatro anos antes"
       },
       {
         "id": "B",
-        "text": "Queda dos privilégios estamentais"
+        "text": "A censura atingiu apenas jornais estrangeiros e preservou artistas brasileiros"
       },
       {
         "id": "C",
-        "text": "Ato Institucional nº 5"
+        "text": "O fechamento político radicalizou setores oposicionistas, enquanto o Estado ampliou a repressão"
       },
       {
         "id": "D",
-        "text": "Trabalhismo varguista"
+        "text": "O AI-5 restaurou garantias constitucionais e reduziu conflitos"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Por isso, a alternativa correta é Ato Institucional nº 5.",
+    "explanation": "A cronologia impede atribuir o golpe à luta armada posterior. O endurecimento institucional e a radicalização de parte da oposição alimentaram uma dinâmica repressiva.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
-      "B": "Não corresponde ao caso: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil.",
-      "C": "Correta. A conclusão se apoia em o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Por isso, a alternativa correta é Ato Institucional nº 5.",
-      "D": "Esse conceito designa outra relação: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial."
+      "A": "Inverte a sequência temporal entre golpe e expansão da luta armada.",
+      "B": "A censura alcançou imprensa, música, teatro, cinema e outras produções nacionais.",
+      "C": "Correta: relaciona contexto autoritário e formas de resistência.",
+      "D": "O ato suspendeu garantias e aprofundou o fechamento."
     },
     "tags": [
       "ditadura-militar",
@@ -1561,35 +1561,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "História indígena",
-    "subtopic": "Agência histórica",
+    "subtopic": "Alianças coloniais",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais?",
+    "statement": "No século XVI, grupos tupiniquins se aliaram aos portugueses, enquanto grupos tamoios estabeleceram alianças com franceses. O exemplo mostra que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Relações de suserania e vassalagem"
+        "text": "alianças europeias eliminaram rivalidades e interesses indígenas"
       },
       {
         "id": "B",
-        "text": "Escravidão atlântica"
+        "text": "todos os povos apoiaram a mesma potência colonial"
       },
       {
         "id": "C",
-        "text": "Guerra total"
+        "text": "os indígenas desconheciam os objetivos dos europeus e não fizeram escolhas"
       },
       {
         "id": "D",
-        "text": "Protagonismo indígena"
+        "text": "povos indígenas mobilizaram alianças coloniais dentro de conflitos e estratégias próprias"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais. Por isso, a alternativa correta é Protagonismo indígena.",
+    "explanation": "As alianças não anulavam a violência ou a assimetria, mas eram também apropriadas por grupos indígenas em disputas preexistentes e novos cálculos políticos.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
-      "B": "Diverge da descrição porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
-      "C": "Esse conceito designa outra relação: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
-      "D": "Correta. A distinção central está em povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais. Por isso, a alternativa correta é Protagonismo indígena."
+      "A": "Interesses e rivalidades indígenas continuaram relevantes.",
+      "B": "O próprio contraste entre alianças nega essa uniformidade.",
+      "C": "A fonte histórica evidencia escolhas e negociações.",
+      "D": "Correta: reconhece agência sem idealizar relações coloniais."
     },
     "tags": [
       "historia-indigena",
@@ -1615,35 +1615,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Antiguidade",
-    "subtopic": "Atenas",
+    "subtopic": "Democracia e escravidão",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos?",
+    "statement": "A democracia ateniense ampliou a participação dos cidadãos, mas manteve escravidão e exclusão de mulheres e metecos. Essa combinação revela que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Democracia ateniense"
+        "text": "participação direta coexistiu com uma cidadania socialmente restrita"
       },
       {
         "id": "B",
-        "text": "Mercantilismo"
+        "text": "a Assembleia incluía todos os habitantes adultos"
       },
       {
         "id": "C",
-        "text": "Poder Moderador"
+        "text": "a escravidão impedia qualquer deliberação entre cidadãos"
       },
       {
         "id": "D",
-        "text": "Ordem bipolar"
+        "text": "a condição de meteco garantia acesso automático às magistraturas"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Por isso, a alternativa correta é Democracia ateniense.",
+    "explanation": "A inovação política deve ser analisada com seus limites: igualdade entre cidadãos não equivalia à inclusão de toda a população.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Por isso, a alternativa correta é Democracia ateniense.",
-      "B": "Esse conceito designa outra relação: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
-      "C": "A propriedade dessa alternativa é distinta: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
-      "D": "Não corresponde ao caso: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica."
+      "A": "Correta: evita tanto idealização quanto negação da experiência democrática.",
+      "B": "Cidadania não abrangia todos os adultos.",
+      "C": "Cidadãos deliberavam, embora a ordem dependesse de exclusões.",
+      "D": "Metecos eram livres, mas não possuíam direitos políticos plenos."
     },
     "tags": [
       "antiguidade",
@@ -1669,35 +1669,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Média",
-    "subtopic": "Feudalismo",
+    "subtopic": "Crise do feudalismo",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios?",
+    "statement": "Entre os séculos XI e XIII, crescimento agrícola, expansão urbana e comércio monetário alteraram a Europa ocidental. Uma consequência foi:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Queda dos privilégios estamentais"
+        "text": "o desaparecimento imediato de todos os vínculos servis"
       },
       {
         "id": "B",
-        "text": "Relações de suserania e vassalagem"
+        "text": "a diversificação social e o fortalecimento de grupos mercantis urbanos"
       },
       {
         "id": "C",
-        "text": "Coronelismo"
+        "text": "o fim das monarquias e o retorno ao Império Romano"
       },
       {
         "id": "D",
-        "text": "Ato Institucional nº 5"
+        "text": "a substituição completa da agricultura pela manufatura"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios. Por isso, a alternativa correta é Relações de suserania e vassalagem.",
+    "explanation": "A expansão comercial e urbana fortaleceu mercadores e artesãos e transformou gradualmente relações feudais, sem extingui-las de uma vez.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil.",
-      "B": "Correta. O critério relevante é nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios. Por isso, a alternativa correta é Relações de suserania e vassalagem.",
-      "C": "Não corresponde ao caso: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
-      "D": "Diverge da descrição porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias."
+      "A": "A servidão persistiu e mudou em ritmos regionais distintos.",
+      "B": "Correta: identifica transformação gradual e novos grupos urbanos.",
+      "C": "Monarquias se fortaleceram em vários reinos.",
+      "D": "A agricultura continuou sendo a base econômica."
     },
     "tags": [
       "idade-media",
@@ -1723,35 +1723,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Moderna",
-    "subtopic": "Mercantilismo",
+    "subtopic": "Colonialismo mercantil",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável?",
+    "statement": "Uma metrópole exige que sua colônia comercialize determinados produtos apenas em navios metropolitanos. A medida busca principalmente:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escravidão atlântica"
+        "text": "garantir autonomia econômica e industrial à colônia"
       },
       {
         "id": "B",
-        "text": "Trabalhismo varguista"
+        "text": "abolir tarifas e monopólios sobre o comércio atlântico"
       },
       {
         "id": "C",
-        "text": "Mercantilismo"
+        "text": "reservar os lucros coloniais à metrópole por meio do exclusivo comercial"
       },
       {
         "id": "D",
-        "text": "Protagonismo indígena"
+        "text": "submeter a monarquia às decisões dos comerciantes coloniais"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Por isso, a alternativa correta é Mercantilismo.",
+    "explanation": "O exclusivo metropolitano canalizava circulação e tributos para a potência colonial, integrando colonização e política mercantilista.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
-      "B": "Não corresponde ao caso: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial.",
-      "C": "Correta. Neste caso monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Por isso, a alternativa correta é Mercantilismo.",
-      "D": "Esse conceito designa outra relação: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais."
+      "A": "A restrição limitava, não promovia, autonomia colonial.",
+      "B": "O mecanismo dependia de monopólio e controle.",
+      "C": "Correta: explica a função econômica da regra de navegação.",
+      "D": "A medida reforçava o controle metropolitano."
     },
     "tags": [
       "idade-moderna",
@@ -1777,35 +1777,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Revoluções",
-    "subtopic": "Revolução Francesa",
+    "subtopic": "Revolução Francesa e Haiti",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil?",
+    "statement": "Lideranças da Revolução Haitiana invocaram liberdade e igualdade contra a escravidão colonial. Essa apropriação evidencia:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Poder Moderador"
+        "text": "a ausência de conexão entre o Caribe e a Revolução Francesa"
       },
       {
         "id": "B",
-        "text": "Guerra total"
+        "text": "a defesa francesa imediata da independência haitiana"
       },
       {
         "id": "C",
-        "text": "Democracia ateniense"
+        "text": "a incompatibilidade entre direitos universais e reivindicações de escravizados"
       },
       {
         "id": "D",
-        "text": "Queda dos privilégios estamentais"
+        "text": "a circulação de ideias revolucionárias e a disputa sobre quem seria incluído nos direitos"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil. Por isso, a alternativa correta é Queda dos privilégios estamentais.",
+    "explanation": "A revolução no Haiti radicalizou a linguagem universalista ao aplicá-la a escravizados e racializados, expondo limites e contradições do processo francês.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
-      "B": "Diverge da descrição porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
-      "C": "Esse conceito designa outra relação: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
-      "D": "Correta. A propriedade determinante é a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil. Por isso, a alternativa correta é Queda dos privilégios estamentais."
+      "A": "Ideias, guerras e decisões metropolitanas conectaram os processos.",
+      "B": "A França resistiu e só reconheceu a independência sob indenização.",
+      "C": "Os revolucionários haitianos reivindicaram justamente a universalização desses direitos.",
+      "D": "Correta: relaciona circulação atlântica e disputa pela universalidade."
     },
     "tags": [
       "revolucoes",
@@ -1831,10 +1831,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "República",
-    "subtopic": "Primeira República",
+    "subtopic": "Coronelismo",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais”, é correto associá-lo a Coronelismo.",
+    "statement": "O voto aberto da Primeira República dificultava a pressão dos coronéis, pois mantinha secreta a escolha de cada eleitor.",
     "alternatives": [
       {
         "id": "V",
@@ -1845,11 +1845,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A resolução relaciona a situação descrita aos critérios de Primeira República, no campo de República.",
+    "correctAnswer": "F",
+    "explanation": "Falsa. Como o voto não era secreto, chefes locais podiam fiscalizar, constranger e recompensar eleitores, fortalecendo o voto de cabresto.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A resolução relaciona a situação descrita aos critérios de Primeira República, no campo de República.",
-      "F": "Incorreto. A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A resolução relaciona a situação descrita aos critérios de Primeira República, no campo de República."
+      "V": "Incorreto: atribui ao voto aberto a proteção própria do voto secreto.",
+      "F": "Correto: a publicidade facilitava controle eleitoral."
     },
     "tags": [
       "republica",
@@ -1875,10 +1875,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Era Vargas",
-    "subtopic": "Trabalho",
+    "subtopic": "Trabalhismo",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial”, é correto associá-lo a Democracia ateniense.",
+    "statement": "A incorporação de direitos trabalhistas durante o varguismo coexistiu com limites à autonomia sindical.",
     "alternatives": [
       {
         "id": "V",
@@ -1889,11 +1889,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A resolução relaciona a situação descrita aos critérios de Trabalho, no campo de Era Vargas.",
+    "correctAnswer": "V",
+    "explanation": "Verdadeira. O Estado reconheceu direitos e mediou conflitos, mas submeteu sindicatos a enquadramento e fiscalização.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A resolução relaciona a situação descrita aos critérios de Trabalho, no campo de Era Vargas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A resolução relaciona a situação descrita aos critérios de Trabalho, no campo de Era Vargas."
+      "V": "Correto: combina cidadania social e controle corporativo.",
+      "F": "Incorreto: direitos e tutela não foram processos mutuamente excludentes."
     },
     "tags": [
       "era-vargas",
@@ -1919,10 +1919,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerras Mundiais",
-    "subtopic": "Primeira Guerra",
+    "subtopic": "Primeira Guerra Mundial",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito”, é correto associá-lo a Guerra total.",
+    "statement": "A guerra de trincheiras na frente ocidental reduziu a capacidade defensiva, permitindo avanços territoriais rápidos e contínuos entre 1915 e 1917.",
     "alternatives": [
       {
         "id": "V",
@@ -1933,11 +1933,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A resolução relaciona a situação descrita aos critérios de Primeira Guerra, no campo de Guerras Mundiais.",
+    "correctAnswer": "F",
+    "explanation": "Falsa. Trincheiras, arame farpado e metralhadoras favoreceram a defesa e produziram impasse, desgaste e ganhos territoriais limitados.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A resolução relaciona a situação descrita aos critérios de Primeira Guerra, no campo de Guerras Mundiais.",
-      "F": "Incorreto. A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A resolução relaciona a situação descrita aos critérios de Primeira Guerra, no campo de Guerras Mundiais."
+      "V": "Incorreto: inverte o efeito militar das posições fortificadas.",
+      "F": "Correto: a frente ocidental ficou marcada por estagnação e atrito."
     },
     "tags": [
       "guerras-mundiais",
@@ -1963,10 +1963,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerra Fria",
-    "subtopic": "Bipolaridade",
+    "subtopic": "Conflitos periféricos",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica”, é correto associá-lo a Mercantilismo.",
+    "statement": "A ausência de guerra direta entre Estados Unidos e União Soviética impediu intervenções e guerras associadas à rivalidade bipolar na Ásia.",
     "alternatives": [
       {
         "id": "V",
@@ -1978,10 +1978,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A resolução relaciona a situação descrita aos critérios de Bipolaridade, no campo de Guerra Fria.",
+    "explanation": "Falsa. Coreia, Vietnã e Afeganistão mostram que a contenção nuclear direta coexistiu com guerras regionais e apoio a aliados.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A resolução relaciona a situação descrita aos critérios de Bipolaridade, no campo de Guerra Fria.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A resolução relaciona a situação descrita aos critérios de Bipolaridade, no campo de Guerra Fria."
+      "V": "Incorreto: confunde ausência de choque direto com ausência de conflitos.",
+      "F": "Correto: a disputa foi projetada sobre outras regiões."
     },
     "tags": [
       "guerra-fria",
@@ -2007,10 +2007,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Ditadura Militar",
-    "subtopic": "Repressão",
+    "subtopic": "Abertura política",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias”, é correto associá-lo a Ato Institucional nº 5.",
+    "statement": "A abertura iniciada no governo Geisel foi controlada pelo regime e conviveu com repressão, não constituindo democratização imediata.",
     "alternatives": [
       {
         "id": "V",
@@ -2022,10 +2022,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A resolução relaciona a situação descrita aos critérios de Repressão, no campo de Ditadura Militar.",
+    "explanation": "Verdadeira. A distensão foi gradual e tutelada; órgãos repressivos continuaram atuando e a transição se estendeu pela década seguinte.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A resolução relaciona a situação descrita aos critérios de Repressão, no campo de Ditadura Militar.",
-      "F": "Incorreto. A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A resolução relaciona a situação descrita aos critérios de Repressão, no campo de Ditadura Militar."
+      "V": "Correto: distingue início da abertura e conclusão democrática.",
+      "F": "Incorreto: medidas liberalizantes não encerraram de imediato a ditadura."
     },
     "tags": [
       "ditadura-militar",
@@ -2051,10 +2051,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "História indígena",
-    "subtopic": "Agência histórica",
+    "subtopic": "Fontes coloniais",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais”, é correto associá-lo a Escravidão atlântica.",
+    "statement": "Como muitas fontes coloniais foram escritas por europeus, elas devem ser descartadas e nada podem revelar sobre ações indígenas.",
     "alternatives": [
       {
         "id": "V",
@@ -2066,10 +2066,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A resolução relaciona a situação descrita aos critérios de Agência histórica, no campo de História indígena.",
+    "explanation": "Falsa. A perspectiva e os interesses do autor exigem crítica, mas registros podem revelar alianças, conflitos e escolhas indígenas quando comparados a outras evidências.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A resolução relaciona a situação descrita aos critérios de Agência histórica, no campo de História indígena.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A resolução relaciona a situação descrita aos critérios de Agência histórica, no campo de História indígena."
+      "V": "Incorreto: fonte parcial não é fonte inútil.",
+      "F": "Correto: crítica de autoria e contexto permite uso cauteloso."
     },
     "tags": [
       "historia-indigena",
@@ -2095,10 +2095,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Antiguidade",
-    "subtopic": "Atenas",
+    "subtopic": "Democracia ateniense",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos”, é correto associá-lo a Democracia ateniense.",
+    "statement": "A participação direta dos cidadãos atenienses não torna a pólis uma democracia universal, pois a cidadania excluía a maioria dos habitantes.",
     "alternatives": [
       {
         "id": "V",
@@ -2110,10 +2110,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A resolução relaciona a situação descrita aos critérios de Atenas, no campo de Antiguidade.",
+    "explanation": "Verdadeira. O conceito de democracia descreve instituições dos cidadãos, mas seus limites sociais e jurídicos precisam ser explicitados.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A resolução relaciona a situação descrita aos critérios de Atenas, no campo de Antiguidade.",
-      "F": "Incorreto. A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A resolução relaciona a situação descrita aos critérios de Atenas, no campo de Antiguidade."
+      "V": "Correto: relaciona funcionamento e exclusão.",
+      "F": "Incorreto: participação direta não equivale a cidadania inclusiva."
     },
     "tags": [
       "antiguidade",
@@ -2139,10 +2139,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Média",
-    "subtopic": "Feudalismo",
+    "subtopic": "Relações feudais",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios”, é correto associá-lo a Coronelismo.",
+    "statement": "Suserania e vassalagem eram relações entre nobres, enquanto servidão definia obrigações de camponeses perante senhores.",
     "alternatives": [
       {
         "id": "V",
@@ -2153,11 +2153,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A resolução relaciona a situação descrita aos critérios de Feudalismo, no campo de Idade Média.",
+    "correctAnswer": "V",
+    "explanation": "Verdadeira. Embora coexistissem na ordem feudal, os vínculos envolviam sujeitos e deveres diferentes.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A resolução relaciona a situação descrita aos critérios de Feudalismo, no campo de Idade Média.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A resolução relaciona a situação descrita aos critérios de Feudalismo, no campo de Idade Média."
+      "V": "Correto: distingue pacto nobiliárquico e dependência camponesa.",
+      "F": "Incorreto: tratar ambos como sinônimos apaga posições sociais distintas."
     },
     "tags": [
       "idade-media",
@@ -2186,7 +2186,7 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Mercantilismo",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável”, é correto associá-lo a Mercantilismo.",
+    "statement": "O exclusivo colonial pretendia fortalecer a metrópole, mas não impedia completamente contrabando e negociações fora das normas oficiais.",
     "alternatives": [
       {
         "id": "V",
@@ -2198,10 +2198,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A resolução relaciona a situação descrita aos critérios de Mercantilismo, no campo de Idade Moderna.",
+    "explanation": "Verdadeira. A regra expressava objetivos metropolitanos, enquanto a prática colonial incluía evasões, contrabando e redes comerciais diversas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A resolução relaciona a situação descrita aos critérios de Mercantilismo, no campo de Idade Moderna.",
-      "F": "Incorreto. A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A resolução relaciona a situação descrita aos critérios de Mercantilismo, no campo de Idade Moderna."
+      "V": "Correto: distingue norma mercantilista e funcionamento histórico.",
+      "F": "Incorreto: uma lei não garante cumprimento integral."
     },
     "tags": [
       "idade-moderna",
@@ -2230,7 +2230,7 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Revolução Francesa",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil”, é correto associá-lo a Guerra total.",
+    "statement": "A igualdade civil proclamada em 1789 concedeu imediatamente sufrágio universal, direitos políticos às mulheres e abolição permanente da escravidão em todas as colônias.",
     "alternatives": [
       {
         "id": "V",
@@ -2242,10 +2242,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A resolução relaciona a situação descrita aos critérios de Revolução Francesa, no campo de Revoluções.",
+    "explanation": "Falsa. A universalidade declarada encontrou limites de gênero, propriedade e império; conquistas políticas e abolição ocorreram de modo conflituoso e reversível.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A resolução relaciona a situação descrita aos critérios de Revolução Francesa, no campo de Revoluções.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A resolução relaciona a situação descrita aos critérios de Revolução Francesa, no campo de Revoluções."
+      "V": "Incorreto: transforma princípio jurídico em inclusão imediata e completa.",
+      "F": "Correto: direitos proclamados e direitos efetivos não coincidiram plenamente."
     },
     "tags": [
       "revolucoes",
@@ -2271,10 +2271,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Colônia",
-    "subtopic": "Escravidão",
+    "subtopic": "Escravidão urbana",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada”, é correto associá-lo a Escravidão atlântica.",
+    "statement": "O trabalho de ganho permitia circulação e negociação de parte da renda, mas não eliminava a autoridade senhorial sobre a pessoa escravizada.",
     "alternatives": [
       {
         "id": "V",
@@ -2286,10 +2286,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A resolução relaciona a situação descrita aos critérios de Escravidão, no campo de Brasil Colônia.",
+    "explanation": "Verdadeira. A modalidade podia criar margens de ação e oportunidades de alforria, sem equivaler juridicamente à liberdade.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A resolução relaciona a situação descrita aos critérios de Escravidão, no campo de Brasil Colônia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A resolução relaciona a situação descrita aos critérios de Escravidão, no campo de Brasil Colônia."
+      "V": "Correto: reconhece agência dentro de uma relação coercitiva.",
+      "F": "Incorreto: autonomia cotidiana parcial não extinguia a escravidão."
     },
     "tags": [
       "brasil-colonia",
@@ -2315,10 +2315,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Império",
-    "subtopic": "Política",
+    "subtopic": "Parlamentarismo",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes”, é correto associá-lo a Ato Institucional nº 5.",
+    "statement": "No Segundo Reinado, o presidente do Conselho era escolhido exclusivamente pela maioria parlamentar, sem interferência do imperador.",
     "alternatives": [
       {
         "id": "V",
@@ -2330,10 +2330,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A resolução relaciona a situação descrita aos critérios de Política, no campo de Brasil Império.",
+    "explanation": "Falsa. O monarca nomeava o presidente do Conselho e podia dissolver a Câmara, razão da expressão “parlamentarismo às avessas”.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A resolução relaciona a situação descrita aos critérios de Política, no campo de Brasil Império.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A resolução relaciona a situação descrita aos critérios de Política, no campo de Brasil Império."
+      "V": "Incorreto: aplica mecanicamente o modelo parlamentar britânico.",
+      "F": "Correto: o Poder Moderador mantinha a iniciativa imperial."
     },
     "tags": [
       "brasil-imperio",
@@ -2359,35 +2359,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerras Mundiais",
-    "subtopic": "Primeira Guerra",
+    "subtopic": "Primeira Guerra e sociedade",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito?",
+    "statement": "Em 1914, governos previam uma guerra curta. Em 1917, controlavam preços, racionavam alimentos, recrutavam mulheres para fábricas e censuravam correspondências. Qual interpretação explica melhor essa transformação?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Guerra total"
+        "text": "O impasse militar prolongado exigiu mobilização econômica e social, ampliando a guerra para além das frentes de combate."
       },
       {
         "id": "B",
-        "text": "Protagonismo indígena"
+        "text": "A rápida vitória nas trincheiras tornou desnecessário mobilizar soldados e indústrias."
       },
       {
         "id": "C",
-        "text": "Queda dos privilégios estamentais"
+        "text": "O racionamento decorreu apenas de colheitas ruins, sem relação com bloqueios ou esforço militar."
       },
       {
         "id": "D",
-        "text": "Coronelismo"
+        "text": "A entrada das mulheres nas fábricas significou igualdade política plena ainda durante o conflito."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Por isso, a alternativa correta é Guerra total.",
+    "explanation": "A combinação de impasse, consumo de recursos e bloqueios levou Estados a organizar produção e vida civil. Isso sustenta o conceito de guerra total, sem implicar automaticamente emancipação política completa.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. Por isso, a alternativa correta é Guerra total.",
-      "B": "Esse conceito designa outra relação: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais.",
-      "C": "A propriedade dessa alternativa é distinta: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil.",
-      "D": "Não corresponde ao caso: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais."
+      "A": "Correta: conecta duração, necessidades militares e mobilização da retaguarda.",
+      "B": "A guerra de posições prolongou o conflito e aumentou a demanda por recursos.",
+      "C": "Escassez foi agravada por bloqueios, requisições e prioridade militar.",
+      "D": "Novos papéis econômicos favoreceram reivindicações, mas não produziram igualdade imediata em todos os países."
     },
     "tags": [
       "guerras-mundiais",
@@ -2413,35 +2413,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerra Fria",
-    "subtopic": "Bipolaridade",
+    "subtopic": "Crise dos Mísseis",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica?",
+    "statement": "Na Crise dos Mísseis de 1962, os EUA bloquearam Cuba, a URSS retirou mísseis da ilha e os EUA retiraram secretamente mísseis da Turquia. O episódio sustenta qual inferência?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Democracia ateniense"
+        "text": "A superioridade nuclear eliminou a necessidade de negociação entre as superpotências."
       },
       {
         "id": "B",
-        "text": "Ordem bipolar"
+        "text": "A dissuasão elevou o risco de escalada, mas também incentivou concessões recíprocas para evitar guerra nuclear."
       },
       {
         "id": "C",
-        "text": "Escravidão atlântica"
+        "text": "Cuba controlou sozinha as decisões estratégicas soviéticas e estadunidenses."
       },
       {
         "id": "D",
-        "text": "Trabalhismo varguista"
+        "text": "O acordo encerrou a rivalidade ideológica e dissolveu os blocos militares."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica. Por isso, a alternativa correta é Ordem bipolar.",
+    "explanation": "A destruição mútua possível tornou a coerção arriscada. O desfecho combinou pressão pública e compromissos, mostrando que bipolaridade não excluía negociação.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
-      "B": "Correta. A distinção central está em Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica. Por isso, a alternativa correta é Ordem bipolar.",
-      "C": "Não corresponde ao caso: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
-      "D": "Diverge da descrição porque direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial."
+      "A": "O risco nuclear tornou comunicação e barganha mais necessárias.",
+      "B": "Correta: integra dissuasão, escalada e acordo.",
+      "C": "Cuba foi central, mas não controlou unilateralmente as superpotências.",
+      "D": "A Guerra Fria continuou por quase três décadas."
     },
     "tags": [
       "guerra-fria",
@@ -2467,35 +2467,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Ditadura Militar",
-    "subtopic": "Repressão",
+    "subtopic": "Memória e fontes",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias?",
+    "statement": "Um relatório oficial de 1972 afirma não haver tortura sistemática; depoimentos convergentes de presos, registros médicos e documentos internos posteriores descrevem centros e cadeias de comando. Como o historiador deve tratar o contraste?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Relações de suserania e vassalagem"
+        "text": "Aceitar o relatório oficial porque documentos estatais são sempre mais objetivos que testemunhos."
       },
       {
         "id": "B",
-        "text": "Poder Moderador"
+        "text": "Descartar todos os depoimentos porque memória individual nunca constitui fonte histórica."
       },
       {
         "id": "C",
-        "text": "Ato Institucional nº 5"
+        "text": "Confrontar autoria, finalidade e convergência das fontes, considerando o relatório também como peça de ocultação política."
       },
       {
         "id": "D",
-        "text": "Guerra total"
+        "text": "Rejeitar os documentos internos posteriores, pois uma fonte produzida depois de 1972 não pode esclarecer práticas anteriores."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Por isso, a alternativa correta é Ato Institucional nº 5.",
+    "explanation": "Crítica histórica não hierarquiza fontes apenas por origem. Autoria, contexto, interesse e corroboração permitem usar até uma negação oficial como evidência das estratégias do regime.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
-      "B": "Não corresponde ao caso: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
-      "C": "Correta. A resposta decorre da definição disciplinar o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. Por isso, a alternativa correta é Ato Institucional nº 5.",
-      "D": "Esse conceito designa outra relação: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito."
+      "A": "O Estado autoritário tinha interesse em negar práticas ilegais.",
+      "B": "Testemunhos exigem crítica, mas podem ser comparados e corroborados.",
+      "C": "Correta: transforma a contradição em problema de crítica documental.",
+      "D": "Documentos posteriores podem registrar ou revelar práticas anteriores; sua data exige contextualização, não descarte automático."
     },
     "tags": [
       "ditadura-militar",
@@ -2521,35 +2521,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "História indígena",
-    "subtopic": "Agência histórica",
+    "subtopic": "Diretório dos Índios",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais?",
+    "statement": "O Diretório dos Índios (1757) proibia línguas indígenas em certas áreas, incentivava nomes portugueses e declarava indígenas juridicamente livres, ao mesmo tempo que regulava seu trabalho. Qual leitura é mais consistente?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Mercantilismo"
+        "text": "A liberdade jurídica eliminou coerção laboral e intervenção cultural."
       },
       {
         "id": "B",
-        "text": "Coronelismo"
+        "text": "A política reconheceu soberania plena às comunidades e retirou agentes coloniais."
       },
       {
         "id": "C",
-        "text": "Ordem bipolar"
+        "text": "A proibição linguística foi medida neutra, sem relação com incorporação colonial."
       },
       {
         "id": "D",
-        "text": "Protagonismo indígena"
+        "text": "A Coroa combinou assimilação cultural e controle do trabalho com uma redefinição jurídica da população indígena."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais. Por isso, a alternativa correta é Protagonismo indígena.",
+    "explanation": "As medidas não cabem em oposição simples entre liberdade e escravidão. A Coroa extinguiu formalmente certas formas de cativeiro, mas ampliou mecanismos de integração forçada, administração e exploração.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
-      "B": "Diverge da descrição porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
-      "C": "Esse conceito designa outra relação: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
-      "D": "Correta. O critério relevante é povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais. Por isso, a alternativa correta é Protagonismo indígena."
+      "A": "Liberdade formal podia coexistir com trabalho compulsório e tutela.",
+      "B": "Diretores e normas coloniais restringiam autonomia.",
+      "C": "Idioma e nomes eram instrumentos de assimilação e poder.",
+      "D": "Correta: integra dimensões jurídica, cultural e econômica."
     },
     "tags": [
       "historia-indigena",
@@ -2575,35 +2575,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Antiguidade",
-    "subtopic": "Atenas",
+    "subtopic": "Imperialismo ateniense",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos?",
+    "statement": "A Liga de Delos foi criada contra os persas, mas Atenas transferiu seu tesouro para a cidade, puniu membros que tentaram sair e usou tributos em obras próprias. Qual hipótese é mais bem sustentada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Democracia ateniense"
+        "text": "Uma aliança defensiva foi convertida em instrumento de hegemonia ateniense."
       },
       {
         "id": "B",
-        "text": "Queda dos privilégios estamentais"
+        "text": "As cidades aliadas conquistaram controle igual sobre os recursos da liga."
       },
       {
         "id": "C",
-        "text": "Trabalhismo varguista"
+        "text": "Atenas abandonou seu poder naval e devolveu autonomia irrestrita aos aliados."
       },
       {
         "id": "D",
-        "text": "Ato Institucional nº 5"
+        "text": "O tesouro comum eliminou rivalidades entre Atenas e Esparta."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Por isso, a alternativa correta é Democracia ateniense.",
+    "explanation": "A mudança do tesouro, a coerção contra saídas e o uso ateniense dos tributos indicam assimetria crescente. A aliança tornou-se base de um império marítimo.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. Por isso, a alternativa correta é Democracia ateniense.",
-      "B": "Esse conceito designa outra relação: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil.",
-      "C": "A propriedade dessa alternativa é distinta: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial.",
-      "D": "Não corresponde ao caso: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias."
+      "A": "Correta: relaciona três evidências à transformação institucional.",
+      "B": "Os indícios mostram concentração, não igualdade de controle.",
+      "C": "A frota foi fundamento da hegemonia ateniense.",
+      "D": "A expansão de Atenas agravou tensões que desembocaram na Guerra do Peloponeso."
     },
     "tags": [
       "antiguidade",
@@ -2629,35 +2629,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Média",
-    "subtopic": "Feudalismo",
+    "subtopic": "Peste Negra e trabalho",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios?",
+    "statement": "Após a Peste Negra, muitas regiões europeias perderam grande parte da população. Em áreas onde camponeses podiam migrar, salários subiram e senhores tentaram congelá-los por lei. O que melhor explica esse conjunto?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escravidão atlântica"
+        "text": "A mortalidade aumentou a oferta de trabalhadores e reduziu seu poder de negociação."
       },
       {
         "id": "B",
-        "text": "Relações de suserania e vassalagem"
+        "text": "A escassez de mão de obra fortaleceu demandas dos trabalhadores e provocou reação senhorial."
       },
       {
         "id": "C",
-        "text": "Guerra total"
+        "text": "As leis salariais comprovam que o mercado deixou de influenciar relações de trabalho."
       },
       {
         "id": "D",
-        "text": "Protagonismo indígena"
+        "text": "A peste aboliu simultaneamente a servidão em toda a Europa."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios. Por isso, a alternativa correta é Relações de suserania e vassalagem.",
+    "explanation": "A queda demográfica reduziu a oferta de trabalho. Onde a mobilidade era possível, trabalhadores pressionaram por melhores condições, e elites responderam com controles legais; os efeitos variaram regionalmente.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada.",
-      "B": "Correta. A propriedade determinante é nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios. Por isso, a alternativa correta é Relações de suserania e vassalagem.",
-      "C": "Não corresponde ao caso: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
-      "D": "Diverge da descrição porque povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais."
+      "A": "A mortalidade diminuiu, não aumentou, a oferta de mão de obra.",
+      "B": "Correta: conecta demografia, negociação e reação política.",
+      "C": "As leis foram precisamente uma tentativa de conter pressões econômicas.",
+      "D": "Transformações foram graduais e diferentes entre Europa ocidental e oriental."
     },
     "tags": [
       "idade-media",
@@ -2683,35 +2683,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Moderna",
-    "subtopic": "Mercantilismo",
+    "subtopic": "Mercantilismo e Estado",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável?",
+    "statement": "A Inglaterra dos Atos de Navegação restringia o transporte de mercadorias a navios ingleses, enquanto a França concedia monopólios e subsídios a manufaturas. Apesar das diferenças, as políticas compartilhavam:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Poder Moderador"
+        "text": "a defesa de mercados autorregulados sem intervenção da Coroa"
       },
       {
         "id": "B",
-        "text": "Ordem bipolar"
+        "text": "a prioridade dada à autonomia produtiva das colônias"
       },
       {
         "id": "C",
-        "text": "Mercantilismo"
+        "text": "o uso do poder estatal para fortalecer comércio, navegação e produção nacionais"
       },
       {
         "id": "D",
-        "text": "Democracia ateniense"
+        "text": "a rejeição da competição entre monarquias europeias"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Por isso, a alternativa correta é Mercantilismo.",
+    "explanation": "Mercantilismo não foi doutrina uniforme, mas reuniu práticas de intervenção voltadas a ampliar receitas, capacidade produtiva e poder internacional do Estado.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
-      "B": "Não corresponde ao caso: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
-      "C": "Correta. A conclusão se apoia em monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. Por isso, a alternativa correta é Mercantilismo.",
-      "D": "Esse conceito designa outra relação: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos."
+      "A": "Leis, monopólios e subsídios são formas explícitas de intervenção.",
+      "B": "Colônias eram subordinadas aos interesses metropolitanos.",
+      "C": "Correta: identifica a lógica comum sem apagar diferenças nacionais.",
+      "D": "A competição interestatal impulsionava essas medidas."
     },
     "tags": [
       "idade-moderna",
@@ -2740,32 +2740,32 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Revolução Francesa",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil?",
+    "statement": "Entre 1789 e 1793, a revolução passou de monarquia constitucional a república, em contexto de guerra externa, fuga do rei e mobilização popular. Qual explicação evita tanto determinismo quanto descrição isolada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Coronelismo"
+        "text": "A república estava inevitavelmente prevista em todos os textos de 1789."
       },
       {
         "id": "B",
-        "text": "Ato Institucional nº 5"
+        "text": "A queda da monarquia decorreu apenas da personalidade de Luís XVI."
       },
       {
         "id": "C",
-        "text": "Relações de suserania e vassalagem"
+        "text": "A guerra externa não influenciou a confiança política nem a radicalização."
       },
       {
         "id": "D",
-        "text": "Queda dos privilégios estamentais"
+        "text": "Decisões da monarquia, guerra e pressão popular alteraram possibilidades e radicalizaram o processo."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil. Por isso, a alternativa correta é Queda dos privilégios estamentais.",
+    "explanation": "A república não era resultado predeterminado. Crises sucessivas mudaram alianças e expectativas, e a ação de múltiplos grupos transformou o curso revolucionário.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais.",
-      "B": "Diverge da descrição porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
-      "C": "Esse conceito designa outra relação: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
-      "D": "Correta. A distinção central está em a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil. Por isso, a alternativa correta é Queda dos privilégios estamentais."
+      "A": "Em 1789, muitos revolucionários ainda aceitavam uma monarquia constitucional.",
+      "B": "A atuação do rei importou, mas não explica sozinha guerra, economia e mobilização.",
+      "C": "A guerra intensificou suspeitas de traição e conflitos internos.",
+      "D": "Correta: articula contingência, contexto e agência coletiva."
     },
     "tags": [
       "revolucoes",
@@ -2791,35 +2791,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Colônia",
-    "subtopic": "Escravidão",
+    "subtopic": "Economia escravista",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada?",
+    "statement": "Registros de um porto mostram crescimento simultâneo da exportação de açúcar, da importação de africanos escravizados e do crédito concedido por comerciantes. Qual conclusão é mais cuidadosa?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escravidão atlântica"
+        "text": "A expansão açucareira articulava produção, tráfico e financiamento atlântico, sem que um único dado prove causalidade exclusiva."
       },
       {
         "id": "B",
-        "text": "Trabalhismo varguista"
+        "text": "O crédito comercial demonstra que os senhores deixaram de empregar trabalho escravizado."
       },
       {
         "id": "C",
-        "text": "Protagonismo indígena"
+        "text": "A importação de africanos era independente da demanda de trabalho nas áreas produtoras."
       },
       {
         "id": "D",
-        "text": "Mercantilismo"
+        "text": "O aumento paralelo comprova que todo capital do açúcar permanecia na colônia."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Por isso, a alternativa correta é Escravidão atlântica.",
+    "explanation": "As séries convergentes sustentam conexão entre crédito, tráfico e produção. Contudo, correlação não autoriza atribuir todo o processo a uma causa única nem concluir onde todos os lucros ficaram.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. Por isso, a alternativa correta é Escravidão atlântica.",
-      "B": "Esse conceito designa outra relação: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial.",
-      "C": "A propriedade dessa alternativa é distinta: povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais.",
-      "D": "Não corresponde ao caso: monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável."
+      "A": "Correta: infere uma rede atlântica sem extrapolar os dados.",
+      "B": "Crédito podia financiar terras, equipamentos e aquisição de cativos.",
+      "C": "O tráfico respondia, entre outros fatores, à demanda das economias coloniais.",
+      "D": "Comerciantes e agentes metropolitanos apropriavam-se de parcelas importantes dos ganhos."
     },
     "tags": [
       "brasil-colonia",
@@ -2845,35 +2845,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Império",
-    "subtopic": "Política",
+    "subtopic": "Centralização e revoltas",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes?",
+    "statement": "O Ato Adicional de 1834 criou assembleias provinciais; a Lei Interpretativa de 1840 restringiu parte de suas atribuições. Considerando revoltas regenciais e disputas entre elites, a sequência indica:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Guerra total"
+        "text": "passagem linear e consensual para uma federação plena"
       },
       {
         "id": "B",
-        "text": "Poder Moderador"
+        "text": "oscilação entre descentralização e recentralização na construção do Estado imperial"
       },
       {
         "id": "C",
-        "text": "Democracia ateniense"
+        "text": "fim do poder central antes da maioridade de Pedro II"
       },
       {
         "id": "D",
-        "text": "Queda dos privilégios estamentais"
+        "text": "independência jurídica das províncias em relação à Constituição"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes. Por isso, a alternativa correta é Poder Moderador.",
+    "explanation": "O Império foi construído por conflitos sobre autonomia e unidade. Reformas descentralizadoras foram seguidas de reação centralizadora diante de rebeliões e rearranjos conservadores.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito.",
-      "B": "Correta. O critério relevante é a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes. Por isso, a alternativa correta é Poder Moderador.",
-      "C": "Não corresponde ao caso: cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos.",
-      "D": "Diverge da descrição porque a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil."
+      "A": "A recentralização e os conflitos negam trajetória linear e consensual.",
+      "B": "Correta: interpreta mudanças legais dentro de disputas políticas.",
+      "C": "O centro continuou existindo e recuperou competências.",
+      "D": "As províncias permaneceram partes do Império constitucional."
     },
     "tags": [
       "brasil-imperio",
@@ -2899,35 +2899,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "República",
-    "subtopic": "Primeira República",
+    "subtopic": "Revolta da Vacina",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais?",
+    "statement": "Charges de 1904 mostram autoridades vacinando à força, enquanto jornais oposicionistas denunciam invasão de domicílio. Estudos também registram reformas urbanas que expulsaram pobres do centro. Qual leitura integra melhor as evidências?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ordem bipolar"
+        "text": "A revolta foi simples rejeição irracional à ciência, sem conteúdo social ou político."
       },
       {
         "id": "B",
-        "text": "Relações de suserania e vassalagem"
+        "text": "A população dominava integralmente a microbiologia e rejeitava apenas o preço da vacina."
       },
       {
         "id": "C",
-        "text": "Coronelismo"
+        "text": "A resistência articulou desconfiança diante da coerção estatal, disputas políticas e efeitos das reformas urbanas."
       },
       {
         "id": "D",
-        "text": "Escravidão atlântica"
+        "text": "As reformas ampliaram moradia popular no centro e eliminaram conflitos com o Estado."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Por isso, a alternativa correta é Coronelismo.",
+    "explanation": "A vacinação obrigatória foi o estopim em contexto de autoritarismo sanitário, remoções e oposição política. Isso não significa negar a eficácia da vacina, mas historicizar a forma de sua aplicação.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica.",
-      "B": "Não corresponde ao caso: nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios.",
-      "C": "Correta. Neste caso chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. Por isso, a alternativa correta é Coronelismo.",
-      "D": "Esse conceito designa outra relação: tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada."
+      "A": "Reduz o movimento e ignora coerção, habitação e disputa política.",
+      "B": "Conhecimento científico não era uniforme e o conflito não se limitou a preço.",
+      "C": "Correta: integra política sanitária e contexto urbano.",
+      "D": "As demolições deslocaram moradores pobres e agravaram tensões."
     },
     "tags": [
       "republica",
@@ -2953,35 +2953,35 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Era Vargas",
-    "subtopic": "Trabalho",
+    "subtopic": "Estado Novo",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial?",
+    "statement": "O Estado Novo fechou o Congresso e censurou a imprensa, mas também expandiu legislação trabalhista e propaganda dirigida aos trabalhadores. Qual interpretação é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ato Institucional nº 5"
+        "text": "Direitos sociais tornam impossível classificar o regime como ditatorial."
       },
       {
         "id": "B",
-        "text": "Mercantilismo"
+        "text": "A repressão política impediu qualquer apoio social ao governo."
       },
       {
         "id": "C",
-        "text": "Poder Moderador"
+        "text": "A propaganda foi irrelevante porque trabalhadores não interpretavam mensagens estatais."
       },
       {
         "id": "D",
-        "text": "Trabalhismo varguista"
+        "text": "Autoritarismo, política social e construção de legitimidade coexistiram e devem ser analisados em conjunto."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial. Por isso, a alternativa correta é Trabalhismo varguista.",
+    "explanation": "Regimes autoritários podem buscar apoio e incorporar demandas sociais. Direitos, controle sindical, censura e culto à liderança integraram uma mesma estratégia estatal, apropriada de modos diversos pelos trabalhadores.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias.",
-      "B": "Diverge da descrição porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável.",
-      "C": "Esse conceito designa outra relação: a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes.",
-      "D": "Correta. A propriedade determinante é direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial. Por isso, a alternativa correta é Trabalhismo varguista."
+      "A": "Política social não elimina fechamento institucional e repressão.",
+      "B": "Coerção e apoio podem coexistir em diferentes grupos e momentos.",
+      "C": "Propaganda é relação de comunicação, não recepção automática nem irrelevante.",
+      "D": "Correta: evita oposição simplista entre repressão e legitimidade."
     },
     "tags": [
       "era-vargas",
@@ -3007,10 +3007,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Ditadura Militar",
-    "subtopic": "Repressão",
+    "subtopic": "AI-5 e repressão",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Ato Institucional nº 5 de Trabalhismo varguista, a característica “o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias” deve ser atribuída ao primeiro conceito.",
+    "statement": "Como organizações de luta armada cresceram após 1964, elas podem ser tratadas como causa suficiente do golpe que derrubou João Goulart.",
     "alternatives": [
       {
         "id": "V",
@@ -3021,11 +3021,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A avaliação exige delimitar as condições de Repressão e distingui-las de relações próximas em Ditadura Militar.",
+    "correctAnswer": "F",
+    "explanation": "Falsa. A cronologia impede essa causalidade: o golpe ocorreu em 1964, enquanto a luta armada se expandiu depois, sobretudo com o fechamento político. O golpe envolveu conspiração civil-militar, anticomunismo e crise política anterior.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A avaliação exige delimitar as condições de Repressão e distingui-las de relações próximas em Ditadura Militar.",
-      "F": "Incorreto. A proposição é verdadeira, pois Ato Institucional nº 5 se caracteriza porque o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A avaliação exige delimitar as condições de Repressão e distingui-las de relações próximas em Ditadura Militar."
+      "V": "Incorreto: usa um desenvolvimento posterior como causa suficiente de evento anterior.",
+      "F": "Correto: distingue oposição posterior e causas do golpe."
     },
     "tags": [
       "ditadura-militar",
@@ -3051,10 +3051,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "História indígena",
-    "subtopic": "Agência histórica",
+    "subtopic": "Agência e assimetria",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Protagonismo indígena de Guerra total, a característica “povos indígenas atuam como sujeitos históricos diversos, negociando, resistindo e transformando relações sociais” deve ser atribuída ao segundo conceito.",
+    "statement": "Reconhecer alianças indígenas com europeus como escolhas estratégicas não exige negar a violência colonial nem a desigualdade de poder entre os participantes.",
     "alternatives": [
       {
         "id": "V",
@@ -3065,11 +3065,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A avaliação exige delimitar as condições de Agência histórica e distingui-las de relações próximas em História indígena.",
+    "correctAnswer": "V",
+    "explanation": "Verdadeira. Agência histórica e assimetria podem coexistir: povos indígenas tomaram decisões em condições marcadas por guerra, epidemias, escravização e expansão colonial.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A avaliação exige delimitar as condições de Agência histórica e distingui-las de relações próximas em História indígena.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Protagonismo indígena, enquanto Guerra total se refere a Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A avaliação exige delimitar as condições de Agência histórica e distingui-las de relações próximas em História indígena."
+      "V": "Correto: evita confundir capacidade de ação com igualdade de poder.",
+      "F": "Incorreto: reconhecer estratégia não idealiza a colonização."
     },
     "tags": [
       "historia-indigena",
@@ -3095,10 +3095,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Antiguidade",
-    "subtopic": "Atenas",
+    "subtopic": "Democracia e império",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Democracia ateniense de Ordem bipolar, a característica “cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos” deve ser atribuída ao primeiro conceito.",
+    "statement": "A participação política direta dos cidadãos em Atenas é suficiente para concluir que as relações da cidade com seus aliados na Liga de Delos também eram igualitárias.",
     "alternatives": [
       {
         "id": "V",
@@ -3109,11 +3109,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A avaliação exige delimitar as condições de Atenas e distingui-las de relações próximas em Antiguidade.",
+    "correctAnswer": "F",
+    "explanation": "Falsa. Instituições democráticas internas coexistiram com coerção externa, tributos e repressão a aliados que tentavam abandonar a liga.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A avaliação exige delimitar as condições de Atenas e distingui-las de relações próximas em Antiguidade.",
-      "F": "Incorreto. A proposição é verdadeira, pois Democracia ateniense se caracteriza porque cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A avaliação exige delimitar as condições de Atenas e distingui-las de relações próximas em Antiguidade."
+      "V": "Incorreto: transfere automaticamente uma característica interna às relações interestatais.",
+      "F": "Correto: democracia para cidadãos não excluiu hegemonia imperial."
     },
     "tags": [
       "antiguidade",
@@ -3139,10 +3139,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Idade Média",
-    "subtopic": "Feudalismo",
+    "subtopic": "Peste Negra",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Relações de suserania e vassalagem de Ato Institucional nº 5, a característica “nobres estabeleciam compromissos recíprocos de fidelidade, proteção e concessão de benefícios” deve ser atribuída ao segundo conceito.",
+    "statement": "A escassez de mão de obra após a Peste Negra podia elevar o poder de negociação camponês, mas seus efeitos dependeram da mobilidade do trabalho e das respostas senhoriais em cada região.",
     "alternatives": [
       {
         "id": "V",
@@ -3153,11 +3153,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A avaliação exige delimitar as condições de Feudalismo e distingui-las de relações próximas em Idade Média.",
+    "correctAnswer": "V",
+    "explanation": "Verdadeira. A queda populacional alterou a relação entre terra e trabalho, porém leis coercitivas e estruturas locais produziram resultados diferentes no Ocidente e no Leste europeu.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A avaliação exige delimitar as condições de Feudalismo e distingui-las de relações próximas em Idade Média.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Relações de suserania e vassalagem, enquanto Ato Institucional nº 5 se refere a o ato de 1968 aprofundou o autoritarismo, permitiu fechamento do Congresso e restringiu garantias. A avaliação exige delimitar as condições de Feudalismo e distingui-las de relações próximas em Idade Média."
+      "V": "Correto: combina mecanismo demográfico e variação regional.",
+      "F": "Incorreto: a mesma crise não gera efeitos idênticos em contextos institucionais distintos."
     },
     "tags": [
       "idade-media",
@@ -3186,7 +3186,7 @@ export const historiaQuestions: Question[] = [
     "subtopic": "Mercantilismo",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Mercantilismo de Protagonismo indígena, a característica “monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável” deve ser atribuída ao primeiro conceito.",
+    "statement": "Como Inglaterra e França adotaram instrumentos mercantilistas diferentes, não é possível identificar entre elas a lógica comum de usar o Estado na competição comercial.",
     "alternatives": [
       {
         "id": "V",
@@ -3197,11 +3197,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A avaliação exige delimitar as condições de Mercantilismo e distingui-las de relações próximas em Idade Moderna.",
+    "correctAnswer": "F",
+    "explanation": "Falsa. Atos de navegação, tarifas, subsídios e monopólios variaram, mas compartilhavam o objetivo de fortalecer produção, receitas e poder nacional em ambiente competitivo.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A avaliação exige delimitar as condições de Mercantilismo e distingui-las de relações próximas em Idade Moderna.",
-      "F": "Incorreto. A proposição é verdadeira, pois Mercantilismo se caracteriza porque monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A avaliação exige delimitar as condições de Mercantilismo e distingui-las de relações próximas em Idade Moderna."
+      "V": "Incorreto: diferença de instrumentos não elimina finalidade comparável.",
+      "F": "Correto: mercantilismo reúne práticas diversas sob uma lógica histórica comum."
     },
     "tags": [
       "idade-moderna",
@@ -3227,10 +3227,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Revoluções",
-    "subtopic": "Revolução Francesa",
+    "subtopic": "Direitos e revolução atlântica",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Queda dos privilégios estamentais de Democracia ateniense, a característica “a Revolução Francesa contestou distinções jurídicas herdadas do Antigo Regime e afirmou igualdade civil” deve ser atribuída ao segundo conceito.",
+    "statement": "A participação de escravizados na Revolução Haitiana evidencia que a linguagem universal de liberdade podia ser apropriada por grupos inicialmente excluídos e adquirir consequências não previstas pelas elites francesas.",
     "alternatives": [
       {
         "id": "V",
@@ -3241,11 +3241,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A avaliação exige delimitar as condições de Revolução Francesa e distingui-las de relações próximas em Revoluções.",
+    "correctAnswer": "V",
+    "explanation": "Verdadeira. A revolução de São Domingos universalizou radicalmente princípios revolucionários ao ligá-los à abolição e à independência colonial.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A avaliação exige delimitar as condições de Revolução Francesa e distingui-las de relações próximas em Revoluções.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Queda dos privilégios estamentais, enquanto Democracia ateniense se refere a cidadãos homens participavam diretamente das decisões, enquanto mulheres, estrangeiros e escravizados eram excluídos. A avaliação exige delimitar as condições de Revolução Francesa e distingui-las de relações próximas em Revoluções."
+      "V": "Correto: relaciona circulação de ideias, agência e resultados contingentes.",
+      "F": "Incorreto: conceitos políticos podem mudar ao serem apropriados por outros sujeitos."
     },
     "tags": [
       "revolucoes",
@@ -3271,10 +3271,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Colônia",
-    "subtopic": "Escravidão",
+    "subtopic": "Quilombos",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Escravidão atlântica de Relações de suserania e vassalagem, a característica “tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada” deve ser atribuída ao primeiro conceito.",
+    "statement": "A existência de comércio entre quilombos e povoados coloniais prova que essas comunidades estavam integradas sem conflito à ordem escravista.",
     "alternatives": [
       {
         "id": "V",
@@ -3285,11 +3285,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A avaliação exige delimitar as condições de Escravidão e distingui-las de relações próximas em Brasil Colônia.",
+    "correctAnswer": "F",
+    "explanation": "Falsa. Trocas econômicas podiam coexistir com perseguição militar e resistência à escravização; contato comercial não é condição suficiente para ausência de conflito.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A avaliação exige delimitar as condições de Escravidão e distingui-las de relações próximas em Brasil Colônia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escravidão atlântica se caracteriza porque tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A avaliação exige delimitar as condições de Escravidão e distingui-las de relações próximas em Brasil Colônia."
+      "V": "Incorreto: transforma interação econômica em aceitação política da ordem.",
+      "F": "Correto: relações de troca e antagonismo podiam ocorrer simultaneamente."
     },
     "tags": [
       "brasil-colonia",
@@ -3315,10 +3315,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Brasil Império",
-    "subtopic": "Política",
+    "subtopic": "Abolição",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Poder Moderador de Mercantilismo, a característica “a Constituição de 1824 atribuiu ao imperador um poder capaz de intervir no funcionamento dos demais poderes” deve ser atribuída ao segundo conceito.",
+    "statement": "A Lei Áurea extinguiu juridicamente a escravidão, mas, sem políticas amplas de terra, trabalho e reparação, não eliminou as desigualdades construídas pelo regime escravista.",
     "alternatives": [
       {
         "id": "V",
@@ -3329,11 +3329,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A avaliação exige delimitar as condições de Política e distingui-las de relações próximas em Brasil Império.",
+    "correctAnswer": "V",
+    "explanation": "Verdadeira. A ruptura legal de 1888 foi decisiva, porém libertos enfrentaram exclusão econômica e racial produzida por séculos de escravidão.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A avaliação exige delimitar as condições de Política e distingui-las de relações próximas em Brasil Império.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Poder Moderador, enquanto Mercantilismo se refere a monarquias europeias adotaram práticas intervencionistas voltadas ao comércio, metais preciosos e balança favorável. A avaliação exige delimitar as condições de Política e distingui-las de relações próximas em Brasil Império."
+      "V": "Correto: distingue abolição jurídica e transformação social completa.",
+      "F": "Incorreto: igualdade formal não garante condições materiais iguais."
     },
     "tags": [
       "brasil-imperio",
@@ -3359,10 +3359,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "República",
-    "subtopic": "Primeira República",
+    "subtopic": "Revolta da Vacina",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Coronelismo de Queda dos privilégios estamentais, a característica “chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais” deve ser atribuída ao primeiro conceito.",
+    "statement": "A eficácia médica da vacina basta para explicar a aceitação popular da campanha de 1904, independentemente de remoções urbanas e métodos coercitivos.",
     "alternatives": [
       {
         "id": "V",
@@ -3373,11 +3373,11 @@ export const historiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A avaliação exige delimitar as condições de Primeira República e distingui-las de relações próximas em República.",
+    "correctAnswer": "F",
+    "explanation": "Falsa. Eficácia sanitária e legitimidade política são dimensões distintas; invasão de domicílios, reformas excludentes e desconfiança estatal influenciaram a revolta.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A avaliação exige delimitar as condições de Primeira República e distingui-las de relações próximas em República.",
-      "F": "Incorreto. A proposição é verdadeira, pois Coronelismo se caracteriza porque chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A avaliação exige delimitar as condições de Primeira República e distingui-las de relações próximas em República."
+      "V": "Incorreto: transforma validade científica em condição suficiente de adesão social.",
+      "F": "Correto: políticas de saúde também dependem de contexto e forma de implementação."
     },
     "tags": [
       "republica",
@@ -3403,10 +3403,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Era Vargas",
-    "subtopic": "Trabalho",
+    "subtopic": "Trabalhismo e recepção",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Trabalhismo varguista de Escravidão atlântica, a característica “direitos sociais foram ampliados sob forte tutela estatal e associados politicamente à liderança presidencial” deve ser atribuída ao segundo conceito.",
+    "statement": "O uso de propaganda trabalhista pelo Estado Novo permite concluir que trabalhadores receberam passivamente a mensagem oficial, sem reinterpretá-la ou mobilizar direitos em benefício próprio.",
     "alternatives": [
       {
         "id": "V",
@@ -3418,10 +3418,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A avaliação exige delimitar as condições de Trabalho e distingui-las de relações próximas em Era Vargas.",
+    "explanation": "Falsa. Propaganda buscava moldar lealdades, mas sua recepção não era automática; trabalhadores também se apropriaram da linguagem dos direitos para apresentar demandas.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A avaliação exige delimitar as condições de Trabalho e distingui-las de relações próximas em Era Vargas.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Trabalhismo varguista, enquanto Escravidão atlântica se refere a tráfico, coerção e exploração de africanos sustentaram atividades econômicas e uma ordem social racializada. A avaliação exige delimitar as condições de Trabalho e distingui-las de relações próximas em Era Vargas."
+      "V": "Incorreto: confunde intenção estatal com recepção social uniforme.",
+      "F": "Correto: sujeitos podem negociar e ressignificar discursos oficiais."
     },
     "tags": [
       "era-vargas",
@@ -3447,10 +3447,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerras Mundiais",
-    "subtopic": "Primeira Guerra",
+    "subtopic": "Tratado de Versalhes",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Guerra total de Poder Moderador, a característica “Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito” deve ser atribuída ao primeiro conceito.",
+    "statement": "As punições impostas à Alemanha em Versalhes contribuíram para o revanchismo, mas não constituem explicação suficiente para o nazismo sem considerar crise econômica, disputas políticas e ação de seus apoiadores.",
     "alternatives": [
       {
         "id": "V",
@@ -3462,10 +3462,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A avaliação exige delimitar as condições de Primeira Guerra e distingui-las de relações próximas em Guerras Mundiais.",
+    "explanation": "Verdadeira. O tratado criou ressentimentos exploráveis, enquanto a ascensão nazista resultou de uma combinação posterior de depressão, fragilidade institucional, violência e escolhas políticas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A avaliação exige delimitar as condições de Primeira Guerra e distingui-las de relações próximas em Guerras Mundiais.",
-      "F": "Incorreto. A proposição é verdadeira, pois Guerra total se caracteriza porque Estados mobilizaram economias, propaganda, ciência e populações civis em escala ampla para o conflito. A avaliação exige delimitar as condições de Primeira Guerra e distingui-las de relações próximas em Guerras Mundiais."
+      "V": "Correto: reconhece contribuição sem reduzir o processo a uma causa única.",
+      "F": "Incorreto: causalidade histórica complexa não elimina o peso de Versalhes."
     },
     "tags": [
       "guerras-mundiais",
@@ -3491,10 +3491,10 @@ export const historiaQuestions: Question[] = [
     "subject": "historia",
     "subjectName": "História",
     "topic": "Guerra Fria",
-    "subtopic": "Bipolaridade",
+    "subtopic": "Não Alinhamento",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Ordem bipolar de Coronelismo, a característica “Estados Unidos e União Soviética lideraram blocos rivais em disputa política, econômica, militar e ideológica” deve ser atribuída ao segundo conceito.",
+    "statement": "A formação do Movimento dos Não Alinhados demonstra que todos os países recém-independentes permaneceram neutros e igualmente distantes das duas superpotências em todas as crises.",
     "alternatives": [
       {
         "id": "V",
@@ -3506,10 +3506,10 @@ export const historiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A avaliação exige delimitar as condições de Bipolaridade e distingui-las de relações próximas em Guerra Fria.",
+    "explanation": "Falsa. O não alinhamento afirmava autonomia e cooperação, mas seus membros tinham interesses diversos e podiam aproximar-se de um bloco em questões específicas.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A avaliação exige delimitar as condições de Bipolaridade e distingui-las de relações próximas em Guerra Fria.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Ordem bipolar, enquanto Coronelismo se refere a chefes locais articulavam poder econômico, controle eleitoral e favores em redes políticas regionais. A avaliação exige delimitar as condições de Bipolaridade e distingui-las de relações próximas em Guerra Fria."
+      "V": "Incorreto: transforma projeto político heterogêneo em neutralidade absoluta e uniforme.",
+      "F": "Correto: autonomia não significava equidistância permanente."
     },
     "tags": [
       "guerra-fria",

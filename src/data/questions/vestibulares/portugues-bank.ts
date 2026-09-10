@@ -10,32 +10,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Inferência",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal?",
+    "statement": "Leia o trecho:\n\n\"Quando Marina chegou à biblioteca, encontrou as luzes apagadas e um aviso na porta: 'Retornaremos amanhã'. Ela guardou o caderno na mochila e seguiu para casa.\"\n\nO que se pode inferir do trecho?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Inferência textual"
+        "text": "Marina desistiu definitivamente de estudar."
       },
       {
         "id": "B",
-        "text": "Advérbio"
+        "text": "A biblioteca não estava atendendo naquele momento."
       },
       {
         "id": "C",
-        "text": "Regência verbal"
+        "text": "Marina trabalha na biblioteca."
       },
       {
         "id": "D",
-        "text": "Polissemia"
+        "text": "O caderno de Marina pertencia à biblioteca."
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. Por isso, a alternativa correta é Inferência textual.",
+    "correctAnswer": "B",
+    "explanation": "O texto não diz literalmente que a biblioteca estava fechada, mas as luzes apagadas, o aviso de retorno no dia seguinte e a decisão de Marina de ir embora permitem inferir que não havia atendimento naquele momento.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. Por isso, a alternativa correta é Inferência textual.",
-      "B": "Esse conceito designa outra relação: uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância.",
-      "C": "A propriedade dessa alternativa é distinta: a relação entre um verbo e seus complementos determina a presença ou ausência de preposição.",
-      "D": "Não corresponde ao caso: uma mesma palavra assume sentidos diferentes conforme o contexto em que é empregada."
+      "A": "O texto informa apenas que Marina voltou para casa; não permite concluir que ela abandonou os estudos.",
+      "B": "Correta. A conclusão é construída a partir de várias pistas presentes no trecho.",
+      "C": "Nada no texto indica que Marina seja funcionária da biblioteca.",
+      "D": "O fato de ela guardar o caderno na mochila não indica que o objeto pertença à biblioteca."
     },
     "tags": [
       "interpretacao",
@@ -51,8 +51,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "interpretacao-textual",
+      "inferencia",
+      "leitura-de-pistas"
     ],
     "origin": "nabulab"
   },
@@ -65,32 +66,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Classes de palavras",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância?",
+    "statement": "Na frase \"O ônibus chegou muito cedo\", a palavra \"muito\" modifica \"cedo\". Nesse contexto, \"muito\" é classificado como:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Oração subordinada adverbial causal"
+        "text": "substantivo"
       },
       {
         "id": "B",
-        "text": "Advérbio"
+        "text": "adjetivo"
       },
       {
         "id": "C",
-        "text": "Crase"
+        "text": "advérbio"
       },
       {
         "id": "D",
-        "text": "Metonímia"
+        "text": "pronome"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "O critério relevante é uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância. Por isso, a alternativa correta é Advérbio.",
+    "correctAnswer": "C",
+    "explanation": "Em \"muito cedo\", \"muito\" intensifica o advérbio \"cedo\". Palavras invariáveis que modificam verbo, adjetivo ou outro advérbio são classificadas como advérbios.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: uma oração dependente apresenta a causa do fato expresso pela oração principal.",
-      "B": "Correta. O critério relevante é uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância. Por isso, a alternativa correta é Advérbio.",
-      "C": "Não corresponde ao caso: ocorre a fusão da preposição a com outro a, normalmente artigo ou início de pronome demonstrativo.",
-      "D": "Diverge da descrição porque um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra."
+      "A": "Substantivos nomeiam seres, objetos, ações, estados ou conceitos; não é a função exercida por 'muito' nesse trecho.",
+      "B": "Adjetivos caracterizam substantivos; aqui, 'muito' não modifica um substantivo.",
+      "C": "Correta. 'Muito' funciona como advérbio de intensidade, modificando 'cedo'.",
+      "D": "Embora 'muito' possa funcionar como pronome em outros contextos, nesta frase ele modifica um advérbio."
     },
     "tags": [
       "morfologia",
@@ -106,8 +107,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "morfologia",
+      "classes-de-palavras",
+      "analise-contextual"
     ],
     "origin": "nabulab"
   },
@@ -120,32 +122,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Orações subordinadas",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: uma oração dependente apresenta a causa do fato expresso pela oração principal?",
+    "statement": "Em qual alternativa a oração destacada expressa causa?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Concordância verbal"
+        "text": "Saímos cedo porque a estrada estava congestionada."
       },
       {
         "id": "B",
-        "text": "Vírgula em expressão intercalada"
+        "text": "Estudamos tanto que terminamos o conteúdo."
       },
       {
         "id": "C",
-        "text": "Oração subordinada adverbial causal"
+        "text": "Guardarei o ingresso para que você possa entrar."
       },
       {
         "id": "D",
-        "text": "Adequação linguística"
+        "text": "Voltarei quando a reunião terminar."
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "Neste caso uma oração dependente apresenta a causa do fato expresso pela oração principal. Por isso, a alternativa correta é Oração subordinada adverbial causal.",
+    "correctAnswer": "A",
+    "explanation": "Em \"porque a estrada estava congestionada\", a oração apresenta o motivo de \"saímos cedo\"; portanto, estabelece relação de causa.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a forma do verbo se ajusta, em pessoa e número, ao núcleo do sujeito.",
-      "B": "Não corresponde ao caso: uma expressão explicativa inserida no meio da oração é isolada por vírgulas.",
-      "C": "Correta. Neste caso uma oração dependente apresenta a causa do fato expresso pela oração principal. Por isso, a alternativa correta é Oração subordinada adverbial causal.",
-      "D": "Esse conceito designa outra relação: a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade."
+      "A": "Correta. O congestionamento é apresentado como causa da saída antecipada.",
+      "B": "A oração introduz uma consequência do grau de estudo.",
+      "C": "A oração expressa finalidade.",
+      "D": "A oração estabelece relação temporal."
     },
     "tags": [
       "sintaxe",
@@ -161,8 +163,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "sintaxe",
+      "oracoes-subordinadas",
+      "relacoes-de-sentido"
     ],
     "origin": "nabulab"
   },
@@ -175,7 +178,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Orações subordinadas",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Oração subordinada adverbial causal” corresponde à seguinte descrição: uma oração dependente apresenta a causa do fato expresso pela oração principal.",
+    "statement": "Na frase \"Como estava chovendo, cancelamos o passeio\", a oração \"Como estava chovendo\" expressa a causa do cancelamento.",
     "alternatives": [
       {
         "id": "V",
@@ -187,10 +190,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. Em Sintaxe, o reconhecimento direto da propriedade de Orações subordinadas resolve o item.",
+    "explanation": "Nesse uso, \"como\" introduz uma oração subordinada adverbial causal: a chuva é apresentada como motivo do cancelamento.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. Em Sintaxe, o reconhecimento direto da propriedade de Orações subordinadas resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. Em Sintaxe, o reconhecimento direto da propriedade de Orações subordinadas resolve o item."
+      "V": "Correto. A relação estabelecida entre as duas orações é de causa.",
+      "F": "Incorreto. Nesse contexto, a oração introduzida por 'como' explica por que o passeio foi cancelado."
     },
     "tags": [
       "sintaxe",
@@ -206,8 +209,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "sintaxe",
+      "oracoes-subordinadas",
+      "relacao-causal"
     ],
     "origin": "nabulab"
   },
@@ -220,7 +224,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Concordância verbal",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Regência verbal” corresponde à seguinte descrição: a forma do verbo se ajusta, em pessoa e número, ao núcleo do sujeito.",
+    "statement": "Na frase \"Os alunos da turma chegou cedo\", a concordância verbal está de acordo com a norma-padrão.",
     "alternatives": [
       {
         "id": "V",
@@ -232,10 +236,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Concordância verbal, enquanto Regência verbal se refere a a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Em Concordância, o reconhecimento direto da propriedade de Concordância verbal resolve o item.",
+    "explanation": "O núcleo do sujeito \"Os alunos da turma\" é \"alunos\", que está no plural. Pela norma-padrão, o verbo deve concordar com esse núcleo: \"Os alunos da turma chegaram cedo\".",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Concordância verbal, enquanto Regência verbal se refere a a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Em Concordância, o reconhecimento direto da propriedade de Concordância verbal resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Concordância verbal, enquanto Regência verbal se refere a a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Em Concordância, o reconhecimento direto da propriedade de Concordância verbal resolve o item."
+      "V": "Incorreto. O verbo no singular não concorda com o núcleo plural do sujeito.",
+      "F": "Correto. A forma esperada pela norma-padrão é 'chegaram'."
     },
     "tags": [
       "concordancia",
@@ -251,8 +255,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "concordancia",
+      "concordancia-verbal",
+      "revisao-de-frase"
     ],
     "origin": "nabulab"
   },
@@ -265,7 +270,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Regência verbal",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Regência verbal” corresponde à seguinte descrição: a relação entre um verbo e seus complementos determina a presença ou ausência de preposição.",
+    "statement": "Na norma-padrão tradicional, em \"Ela assistiu o filme ontem\", o verbo \"assistir\", empregado no sentido de \"ver\", dispensa preposição.",
     "alternatives": [
       {
         "id": "V",
@@ -276,11 +281,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Regência verbal se caracteriza porque a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Em Regência, o reconhecimento direto da propriedade de Regência verbal resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "No sentido de ver ou presenciar, o verbo \"assistir\" rege tradicionalmente a preposição \"a\": \"Ela assistiu ao filme ontem\".",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Regência verbal se caracteriza porque a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Em Regência, o reconhecimento direto da propriedade de Regência verbal resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Regência verbal se caracteriza porque a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Em Regência, o reconhecimento direto da propriedade de Regência verbal resolve o item."
+      "V": "Incorreto. Nesse emprego, a regência normativa prevê a preposição 'a'.",
+      "F": "Correto. A construção recomendada pela norma-padrão tradicional é 'assistiu ao filme'."
     },
     "tags": [
       "regencia",
@@ -296,8 +301,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "regencia",
+      "regencia-verbal",
+      "norma-padrao"
     ],
     "origin": "nabulab"
   },
@@ -310,7 +316,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Fusão da preposição",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Vírgula em expressão intercalada” corresponde à seguinte descrição: ocorre a fusão da preposição a com outro a, normalmente artigo ou início de pronome demonstrativo.",
+    "statement": "Na frase \"Vou à escola pela manhã\", o acento grave indica a fusão da preposição \"a\", exigida por \"ir\", com o artigo feminino \"a\" que acompanha \"escola\".",
     "alternatives": [
       {
         "id": "V",
@@ -321,11 +327,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Crase, enquanto Vírgula em expressão intercalada se refere a uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Em Crase, o reconhecimento direto da propriedade de Fusão da preposição resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "Em \"ir a\" + \"a escola\", ocorre a fusão da preposição \"a\" com o artigo feminino \"a\". Essa crase é indicada graficamente pelo acento grave.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Crase, enquanto Vírgula em expressão intercalada se refere a uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Em Crase, o reconhecimento direto da propriedade de Fusão da preposição resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Crase, enquanto Vírgula em expressão intercalada se refere a uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Em Crase, o reconhecimento direto da propriedade de Fusão da preposição resolve o item."
+      "V": "Correto. O contexto admite tanto a preposição quanto o artigo feminino.",
+      "F": "Incorreto. O acento grave representa justamente a ocorrência de crase nesse caso."
     },
     "tags": [
       "crase",
@@ -341,8 +347,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "crase",
+      "regencia",
+      "aplicacao"
     ],
     "origin": "nabulab"
   },
@@ -355,7 +362,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Inciso explicativo",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Vírgula em expressão intercalada” corresponde à seguinte descrição: uma expressão explicativa inserida no meio da oração é isolada por vírgulas.",
+    "statement": "Na frase \"Paulo, meu vizinho, viajou ontem\", as vírgulas isolam uma expressão explicativa sobre Paulo.",
     "alternatives": [
       {
         "id": "V",
@@ -367,10 +374,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Vírgula em expressão intercalada se caracteriza porque uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Em Pontuação, o reconhecimento direto da propriedade de Inciso explicativo resolve o item.",
+    "explanation": "\"Meu vizinho\" funciona como aposto explicativo e aparece intercalado na oração; por isso, é isolado por vírgulas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Vírgula em expressão intercalada se caracteriza porque uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Em Pontuação, o reconhecimento direto da propriedade de Inciso explicativo resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Vírgula em expressão intercalada se caracteriza porque uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Em Pontuação, o reconhecimento direto da propriedade de Inciso explicativo resolve o item."
+      "V": "Correto. A informação acrescentada explica quem é Paulo sem restringir sua identificação.",
+      "F": "Incorreto. As vírgulas têm função sintática clara: isolar o aposto explicativo."
     },
     "tags": [
       "pontuacao",
@@ -386,8 +393,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "pontuacao",
+      "virgula",
+      "aposto-explicativo"
     ],
     "origin": "nabulab"
   },
@@ -400,7 +408,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Sentido contextual",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Metonímia” corresponde à seguinte descrição: uma mesma palavra assume sentidos diferentes conforme o contexto em que é empregada.",
+    "statement": "Na frase \"A manga da camisa rasgou\" e em \"Comi uma manga no almoço\", a palavra \"manga\" apresenta o mesmo sentido.",
     "alternatives": [
       {
         "id": "V",
@@ -412,10 +420,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Polissemia, enquanto Metonímia se refere a um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Em Semântica, o reconhecimento direto da propriedade de Sentido contextual resolve o item.",
+    "explanation": "A palavra \"manga\" assume sentidos diferentes conforme o contexto: em uma frase, é parte da camisa; na outra, é uma fruta.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Polissemia, enquanto Metonímia se refere a um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Em Semântica, o reconhecimento direto da propriedade de Sentido contextual resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Polissemia, enquanto Metonímia se refere a um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Em Semântica, o reconhecimento direto da propriedade de Sentido contextual resolve o item."
+      "V": "Incorreto. O contexto altera claramente o significado da palavra.",
+      "F": "Correto. A primeira ocorrência se refere a vestuário; a segunda, a alimento."
     },
     "tags": [
       "semantica",
@@ -431,8 +439,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "semantica",
+      "sentido-contextual",
+      "polissemia"
     ],
     "origin": "nabulab"
   },
@@ -445,7 +454,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Relações de sentido",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Metonímia” corresponde à seguinte descrição: um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra.",
+    "statement": "Em \"Li Machado de Assis nas férias\", o nome do autor aparece no lugar de sua obra; por isso, o recurso é uma metáfora, e não uma metonímia.",
     "alternatives": [
       {
         "id": "V",
@@ -456,11 +465,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Metonímia se caracteriza porque um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Em Figuras de linguagem, o reconhecimento direto da propriedade de Relações de sentido resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "A substituição do nome da obra pelo nome do autor baseia-se numa relação de proximidade entre autor e produção, característica da metonímia.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Metonímia se caracteriza porque um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Em Figuras de linguagem, o reconhecimento direto da propriedade de Relações de sentido resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Metonímia se caracteriza porque um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Em Figuras de linguagem, o reconhecimento direto da propriedade de Relações de sentido resolve o item."
+      "V": "Incorreto. Não há comparação implícita típica da metáfora; há relação autor–obra.",
+      "F": "Correto. O exemplo é de metonímia."
     },
     "tags": [
       "figuras-de-linguagem",
@@ -476,8 +485,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "figuras-de-linguagem",
+      "metonimia",
+      "interpretacao"
     ],
     "origin": "nabulab"
   },
@@ -490,7 +500,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Adequação",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Função conativa” corresponde à seguinte descrição: a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade.",
+    "statement": "Uma mensagem enviada a um amigo pode empregar linguagem mais informal do que um requerimento dirigido a uma instituição, sem que isso signifique necessariamente erro linguístico.",
     "alternatives": [
       {
         "id": "V",
@@ -501,11 +511,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Adequação linguística, enquanto Função conativa se refere a a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Em Variação linguística, o reconhecimento direto da propriedade de Adequação resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "A adequação linguística considera situação comunicativa, finalidade, interlocutor e gênero textual. Diferentes contextos podem exigir diferentes graus de formalidade.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Adequação linguística, enquanto Função conativa se refere a a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Em Variação linguística, o reconhecimento direto da propriedade de Adequação resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Adequação linguística, enquanto Função conativa se refere a a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Em Variação linguística, o reconhecimento direto da propriedade de Adequação resolve o item."
+      "V": "Correto. A escolha linguística precisa ser avaliada em relação ao contexto de uso.",
+      "F": "Incorreto. Variação de registro não deve ser confundida automaticamente com erro."
     },
     "tags": [
       "variacao-linguistica",
@@ -521,8 +531,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "variacao-linguistica",
+      "adequacao",
+      "registro"
     ],
     "origin": "nabulab"
   },
@@ -535,7 +546,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Foco no destinatário",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Função conativa” corresponde à seguinte descrição: a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos.",
+    "statement": "Em um anúncio com a frase \"Experimente hoje e descubra um novo sabor!\", predomina uma orientação direta ao destinatário, característica da função conativa da linguagem.",
     "alternatives": [
       {
         "id": "V",
@@ -547,10 +558,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Em Funções da linguagem, o reconhecimento direto da propriedade de Foco no destinatário resolve o item.",
+    "explanation": "Os verbos no imperativo dirigem-se ao leitor e procuram influenciar seu comportamento. Esse foco no destinatário caracteriza a função conativa ou apelativa.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Em Funções da linguagem, o reconhecimento direto da propriedade de Foco no destinatário resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Em Funções da linguagem, o reconhecimento direto da propriedade de Foco no destinatário resolve o item."
+      "V": "Correto. O anúncio busca provocar uma ação no receptor.",
+      "F": "Incorreto. Os comandos 'experimente' e 'descubra' evidenciam o foco no destinatário."
     },
     "tags": [
       "funcoes-da-linguagem",
@@ -566,8 +577,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "funcoes-da-linguagem",
+      "funcao-conativa",
+      "analise-de-genero"
     ],
     "origin": "nabulab"
   },
@@ -580,32 +592,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Regência verbal",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: a relação entre um verbo e seus complementos determina a presença ou ausência de preposição?",
+    "statement": "Assinale a alternativa que está de acordo com a regência verbal recomendada pela norma-padrão.",
     "alternatives": [
       {
         "id": "A",
-        "text": "Regência verbal"
+        "text": "Os estudantes assistiram o documentário sobre o clima."
       },
       {
         "id": "B",
-        "text": "Vírgula em expressão intercalada"
+        "text": "A equipe obedeceu o regulamento da competição."
       },
       {
         "id": "C",
-        "text": "Adequação linguística"
+        "text": "Ela prefere mais trabalhar em casa do que no escritório."
       },
       {
         "id": "D",
-        "text": "Advérbio"
+        "text": "Os alunos aspiravam a uma vaga no programa de intercâmbio."
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Por isso, a alternativa correta é Regência verbal.",
+    "correctAnswer": "D",
+    "explanation": "No sentido de desejar, \"aspirar\" rege a preposição \"a\": \"aspirar a uma vaga\". Na norma-padrão tradicional, \"assistir\" no sentido de ver e \"obedecer\" regem \"a\"; \"preferir\" estabelece relação direta entre os termos, sem \"mais... do que\".",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. Por isso, a alternativa correta é Regência verbal.",
-      "B": "Esse conceito designa outra relação: uma expressão explicativa inserida no meio da oração é isolada por vírgulas.",
-      "C": "A propriedade dessa alternativa é distinta: a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade.",
-      "D": "Não corresponde ao caso: uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância."
+      "A": "Na norma-padrão tradicional, o esperado é 'assistiram ao documentário'.",
+      "B": "O verbo 'obedecer' rege a preposição 'a': 'obedeceu ao regulamento'.",
+      "C": "A construção normativa mais direta é 'prefere trabalhar em casa a trabalhar no escritório'.",
+      "D": "Correta. 'Aspirar', no sentido de desejar, rege a preposição 'a'."
     },
     "tags": [
       "regencia",
@@ -621,8 +633,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "regencia",
+      "regencia-verbal",
+      "norma-padrao"
     ],
     "origin": "nabulab"
   },
@@ -635,32 +648,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Fusão da preposição",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: ocorre a fusão da preposição a com outro a, normalmente artigo ou início de pronome demonstrativo?",
+    "statement": "Assinale a alternativa em que o uso do acento grave indicativo de crase está adequado à norma-padrão.",
     "alternatives": [
       {
         "id": "A",
-        "text": "Polissemia"
+        "text": "O relatório foi entregue à diretora da escola."
       },
       {
         "id": "B",
-        "text": "Crase"
+        "text": "O relatório foi entregue à João."
       },
       {
         "id": "C",
-        "text": "Função conativa"
+        "text": "Começaremos à trabalhar às oito horas."
       },
       {
         "id": "D",
-        "text": "Oração subordinada adverbial causal"
+        "text": "A equipe ficou frente à frente durante a discussão."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "O critério relevante é ocorre a fusão da preposição a com outro a, normalmente artigo ou início de pronome demonstrativo. Por isso, a alternativa correta é Crase.",
+    "correctAnswer": "A",
+    "explanation": "Em \"entregue à diretora\", o verbo exige a preposição \"a\" e o substantivo feminino admite o artigo \"a\", produzindo a crase. Não há crase antes de nome masculino ou verbo, e a expressão \"frente a frente\" não recebe artigo entre os termos.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: uma mesma palavra assume sentidos diferentes conforme o contexto em que é empregada.",
-      "B": "Correta. O critério relevante é ocorre a fusão da preposição a com outro a, normalmente artigo ou início de pronome demonstrativo. Por isso, a alternativa correta é Crase.",
-      "C": "Não corresponde ao caso: a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos.",
-      "D": "Diverge da descrição porque uma oração dependente apresenta a causa do fato expresso pela oração principal."
+      "A": "Correta. Há fusão da preposição 'a' com o artigo feminino 'a'.",
+      "B": "Não se usa crase diante de nome masculino nesse contexto.",
+      "C": "Verbos não são antecedidos por artigo feminino; portanto não ocorre crase antes de 'trabalhar'.",
+      "D": "A expressão 'frente a frente' é usada sem artigo e, portanto, sem crase."
     },
     "tags": [
       "crase",
@@ -676,8 +689,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "crase",
+      "regencia",
+      "analise-de-uso"
     ],
     "origin": "nabulab"
   },
@@ -690,32 +704,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Inciso explicativo",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: uma expressão explicativa inserida no meio da oração é isolada por vírgulas?",
+    "statement": "Qual alternativa emprega as vírgulas de modo a isolar corretamente uma expressão intercalada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Metonímia"
+        "text": "O projeto porém foi aprovado pela comissão."
       },
       {
         "id": "B",
-        "text": "Coesão referencial"
+        "text": "O projeto, porém, foi aprovado pela comissão."
       },
       {
         "id": "C",
-        "text": "Vírgula em expressão intercalada"
+        "text": "O projeto porém, foi aprovado pela comissão."
       },
       {
         "id": "D",
-        "text": "Concordância verbal"
+        "text": "O projeto, porém foi aprovado pela comissão."
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "Neste caso uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Por isso, a alternativa correta é Vírgula em expressão intercalada.",
+    "correctAnswer": "B",
+    "explanation": "O conectivo \"porém\", quando intercalado, deve ser isolado por vírgulas. A alternativa B marca adequadamente os dois limites da expressão.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra.",
-      "B": "Não corresponde ao caso: pronomes e outras expressões retomam elementos do texto e evitam repetições desnecessárias.",
-      "C": "Correta. Neste caso uma expressão explicativa inserida no meio da oração é isolada por vírgulas. Por isso, a alternativa correta é Vírgula em expressão intercalada.",
-      "D": "Esse conceito designa outra relação: a forma do verbo se ajusta, em pessoa e número, ao núcleo do sujeito."
+      "A": "Faltam as vírgulas que delimitam a expressão intercalada.",
+      "B": "Correta. As duas vírgulas isolam 'porém'.",
+      "C": "Há apenas a vírgula de fechamento.",
+      "D": "Há apenas a vírgula de abertura."
     },
     "tags": [
       "pontuacao",
@@ -731,8 +745,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "pontuacao",
+      "virgula",
+      "expressao-intercalada"
     ],
     "origin": "nabulab"
   },
@@ -745,7 +760,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Inciso explicativo",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “uma expressão explicativa inserida no meio da oração é isolada por vírgulas”, é correto associá-lo a Vírgula em expressão intercalada.",
+    "statement": "Na frase \"Os pesquisadores, segundo o relatório, repetiram o teste\", a retirada das duas vírgulas preservaria a mesma organização sintática e a mesma clareza do período.",
     "alternatives": [
       {
         "id": "V",
@@ -756,11 +771,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Vírgula em expressão intercalada se caracteriza porque uma expressão explicativa inserida no meio da oração é isolada por vírgulas. A resolução relaciona a situação descrita aos critérios de Inciso explicativo, no campo de Pontuação.",
+    "correctAnswer": "F",
+    "explanation": "\"Segundo o relatório\" é uma expressão intercalada que interrompe a sequência principal \"Os pesquisadores repetiram o teste\". As vírgulas sinalizam essa inserção.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Vírgula em expressão intercalada se caracteriza porque uma expressão explicativa inserida no meio da oração é isolada por vírgulas. A resolução relaciona a situação descrita aos critérios de Inciso explicativo, no campo de Pontuação.",
-      "F": "Incorreto. A proposição é verdadeira, pois Vírgula em expressão intercalada se caracteriza porque uma expressão explicativa inserida no meio da oração é isolada por vírgulas. A resolução relaciona a situação descrita aos critérios de Inciso explicativo, no campo de Pontuação."
+      "V": "Incorreto. Sem a pontuação, a estrutura perde a marcação da expressão intercalada e a leitura se torna menos clara.",
+      "F": "Correto. As vírgulas exercem função de delimitação sintática."
     },
     "tags": [
       "pontuacao",
@@ -776,8 +791,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "pontuacao",
+      "virgula",
+      "efeito-de-sentido"
     ],
     "origin": "nabulab"
   },
@@ -790,7 +806,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Sentido contextual",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “uma mesma palavra assume sentidos diferentes conforme o contexto em que é empregada”, é correto associá-lo a Inferência textual.",
+    "statement": "Na frase \"Depois de meses de seca, a cidade finalmente respirou com a chegada da chuva\", o verbo \"respirou\" pode ser interpretado figurativamente como sinal de alívio.",
     "alternatives": [
       {
         "id": "V",
@@ -801,11 +817,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Polissemia, enquanto Inferência textual se refere a uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A resolução relaciona a situação descrita aos critérios de Sentido contextual, no campo de Semântica.",
+    "correctAnswer": "V",
+    "explanation": "No contexto, \"a cidade respirou\" não descreve um ato fisiológico da cidade; a construção sugere alívio ou recuperação após a seca.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Polissemia, enquanto Inferência textual se refere a uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A resolução relaciona a situação descrita aos critérios de Sentido contextual, no campo de Semântica.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Polissemia, enquanto Inferência textual se refere a uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A resolução relaciona a situação descrita aos critérios de Sentido contextual, no campo de Semântica."
+      "V": "Correto. O contexto desloca o verbo de seu sentido literal para um sentido figurado.",
+      "F": "Incorreto. A leitura figurada é sustentada pelo contexto."
     },
     "tags": [
       "semantica",
@@ -821,8 +837,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "semantica",
+      "sentido-contextual",
+      "linguagem-figurada"
     ],
     "origin": "nabulab"
   },
@@ -835,7 +852,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Relações de sentido",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra”, é correto associá-lo a Metonímia.",
+    "statement": "Em \"O estádio explodiu de alegria quando saiu o gol\", a expressão atribui literalmente uma explosão física ao estádio.",
     "alternatives": [
       {
         "id": "V",
@@ -846,11 +863,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Metonímia se caracteriza porque um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. A resolução relaciona a situação descrita aos critérios de Relações de sentido, no campo de Figuras de linguagem.",
+    "correctAnswer": "F",
+    "explanation": "A frase usa linguagem figurada para intensificar a reação coletiva do público. Não há indicação de explosão material do edifício.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Metonímia se caracteriza porque um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. A resolução relaciona a situação descrita aos critérios de Relações de sentido, no campo de Figuras de linguagem.",
-      "F": "Incorreto. A proposição é verdadeira, pois Metonímia se caracteriza porque um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. A resolução relaciona a situação descrita aos critérios de Relações de sentido, no campo de Figuras de linguagem."
+      "V": "Incorreto. A leitura literal não corresponde ao efeito expressivo do enunciado.",
+      "F": "Correto. A construção produz efeito de intensidade por sentido figurado."
     },
     "tags": [
       "figuras-de-linguagem",
@@ -866,8 +883,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "figuras-de-linguagem",
+      "sentido-figurado",
+      "interpretacao"
     ],
     "origin": "nabulab"
   },
@@ -880,7 +898,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Adequação",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade”, é correto associá-lo a Oração subordinada adverbial causal.",
+    "statement": "Em uma entrevista de emprego formal, escolher \"A gente fez os projetos tudo\" produz o mesmo grau de adequação à norma-padrão que \"Nós realizamos todos os projetos\", independentemente das expectativas do contexto.",
     "alternatives": [
       {
         "id": "V",
@@ -892,10 +910,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Adequação linguística, enquanto Oração subordinada adverbial causal se refere a uma oração dependente apresenta a causa do fato expresso pela oração principal. A resolução relaciona a situação descrita aos critérios de Adequação, no campo de Variação linguística.",
+    "explanation": "A avaliação da adequação depende do contexto. Uma entrevista formal pode exigir registro mais monitorado e próximo da norma-padrão; por isso, não se pode afirmar equivalência automática entre as duas formulações em qualquer situação.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Adequação linguística, enquanto Oração subordinada adverbial causal se refere a uma oração dependente apresenta a causa do fato expresso pela oração principal. A resolução relaciona a situação descrita aos critérios de Adequação, no campo de Variação linguística.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Adequação linguística, enquanto Oração subordinada adverbial causal se refere a uma oração dependente apresenta a causa do fato expresso pela oração principal. A resolução relaciona a situação descrita aos critérios de Adequação, no campo de Variação linguística."
+      "V": "Incorreto. A adequação não pode ser separada do contexto comunicativo.",
+      "F": "Correto. Diferentes variantes podem ter valores sociais e graus de formalidade diferentes conforme a situação."
     },
     "tags": [
       "variacao-linguistica",
@@ -911,8 +929,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "variacao-linguistica",
+      "adequacao",
+      "registro-formal"
     ],
     "origin": "nabulab"
   },
@@ -925,7 +944,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Foco no destinatário",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos”, é correto associá-lo a Função conativa.",
+    "statement": "Em \"Não perca a oportunidade: inscreva-se agora!\", o uso do imperativo contribui para a predominância da função conativa.",
     "alternatives": [
       {
         "id": "V",
@@ -937,10 +956,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A resolução relaciona a situação descrita aos critérios de Foco no destinatário, no campo de Funções da linguagem.",
+    "explanation": "A função conativa centra-se no destinatário e busca levá-lo a agir. Formas imperativas como \"não perca\" e \"inscreva-se\" reforçam esse objetivo.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A resolução relaciona a situação descrita aos critérios de Foco no destinatário, no campo de Funções da linguagem.",
-      "F": "Incorreto. A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A resolução relaciona a situação descrita aos critérios de Foco no destinatário, no campo de Funções da linguagem."
+      "V": "Correto. A escolha verbal cria um apelo direto ao receptor.",
+      "F": "Incorreto. O caráter persuasivo e o imperativo são marcas típicas da função conativa."
     },
     "tags": [
       "funcoes-da-linguagem",
@@ -956,8 +975,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "funcoes-da-linguagem",
+      "funcao-conativa",
+      "marcas-linguisticas"
     ],
     "origin": "nabulab"
   },
@@ -970,7 +990,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Progressão temática",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “pronomes e outras expressões retomam elementos do texto e evitam repetições desnecessárias”, é correto associá-lo a Regência verbal.",
+    "statement": "Leia:\n\n\"Marina comprou um livro novo. A obra reúne contos de autores brasileiros. Ela pretende levá-la para a viagem.\"\n\nNo trecho, o pronome \"ela\" retoma \"Marina\" e o pronome \"la\", em \"levá-la\", retoma \"a obra\".",
     "alternatives": [
       {
         "id": "V",
@@ -981,11 +1001,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Coesão referencial, enquanto Regência verbal se refere a a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. A resolução relaciona a situação descrita aos critérios de Progressão temática, no campo de Textualidade.",
+    "correctAnswer": "V",
+    "explanation": "Os pronomes estabelecem coesão referencial: \"ela\" recupera a pessoa mencionada anteriormente e \"la\" substitui o referente feminino \"a obra\".",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Coesão referencial, enquanto Regência verbal se refere a a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. A resolução relaciona a situação descrita aos critérios de Progressão temática, no campo de Textualidade.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Coesão referencial, enquanto Regência verbal se refere a a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. A resolução relaciona a situação descrita aos critérios de Progressão temática, no campo de Textualidade."
+      "V": "Correto. As retomadas evitam repetição e mantêm a continuidade temática.",
+      "F": "Incorreto. Os referentes são identificáveis pelas relações gramaticais e pelo sentido do trecho."
     },
     "tags": [
       "coesao",
@@ -1001,8 +1021,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "textualidade",
+      "coesao-referencial",
+      "referenciacao"
     ],
     "origin": "nabulab"
   },
@@ -1015,7 +1036,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Inferência",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal”, é correto associá-lo a Inferência textual.",
+    "statement": "Leia:\n\n\"Rafael levou um guarda-chuva embora o céu estivesse completamente azul. Duas horas depois, voltou para casa com a roupa seca e o guarda-chuva ainda fechado.\"\n\nÉ possível inferir que necessariamente choveu durante o período em que Rafael esteve fora.",
     "alternatives": [
       {
         "id": "V",
@@ -1026,11 +1047,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Inferência textual se caracteriza porque uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A resolução relaciona a situação descrita aos critérios de Inferência, no campo de Interpretação textual.",
+    "correctAnswer": "F",
+    "explanation": "O texto informa apenas que Rafael levou o guarda-chuva e voltou com ele fechado e com a roupa seca. Isso não permite afirmar que tenha chovido.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Inferência textual se caracteriza porque uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A resolução relaciona a situação descrita aos critérios de Inferência, no campo de Interpretação textual.",
-      "F": "Incorreto. A proposição é verdadeira, pois Inferência textual se caracteriza porque uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A resolução relaciona a situação descrita aos critérios de Inferência, no campo de Interpretação textual."
+      "V": "Incorreto. A inferência proposta vai além das evidências do texto.",
+      "F": "Correto. As pistas não sustentam a conclusão de que houve chuva."
     },
     "tags": [
       "interpretacao",
@@ -1046,8 +1067,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "interpretacao-textual",
+      "inferencia",
+      "limites-da-inferencia"
     ],
     "origin": "nabulab"
   },
@@ -1060,7 +1082,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Classes de palavras",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância”, é correto associá-lo a Vírgula em expressão intercalada.",
+    "statement": "Na frase \"Ela chegou bastante cedo\", a palavra \"bastante\" funciona como advérbio porque modifica \"cedo\"; já em \"Havia bastantes motivos\", ela varia em número e acompanha um substantivo.",
     "alternatives": [
       {
         "id": "V",
@@ -1071,11 +1093,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Advérbio, enquanto Vírgula em expressão intercalada se refere a uma expressão explicativa inserida no meio da oração é isolada por vírgulas. A resolução relaciona a situação descrita aos critérios de Classes de palavras, no campo de Morfologia.",
+    "correctAnswer": "V",
+    "explanation": "A classe ou função de algumas palavras depende do contexto. Em \"bastante cedo\", a palavra é invariável e intensifica um advérbio; em \"bastantes motivos\", concorda com o substantivo.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Advérbio, enquanto Vírgula em expressão intercalada se refere a uma expressão explicativa inserida no meio da oração é isolada por vírgulas. A resolução relaciona a situação descrita aos critérios de Classes de palavras, no campo de Morfologia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Advérbio, enquanto Vírgula em expressão intercalada se refere a uma expressão explicativa inserida no meio da oração é isolada por vírgulas. A resolução relaciona a situação descrita aos critérios de Classes de palavras, no campo de Morfologia."
+      "V": "Correto. A análise morfológica precisa considerar o emprego concreto da palavra.",
+      "F": "Incorreto. Os dois usos têm comportamentos morfológicos diferentes."
     },
     "tags": [
       "morfologia",
@@ -1091,8 +1113,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "morfologia",
+      "classes-de-palavras",
+      "analise-contextual"
     ],
     "origin": "nabulab"
   },
@@ -1105,7 +1128,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Orações subordinadas",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “uma oração dependente apresenta a causa do fato expresso pela oração principal”, é correto associá-lo a Oração subordinada adverbial causal.",
+    "statement": "Na frase \"Embora estivesse cansada, Júlia terminou o relatório\", a oração iniciada por \"embora\" expressa causa.",
     "alternatives": [
       {
         "id": "V",
@@ -1116,11 +1139,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. A resolução relaciona a situação descrita aos critérios de Orações subordinadas, no campo de Sintaxe.",
+    "correctAnswer": "F",
+    "explanation": "A conjunção \"embora\" introduz uma relação concessiva: o cansaço poderia dificultar a ação, mas não impediu que Júlia terminasse o relatório.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. A resolução relaciona a situação descrita aos critérios de Orações subordinadas, no campo de Sintaxe.",
-      "F": "Incorreto. A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. A resolução relaciona a situação descrita aos critérios de Orações subordinadas, no campo de Sintaxe."
+      "V": "Incorreto. A relação é de concessão, não de causa.",
+      "F": "Correto. O período contrapõe uma circunstância desfavorável ao fato que efetivamente ocorreu."
     },
     "tags": [
       "sintaxe",
@@ -1136,8 +1159,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "sintaxe",
+      "oracoes-subordinadas",
+      "concessao"
     ],
     "origin": "nabulab"
   },
@@ -1150,32 +1174,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Relações de sentido",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra?",
+    "statement": "Leia o trecho autoral:\n\n\"Na estante, havia Drummond, Clarice e Guimarães Rosa. Escolhi Clarice para a viagem.\"\n\nO efeito de sentido de \"Escolhi Clarice\" decorre principalmente de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Metonímia"
+        "text": "personificação, pois um objeto recebe ação humana"
       },
       {
         "id": "B",
-        "text": "Coesão referencial"
+        "text": "metonímia, pois o nome da autora representa uma obra sua"
       },
       {
         "id": "C",
-        "text": "Concordância verbal"
+        "text": "eufemismo, pois a ideia de leitura é suavizada"
       },
       {
         "id": "D",
-        "text": "Vírgula em expressão intercalada"
+        "text": "antítese, pois autores opostos são colocados lado a lado"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Por isso, a alternativa correta é Metonímia.",
+    "correctAnswer": "B",
+    "explanation": "O contexto da estante e da escolha para a viagem permite entender \"Clarice\" como \"uma obra de Clarice Lispector\". Há uma relação de proximidade entre autora e obra, característica da metonímia.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. Por isso, a alternativa correta é Metonímia.",
-      "B": "Esse conceito designa outra relação: pronomes e outras expressões retomam elementos do texto e evitam repetições desnecessárias.",
-      "C": "A propriedade dessa alternativa é distinta: a forma do verbo se ajusta, em pessoa e número, ao núcleo do sujeito.",
-      "D": "Não corresponde ao caso: uma expressão explicativa inserida no meio da oração é isolada por vírgulas."
+      "A": "Não há atribuição de comportamento humano a um ser inanimado.",
+      "B": "Correta. O nome da autora é empregado no lugar de sua obra.",
+      "C": "Não há suavização de uma ideia desagradável.",
+      "D": "A simples enumeração de autores não cria necessariamente oposição semântica."
     },
     "tags": [
       "figuras-de-linguagem",
@@ -1191,8 +1215,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "figuras-de-linguagem",
+      "metonimia",
+      "efeito-de-sentido"
     ],
     "origin": "nabulab"
   },
@@ -1205,32 +1230,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Adequação",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade?",
+    "statement": "Um pesquisador registra duas falas sobre o mesmo acontecimento:\n\nI. Em uma conversa entre amigos: \"Mano, aquele ônibus demorou demais, cê é louco.\"\nII. Em um relatório de atendimento: \"O veículo apresentou atraso de aproximadamente quarenta minutos.\"\n\nA comparação permite concluir que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Inferência textual"
+        "text": "a fala I é linguisticamente inválida por não seguir a norma-padrão"
       },
       {
         "id": "B",
-        "text": "Adequação linguística"
+        "text": "a fala II é sempre superior, independentemente da situação comunicativa"
       },
       {
         "id": "C",
-        "text": "Regência verbal"
+        "text": "as escolhas linguísticas variam conforme interlocutores, gênero e finalidade"
       },
       {
         "id": "D",
-        "text": "Polissemia"
+        "text": "somente a fala I apresenta marcas de uma variedade da língua"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "O critério relevante é a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade. Por isso, a alternativa correta é Adequação linguística.",
+    "correctAnswer": "C",
+    "explanation": "As duas formulações pertencem ao português e refletem escolhas adequadas a situações distintas. A conversa informal admite marcas coloquiais; o relatório favorece maior monitoramento e precisão.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal.",
-      "B": "Correta. O critério relevante é a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade. Por isso, a alternativa correta é Adequação linguística.",
-      "C": "Não corresponde ao caso: a relação entre um verbo e seus complementos determina a presença ou ausência de preposição.",
-      "D": "Diverge da descrição porque uma mesma palavra assume sentidos diferentes conforme o contexto em que é empregada."
+      "A": "Variação linguística não equivale automaticamente a erro; a fala deve ser avaliada no contexto.",
+      "B": "Não existe variedade universalmente superior para todos os contextos.",
+      "C": "Correta. O registro é condicionado pela situação comunicativa e pelo gênero textual.",
+      "D": "Toda produção linguística manifesta escolhas de variedade e registro, inclusive a formal."
     },
     "tags": [
       "variacao-linguistica",
@@ -1246,8 +1271,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "variacao-linguistica",
+      "adequacao",
+      "analise-sociolinguistica"
     ],
     "origin": "nabulab"
   },
@@ -1260,32 +1286,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Foco no destinatário",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos?",
+    "statement": "Em uma campanha de doação de sangue, lê-se:\n\n\"Seu gesto pode mudar uma história. Procure o hemocentro mais próximo e doe.\"\n\nEmbora outras funções da linguagem possam estar presentes, predomina a função:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Advérbio"
+        "text": "metalinguística, porque o texto explica o próprio código"
       },
       {
         "id": "B",
-        "text": "Crase"
+        "text": "fática, porque testa apenas o canal de comunicação"
       },
       {
         "id": "C",
-        "text": "Função conativa"
+        "text": "conativa, porque procura orientar a ação do destinatário"
       },
       {
         "id": "D",
-        "text": "Metonímia"
+        "text": "referencial, porque se limita a apresentar dados objetivos"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Por isso, a alternativa correta é Função conativa.",
+    "explanation": "Os verbos \"procure\" e \"doe\" dirigem-se diretamente ao leitor com finalidade persuasiva. Isso faz predominar a função conativa, ainda que haja conteúdo informativo e expressivo no enunciado.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância.",
-      "B": "Não corresponde ao caso: ocorre a fusão da preposição a com outro a, normalmente artigo ou início de pronome demonstrativo.",
-      "C": "Correta. Neste caso a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. Por isso, a alternativa correta é Função conativa.",
-      "D": "Esse conceito designa outra relação: um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra."
+      "A": "O texto não explica palavras, signos ou o próprio sistema linguístico.",
+      "B": "Não há simples estabelecimento ou verificação do canal.",
+      "C": "Correta. O objetivo central é levar o destinatário a realizar uma ação.",
+      "D": "O texto não se limita à transmissão neutra de informações; contém apelo explícito."
     },
     "tags": [
       "funcoes-da-linguagem",
@@ -1301,8 +1327,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "funcoes-da-linguagem",
+      "funcao-conativa",
+      "predominancia-funcional"
     ],
     "origin": "nabulab"
   },
@@ -1315,32 +1342,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Progressão temática",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: pronomes e outras expressões retomam elementos do texto e evitam repetições desnecessárias?",
+    "statement": "Leia:\n\n\"Os moradores cobraram providências da prefeitura. O órgão informou que uma equipe seria enviada ao bairro. A medida, segundo a nota, começaria na segunda-feira.\"\n\nNo trecho, a expressão \"A medida\" apresenta um problema de coesão porque:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Oração subordinada adverbial causal"
+        "text": "não há qualquer expressão anterior que possa ser retomada"
       },
       {
         "id": "B",
-        "text": "Vírgula em expressão intercalada"
+        "text": "o referente é pouco preciso: pode remeter ao envio da equipe ou a outra providência mencionada implicitamente"
       },
       {
         "id": "C",
-        "text": "Adequação linguística"
+        "text": "substantivos não podem retomar informações anteriores"
       },
       {
         "id": "D",
-        "text": "Coesão referencial"
+        "text": "toda retomada coesiva deve ser feita exclusivamente por pronome"
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "A propriedade determinante é pronomes e outras expressões retomam elementos do texto e evitam repetições desnecessárias. Por isso, a alternativa correta é Coesão referencial.",
+    "correctAnswer": "B",
+    "explanation": "A expressão \"A medida\" funciona como retomada, mas seu referente não fica completamente delimitado: pode designar o envio da equipe ou, de modo mais amplo, uma providência da prefeitura. A ambiguidade reduz a precisão referencial.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: uma oração dependente apresenta a causa do fato expresso pela oração principal.",
-      "B": "Diverge da descrição porque uma expressão explicativa inserida no meio da oração é isolada por vírgulas.",
-      "C": "Esse conceito designa outra relação: a escolha da variedade da língua considera situação comunicativa, interlocutores e finalidade.",
-      "D": "Correta. A propriedade determinante é pronomes e outras expressões retomam elementos do texto e evitam repetições desnecessárias. Por isso, a alternativa correta é Coesão referencial."
+      "A": "Há conteúdos anteriores potencialmente retomáveis; o problema é haver mais de um referente plausível.",
+      "B": "Correta. A retomada existe, mas não é suficientemente específica.",
+      "C": "Substantivos e expressões nominais podem exercer função coesiva.",
+      "D": "A coesão referencial pode ser construída por pronomes, sinônimos, hiperônimos e expressões nominais."
     },
     "tags": [
       "coesao",
@@ -1356,8 +1383,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "textualidade",
+      "coesao-referencial",
+      "ambiguidade"
     ],
     "origin": "nabulab"
   },
@@ -1370,32 +1398,32 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Inferência",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal?",
+    "statement": "Leia o trecho:\n\n\"Depois de anunciar pela terceira vez que a obra terminaria 'no próximo mês', o síndico encerrou a reunião sob aplausos discretos. No elevador, um morador comentou: 'Dessa vez vai. Como das outras.'\"\n\nA fala final sugere que o morador:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Inferência textual"
+        "text": "confia plenamente no novo prazo anunciado"
       },
       {
         "id": "B",
-        "text": "Concordância verbal"
+        "text": "não se lembra dos prazos anteriores"
       },
       {
         "id": "C",
-        "text": "Polissemia"
+        "text": "demonstra ironia e desconfiança diante da repetição da promessa"
       },
       {
         "id": "D",
-        "text": "Função conativa"
+        "text": "acredita que a obra já foi concluída"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. Por isso, a alternativa correta é Inferência textual.",
+    "correctAnswer": "C",
+    "explanation": "A frase \"Como das outras\" contrasta com a aparente confiança de \"Dessa vez vai\". Somada à informação de que o prazo foi prometido repetidamente, ela cria ironia e sugere descrença.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. Por isso, a alternativa correta é Inferência textual.",
-      "B": "Esse conceito designa outra relação: a forma do verbo se ajusta, em pessoa e número, ao núcleo do sujeito.",
-      "C": "A propriedade dessa alternativa é distinta: uma mesma palavra assume sentidos diferentes conforme o contexto em que é empregada.",
-      "D": "Não corresponde ao caso: a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos."
+      "A": "A segunda frase enfraquece a leitura literal de confiança.",
+      "B": "A referência às outras ocasiões mostra memória das promessas anteriores.",
+      "C": "Correta. A inferência depende do contraste entre as duas frases e do contexto.",
+      "D": "O texto diz que a obra ainda tem prazo anunciado para terminar."
     },
     "tags": [
       "interpretacao",
@@ -1411,8 +1439,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "interpretacao-textual",
+      "inferencia",
+      "ironia"
     ],
     "origin": "nabulab"
   },
@@ -1425,7 +1454,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Foco no destinatário",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Função conativa de Polissemia, a característica “a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos” deve ser atribuída ao primeiro conceito.",
+    "statement": "Em um texto publicitário, a presença de dados objetivos sobre um produto não impede que a função conativa seja predominante, caso esses dados sejam organizados com finalidade de persuadir o destinatário.",
     "alternatives": [
       {
         "id": "V",
@@ -1437,10 +1466,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A avaliação exige delimitar as condições de Foco no destinatário e distingui-las de relações próximas em Funções da linguagem.",
+    "explanation": "Um texto pode combinar várias funções da linguagem. Informações objetivas podem estar a serviço de um objetivo persuasivo, mantendo a função conativa como predominante.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A avaliação exige delimitar as condições de Foco no destinatário e distingui-las de relações próximas em Funções da linguagem.",
-      "F": "Incorreto. A proposição é verdadeira, pois Função conativa se caracteriza porque a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A avaliação exige delimitar as condições de Foco no destinatário e distingui-las de relações próximas em Funções da linguagem."
+      "V": "Correto. A predominância depende da finalidade global da mensagem, não da exclusividade de uma única função.",
+      "F": "Incorreto. Funções da linguagem podem coexistir no mesmo texto."
     },
     "tags": [
       "funcoes-da-linguagem",
@@ -1456,8 +1485,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "funcoes-da-linguagem",
+      "funcao-conativa",
+      "analise-discursiva"
     ],
     "origin": "nabulab"
   },
@@ -1470,7 +1500,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Progressão temática",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Coesão referencial de Metonímia, a característica “pronomes e outras expressões retomam elementos do texto e evitam repetições desnecessárias” deve ser atribuída ao segundo conceito.",
+    "statement": "Leia:\n\n\"Luciana encontrou Patrícia quando ela saía do laboratório. A pesquisadora carregava uma caixa de amostras.\"\n\nNo primeiro período, o pronome \"ela\" possui referente inequivocamente determinado.",
     "alternatives": [
       {
         "id": "V",
@@ -1482,10 +1512,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Coesão referencial, enquanto Metonímia se refere a um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. A avaliação exige delimitar as condições de Progressão temática e distingui-las de relações próximas em Textualidade.",
+    "explanation": "Sem contexto adicional, \"ela\" pode retomar tanto Luciana quanto Patrícia. A concordância de gênero não resolve a ambiguidade, porque os dois possíveis antecedentes são femininos.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Coesão referencial, enquanto Metonímia se refere a um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. A avaliação exige delimitar as condições de Progressão temática e distingui-las de relações próximas em Textualidade.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Coesão referencial, enquanto Metonímia se refere a um termo é substituído por outro com o qual mantém relação de proximidade, como autor pela obra. A avaliação exige delimitar as condições de Progressão temática e distingui-las de relações próximas em Textualidade."
+      "V": "Incorreto. Há dois antecedentes gramaticalmente compatíveis.",
+      "F": "Correto. O texto precisaria reformular a referência para eliminar a ambiguidade."
     },
     "tags": [
       "coesao",
@@ -1501,8 +1531,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "textualidade",
+      "coesao-referencial",
+      "ambiguidade"
     ],
     "origin": "nabulab"
   },
@@ -1515,7 +1546,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Inferência",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Inferência textual de Adequação linguística, a característica “uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal” deve ser atribuída ao primeiro conceito.",
+    "statement": "Leia:\n\n\"O café permanecia cheio, mas ninguém ocupava a mesa junto à janela. Sobre ela, uma placa dizia apenas: 'Reservada'. João olhou o relógio e escolheu outra mesa.\"\n\nA partir do trecho, é possível concluir com certeza quem havia feito a reserva.",
     "alternatives": [
       {
         "id": "V",
@@ -1526,11 +1557,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Inferência textual se caracteriza porque uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A avaliação exige delimitar as condições de Inferência e distingui-las de relações próximas em Interpretação textual.",
+    "correctAnswer": "F",
+    "explanation": "O texto permite inferir por que João não ocupou a mesa, mas não fornece qualquer pista que identifique a pessoa ou o grupo responsável pela reserva.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Inferência textual se caracteriza porque uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A avaliação exige delimitar as condições de Inferência e distingui-las de relações próximas em Interpretação textual.",
-      "F": "Incorreto. A proposição é verdadeira, pois Inferência textual se caracteriza porque uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A avaliação exige delimitar as condições de Inferência e distingui-las de relações próximas em Interpretação textual."
+      "V": "Incorreto. A conclusão proposta ultrapassa as informações disponíveis.",
+      "F": "Correto. Uma inferência válida precisa ser sustentada por pistas textuais suficientes."
     },
     "tags": [
       "interpretacao",
@@ -1546,8 +1577,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "interpretacao-textual",
+      "inferencia",
+      "limites-da-inferencia"
     ],
     "origin": "nabulab"
   },
@@ -1560,7 +1592,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Classes de palavras",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Advérbio de Função conativa, a característica “uma palavra invariável modifica verbo, adjetivo ou outro advérbio e expressa circunstância” deve ser atribuída ao segundo conceito.",
+    "statement": "Em \"Os candidatos estavam meio nervosos antes da prova\", a palavra \"meio\" deve ser flexionada para \"meios\" para concordar com \"candidatos\".",
     "alternatives": [
       {
         "id": "V",
@@ -1572,10 +1604,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Advérbio, enquanto Função conativa se refere a a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A avaliação exige delimitar as condições de Classes de palavras e distingui-las de relações próximas em Morfologia.",
+    "explanation": "Nesse contexto, \"meio\" tem valor adverbial de intensidade, equivalente a \"um pouco\", e permanece invariável: \"estavam meio nervosos\".",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Advérbio, enquanto Função conativa se refere a a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A avaliação exige delimitar as condições de Classes de palavras e distingui-las de relações próximas em Morfologia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Advérbio, enquanto Função conativa se refere a a mensagem procura influenciar o destinatário por meio de pedidos, ordens ou apelos. A avaliação exige delimitar as condições de Classes de palavras e distingui-las de relações próximas em Morfologia."
+      "V": "Incorreto. Advérbios são invariáveis; a forma 'meio' não concorda com 'candidatos'.",
+      "F": "Correto. A flexão ocorre em outros usos, como em 'meios copos', não neste emprego adverbial."
     },
     "tags": [
       "morfologia",
@@ -1591,8 +1623,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "morfologia",
+      "classes-de-palavras",
+      "invariabilidade"
     ],
     "origin": "nabulab"
   },
@@ -1605,7 +1638,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Orações subordinadas",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Oração subordinada adverbial causal de Coesão referencial, a característica “uma oração dependente apresenta a causa do fato expresso pela oração principal” deve ser atribuída ao primeiro conceito.",
+    "statement": "No período \"Ele falou tão baixo que ninguém ouviu\", a estrutura \"tão... que\" estabelece uma relação de consequência entre as orações.",
     "alternatives": [
       {
         "id": "V",
@@ -1617,10 +1650,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. A avaliação exige delimitar as condições de Orações subordinadas e distingui-las de relações próximas em Sintaxe.",
+    "explanation": "A intensidade indicada por \"tão baixo\" produz como consequência o fato de ninguém ter ouvido. Trata-se de relação consecutiva.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. A avaliação exige delimitar as condições de Orações subordinadas e distingui-las de relações próximas em Sintaxe.",
-      "F": "Incorreto. A proposição é verdadeira, pois Oração subordinada adverbial causal se caracteriza porque uma oração dependente apresenta a causa do fato expresso pela oração principal. A avaliação exige delimitar as condições de Orações subordinadas e distingui-las de relações próximas em Sintaxe."
+      "V": "Correto. A segunda oração apresenta o efeito decorrente da intensidade expressa na principal.",
+      "F": "Incorreto. Nesse contexto, a relação é consecutiva, e não causal."
     },
     "tags": [
       "sintaxe",
@@ -1636,8 +1669,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "sintaxe",
+      "oracoes-subordinadas",
+      "relacao-consecutiva"
     ],
     "origin": "nabulab"
   },
@@ -1650,7 +1684,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Concordância verbal",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Concordância verbal de Inferência textual, a característica “a forma do verbo se ajusta, em pessoa e número, ao núcleo do sujeito” deve ser atribuída ao segundo conceito.",
+    "statement": "Na frase \"Mais de um candidato faltaram à entrevista\", o plural do verbo é a única forma aceita pela norma-padrão por causa da ideia de quantidade superior a um.",
     "alternatives": [
       {
         "id": "V",
@@ -1662,10 +1696,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Concordância verbal, enquanto Inferência textual se refere a uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A avaliação exige delimitar as condições de Concordância verbal e distingui-las de relações próximas em Concordância.",
+    "explanation": "Com a expressão \"mais de um\", a concordância normativa ocorre geralmente no singular: \"Mais de um candidato faltou\". Há contextos específicos que podem motivar plural, como reciprocidade, mas a afirmação de que o plural é a única forma aceita está errada.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Concordância verbal, enquanto Inferência textual se refere a uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A avaliação exige delimitar as condições de Concordância verbal e distingui-las de relações próximas em Concordância.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Concordância verbal, enquanto Inferência textual se refere a uma conclusão é construída a partir de pistas do texto, sem estar escrita de modo literal. A avaliação exige delimitar as condições de Concordância verbal e distingui-las de relações próximas em Concordância."
+      "V": "Incorreto. A regra geral prevê verbo no singular nesse tipo de construção.",
+      "F": "Correto. A concordância não segue simplesmente a ideia matemática de quantidade."
     },
     "tags": [
       "concordancia",
@@ -1681,8 +1715,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "concordancia",
+      "concordancia-verbal",
+      "casos-especiais"
     ],
     "origin": "nabulab"
   },
@@ -1695,7 +1730,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Regência verbal",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Regência verbal de Advérbio, a característica “a relação entre um verbo e seus complementos determina a presença ou ausência de preposição” deve ser atribuída ao primeiro conceito.",
+    "statement": "Na norma-padrão tradicional, a construção \"Prefiro cinema a teatro\" é adequada à regência do verbo \"preferir\" quando se comparam duas opções.",
     "alternatives": [
       {
         "id": "V",
@@ -1707,10 +1742,10 @@ export const portuguesQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Regência verbal se caracteriza porque a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. A avaliação exige delimitar as condições de Regência verbal e distingui-las de relações próximas em Regência.",
+    "explanation": "A construção normativa tradicional é \"preferir X a Y\", sem necessidade de \"mais\" ou \"do que\".",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Regência verbal se caracteriza porque a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. A avaliação exige delimitar as condições de Regência verbal e distingui-las de relações próximas em Regência.",
-      "F": "Incorreto. A proposição é verdadeira, pois Regência verbal se caracteriza porque a relação entre um verbo e seus complementos determina a presença ou ausência de preposição. A avaliação exige delimitar as condições de Regência verbal e distingui-las de relações próximas em Regência."
+      "V": "Correto. O segundo termo da comparação é introduzido pela preposição 'a'.",
+      "F": "Incorreto. A frase segue a regência tradicionalmente recomendada para \"preferir\"."
     },
     "tags": [
       "regencia",
@@ -1726,8 +1761,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "regencia",
+      "regencia-verbal",
+      "norma-padrao"
     ],
     "origin": "nabulab"
   },
@@ -1740,7 +1776,7 @@ export const portuguesQuestions: Question[] = [
     "subtopic": "Fusão da preposição",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Crase de Oração subordinada adverbial causal, a característica “ocorre a fusão da preposição a com outro a, normalmente artigo ou início de pronome demonstrativo” deve ser atribuída ao segundo conceito.",
+    "statement": "Em \"A pesquisadora referiu-se àquela hipótese durante a apresentação\", o acento grave resulta da combinação da preposição \"a\", exigida por \"referir-se\", com o \"a\" inicial do pronome demonstrativo \"aquela\".",
     "alternatives": [
       {
         "id": "V",
@@ -1751,11 +1787,11 @@ export const portuguesQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Crase, enquanto Oração subordinada adverbial causal se refere a uma oração dependente apresenta a causa do fato expresso pela oração principal. A avaliação exige delimitar as condições de Fusão da preposição e distingui-las de relações próximas em Crase.",
+    "correctAnswer": "V",
+    "explanation": "O verbo pronominal \"referir-se\" rege a preposição \"a\". Diante do demonstrativo \"aquela\", essa preposição funde-se com seu \"a\" inicial: \"a + aquela = àquela\".",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Crase, enquanto Oração subordinada adverbial causal se refere a uma oração dependente apresenta a causa do fato expresso pela oração principal. A avaliação exige delimitar as condições de Fusão da preposição e distingui-las de relações próximas em Crase.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Crase, enquanto Oração subordinada adverbial causal se refere a uma oração dependente apresenta a causa do fato expresso pela oração principal. A avaliação exige delimitar as condições de Fusão da preposição e distingui-las de relações próximas em Crase."
+      "V": "Correto. A crase também pode ocorrer diante de 'aquele(s)', 'aquela(s)' e 'aquilo' quando a regência exige a preposição 'a'.",
+      "F": "Incorreto. Nesse caso há efetivamente fusão da preposição com o demonstrativo."
     },
     "tags": [
       "crase",
@@ -1771,8 +1807,9 @@ export const portuguesQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "crase",
+      "regencia",
+      "pronome-demonstrativo"
     ],
     "origin": "nabulab"
   }

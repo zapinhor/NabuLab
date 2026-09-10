@@ -10,32 +10,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Escala",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas?",
+    "statement": "Em um mapa de escala 1:500.000, a distância entre duas cidades mede 2 cm.\n    Qual é a distância real aproximada entre elas?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escala cartográfica"
+        "text": "10 km"
       },
       {
         "id": "B",
-        "text": "Intemperismo"
+        "text": "1 km"
       },
       {
         "id": "C",
-        "text": "Bacia hidrográfica"
+        "text": "25 km"
       },
       {
         "id": "D",
-        "text": "Desconcentração industrial"
+        "text": "100 km"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Por isso, a alternativa correta é Escala cartográfica.",
+    "explanation": "Na escala 1:500.000, 1 cm no mapa representa 500.000 cm no terreno, isto é, 5 km. Portanto, 2 cm representam 10 km.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Por isso, a alternativa correta é Escala cartográfica.",
-      "B": "Esse conceito designa outra relação: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
-      "C": "A propriedade dessa alternativa é distinta: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
-      "D": "Não corresponde ao caso: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis."
+      "A": "Correta. Na escala 1:500.000, 1 cm no mapa representa 500.000 cm no terreno, isto é, 5 km. Portanto, 2 cm representam 10 km.",
+      "B": "Esse valor corresponderia a uma escala muito maior; ele não resulta da conversão de 500.000 cm para 5 km.",
+      "C": "Esse resultado superestima a distância representada por 2 cm.",
+      "D": "Esse valor decorre de uma conversão incorreta entre centímetros e quilômetros."
     },
     "tags": [
       "cartografia",
@@ -50,8 +50,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "cartografia",
+      "escala",
+      "conversao-de-distancias"
     ],
     "origin": "nabulab"
   },
@@ -64,32 +65,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Agentes externos",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície?",
+    "statement": "Em uma região de grande amplitude térmica diária, blocos de rocha apresentam fissuras\n    que se ampliam após sucessivos ciclos de aquecimento e resfriamento. O material ainda\n    permanece próximo da rocha de origem.\n\n    O processo descrito corresponde principalmente a:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ilha de calor urbana"
+        "text": "erosão fluvial"
       },
       {
         "id": "B",
-        "text": "Intemperismo"
+        "text": "intemperismo físico"
       },
       {
         "id": "C",
-        "text": "Transição demográfica"
+        "text": "sedimentação"
       },
       {
         "id": "D",
-        "text": "Agronegócio"
+        "text": "tectonismo"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície. Por isso, a alternativa correta é Intemperismo.",
+    "explanation": "A variação de temperatura provoca expansão e contração da rocha, favorecendo sua fragmentação sem exigir transporte do material.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
-      "B": "Correta. A distinção central está em processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície. Por isso, a alternativa correta é Intemperismo.",
-      "C": "Não corresponde ao caso: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
-      "D": "Diverge da descrição porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização."
+      "A": "Erosão envolve remoção e transporte de material por um agente, o que não é o foco da situação.",
+      "B": "Correta. A variação de temperatura provoca expansão e contração da rocha, favorecendo sua fragmentação sem exigir transporte do material.",
+      "C": "Sedimentação é a deposição de materiais transportados.",
+      "D": "Tectonismo decorre de forças internas da crosta e não de ciclos térmicos superficiais."
     },
     "tags": [
       "relevo",
@@ -104,8 +105,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "relevo",
+      "intemperismo",
+      "processos-externos"
     ],
     "origin": "nabulab"
   },
@@ -118,32 +120,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Urbanização",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico?",
+    "statement": "Em uma mesma noite, sensores registraram 27 °C em uma área central densamente edificada\n    e 23 °C em um parque arborizado próximo. As duas áreas estavam sob as mesmas condições\n    regionais de tempo.\n\n    Qual fenômeno ajuda a explicar essa diferença?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cerrado"
+        "text": "inversão térmica"
       },
       {
         "id": "B",
-        "text": "Conurbação"
+        "text": "chuva orográfica"
       },
       {
         "id": "C",
-        "text": "Ilha de calor urbana"
+        "text": "ilha de calor urbana"
       },
       {
         "id": "D",
-        "text": "Matriz energética"
+        "text": "continentalidade"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Por isso, a alternativa correta é Ilha de calor urbana.",
+    "explanation": "Superfícies impermeáveis, menor cobertura vegetal, materiais que armazenam calor e fontes antrópicas de energia podem elevar a temperatura de áreas urbanizadas em relação ao entorno.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo.",
-      "B": "Não corresponde ao caso: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
-      "C": "Correta. A resposta decorre da definição disciplinar áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Por isso, a alternativa correta é Ilha de calor urbana.",
-      "D": "Esse conceito designa outra relação: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica."
+      "A": "A inversão térmica diz respeito à disposição vertical das camadas de ar e não explica, por si só, esse contraste espacial entre centro e parque.",
+      "B": "Esse tipo de chuva está associado à elevação do ar sobre barreiras de relevo.",
+      "C": "Correta. Superfícies impermeáveis, menor cobertura vegetal, materiais que armazenam calor e fontes antrópicas de energia podem elevar a temperatura de áreas urbanizadas em relação ao entorno.",
+      "D": "Continentalidade atua em escalas regionais e não explica a diferença entre dois pontos próximos da mesma cidade."
     },
     "tags": [
       "clima",
@@ -158,8 +160,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "clima",
+      "ilha-de-calor",
+      "analise-urbana"
     ],
     "origin": "nabulab"
   },
@@ -172,19 +175,19 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Biomas",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo?",
+    "statement": "Uma paisagem apresenta estação seca marcada, árvores de troncos tortuosos, raízes profundas,\n    gramíneas e espécies com adaptações a condições periódicas de fogo.\n\n    No Brasil, essa descrição corresponde principalmente ao:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Bacia hidrográfica"
+        "text": "Pampa"
       },
       {
         "id": "B",
-        "text": "Desconcentração industrial"
+        "text": "Pantanal"
       },
       {
         "id": "C",
-        "text": "Multipolaridade"
+        "text": "Manguezal"
       },
       {
         "id": "D",
@@ -192,12 +195,12 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo. Por isso, a alternativa correta é Cerrado.",
+    "explanation": "O Cerrado reúne formações savânicas, elevada biodiversidade, sazonalidade climática e espécies com adaptações a solos, seca e regimes naturais de fogo.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
-      "B": "Diverge da descrição porque atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis.",
-      "C": "Esse conceito designa outra relação: vários centros de poder econômico e político influenciam as relações internacionais.",
-      "D": "Correta. O critério relevante é o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo. Por isso, a alternativa correta é Cerrado."
+      "A": "O Pampa é dominado por campos subtropicais do Sul e possui outra dinâmica climática e vegetal.",
+      "B": "O Pantanal é marcado sobretudo pela planície inundável e por pulsos sazonais de cheia.",
+      "C": "Manguezais ocupam ambientes costeiros sujeitos à influência de marés e salinidade.",
+      "D": "Correta. O Cerrado reúne formações savânicas, elevada biodiversidade, sazonalidade climática e espécies com adaptações a solos, seca e regimes naturais de fogo."
     },
     "tags": [
       "vegetacao",
@@ -212,8 +215,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "vegetacao",
+      "cerrado",
+      "biomas-brasileiros"
     ],
     "origin": "nabulab"
   },
@@ -226,32 +230,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Bacias",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas?",
+    "statement": "Um rio recebe água de vários afluentes. As áreas de terreno que drenam para esse rio\n    e seus tributários formam uma unidade que pode atravessar limites municipais e estaduais.\n\n    Essa unidade é chamada de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Bacia hidrográfica"
+        "text": "bacia hidrográfica"
       },
       {
         "id": "B",
-        "text": "Transição demográfica"
+        "text": "aquífero"
       },
       {
         "id": "C",
-        "text": "Agronegócio"
+        "text": "estuário"
       },
       {
         "id": "D",
-        "text": "Mitigação climática"
+        "text": "delta"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Por isso, a alternativa correta é Bacia hidrográfica.",
+    "explanation": "A bacia hidrográfica é o conjunto de terras drenadas por um rio principal e seus afluentes, delimitado por divisores de águas.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Por isso, a alternativa correta é Bacia hidrográfica.",
-      "B": "Esse conceito designa outra relação: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
-      "C": "A propriedade dessa alternativa é distinta: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
-      "D": "Não corresponde ao caso: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera."
+      "A": "Correta. A bacia hidrográfica é o conjunto de terras drenadas por um rio principal e seus afluentes, delimitado por divisores de águas.",
+      "B": "Aquífero é uma formação geológica capaz de armazenar e transmitir água subterrânea.",
+      "C": "Estuário é a região de transição entre a foz de um rio e o mar.",
+      "D": "Delta é uma forma de deposição de sedimentos na foz de certos rios."
     },
     "tags": [
       "hidrografia",
@@ -266,8 +270,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "hidrografia",
+      "bacia-hidrografica",
+      "organizacao-do-espaco"
     ],
     "origin": "nabulab"
   },
@@ -280,32 +285,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Transição demográfica",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária?",
+    "statement": "Em um país, as taxas de mortalidade caíram rapidamente após melhorias sanitárias,\n    enquanto as taxas de natalidade permaneceram altas por algumas décadas.\n\n    Qual consequência demográfica é mais provável nessa etapa?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conurbação"
+        "text": "redução imediata da população total"
       },
       {
         "id": "B",
-        "text": "Transição demográfica"
+        "text": "aceleração temporária do crescimento populacional"
       },
       {
         "id": "C",
-        "text": "Matriz energética"
+        "text": "envelhecimento instantâneo de toda a população"
       },
       {
         "id": "D",
-        "text": "Escala cartográfica"
+        "text": "fim dos fluxos migratórios"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária. Por isso, a alternativa correta é Transição demográfica.",
+    "explanation": "Quando a mortalidade cai antes da natalidade, aumenta a diferença entre nascimentos e mortes, o que tende a acelerar o crescimento natural por um período.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
-      "B": "Correta. A propriedade determinante é a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária. Por isso, a alternativa correta é Transição demográfica.",
-      "C": "Não corresponde ao caso: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
-      "D": "Diverge da descrição porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas."
+      "A": "A queda da mortalidade tende a produzir o efeito oposto enquanto a natalidade permanece elevada.",
+      "B": "Correta. Quando a mortalidade cai antes da natalidade, aumenta a diferença entre nascimentos e mortes, o que tende a acelerar o crescimento natural por um período.",
+      "C": "O envelhecimento é um processo gradual e depende, entre outros fatores, da posterior redução da fecundidade.",
+      "D": "Migração não desaparece automaticamente por causa da mudança nas taxas vitais."
     },
     "tags": [
       "populacao",
@@ -320,8 +325,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "populacao",
+      "transicao-demografica",
+      "interpretacao-de-taxas"
     ],
     "origin": "nabulab"
   },
@@ -334,32 +340,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Rede urbana",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial?",
+    "statement": "O crescimento urbano de dois municípios vizinhos fez com que suas áreas construídas\n    se encontrassem, formando uma mancha urbana praticamente contínua, embora continuem\n    existindo duas administrações municipais.\n\n    Esse processo é denominado:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Desconcentração industrial"
+        "text": "verticalização"
       },
       {
         "id": "B",
-        "text": "Multipolaridade"
+        "text": "segregação socioespacial"
       },
       {
         "id": "C",
-        "text": "Conurbação"
+        "text": "conurbação"
       },
       {
         "id": "D",
-        "text": "Intemperismo"
+        "text": "êxodo rural"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Por isso, a alternativa correta é Conurbação.",
+    "explanation": "Conurbação ocorre quando áreas urbanizadas de municípios distintos crescem até formar continuidade física.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis.",
-      "B": "Não corresponde ao caso: vários centros de poder econômico e político influenciam as relações internacionais.",
-      "C": "Correta. A conclusão se apoia em a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Por isso, a alternativa correta é Conurbação.",
-      "D": "Esse conceito designa outra relação: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície."
+      "A": "Verticalização é o aumento da ocupação por edifícios de vários pavimentos.",
+      "B": "Segregação trata da distribuição desigual de grupos e recursos no espaço urbano.",
+      "C": "Correta. Conurbação ocorre quando áreas urbanizadas de municípios distintos crescem até formar continuidade física.",
+      "D": "Êxodo rural é a migração do campo para a cidade."
     },
     "tags": [
       "urbanizacao",
@@ -374,8 +380,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "urbanizacao",
+      "conurbacao",
+      "rede-urbana"
     ],
     "origin": "nabulab"
   },
@@ -388,32 +395,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Localização",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis?",
+    "statement": "Uma fábrica que funcionava em uma grande metrópole transfere parte da produção para\n    uma cidade do interior, atraída por terreno mais barato, acesso rodoviário e incentivos locais.\n\n    O caso exemplifica:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Agronegócio"
+        "text": "desindustrialização completa"
       },
       {
         "id": "B",
-        "text": "Mitigação climática"
+        "text": "conurbação"
       },
       {
         "id": "C",
-        "text": "Ilha de calor urbana"
+        "text": "primarização automática da economia"
       },
       {
         "id": "D",
-        "text": "Desconcentração industrial"
+        "text": "desconcentração industrial"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis. Por isso, a alternativa correta é Desconcentração industrial.",
+    "explanation": "A transferência de unidades produtivas de áreas industriais tradicionais para novos territórios caracteriza uma redistribuição espacial da atividade industrial.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
-      "B": "Diverge da descrição porque ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera.",
-      "C": "Esse conceito designa outra relação: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
-      "D": "Correta. A distinção central está em atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis. Por isso, a alternativa correta é Desconcentração industrial."
+      "A": "A produção não desapareceu; ela foi deslocada para outra localização.",
+      "B": "Conurbação diz respeito à continuidade física entre manchas urbanas.",
+      "C": "O deslocamento de uma fábrica não significa, por si só, substituição geral da indústria por atividades primárias.",
+      "D": "Correta. A transferência de unidades produtivas de áreas industriais tradicionais para novos territórios caracteriza uma redistribuição espacial da atividade industrial."
     },
     "tags": [
       "industrializacao",
@@ -428,8 +435,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "industrializacao",
+      "desconcentracao-industrial",
+      "localizacao"
     ],
     "origin": "nabulab"
   },
@@ -442,32 +450,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Produção",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Considere a definição apresentada: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização?",
+    "statement": "Uma cadeia produtiva envolve fabricantes de fertilizantes e máquinas, propriedades rurais,\n    frigoríficos, transportadoras, bancos e empresas exportadoras.\n\n    Esse conjunto mostra que o agronegócio:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Agronegócio"
+        "text": "articula atividades anteriores, internas e posteriores à produção agropecuária"
       },
       {
         "id": "B",
-        "text": "Matriz energética"
+        "text": "é formado somente pelo trabalho realizado dentro das fazendas"
       },
       {
         "id": "C",
-        "text": "Escala cartográfica"
+        "text": "exclui o processamento industrial de alimentos"
       },
       {
         "id": "D",
-        "text": "Cerrado"
+        "text": "não depende de transporte nem de financiamento"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Por isso, a alternativa correta é Agronegócio.",
+    "explanation": "O agronegócio não se limita ao cultivo ou à criação: integra insumos, produção, processamento, financiamento, logística e comercialização.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Por isso, a alternativa correta é Agronegócio.",
-      "B": "Esse conceito designa outra relação: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
-      "C": "A propriedade dessa alternativa é distinta: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
-      "D": "Não corresponde ao caso: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo."
+      "A": "Correta. O agronegócio não se limita ao cultivo ou à criação: integra insumos, produção, processamento, financiamento, logística e comercialização.",
+      "B": "A cadeia descrita inclui atividades industriais, financeiras e logísticas fora das propriedades.",
+      "C": "Frigoríficos e agroindústrias fazem parte das cadeias ligadas ao setor.",
+      "D": "A situação menciona explicitamente transportadoras e bancos."
     },
     "tags": [
       "agricultura",
@@ -482,8 +490,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "agricultura",
+      "agronegocio",
+      "cadeias-produtivas"
     ],
     "origin": "nabulab"
   },
@@ -496,32 +505,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Matriz",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "Identifique o conceito descrito: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica?",
+    "statement": "Petróleo, gás natural, biomassa, hidreletricidade, energia solar e carvão participam,\n    em proporções diferentes, do abastecimento energético de um país.\n\n    O conjunto dessas fontes compõe sua:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Multipolaridade"
+        "text": "rede urbana"
       },
       {
         "id": "B",
-        "text": "Matriz energética"
+        "text": "matriz energética"
       },
       {
         "id": "C",
-        "text": "Intemperismo"
+        "text": "estrutura fundiária"
       },
       {
         "id": "D",
-        "text": "Bacia hidrográfica"
+        "text": "pirâmide etária"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica. Por isso, a alternativa correta é Matriz energética.",
+    "explanation": "A matriz energética reúne as fontes usadas para atender às necessidades de energia de uma sociedade, incluindo transportes, calor, eletricidade e outros usos.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: vários centros de poder econômico e político influenciam as relações internacionais.",
-      "B": "Correta. O critério relevante é o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica. Por isso, a alternativa correta é Matriz energética.",
-      "C": "Não corresponde ao caso: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
-      "D": "Diverge da descrição porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas."
+      "A": "Rede urbana descreve relações e fluxos entre cidades.",
+      "B": "Correta. A matriz energética reúne as fontes usadas para atender às necessidades de energia de uma sociedade, incluindo transportes, calor, eletricidade e outros usos.",
+      "C": "Estrutura fundiária trata da distribuição e organização das propriedades rurais.",
+      "D": "Pirâmide etária representa a estrutura populacional por idade e sexo."
     },
     "tags": [
       "energia",
@@ -536,8 +545,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "energia",
+      "matriz-energetica",
+      "fontes-de-energia"
     ],
     "origin": "nabulab"
   },
@@ -550,32 +560,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Poder",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "A descrição abaixo corresponde a qual conceito: vários centros de poder econômico e político influenciam as relações internacionais?",
+    "statement": "Em determinada ordem internacional, diferentes países e blocos possuem capacidade\n    relevante de influenciar comércio, tecnologia, finanças e decisões diplomáticas,\n    sem que um único centro concentre todo o poder.\n\n    A situação aproxima-se da ideia de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Mitigação climática"
+        "text": "isolacionismo"
       },
       {
         "id": "B",
-        "text": "Ilha de calor urbana"
+        "text": "autarquia"
       },
       {
         "id": "C",
-        "text": "Multipolaridade"
+        "text": "multipolaridade"
       },
       {
         "id": "D",
-        "text": "Transição demográfica"
+        "text": "bipolaridade"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso vários centros de poder econômico e político influenciam as relações internacionais. Por isso, a alternativa correta é Multipolaridade.",
+    "explanation": "Multipolaridade descreve uma ordem em que vários centros de poder exercem influência relevante, ainda que não tenham exatamente o mesmo peso.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera.",
-      "B": "Não corresponde ao caso: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
-      "C": "Correta. Neste caso vários centros de poder econômico e político influenciam as relações internacionais. Por isso, a alternativa correta é Multipolaridade.",
-      "D": "Esse conceito designa outra relação: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária."
+      "A": "Isolacionismo é uma orientação de menor envolvimento externo, não a existência de vários polos.",
+      "B": "Autarquia econômica busca reduzir dependências externas e não descreve a distribuição global de poder.",
+      "C": "Correta. Multipolaridade descreve uma ordem em que vários centros de poder exercem influência relevante, ainda que não tenham exatamente o mesmo peso.",
+      "D": "Bipolaridade pressupõe predominância de dois grandes polos, e não de vários."
     },
     "tags": [
       "geopolitica",
@@ -590,8 +600,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "geopolitica",
+      "multipolaridade",
+      "poder"
     ],
     "origin": "nabulab"
   },
@@ -604,32 +615,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Mudança climática",
     "difficulty": "iniciante",
     "type": "multiple-choice",
-    "statement": "No conteúdo indicado, reconheça o conceito: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera?",
+    "statement": "Um governo substitui usinas a carvão por fontes de menor emissão e amplia o reflorestamento\n    para retirar parte do dióxido de carbono da atmosfera.\n\n    Essas ações são exemplos principalmente de:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escala cartográfica"
+        "text": "adaptação costeira"
       },
       {
         "id": "B",
-        "text": "Cerrado"
+        "text": "previsão do tempo"
       },
       {
         "id": "C",
-        "text": "Conurbação"
+        "text": "zoneamento urbano"
       },
       {
         "id": "D",
-        "text": "Mitigação climática"
+        "text": "mitigação da mudança climática"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera. Por isso, a alternativa correta é Mitigação climática.",
+    "explanation": "Mitigação busca reduzir as emissões de gases de efeito estufa ou ampliar sua remoção da atmosfera, atuando sobre as causas do aquecimento global.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
-      "B": "Diverge da descrição porque o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo.",
-      "C": "Esse conceito designa outra relação: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
-      "D": "Correta. A propriedade determinante é ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera. Por isso, a alternativa correta é Mitigação climática."
+      "A": "Adaptação procura reduzir vulnerabilidades aos impactos climáticos já presentes ou esperados.",
+      "B": "Previsão do tempo trata de condições atmosféricas em curto prazo.",
+      "C": "Zoneamento é um instrumento de ordenamento territorial e não define, por si só, redução de emissões.",
+      "D": "Correta. Mitigação busca reduzir as emissões de gases de efeito estufa ou ampliar sua remoção da atmosfera, atuando sobre as causas do aquecimento global."
     },
     "tags": [
       "meio-ambiente",
@@ -644,8 +655,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "aplicacao-direta"
+      "meio-ambiente",
+      "mitigacao-climatica",
+      "mudanca-climatica"
     ],
     "origin": "nabulab"
   },
@@ -658,7 +670,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Urbanização",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Ilha de calor urbana” corresponde à seguinte descrição: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
+    "statement": "A ampliação de áreas arborizadas e sombreadas pode contribuir para reduzir a intensidade das ilhas de calor em partes de uma cidade.",
     "alternatives": [
       {
         "id": "V",
@@ -670,10 +682,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Em Clima, o reconhecimento direto da propriedade de Urbanização resolve o item.",
+    "explanation": "Vegetação fornece sombra e evapotranspiração e tende a reduzir o aquecimento de superfícies quando comparada a áreas muito impermeabilizadas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Em Clima, o reconhecimento direto da propriedade de Urbanização resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Em Clima, o reconhecimento direto da propriedade de Urbanização resolve o item."
+      "V": "Correto. A cobertura vegetal é uma das estratégias usadas para amenizar o aquecimento urbano.",
+      "F": "Incorreto. Áreas verdes podem alterar o balanço de energia e contribuir para temperaturas locais menores."
     },
     "tags": [
       "clima",
@@ -688,8 +700,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "clima",
+      "ilha-de-calor",
+      "solucoes-urbanas"
     ],
     "origin": "nabulab"
   },
@@ -702,7 +715,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Biomas",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Bacia hidrográfica” corresponde à seguinte descrição: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo.",
+    "statement": "Como várias espécies do Cerrado apresentam adaptações ao fogo, qualquer incêndio nesse bioma é natural e não causa impactos ecológicos.",
     "alternatives": [
       {
         "id": "V",
@@ -714,10 +727,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Cerrado, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Em Vegetação, o reconhecimento direto da propriedade de Biomas resolve o item.",
+    "explanation": "O Cerrado possui história ecológica ligada ao fogo, mas frequência, intensidade, época e origem das queimadas importam; incêndios muito frequentes ou intensos podem causar graves impactos.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Cerrado, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Em Vegetação, o reconhecimento direto da propriedade de Biomas resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Cerrado, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Em Vegetação, o reconhecimento direto da propriedade de Biomas resolve o item."
+      "V": "Incorreto. A adaptação de algumas espécies não torna todos os incêndios inofensivos.",
+      "F": "Correto. É necessário diferenciar regimes naturais ou manejados de queimadas destrutivas e recorrentes."
     },
     "tags": [
       "vegetacao",
@@ -732,8 +745,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "vegetacao",
+      "cerrado",
+      "fogo"
     ],
     "origin": "nabulab"
   },
@@ -746,7 +760,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Bacias",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Bacia hidrográfica” corresponde à seguinte descrição: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
+    "statement": "Os limites de uma bacia hidrográfica são definidos pelo relevo e pelos divisores de águas, podendo atravessar fronteiras políticas.",
     "alternatives": [
       {
         "id": "V",
@@ -758,10 +772,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Em Hidrografia, o reconhecimento direto da propriedade de Bacias resolve o item.",
+    "explanation": "A drenagem segue a topografia; por isso, seus limites naturais não precisam coincidir com municípios, estados ou países.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Em Hidrografia, o reconhecimento direto da propriedade de Bacias resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Em Hidrografia, o reconhecimento direto da propriedade de Bacias resolve o item."
+      "V": "Correto. Bacias são unidades físico-geográficas.",
+      "F": "Incorreto. Fronteiras administrativas e divisores de águas obedecem a critérios diferentes."
     },
     "tags": [
       "hidrografia",
@@ -776,8 +790,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "hidrografia",
+      "bacia-hidrografica",
+      "divisores-de-agua"
     ],
     "origin": "nabulab"
   },
@@ -790,7 +805,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Transição demográfica",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Conurbação” corresponde à seguinte descrição: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
+    "statement": "Na transição demográfica, a queda da fecundidade e a maior sobrevivência podem, ao longo do tempo, aumentar a participação relativa de idosos na população.",
     "alternatives": [
       {
         "id": "V",
@@ -801,11 +816,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Em População, o reconhecimento direto da propriedade de Transição demográfica resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "Menos nascimentos estreitam as novas coortes e maior longevidade aumenta a permanência nas idades avançadas, favorecendo o envelhecimento populacional.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Em População, o reconhecimento direto da propriedade de Transição demográfica resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Em População, o reconhecimento direto da propriedade de Transição demográfica resolve o item."
+      "V": "Correto. O envelhecimento é uma consequência comum das etapas mais avançadas da transição.",
+      "F": "Incorreto. A mudança da estrutura etária está relacionada às transformações nas taxas de natalidade e mortalidade."
     },
     "tags": [
       "populacao",
@@ -820,8 +835,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "populacao",
+      "transicao-demografica",
+      "envelhecimento"
     ],
     "origin": "nabulab"
   },
@@ -834,7 +850,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Rede urbana",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Conurbação” corresponde à seguinte descrição: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
+    "statement": "Quando duas cidades formam uma conurbação, elas deixam obrigatoriamente de ser municípios distintos e passam a ter uma única prefeitura.",
     "alternatives": [
       {
         "id": "V",
@@ -845,11 +861,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Em Urbanização, o reconhecimento direto da propriedade de Rede urbana resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "Conurbação descreve continuidade física da mancha urbana e pode ocorrer entre municípios que mantêm administrações próprias.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Em Urbanização, o reconhecimento direto da propriedade de Rede urbana resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Em Urbanização, o reconhecimento direto da propriedade de Rede urbana resolve o item."
+      "V": "Incorreto. Continuidade urbana não elimina automaticamente limites político-administrativos.",
+      "F": "Correto. É possível haver uma única mancha urbana sobre vários municípios."
     },
     "tags": [
       "urbanizacao",
@@ -864,8 +880,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "urbanizacao",
+      "conurbacao",
+      "limites-administrativos"
     ],
     "origin": "nabulab"
   },
@@ -878,7 +895,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Localização",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Agronegócio” corresponde à seguinte descrição: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis.",
+    "statement": "A instalação de fábricas em cidades do interior que antes se concentravam em grandes metrópoles pode fazer parte de um processo de desconcentração industrial.",
     "alternatives": [
       {
         "id": "V",
@@ -889,11 +906,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Em Industrialização, o reconhecimento direto da propriedade de Localização resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "O deslocamento relativo da produção para novos territórios é uma das formas de desconcentração espacial da indústria.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Em Industrialização, o reconhecimento direto da propriedade de Localização resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Em Industrialização, o reconhecimento direto da propriedade de Localização resolve o item."
+      "V": "Correto. A atividade permanece industrial, mas sua distribuição territorial muda.",
+      "F": "Incorreto. O conceito trata justamente da redistribuição geográfica das plantas produtivas."
     },
     "tags": [
       "industrializacao",
@@ -908,8 +925,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "industrializacao",
+      "desconcentracao",
+      "territorio"
     ],
     "origin": "nabulab"
   },
@@ -922,7 +940,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Produção",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: “Agronegócio” corresponde à seguinte descrição: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
+    "statement": "Agronegócio é sinônimo apenas de cultivo e criação dentro das propriedades rurais, sem incluir processamento, crédito ou logística.",
     "alternatives": [
       {
         "id": "V",
@@ -933,11 +951,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Em Agricultura, o reconhecimento direto da propriedade de Produção resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "O conceito de agronegócio envolve uma cadeia ampla de atividades antes, durante e depois da produção agropecuária.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Em Agricultura, o reconhecimento direto da propriedade de Produção resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Em Agricultura, o reconhecimento direto da propriedade de Produção resolve o item."
+      "V": "Incorreto. Insumos, agroindústria, financiamento, transporte e comércio também podem integrar a cadeia.",
+      "F": "Correto. A afirmação reduz indevidamente o alcance do conceito."
     },
     "tags": [
       "agricultura",
@@ -952,8 +970,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "agricultura",
+      "agronegocio",
+      "cadeia-produtiva"
     ],
     "origin": "nabulab"
   },
@@ -966,7 +985,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Matriz",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: “Multipolaridade” corresponde à seguinte descrição: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
+    "statement": "Matriz elétrica e matriz energética são expressões sempre equivalentes, pois ambas consideram exatamente as mesmas fontes e os mesmos usos de energia.",
     "alternatives": [
       {
         "id": "V",
@@ -978,10 +997,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. Em Energia, o reconhecimento direto da propriedade de Matriz resolve o item.",
+    "explanation": "A matriz elétrica considera especificamente as fontes usadas para gerar eletricidade; a matriz energética abrange um conjunto mais amplo de usos, como transportes e calor.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. Em Energia, o reconhecimento direto da propriedade de Matriz resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. Em Energia, o reconhecimento direto da propriedade de Matriz resolve o item."
+      "V": "Incorreto. A matriz elétrica é apenas uma parte do sistema energético total.",
+      "F": "Correto. Um país pode ter eletricidade muito renovável e ainda usar muitos combustíveis fósseis no transporte."
     },
     "tags": [
       "energia",
@@ -996,8 +1015,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "energia",
+      "matriz-energetica",
+      "matriz-eletrica"
     ],
     "origin": "nabulab"
   },
@@ -1010,7 +1030,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Poder",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Avalie a afirmação: “Multipolaridade” corresponde à seguinte descrição: vários centros de poder econômico e político influenciam as relações internacionais.",
+    "statement": "Uma ordem multipolar exige que todos os polos de poder possuam exatamente a mesma capacidade econômica, militar e tecnológica.",
     "alternatives": [
       {
         "id": "V",
@@ -1021,11 +1041,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. Em Geopolítica, o reconhecimento direto da propriedade de Poder resolve o item.",
+    "correctAnswer": "F",
+    "explanation": "Multipolaridade indica a existência de vários centros relevantes, mas as capacidades entre eles podem ser bastante assimétricas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. Em Geopolítica, o reconhecimento direto da propriedade de Poder resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. Em Geopolítica, o reconhecimento direto da propriedade de Poder resolve o item."
+      "V": "Incorreto. Multipolaridade não significa igualdade de poder.",
+      "F": "Correto. Polos podem ter pesos diferentes conforme o tema e o momento."
     },
     "tags": [
       "geopolitica",
@@ -1040,8 +1060,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "geopolitica",
+      "multipolaridade",
+      "assimetrias"
     ],
     "origin": "nabulab"
   },
@@ -1054,7 +1075,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Mudança climática",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: “Escala cartográfica” corresponde à seguinte descrição: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera.",
+    "statement": "Construir barreiras contra a elevação do nível do mar é, por si só, uma ação de mitigação porque reduz diretamente as emissões de gases de efeito estufa.",
     "alternatives": [
       {
         "id": "V",
@@ -1066,10 +1087,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Em Questões ambientais, o reconhecimento direto da propriedade de Mudança climática resolve o item.",
+    "explanation": "Barreiras costeiras buscam reduzir danos associados a impactos climáticos e são medidas de adaptação; não reduzem diretamente emissões.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Em Questões ambientais, o reconhecimento direto da propriedade de Mudança climática resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Em Questões ambientais, o reconhecimento direto da propriedade de Mudança climática resolve o item."
+      "V": "Incorreto. A finalidade principal é enfrentar um impacto, não atuar sobre sua causa atmosférica.",
+      "F": "Correto. Mitigação e adaptação são estratégias diferentes, embora possam ser combinadas."
     },
     "tags": [
       "meio-ambiente",
@@ -1084,8 +1105,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "meio-ambiente",
+      "mitigacao-e-adaptacao",
+      "mudanca-climatica"
     ],
     "origin": "nabulab"
   },
@@ -1098,7 +1120,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Escala",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: “Escala cartográfica” corresponde à seguinte descrição: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
+    "statement": "Entre mapas de uma mesma área, um mapa na escala 1:100.000 tende a permitir mais detalhe do que outro na escala 1:1.000.000.",
     "alternatives": [
       {
         "id": "V",
@@ -1110,10 +1132,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Em Cartografia, o reconhecimento direto da propriedade de Escala resolve o item.",
+    "explanation": "1:100.000 é uma escala maior que 1:1.000.000: cada unidade no mapa representa uma distância real menor, permitindo representar mais detalhes.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Em Cartografia, o reconhecimento direto da propriedade de Escala resolve o item.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Em Cartografia, o reconhecimento direto da propriedade de Escala resolve o item."
+      "V": "Correto. Escalas maiores costumam cobrir áreas menores com maior detalhamento.",
+      "F": "Incorreto. O denominador menor corresponde, nesse caso, à escala cartográfica maior."
     },
     "tags": [
       "cartografia",
@@ -1128,8 +1150,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "cartografia",
+      "escala",
+      "nivel-de-detalhe"
     ],
     "origin": "nabulab"
   },
@@ -1142,7 +1165,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Agentes externos",
     "difficulty": "iniciante",
     "type": "true-false",
-    "statement": "Analise a proposição: “Ilha de calor urbana” corresponde à seguinte descrição: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
+    "statement": "Intemperismo altera ou fragmenta rochas no próprio local, enquanto erosão envolve remoção e transporte de material por agentes como água, vento ou gelo.",
     "alternatives": [
       {
         "id": "V",
@@ -1153,11 +1176,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Em Relevo, o reconhecimento direto da propriedade de Agentes externos resolve o item.",
+    "correctAnswer": "V",
+    "explanation": "Os dois processos podem atuar em sequência, mas são distintos: o intemperismo modifica a rocha in situ; a erosão remove e transporta o material.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Em Relevo, o reconhecimento direto da propriedade de Agentes externos resolve o item.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Em Relevo, o reconhecimento direto da propriedade de Agentes externos resolve o item."
+      "V": "Correto. A diferença entre alteração local e transporte é central para distinguir os processos.",
+      "F": "Incorreto. Intemperismo e erosão não são sinônimos e podem ocorrer em etapas diferentes."
     },
     "tags": [
       "relevo",
@@ -1172,8 +1195,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "reconhecimento-conceitual",
-      "verificacao"
+      "relevo",
+      "intemperismo",
+      "erosao"
     ],
     "origin": "nabulab"
   },
@@ -1186,32 +1210,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Bacias",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas?",
+    "statement": "Em uma bacia hidrográfica, a retirada de vegetação em extensas áreas a montante aumentou\n    a erosão do solo. Alguns anos depois, trechos do rio a jusante apresentaram maior acúmulo\n    de sedimentos e redução de profundidade.\n\n    Qual relação explica melhor o caso?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Bacia hidrográfica"
+        "text": "processos ocorridos a montante podem alterar a dinâmica fluvial a jusante dentro da mesma bacia"
       },
       {
         "id": "B",
-        "text": "Conurbação"
+        "text": "os divisores de águas impedem qualquer transporte interno de sedimentos"
       },
       {
         "id": "C",
-        "text": "Matriz energética"
+        "text": "o assoreamento depende apenas da maré oceânica"
       },
       {
         "id": "D",
-        "text": "Intemperismo"
+        "text": "ações em áreas altas não influenciam rios localizados abaixo"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Por isso, a alternativa correta é Bacia hidrográfica.",
+    "explanation": "A bacia funciona como uma unidade conectada: água e sedimentos transportados a partir de áreas a montante podem afetar canais, reservatórios e usos da água a jusante.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Por isso, a alternativa correta é Bacia hidrográfica.",
-      "B": "Esse conceito designa outra relação: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
-      "C": "A propriedade dessa alternativa é distinta: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
-      "D": "Não corresponde ao caso: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície."
+      "A": "Correta. A bacia funciona como uma unidade conectada: água e sedimentos transportados a partir de áreas a montante podem afetar canais, reservatórios e usos da água a jusante.",
+      "B": "Divisores separam bacias, mas não bloqueiam o fluxo ao longo dos canais dentro da mesma bacia.",
+      "C": "O caso descrito relaciona erosão continental e transporte fluvial de sedimentos.",
+      "D": "Fluxos de água e sedimentos conectam as diferentes partes da bacia."
     },
     "tags": [
       "hidrografia",
@@ -1226,8 +1250,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "hidrografia",
+      "bacias",
+      "causa-e-consequencia"
     ],
     "origin": "nabulab"
   },
@@ -1240,32 +1265,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Transição demográfica",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária?",
+    "statement": "A pirâmide etária de um país passou, em algumas décadas, de uma base muito larga para\n    uma base relativamente estreita, enquanto aumentou a participação das faixas de idade mais elevadas.\n\n    A mudança é mais compatível com:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Desconcentração industrial"
+        "text": "explosão permanente da natalidade"
       },
       {
         "id": "B",
-        "text": "Transição demográfica"
+        "text": "queda da fecundidade combinada ao aumento da sobrevivência e ao envelhecimento populacional"
       },
       {
         "id": "C",
-        "text": "Multipolaridade"
+        "text": "eliminação da expectativa de vida"
       },
       {
         "id": "D",
-        "text": "Ilha de calor urbana"
+        "text": "fim de qualquer migração internacional"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária. Por isso, a alternativa correta é Transição demográfica.",
+    "explanation": "A redução do número médio de nascimentos estreita a base, enquanto maior expectativa de vida e sobrevivência aumentam a participação relativa das idades mais altas.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis.",
-      "B": "Correta. A distinção central está em a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária. Por isso, a alternativa correta é Transição demográfica.",
-      "C": "Não corresponde ao caso: vários centros de poder econômico e político influenciam as relações internacionais.",
-      "D": "Diverge da descrição porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico."
+      "A": "Uma natalidade persistentemente alta manteria a base proporcionalmente larga.",
+      "B": "Correta. A redução do número médio de nascimentos estreita a base, enquanto maior expectativa de vida e sobrevivência aumentam a participação relativa das idades mais altas.",
+      "C": "A maior participação de idosos é incompatível com queda generalizada da sobrevivência.",
+      "D": "A forma da pirâmide não permite concluir, por si só, que a migração tenha desaparecido."
     },
     "tags": [
       "populacao",
@@ -1280,8 +1305,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "populacao",
+      "transicao-demografica",
+      "piramide-etaria"
     ],
     "origin": "nabulab"
   },
@@ -1294,32 +1320,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Rede urbana",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial?",
+    "statement": "Moradores de pequenas cidades de uma região recorrem a um centro regional para hospitais\n    de alta complexidade, universidades e serviços especializados, embora façam compras\n    cotidianas em suas próprias cidades.\n\n    O exemplo evidencia:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Agronegócio"
+        "text": "autossuficiência completa de cada cidade"
       },
       {
         "id": "B",
-        "text": "Mitigação climática"
+        "text": "ausência de relações entre cidades de tamanhos diferentes"
       },
       {
         "id": "C",
-        "text": "Conurbação"
+        "text": "hierarquia e fluxos diferenciados na rede urbana"
       },
       {
         "id": "D",
-        "text": "Cerrado"
+        "text": "conurbação obrigatória entre todas as cidades da região"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Por isso, a alternativa correta é Conurbação.",
+    "explanation": "Cidades desempenham funções distintas e mantêm fluxos entre si. Serviços mais raros e especializados tendem a concentrar-se em centros de maior alcance regional.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
-      "B": "Não corresponde ao caso: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera.",
-      "C": "Correta. A resposta decorre da definição disciplinar a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Por isso, a alternativa correta é Conurbação.",
-      "D": "Esse conceito designa outra relação: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo."
+      "A": "O deslocamento para serviços especializados mostra dependência funcional entre os centros.",
+      "B": "O caso descreve exatamente relações entre cidades com funções distintas.",
+      "C": "Correta. Cidades desempenham funções distintas e mantêm fluxos entre si. Serviços mais raros e especializados tendem a concentrar-se em centros de maior alcance regional.",
+      "D": "Rede urbana não exige continuidade física das manchas urbanizadas."
     },
     "tags": [
       "urbanizacao",
@@ -1334,8 +1360,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "urbanizacao",
+      "rede-urbana",
+      "hierarquia-urbana"
     ],
     "origin": "nabulab"
   },
@@ -1348,32 +1375,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Localização",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis?",
+    "statement": "Uma montadora escolhe instalar nova unidade próxima a fornecedores de autopeças,\n    a um entroncamento rodoviário e a um grande mercado consumidor, mesmo pagando por\n    terrenos mais caros do que em áreas mais distantes.\n\n    A escolha mostra que a localização industrial:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Matriz energética"
+        "text": "depende exclusivamente do menor preço da terra"
       },
       {
         "id": "B",
-        "text": "Escala cartográfica"
+        "text": "é determinada apenas pela presença de recursos minerais"
       },
       {
         "id": "C",
-        "text": "Bacia hidrográfica"
+        "text": "ignora completamente a infraestrutura de transportes"
       },
       {
         "id": "D",
-        "text": "Desconcentração industrial"
+        "text": "resulta da combinação de fatores logísticos, de mercado e de integração produtiva"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis. Por isso, a alternativa correta é Desconcentração industrial.",
+    "explanation": "Empresas ponderam custos e vantagens diversas. Proximidade de fornecedores, infraestrutura e consumidores pode compensar o maior custo do terreno.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
-      "B": "Diverge da descrição porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
-      "C": "Esse conceito designa outra relação: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
-      "D": "Correta. O critério relevante é atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis. Por isso, a alternativa correta é Desconcentração industrial."
+      "A": "O caso mostra que a empresa aceitou terra mais cara em troca de outras vantagens.",
+      "B": "A atividade descrita não depende diretamente de jazidas locais.",
+      "C": "O entroncamento rodoviário aparece como fator importante da decisão.",
+      "D": "Correta. Empresas ponderam custos e vantagens diversas. Proximidade de fornecedores, infraestrutura e consumidores pode compensar o maior custo do terreno."
     },
     "tags": [
       "industrializacao",
@@ -1388,8 +1415,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "industrializacao",
+      "localizacao-industrial",
+      "fatores-locacionais"
     ],
     "origin": "nabulab"
   },
@@ -1402,32 +1430,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Produção",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização?",
+    "statement": "Uma região amplia rapidamente uma monocultura voltada à exportação. A produção cresce,\n    mas aumenta também a dependência do preço internacional de um único produto.\n\n    Qual vulnerabilidade econômica está mais diretamente associada a esse quadro?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Agronegócio"
+        "text": "maior exposição às oscilações do mercado externo dessa commodity"
       },
       {
         "id": "B",
-        "text": "Multipolaridade"
+        "text": "desaparecimento automático de toda atividade industrial"
       },
       {
         "id": "C",
-        "text": "Intemperismo"
+        "text": "fim da necessidade de infraestrutura logística"
       },
       {
         "id": "D",
-        "text": "Transição demográfica"
+        "text": "eliminação dos riscos ambientais ligados ao uso da terra"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Por isso, a alternativa correta é Agronegócio.",
+    "explanation": "Quando a pauta produtiva fica concentrada em um produto exportável, quedas de preço ou demanda internacional podem afetar fortemente a renda regional.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Por isso, a alternativa correta é Agronegócio.",
-      "B": "Esse conceito designa outra relação: vários centros de poder econômico e político influenciam as relações internacionais.",
-      "C": "A propriedade dessa alternativa é distinta: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
-      "D": "Não corresponde ao caso: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária."
+      "A": "Correta. Quando a pauta produtiva fica concentrada em um produto exportável, quedas de preço ou demanda internacional podem afetar fortemente a renda regional.",
+      "B": "A expansão agrícola não implica necessariamente eliminação da indústria.",
+      "C": "Produção exportadora depende intensamente de transporte e armazenagem.",
+      "D": "Monoculturas extensivas podem manter ou ampliar pressões ambientais."
     },
     "tags": [
       "agricultura",
@@ -1442,8 +1470,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "agricultura",
+      "producao",
+      "commodities"
     ],
     "origin": "nabulab"
   },
@@ -1456,32 +1485,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Matriz",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica?",
+    "statement": "Um país produz 75% de sua eletricidade com fontes renováveis, mas seus transportes\n    dependem majoritariamente de derivados de petróleo.\n\n    Qual conclusão é correta?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Mitigação climática"
+        "text": "a matriz elétrica inclui apenas combustíveis usados por automóveis"
       },
       {
         "id": "B",
-        "text": "Matriz energética"
+        "text": "uma matriz elétrica renovável não significa necessariamente uma matriz energética igualmente renovável"
       },
       {
         "id": "C",
-        "text": "Ilha de calor urbana"
+        "text": "o petróleo deixa de fazer parte da matriz energética porque não gera a maior parte da eletricidade"
       },
       {
         "id": "D",
-        "text": "Conurbação"
+        "text": "as expressões matriz elétrica e matriz energética são equivalentes"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica. Por isso, a alternativa correta é Matriz energética.",
+    "explanation": "A eletricidade é apenas uma parcela do consumo total de energia. Combustíveis usados no transporte e em outros setores também entram na matriz energética.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera.",
-      "B": "Correta. A propriedade determinante é o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica. Por isso, a alternativa correta é Matriz energética.",
-      "C": "Não corresponde ao caso: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
-      "D": "Diverge da descrição porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial."
+      "A": "Matriz elétrica refere-se às fontes de geração de eletricidade.",
+      "B": "Correta. A eletricidade é apenas uma parcela do consumo total de energia. Combustíveis usados no transporte e em outros setores também entram na matriz energética.",
+      "C": "Combustíveis de transporte continuam compondo a matriz energética.",
+      "D": "Elas têm abrangências diferentes."
     },
     "tags": [
       "energia",
@@ -1496,8 +1525,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "energia",
+      "matriz-energetica",
+      "matriz-eletrica"
     ],
     "origin": "nabulab"
   },
@@ -1510,32 +1540,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Poder",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: vários centros de poder econômico e político influenciam as relações internacionais?",
+    "statement": "Em negociações internacionais, diferentes atores exercem maior influência em temas distintos:\n    alguns concentram capacidade militar, outros dominam tecnologias estratégicas, mercados\n    consumidores ou redes financeiras.\n\n    Esse quadro é compatível com uma ordem multipolar porque:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escala cartográfica"
+        "text": "todo país passa a possuir o mesmo peso diplomático"
       },
       {
         "id": "B",
-        "text": "Cerrado"
+        "text": "nenhum ator consegue influenciar decisões externas"
       },
       {
         "id": "C",
-        "text": "Multipolaridade"
+        "text": "o poder internacional pode distribuir-se entre vários centros e dimensões, sem exigir igualdade entre eles"
       },
       {
         "id": "D",
-        "text": "Desconcentração industrial"
+        "text": "as relações internacionais deixam de envolver competição"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em vários centros de poder econômico e político influenciam as relações internacionais. Por isso, a alternativa correta é Multipolaridade.",
+    "explanation": "Multipolaridade não significa que todos os atores tenham as mesmas capacidades; diferentes polos podem exercer influência assimétrica e especializada.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
-      "B": "Não corresponde ao caso: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo.",
-      "C": "Correta. A conclusão se apoia em vários centros de poder econômico e político influenciam as relações internacionais. Por isso, a alternativa correta é Multipolaridade.",
-      "D": "Esse conceito designa outra relação: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis."
+      "A": "As assimetrias permanecem mesmo em sistemas com vários polos.",
+      "B": "A existência de polos pressupõe justamente capacidade de influência.",
+      "C": "Correta. Multipolaridade não significa que todos os atores tenham as mesmas capacidades; diferentes polos podem exercer influência assimétrica e especializada.",
+      "D": "Vários centros de poder podem cooperar e competir simultaneamente."
     },
     "tags": [
       "geopolitica",
@@ -1550,8 +1580,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "geopolitica",
+      "multipolaridade",
+      "dimensoes-do-poder"
     ],
     "origin": "nabulab"
   },
@@ -1564,32 +1595,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Mudança climática",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera?",
+    "statement": "Uma cidade adota duas políticas: eletrifica parte da frota de ônibus e amplia reservatórios\n    de retenção para reduzir alagamentos durante chuvas intensas.\n\n    As duas medidas correspondem, respectivamente, a:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Intemperismo"
+        "text": "adaptação e mitigação"
       },
       {
         "id": "B",
-        "text": "Bacia hidrográfica"
+        "text": "duas medidas apenas de mitigação"
       },
       {
         "id": "C",
-        "text": "Agronegócio"
+        "text": "duas medidas apenas de adaptação"
       },
       {
         "id": "D",
-        "text": "Mitigação climática"
+        "text": "mitigação e adaptação"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera. Por isso, a alternativa correta é Mitigação climática.",
+    "explanation": "A eletrificação pode reduzir emissões do transporte, atuando sobre causas da mudança climática; os reservatórios reduzem vulnerabilidade a impactos de chuvas intensas.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
-      "B": "Diverge da descrição porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
-      "C": "Esse conceito designa outra relação: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
-      "D": "Correta. A distinção central está em ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera. Por isso, a alternativa correta é Mitigação climática."
+      "A": "A ordem está invertida em relação às funções descritas.",
+      "B": "A retenção de águas pluviais é principalmente uma resposta a impactos.",
+      "C": "A redução de emissões da frota atua sobre a causa climática.",
+      "D": "Correta. A eletrificação pode reduzir emissões do transporte, atuando sobre causas da mudança climática; os reservatórios reduzem vulnerabilidade a impactos de chuvas intensas."
     },
     "tags": [
       "meio-ambiente",
@@ -1604,8 +1635,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "meio-ambiente",
+      "mitigacao-e-adaptacao",
+      "politicas-climaticas"
     ],
     "origin": "nabulab"
   },
@@ -1618,32 +1650,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Escala",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Relacione a situação ao conceito mais preciso: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas?",
+    "statement": "Em um mapa na escala 1:250.000, uma rodovia mede 6 cm entre dois pontos.\n    Qual é a distância real aproximada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escala cartográfica"
+        "text": "15 km"
       },
       {
         "id": "B",
-        "text": "Ilha de calor urbana"
+        "text": "1,5 km"
       },
       {
         "id": "C",
-        "text": "Transição demográfica"
+        "text": "25 km"
       },
       {
         "id": "D",
-        "text": "Matriz energética"
+        "text": "150 km"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Por isso, a alternativa correta é Escala cartográfica.",
+    "explanation": "1 cm representa 250.000 cm, ou 2,5 km. Assim, 6 cm correspondem a 15 km.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Por isso, a alternativa correta é Escala cartográfica.",
-      "B": "Esse conceito designa outra relação: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
-      "C": "A propriedade dessa alternativa é distinta: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
-      "D": "Não corresponde ao caso: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica."
+      "A": "Correta. 1 cm representa 250.000 cm, ou 2,5 km. Assim, 6 cm correspondem a 15 km.",
+      "B": "Esse resultado desloca uma casa decimal na conversão.",
+      "C": "Esse valor não corresponde a seis vezes 2,5 km.",
+      "D": "Esse resultado superestima a distância por um fator dez."
     },
     "tags": [
       "cartografia",
@@ -1658,8 +1690,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "cartografia",
+      "escala",
+      "calculo"
     ],
     "origin": "nabulab"
   },
@@ -1672,32 +1705,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Agentes externos",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "A partir das características dadas, selecione a classificação adequada: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície?",
+    "statement": "Em clima quente e úmido, água infiltra em fraturas de uma rocha e participa de reações\n    que alteram seus minerais. Parte do material alterado é posteriormente transportada pela chuva.\n\n    A sequência envolve, principalmente:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Cerrado"
+        "text": "erosão seguida de tectonismo"
       },
       {
         "id": "B",
-        "text": "Intemperismo"
+        "text": "intemperismo químico seguido de erosão"
       },
       {
         "id": "C",
-        "text": "Conurbação"
+        "text": "sedimentação seguida de vulcanismo"
       },
       {
         "id": "D",
-        "text": "Multipolaridade"
+        "text": "apenas intemperismo, sem qualquer erosão"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície. Por isso, a alternativa correta é Intemperismo.",
+    "explanation": "A alteração mineral pela água é intemperismo químico; a remoção e o transporte posteriores correspondem à erosão.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo.",
-      "B": "Correta. O critério relevante é processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície. Por isso, a alternativa correta é Intemperismo.",
-      "C": "Não corresponde ao caso: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
-      "D": "Diverge da descrição porque vários centros de poder econômico e político influenciam as relações internacionais."
+      "A": "O caso não envolve forças internas da crosta.",
+      "B": "Correta. A alteração mineral pela água é intemperismo químico; a remoção e o transporte posteriores correspondem à erosão.",
+      "C": "Não há deposição inicial nem atividade magmática descrita.",
+      "D": "O transporte pela chuva é explicitamente mencionado."
     },
     "tags": [
       "relevo",
@@ -1712,8 +1745,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "relevo",
+      "intemperismo",
+      "erosao"
     ],
     "origin": "nabulab"
   },
@@ -1726,32 +1760,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Urbanização",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Compare as alternativas e identifique a que explica o caso: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico?",
+    "statement": "Durante uma sequência de noites sem chuva e com pouco vento, sensores mostram que bairros\n    densamente construídos resfriam mais lentamente que áreas arborizadas próximas.\n\n    Qual fator contribui para esse padrão?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Bacia hidrográfica"
+        "text": "maior altitude obrigatória dos centros urbanos"
       },
       {
         "id": "B",
-        "text": "Desconcentração industrial"
+        "text": "ausência de qualquer radiação solar durante o dia"
       },
       {
         "id": "C",
-        "text": "Ilha de calor urbana"
+        "text": "armazenamento e liberação de calor por materiais urbanos, combinados à menor evapotranspiração"
       },
       {
         "id": "D",
-        "text": "Mitigação climática"
+        "text": "formação automática de neve em áreas impermeáveis"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Por isso, a alternativa correta é Ilha de calor urbana.",
+    "explanation": "Concreto e asfalto podem armazenar energia durante o dia e liberá-la à noite; menor vegetação reduz o resfriamento associado à evapotranspiração.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
-      "B": "Não corresponde ao caso: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis.",
-      "C": "Correta. Neste caso áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Por isso, a alternativa correta é Ilha de calor urbana.",
-      "D": "Esse conceito designa outra relação: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera."
+      "A": "Centros urbanos não são necessariamente mais elevados que áreas vegetadas.",
+      "B": "O armazenamento térmico depende justamente da energia recebida ao longo do dia.",
+      "C": "Correta. Concreto e asfalto podem armazenar energia durante o dia e liberá-la à noite; menor vegetação reduz o resfriamento associado à evapotranspiração.",
+      "D": "Esse processo não explica o aquecimento urbano observado."
     },
     "tags": [
       "clima",
@@ -1766,8 +1800,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "clima",
+      "ilha-de-calor",
+      "balanco-de-energia"
     ],
     "origin": "nabulab"
   },
@@ -1780,32 +1815,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Biomas",
     "difficulty": "medio",
     "type": "multiple-choice",
-    "statement": "Qual conceito interpreta corretamente a característica apresentada: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo?",
+    "statement": "A conversão de áreas nativas do Cerrado em extensas áreas agrícolas pode afetar não apenas\n    a biodiversidade, mas também rios que nascem ou recebem contribuição hídrica de áreas do bioma.\n\n    A afirmação é geograficamente relevante porque:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Transição demográfica"
+        "text": "biomas não mantêm relação com bacias hidrográficas"
       },
       {
         "id": "B",
-        "text": "Agronegócio"
+        "text": "a agricultura não modifica processos de escoamento ou erosão"
       },
       {
         "id": "C",
-        "text": "Escala cartográfica"
+        "text": "todo uso agrícola produz exatamente o mesmo impacto"
       },
       {
         "id": "D",
-        "text": "Cerrado"
+        "text": "vegetação, solos, uso da terra e dinâmica hídrica estão conectados no território"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo. Por isso, a alternativa correta é Cerrado.",
+    "explanation": "Mudanças de cobertura vegetal podem alterar infiltração, escoamento, erosão e habitats, produzindo efeitos integrados sobre biodiversidade e recursos hídricos.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
-      "B": "Diverge da descrição porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
-      "C": "Esse conceito designa outra relação: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
-      "D": "Correta. A propriedade determinante é o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo. Por isso, a alternativa correta é Cerrado."
+      "A": "Os sistemas ambientais se sobrepõem e interagem espacialmente.",
+      "B": "O manejo do solo e a cobertura da terra influenciam esses processos.",
+      "C": "Os efeitos variam conforme cultivo, manejo, escala e condições locais.",
+      "D": "Correta. Mudanças de cobertura vegetal podem alterar infiltração, escoamento, erosão e habitats, produzindo efeitos integrados sobre biodiversidade e recursos hídricos."
     },
     "tags": [
       "vegetacao",
@@ -1820,8 +1855,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "classificacao"
+      "vegetacao",
+      "cerrado",
+      "interacoes-ambientais"
     ],
     "origin": "nabulab"
   },
@@ -1834,7 +1870,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Rede urbana",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial”, é correto associá-lo a Conurbação.",
+    "statement": "Uma cidade pode ocupar posição elevada na rede urbana por concentrar serviços especializados e fluxos regionais, mesmo que população absoluta não seja o único critério de hierarquia.",
     "alternatives": [
       {
         "id": "V",
@@ -1846,10 +1882,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A resolução relaciona a situação descrita aos critérios de Rede urbana, no campo de Urbanização.",
+    "explanation": "Hierarquia urbana envolve funções, alcance dos serviços, conexões e capacidade de polarização, não apenas número de habitantes.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A resolução relaciona a situação descrita aos critérios de Rede urbana, no campo de Urbanização.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A resolução relaciona a situação descrita aos critérios de Rede urbana, no campo de Urbanização."
+      "V": "Correto. Centralidade funcional e fluxos ajudam a definir o papel de uma cidade na rede.",
+      "F": "Incorreto. População é relevante, mas não é o único indicador possível de centralidade."
     },
     "tags": [
       "urbanizacao",
@@ -1864,8 +1900,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "urbanizacao",
+      "rede-urbana",
+      "centralidade"
     ],
     "origin": "nabulab"
   },
@@ -1878,7 +1915,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Localização",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis”, é correto associá-lo a Escala cartográfica.",
+    "statement": "A desconcentração industrial dentro de um país significa necessariamente que a participação nacional da indústria na economia está diminuindo.",
     "alternatives": [
       {
         "id": "V",
@@ -1890,10 +1927,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A resolução relaciona a situação descrita aos critérios de Localização, no campo de Industrialização.",
+    "explanation": "Desconcentração é uma mudança espacial da produção; ela pode ocorrer mesmo com indústria nacional estável ou crescente.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A resolução relaciona a situação descrita aos critérios de Localização, no campo de Industrialização.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A resolução relaciona a situação descrita aos critérios de Localização, no campo de Industrialização."
+      "V": "Incorreto. Redistribuição territorial e perda de peso econômico da indústria são processos distintos.",
+      "F": "Correto. Uma fábrica pode sair de uma metrópole e se instalar em outra região sem desaparecer do país."
     },
     "tags": [
       "industrializacao",
@@ -1908,8 +1945,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "industrializacao",
+      "desconcentracao",
+      "diferenciacao-de-processos"
     ],
     "origin": "nabulab"
   },
@@ -1922,7 +1960,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Produção",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização”, é correto associá-lo a Agronegócio.",
+    "statement": "Aumento de produtividade agrícola pode ocorrer ao mesmo tempo que concentração fundiária; um fenômeno não elimina automaticamente o outro.",
     "alternatives": [
       {
         "id": "V",
@@ -1934,10 +1972,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A resolução relaciona a situação descrita aos critérios de Produção, no campo de Agricultura.",
+    "explanation": "Produtividade mede relação entre produção e recursos/área, enquanto concentração fundiária trata da distribuição da propriedade da terra.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A resolução relaciona a situação descrita aos critérios de Produção, no campo de Agricultura.",
-      "F": "Incorreto. A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A resolução relaciona a situação descrita aos critérios de Produção, no campo de Agricultura."
+      "V": "Correto. Os indicadores se referem a dimensões diferentes da estrutura agrária.",
+      "F": "Incorreto. Ganhos técnicos não determinam, por si sós, distribuição mais igualitária da terra."
     },
     "tags": [
       "agricultura",
@@ -1952,8 +1990,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "agricultura",
+      "producao",
+      "estrutura-fundiaria"
     ],
     "origin": "nabulab"
   },
@@ -1966,7 +2005,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Matriz",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica”, é correto associá-lo a Ilha de calor urbana.",
+    "statement": "Toda fonte renovável de energia é ambientalmente isenta de impactos, independentemente de localização, escala e tecnologia utilizada.",
     "alternatives": [
       {
         "id": "V",
@@ -1978,10 +2017,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A resolução relaciona a situação descrita aos critérios de Matriz, no campo de Energia.",
+    "explanation": "Fontes renováveis podem reduzir certos impactos, mas hidrelétricas, eólicas, solares e biomassa também apresentam efeitos territoriais e ambientais que precisam ser avaliados.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A resolução relaciona a situação descrita aos critérios de Matriz, no campo de Energia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A resolução relaciona a situação descrita aos critérios de Matriz, no campo de Energia."
+      "V": "Incorreto. Renovável não significa impacto zero.",
+      "F": "Correto. A análise deve considerar ciclo de vida, implantação e características locais."
     },
     "tags": [
       "energia",
@@ -1996,8 +2035,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "energia",
+      "fontes-renovaveis",
+      "avaliacao-de-impactos"
     ],
     "origin": "nabulab"
   },
@@ -2010,7 +2050,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Poder",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “vários centros de poder econômico e político influenciam as relações internacionais”, é correto associá-lo a Multipolaridade.",
+    "statement": "A existência de interdependência econômica entre grandes potências impede conflitos comerciais e disputas por tecnologia.",
     "alternatives": [
       {
         "id": "V",
@@ -2021,11 +2061,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. A resolução relaciona a situação descrita aos critérios de Poder, no campo de Geopolítica.",
+    "correctAnswer": "F",
+    "explanation": "Interdependência pode elevar custos de conflito, mas não elimina competição, sanções, disputas comerciais ou estratégias de autonomia.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. A resolução relaciona a situação descrita aos critérios de Poder, no campo de Geopolítica.",
-      "F": "Incorreto. A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. A resolução relaciona a situação descrita aos critérios de Poder, no campo de Geopolítica."
+      "V": "Incorreto. Cooperação econômica e competição geopolítica podem coexistir.",
+      "F": "Correto. Relações internacionais não são determinadas por uma única dimensão."
     },
     "tags": [
       "geopolitica",
@@ -2040,8 +2080,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "geopolitica",
+      "interdependencia",
+      "conflito-e-cooperacao"
     ],
     "origin": "nabulab"
   },
@@ -2054,7 +2095,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Mudança climática",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera”, é correto associá-lo a Bacia hidrográfica.",
+    "statement": "Uma medida de adaptação climática pode reduzir vulnerabilidade a enchentes sem reduzir diretamente a concentração de gases de efeito estufa.",
     "alternatives": [
       {
         "id": "V",
@@ -2065,11 +2106,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A resolução relaciona a situação descrita aos critérios de Mudança climática, no campo de Questões ambientais.",
+    "correctAnswer": "V",
+    "explanation": "Adaptação atua sobre exposição e vulnerabilidade aos impactos, enquanto mitigação atua sobre emissões e remoções.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A resolução relaciona a situação descrita aos critérios de Mudança climática, no campo de Questões ambientais.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A resolução relaciona a situação descrita aos critérios de Mudança climática, no campo de Questões ambientais."
+      "V": "Correto. Um sistema de drenagem, por exemplo, pode proteger uma área sem cortar emissões de modo direto.",
+      "F": "Incorreto. Mitigação e adaptação possuem objetivos diferentes, embora complementares."
     },
     "tags": [
       "meio-ambiente",
@@ -2084,8 +2125,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "meio-ambiente",
+      "adaptacao",
+      "mudanca-climatica"
     ],
     "origin": "nabulab"
   },
@@ -2098,7 +2140,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Escala",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Para o caso descrito por “a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas”, é correto associá-lo a Escala cartográfica.",
+    "statement": "Mantido o mesmo tamanho físico da folha, uma escala cartográfica maior tende a representar uma área menor com mais detalhe.",
     "alternatives": [
       {
         "id": "V",
@@ -2110,10 +2152,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A resolução relaciona a situação descrita aos critérios de Escala, no campo de Cartografia.",
+    "explanation": "Escalas maiores, como 1:25.000, reduzem a proporção entre mapa e realidade e permitem detalhar melhor uma área limitada.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A resolução relaciona a situação descrita aos critérios de Escala, no campo de Cartografia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A resolução relaciona a situação descrita aos critérios de Escala, no campo de Cartografia."
+      "V": "Correto. A relação entre escala, extensão espacial e detalhe é inversa.",
+      "F": "Incorreto. Mapas de escala pequena, como 1:10.000.000, generalizam mais o conteúdo."
     },
     "tags": [
       "cartografia",
@@ -2128,8 +2170,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "cartografia",
+      "escala",
+      "generalizacao"
     ],
     "origin": "nabulab"
   },
@@ -2142,7 +2185,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Agentes externos",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Para o caso descrito por “processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície”, é correto associá-lo a Conurbação.",
+    "statement": "Intemperismo pode alterar uma rocha no próprio local antes que qualquer agente erosivo remova o material resultante.",
     "alternatives": [
       {
         "id": "V",
@@ -2153,11 +2196,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A resolução relaciona a situação descrita aos critérios de Agentes externos, no campo de Relevo.",
+    "correctAnswer": "V",
+    "explanation": "Alteração e fragmentação in situ são próprias do intemperismo; o transporte pode ocorrer depois por erosão.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A resolução relaciona a situação descrita aos critérios de Agentes externos, no campo de Relevo.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A resolução relaciona a situação descrita aos critérios de Agentes externos, no campo de Relevo."
+      "V": "Correto. Os processos podem estar associados, mas são distinguíveis.",
+      "F": "Incorreto. Transporte não é condição necessária para que exista intemperismo."
     },
     "tags": [
       "relevo",
@@ -2172,8 +2215,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "relevo",
+      "intemperismo",
+      "sequencia-de-processos"
     ],
     "origin": "nabulab"
   },
@@ -2186,7 +2230,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Urbanização",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Para o caso descrito por “áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico”, é correto associá-lo a Ilha de calor urbana.",
+    "statement": "A intensidade da ilha de calor urbana é obrigatoriamente igual em todos os bairros e horários de uma mesma cidade.",
     "alternatives": [
       {
         "id": "V",
@@ -2197,11 +2241,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A resolução relaciona a situação descrita aos critérios de Urbanização, no campo de Clima.",
+    "correctAnswer": "F",
+    "explanation": "Cobertura vegetal, densidade construída, materiais, relevo, vento e horário fazem a intensidade variar no espaço e no tempo.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A resolução relaciona a situação descrita aos critérios de Urbanização, no campo de Clima.",
-      "F": "Incorreto. A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A resolução relaciona a situação descrita aos critérios de Urbanização, no campo de Clima."
+      "V": "Incorreto. O fenômeno é espacialmente heterogêneo.",
+      "F": "Correto. Medições em diferentes pontos podem apresentar contrastes significativos."
     },
     "tags": [
       "clima",
@@ -2216,8 +2260,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "clima",
+      "ilha-de-calor",
+      "variabilidade-espacial"
     ],
     "origin": "nabulab"
   },
@@ -2230,7 +2275,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Biomas",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Para o caso descrito por “o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo”, é correto associá-lo a Agronegócio.",
+    "statement": "Como o fogo faz parte da ecologia do Cerrado, impedir ou provocar queimadas em qualquer frequência produz sempre o mesmo efeito sobre o bioma.",
     "alternatives": [
       {
         "id": "V",
@@ -2242,10 +2287,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Cerrado, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A resolução relaciona a situação descrita aos critérios de Biomas, no campo de Vegetação.",
+    "explanation": "Regime de fogo envolve frequência, intensidade, extensão e estação. Alterações nesses parâmetros podem modificar profundamente comunidades e processos ecológicos.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Cerrado, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A resolução relaciona a situação descrita aos critérios de Biomas, no campo de Vegetação.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Cerrado, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A resolução relaciona a situação descrita aos critérios de Biomas, no campo de Vegetação."
+      "V": "Incorreto. O efeito depende do regime e das condições do ecossistema.",
+      "F": "Correto. Generalizar qualquer ocorrência de fogo como equivalente é inadequado."
     },
     "tags": [
       "vegetacao",
@@ -2260,8 +2305,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "vegetacao",
+      "cerrado",
+      "regime-de-fogo"
     ],
     "origin": "nabulab"
   },
@@ -2274,7 +2320,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Bacias",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Para o caso descrito por “uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas”, é correto associá-lo a Bacia hidrográfica.",
+    "statement": "Desmatamento e erosão em áreas a montante podem aumentar a carga de sedimentos transportada para trechos a jusante da mesma bacia.",
     "alternatives": [
       {
         "id": "V",
@@ -2286,10 +2332,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A resolução relaciona a situação descrita aos critérios de Bacias, no campo de Hidrografia.",
+    "explanation": "O escoamento conecta diferentes setores da bacia e pode transferir sedimentos gerados nas vertentes para rios e reservatórios.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A resolução relaciona a situação descrita aos critérios de Bacias, no campo de Hidrografia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A resolução relaciona a situação descrita aos critérios de Bacias, no campo de Hidrografia."
+      "V": "Correto. O efeito espacial pode se propagar pelo sistema de drenagem.",
+      "F": "Incorreto. As partes de uma bacia não funcionam de maneira isolada."
     },
     "tags": [
       "hidrografia",
@@ -2304,8 +2350,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "hidrografia",
+      "bacias",
+      "conectividade"
     ],
     "origin": "nabulab"
   },
@@ -2318,7 +2365,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Transição demográfica",
     "difficulty": "medio",
     "type": "true-false",
-    "statement": "Analise a proposição: Para o caso descrito por “a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária”, é correto associá-lo a Multipolaridade.",
+    "statement": "Todos os países percorrem a transição demográfica nas mesmas datas, com a mesma velocidade e sem influência de migrações, políticas públicas ou condições econômicas.",
     "alternatives": [
       {
         "id": "V",
@@ -2330,10 +2377,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. A resolução relaciona a situação descrita aos critérios de Transição demográfica, no campo de População.",
+    "explanation": "O modelo descreve tendências gerais, mas trajetórias reais variam historicamente e são influenciadas por múltiplos fatores sociais, econômicos e políticos.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. A resolução relaciona a situação descrita aos critérios de Transição demográfica, no campo de População.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. A resolução relaciona a situação descrita aos critérios de Transição demográfica, no campo de População."
+      "V": "Incorreto. O modelo não é um cronograma universal rígido.",
+      "F": "Correto. Países podem apresentar ritmos e combinações distintas de mudanças demográficas."
     },
     "tags": [
       "populacao",
@@ -2348,8 +2395,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "interpretacao",
-      "relacao-entre-conceitos"
+      "populacao",
+      "transicao-demografica",
+      "limites-do-modelo"
     ],
     "origin": "nabulab"
   },
@@ -2362,32 +2410,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Produção",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização?",
+    "statement": "Uma região agrícola apresentou os seguintes dados:\n\n    - 2005: 100 mil ha cultivados; 200 mil t produzidas.\n    - 2025: 180 mil ha cultivados; 450 mil t produzidas.\n\n    Qual interpretação é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Agronegócio"
+        "text": "houve simultaneamente expansão da área cultivada e aumento da produtividade média por hectare"
       },
       {
         "id": "B",
-        "text": "Mitigação climática"
+        "text": "todo o aumento da produção decorreu apenas da expansão da área"
       },
       {
         "id": "C",
-        "text": "Cerrado"
+        "text": "a produtividade caiu porque a área cultivada aumentou"
       },
       {
         "id": "D",
-        "text": "Conurbação"
+        "text": "os dados provam que não houve qualquer impacto territorial"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A conclusão se apoia em cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Por isso, a alternativa correta é Agronegócio.",
+    "explanation": "A produtividade passou de 2 t/ha para 2,5 t/ha, enquanto a área aumentou de 100 para 180 mil hectares. O crescimento da produção combina expansão territorial e ganho de rendimento.",
     "alternativeExplanations": {
-      "A": "Correta. A conclusão se apoia em cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. Por isso, a alternativa correta é Agronegócio.",
-      "B": "Esse conceito designa outra relação: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera.",
-      "C": "A propriedade dessa alternativa é distinta: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo.",
-      "D": "Não corresponde ao caso: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial."
+      "A": "Correta. A produtividade passou de 2 t/ha para 2,5 t/ha, enquanto a área aumentou de 100 para 180 mil hectares. O crescimento da produção combina expansão territorial e ganho de rendimento.",
+      "B": "A produtividade também aumentou de 2 para 2,5 t/ha.",
+      "C": "A relação produção/área aumentou, não diminuiu.",
+      "D": "Produção e área não permitem concluir ausência de impactos socioambientais."
     },
     "tags": [
       "agricultura",
@@ -2402,8 +2450,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "agricultura",
+      "producao",
+      "analise-de-dados"
     ],
     "origin": "nabulab"
   },
@@ -2416,32 +2465,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Matriz",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica?",
+    "statement": "Um país depende fortemente de hidrelétricas. Em anos de seca prolongada, precisa acionar\n    termelétricas mais caras e emissoras. O governo planeja ampliar solar, eólica, transmissão\n    e armazenamento.\n\n    Qual é a justificativa mais consistente para o conjunto de medidas?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escala cartográfica"
+        "text": "solar e eólica eliminam qualquer necessidade de redes e armazenamento"
       },
       {
         "id": "B",
-        "text": "Matriz energética"
+        "text": "diversificar fontes e infraestrutura pode reduzir a vulnerabilidade a um único risco hidrológico, embora novas fontes também exijam integração ao sistema"
       },
       {
         "id": "C",
-        "text": "Bacia hidrográfica"
+        "text": "a seca não tem relação possível com a geração hidrelétrica"
       },
       {
         "id": "D",
-        "text": "Desconcentração industrial"
+        "text": "diversificar significa abandonar imediatamente todas as fontes existentes"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A distinção central está em o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica. Por isso, a alternativa correta é Matriz energética.",
+    "explanation": "Uma matriz muito dependente de hidrologia fica exposta a secas. Diversificação pode aumentar resiliência, mas fontes variáveis demandam redes, armazenamento, gestão da demanda ou complementaridade.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
-      "B": "Correta. A distinção central está em o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica. Por isso, a alternativa correta é Matriz energética.",
-      "C": "Não corresponde ao caso: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
-      "D": "Diverge da descrição porque atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis."
+      "A": "Fontes variáveis precisam ser integradas ao sistema elétrico.",
+      "B": "Correta. Uma matriz muito dependente de hidrologia fica exposta a secas. Diversificação pode aumentar resiliência, mas fontes variáveis demandam redes, armazenamento, gestão da demanda ou complementaridade.",
+      "C": "Vazões e níveis de reservatórios influenciam a capacidade de geração.",
+      "D": "Diversificação não implica retirada instantânea de toda a infraestrutura anterior."
     },
     "tags": [
       "energia",
@@ -2456,8 +2505,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "energia",
+      "matriz",
+      "seguranca-energetica"
     ],
     "origin": "nabulab"
   },
@@ -2470,32 +2520,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Poder",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: vários centros de poder econômico e político influenciam as relações internacionais?",
+    "statement": "Uma disputa internacional envolve controle de semicondutores avançados, acesso a minerais\n    estratégicos, sanções financeiras e domínio de rotas logísticas.\n\n    O caso evidencia que, em uma ordem multipolar:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Intemperismo"
+        "text": "o poder militar deixou de ter qualquer importância"
       },
       {
         "id": "B",
-        "text": "Transição demográfica"
+        "text": "todos os países possuem as mesmas capacidades em todos os setores"
       },
       {
         "id": "C",
-        "text": "Multipolaridade"
+        "text": "o poder geopolítico pode combinar capacidades tecnológicas, financeiras, produtivas e territoriais"
       },
       {
         "id": "D",
-        "text": "Agronegócio"
+        "text": "sanções e cadeias produtivas não têm efeitos geopolíticos"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A resposta decorre da definição disciplinar vários centros de poder econômico e político influenciam as relações internacionais. Por isso, a alternativa correta é Multipolaridade.",
+    "explanation": "Poder internacional não se reduz ao território ou às forças armadas; cadeias produtivas, tecnologia, finanças e infraestrutura logística também podem gerar dependência e capacidade de pressão.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
-      "B": "Não corresponde ao caso: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
-      "C": "Correta. A resposta decorre da definição disciplinar vários centros de poder econômico e político influenciam as relações internacionais. Por isso, a alternativa correta é Multipolaridade.",
-      "D": "Esse conceito designa outra relação: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização."
+      "A": "A ampliação das dimensões de poder não elimina a relevância militar.",
+      "B": "Multipolaridade convive com fortes assimetrias.",
+      "C": "Correta. Poder internacional não se reduz ao território ou às forças armadas; cadeias produtivas, tecnologia, finanças e infraestrutura logística também podem gerar dependência e capacidade de pressão.",
+      "D": "O próprio cenário mostra como instrumentos econômicos e tecnológicos podem ser usados politicamente."
     },
     "tags": [
       "geopolitica",
@@ -2510,8 +2560,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "geopolitica",
+      "poder",
+      "geoeconomia"
     ],
     "origin": "nabulab"
   },
@@ -2524,32 +2575,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Mudança climática",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera?",
+    "statement": "Uma cidade costeira combina eletrificação do transporte público, restauração de manguezais,\n    elevação de vias vulneráveis e metas de eficiência energética.\n\n    Por que o plano combina mitigação e adaptação?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Ilha de calor urbana"
+        "text": "porque toda adaptação necessariamente retira CO₂ da atmosfera"
       },
       {
         "id": "B",
-        "text": "Conurbação"
+        "text": "porque mitigação e adaptação são sinônimos"
       },
       {
         "id": "C",
-        "text": "Matriz energética"
+        "text": "porque nenhuma das ações possui relação com riscos climáticos"
       },
       {
         "id": "D",
-        "text": "Mitigação climática"
+        "text": "porque algumas medidas reduzem emissões, enquanto outras diminuem exposição e vulnerabilidade aos impactos climáticos"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "O critério relevante é ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera. Por isso, a alternativa correta é Mitigação climática.",
+    "explanation": "Eficiência e eletrificação podem reduzir emissões; elevação de vias e restauração de ecossistemas costeiros podem diminuir danos associados a eventos e mudanças do nível do mar.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
-      "B": "Diverge da descrição porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
-      "C": "Esse conceito designa outra relação: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
-      "D": "Correta. O critério relevante é ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera. Por isso, a alternativa correta é Mitigação climática."
+      "A": "Adaptação não precisa reduzir diretamente gases de efeito estufa.",
+      "B": "São estratégias distintas e complementares.",
+      "C": "O plano atua tanto sobre causas quanto sobre impactos.",
+      "D": "Correta. Eficiência e eletrificação podem reduzir emissões; elevação de vias e restauração de ecossistemas costeiros podem diminuir danos associados a eventos e mudanças do nível do mar."
     },
     "tags": [
       "meio-ambiente",
@@ -2564,8 +2615,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "meio-ambiente",
+      "mitigacao-e-adaptacao",
+      "planejamento-climatico"
     ],
     "origin": "nabulab"
   },
@@ -2578,32 +2630,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Escala",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas?",
+    "statement": "O mesmo terreno é representado primeiro em um mapa 1:250.000 e depois em outro 1:50.000.\n    Supondo que a forma seja preservada, uma área desenhada no segundo mapa ocupará,\n    aproximadamente, quantas vezes a área gráfica que ocupava no primeiro?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Escala cartográfica"
+        "text": "25 vezes"
       },
       {
         "id": "B",
-        "text": "Cerrado"
+        "text": "5 vezes"
       },
       {
         "id": "C",
-        "text": "Desconcentração industrial"
+        "text": "10 vezes"
       },
       {
         "id": "D",
-        "text": "Multipolaridade"
+        "text": "50 vezes"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Neste caso a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Por isso, a alternativa correta é Escala cartográfica.",
+    "explanation": "A escala linear aumentou por um fator 5 (250.000/50.000). Como áreas variam com o quadrado da escala linear, a representação ocupa 5² = 25 vezes mais área gráfica.",
     "alternativeExplanations": {
-      "A": "Correta. Neste caso a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. Por isso, a alternativa correta é Escala cartográfica.",
-      "B": "Esse conceito designa outra relação: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo.",
-      "C": "A propriedade dessa alternativa é distinta: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis.",
-      "D": "Não corresponde ao caso: vários centros de poder econômico e político influenciam as relações internacionais."
+      "A": "Correta. A escala linear aumentou por um fator 5 (250.000/50.000). Como áreas variam com o quadrado da escala linear, a representação ocupa 5² = 25 vezes mais área gráfica.",
+      "B": "Cinco é o fator linear, não o fator de área.",
+      "C": "Esse valor não corresponde ao quadrado da razão entre as escalas.",
+      "D": "Esse resultado dobra indevidamente o fator de área."
     },
     "tags": [
       "cartografia",
@@ -2618,8 +2670,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "cartografia",
+      "escala",
+      "razao-de-area"
     ],
     "origin": "nabulab"
   },
@@ -2632,32 +2685,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Agentes externos",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície?",
+    "statement": "Em uma encosta tropical úmida, a rocha apresenta espesso manto alterado. Após retirada\n    da cobertura vegetal, chuvas intensas aumentam o escoamento superficial e removem rapidamente\n    parte desse material.\n\n    Qual leitura integra melhor os processos?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Bacia hidrográfica"
+        "text": "a erosão criou primeiro a rocha e só depois ocorreu intemperismo"
       },
       {
         "id": "B",
-        "text": "Intemperismo"
+        "text": "o intemperismo produziu material alterado e a mudança de uso do solo favoreceu sua erosão e transporte"
       },
       {
         "id": "C",
-        "text": "Agronegócio"
+        "text": "apenas forças internas explicam a remoção do material superficial"
       },
       {
         "id": "D",
-        "text": "Mitigação climática"
+        "text": "a vegetação não interfere em infiltração nem proteção do solo"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "A propriedade determinante é processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície. Por isso, a alternativa correta é Intemperismo.",
+    "explanation": "Clima quente e úmido pode favorecer intemperismo intenso. A retirada de cobertura vegetal aumenta exposição e escoamento, facilitando a mobilização do material pela erosão.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas.",
-      "B": "Correta. A propriedade determinante é processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície. Por isso, a alternativa correta é Intemperismo.",
-      "C": "Não corresponde ao caso: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
-      "D": "Diverge da descrição porque ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera."
+      "A": "A sequência física descrita é inversa.",
+      "B": "Correta. Clima quente e úmido pode favorecer intemperismo intenso. A retirada de cobertura vegetal aumenta exposição e escoamento, facilitando a mobilização do material pela erosão.",
+      "C": "A chuva e o escoamento são agentes externos explícitos.",
+      "D": "Cobertura vegetal altera interceptação, infiltração e resistência à erosão."
     },
     "tags": [
       "relevo",
@@ -2672,8 +2725,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "relevo",
+      "intemperismo",
+      "processos-de-vertente"
     ],
     "origin": "nabulab"
   },
@@ -2686,32 +2740,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Urbanização",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico?",
+    "statement": "Para investigar o efeito da cobertura urbana sobre a temperatura, pesquisadores instalam\n    sensores em dois bairros. Um fica a 900 m de altitude e o outro a 50 m, além de possuírem\n    densidades construídas diferentes.\n\n    Qual melhoria metodológica torna a comparação mais convincente?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Transição demográfica"
+        "text": "medir apenas o bairro mais quente"
       },
       {
         "id": "B",
-        "text": "Matriz energética"
+        "text": "escolher bairros cada vez mais distantes e climaticamente distintos"
       },
       {
         "id": "C",
-        "text": "Ilha de calor urbana"
+        "text": "comparar locais com altitude e condições meteorológicas semelhantes, variando principalmente a cobertura e a forma urbana"
       },
       {
         "id": "D",
-        "text": "Escala cartográfica"
+        "text": "substituir todas as medições por opiniões de moradores"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "A conclusão se apoia em áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Por isso, a alternativa correta é Ilha de calor urbana.",
+    "explanation": "Altitude também influencia temperatura. Controlar fatores como altitude, horário, vento e condições atmosféricas reduz variáveis de confusão e ajuda a isolar o efeito da urbanização.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
-      "B": "Não corresponde ao caso: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
-      "C": "Correta. A conclusão se apoia em áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. Por isso, a alternativa correta é Ilha de calor urbana.",
-      "D": "Esse conceito designa outra relação: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas."
+      "A": "Sem referência comparável, fica difícil atribuir a diferença à urbanização.",
+      "B": "Isso aumenta as variáveis de confusão.",
+      "C": "Correta. Altitude também influencia temperatura. Controlar fatores como altitude, horário, vento e condições atmosféricas reduz variáveis de confusão e ajuda a isolar o efeito da urbanização.",
+      "D": "Percepção pode complementar, mas não substitui medidas térmicas para testar a hipótese."
     },
     "tags": [
       "clima",
@@ -2726,8 +2780,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "clima",
+      "ilha-de-calor",
+      "analise-de-evidencias"
     ],
     "origin": "nabulab"
   },
@@ -2740,32 +2795,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Biomas",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo?",
+    "statement": "Em área de Cerrado, pesquisadores comparam duas situações: fogo de baixa intensidade em\n    intervalo compatível com o manejo ecológico planejado e incêndios extensos que se repetem\n    anualmente no fim da estação seca.\n\n    Qual conclusão é mais adequada?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Conurbação"
+        "text": "qualquer fogo produz necessariamente o mesmo efeito ecológico"
       },
       {
         "id": "B",
-        "text": "Multipolaridade"
+        "text": "a adaptação de algumas espécies torna incêndios anuais sempre benéficos"
       },
       {
         "id": "C",
-        "text": "Intemperismo"
+        "text": "a ausência de vegetação seria necessária para existir Cerrado"
       },
       {
         "id": "D",
-        "text": "Cerrado"
+        "text": "os efeitos dependem do regime de fogo; frequência e intensidade excessivas podem superar a capacidade de recuperação de espécies e habitats"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A distinção central está em o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo. Por isso, a alternativa correta é Cerrado.",
+    "explanation": "O Cerrado possui adaptações ao fogo, mas isso não torna todos os regimes equivalentes. Incêndios muito frequentes, intensos ou em épocas inadequadas podem alterar composição, mortalidade e regeneração.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial.",
-      "B": "Diverge da descrição porque vários centros de poder econômico e político influenciam as relações internacionais.",
-      "C": "Esse conceito designa outra relação: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
-      "D": "Correta. A distinção central está em o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo. Por isso, a alternativa correta é Cerrado."
+      "A": "O regime de fogo modifica a resposta do ecossistema.",
+      "B": "Adaptação não implica benefício sob qualquer frequência e intensidade.",
+      "C": "O Cerrado inclui formações vegetais diversas e elevada biodiversidade.",
+      "D": "Correta. O Cerrado possui adaptações ao fogo, mas isso não torna todos os regimes equivalentes. Incêndios muito frequentes, intensos ou em épocas inadequadas podem alterar composição, mortalidade e regeneração."
     },
     "tags": [
       "vegetacao",
@@ -2780,8 +2835,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "vegetacao",
+      "cerrado",
+      "regime-de-fogo"
     ],
     "origin": "nabulab"
   },
@@ -2794,32 +2850,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Bacias",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Diferencie os conceitos próximos e identifique o que satisfaz a condição descrita: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas?",
+    "statement": "Um reservatório construído no alto curso de um rio retém parte dos sedimentos e altera\n    a sazonalidade das vazões. Comunidades e ecossistemas a centenas de quilômetros a jusante\n    registram mudanças.\n\n    O caso reforça a gestão por bacia porque:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Bacia hidrográfica"
+        "text": "intervenções em um trecho podem produzir efeitos hidrológicos e sedimentares em outros territórios conectados pelo rio"
       },
       {
         "id": "B",
-        "text": "Desconcentração industrial"
+        "text": "cada município controla uma água fisicamente independente"
       },
       {
         "id": "C",
-        "text": "Mitigação climática"
+        "text": "os sedimentos nunca atravessam fronteiras políticas"
       },
       {
         "id": "D",
-        "text": "Ilha de calor urbana"
+        "text": "barragens afetam apenas o ponto exato onde foram construídas"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "A resposta decorre da definição disciplinar uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Por isso, a alternativa correta é Bacia hidrográfica.",
+    "explanation": "A água, os sedimentos e os usos estabelecem conexões montante-jusante que ultrapassam limites administrativos, exigindo coordenação na escala da bacia.",
     "alternativeExplanations": {
-      "A": "Correta. A resposta decorre da definição disciplinar uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. Por isso, a alternativa correta é Bacia hidrográfica.",
-      "B": "Esse conceito designa outra relação: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis.",
-      "C": "A propriedade dessa alternativa é distinta: ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera.",
-      "D": "Não corresponde ao caso: áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico."
+      "A": "Correta. A água, os sedimentos e os usos estabelecem conexões montante-jusante que ultrapassam limites administrativos, exigindo coordenação na escala da bacia.",
+      "B": "O mesmo sistema fluvial conecta vários territórios.",
+      "C": "Fronteiras administrativas não interrompem o transporte fluvial.",
+      "D": "Mudanças de vazão e sedimentos podem se propagar a jusante."
     },
     "tags": [
       "hidrografia",
@@ -2834,8 +2890,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "hidrografia",
+      "bacias",
+      "gestao-integrada"
     ],
     "origin": "nabulab"
   },
@@ -2848,32 +2905,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Transição demográfica",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Considerando o alcance de cada conceito, qual deles explica a primeira característica: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária?",
+    "statement": "Um país apresenta fecundidade abaixo do nível de reposição há vários anos, aumento da\n    expectativa de vida e forte crescimento da proporção de pessoas acima de 65 anos.\n\n    Qual desafio é coerente com essa estrutura, sem tratá-lo como consequência automática e única?",
     "alternatives": [
       {
         "id": "A",
-        "text": "Agronegócio"
+        "text": "esperar necessariamente uma explosão de matrículas na educação infantil"
       },
       {
         "id": "B",
-        "text": "Transição demográfica"
+        "text": "adaptar políticas de saúde, previdência, cuidado e mercado de trabalho a uma população mais envelhecida"
       },
       {
         "id": "C",
-        "text": "Escala cartográfica"
+        "text": "concluir que a economia entrará inevitavelmente em colapso"
       },
       {
         "id": "D",
-        "text": "Cerrado"
+        "text": "assumir que migração não pode influenciar a estrutura etária"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "O critério relevante é a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária. Por isso, a alternativa correta é Transição demográfica.",
+    "explanation": "Envelhecimento altera demandas sociais e a razão entre grupos etários. Os efeitos econômicos dependem de produtividade, participação no trabalho, migração e políticas públicas, por isso não há um único resultado inevitável.",
     "alternativeExplanations": {
-      "A": "Esse conceito designa outra relação: cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização.",
-      "B": "Correta. O critério relevante é a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária. Por isso, a alternativa correta é Transição demográfica.",
-      "C": "Não corresponde ao caso: a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas.",
-      "D": "Diverge da descrição porque o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo."
+      "A": "Fecundidade baixa tende a reduzir a participação das coortes mais jovens.",
+      "B": "Correta. Envelhecimento altera demandas sociais e a razão entre grupos etários. Os efeitos econômicos dependem de produtividade, participação no trabalho, migração e políticas públicas, por isso não há um único resultado inevitável.",
+      "C": "Demografia cria pressões e oportunidades, mas resultados dependem de instituições e políticas.",
+      "D": "Fluxos migratórios podem alterar composição e oferta de trabalho."
     },
     "tags": [
       "populacao",
@@ -2888,8 +2945,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "populacao",
+      "transicao-demografica",
+      "envelhecimento"
     ],
     "origin": "nabulab"
   },
@@ -2902,32 +2960,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Rede urbana",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "A distinção conceitual necessária para resolver o caso aponta para qual alternativa: a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial?",
+    "statement": "Dois municípios não possuem mancha urbana totalmente contínua, mas milhares de pessoas\n    se deslocam diariamente entre eles para trabalho e estudo, e compartilham hospitais,\n    universidades e sistemas de transporte.\n\n    O caso mostra que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Matriz energética"
+        "text": "sem continuidade física não pode existir relação metropolitana ou regional"
       },
       {
         "id": "B",
-        "text": "Intemperismo"
+        "text": "rede urbana depende apenas de fronteiras administrativas"
       },
       {
         "id": "C",
-        "text": "Conurbação"
+        "text": "integração funcional na rede urbana pode existir mesmo sem conurbação física completa"
       },
       {
         "id": "D",
-        "text": "Bacia hidrográfica"
+        "text": "conurbação e rede urbana são exatamente o mesmo fenômeno"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Neste caso a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Por isso, a alternativa correta é Conurbação.",
+    "explanation": "Fluxos de pessoas, serviços e infraestrutura podem integrar municípios de forma intensa. Conurbação é continuidade física; integração funcional é uma relação mais ampla.",
     "alternativeExplanations": {
-      "A": "A propriedade dessa alternativa é distinta: o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica.",
-      "B": "Não corresponde ao caso: processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície.",
-      "C": "Correta. Neste caso a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. Por isso, a alternativa correta é Conurbação.",
-      "D": "Esse conceito designa outra relação: uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas."
+      "A": "Fluxos podem ligar fortemente cidades separadas por áreas não urbanizadas.",
+      "B": "A rede é definida por conexões e funções, não só por limites políticos.",
+      "C": "Correta. Fluxos de pessoas, serviços e infraestrutura podem integrar municípios de forma intensa. Conurbação é continuidade física; integração funcional é uma relação mais ampla.",
+      "D": "Um conceito descreve continuidade da mancha; o outro, relações entre centros."
     },
     "tags": [
       "urbanizacao",
@@ -2942,8 +3000,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "urbanizacao",
+      "rede-urbana",
+      "integracao-funcional"
     ],
     "origin": "nabulab"
   },
@@ -2956,32 +3015,32 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Localização",
     "difficulty": "avancado",
     "type": "multiple-choice",
-    "statement": "Qual conceito permanece compatível com a descrição quando comparado às demais alternativas: atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis?",
+    "statement": "Uma indústria de alta tecnologia escolhe uma cidade com terreno caro, mas próxima de\n    universidades, mão de obra especializada, aeroporto internacional, fornecedores e centros\n    de pesquisa.\n\n    O caso demonstra que:",
     "alternatives": [
       {
         "id": "A",
-        "text": "Multipolaridade"
+        "text": "indústrias sempre escolhem o local com o terreno mais barato"
       },
       {
         "id": "B",
-        "text": "Ilha de calor urbana"
+        "text": "universidades não influenciam atividades tecnológicas"
       },
       {
         "id": "C",
-        "text": "Transição demográfica"
+        "text": "infraestrutura aérea é irrelevante para empresas integradas globalmente"
       },
       {
         "id": "D",
-        "text": "Desconcentração industrial"
+        "text": "economias de aglomeração e acesso a conhecimento podem compensar custos fundiários elevados"
       }
     ],
     "correctAnswer": "D",
-    "explanation": "A propriedade determinante é atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis. Por isso, a alternativa correta é Desconcentração industrial.",
+    "explanation": "Atividades intensivas em conhecimento valorizam redes de inovação, trabalho qualificado e conectividade. O menor custo da terra é apenas um dos fatores possíveis de localização.",
     "alternativeExplanations": {
-      "A": "Não corresponde ao caso: vários centros de poder econômico e político influenciam as relações internacionais.",
-      "B": "Diverge da descrição porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico.",
-      "C": "Esse conceito designa outra relação: a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária.",
-      "D": "Correta. A propriedade determinante é atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis. Por isso, a alternativa correta é Desconcentração industrial."
+      "A": "A decisão apresentada mostra o contrário.",
+      "B": "Elas podem fornecer pesquisa, formação de mão de obra e redes de inovação.",
+      "C": "Conectividade pode ser um ativo importante em cadeias de alto valor.",
+      "D": "Correta. Atividades intensivas em conhecimento valorizam redes de inovação, trabalho qualificado e conectividade. O menor custo da terra é apenas um dos fatores possíveis de localização."
     },
     "tags": [
       "industrializacao",
@@ -2996,8 +3055,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "integracao-de-conceitos"
+      "industrializacao",
+      "localizacao",
+      "economias-de-aglomeracao"
     ],
     "origin": "nabulab"
   },
@@ -3010,7 +3070,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Poder",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Multipolaridade de Desconcentração industrial, a característica “vários centros de poder econômico e político influenciam as relações internacionais” deve ser atribuída ao primeiro conceito.",
+    "statement": "Multipolaridade pode envolver vários centros de poder sem eliminar hierarquias, dependências e capacidades desiguais entre eles.",
     "alternatives": [
       {
         "id": "V",
@@ -3022,10 +3082,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. A avaliação exige delimitar as condições de Poder e distingui-las de relações próximas em Geopolítica.",
+    "explanation": "A existência de vários polos relevantes não pressupõe simetria; diferentes atores podem dominar recursos ou dimensões específicas de poder.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. A avaliação exige delimitar as condições de Poder e distingui-las de relações próximas em Geopolítica.",
-      "F": "Incorreto. A proposição é verdadeira, pois Multipolaridade se caracteriza porque vários centros de poder econômico e político influenciam as relações internacionais. A avaliação exige delimitar as condições de Poder e distingui-las de relações próximas em Geopolítica."
+      "V": "Correto. Multipolaridade descreve distribuição plural do poder, não igualdade absoluta.",
+      "F": "Incorreto. Assimetrias são compatíveis com uma ordem multipolar."
     },
     "tags": [
       "geopolitica",
@@ -3040,8 +3100,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "geopolitica",
+      "multipolaridade",
+      "assimetrias"
     ],
     "origin": "nabulab"
   },
@@ -3054,7 +3115,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Mudança climática",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Mitigação climática de Agronegócio, a característica “ações reduzem emissões de gases de efeito estufa ou ampliam sua remoção da atmosfera” deve ser atribuída ao segundo conceito.",
+    "statement": "Capturar carbono de uma fonte industrial é uma medida exclusivamente de adaptação, pois não atua sobre emissões de gases de efeito estufa.",
     "alternatives": [
       {
         "id": "V",
@@ -3066,10 +3127,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A avaliação exige delimitar as condições de Mudança climática e distingui-las de relações próximas em Questões ambientais.",
+    "explanation": "Quando efetivamente reduz a quantidade de CO₂ liberada à atmosfera ou a remove, a captura de carbono se insere principalmente em estratégias de mitigação.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A avaliação exige delimitar as condições de Mudança climática e distingui-las de relações próximas em Questões ambientais.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Mitigação climática, enquanto Agronegócio se refere a cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A avaliação exige delimitar as condições de Mudança climática e distingui-las de relações próximas em Questões ambientais."
+      "V": "Incorreto. A medida atua sobre a causa do aquecimento, não apenas sobre seus impactos.",
+      "F": "Correto. Adaptação seria reduzir vulnerabilidade aos efeitos climáticos."
     },
     "tags": [
       "meio-ambiente",
@@ -3084,8 +3145,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "meio-ambiente",
+      "mitigacao",
+      "captura-de-carbono"
     ],
     "origin": "nabulab"
   },
@@ -3098,7 +3160,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Escala",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Escala cartográfica de Matriz energética, a característica “a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas” deve ser atribuída ao primeiro conceito.",
+    "statement": "Em mapas de pequena escala que representam continentes ou o planeta, a generalização cartográfica tende a omitir ou simplificar detalhes que poderiam aparecer em mapas de maior escala.",
     "alternatives": [
       {
         "id": "V",
@@ -3110,10 +3172,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A avaliação exige delimitar as condições de Escala e distingui-las de relações próximas em Cartografia.",
+    "explanation": "Representar áreas muito extensas em espaço limitado exige selecionar e simplificar feições para manter legibilidade.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A avaliação exige delimitar as condições de Escala e distingui-las de relações próximas em Cartografia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Escala cartográfica se caracteriza porque a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A avaliação exige delimitar as condições de Escala e distingui-las de relações próximas em Cartografia."
+      "V": "Correto. Generalização é uma consequência cartográfica importante da redução de escala.",
+      "F": "Incorreto. Seria impossível representar todos os detalhes locais com a mesma precisão em um mapa continental pequeno."
     },
     "tags": [
       "cartografia",
@@ -3128,8 +3190,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "cartografia",
+      "escala",
+      "generalizacao"
     ],
     "origin": "nabulab"
   },
@@ -3142,7 +3205,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Agentes externos",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Intemperismo de Multipolaridade, a característica “processos físicos, químicos e biológicos desagregam ou alteram rochas na superfície” deve ser atribuída ao segundo conceito.",
+    "statement": "A intensidade do intemperismo químico depende apenas da quantidade de chuva; temperatura, composição mineralógica e tempo de exposição não exercem influência relevante.",
     "alternatives": [
       {
         "id": "V",
@@ -3154,10 +3217,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. A avaliação exige delimitar as condições de Agentes externos e distingui-las de relações próximas em Relevo.",
+    "explanation": "Água é importante, mas temperatura, mineralogia, acidez, atividade biológica, fraturas e duração da exposição também condicionam as reações.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. A avaliação exige delimitar as condições de Agentes externos e distingui-las de relações próximas em Relevo.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Intemperismo, enquanto Multipolaridade se refere a vários centros de poder econômico e político influenciam as relações internacionais. A avaliação exige delimitar as condições de Agentes externos e distingui-las de relações próximas em Relevo."
+      "V": "Incorreto. O processo resulta de múltiplos fatores ambientais e litológicos.",
+      "F": "Correto. Reduzi-lo a uma única variável produz uma explicação inadequada."
     },
     "tags": [
       "relevo",
@@ -3172,8 +3235,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "relevo",
+      "intemperismo",
+      "fatores-condicionantes"
     ],
     "origin": "nabulab"
   },
@@ -3186,7 +3250,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Urbanização",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Ilha de calor urbana de Mitigação climática, a característica “áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico” deve ser atribuída ao primeiro conceito.",
+    "statement": "Ilhas de calor podem permanecer expressivas durante a noite porque materiais urbanos liberam parte da energia armazenada durante o dia.",
     "alternatives": [
       {
         "id": "V",
@@ -3198,10 +3262,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A avaliação exige delimitar as condições de Urbanização e distingui-las de relações próximas em Clima.",
+    "explanation": "Superfícies construídas possuem propriedades térmicas que podem retardar o resfriamento, enquanto vegetação e umidade modificam o balanço de energia.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A avaliação exige delimitar as condições de Urbanização e distingui-las de relações próximas em Clima.",
-      "F": "Incorreto. A proposição é verdadeira, pois Ilha de calor urbana se caracteriza porque áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A avaliação exige delimitar as condições de Urbanização e distingui-las de relações próximas em Clima."
+      "V": "Correto. O contraste urbano-rural pode até se tornar evidente após o pôr do sol.",
+      "F": "Incorreto. O fenômeno não depende apenas da radiação solar instantânea."
     },
     "tags": [
       "clima",
@@ -3216,8 +3280,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "clima",
+      "ilha-de-calor",
+      "balanco-termico"
     ],
     "origin": "nabulab"
   },
@@ -3230,7 +3295,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Biomas",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Cerrado de Escala cartográfica, a característica “o bioma combina formações savânicas, estação seca marcada, grande biodiversidade e adaptações ao fogo” deve ser atribuída ao segundo conceito.",
+    "statement": "Como algumas espécies do Cerrado rebrotam após o fogo, aumentar indefinidamente a frequência de incêndios não altera a composição nem a capacidade de regeneração do bioma.",
     "alternatives": [
       {
         "id": "V",
@@ -3242,10 +3307,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Cerrado, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A avaliação exige delimitar as condições de Biomas e distingui-las de relações próximas em Vegetação.",
+    "explanation": "Intervalos muito curtos podem impedir maturação, reprodução e recuperação de espécies, além de favorecer mortalidade e mudanças na estrutura da vegetação.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Cerrado, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A avaliação exige delimitar as condições de Biomas e distingui-las de relações próximas em Vegetação.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Cerrado, enquanto Escala cartográfica se refere a a relação proporcional entre uma distância representada no mapa e a distância real permite converter medidas. A avaliação exige delimitar as condições de Biomas e distingui-las de relações próximas em Vegetação."
+      "V": "Incorreto. Adaptação ao fogo possui limites e depende do regime de ocorrência.",
+      "F": "Correto. Frequência excessiva pode transformar o ecossistema."
     },
     "tags": [
       "vegetacao",
@@ -3260,8 +3325,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "vegetacao",
+      "cerrado",
+      "resiliencia"
     ],
     "origin": "nabulab"
   },
@@ -3274,7 +3340,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Bacias",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Considere a afirmação no contexto do conteúdo: Na distinção entre Bacia hidrográfica de Intemperismo, a característica “uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas” deve ser atribuída ao primeiro conceito.",
+    "statement": "Planejar a qualidade da água apenas por limites municipais pode ser insuficiente quando as fontes de poluição e os usuários estão conectados pela mesma bacia hidrográfica.",
     "alternatives": [
       {
         "id": "V",
@@ -3286,10 +3352,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A avaliação exige delimitar as condições de Bacias e distingui-las de relações próximas em Hidrografia.",
+    "explanation": "Poluentes e vazões atravessam fronteiras administrativas; por isso, a gestão integrada por bacia pode coordenar interesses montante-jusante.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A avaliação exige delimitar as condições de Bacias e distingui-las de relações próximas em Hidrografia.",
-      "F": "Incorreto. A proposição é verdadeira, pois Bacia hidrográfica se caracteriza porque uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A avaliação exige delimitar as condições de Bacias e distingui-las de relações próximas em Hidrografia."
+      "V": "Correto. A unidade física da drenagem ultrapassa limites políticos.",
+      "F": "Incorreto. Problemas hídricos frequentemente exigem coordenação intermunicipal ou interestadual."
     },
     "tags": [
       "hidrografia",
@@ -3304,8 +3370,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "hidrografia",
+      "bacias",
+      "governanca"
     ],
     "origin": "nabulab"
   },
@@ -3318,7 +3385,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Transição demográfica",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Classifique a proposição como verdadeira ou falsa: Na distinção entre Transição demográfica de Ilha de calor urbana, a característica “a passagem de altas para baixas taxas de mortalidade e natalidade altera o crescimento e a estrutura etária” deve ser atribuída ao segundo conceito.",
+    "statement": "Uma taxa de fecundidade abaixo do nível de reposição provoca necessariamente queda imediata da população total no mesmo ano.",
     "alternatives": [
       {
         "id": "V",
@@ -3330,10 +3397,10 @@ export const geografiaQuestions: Question[] = [
       }
     ],
     "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A avaliação exige delimitar as condições de Transição demográfica e distingui-las de relações próximas em População.",
+    "explanation": "A estrutura etária, o número de pessoas em idade reprodutiva, a mortalidade e a migração podem manter o crescimento por algum tempo, fenômeno relacionado ao momentum demográfico.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A avaliação exige delimitar as condições de Transição demográfica e distingui-las de relações próximas em População.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Transição demográfica, enquanto Ilha de calor urbana se refere a áreas densamente construídas tendem a registrar temperaturas maiores que seu entorno devido a materiais, impermeabilização e calor antrópico. A avaliação exige delimitar as condições de Transição demográfica e distingui-las de relações próximas em População."
+      "V": "Incorreto. Fecundidade baixa não produz efeito instantâneo e isolado sobre o tamanho total.",
+      "F": "Correto. A dinâmica populacional depende da composição por idade e de outros componentes."
     },
     "tags": [
       "populacao",
@@ -3348,8 +3415,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "populacao",
+      "transicao-demografica",
+      "inercia-demografica"
     ],
     "origin": "nabulab"
   },
@@ -3362,7 +3430,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Rede urbana",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Avalie a afirmação: Na distinção entre Conurbação de Cerrado, a característica “a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial” deve ser atribuída ao primeiro conceito.",
+    "statement": "Conurbação é condição obrigatória para que duas cidades mantenham intensos fluxos de trabalho, serviços e transporte entre si.",
     "alternatives": [
       {
         "id": "V",
@@ -3373,11 +3441,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A avaliação exige delimitar as condições de Rede urbana e distingui-las de relações próximas em Urbanização.",
+    "correctAnswer": "F",
+    "explanation": "Cidades podem estar funcionalmente integradas sem continuidade física completa das manchas urbanas.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A avaliação exige delimitar as condições de Rede urbana e distingui-las de relações próximas em Urbanização.",
-      "F": "Incorreto. A proposição é verdadeira, pois Conurbação se caracteriza porque a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A avaliação exige delimitar as condições de Rede urbana e distingui-las de relações próximas em Urbanização."
+      "V": "Incorreto. Redes urbanas são construídas por fluxos, não apenas por continuidade espacial.",
+      "F": "Correto. Conurbação e integração funcional são fenômenos relacionados, mas distintos."
     },
     "tags": [
       "urbanizacao",
@@ -3392,8 +3460,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "urbanizacao",
+      "rede-urbana",
+      "conurbacao"
     ],
     "origin": "nabulab"
   },
@@ -3406,7 +3475,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Localização",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Julgue o enunciado a seguir: Na distinção entre Desconcentração industrial de Bacia hidrográfica, a característica “atividades fabris deslocam-se de áreas tradicionais para novos territórios em busca de custos e condições favoráveis” deve ser atribuída ao segundo conceito.",
+    "statement": "A desconcentração de plantas industriais pode ocorrer ao mesmo tempo que sedes corporativas, serviços avançados e funções de comando permanecem concentrados em grandes metrópoles.",
     "alternatives": [
       {
         "id": "V",
@@ -3417,11 +3486,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A avaliação exige delimitar as condições de Localização e distingui-las de relações próximas em Industrialização.",
+    "correctAnswer": "V",
+    "explanation": "Etapas produtivas e funções de gestão podem ter lógicas locacionais diferentes; a produção pode se dispersar sem que todos os centros de decisão façam o mesmo.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A avaliação exige delimitar as condições de Localização e distingui-las de relações próximas em Industrialização.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Desconcentração industrial, enquanto Bacia hidrográfica se refere a uma área drenada por um rio principal e seus afluentes é delimitada por divisores de águas. A avaliação exige delimitar as condições de Localização e distingui-las de relações próximas em Industrialização."
+      "V": "Correto. A organização territorial das empresas pode ser seletiva e hierarquizada.",
+      "F": "Incorreto. Desconcentração fabril não exige dispersão idêntica de todas as funções empresariais."
     },
     "tags": [
       "industrializacao",
@@ -3436,8 +3505,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "industrializacao",
+      "desconcentracao",
+      "funcoes-de-comando"
     ],
     "origin": "nabulab"
   },
@@ -3450,7 +3520,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Produção",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Determine se a relação conceitual é válida: Na distinção entre Agronegócio de Transição demográfica, a característica “cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização” deve ser atribuída ao primeiro conceito.",
+    "statement": "A adoção de agricultura de precisão torna uma produção automaticamente sustentável, independentemente do consumo de água, do uso de insumos, da conservação do solo e da expansão da área cultivada.",
     "alternatives": [
       {
         "id": "V",
@@ -3461,11 +3531,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "V",
-    "explanation": "A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A avaliação exige delimitar as condições de Produção e distingui-las de relações próximas em Agricultura.",
+    "correctAnswer": "F",
+    "explanation": "Tecnologias de precisão podem melhorar eficiência, mas sustentabilidade depende de um conjunto mais amplo de práticas, impactos e relações territoriais.",
     "alternativeExplanations": {
-      "V": "Correto. A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A avaliação exige delimitar as condições de Produção e distingui-las de relações próximas em Agricultura.",
-      "F": "Incorreto. A proposição é verdadeira, pois Agronegócio se caracteriza porque cadeias articulam insumos, produção agropecuária, processamento, logística, financiamento e comercialização. A avaliação exige delimitar as condições de Produção e distingui-las de relações próximas em Agricultura."
+      "V": "Incorreto. Uma tecnologia isolada não garante resultado ambiental global.",
+      "F": "Correto. É preciso avaliar uso de recursos, solo, biodiversidade e escala da produção."
     },
     "tags": [
       "agricultura",
@@ -3480,8 +3550,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "agricultura",
+      "producao",
+      "sustentabilidade"
     ],
     "origin": "nabulab"
   },
@@ -3494,7 +3565,7 @@ export const geografiaQuestions: Question[] = [
     "subtopic": "Matriz",
     "difficulty": "avancado",
     "type": "true-false",
-    "statement": "Analise a proposição: Na distinção entre Matriz energética de Conurbação, a característica “o conjunto de fontes usadas por uma sociedade inclui eletricidade, combustíveis e energia térmica” deve ser atribuída ao segundo conceito.",
+    "statement": "Uma matriz com maior participação de fontes renováveis pode reduzir emissões de certos setores, mas ainda exige análise de impactos territoriais, confiabilidade do sistema e infraestrutura.",
     "alternatives": [
       {
         "id": "V",
@@ -3505,11 +3576,11 @@ export const geografiaQuestions: Question[] = [
         "text": "Falso"
       }
     ],
-    "correctAnswer": "F",
-    "explanation": "A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A avaliação exige delimitar as condições de Matriz e distingui-las de relações próximas em Energia.",
+    "correctAnswer": "V",
+    "explanation": "Transição energética envolve benefícios e trade-offs. Renováveis não são sinônimo de impacto zero e precisam ser integradas tecnicamente ao sistema.",
     "alternativeExplanations": {
-      "V": "Incorreto. A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A avaliação exige delimitar as condições de Matriz e distingui-las de relações próximas em Energia.",
-      "F": "Correto. A proposição é falsa. A descrição corresponde a Matriz energética, enquanto Conurbação se refere a a expansão física de áreas urbanizadas de municípios vizinhos produz continuidade espacial. A avaliação exige delimitar as condições de Matriz e distingui-las de relações próximas em Energia."
+      "V": "Correto. Avaliação energética combina clima, território, custo, segurança e infraestrutura.",
+      "F": "Incorreto. A origem renovável não elimina todos os demais critérios de planejamento."
     },
     "tags": [
       "energia",
@@ -3524,8 +3595,9 @@ export const geografiaQuestions: Question[] = [
     ],
     "educationLevel": "ensino-medio",
     "skills": [
-      "analise-comparativa",
-      "avaliacao-de-afirmacoes"
+      "energia",
+      "matriz",
+      "transicao-energetica"
     ],
     "origin": "nabulab"
   }
