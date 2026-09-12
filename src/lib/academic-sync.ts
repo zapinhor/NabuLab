@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/client";
+import { AcademicSyncAuthError } from "@/lib/academic-sync-error";
 import { db } from "@/lib/db";
 import { getQuestionById } from "@/data/questions";
 import {
@@ -22,7 +23,7 @@ const ACTIVE_STUDENT_KEY = "nabulab:cloud:active-student:v1";
 const LEGACY_OWNER_KEY = "nabulab:cloud:legacy-owner:v1";
 const PAGE_SIZE = 500;
 
-type AttemptRow = {
+export type AttemptRow = {
   user_id: string;
   id: string;
   created_at: string;
@@ -44,7 +45,7 @@ type AttemptRow = {
   alternative_orders: Record<string, string[]>;
 };
 
-type AnswerRow = {
+export type AnswerRow = {
   user_id: string;
   id: string;
   exam_id: string;
@@ -137,7 +138,7 @@ function rowToAttempt(row: AttemptRow): StoredExam {
   };
 }
 
-function answerToRow(userId: string, answer: StoredAnswer): AnswerRow {
+export function answerToRow(userId: string, answer: StoredAnswer): AnswerRow {
   const currentQuestion = getQuestionById(answer.questionId);
 
   return {
@@ -165,7 +166,7 @@ export function rowToAnswer(row: AnswerRow): StoredAnswer | null {
 
   if (!question) {
     console.warn(
-      `[academic-sync] Questão histórica não encontrada: ${row.question_id}`,
+      `[academic-sync] Historical question unavailable: ${row.question_id}`,
     );
     return null;
   }
@@ -205,9 +206,20 @@ async function getAuthenticatedUserId() {
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) {
-    throw new Error("A sessão do estudante não está disponível para sincronização.");
+    throw new AcademicSyncAuthError({ cause: error });
   }
   return { supabase, userId: data.user.id };
+}
+
+export function prepareLegacyMigrationRows(
+  userId: string,
+  exams: StoredExam[],
+  answers: StoredAnswer[],
+) {
+  return {
+    attempts: exams.map((exam) => attemptToRow(userId, exam)),
+    answers: answers.map((answer) => answerToRow(userId, answer)),
+  };
 }
 
 async function upsertInChunks(table: "exam_attempts" | "exam_answers", rows: object[]) {
@@ -339,13 +351,18 @@ export async function syncAcademicData(): Promise<AcademicSyncSummary> {
   localStorage.setItem(ACTIVE_STUDENT_KEY, userId);
 
   if (mayUploadLocal) {
+    const migrationRows = prepareLegacyMigrationRows(
+      userId,
+      localExams,
+      localAnswers,
+    );
     await upsertInChunks(
       "exam_attempts",
-      localExams.map((exam) => attemptToRow(userId, exam)),
+      migrationRows.attempts,
     );
     await upsertInChunks(
       "exam_answers",
-      localAnswers.map((answer) => answerToRow(userId, answer)),
+      migrationRows.answers,
     );
   }
 

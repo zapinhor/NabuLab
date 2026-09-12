@@ -1,8 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { syncAcademicData } from "@/lib/academic-sync";
+import { academicSyncAuthRedirect } from "@/lib/academic-sync-error";
 
 const PUBLIC_PATHS = ["/login", "/entrar", "/cadastro", "/auth"];
 
@@ -21,6 +22,8 @@ export function AcademicSyncBoundary({ children }: { children: ReactNode }) {
 }
 
 function ProtectedAcademicSync({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const router = useRouter();
   const [state, setState] = useState<"loading" | "ready" | "error">("loading");
   const [retry, setRetry] = useState(0);
 
@@ -33,13 +36,20 @@ function ProtectedAcademicSync({ children }: { children: ReactNode }) {
         }
       })
       .catch((error) => {
+        const authRedirect = academicSyncAuthRedirect(error, pathname);
+        if (authRedirect) {
+          if (active) {
+            router.replace(authRedirect);
+          }
+          return;
+        }
         console.error("Não foi possível sincronizar os dados acadêmicos:", error);
         if (active) setState("error");
       });
     return () => {
       active = false;
     };
-  }, [retry]);
+  }, [pathname, retry, router]);
 
   if (state === "ready") return children;
 
@@ -55,7 +65,7 @@ function ProtectedAcademicSync({ children }: { children: ReactNode }) {
         <p className="mt-3 text-sm leading-6 text-slate-600">
           {state === "loading"
             ? "Estamos carregando seu histórico, respostas, desempenho e metas desta conta."
-            : "Seus dados locais foram preservados. Verifique a conexão e tente novamente."}
+            : "Não foi possível concluir a sincronização. Seus dados locais continuam preservados."}
         </p>
         {state === "error" && (
           <button

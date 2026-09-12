@@ -14,11 +14,22 @@ function authRedirect(path: string, message: string): never {
 
 export async function signIn(formData: FormData) {
   const supabase = await createClient();
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email: value(formData, "email").toLowerCase(),
     password: value(formData, "password"),
   });
   if (error) authRedirect("/login", error.message);
+
+  if (!data.session || !data.user) {
+    authRedirect("/login", "Não foi possível estabelecer uma sessão segura.");
+  }
+
+  const { data: verifiedUser, error: verificationError } =
+    await supabase.auth.getUser();
+  if (verificationError || verifiedUser.user?.id !== data.user.id) {
+    authRedirect("/login", "Não foi possível validar a sessão criada.");
+  }
+
   redirect("/");
 }
 
