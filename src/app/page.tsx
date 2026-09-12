@@ -45,6 +45,8 @@ import {
 
 import ScoreEvolutionChart from "@/components/dashboard/score-evolution-chart";
 import SubjectTrendSummary from "@/components/dashboard/subject-trend-summary";
+import StudentAccountMenu from "@/components/student/student-account-menu";
+import { useStudentAccount } from "@/lib/use-student-account";
 
 import {
   ErrorState,
@@ -300,6 +302,8 @@ function MobileNavLink({
 export default function HomePage() {
   const totalBankQuestions =
     getTotalQuestions();
+  const { account, loading: accountLoading } =
+    useStudentAccount();
 
   const [
     dashboard,
@@ -976,7 +980,12 @@ export default function HomePage() {
         </nav>
 
         <div className="border-t border-white/10 px-5 py-5">
-          <div className="rounded-xl bg-white/5 p-4">
+          <StudentAccountMenu
+            account={account}
+            loading={accountLoading}
+          />
+
+          <div className="mt-3 rounded-xl bg-white/5 p-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs text-slate-400">
@@ -1254,6 +1263,15 @@ export default function HomePage() {
                   onNavigate={closeMobileMenu}
                 />
               </nav>
+
+              <div className="mx-auto mt-3 max-w-3xl">
+                <StudentAccountMenu
+                  account={account}
+                  loading={accountLoading}
+                  variant="light"
+                  onNavigate={closeMobileMenu}
+                />
+              </div>
 
               <div className="mx-auto mt-3 grid max-w-3xl grid-cols-2 gap-2">
                 <div className="rounded-xl bg-orange-50 p-3 text-center">
