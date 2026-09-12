@@ -908,7 +908,7 @@ export default function ExamPage() {
    * =========================================================
    */
 
-function handleSubmit() {
+async function handleSubmit() {
   if (
     isSubmitting
   ) {
@@ -1007,21 +1007,20 @@ function handleSubmit() {
       return;
     }
 
-    void saveCompletedExam({
-      session,
-      progress,
-      submission,
-      questions,
-    }).catch(
-      (
-        error
-      ) => {
-        console.error(
-          "Erro ao salvar histórico no IndexedDB:",
-          error
-        );
-      }
-    );
+    try {
+      await saveCompletedExam({
+        session,
+        progress,
+        submission,
+        questions,
+      });
+    } catch (error) {
+      console.error("Erro ao salvar o histórico da prova:", error);
+      setSubmitError("Não foi possível salvar o resultado. Tente novamente.");
+      setInteractionMessage("");
+      setIsSubmitting(false);
+      return;
+    }
 
     router.push(
       "/simulado/resultado"

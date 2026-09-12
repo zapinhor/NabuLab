@@ -18,8 +18,8 @@ export async function signIn(formData: FormData) {
     email: value(formData, "email").toLowerCase(),
     password: value(formData, "password"),
   });
-  if (error) authRedirect("/entrar", error.message);
-  redirect("/comercial");
+  if (error) authRedirect("/login", error.message);
+  redirect("/");
 }
 
 export async function signUp(formData: FormData) {
@@ -39,13 +39,13 @@ export async function signUp(formData: FormData) {
   });
   if (error) authRedirect("/cadastro", error.message);
   if (!data.session) {
-    authRedirect("/entrar", "Confira seu e-mail para confirmar o cadastro.");
+    authRedirect("/login", "Confira seu e-mail para confirmar o cadastro.");
   }
-  redirect("/comercial");
+  redirect("/");
 }
 
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
-  redirect("/entrar");
+  redirect("/login");
 }

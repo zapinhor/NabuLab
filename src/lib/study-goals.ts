@@ -20,8 +20,20 @@ import type {
  * =========================================================
  */
 
-const STUDY_GOALS_KEY =
+export const STUDY_GOALS_KEY =
   "nabulab:study-goals:v1";
+
+export function clearStudyGoalsCache() {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem(STUDY_GOALS_KEY);
+  }
+}
+
+export function writeStudyGoalsCache(goals: StudyGoals) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(STUDY_GOALS_KEY, JSON.stringify(goals));
+  }
+}
 
 /*
  * =========================================================
@@ -228,12 +240,13 @@ export function saveStudyGoals(
     typeof window !==
     "undefined"
   ) {
-    localStorage.setItem(
-      STUDY_GOALS_KEY,
-      JSON.stringify(
-        normalized
-      )
-    );
+    writeStudyGoalsCache(normalized);
+
+    void import("@/lib/academic-sync")
+      .then(({ pushStudyGoalsToCloud }) => pushStudyGoalsToCloud(normalized))
+      .catch((error) => {
+        console.warn("As metas ficaram pendentes de sincronização:", error);
+      });
   }
 
   return normalized;
@@ -258,12 +271,13 @@ export function resetStudyGoals():
     typeof window !==
     "undefined"
   ) {
-    localStorage.setItem(
-      STUDY_GOALS_KEY,
-      JSON.stringify(
-        defaults
-      )
-    );
+    writeStudyGoalsCache(defaults);
+
+    void import("@/lib/academic-sync")
+      .then(({ pushStudyGoalsToCloud }) => pushStudyGoalsToCloud(defaults))
+      .catch((error) => {
+        console.warn("As metas padrão ficaram pendentes de sincronização:", error);
+      });
   }
 
   return defaults;

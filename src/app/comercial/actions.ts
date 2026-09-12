@@ -18,7 +18,7 @@ async function authenticatedClient() {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getClaims();
   const userId = data?.claims?.sub;
-  if (error || !userId) redirect("/entrar");
+  if (error || !userId) redirect("/login");
   return { supabase, userId };
 }
 

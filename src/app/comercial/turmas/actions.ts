@@ -17,7 +17,7 @@ function classRedirect(classId: string, message: string): never {
 async function authenticatedClient() {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getClaims();
-  if (error || !data?.claims?.sub) redirect("/entrar");
+  if (error || !data?.claims?.sub) redirect("/login");
   return supabase;
 }
 

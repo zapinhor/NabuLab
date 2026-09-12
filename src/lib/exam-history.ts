@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { createQuestionSnapshot } from "@/lib/question-snapshot";
 
 import type {
   ExamProgress,
@@ -124,6 +125,11 @@ export async function saveCompletedExam({
               .includes(
                 question.id
               ),
+
+          questionSnapshot:
+            createQuestionSnapshot(
+              question
+            ),
         };
       }
     );
@@ -314,6 +320,13 @@ export async function saveCompletedExam({
       );
     }
   );
+
+  try {
+    const { pushCompletedExamToCloud } = await import("@/lib/academic-sync");
+    await pushCompletedExamToCloud(exam, answers);
+  } catch (error) {
+    console.warn("A prova ficou pendente de sincronização com a conta:", error);
+  }
 
   return exam;
 }

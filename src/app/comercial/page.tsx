@@ -115,7 +115,7 @@ export default async function CommercialPage({
   const supabase = await createClient();
   const { data: claimData } = await supabase.auth.getClaims();
   const userId = claimData?.claims?.sub;
-  if (!userId) redirect("/entrar");
+  if (!userId) redirect("/login");
   const userEmail = String(claimData.claims.email ?? "").toLowerCase();
 
   const [
