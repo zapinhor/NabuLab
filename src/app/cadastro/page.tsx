@@ -21,7 +21,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
         </label>
         <button className={buttonClass} type="submit">Criar conta</button>
       </form>
-      <p className="mt-5 text-center text-sm text-slate-600">Já tem conta? <Link className="font-bold text-blue-700" href="/entrar">Entrar</Link></p>
+      <p className="mt-5 text-center text-sm text-slate-600">Já tem conta? <Link className="font-bold text-blue-700" href="/login">Entrar</Link></p>
     </AuthCard>
   );
 }

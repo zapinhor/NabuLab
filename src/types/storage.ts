@@ -1,5 +1,6 @@
 import type {
   Difficulty,
+  Question,
   SubjectId,
 } from "@/types/question";
 
@@ -97,4 +98,26 @@ export interface StoredAnswer {
   wasAnswered: boolean;
 
   markedForReview: boolean;
+
+  /*
+   * Snapshot mínimo para que o histórico continue legível
+   * mesmo quando a questão não existir mais no banco atual.
+   */
+  questionSnapshot?: QuestionSnapshot;
 }
+
+export type QuestionSnapshot = Pick<
+  Question,
+  | "area"
+  | "subject"
+  | "subjectName"
+  | "topic"
+  | "subtopic"
+  | "difficulty"
+  | "type"
+  | "statement"
+  | "alternatives"
+  | "correctAnswer"
+  | "explanation"
+  | "alternativeExplanations"
+>;

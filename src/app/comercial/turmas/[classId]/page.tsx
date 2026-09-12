@@ -54,7 +54,7 @@ export default async function ClassPage({
   const supabase = await createClient();
   const { data: claimData } = await supabase.auth.getClaims();
   const userId = claimData?.claims?.sub;
-  if (!userId) redirect("/entrar");
+  if (!userId) redirect("/login");
 
   const { data: classData, error: classError } = await supabase
     .from("classes")

@@ -3,8 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 
 export async function GET(request: NextRequest) {
   const code = request.nextUrl.searchParams.get("code");
-  const next = request.nextUrl.searchParams.get("next") ?? "/comercial";
-  const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/comercial";
+  const next = request.nextUrl.searchParams.get("next") ?? "/";
+  const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/";
 
   if (code) {
     const supabase = await createClient();
@@ -13,6 +13,6 @@ export async function GET(request: NextRequest) {
   }
 
   return NextResponse.redirect(
-    new URL("/entrar?mensagem=Não foi possível confirmar o acesso.", request.url),
+    new URL("/login?mensagem=Não foi possível confirmar o acesso.", request.url),
   );
 }

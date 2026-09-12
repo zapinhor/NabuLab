@@ -27,6 +27,10 @@ import {
 } from "@/lib/quiz-engine";
 
 import {
+  questionFromSnapshot,
+} from "@/lib/question-snapshot";
+
+import {
   getExamModeInfo,
 } from "@/lib/exam-mode";
 
@@ -346,14 +350,37 @@ export default function ExamHistoryDetailPage() {
           )
         );
 
+      const storedAnswerMap =
+        new Map(
+          storedAnswers.map(
+            (answer) => [
+              answer.questionId,
+              answer,
+            ]
+          )
+        );
+
       return exam.questionIds
         .map(
           (
             questionId
-          ) =>
-            questionMap.get(
-              questionId
-            )
+          ) => {
+            const currentQuestion =
+              questionMap.get(
+                questionId
+              );
+
+            if (currentQuestion) {
+              return currentQuestion;
+            }
+
+            return questionFromSnapshot(
+              questionId,
+              storedAnswerMap.get(
+                questionId
+              )?.questionSnapshot
+            ) ?? undefined;
+          }
         )
         .filter(
           (
@@ -376,6 +403,7 @@ export default function ExamHistoryDetailPage() {
         );
     }, [
       exam,
+      storedAnswers,
     ]);
 
   /*
