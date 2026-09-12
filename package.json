@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit",
     "audit": "node --import tsx scripts/audit-question-bank.ts",
     "verify:bank": "node --import tsx scripts/verify-question-flows.ts",
+    "test:academic-sync": "node --import tsx scripts/test-academic-sync.ts",
     "start": "next start",
     "lint": "eslint"
   },
