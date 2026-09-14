@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { StudentAccount } from "@/types/student-account";
+import { subscriptionFromRow } from "@/lib/entitlements";
 
 type StudentAccountState = {
   account: StudentAccount | null;
@@ -33,16 +34,29 @@ export function useStudentAccount(): StudentAccountState {
         return;
       }
 
-      const { data: profile, error: profileError } = await supabase
-        .from("profiles")
-        .select("full_name,username,email,avatar_url")
-        .eq("id", userData.user.id)
-        .maybeSingle();
+      const [profileResult, subscriptionResult] = await Promise.all([
+        supabase
+          .from("profiles")
+          .select("full_name,username,email,avatar_url")
+          .eq("id", userData.user.id)
+          .maybeSingle(),
+        supabase
+          .from("subscriptions")
+          .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+          .eq("user_id", userData.user.id)
+          .maybeSingle(),
+      ]);
+
+      const { data: profile, error: profileError } = profileResult;
+      const { data: subscriptionRow, error: subscriptionError } = subscriptionResult;
 
       if (!active) return;
 
       if (profileError) {
         console.error("[student-account] Não foi possível carregar o perfil:", profileError);
+      }
+      if (subscriptionError) {
+        console.error("[student-account] Não foi possível carregar a assinatura:", subscriptionError);
       }
 
       const metadata = userData.user.user_metadata;
@@ -53,6 +67,7 @@ export function useStudentAccount(): StudentAccountState {
           username: profile?.username ?? metadata.username ?? null,
           fullName: profile?.full_name ?? metadata.full_name ?? null,
           avatarUrl: profile?.avatar_url ?? metadata.avatar_url ?? null,
+          subscription: subscriptionFromRow(subscriptionRow),
         },
         loading: false,
       });

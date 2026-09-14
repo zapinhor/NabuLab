@@ -13,9 +13,9 @@ import {
   useRouter,
 } from "next/navigation";
 
-import {
-  createExamSessionFromQuestionIds,
-} from "@/lib/quiz-engine";
+import { generateExamFromQuestionIds } from "@/lib/exam-generation-client";
+import { canAccessDifficulty, getStudentEntitlements } from "@/lib/entitlements";
+import { useStudentAccount } from "@/lib/use-student-account";
 
 import {
   clearCurrentExam,
@@ -139,6 +139,8 @@ function getTrendLabel(
 export default function RecommendedQuizPage() {
   const router =
     useRouter();
+  const { account } = useStudentAccount();
+  const entitlements = getStudentEntitlements(account?.subscription ?? null);
 
   const [
     summary,
@@ -258,13 +260,20 @@ export default function RecommendedQuizPage() {
         return [];
       }
 
+      const accessibleQuestions = summary.questions.filter((item) =>
+        canAccessDifficulty(item.question.difficulty, entitlements),
+      );
+      const effectiveAmount = entitlements.recommendedLimit === null
+        ? amount
+        : Math.min(amount, entitlements.recommendedLimit);
       return selectRecommendedQuestions(
-        summary,
-        amount
+        { ...summary, questions: accessibleQuestions },
+        effectiveAmount,
       );
     }, [
       summary,
       amount,
+      entitlements,
     ]);
 
   /*
@@ -314,7 +323,7 @@ export default function RecommendedQuizPage() {
    * =========================================================
    */
 
-  function handleStart() {
+  async function handleStart() {
     if (
       isStarting ||
       selected.length ===
@@ -338,8 +347,7 @@ export default function RecommendedQuizPage() {
             item.question.id
         );
 
-      const createdSession =
-        createExamSessionFromQuestionIds(
+      const createdSession = await generateExamFromQuestionIds(
           questionIds,
           shuffleAlternatives,
           "recommended"
@@ -545,6 +553,11 @@ export default function RecommendedQuizPage() {
             conteúdo e frequência de
             repetição.
           </p>
+          {!entitlements.fullRecommended && (
+            <p className="mt-4 inline-flex rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-white">
+              Prévia Free · até 5 questões iniciantes ou médias
+            </p>
+          )}
         </section>
 
         {/* ===================================================
@@ -650,6 +663,7 @@ export default function RecommendedQuizPage() {
                     const active =
                       amount ===
                       value;
+                    const locked = entitlements.recommendedLimit !== null && value > entitlements.recommendedLimit;
 
                     return (
                       <button
@@ -660,6 +674,7 @@ export default function RecommendedQuizPage() {
                         aria-pressed={
                           active
                         }
+                        disabled={locked}
                         onClick={() => {
                           setAmount(
                             value
@@ -669,7 +684,7 @@ export default function RecommendedQuizPage() {
                             null
                           );
                         }}
-                        className={`min-h-12 rounded-xl border px-4 py-3 text-sm font-bold transition ${
+                        className={`min-h-12 rounded-xl border px-4 py-3 text-sm font-bold transition disabled:cursor-not-allowed disabled:opacity-45 ${
                           active
                             ? "border-[#0B2D6B] bg-[#0B2D6B] text-white shadow-sm"
                             : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
@@ -678,6 +693,7 @@ export default function RecommendedQuizPage() {
                         {
                           value
                         }
+                        {locked ? " · Premium" : ""}
                       </button>
                     );
                   }

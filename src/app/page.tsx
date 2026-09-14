@@ -47,6 +47,7 @@ import ScoreEvolutionChart from "@/components/dashboard/score-evolution-chart";
 import SubjectTrendSummary from "@/components/dashboard/subject-trend-summary";
 import StudentAccountMenu from "@/components/student/student-account-menu";
 import { useStudentAccount } from "@/lib/use-student-account";
+import { getStudentEntitlements, isPremiumFeatureRoute } from "@/lib/entitlements";
 
 import {
   ErrorState,
@@ -281,15 +282,45 @@ function MobileNavLink({
         </span>
       </span>
 
+      <NavItemMeta href={href} badge={badge} />
+    </Link>
+  );
+}
+
+function NavItemMeta({
+  href,
+  badge,
+  dark = false,
+}: {
+  href: string;
+  badge?: number | string;
+  dark?: boolean;
+}) {
+  const premiumFeature = isPremiumFeatureRoute(href);
+  if (!premiumFeature && badge === undefined) return null;
+
+  return (
+    <span className="ml-auto flex shrink-0 items-center gap-1.5">
       {badge !== undefined && (
         <span
-          className="shrink-0 rounded-full bg-blue-600 px-2 py-0.5 text-[10px] font-bold text-white"
+          className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
+            dark ? "bg-blue-500 text-white" : "bg-blue-600 text-white"
+          }`}
           aria-label={`${badge}`}
         >
           {badge}
         </span>
       )}
-    </Link>
+      {premiumFeature && (
+        <span
+          className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
+            dark ? "bg-amber-300/15 text-amber-200" : "bg-amber-100 text-amber-800"
+          }`}
+        >
+          Premium
+        </span>
+      )}
+    </span>
   );
 }
 
@@ -304,6 +335,7 @@ export default function HomePage() {
     getTotalQuestions();
   const { account, loading: accountLoading } =
     useStudentAccount();
+  const studentEntitlements = getStudentEntitlements(account?.subscription ?? null);
 
   const [
     dashboard,
@@ -842,35 +874,35 @@ export default function HomePage() {
 
           <Link
             href="/evolucao"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
-              📈
+            <span className="flex min-w-0 items-center gap-3">
+              <span aria-hidden="true">📈</span>
+              <span className="truncate">Evolução</span>
             </span>
-
-            Evolução
+            <NavItemMeta href="/evolucao" dark />
           </Link>
 
           <Link
             href="/analise"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
-              🧠
+            <span className="flex min-w-0 items-center gap-3">
+              <span aria-hidden="true">🧠</span>
+              <span className="truncate">Análise</span>
             </span>
-
-            Análise
+            <NavItemMeta href="/analise" dark />
           </Link>
 
           <Link
             href="/dominio"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
-              🧭
+            <span className="flex min-w-0 items-center gap-3">
+              <span aria-hidden="true">🧭</span>
+              <span className="truncate">Domínio</span>
             </span>
-
-            Domínio
+            <NavItemMeta href="/dominio" dark />
           </Link>
 
           <Link
@@ -885,32 +917,30 @@ export default function HomePage() {
               Metas
             </span>
 
-            {goalsProgress.completedGoals >
-              0 && (
-              <span
-                className="rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold text-white"
-                aria-label={`${goalsProgress.completedGoals} de ${goalsProgress.totalGoals} metas concluídas`}
-              >
-                {
-                  goalsProgress.completedGoals
-                }
-                /
-                {
-                  goalsProgress.totalGoals
-                }
-              </span>
-            )}
+            <NavItemMeta
+              href="/metas"
+              dark
+              badge={
+                goalsProgress.completedGoals > 0
+                  ? `${goalsProgress.completedGoals}/${goalsProgress.totalGoals}`
+                  : undefined
+              }
+            />
           </Link>
 
           <Link
             href="/recomendado"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
-              ✨
+            <span className="flex min-w-0 items-center gap-3">
+              <span aria-hidden="true">✨</span>
+              <span className="truncate">Recomendado</span>
             </span>
-
-            Recomendado
+            <NavItemMeta
+              href="/recomendado"
+              dark
+              badge={!studentEntitlements.fullRecommended ? "Prévia" : undefined}
+            />
           </Link>
 
           <Link
@@ -925,28 +955,26 @@ export default function HomePage() {
               Treinar erros
             </span>
 
-            {review.highPriority >
-              0 && (
-              <span
-                className="flex min-w-5 items-center justify-center rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white"
-                aria-label={`${review.highPriority} questões de alta prioridade`}
-              >
-                {
-                  review.highPriority
-                }
-              </span>
-            )}
+            <NavItemMeta
+              href="/revisao"
+              dark
+              badge={review.highPriority > 0 ? review.highPriority : undefined}
+            />
           </Link>
 
           <Link
             href="/historico"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
-              🕘
+            <span className="flex min-w-0 items-center gap-3">
+              <span aria-hidden="true">🕘</span>
+              <span className="truncate">Histórico</span>
             </span>
-
-            Histórico
+            <NavItemMeta
+              href="/historico"
+              dark
+              badge={!studentEntitlements.fullHistory ? "3 recentes" : undefined}
+            />
           </Link>
 
           <Link
@@ -1210,6 +1238,7 @@ export default function HomePage() {
                   href="/recomendado"
                   icon="✨"
                   label="Recomendado"
+                  badge={!studentEntitlements.fullRecommended ? "Prévia" : undefined}
                   onNavigate={
                     closeMobileMenu
                   }
@@ -1234,6 +1263,7 @@ export default function HomePage() {
                   href="/historico"
                   icon="🕘"
                   label="Histórico"
+                  badge={!studentEntitlements.fullHistory ? "3 recentes" : undefined}
                   onNavigate={
                     closeMobileMenu
                   }

@@ -19,9 +19,7 @@ import {
   type ReviewSummary,
 } from "@/lib/review-queries";
 
-import {
-  createExamSessionFromQuestionIds,
-} from "@/lib/quiz-engine";
+import { generateExamFromQuestionIds } from "@/lib/exam-generation-client";
 
 import {
   clearCurrentExam,
@@ -292,7 +290,7 @@ export default function ReviewPage() {
    * =========================================================
    */
 
-  function handleStartReview() {
+  async function handleStartReview() {
     if (
       !summary ||
       generating ||
@@ -323,8 +321,7 @@ export default function ReviewPage() {
             item.questionId
         );
 
-      const createdSession =
-        createExamSessionFromQuestionIds(
+      const createdSession = await generateExamFromQuestionIds(
           questionIds,
           shuffleAlternatives,
           "review"

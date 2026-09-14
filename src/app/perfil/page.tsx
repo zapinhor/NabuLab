@@ -4,18 +4,34 @@ import { signOut } from "@/app/auth/actions";
 import StudentAvatar from "@/components/student/student-avatar";
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { createClient } from "@/lib/supabase/server";
+import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
 
-export default async function ProfilePage() {
+export default async function ProfilePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ premium?: string }>;
+}) {
+  const query = await searchParams;
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
 
   if (!userData.user) redirect("/login?next=%2Fperfil");
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("full_name,username,email,avatar_url")
-    .eq("id", userData.user.id)
-    .maybeSingle();
+  const [profileResult, subscriptionResult] = await Promise.all([
+    supabase
+      .from("profiles")
+      .select("full_name,username,email,avatar_url")
+      .eq("id", userData.user.id)
+      .maybeSingle(),
+    supabase
+      .from("subscriptions")
+      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+      .eq("user_id", userData.user.id)
+      .maybeSingle(),
+  ]);
+  const profile = profileResult.data;
+  const subscription = subscriptionFromRow(subscriptionResult.data);
+  const premium = hasActivePremium(subscription);
 
   const metadata = userData.user.user_metadata;
   const email = profile?.email ?? userData.user.email ?? "E-mail não disponível";
@@ -60,7 +76,33 @@ export default async function ProfilePage() {
           </div>
 
           <div className="space-y-6 p-6 sm:p-8">
+            {query.premium === "required" && !premium && (
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-950">
+                <p className="font-bold">Disponível no NabuLab Premium</p>
+                <p className="mt-1 text-sm leading-6 text-amber-800">
+                  Este recurso permanece visível no painel, mas exige uma assinatura Premium ativa.
+                </p>
+              </div>
+            )}
             <div className="grid gap-4 sm:grid-cols-2">
+              <div className={`rounded-2xl border p-4 sm:col-span-2 ${
+                premium ? "border-amber-200 bg-amber-50" : "border-slate-200 bg-slate-50"
+              }`}>
+                <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Plano atual</p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <p className="text-lg font-bold text-slate-900">{premium ? "Premium" : "Free"}</p>
+                  {premium && subscription?.priceTier === "founder_477" && (
+                    <span className="rounded-full bg-amber-200 px-2.5 py-1 text-xs font-bold text-amber-900">
+                      Fundador
+                    </span>
+                  )}
+                </div>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {premium
+                    ? "Acesso completo ao banco, simulados e análises avançadas."
+                    : "Acesso às 17 matérias, simulados de até 10 questões e sincronização na nuvem."}
+                </p>
+              </div>
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
                   Nome de exibição
@@ -92,6 +134,17 @@ export default async function ProfilePage() {
                 </p>
               </div>
             </div>
+
+            {!premium && (
+              <div className="rounded-2xl border border-slate-200 p-4">
+                <p className="font-bold text-slate-900">Recursos Premium</p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">
+                  Simulados de até 50 questões, nível avançado, histórico completo, treino de erros,
+                  recomendado completo, evolução, análise, domínio e metas completas.
+                </p>
+                <p className="mt-2 text-xs text-slate-500">A contratação ainda não está disponível nesta fase.</p>
+              </div>
+            )}
 
             <form action={signOut}>
               <button
