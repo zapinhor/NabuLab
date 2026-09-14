@@ -11,6 +11,7 @@
     "test:academic-sync": "node --import tsx scripts/test-academic-sync.ts",
     "test:entitlements": "node --import tsx scripts/test-entitlements.ts",
     "test:quota": "node --import tsx scripts/test-daily-exam-quota.ts",
+    "test:hotmart": "node --import tsx scripts/test-hotmart-webhook.ts",
     "start": "next start",
     "lint": "eslint"
   },

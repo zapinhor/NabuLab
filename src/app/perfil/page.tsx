@@ -32,6 +32,14 @@ export default async function ProfilePage({
   const profile = profileResult.data;
   const subscription = subscriptionFromRow(subscriptionResult.data);
   const premium = hasActivePremium(subscription);
+  const subscriptionStatus = subscription?.status
+    ? {
+        active: "Ativa",
+        past_due: "Pagamento atrasado",
+        canceled: "Cancelada",
+        expired: "Expirada",
+      }[subscription.status]
+    : null;
 
   const metadata = userData.user.user_metadata;
   const email = profile?.email ?? userData.user.email ?? "E-mail não disponível";
@@ -90,13 +98,20 @@ export default async function ProfilePage({
               }`}>
                 <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Plano atual</p>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
-                  <p className="text-lg font-bold text-slate-900">{premium ? "Premium" : "Free"}</p>
+                  <p className="text-lg font-bold text-slate-900">
+                    {premium ? "NabuLab Premium" : "Free"}
+                  </p>
                   {premium && subscription?.priceTier === "founder_477" && (
                     <span className="rounded-full bg-amber-200 px-2.5 py-1 text-xs font-bold text-amber-900">
-                      Fundador
+                      Founder
                     </span>
                   )}
                 </div>
+                {subscriptionStatus && (
+                  <p className="mt-1 text-xs font-semibold text-slate-500">
+                    Status: {subscriptionStatus}
+                  </p>
+                )}
                 <p className="mt-2 text-sm leading-6 text-slate-600">
                   {premium
                     ? "Acesso completo ao banco, simulados e análises avançadas."
@@ -142,7 +157,12 @@ export default async function ProfilePage({
                   Simulados de até 50 questões, nível avançado, histórico completo, treino de erros,
                   recomendado completo, evolução, análise, domínio e metas completas.
                 </p>
-                <p className="mt-2 text-xs text-slate-500">A contratação ainda não está disponível nesta fase.</p>
+                <Link
+                  href="/premium"
+                  className="mt-3 inline-flex rounded-xl bg-[var(--nabu-blue-dark)] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-blue-900"
+                >
+                  Conhecer o Premium
+                </Link>
               </div>
             )}
 
