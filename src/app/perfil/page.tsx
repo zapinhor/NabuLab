@@ -100,7 +100,7 @@ export default async function ProfilePage({
                 <p className="mt-2 text-sm leading-6 text-slate-600">
                   {premium
                     ? "Acesso completo ao banco, simulados e análises avançadas."
-                    : "Acesso às 17 matérias, simulados de até 10 questões e sincronização na nuvem."}
+                    : "Acesso às 17 matérias, simulados de até 15 questões e sincronização na nuvem."}
                 </p>
               </div>
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
