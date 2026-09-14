@@ -7,11 +7,22 @@ import {
   subscriptionFromRow,
 } from "@/lib/entitlements";
 
-export async function updateSession(request: NextRequest) {
-  const publicPaths = ["/login", "/entrar", "/cadastro", "/auth/confirm"];
-  const isPublicPath = publicPaths.some(
-    (path) => request.nextUrl.pathname === path || request.nextUrl.pathname.startsWith(`${path}/`),
+const PUBLIC_PATHS = [
+  "/login",
+  "/entrar",
+  "/cadastro",
+  "/auth/confirm",
+  "/api/webhooks/hotmart",
+];
+
+export function isPublicAppPath(pathname: string) {
+  return PUBLIC_PATHS.some(
+    (path) => pathname === path || pathname.startsWith(`${path}/`),
   );
+}
+
+export async function updateSession(request: NextRequest) {
+  const isPublicPath = isPublicAppPath(request.nextUrl.pathname);
 
   if (
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||

@@ -7,6 +7,7 @@ import {
 } from "../src/lib/billing/hotmart";
 import type { BillingPriceTier } from "../src/lib/billing/config";
 import { validateHotmartWebhookRequest } from "../src/lib/billing/hotmart-request";
+import { isPublicAppPath } from "../src/lib/supabase/proxy";
 
 const PRODUCT_ID = "7654321";
 const FOUNDER_OFFER = "founder-offer-test";
@@ -80,6 +81,8 @@ function tier(event: ParsedHotmartEvent) {
 }
 
 async function main() {
+assert.equal(isPublicAppPath("/api/webhooks/hotmart"), true);
+assert.equal(isPublicAppPath("/api/billing/prepare"), false);
 assert.equal(secureTokenMatches("fixture-secret", "fixture-secret"), true);
 assert.equal(secureTokenMatches("wrong-secret", "fixture-secret"), false);
 assert.equal(secureTokenMatches(null, "fixture-secret"), false);
