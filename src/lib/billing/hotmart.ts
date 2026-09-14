@@ -23,7 +23,7 @@ export type ParsedHotmartEvent = {
   eventType: HotmartEventType;
   productId: string;
   eventCreatedAt: string;
-  buyerEmail: string;
+  buyerEmail: string | null;
   providerCustomerId: string | null;
   providerSubscriptionId: string | null;
   transactionId: string | null;
@@ -108,13 +108,16 @@ export function parseHotmartEvent(payload: unknown): ParsedHotmartEvent {
     ["subscriber", "email"],
     ["subscription", "subscriber", "email"],
   ]);
-  if (!productId || !buyerEmail) throw new Error("HOTMART_PAYLOAD_INVALID");
+  if (!productId || (!buyerEmail && eventType !== "SWITCH_PLAN")) {
+    throw new Error("HOTMART_PAYLOAD_INVALID");
+  }
 
   const providerPlanIdentifiers = [
     firstText(data, [["purchase", "offer", "code"]]),
     firstText(data, [["offer", "code"]]),
     firstText(data, [["plan", "offer", "code"]]),
     firstText(data, [["plan", "id"]]),
+    firstText(data, [["new_plan", "offer", "code"]]),
     firstText(data, [["new_plan", "id"]]),
     firstText(data, [["subscription", "plan", "id"]]),
   ].filter((value): value is string => Boolean(value));
@@ -147,7 +150,7 @@ export function parseHotmartEvent(payload: unknown): ParsedHotmartEvent {
     eventType,
     productId,
     eventCreatedAt,
-    buyerEmail: normalizeBillingEmail(buyerEmail),
+    buyerEmail: buyerEmail ? normalizeBillingEmail(buyerEmail) : null,
     providerCustomerId,
     providerSubscriptionId,
     transactionId,

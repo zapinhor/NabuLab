@@ -60,7 +60,9 @@ class FakeAtomicWebhookStore {
   process(event: ParsedHotmartEvent, tier: BillingPriceTier | null) {
     if (this.events.has(event.eventId)) return "duplicate";
     this.events.add(event.eventId);
-    const userId = this.identities.get(event.buyerEmail);
+    const userId = event.buyerEmail
+      ? this.identities.get(event.buyerEmail)
+      : undefined;
     if (!userId) return "unmatched";
     const existing = this.subscriptions.get(userId);
     const eventTime = Date.parse(event.eventCreatedAt);
@@ -120,6 +122,46 @@ const wrongProductResponse = await validateHotmartWebhookRequest(
 );
 assert.ok(wrongProductResponse instanceof Response);
 assert.equal(wrongProductResponse.status, 202);
+
+const officialSwitchPlanTestPayload = {
+  id: "switch-plan-test-event",
+  creation_date: 1_800_000_000_000,
+  event: "SWITCH_PLAN",
+  version: "2.0.0",
+  data: {
+    subscriber_code: "test-subscriber-code",
+    old_plan: { name: "Old test plan", id: "old-test-plan" },
+    new_plan: { name: "New test plan", id: STANDARD_OFFER },
+    product: { id: 1111111, name: "Produto test postback2" },
+  },
+};
+const officialSwitchPlanTestResponse = await validateHotmartWebhookRequest(
+  new Request("https://example.test/api/webhooks/hotmart", {
+    method: "POST",
+    headers: { "x-hotmart-hottok": "fixture-secret" },
+    body: JSON.stringify(officialSwitchPlanTestPayload),
+  }),
+  {
+    hottok: "fixture-secret",
+    productId: PRODUCT_ID,
+    founderPlanId: FOUNDER_OFFER,
+    standardPlanId: STANDARD_OFFER,
+  },
+);
+assert.ok(officialSwitchPlanTestResponse instanceof Response);
+assert.equal(officialSwitchPlanTestResponse.status, 202);
+
+const realSwitchPlan = parseHotmartEvent({
+  ...officialSwitchPlanTestPayload,
+  id: "switch-plan-real-event",
+  data: {
+    ...officialSwitchPlanTestPayload.data,
+    product: { id: Number(PRODUCT_ID), name: "Subscription product" },
+  },
+});
+assert.equal(realSwitchPlan.buyerEmail, null);
+assert.equal(realSwitchPlan.providerSubscriptionId, "test-subscriber-code");
+assert.equal(tier(realSwitchPlan), "standard_990");
 
 const founderApproved = parseHotmartEvent(
   fixture("PURCHASE_APPROVED", { id: "founder-approved", offer: FOUNDER_OFFER }),

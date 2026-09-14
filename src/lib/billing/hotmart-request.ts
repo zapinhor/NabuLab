@@ -56,6 +56,17 @@ export async function validateHotmartWebhookRequest(
     return Response.json({ received: true, ignored: "unexpected_product" }, { status: 202 });
   }
 
+  if (
+    event.eventType === "SWITCH_PLAN" &&
+    !event.buyerEmail &&
+    !event.providerSubscriptionId
+  ) {
+    return Response.json(
+      { received: true, ignored: "test_unmatched" },
+      { status: 202 },
+    );
+  }
+
   return {
     event,
     priceTier: resolveHotmartTier(

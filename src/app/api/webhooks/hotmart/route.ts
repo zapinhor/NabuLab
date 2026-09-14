@@ -22,6 +22,39 @@ export async function POST(request: Request) {
 
   try {
     const admin = createAdminClient();
+    let normalizedEmail = event.buyerEmail;
+
+    if (event.eventType === "SWITCH_PLAN" && !normalizedEmail) {
+      const { data: subscription, error: subscriptionError } = await admin
+        .from("subscriptions")
+        .select("user_id")
+        .eq("provider", "hotmart")
+        .eq("provider_subscription_id", event.providerSubscriptionId ?? "")
+        .maybeSingle();
+      if (subscriptionError) throw subscriptionError;
+
+      if (subscription?.user_id) {
+        const { data: customer, error: customerError } = await admin
+          .from("billing_customers")
+          .select("normalized_email")
+          .eq("provider", "hotmart")
+          .eq("user_id", subscription.user_id)
+          .maybeSingle();
+        if (customerError) throw customerError;
+        normalizedEmail = customer?.normalized_email ?? null;
+      }
+
+      if (!normalizedEmail) {
+        console.warn(
+          "[hotmart-webhook] SWITCH_PLAN sem vínculo de assinatura; evento aceito sem alteração.",
+        );
+        return Response.json(
+          { received: true, ignored: "test_unmatched" },
+          { status: 202 },
+        );
+      }
+    }
+
     const { data, error } = await admin.rpc("process_hotmart_webhook_event", {
       p_event_id: event.eventId,
       p_event_type: event.eventType,
@@ -30,7 +63,7 @@ export async function POST(request: Request) {
       p_transaction_id: event.transactionId,
       p_subscription_id: event.providerSubscriptionId,
       p_provider_customer_id: event.providerCustomerId,
-      p_normalized_email: event.buyerEmail,
+      p_normalized_email: normalizedEmail,
       p_price_tier: priceTier,
       p_subscription_status: event.status,
       p_current_period_start: event.currentPeriodStart,
