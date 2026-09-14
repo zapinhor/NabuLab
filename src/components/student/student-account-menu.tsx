@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { signOut } from "@/app/auth/actions";
 import StudentAvatar from "@/components/student/student-avatar";
 import type { StudentAccount } from "@/types/student-account";
+import { hasActivePremium } from "@/lib/entitlements";
 
 function accountLabels(account: StudentAccount) {
   const username = account.username?.trim() || null;
@@ -108,6 +109,7 @@ export default function StudentAccountMenu({
   }
 
   const labels = accountLabels(account);
+  const premium = hasActivePremium(account.subscription);
 
   return (
     <div ref={containerRef} className="relative">
@@ -138,6 +140,15 @@ export default function StudentAccountMenu({
             }`}
           >
             {labels.secondary}
+          </span>
+          <span className={`mt-1 inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold ${
+            premium
+              ? "bg-amber-100 text-amber-800"
+              : dark
+                ? "bg-white/10 text-slate-300"
+                : "bg-slate-100 text-slate-600"
+          }`}>
+            {premium ? "Premium" : "Free"}
           </span>
         </span>
         <span aria-hidden="true" className={dark ? "text-slate-400" : "text-slate-500"}>

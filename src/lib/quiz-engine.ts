@@ -19,6 +19,12 @@ import type {
   QuestionAlternative,
 } from "@/types/question";
 
+import {
+  filterAccessibleQuestions,
+  validateExamConfig,
+  type StudentEntitlements,
+} from "@/lib/entitlements";
+
 /*
  * =========================================================
  * IDENTIFICADORES VISUAIS
@@ -144,11 +150,14 @@ function createAlternativeOrder(
  */
 
 export function createExamSession(
-  config: ExamConfig
+  config: ExamConfig,
+  entitlements: StudentEntitlements,
 ): ExamSession | null {
+  validateExamConfig(config, entitlements);
   const questions =
     generateExamQuestions(
-      config
+      config,
+      entitlements,
     );
 
   if (
@@ -543,7 +552,8 @@ export function getSessionQuestions(
 export function createExamSessionFromQuestionIds(
   questionIds: string[],
   shuffleAlternatives: boolean,
-  mode: ExamMode
+  mode: ExamMode,
+  entitlements: StudentEntitlements,
 ): ExamSession | null {
   const questionMap =
     new Map<
@@ -559,7 +569,7 @@ export function createExamSessionFromQuestionIds(
     );
 
   const selectedQuestions =
-    questionIds
+    filterAccessibleQuestions(questionIds
       .map(
         (questionId) =>
           questionMap.get(
@@ -572,7 +582,7 @@ export function createExamSessionFromQuestionIds(
         ): question is Question =>
           question !==
           undefined
-      );
+      ), entitlements).slice(0, entitlements.maxQuestionsPerExam);
 
   if (
     selectedQuestions.length ===

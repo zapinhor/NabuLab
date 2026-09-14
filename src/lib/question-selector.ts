@@ -10,6 +10,12 @@ import type {
   Question,
 } from "@/types/question";
 
+import {
+  filterAccessibleQuestions,
+  validateExamConfig,
+  type StudentEntitlements,
+} from "@/lib/entitlements";
+
 /*
  * =========================================================
  * EMBARALHAR ARRAY
@@ -68,7 +74,8 @@ export function shuffleArray<T>(
  */
 
 function getBaseQuestionPool(
-  config: ExamConfig
+  config: ExamConfig,
+  entitlements: StudentEntitlements,
 ): Question[] {
   /*
    * Nenhuma matéria selecionada
@@ -82,7 +89,7 @@ function getBaseQuestionPool(
     return [];
   }
 
-  return questionBank.filter(
+  return filterAccessibleQuestions(questionBank, entitlements).filter(
     (question) => {
       /*
        * ===================================================
@@ -132,11 +139,14 @@ function getBaseQuestionPool(
  */
 
 export function getAvailableQuestions(
-  config: ExamConfig
+  config: ExamConfig,
+  entitlements: StudentEntitlements,
 ): Question[] {
+  validateExamConfig(config, entitlements);
   const basePool =
     getBaseQuestionPool(
-      config
+      config,
+      entitlements,
     );
 
   /*
@@ -170,26 +180,32 @@ export function getAvailableQuestions(
  */
 
 export function getAvailableQuestionsCount(
-  config: ExamConfig
+  config: ExamConfig,
+  entitlements: StudentEntitlements,
 ) {
   return getAvailableQuestions(
-    config
+    config,
+    entitlements,
   ).length;
 }
 
 export function getAvailableQuestionCount(
-  config: ExamConfig
+  config: ExamConfig,
+  entitlements: StudentEntitlements,
 ) {
   return getAvailableQuestionsCount(
-    config
+    config,
+    entitlements,
   );
 }
 
 export function countAvailableQuestions(
-  config: ExamConfig
+  config: ExamConfig,
+  entitlements: StudentEntitlements,
 ) {
   return getAvailableQuestionsCount(
-    config
+    config,
+    entitlements,
   );
 }
 
@@ -614,8 +630,10 @@ function generateMixedExamQuestions(
  */
 
 export function generateExamQuestions(
-  config: ExamConfig
+  config: ExamConfig,
+  entitlements: StudentEntitlements,
 ): Question[] {
+  validateExamConfig(config, entitlements);
   const requestedAmount =
     Math.max(
       0,
@@ -639,7 +657,8 @@ export function generateExamQuestions(
 
   const basePool =
     getBaseQuestionPool(
-      config
+      config,
+      entitlements,
     );
 
   if (

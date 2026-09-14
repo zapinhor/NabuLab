@@ -27,9 +27,12 @@ import {
   countAvailableQuestions,
 } from "@/lib/question-selector";
 
+import { generateManualExam, getExamQuotaStatus } from "@/lib/exam-generation-client";
 import {
-  createExamSession,
-} from "@/lib/quiz-engine";
+  getStudentEntitlements,
+  type DailyExamQuotaStatus,
+} from "@/lib/entitlements";
+import { useStudentAccount } from "@/lib/use-student-account";
 
 import {
   clearExamSubmission,
@@ -169,6 +172,8 @@ function getQuestionTypeLabel(
 export default function NewExamPage() {
   const router =
     useRouter();
+  const { account, loading: accountLoading } = useStudentAccount();
+  const entitlements = getStudentEntitlements(account?.subscription ?? null);
 
   const totalBankQuestions =
     getTotalQuestions();
@@ -193,7 +198,7 @@ export default function NewExamPage() {
         ),
 
       difficulty:
-        "misto",
+        "medio",
 
       questionType:
         "multiple-choice",
@@ -226,6 +231,26 @@ export default function NewExamPage() {
       null
     );
 
+  const [quota, setQuota] =
+    useState<DailyExamQuotaStatus | null>(null);
+
+  useEffect(() => {
+    if (accountLoading) return;
+
+    let active = true;
+    void getExamQuotaStatus()
+      .then((status) => {
+        if (active) setQuota(status);
+      })
+      .catch((error) => {
+        console.error("Não foi possível carregar a quota diária:", error);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [accountLoading]);
+
   /*
    * =========================================================
    * DISPONIBILIDADE
@@ -235,10 +260,12 @@ export default function NewExamPage() {
   const availableQuestions =
     useMemo(() => {
       return countAvailableQuestions(
-        config
+        config,
+        entitlements,
       );
     }, [
       config,
+      entitlements,
     ]);
 
   const actualAmount =
@@ -358,15 +385,21 @@ export default function NewExamPage() {
         return "Não há questões disponíveis para gerar este simulado.";
       }
 
+      if (quota && !quota.unlimited && quota.remaining === 0) {
+        return `Você usou seus ${quota.limit} simulados gratuitos de hoje. Novos simulados estarão disponíveis amanhã.`;
+      }
+
       return null;
     }, [
       config.subjects.length,
       availableQuestions,
       actualAmount,
+      quota,
     ]);
 
   const canGenerate =
     !generating &&
+    !accountLoading &&
     generationBlockedReason ===
       null;
 
@@ -396,7 +429,7 @@ export default function NewExamPage() {
    * =========================================================
    */
 
-  function handleGenerateExam(
+  async function handleGenerateExam(
     event?:
       FormEvent<HTMLFormElement>
   ) {
@@ -427,10 +460,7 @@ export default function NewExamPage() {
     );
 
     try {
-      const session =
-        createExamSession(
-          config
-        );
+      const session = await generateManualExam(config);
 
       if (
         !session
@@ -596,6 +626,7 @@ export default function NewExamPage() {
                     const selected =
                       config.amount ===
                       amount;
+                    const locked = !entitlements.allowedAmounts.includes(amount);
 
                     return (
                       <button
@@ -607,6 +638,7 @@ export default function NewExamPage() {
                           selected
                         }
                         aria-label={`${amount} questões`}
+                        disabled={locked}
                         onClick={() => {
                           setGenerationError(
                             null
@@ -621,15 +653,13 @@ export default function NewExamPage() {
                             })
                           );
                         }}
-                        className={`min-h-12 rounded-xl border px-3 py-3 text-sm font-bold transition sm:min-w-[70px] sm:px-4 ${
+                        className={`min-h-12 rounded-xl border px-3 py-3 text-sm font-bold transition disabled:cursor-not-allowed disabled:opacity-45 sm:min-w-[70px] sm:px-4 ${
                           selected
                             ? "border-[#0B2D6B] bg-[#0B2D6B] text-white shadow-md shadow-blue-100"
                             : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
                         }`}
                       >
-                        {
-                          amount
-                        }
+                        {amount}{locked ? " · Premium" : ""}
                       </button>
                     );
                   }
@@ -640,91 +670,32 @@ export default function NewExamPage() {
                   PERSONALIZADA
               ============================================== */}
 
-              <div className="mt-6">
-                <label
-                  htmlFor="custom-question-amount"
-                  className="text-sm font-semibold text-slate-700"
-                >
-                  Quantidade personalizada
-                </label>
+              <div className="mt-6 rounded-xl bg-slate-50 p-4 text-sm text-slate-600">
+                <p className="text-sm font-semibold text-slate-700">
+                  Limite do seu plano
+                </p>
 
                 <p
                   id="custom-question-amount-help"
                   className="mt-1 text-xs leading-5 text-slate-500"
                 >
-                  Digite um valor entre{" "}
-                  <strong>
-                    1
-                  </strong>{" "}
-                  e{" "}
-                  <strong>
-                    {
-                      totalBankQuestions
-                    }
-                  </strong>
-                  . O banco atual possui{" "}
-                  <strong>
-                    {
-                      totalBankQuestions
-                    }
-                  </strong>{" "}
-                  questões.
+                  {entitlements.fullQuestionBank
+                    ? "Premium permite provas de até 50 questões."
+                    : "Free permite provas de 5, 10 ou 15 questões. Opções maiores ficam visíveis para você conhecer o Premium."}
                 </p>
-
-                <input
-                  id="custom-question-amount"
-                  type="number"
-                  inputMode="numeric"
-                  min={1}
-                  max={
-                    totalBankQuestions
-                  }
-                  step={1}
-                  value={
-                    config.amount
-                  }
-                  aria-describedby="custom-question-amount-help"
-                  onChange={(
-                    event
-                  ) => {
-                    const value =
-                      Number(
-                        event.target.value
-                      );
-
-                    if (
-                      Number.isNaN(
-                        value
-                      )
-                    ) {
-                      return;
-                    }
-
-                    setGenerationError(
-                      null
-                    );
-
-                    setConfig(
-                      (
-                        current
-                      ) => ({
-                        ...current,
-
-                        amount:
-                          Math.min(
-                            totalBankQuestions,
-                            Math.max(
-                              1,
-                              Math.floor(
-                                value
-                              )
-                            )
-                          ),
-                      })
-                    );
-                  }}
-                  className="mt-3 min-h-12 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base font-semibold text-slate-700 outline-none transition focus:border-[#3B82F6] sm:max-w-[220px] sm:text-sm"
-                />
+                {entitlements.examsPerDay !== null && (
+                  <div className="mt-3 flex items-center justify-between gap-3 border-t border-slate-200 pt-3">
+                    <span className="font-semibold text-slate-700">Simulados de hoje</span>
+                    <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-800">
+                      {quota ? `${quota.used} de ${quota.limit}` : "Carregando..."}
+                    </span>
+                  </div>
+                )}
+                {entitlements.unlimitedExams && (
+                  <p className="mt-3 border-t border-slate-200 pt-3 text-xs font-semibold text-amber-700">
+                    Premium · Simulados ilimitados
+                  </p>
+                )}
               </div>
             </section>
 
@@ -974,6 +945,11 @@ export default function NewExamPage() {
                     const selected =
                       config.difficulty ===
                       difficulty.id;
+                    const locked = !(
+                      entitlements.advancedDifficulty ||
+                      difficulty.id === "iniciante" ||
+                      difficulty.id === "medio"
+                    );
 
                     return (
                       <button
@@ -984,6 +960,7 @@ export default function NewExamPage() {
                         aria-pressed={
                           selected
                         }
+                        disabled={locked}
                         onClick={() => {
                           setGenerationError(
                             null
@@ -1000,7 +977,7 @@ export default function NewExamPage() {
                             })
                           );
                         }}
-                        className={`min-h-[92px] rounded-xl border p-4 text-left transition ${
+                        className={`min-h-[92px] rounded-xl border p-4 text-left transition disabled:cursor-not-allowed disabled:opacity-50 ${
                           selected
                             ? "border-[#3B82F6] bg-blue-50 ring-2 ring-blue-100"
                             : "border-slate-200 bg-white hover:border-blue-200"
@@ -1016,6 +993,7 @@ export default function NewExamPage() {
                           {
                             difficulty.label
                           }
+                          {locked ? " · Premium" : ""}
                         </p>
 
                         <p className="mt-1 text-xs leading-5 text-slate-500">

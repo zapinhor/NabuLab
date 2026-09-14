@@ -237,9 +237,9 @@ export async function getExamHistory(): Promise<
  * =========================================================
  */
 
-export async function getExamHistoryOverview(): Promise<ExamHistoryOverview> {
-  const exams =
-    await getExamHistory();
+export async function getExamHistoryOverview(limit: number | null = null): Promise<ExamHistoryOverview> {
+  const completeHistory = await getExamHistory();
+  const exams = limit === null ? completeHistory : completeHistory.slice(0, limit);
 
   const totalExams =
     exams.length;

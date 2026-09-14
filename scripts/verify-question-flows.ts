@@ -3,6 +3,7 @@ import {
   generateExamQuestions,
   getAvailableQuestions,
 } from "../src/lib/question-selector";
+import { PREMIUM_ENTITLEMENTS } from "../src/lib/entitlements";
 
 import type {
   ExamDifficulty,
@@ -34,8 +35,8 @@ for (const subject of subjects) {
         shuffleQuestions: false,
         shuffleAlternatives: false,
       };
-      const available = getAvailableQuestions(config);
-      const selected = generateExamQuestions(config);
+      const available = getAvailableQuestions(config, PREMIUM_ENTITLEMENTS);
+      const selected = generateExamQuestions(config, PREMIUM_ENTITLEMENTS);
 
       if (available.length === 0) {
         throw new Error(

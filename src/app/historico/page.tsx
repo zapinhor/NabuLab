@@ -43,6 +43,8 @@ import type {
 import type {
   SubjectId,
 } from "@/types/question";
+import { getStudentEntitlements } from "@/lib/entitlements";
+import { useStudentAccount } from "@/lib/use-student-account";
 
 /*
  * =========================================================
@@ -388,6 +390,8 @@ function DifferenceValue({
  */
 
 export default function HistoryPage() {
+  const { account, loading: accountLoading } = useStudentAccount();
+  const entitlements = getStudentEntitlements(account?.subscription ?? null);
   const [
     data,
     setData,
@@ -439,7 +443,7 @@ export default function HistoryPage() {
 
         try {
           const history =
-            await getExamHistoryOverview();
+            await getExamHistoryOverview(entitlements.historyLimit);
 
           setData(
             history
@@ -467,12 +471,13 @@ export default function HistoryPage() {
           );
         }
       },
-      []
+      [entitlements.historyLimit]
     );
 
   useEffect(() => {
-    void loadHistory();
+    if (!accountLoading) void loadHistory();
   }, [
+    accountLoading,
     loadHistory,
   ]);
 

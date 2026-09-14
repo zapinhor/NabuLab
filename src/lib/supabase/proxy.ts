@@ -1,6 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { getSupabaseConfig } from "@/lib/supabase/config";
+import {
+  hasActivePremium,
+  isPremiumFeatureRoute,
+  subscriptionFromRow,
+} from "@/lib/entitlements";
 
 export async function updateSession(request: NextRequest) {
   const publicPaths = ["/login", "/entrar", "/cadastro", "/auth/confirm"];
@@ -55,6 +60,53 @@ export async function updateSession(request: NextRequest) {
       redirectResponse.cookies.set(cookie.name, cookie.value, cookie),
     );
     return redirectResponse;
+  }
+
+  const isPremiumPath = isPremiumFeatureRoute(request.nextUrl.pathname);
+
+  if (isAuthenticated && isPremiumPath) {
+    const { data: subscription, error } = await supabase
+      .from("subscriptions")
+      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+      .eq("user_id", String(data?.claims?.sub))
+      .maybeSingle();
+
+    if (error) console.error("[entitlements] Não foi possível verificar a assinatura:", error.message);
+
+    if (!hasActivePremium(subscriptionFromRow(subscription))) {
+      const profileUrl = new URL("/perfil", request.url);
+      profileUrl.searchParams.set("premium", "required");
+      profileUrl.searchParams.set("feature", request.nextUrl.pathname.slice(1));
+      const redirectResponse = NextResponse.redirect(profileUrl);
+      response.cookies.getAll().forEach((cookie) =>
+        redirectResponse.cookies.set(cookie.name, cookie.value, cookie),
+      );
+      return redirectResponse;
+    }
+  }
+
+  const historyMatch = request.nextUrl.pathname.match(/^\/historico\/([^/]+)$/);
+  if (isAuthenticated && historyMatch) {
+    const userId = String(data?.claims?.sub);
+    const { data: subscription } = await supabase
+      .from("subscriptions")
+      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+      .eq("user_id", userId)
+      .maybeSingle();
+
+    if (!hasActivePremium(subscriptionFromRow(subscription))) {
+      const { data: recentAttempts, error } = await supabase
+        .from("exam_attempts")
+        .select("id")
+        .eq("user_id", userId)
+        .order("submitted_at", { ascending: false })
+        .limit(3);
+      const requestedId = decodeURIComponent(historyMatch[1]);
+
+      if (error || !recentAttempts?.some((attempt) => attempt.id === requestedId)) {
+        return NextResponse.redirect(new URL("/historico?limit=free", request.url));
+      }
+    }
   }
 
   return response;
