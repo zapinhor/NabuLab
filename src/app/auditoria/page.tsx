@@ -150,7 +150,7 @@ export default function AuditPage() {
           />
 
           <Link
-            href="/"
+            href="/dashboard"
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
@@ -960,7 +960,7 @@ export default function AuditPage() {
 
         <div className="mt-8 flex flex-col gap-3 border-t border-slate-200 pt-7 sm:flex-row sm:justify-between">
           <Link
-            href="/"
+            href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
             ← Voltar ao painel

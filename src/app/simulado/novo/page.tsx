@@ -525,7 +525,7 @@ export default function NewExamPage() {
           <NabuLabBrand subtitle="Criador de simulados" />
 
           <Link
-            href="/"
+            href="/dashboard"
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:px-4 sm:text-sm"
           >
             <span className="sm:hidden">

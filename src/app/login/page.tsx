@@ -5,9 +5,9 @@ import { AuthCard, buttonClass, inputClass } from "@/components/commercial/auth-
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ mensagem?: string }>;
+  searchParams: Promise<{ mensagem?: string; next?: string }>;
 }) {
-  const { mensagem } = await searchParams;
+  const { mensagem, next } = await searchParams;
   return (
     <AuthCard
       title="Entrar no NabuLab"
@@ -15,6 +15,7 @@ export default async function LoginPage({
       message={mensagem}
     >
       <form action={signIn} className="space-y-4">
+        <input type="hidden" name="next" value={next ?? "/dashboard"} />
         <label className="block text-sm font-semibold text-slate-700">
           E-mail
           <input className={inputClass} type="email" name="email" autoComplete="email" required />
@@ -26,7 +27,7 @@ export default async function LoginPage({
         <button className={buttonClass} type="submit">Entrar</button>
       </form>
       <p className="mt-5 text-center text-sm text-slate-600">
-        Ainda não tem conta? <Link className="font-bold text-blue-700" href="/cadastro">Cadastre-se</Link>
+        Ainda não tem conta? <Link className="font-bold text-blue-700" href={`/cadastro?next=${encodeURIComponent(next ?? "/dashboard")}`}>Cadastre-se</Link>
       </p>
     </AuthCard>
   );

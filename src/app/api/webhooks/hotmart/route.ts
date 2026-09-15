@@ -1,6 +1,7 @@
 import { getHotmartConfig } from "@/lib/billing/config";
 import { validateHotmartWebhookRequest } from "@/lib/billing/hotmart-request";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 
 export const runtime = "nodejs";
 
@@ -73,6 +74,20 @@ export async function POST(request: Request) {
     if (error) throw error;
 
     const result = Array.isArray(data) ? data[0]?.result : data?.result;
+    const resolvedUserId = Array.isArray(data) ? data[0]?.resolved_user_id : data?.resolved_user_id;
+    if (result === "processed" && resolvedUserId) {
+      if (event.eventType === "PURCHASE_APPROVED" || event.eventType === "PURCHASE_COMPLETE") {
+        await recordAuthenticatedAnalyticsEvent("purchase_approved", resolvedUserId, {
+          properties: { tier: priceTier ?? "unmapped" },
+          sourceEventKey: `hotmart:purchase:${event.transactionId ?? event.providerSubscriptionId ?? event.eventId}`,
+        });
+      } else if (event.eventType === "SUBSCRIPTION_CANCELLATION") {
+        await recordAuthenticatedAnalyticsEvent("subscription_canceled", resolvedUserId, {
+          properties: { provider: "hotmart" },
+          sourceEventKey: `hotmart:${event.eventId}:cancellation`,
+        });
+      }
+    }
     return Response.json(
       { received: true, result: result ?? "processed" },
       { status: result === "conflict" || result === "unmatched" ? 202 : 200 },

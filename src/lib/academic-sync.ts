@@ -321,6 +321,19 @@ export async function pushCompletedExamToCloud(exam: StoredExam, answers: Stored
   const { userId } = await getAuthenticatedUserId();
   await upsertInChunks("exam_attempts", [attemptToRow(userId, exam)]);
   await upsertInChunks("exam_answers", answers.map((answer) => answerToRow(userId, answer)));
+  try {
+    await fetch("/api/analytics/events", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        event: "free_exam_completed",
+        path: "/simulado/resultado",
+        properties: { exam_id: exam.id, questions: exam.totalQuestions },
+      }),
+    });
+  } catch {
+    // Analytics never blocks academic persistence.
+  }
 }
 
 export async function syncAcademicData(): Promise<AcademicSyncSummary> {

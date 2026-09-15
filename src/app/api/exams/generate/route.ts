@@ -8,6 +8,7 @@ import {
 import { createExamSession, createExamSessionFromQuestionIds } from "@/lib/quiz-engine";
 import type { ExamConfig, ExamMode } from "@/types/exam";
 import type { ExamSession } from "@/types/exam";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 
 type GenerateRequest =
   | { kind: "manual"; config: ExamConfig }
@@ -32,8 +33,13 @@ function quotaReachedResponse(dailyLimit: number) {
   );
 }
 
-async function finishGeneration(session: ExamSession) {
+async function finishGeneration(session: ExamSession, userId: string, isPremium: boolean) {
   const quota = await consumeDailyExamQuota();
+  if (quota.allowed && !isPremium) {
+    await recordAuthenticatedAnalyticsEvent("free_exam_started", userId, {
+      properties: { mode: session.mode, questions: session.questionIds.length },
+    });
+  }
   return quota.allowed
     ? NextResponse.json({ session, quota })
     : quotaReachedResponse(quota.limit ?? 0);
@@ -52,13 +58,14 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { entitlements } = await getCurrentStudentAccess();
+    const { entitlements, userId } = await getCurrentStudentAccess();
+    const isPremium = entitlements.examsPerDay === null;
     const body = (await request.json()) as Partial<GenerateRequest>;
 
     if (body.kind === "manual" && body.config) {
       const session = createExamSession(body.config, entitlements);
       return session
-        ? finishGeneration(session)
+        ? finishGeneration(session, userId, isPremium)
         : NextResponse.json({ error: "Não há questões disponíveis para essa configuração." }, { status: 422 });
     }
 
@@ -82,7 +89,7 @@ export async function POST(request: Request) {
         entitlements,
       );
       return session
-        ? finishGeneration(session)
+        ? finishGeneration(session, userId, isPremium)
         : NextResponse.json({ error: "Não há questões acessíveis para iniciar este simulado." }, { status: 422 });
     }
 

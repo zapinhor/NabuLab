@@ -1,6 +1,7 @@
-import { getConfiguredCheckout, type BillingPriceTier } from "@/lib/billing/config";
+import { getConfiguredCheckout, getHotmartConfig, type BillingPriceTier } from "@/lib/billing/config";
 import { prepareBillingIdentity } from "@/lib/billing/server";
 import { createClient } from "@/lib/supabase/server";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 
 function isTier(value: unknown): value is BillingPriceTier {
   return value === "founder_477" || value === "standard_990";
@@ -23,6 +24,9 @@ export async function POST(request: Request) {
   if (!isTier(tier)) {
     return Response.json({ error: "Plano inválido." }, { status: 400 });
   }
+  if (tier !== getHotmartConfig().currentOffer.tier) {
+    return Response.json({ error: "Esta oferta não está disponível no momento." }, { status: 409 });
+  }
 
   const checkoutUrl = getConfiguredCheckout(tier);
   if (!checkoutUrl) {
@@ -34,6 +38,10 @@ export async function POST(request: Request) {
 
   try {
     await prepareBillingIdentity(data.user.id, data.user.email);
+    await recordAuthenticatedAnalyticsEvent("checkout_started", data.user.id, {
+      path: "/premium",
+      properties: { tier },
+    });
     return Response.json({
       checkoutUrl,
       notice: "Use no checkout o mesmo e-mail da sua conta NabuLab.",

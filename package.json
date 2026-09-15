@@ -12,6 +12,8 @@
     "test:entitlements": "node --import tsx scripts/test-entitlements.ts",
     "test:quota": "node --import tsx scripts/test-daily-exam-quota.ts",
     "test:hotmart": "node --import tsx scripts/test-hotmart-webhook.ts",
+    "test:c3": "node --import tsx scripts/test-c3.ts",
+    "test:premium-offer": "node --import tsx scripts/test-premium-offer.ts",
     "start": "next start",
     "lint": "eslint"
   },

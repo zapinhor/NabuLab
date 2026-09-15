@@ -652,7 +652,7 @@ export default function ExamResultPage() {
           <NabuLabBrand subtitle="Resultado da prova" />
 
           <Link
-            href="/"
+            href="/dashboard"
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:px-4 sm:text-sm"
           >
             <span className="sm:hidden">
@@ -1275,7 +1275,7 @@ export default function ExamResultPage() {
           </Link>
 
           <Link
-            href="/"
+            href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-6 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
             Voltar ao painel

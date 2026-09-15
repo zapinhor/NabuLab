@@ -104,7 +104,7 @@ export default async function CommercialPage({
             NEXT_PUBLIC_SUPABASE_URL=...{`\n`}
             NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
           </pre>
-          <Link href="/" className={`${secondaryButton} mt-5 inline-block`}>
+          <Link href="/dashboard" className={`${secondaryButton} mt-5 inline-block`}>
             Voltar à demo
           </Link>
         </Section>
@@ -234,7 +234,7 @@ export default async function CommercialPage({
     <div className="min-h-screen bg-[#F5F7FB]">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/dashboard" className="flex items-center gap-3">
             <Image
               src="/branding/icone-app.png"
               alt=""
@@ -248,7 +248,7 @@ export default async function CommercialPage({
             </div>
           </Link>
           <div className="flex items-center gap-3">
-            <Link href="/" className={secondaryButton}>
+            <Link href="/dashboard" className={secondaryButton}>
               Simulados
             </Link>
             <span className="hidden text-sm text-slate-600 sm:inline">

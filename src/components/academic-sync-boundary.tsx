@@ -4,19 +4,12 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { syncAcademicData } from "@/lib/academic-sync";
 import { academicSyncAuthRedirect } from "@/lib/academic-sync-error";
-
-const PUBLIC_PATHS = ["/login", "/entrar", "/cadastro", "/auth"];
-
-function isPublicPath(pathname: string) {
-  return PUBLIC_PATHS.some(
-    (path) => pathname === path || pathname.startsWith(`${path}/`),
-  );
-}
+import { isPublicAppPath } from "@/lib/routing";
 
 export function AcademicSyncBoundary({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
-  if (isPublicPath(pathname)) return children;
+  if (isPublicAppPath(pathname)) return children;
 
   return <ProtectedAcademicSync>{children}</ProtectedAcademicSync>;
 }

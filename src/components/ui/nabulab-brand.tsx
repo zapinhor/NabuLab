@@ -3,15 +3,17 @@ import Link from "next/link";
 
 interface NabuLabBrandProps {
   subtitle?: string;
+  href?: string;
 }
 
 export default function NabuLabBrand({
   subtitle = "Plataforma educacional",
+  href = "/",
 }: NabuLabBrandProps) {
   return (
     <Link
-      href="/"
-      aria-label="NabuLab — voltar ao painel"
+      href={href}
+      aria-label={href === "/dashboard" ? "NabuLab — voltar ao painel" : "NabuLab — início"}
       className="flex min-w-0 items-center gap-3"
     >
       <Image

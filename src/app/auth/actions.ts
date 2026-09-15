@@ -3,6 +3,8 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import { safeNextPath } from "@/lib/routing";
 
 function value(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -30,7 +32,8 @@ export async function signIn(formData: FormData) {
     authRedirect("/login", "Não foi possível validar a sessão criada.");
   }
 
-  redirect("/");
+  await recordAuthenticatedAnalyticsEvent("login_completed", data.user.id);
+  redirect(safeNextPath(value(formData, "next")));
 }
 
 export async function signUp(formData: FormData) {
@@ -38,25 +41,27 @@ export async function signUp(formData: FormData) {
   const password = value(formData, "password");
   const fullName = value(formData, "full_name");
   const username = value(formData, "username").toLowerCase();
+  const next = safeNextPath(value(formData, "next"));
   const origin = (await headers()).get("origin") ?? "http://localhost:3000";
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      emailRedirectTo: `${origin}/auth/confirm`,
+      emailRedirectTo: `${origin}/auth/confirm?next=${encodeURIComponent(next)}`,
       data: { full_name: fullName, username },
     },
   });
   if (error) authRedirect("/cadastro", error.message);
   if (!data.session) {
-    authRedirect("/login", "Confira seu e-mail para confirmar o cadastro.");
+    redirect(`/login?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent("Confira seu e-mail para confirmar o cadastro.")}`);
   }
-  redirect("/");
+  await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
+  redirect(next);
 }
 
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
-  redirect("/login");
+  redirect("/");
 }

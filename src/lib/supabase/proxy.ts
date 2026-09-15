@@ -6,20 +6,9 @@ import {
   isPremiumFeatureRoute,
   subscriptionFromRow,
 } from "@/lib/entitlements";
+import { isPublicAppPath, safeNextPath } from "@/lib/routing";
 
-const PUBLIC_PATHS = [
-  "/login",
-  "/entrar",
-  "/cadastro",
-  "/auth/confirm",
-  "/api/webhooks/hotmart",
-];
-
-export function isPublicAppPath(pathname: string) {
-  return PUBLIC_PATHS.some(
-    (path) => pathname === path || pathname.startsWith(`${path}/`),
-  );
-}
+export { isPublicAppPath } from "@/lib/routing";
 
 export async function updateSession(request: NextRequest) {
   const isPublicPath = isPublicAppPath(request.nextUrl.pathname);
@@ -66,7 +55,9 @@ export async function updateSession(request: NextRequest) {
   }
 
   if (isAuthenticated && ["/login", "/entrar", "/cadastro"].includes(request.nextUrl.pathname)) {
-    const redirectResponse = NextResponse.redirect(new URL("/", request.url));
+    const redirectResponse = NextResponse.redirect(
+      new URL(safeNextPath(request.nextUrl.searchParams.get("next")), request.url),
+    );
     response.cookies.getAll().forEach((cookie) =>
       redirectResponse.cookies.set(cookie.name, cookie.value, cookie),
     );

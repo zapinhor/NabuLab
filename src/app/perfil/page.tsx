@@ -75,7 +75,7 @@ export default async function ProfilePage({
         <header className="flex items-center justify-between gap-4">
           <NabuLabBrand subtitle="Conta do estudante" />
           <Link
-            href="/"
+            href="/dashboard"
             className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50"
           >
             Voltar ao painel

@@ -94,7 +94,7 @@ export default function StudentAccountMenu({
           </div>
         </div>
         <Link
-          href="/login?next=%2F"
+          href="/login?next=%2Fdashboard"
           onClick={onNavigate}
           className={`mt-3 flex min-h-9 items-center justify-center rounded-lg px-3 text-xs font-bold transition ${
             dark

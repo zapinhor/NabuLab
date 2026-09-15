@@ -1,9 +1,12 @@
 import "server-only";
+import { selectCurrentOffer } from "@/lib/billing/offer";
 
 export type BillingPriceTier = "founder_477" | "standard_990";
 
-type BillingPlanConfig = {
+export type BillingPlanConfig = {
   tier: BillingPriceTier;
+  name: "Founder" | "Standard";
+  displayPrice: string;
   providerPlanId: string | null;
   checkoutUrl: string | null;
   available: boolean;
@@ -23,6 +26,8 @@ export function getHotmartConfig() {
   const plans: Record<BillingPriceTier, BillingPlanConfig> = {
     founder_477: {
       tier: "founder_477",
+      name: "Founder",
+      displayPrice: "R$ 4,77",
       providerPlanId: founderPlanId,
       checkoutUrl: founderCheckoutUrl,
       available:
@@ -31,16 +36,21 @@ export function getHotmartConfig() {
     },
     standard_990: {
       tier: "standard_990",
+      name: "Standard",
+      displayPrice: "R$ 9,90",
       providerPlanId: standardPlanId,
       checkoutUrl: standardCheckoutUrl,
       available: Boolean(standardPlanId && standardCheckoutUrl),
     },
   };
 
+  const currentOffer = selectCurrentOffer(plans);
+
   return {
     hottok: optional("HOTMART_HOTTOK"),
     productId: optional("HOTMART_PRODUCT_ID"),
     plans,
+    currentOffer,
   };
 }
 

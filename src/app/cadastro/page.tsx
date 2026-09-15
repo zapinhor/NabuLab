@@ -2,11 +2,12 @@ import Link from "next/link";
 import { signUp } from "@/app/auth/actions";
 import { AuthCard, buttonClass, inputClass } from "@/components/commercial/auth-card";
 
-export default async function SignupPage({ searchParams }: { searchParams: Promise<{ mensagem?: string }> }) {
-  const { mensagem } = await searchParams;
+export default async function SignupPage({ searchParams }: { searchParams: Promise<{ mensagem?: string; next?: string }> }) {
+  const { mensagem, next } = await searchParams;
   return (
     <AuthCard title="Criar sua conta" description="Sua conta é pessoal e pode participar de diferentes instituições e turmas." message={mensagem}>
       <form action={signUp} className="space-y-4">
+        <input type="hidden" name="next" value={next ?? "/dashboard"} />
         <label className="block text-sm font-semibold text-slate-700">Nome completo
           <input className={inputClass} name="full_name" autoComplete="name" required minLength={2} />
         </label>
@@ -21,7 +22,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
         </label>
         <button className={buttonClass} type="submit">Criar conta</button>
       </form>
-      <p className="mt-5 text-center text-sm text-slate-600">Já tem conta? <Link className="font-bold text-blue-700" href="/login">Entrar</Link></p>
+      <p className="mt-5 text-center text-sm text-slate-600">Já tem conta? <Link className="font-bold text-blue-700" href={`/login?next=${encodeURIComponent(next ?? "/dashboard")}`}>Entrar</Link></p>
     </AuthCard>
   );
 }
