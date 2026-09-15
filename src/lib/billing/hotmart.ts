@@ -142,6 +142,7 @@ export function parseHotmartEvent(payload: unknown): ParsedHotmartEvent {
     toIso(path(data, ["purchase", "approved_date"])) ??
     toIso(path(data, ["subscription", "accession_date"]));
   const currentPeriodEnd =
+    toIso(path(data, ["purchase", "date_next_charge"])) ??
     toIso(path(data, ["subscription", "date_next_charge"])) ??
     toIso(path(data, ["date_next_charge"]));
 

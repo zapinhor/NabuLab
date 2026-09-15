@@ -78,7 +78,7 @@ export async function updateSession(request: NextRequest) {
   if (isAuthenticated && isPremiumPath) {
     const { data: subscription, error } = await supabase
       .from("subscriptions")
-      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end,cancel_at_period_end,canceled_at,termination_reason")
       .eq("user_id", String(data?.claims?.sub))
       .maybeSingle();
 
@@ -101,7 +101,7 @@ export async function updateSession(request: NextRequest) {
     const userId = String(data?.claims?.sub);
     const { data: subscription } = await supabase
       .from("subscriptions")
-      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end,cancel_at_period_end,canceled_at,termination_reason")
       .eq("user_id", userId)
       .maybeSingle();
 

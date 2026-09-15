@@ -2,7 +2,7 @@ begin;
 
 create extension if not exists pgtap with schema extensions;
 set search_path = public, extensions;
-select plan(14);
+select plan(21);
 
 select ok(
   (select relrowsecurity from pg_class where oid = 'public.billing_customers'::regclass),
@@ -81,6 +81,20 @@ select is(
   'processed',
   'cancelamento novo é processado'
 );
+select ok(
+  (select cancel_at_period_end from public.subscriptions where user_id = '35000000-0000-0000-0000-000000000005'),
+  'cancelamento agenda o fim do acesso'
+);
+select is(
+  (select termination_reason from public.subscriptions where user_id = '35000000-0000-0000-0000-000000000005'),
+  'subscription_cancellation',
+  'motivo do cancelamento é preservado'
+);
+select is(
+  (select current_period_end::text from public.subscriptions where user_id = '35000000-0000-0000-0000-000000000005'),
+  '2030-02-01 00:00:00+00',
+  'cancelamento preserva o fim do período pago'
+);
 select is(
   (select result from public.process_hotmart_webhook_event(
     'hotmart-event-3', 'PURCHASE_APPROVED', '7654321', '2030-02-01T00:00:00Z',
@@ -94,6 +108,34 @@ select is(
   (select status from public.subscriptions where user_id = '35000000-0000-0000-0000-000000000005'),
   'canceled',
   'estado mais novo permanece cancelado'
+);
+select is(
+  (select result from public.process_hotmart_webhook_event(
+    'hotmart-event-4', 'PURCHASE_APPROVED', '7654321', '2030-04-01T00:00:00Z',
+    'transaction-4', 'subscription-1', 'customer-1', 'billing-a@example.test',
+    'founder_477', 'active', '2030-04-01T00:00:00Z', '2030-05-01T00:00:00Z', '{}'::jsonb
+  )),
+  'processed',
+  'renovação posterior reativa assinatura'
+);
+select ok(
+  (select status = 'active' and not cancel_at_period_end and canceled_at is null and termination_reason is null
+   from public.subscriptions where user_id = '35000000-0000-0000-0000-000000000005'),
+  'renovação limpa os marcadores de cancelamento'
+);
+select is(
+  (select result from public.process_hotmart_webhook_event(
+    'hotmart-event-old-cancel', 'SUBSCRIPTION_CANCELLATION', '7654321', '2030-03-15T00:00:00Z',
+    'transaction-old-cancel', 'subscription-1', 'customer-1', 'billing-a@example.test',
+    'founder_477', 'canceled', null, null, '{}'::jsonb
+  )),
+  'stale',
+  'cancelamento antigo não vence renovação mais nova'
+);
+select is(
+  (select status from public.subscriptions where user_id = '35000000-0000-0000-0000-000000000005'),
+  'active',
+  'Premium permanece ativo após cancelamento antigo'
 );
 select is(
   (select result from public.process_hotmart_webhook_event(

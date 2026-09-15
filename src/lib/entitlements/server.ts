@@ -22,7 +22,7 @@ export async function getCurrentStudentAccess(): Promise<{
 
   const { data, error } = await supabase
     .from("subscriptions")
-    .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+    .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end,cancel_at_period_end,canceled_at,termination_reason")
     .eq("user_id", userData.user.id)
     .maybeSingle();
 

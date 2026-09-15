@@ -25,18 +25,35 @@ export default async function ProfilePage({
       .maybeSingle(),
     supabase
       .from("subscriptions")
-      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end")
+      .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end,cancel_at_period_end,canceled_at,termination_reason")
       .eq("user_id", userData.user.id)
       .maybeSingle(),
   ]);
   const profile = profileResult.data;
   const subscription = subscriptionFromRow(subscriptionResult.data);
   const premium = hasActivePremium(subscription);
+  const paidCancellationAccess = Boolean(
+    premium &&
+      subscription?.status === "canceled" &&
+      subscription.cancelAtPeriodEnd &&
+      subscription.currentPeriodEnd,
+  );
+  const accessUntil = paidCancellationAccess && subscription?.currentPeriodEnd
+    ? new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo" }).format(
+        new Date(subscription.currentPeriodEnd),
+      )
+    : null;
   const subscriptionStatus = subscription?.status
     ? {
         active: "Ativa",
         past_due: "Pagamento atrasado",
-        canceled: "Cancelada",
+        canceled: paidCancellationAccess
+          ? "Cancelamento solicitado"
+          : subscription.terminationReason === "refund"
+            ? "Reembolsada"
+            : subscription.terminationReason === "chargeback"
+              ? "Pagamento contestado"
+              : "Encerrada",
         expired: "Expirada",
       }[subscription.status]
     : null;
@@ -117,6 +134,12 @@ export default async function ProfilePage({
                     ? "Acesso completo ao banco, simulados e análises avançadas."
                     : "Acesso às 17 matérias, simulados de até 15 questões e sincronização na nuvem."}
                 </p>
+                {paidCancellationAccess && accessUntil && (
+                  <div className="mt-3 rounded-xl border border-amber-200 bg-white/70 p-3 text-sm text-amber-950">
+                    <p>Seu Premium permanece disponível até <strong>{accessUntil}</strong>.</p>
+                    <p className="mt-1">Não haverá nova renovação automática.</p>
+                  </div>
+                )}
               </div>
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
@@ -139,6 +162,23 @@ export default async function ProfilePage({
                 <p className="mt-2 break-all font-semibold text-slate-900">{email}</p>
               </div>
             </div>
+
+            {subscription?.provider === "hotmart" && (
+              <div className="rounded-2xl border border-slate-200 p-4">
+                <p className="font-bold text-slate-900">Gerenciar assinatura</p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">
+                  Pagamentos, renovação e cancelamento são gerenciados pela Hotmart.
+                </p>
+                <a
+                  href="https://consumer.hotmart.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex rounded-xl bg-[var(--nabu-blue-dark)] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-blue-900"
+                >
+                  Gerenciar assinatura
+                </a>
+              </div>
+            )}
 
             <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900">
               <span aria-hidden="true" className="mt-0.5">☁️</span>

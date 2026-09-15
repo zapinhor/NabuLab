@@ -3,6 +3,7 @@ import type { Question } from "@/types/question";
 
 export type StudentPlan = "free" | "premium";
 export type SubscriptionStatus = "active" | "canceled" | "past_due" | "expired";
+export type SubscriptionTerminationReason = "subscription_cancellation" | "refund" | "chargeback" | null;
 export type PriceTier = "founder_477" | "standard_990" | null;
 export type SubscriptionProvider = "manual" | "hotmart" | null;
 
@@ -15,6 +16,9 @@ export interface StudentSubscription {
   provider: SubscriptionProvider;
   currentPeriodStart: string | null;
   currentPeriodEnd: string | null;
+  cancelAtPeriodEnd: boolean;
+  canceledAt: string | null;
+  terminationReason: SubscriptionTerminationReason;
 }
 
 export interface StudentEntitlements {
@@ -111,8 +115,22 @@ export function isPremiumFeatureRoute(pathname: string): boolean {
   );
 }
 
-export function hasActivePremium(subscription: StudentSubscription | null): boolean {
-  return subscription?.plan === "premium" && subscription.status === "active";
+export function hasActivePremium(
+  subscription: StudentSubscription | null,
+  now = new Date(),
+): boolean {
+  if (subscription?.plan !== "premium") return false;
+  if (subscription.status === "active") return true;
+  if (
+    subscription.status === "canceled" &&
+    subscription.cancelAtPeriodEnd &&
+    subscription.terminationReason === "subscription_cancellation" &&
+    subscription.currentPeriodEnd
+  ) {
+    const accessUntil = new Date(subscription.currentPeriodEnd);
+    return !Number.isNaN(accessUntil.getTime()) && now.getTime() < accessUntil.getTime();
+  }
+  return false;
 }
 
 export function getStudentEntitlements(
@@ -170,5 +188,12 @@ export function subscriptionFromRow(row: Record<string, unknown> | null): Studen
     provider: row.provider === "manual" || row.provider === "hotmart" ? row.provider : null,
     currentPeriodStart: typeof row.current_period_start === "string" ? row.current_period_start : null,
     currentPeriodEnd: typeof row.current_period_end === "string" ? row.current_period_end : null,
+    cancelAtPeriodEnd: row.cancel_at_period_end === true,
+    canceledAt: typeof row.canceled_at === "string" ? row.canceled_at : null,
+    terminationReason: ["subscription_cancellation", "refund", "chargeback"].includes(
+      String(row.termination_reason),
+    )
+      ? (row.termination_reason as SubscriptionTerminationReason)
+      : null,
   };
 }

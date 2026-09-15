@@ -166,6 +166,16 @@ assert.equal(tier(realSwitchPlan), "standard_990");
 const founderApproved = parseHotmartEvent(
   fixture("PURCHASE_APPROVED", { id: "founder-approved", offer: FOUNDER_OFFER }),
 );
+const purchaseWithOfficialRenewalDate = fixture("PURCHASE_APPROVED", {
+  id: "approved-with-renewal-date",
+});
+Object.assign(purchaseWithOfficialRenewalDate.data.purchase, {
+  date_next_charge: 1_802_678_400_000,
+});
+assert.equal(
+  parseHotmartEvent(purchaseWithOfficialRenewalDate).currentPeriodEnd,
+  new Date(1_802_678_400_000).toISOString(),
+);
 const standardApproved = parseHotmartEvent(
   fixture("PURCHASE_APPROVED", { id: "standard-approved", offer: STANDARD_OFFER }),
 );

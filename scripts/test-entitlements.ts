@@ -7,6 +7,7 @@ import {
   PREMIUM_FEATURE_ROUTES,
   filterAccessibleQuestions,
   getStudentEntitlements,
+  hasActivePremium,
   isPremiumFeatureRoute,
   type StudentSubscription,
 } from "../src/lib/entitlements";
@@ -16,6 +17,7 @@ import type { ExamConfig } from "../src/types/exam";
 function subscription(
   status: StudentSubscription["status"],
   priceTier: StudentSubscription["priceTier"],
+  overrides: Partial<StudentSubscription> = {},
 ): StudentSubscription {
   return {
     id: "subscription-test",
@@ -26,6 +28,10 @@ function subscription(
     provider: "manual",
     currentPeriodStart: null,
     currentPeriodEnd: null,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    terminationReason: null,
+    ...overrides,
   };
 }
 
@@ -40,6 +46,9 @@ assert.equal(
     provider: null,
     currentPeriodStart: null,
     currentPeriodEnd: null,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    terminationReason: null,
   }),
   FREE_ENTITLEMENTS,
   "uma linha explicitamente Free deve manter os limites Free",
@@ -47,6 +56,58 @@ assert.equal(
 assert.equal(getStudentEntitlements(subscription("active", "founder_477")), PREMIUM_ENTITLEMENTS);
 assert.equal(getStudentEntitlements(subscription("active", "standard_990")), PREMIUM_ENTITLEMENTS);
 assert.equal(getStudentEntitlements(subscription("canceled", "standard_990")), FREE_ENTITLEMENTS);
+const entitlementNow = new Date("2026-09-20T12:00:00Z");
+assert.equal(
+  hasActivePremium(
+    subscription("canceled", "founder_477", {
+      cancelAtPeriodEnd: true,
+      terminationReason: "subscription_cancellation",
+      currentPeriodEnd: "2026-10-14T03:00:00Z",
+    }),
+    entitlementNow,
+  ),
+  true,
+  "cancelamento mantém Premium durante o período oficialmente pago",
+);
+for (const currentPeriodEnd of ["2026-09-20T12:00:00Z", "2026-09-19T12:00:00Z"]) {
+  assert.equal(
+    hasActivePremium(
+      subscription("canceled", "standard_990", {
+        cancelAtPeriodEnd: true,
+        terminationReason: "subscription_cancellation",
+        currentPeriodEnd,
+      }),
+      entitlementNow,
+    ),
+    false,
+    "período encerrado não mantém Premium",
+  );
+}
+assert.equal(
+  hasActivePremium(
+    subscription("canceled", "founder_477", {
+      cancelAtPeriodEnd: true,
+      terminationReason: "subscription_cancellation",
+    }),
+    entitlementNow,
+  ),
+  false,
+  "cancelamento sem data confiável usa o comportamento seguro Free",
+);
+for (const terminationReason of ["refund", "chargeback"] as const) {
+  assert.equal(
+    hasActivePremium(
+      subscription("canceled", "founder_477", {
+        cancelAtPeriodEnd: false,
+        terminationReason,
+        currentPeriodEnd: "2026-10-14T03:00:00Z",
+      }),
+      entitlementNow,
+    ),
+    false,
+    `${terminationReason} encerra o acesso imediatamente`,
+  );
+}
 assert.equal(getStudentEntitlements(subscription("expired", "founder_477")), FREE_ENTITLEMENTS);
 assert.equal(getStudentEntitlements(subscription("past_due", "standard_990")), FREE_ENTITLEMENTS);
 assert.equal(FREE_ENTITLEMENTS.historyLimit, 3);
