@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { hotmartSalesEpochRange, tierForOffer } from "../src/lib/billing/hotmart-api-model";
+import { HOTMART_CLOCK_SKEW_MS, hotmartSalesEpochRange, tierForOffer } from "../src/lib/billing/hotmart-api-model";
 
 assert.equal(tierForOffer("v4h77zvh"), "founder_477");
 assert.equal(tierForOffer("7mqlgaln"), "standard_990");
@@ -8,8 +8,8 @@ assert.equal(tierForOffer("outra-oferta"), null);
 const duringToday = new Date("2026-09-16T03:13:00.000-03:00").getTime();
 assert.deepEqual(hotmartSalesEpochRange("2026-08-18", "2026-09-16", duringToday), {
   start: new Date("2026-08-18T00:00:00.000-03:00").getTime(),
-  end: duringToday,
-}, "período terminando hoje não pode enviar horário futuro");
+  end: duringToday - HOTMART_CLOCK_SKEW_MS,
+}, "período terminando hoje aplica margem contra diferença de relógio do provedor");
 assert.deepEqual(hotmartSalesEpochRange("2026-08-18", "2026-09-14", duringToday), {
   start: new Date("2026-08-18T00:00:00.000-03:00").getTime(),
   end: new Date("2026-09-14T23:59:59.999-03:00").getTime(),
@@ -27,6 +27,10 @@ assert.doesNotMatch(client, /salesParams\.append\("transaction_status"/, "não d
 assert.match(client, /salesGroups\.flat\(\)/);
 assert.match(client, /transactionMap\.set\(sale\.transaction, sale\)/, "transações devem ser deduplicadas pelo ID");
 assert.match(client, /\[hotmart-api\] sales status/);
+assert.match(client, /SalesQueryMode = "bounded" \| "start_only" \| "unbounded"/);
+assert.match(client, /isInvalidSalesParameter/);
+assert.match(client, /sales retry/);
+assert.match(client, /saleTime >= requestedStart && saleTime <= requestedEnd/, "fallback amplo deve ser filtrado localmente");
 assert.match(client, /hotmartSalesEpochRange\(from, to\)/);
 assert.doesNotMatch(client, /console\.(?:log|error|warn)\([^\n]*(?:clientSecret|basicToken|access_token)/, "segredos não podem ser registrados");
 console.log("Hotmart API mapping tests passed.");

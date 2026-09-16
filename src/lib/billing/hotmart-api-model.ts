@@ -10,6 +10,8 @@ export function tierForOffer(
   return null;
 }
 
+export const HOTMART_CLOCK_SKEW_MS = 5 * 60_000;
+
 export function hotmartSalesEpochRange(from: string, to: string, now = Date.now()) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(from) || !/^\d{4}-\d{2}-\d{2}$/.test(to)) throw new Error("HOTMART_INVALID_DATE_RANGE");
   for (const value of [from, to]) {
@@ -19,7 +21,7 @@ export function hotmartSalesEpochRange(from: string, to: string, now = Date.now(
   }
   const start = new Date(`${from}T00:00:00.000-03:00`).getTime();
   const selectedEnd = new Date(`${to}T23:59:59.999-03:00`).getTime();
-  const end = Math.min(selectedEnd, now);
+  const end = Math.min(selectedEnd, now - HOTMART_CLOCK_SKEW_MS);
   if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end) throw new Error("HOTMART_INVALID_DATE_RANGE");
   return { start, end };
 }

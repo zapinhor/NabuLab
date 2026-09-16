@@ -12,6 +12,7 @@ export type HotmartApiStep = "configuration" | "oauth" | "sales" | "subscription
 
 type JsonRecord = Record<string, unknown>;
 type Money = { value: number; currency: string };
+type SalesQueryMode = "bounded" | "start_only" | "unbounded";
 
 export type HotmartTransaction = { transaction: string; status: string; date: string; offerCode: string | null; tier: BillingPriceTier | null; gross: Money | null; producerCommission: Money | null; paymentType: string | null };
 export type HotmartSubscription = { subscriberCode: string; status: string; offerCode: string | null; tier: BillingPriceTier | null; price: Money | null; accessionDate: string | null; endDate: string | null; nextChargeDate: string | null; cancellationDate: string | null };
@@ -104,18 +105,42 @@ async function apiGet(path: string, params: URLSearchParams, step: HotmartApiSte
   }
   try { return record(await response.json()); } catch { throw new HotmartApiError("Resposta JSON da Hotmart inválida.", response.status, "invalid_response", null, path, step); }
 }
-async function allPages(path: string, baseParams: URLSearchParams, step: HotmartApiStep): Promise<unknown[]> {
+async function allPages(path: string, baseParams: URLSearchParams, step: HotmartApiStep, salesMode?: SalesQueryMode): Promise<unknown[]> {
   const items: unknown[] = []; let pageToken: string | null = null; const seen = new Set<string>();
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const params = new URLSearchParams(baseParams); params.set("max_results", "100"); if (pageToken) params.set("page_token", pageToken);
     const payload = await apiGet(path, params, step); items.push(...array(payload.items)); const next = string(at(payload, "page_info", "next_page_token"));
     if (!next) {
-      if (step === "sales") console.info("[hotmart-api] sales status", { status: baseParams.get("transaction_status"), httpStatus: 200, pages: page + 1, items: items.length });
+      if (step === "sales") console.info("[hotmart-api] sales status", { status: baseParams.get("transaction_status"), mode: salesMode ?? "bounded", httpStatus: 200, pages: page + 1, items: items.length });
       return items;
     }
     if (seen.has(next)) throw new HotmartApiError("A paginação da Hotmart retornou um cursor repetido.", 200, "invalid_response", null, path, step); seen.add(next); pageToken = next;
   }
   throw new HotmartApiError("A paginação da Hotmart excedeu o limite de segurança.", 200, "invalid_response", null, path, step);
+}
+function isInvalidSalesParameter(error: unknown) {
+  return error instanceof HotmartApiError && error.status === 400 && error.providerCode === "invalid_parameter";
+}
+function salesParamsForMode(base: URLSearchParams, mode: SalesQueryMode) {
+  const params = new URLSearchParams(base);
+  if (mode === "start_only" || mode === "unbounded") params.delete("end_date");
+  if (mode === "unbounded") params.delete("start_date");
+  return params;
+}
+async function salesPages(base: URLSearchParams, initialMode: SalesQueryMode) {
+  const modes: SalesQueryMode[] = ["bounded", "start_only", "unbounded"];
+  const startIndex = Math.max(0, modes.indexOf(initialMode));
+  for (let index = startIndex; index < modes.length; index += 1) {
+    const mode = modes[index];
+    try {
+      const items = await allPages("/payments/api/v1/sales/history", salesParamsForMode(base, mode), "sales", mode);
+      return { items, mode };
+    } catch (error) {
+      if (!isInvalidSalesParameter(error) || index === modes.length - 1) throw error;
+      console.warn("[hotmart-api] sales retry", { status: base.get("transaction_status"), rejectedMode: mode, nextMode: modes[index + 1] });
+    }
+  }
+  throw new HotmartApiError("A Sales API não aceitou os filtros documentados.", 400, "invalid_response", null, "/payments/api/v1/sales/history", "sales");
 }
 function productMatches(item: unknown, productId: string): boolean { return firstString(item, [["product", "id"], ["purchase", "product", "id"]]) === productId; }
 function parseSale(item: unknown): HotmartTransaction | null {
@@ -160,13 +185,23 @@ export async function getHotmartFinanceReport(from: string, to: string): Promise
   const founderCode = process.env.HOTMART_FOUNDER_PLAN_ID?.trim() ?? "v4h77zvh";
   const standardCode = process.env.HOTMART_STANDARD_PLAN_ID?.trim() ?? "7mqlgaln";
   const salesGroups: unknown[][] = [];
+  let salesMode: SalesQueryMode = "bounded";
+  const requestedRange = dateParams(productId, from, to);
+  const requestedStart = Number(requestedRange.get("start_date"));
+  const requestedEnd = Number(requestedRange.get("end_date"));
   for (const status of SALES_STATUSES) {
-    const params = dateParams(productId, from, to);
+    const params = new URLSearchParams(requestedRange);
     params.set("transaction_status", status);
-    salesGroups.push(await allPages("/payments/api/v1/sales/history", params, "sales"));
+    const result = await salesPages(params, salesMode);
+    salesMode = result.mode;
+    salesGroups.push(result.items);
   }
   const transactionMap = new Map<string, HotmartTransaction>();
-  for (const item of salesGroups.flat()) { if (!productMatches(item, productId)) continue; const sale = parseSale(item); if (sale) transactionMap.set(sale.transaction, sale); }
+  for (const item of salesGroups.flat()) {
+    if (!productMatches(item, productId)) continue;
+    const sale = parseSale(item); const saleTime = sale ? new Date(sale.date).getTime() : Number.NaN;
+    if (sale && saleTime >= requestedStart && saleTime <= requestedEnd) transactionMap.set(sale.transaction, sale);
+  }
   const transactions = [...transactionMap.values()].sort((a, b) => b.date.localeCompare(a.date));
   const subscriptionParams = new URLSearchParams({ product_id: productId, accession_date: "0", end_accession_date: String(Date.now()) });
   const [subscriptionItems, subscriptionSummaries] = await Promise.all([
