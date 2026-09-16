@@ -2,7 +2,7 @@ import { AdminShell, MetricCard } from "@/components/admin/admin-shell";
 import { FinanceReport } from "@/components/admin/finance-report";
 import { requirePlatformAdmin } from "@/lib/admin/auth";
 import { count } from "@/lib/admin/metrics";
-import { getHotmartFinanceReport, hotmartApiConfigured } from "@/lib/billing/hotmart-api";
+import { getHotmartFinanceReport, hotmartApiConfigured, logHotmartApiFailure } from "@/lib/billing/hotmart-api";
 
 type Search = { period?: string; from?: string; to?: string };
 function dates(search: Search) {
@@ -28,7 +28,7 @@ export default async function FinancePage({ searchParams }: { searchParams: Prom
     try { report = await getHotmartFinanceReport(from, to); }
     catch (error) {
       apiUnavailable = true;
-      if (process.env.NODE_ENV === "development") console.warn("[hotmart-api] finance unavailable", { code: error instanceof Error && "code" in error ? error.code : "unknown" });
+      logHotmartApiFailure(error);
     }
   }
   return <AdminShell title="Financeiro" description="Webhook para eventos em tempo real; API oficial Hotmart para reconciliação. Valores não são estimados.">

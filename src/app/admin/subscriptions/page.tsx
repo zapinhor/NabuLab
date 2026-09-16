@@ -1,6 +1,6 @@
 import { AdminShell, MetricCard } from "@/components/admin/admin-shell";
 import { requirePlatformAdmin } from "@/lib/admin/auth";
-import { getHotmartFinanceReport, hotmartApiConfigured } from "@/lib/billing/hotmart-api";
+import { getHotmartFinanceReport, hotmartApiConfigured, logHotmartApiFailure } from "@/lib/billing/hotmart-api";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export default async function SubscriptionsPage({ searchParams }: { searchParams: Promise<{ status?: string; tier?: string }> }) {
@@ -14,7 +14,7 @@ export default async function SubscriptionsPage({ searchParams }: { searchParams
   if (hotmartApiConfigured()) {
     const to = new Date().toISOString().slice(0, 10); const fromDate = new Date(); fromDate.setUTCDate(fromDate.getUTCDate() - 29);
     try { reconciliation = await getHotmartFinanceReport(fromDate.toISOString().slice(0, 10), to); }
-    catch (error) { if (process.env.NODE_ENV === "development") console.warn("[hotmart-api] subscriptions unavailable", { code: error instanceof Error && "code" in error ? error.code : "unknown" }); }
+    catch (error) { logHotmartApiFailure(error); }
   }
   return <AdminShell title="Assinaturas" description="Estado persistido pelo webhook com reconciliação somente leitura pela API Hotmart.">
     {reconciliation ? <section className="mb-5 grid gap-4 sm:grid-cols-4"><MetricCard label="Ativas na Hotmart" value={reconciliation.activeSubscriptions}/><MetricCard label="Founder" value={reconciliation.founderActive}/><MetricCard label="Standard" value={reconciliation.standardActive}/><MetricCard label="Canceladas" value={reconciliation.canceledSubscriptions}/></section> : <p className="mb-5 rounded-xl bg-amber-50 p-4 text-sm text-amber-900">API Hotmart indisponível; a lista persistida continua disponível.</p>}
