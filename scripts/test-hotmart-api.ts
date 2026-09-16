@@ -20,6 +20,7 @@ const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
 assert.match(client, /\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\(\)/, "credenciais devem remover whitespace externo");
 assert.match(client, /\/\^Basic\\s\+\/i\.test\(config\.basicToken\)/, "Basic já prefixado não pode virar Basic Basic");
 assert.match(client, /application\/x-www-form-urlencoded/, "OAuth client_credentials usa content type oficial");
+assert.match(client, /"Content-Type": "application\/json"/, "GETs da API devem seguir os cabeçalhos oficiais da Hotmart");
 assert.match(client, /\[hotmart-api\] failure/);
 assert.match(client, /sales query/);
 assert.match(client, /for \(const status of SALES_STATUSES\)/, "status de venda devem ser consultados separadamente");

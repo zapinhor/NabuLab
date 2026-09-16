@@ -96,8 +96,9 @@ async function accessToken(): Promise<string> {
 }
 async function apiGet(path: string, params: URLSearchParams, step: HotmartApiStep): Promise<JsonRecord> {
   const url = new URL(path, API_ROOT); url.search = params.toString(); let token = await accessToken();
-  let response = await fetchWithTimeout(url.toString(), { headers: { Accept: "application/json", Authorization: `Bearer ${token}` } }, step);
-  if (response.status === 401) { cachedToken = null; token = await accessToken(); response = await fetchWithTimeout(url.toString(), { headers: { Accept: "application/json", Authorization: `Bearer ${token}` } }, step); }
+  const headers = (accessToken: string) => ({ Accept: "application/json", "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` });
+  let response = await fetchWithTimeout(url.toString(), { headers: headers(token) }, step);
+  if (response.status === 401) { cachedToken = null; token = await accessToken(); response = await fetchWithTimeout(url.toString(), { headers: headers(token) }, step); }
   if (!response.ok) {
     if (step === "sales") {
       console.error("[hotmart-api] sales query", {
