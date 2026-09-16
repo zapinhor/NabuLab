@@ -69,6 +69,21 @@ async function fetchWithTimeout(url: string, init: RequestInit, step: HotmartApi
   catch (error) { if (error instanceof Error && error.name === "AbortError") throw new HotmartApiError("A Hotmart excedeu o tempo limite.", null, "timeout", null, null, step); throw new HotmartApiError("Não foi possível conectar à Hotmart.", null, "upstream", null, null, step, networkCode(error)); }
   finally { clearTimeout(timer); }
 }
+async function salesProxyGet(params: URLSearchParams) {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const supabaseSecret = (process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY)?.trim();
+  if (!supabaseUrl || !supabaseSecret) throw new HotmartApiError("Proxy seguro da Hotmart não configurado.", null, "configuration", null, null, "sales");
+  const config = credentials();
+  return fetchWithTimeout(
+    `${supabaseUrl}/functions/v1/hotmart-api-proxy`,
+    {
+      method: "POST",
+      headers: { Accept: "application/json", "Content-Type": "application/json", apikey: supabaseSecret },
+      body: JSON.stringify({ clientId: config.clientId, clientSecret: config.clientSecret, basicToken: config.basicToken, params: [...params.entries()] }),
+    },
+    "sales",
+  );
+}
 async function responseError(response: Response, step: HotmartApiStep, resource: string | null = null): Promise<HotmartApiError> {
   const retryAfter = Number(response.headers.get("retry-after") ?? response.headers.get("ratelimit-reset"));
   let providerCode: string | null = null;
@@ -97,8 +112,11 @@ async function accessToken(): Promise<string> {
 async function apiGet(path: string, params: URLSearchParams, step: HotmartApiStep): Promise<JsonRecord> {
   const url = new URL(path, API_ROOT); url.search = params.toString(); let token = await accessToken();
   const headers = (accessToken: string) => ({ Accept: "application/json", "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` });
-  let response = await fetchWithTimeout(url.toString(), { headers: headers(token) }, step);
-  if (response.status === 401) { cachedToken = null; token = await accessToken(); response = await fetchWithTimeout(url.toString(), { headers: headers(token) }, step); }
+  const request = (accessToken: string) => step === "sales"
+    ? salesProxyGet(params)
+    : fetchWithTimeout(url.toString(), { headers: headers(accessToken) }, step);
+  let response = await request(token);
+  if (response.status === 401) { cachedToken = null; token = await accessToken(); response = await request(token); }
   if (!response.ok) {
     if (step === "sales") {
       console.error("[hotmart-api] sales query", {
