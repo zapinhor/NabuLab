@@ -10,5 +10,9 @@ assert.match(client, /\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\
 assert.match(client, /\/\^Basic\\s\+\/i\.test\(config\.basicToken\)/, "Basic já prefixado não pode virar Basic Basic");
 assert.match(client, /application\/x-www-form-urlencoded/, "OAuth client_credentials usa content type oficial");
 assert.match(client, /\[hotmart-api\] failure/);
+assert.match(client, /sales query/);
+assert.match(client, /salesParams\.append\("transaction_status", status\)/, "status de venda deve usar parâmetros repetidos");
+assert.doesNotMatch(client, /Promise\.all\(SALES_STATUSES\.map/, "não deve disparar uma requisição paralela por status");
+assert.match(client, /Number\.isSafeInteger\(start\)/);
 assert.doesNotMatch(client, /console\.(?:log|error|warn)\([^\n]*(?:clientSecret|basicToken|access_token)/, "segredos não podem ser registrados");
 console.log("Hotmart API mapping tests passed.");
