@@ -12,7 +12,7 @@ export type HotmartApiStep = "configuration" | "oauth" | "sales" | "subscription
 
 type JsonRecord = Record<string, unknown>;
 type Money = { value: number; currency: string };
-type SalesQueryMode = "bounded" | "start_only" | "unbounded" | "unbounded_default_page";
+type SalesQueryMode = "bounded" | "start_only" | "unbounded" | "unbounded_default_page" | "product_only";
 
 export type HotmartTransaction = { transaction: string; status: string; date: string; offerCode: string | null; tier: BillingPriceTier | null; gross: Money | null; producerCommission: Money | null; paymentType: string | null };
 export type HotmartSubscription = { subscriberCode: string; status: string; offerCode: string | null; tier: BillingPriceTier | null; price: Money | null; accessionDate: string | null; endDate: string | null; nextChargeDate: string | null; cancellationDate: string | null };
@@ -109,7 +109,7 @@ async function allPages(path: string, baseParams: URLSearchParams, step: Hotmart
   const items: unknown[] = []; let pageToken: string | null = null; const seen = new Set<string>();
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const params = new URLSearchParams(baseParams);
-    if (salesMode !== "unbounded_default_page") params.set("max_results", "100");
+    if (salesMode !== "unbounded_default_page" && salesMode !== "product_only") params.set("max_results", "100");
     if (pageToken) params.set("page_token", pageToken);
     const payload = await apiGet(path, params, step); items.push(...array(payload.items)); const next = string(at(payload, "page_info", "next_page_token"));
     if (!next) {
@@ -126,11 +126,12 @@ function isInvalidSalesParameter(error: unknown) {
 function salesParamsForMode(base: URLSearchParams, mode: SalesQueryMode) {
   const params = new URLSearchParams(base);
   if (mode !== "bounded") params.delete("end_date");
-  if (mode === "unbounded" || mode === "unbounded_default_page") params.delete("start_date");
+  if (mode === "unbounded" || mode === "unbounded_default_page" || mode === "product_only") params.delete("start_date");
+  if (mode === "product_only") params.delete("transaction_status");
   return params;
 }
 async function salesPages(base: URLSearchParams, initialMode: SalesQueryMode) {
-  const modes: SalesQueryMode[] = ["bounded", "start_only", "unbounded", "unbounded_default_page"];
+  const modes: SalesQueryMode[] = ["bounded", "start_only", "unbounded", "unbounded_default_page", "product_only"];
   const startIndex = Math.max(0, modes.indexOf(initialMode));
   for (let index = startIndex; index < modes.length; index += 1) {
     const mode = modes[index];
@@ -197,6 +198,9 @@ export async function getHotmartFinanceReport(from: string, to: string): Promise
     const result = await salesPages(params, salesMode);
     salesMode = result.mode;
     salesGroups.push(result.items);
+    // Sem transaction_status, a Hotmart retorna APPROVED e COMPLETE por padrão.
+    // A consulta é idêntica para os demais status, portanto não deve ser repetida.
+    if (salesMode === "product_only") break;
   }
   const transactionMap = new Map<string, HotmartTransaction>();
   for (const item of salesGroups.flat()) {
