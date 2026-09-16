@@ -25,7 +25,7 @@ export type HotmartFinanceReport = {
 };
 
 export class HotmartApiError extends Error {
-  constructor(message: string, public readonly status: number | null, public readonly code: "configuration" | "authentication" | "forbidden" | "rate_limit" | "upstream" | "timeout" | "invalid_response", public readonly retryAfterSeconds: number | null = null, public readonly resource: string | null = null, public readonly step: HotmartApiStep = "configuration", public readonly providerCode: string | null = null) {
+  constructor(message: string, public readonly status: number | null, public readonly code: "configuration" | "authentication" | "forbidden" | "rate_limit" | "upstream" | "timeout" | "invalid_response", public readonly retryAfterSeconds: number | null = null, public readonly resource: string | null = null, public readonly step: HotmartApiStep = "configuration", public readonly providerCode: string | null = null, public readonly providerMessage: string | null = null) {
     super(message); this.name = "HotmartApiError";
   }
 }
@@ -66,14 +66,16 @@ async function fetchWithTimeout(url: string, init: RequestInit, step: HotmartApi
 async function responseError(response: Response, step: HotmartApiStep, resource: string | null = null): Promise<HotmartApiError> {
   const retryAfter = Number(response.headers.get("retry-after") ?? response.headers.get("ratelimit-reset"));
   let providerCode: string | null = null;
+  let providerMessage: string | null = null;
   try {
     const payload = record(await response.clone().json());
     providerCode = string(payload.error) ?? string(payload.code) ?? string(payload.status);
+    providerMessage = string(payload.error_description) ?? string(payload.message);
   } catch {}
-  if (response.status === 401) return new HotmartApiError("A autenticação da Hotmart foi recusada.", 401, "authentication", null, resource, step, providerCode);
-  if (response.status === 403) return new HotmartApiError("A credencial não possui acesso a este recurso.", 403, "forbidden", null, resource, step, providerCode);
-  if (response.status === 429) return new HotmartApiError("O limite de chamadas da Hotmart foi atingido.", 429, "rate_limit", Number.isFinite(retryAfter) ? retryAfter : null, resource, step, providerCode);
-  return new HotmartApiError("A API Hotmart está temporariamente indisponível.", response.status, "upstream", null, resource, step, providerCode);
+  if (response.status === 401) return new HotmartApiError("A autenticação da Hotmart foi recusada.", 401, "authentication", null, resource, step, providerCode, providerMessage);
+  if (response.status === 403) return new HotmartApiError("A credencial não possui acesso a este recurso.", 403, "forbidden", null, resource, step, providerCode, providerMessage);
+  if (response.status === 429) return new HotmartApiError("O limite de chamadas da Hotmart foi atingido.", 429, "rate_limit", Number.isFinite(retryAfter) ? retryAfter : null, resource, step, providerCode, providerMessage);
+  return new HotmartApiError("A API Hotmart está temporariamente indisponível.", response.status, "upstream", null, resource, step, providerCode, providerMessage);
 }
 async function accessToken(): Promise<string> {
   if (cachedToken && cachedToken.expiresAt > Date.now() + 60_000) return cachedToken.value;
@@ -258,6 +260,7 @@ export function logHotmartApiFailure(error: unknown) {
     httpStatus: normalized?.status ?? null,
     errorName: error instanceof Error ? error.name : "UnknownError",
     errorCode: normalized?.providerCode ?? normalized?.code ?? "unknown",
+    providerMessage: normalized?.providerMessage ?? null,
     safeMessage: normalized?.message ?? "Falha inesperada na integração Hotmart.",
     configuration: {
       HOTMART_CLIENT_ID: Boolean(process.env.HOTMART_CLIENT_ID?.trim()),
