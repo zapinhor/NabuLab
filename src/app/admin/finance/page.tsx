@@ -5,6 +5,8 @@ import { count } from "@/lib/admin/metrics";
 import { getHotmartFinanceReport, hotmartApiConfigured, logHotmartApiFailure } from "@/lib/billing/hotmart-api";
 import { createAdminClient } from "@/lib/supabase/admin";
 
+export const preferredRegion = "gru1";
+
 type Search = { period?: string; from?: string; to?: string };
 function dates(search: Search) {
   const period = search.period === "7" || search.period === "90" ? Number(search.period) : 30;

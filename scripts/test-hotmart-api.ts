@@ -16,6 +16,8 @@ assert.deepEqual(hotmartSalesEpochRange("2026-08-18", "2026-09-14", duringToday)
 }, "dia histórico preserva o fim do dia em São Paulo");
 assert.throws(() => hotmartSalesEpochRange("2026-09-17", "2026-09-17", duringToday), /HOTMART_INVALID_DATE_RANGE/);
 const client = readFileSync("src/lib/billing/hotmart-api.ts", "utf8");
+const financePage = readFileSync("src/app/admin/finance/page.tsx", "utf8");
+const subscriptionsPage = readFileSync("src/app/admin/subscriptions/page.tsx", "utf8");
 assert.match(client, /\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\(\)/, "credenciais devem remover whitespace externo");
 assert.match(client, /\/\^Basic\\s\+\/i\.test\(config\.basicToken\)/, "Basic já prefixado não pode virar Basic Basic");
 assert.match(client, /application\/x-www-form-urlencoded/, "OAuth client_credentials usa content type oficial");
@@ -43,4 +45,6 @@ assert.match(client, /credentialSetFingerprint: credentialSetFingerprint\(\)/, "
 assert.match(client, /saleTime >= requestedStart && saleTime <= requestedEnd/, "fallback amplo deve ser filtrado localmente");
 assert.match(client, /hotmartSalesEpochRange\(from, to\)/);
 assert.doesNotMatch(client, /console\.(?:log|error|warn)\([^\n]*(?:clientSecret|basicToken|access_token)/, "segredos não podem ser registrados");
+assert.match(financePage, /preferredRegion = "gru1"/, "Finance deve executar próximo da Hotmart no Brasil");
+assert.match(subscriptionsPage, /preferredRegion = "gru1"/, "Subscriptions deve executar próximo da Hotmart no Brasil");
 console.log("Hotmart API mapping tests passed.");
