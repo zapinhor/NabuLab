@@ -233,13 +233,24 @@ export async function getHotmartFinanceReport(from: string, to: string, knownTra
       if (!isInvalidSalesParameter(offerError) || knownTransactions.length === 0) throw offerError;
       console.warn("[hotmart-api] sales retry", { rejectedFilter: "offer_code", nextFilter: "known_transaction", transactions: knownTransactions.length });
       salesGroups = [];
-      for (const transaction of new Set(knownTransactions.filter(Boolean))) {
-        salesGroups.push(await allPages(
+      try {
+        for (const transaction of new Set(knownTransactions.filter(Boolean))) {
+          salesGroups.push(await allPages(
+            "/payments/api/v1/sales/history",
+            new URLSearchParams({ transaction }),
+            "sales",
+            "product_only",
+          ));
+        }
+      } catch (transactionError) {
+        if (!isInvalidSalesParameter(transactionError)) throw transactionError;
+        console.warn("[hotmart-api] sales retry", { rejectedFilter: "known_transaction", nextFilter: "no_query" });
+        salesGroups = [await allPages(
           "/payments/api/v1/sales/history",
-          new URLSearchParams({ transaction }),
+          new URLSearchParams(),
           "sales",
           "product_only",
-        ));
+        )];
       }
     }
   }
