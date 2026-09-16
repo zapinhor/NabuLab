@@ -1,0 +1,171 @@
+import "server-only";
+
+import type { BillingPriceTier } from "@/lib/billing/config";
+import { tierForOffer } from "@/lib/billing/hotmart-api-model";
+
+const AUTH_URL = "https://api-sec-vlc.hotmart.com/security/oauth/token";
+const API_ROOT = "https://developers.hotmart.com";
+const REQUEST_TIMEOUT_MS = 12_000;
+const MAX_PAGES = 100;
+const SALES_STATUSES = ["APPROVED", "COMPLETE", "CANCELLED", "REFUNDED", "CHARGEBACK"] as const;
+
+type JsonRecord = Record<string, unknown>;
+type Money = { value: number; currency: string };
+
+export type HotmartTransaction = { transaction: string; status: string; date: string; offerCode: string | null; tier: BillingPriceTier | null; gross: Money | null; producerCommission: Money | null; paymentType: string | null };
+export type HotmartSubscription = { subscriberCode: string; status: string; offerCode: string | null; tier: BillingPriceTier | null; price: Money | null; accessionDate: string | null; endDate: string | null; nextChargeDate: string | null; cancellationDate: string | null };
+export type HotmartDailyPoint = { date: string; transactions: number; gross: number };
+export type HotmartFinanceReport = {
+  connected: true; from: string; to: string; transactions: HotmartTransaction[]; subscriptions: HotmartSubscription[]; daily: HotmartDailyPoint[];
+  gross: Money | null; producerCommission: Money | null; activeSubscriptions: number; founderActive: number; standardActive: number;
+  canceledSubscriptions: number; refunds: number; chargebacks: number; mrr: Money | null; mrrFormula: string;
+  founderOfferFound: boolean; standardOfferFound: boolean; subscriptionPlansFound: number;
+};
+
+export class HotmartApiError extends Error {
+  constructor(message: string, public readonly status: number | null, public readonly code: "configuration" | "authentication" | "forbidden" | "rate_limit" | "upstream" | "timeout" | "invalid_response", public readonly retryAfterSeconds: number | null = null, public readonly resource: string | null = null) {
+    super(message); this.name = "HotmartApiError";
+  }
+}
+
+let cachedToken: { value: string; expiresAt: number } | null = null;
+function record(value: unknown): JsonRecord { return value && typeof value === "object" && !Array.isArray(value) ? value as JsonRecord : {}; }
+function array(value: unknown): unknown[] { return Array.isArray(value) ? value : []; }
+function string(value: unknown): string | null {
+  if (typeof value === "string" && value.trim()) return value.trim();
+  if (typeof value === "number" && Number.isFinite(value)) return String(value);
+  return null;
+}
+function number(value: unknown): number | null { return typeof value === "number" && Number.isFinite(value) ? value : null; }
+function at(root: unknown, ...keys: string[]): unknown { let current = root; for (const key of keys) current = record(current)[key]; return current; }
+function firstString(root: unknown, paths: string[][]): string | null { for (const path of paths) { const value = string(at(root, ...path)); if (value) return value; } return null; }
+function toIso(value: unknown): string | null {
+  if (typeof value !== "number" && typeof value !== "string") return null;
+  const numeric = Number(value); const date = Number.isFinite(numeric) ? new Date(numeric < 10_000_000_000 ? numeric * 1000 : numeric) : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+}
+function money(value: unknown): Money | null { const item = record(value); const amount = number(item.value); const currency = string(item.currency_code) ?? string(item.currency); return amount === null || !currency ? null : { value: amount, currency }; }
+function credentials() {
+  const clientId = process.env.HOTMART_CLIENT_ID?.trim(); const clientSecret = process.env.HOTMART_CLIENT_SECRET?.trim(); const basicToken = process.env.HOTMART_BASIC_TOKEN?.trim(); const productId = process.env.HOTMART_PRODUCT_ID?.trim();
+  if (!clientId || !clientSecret || !basicToken || !productId) throw new HotmartApiError("Credenciais da API Hotmart não configuradas no servidor.", null, "configuration");
+  return { clientId, clientSecret, basicToken, productId };
+}
+async function fetchWithTimeout(url: string, init: RequestInit): Promise<Response> {
+  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  try { return await fetch(url, { ...init, signal: controller.signal, cache: "no-store" }); }
+  catch (error) { if (error instanceof Error && error.name === "AbortError") throw new HotmartApiError("A Hotmart excedeu o tempo limite.", null, "timeout"); throw new HotmartApiError("Não foi possível conectar à Hotmart.", null, "upstream"); }
+  finally { clearTimeout(timer); }
+}
+function responseError(response: Response, resource: string | null = null): HotmartApiError {
+  const retryAfter = Number(response.headers.get("retry-after") ?? response.headers.get("ratelimit-reset"));
+  if (response.status === 401) return new HotmartApiError("A autenticação da Hotmart foi recusada.", 401, "authentication", null, resource);
+  if (response.status === 403) return new HotmartApiError("A credencial não possui acesso a este recurso.", 403, "forbidden", null, resource);
+  if (response.status === 429) return new HotmartApiError("O limite de chamadas da Hotmart foi atingido.", 429, "rate_limit", Number.isFinite(retryAfter) ? retryAfter : null, resource);
+  return new HotmartApiError("A API Hotmart está temporariamente indisponível.", response.status, "upstream", null, resource);
+}
+async function accessToken(): Promise<string> {
+  if (cachedToken && cachedToken.expiresAt > Date.now() + 60_000) return cachedToken.value;
+  const config = credentials(); const url = new URL(AUTH_URL);
+  url.searchParams.set("grant_type", "client_credentials"); url.searchParams.set("client_id", config.clientId); url.searchParams.set("client_secret", config.clientSecret);
+  const authorization = /^Basic\s+/i.test(config.basicToken) ? config.basicToken : `Basic ${config.basicToken}`;
+  const response = await fetchWithTimeout(url.toString(), { method: "POST", headers: { "Content-Type": "application/json", Authorization: authorization } });
+  if (!response.ok) throw responseError(response, "oauth/token");
+  const payload = record(await response.json()); const token = string(payload.access_token); const expiresIn = number(payload.expires_in);
+  if (!token || expiresIn === null) throw new HotmartApiError("Resposta de autenticação Hotmart inválida.", response.status, "invalid_response");
+  cachedToken = { value: token, expiresAt: Date.now() + expiresIn * 1000 }; return token;
+}
+async function apiGet(path: string, params: URLSearchParams): Promise<JsonRecord> {
+  const url = new URL(path, API_ROOT); url.search = params.toString(); let token = await accessToken();
+  let response = await fetchWithTimeout(url.toString(), { headers: { Accept: "application/json", Authorization: `Bearer ${token}` } });
+  if (response.status === 401) { cachedToken = null; token = await accessToken(); response = await fetchWithTimeout(url.toString(), { headers: { Accept: "application/json", Authorization: `Bearer ${token}` } }); }
+  if (!response.ok) throw responseError(response, path);
+  try { return record(await response.json()); } catch { throw new HotmartApiError("Resposta JSON da Hotmart inválida.", response.status, "invalid_response"); }
+}
+async function allPages(path: string, baseParams: URLSearchParams): Promise<unknown[]> {
+  const items: unknown[] = []; let pageToken: string | null = null; const seen = new Set<string>();
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const params = new URLSearchParams(baseParams); params.set("max_results", "100"); if (pageToken) params.set("page_token", pageToken);
+    const payload = await apiGet(path, params); items.push(...array(payload.items)); const next = string(at(payload, "page_info", "next_page_token"));
+    if (!next) return items; if (seen.has(next)) throw new HotmartApiError("A paginação da Hotmart retornou um cursor repetido.", 200, "invalid_response"); seen.add(next); pageToken = next;
+  }
+  throw new HotmartApiError("A paginação da Hotmart excedeu o limite de segurança.", 200, "invalid_response");
+}
+function productMatches(item: unknown, productId: string): boolean { return firstString(item, [["product", "id"], ["purchase", "product", "id"]]) === productId; }
+function parseSale(item: unknown): HotmartTransaction | null {
+  const transaction = firstString(item, [["purchase", "transaction"], ["transaction"]]); const status = firstString(item, [["purchase", "status"], ["status"]]);
+  const date = toIso(at(item, "purchase", "approved_date")) ?? toIso(at(item, "purchase", "order_date")) ?? toIso(at(item, "approved_date")); if (!transaction || !status || !date) return null;
+  const offerCode = firstString(item, [["purchase", "offer", "code"], ["offer", "code"]]);
+  return { transaction, status, date, offerCode, tier: tierForOffer(offerCode), gross: money(at(item, "purchase", "price")) ?? money(at(item, "price")), producerCommission: null, paymentType: firstString(item, [["purchase", "payment", "type"], ["payment_type"]]) };
+}
+function parseSubscription(item: unknown): HotmartSubscription | null {
+  const subscriberCode = firstString(item, [["subscriber_code"], ["subscriber", "code"]]); const status = firstString(item, [["status"]]); if (!subscriberCode || !status) return null;
+  const offerCode = firstString(item, [["offer", "code"], ["plan", "offer", "code"]]);
+  return { subscriberCode, status, offerCode, tier: tierForOffer(offerCode), price: money(at(item, "price")), accessionDate: toIso(at(item, "accession_date")), endDate: toIso(at(item, "end_accession_date")), nextChargeDate: toIso(at(item, "date_next_charge")), cancellationDate: toIso(at(item, "cancelation_date")) ?? toIso(at(item, "cancellation_date")) };
+}
+function singleCurrency(values: Array<Money | null>): Money | null {
+  if (!values.length) return { value: 0, currency: "BRL" };
+  const valid = values.filter((item): item is Money => item !== null); if (valid.length !== values.length) return null;
+  if (valid.some((item) => item.currency !== valid[0].currency)) return null; return { value: valid.reduce((sum, item) => sum + item.value, 0), currency: valid[0].currency };
+}
+function dateParams(productId: string, from: string, to: string) { return new URLSearchParams({ product_id: productId, start_date: String(new Date(`${from}T00:00:00-03:00`).getTime()), end_date: String(new Date(`${to}T23:59:59.999-03:00`).getTime()) }); }
+
+export async function getHotmartFinanceReport(from: string, to: string): Promise<HotmartFinanceReport> {
+  const { productId } = credentials();
+  let offerItems: unknown[] = []; let planItems: unknown[] = [];
+  try {
+    const productItems = await allPages("/products/api/v1/products", new URLSearchParams({ id: productId }));
+    const product = productItems.find((item) => firstString(item, [["id"]]) === productId);
+    const productUcode = firstString(product, [["ucode"]]);
+    if (productUcode) [offerItems, planItems] = await Promise.all([
+      allPages(`/products/api/v1/products/${encodeURIComponent(productUcode)}/offers`, new URLSearchParams()),
+      allPages(`/products/api/v1/products/${encodeURIComponent(productUcode)}/plans`, new URLSearchParams()),
+    ]);
+  } catch (error) {
+    if (!(error instanceof HotmartApiError) || error.code !== "forbidden") throw error;
+  }
+  const offerCodes = new Set(offerItems.map((item) => firstString(item, [["code"]])).filter((code): code is string => code !== null));
+  const founderCode = process.env.HOTMART_FOUNDER_PLAN_ID?.trim() ?? "v4h77zvh";
+  const standardCode = process.env.HOTMART_STANDARD_PLAN_ID?.trim() ?? "7mqlgaln";
+  const salesGroups = await Promise.all(SALES_STATUSES.map((status) => { const params = dateParams(productId, from, to); params.set("transaction_status", status); return allPages("/payments/api/v1/sales/history", params); }));
+  const transactionMap = new Map<string, HotmartTransaction>();
+  for (const item of salesGroups.flat()) { if (!productMatches(item, productId)) continue; const sale = parseSale(item); if (sale) transactionMap.set(sale.transaction, sale); }
+  const transactions = [...transactionMap.values()].sort((a, b) => b.date.localeCompare(a.date));
+  const subscriptionParams = new URLSearchParams({ product_id: productId, accession_date: "0", end_accession_date: String(Date.now()) });
+  const [subscriptionItems, subscriptionSummaries] = await Promise.all([
+    allPages("/payments/api/v1/subscriptions", subscriptionParams),
+    allPages("/payments/api/v1/subscriptions/summary", subscriptionParams),
+  ]);
+  const subscriptionDetails = new Map(subscriptionItems.filter((item) => productMatches(item, productId)).map((item) => [firstString(item, [["subscriber_code"]]), item]));
+  const subscriptions = subscriptionSummaries.filter((item) => productMatches(item, productId)).map((item) => {
+    const summary = parseSubscription(item); if (!summary) return null;
+    const detail = subscriptionDetails.get(summary.subscriberCode);
+    return { ...summary, price: summary.price ?? money(at(detail, "price")) };
+  }).filter((item): item is HotmartSubscription => item !== null);
+  const commissionItems = await allPages("/payments/api/v1/sales/commissions", dateParams(productId, from, to));
+  const commissionByTransaction = new Map<string, Money>();
+  const producerCommissions = commissionItems.filter((item) => productMatches(item, productId)).flatMap((item) => array(at(item, "commissions")).filter((commission) => firstString(commission, [["source"]]) === "PRODUCER").map((commission) => {
+    const source = record(at(commission, "commission")); const value = number(source.value); const currency = string(source.currency_value) ?? string(source.currency_code); const parsed = value === null || !currency ? null : { value, currency };
+    const transaction = firstString(item, [["transaction"], ["purchase", "transaction"]]); if (transaction && parsed) commissionByTransaction.set(transaction, parsed); return parsed;
+  }));
+  for (const transaction of transactions) transaction.producerCommission = commissionByTransaction.get(transaction.transaction) ?? null;
+  const revenueStatuses = new Set(["APPROVED", "COMPLETE"]); const gross = singleCurrency(transactions.filter((item) => revenueStatuses.has(item.status)).map((item) => item.gross));
+  const producerCommission = singleCurrency(producerCommissions); const active = subscriptions.filter((item) => item.status === "ACTIVE"); const mrr = singleCurrency(active.map((item) => item.price)); const dailyMap = new Map<string, HotmartDailyPoint>();
+  for (const sale of transactions.filter((item) => revenueStatuses.has(item.status))) { const date = sale.date.slice(0, 10); const point = dailyMap.get(date) ?? { date, transactions: 0, gross: 0 }; point.transactions += 1; if (sale.gross?.currency === "BRL") point.gross += sale.gross.value; dailyMap.set(date, point); }
+  return { connected: true, from, to, transactions, subscriptions, daily: [...dailyMap.values()].sort((a, b) => a.date.localeCompare(b.date)), gross, producerCommission, activeSubscriptions: active.length, founderActive: active.filter((item) => item.tier === "founder_477").length, standardActive: active.filter((item) => item.tier === "standard_990").length, canceledSubscriptions: subscriptions.filter((item) => item.status.includes("CANCEL")).length, refunds: transactions.filter((item) => item.status === "REFUNDED").length, chargebacks: transactions.filter((item) => item.status === "CHARGEBACK").length, mrr, mrrFormula: "Soma de price.value das assinaturas ACTIVE do produto, agrupadas pelo código da oferta; nenhuma assinatura inativa, atrasada ou cancelada entra no MRR.", founderOfferFound: offerCodes.has(founderCode), standardOfferFound: offerCodes.has(standardCode), subscriptionPlansFound: planItems.length };
+}
+export function hotmartApiConfigured(): boolean { return Boolean(process.env.HOTMART_CLIENT_ID?.trim() && process.env.HOTMART_CLIENT_SECRET?.trim() && process.env.HOTMART_BASIC_TOKEN?.trim() && process.env.HOTMART_PRODUCT_ID?.trim()); }
+export async function validateHotmartConnection(): Promise<boolean> { return Boolean(await accessToken()); }
+export async function probeHotmartAccess(): Promise<Record<"sales" | "subscriptions" | "commissions" | "products", { allowed: boolean; status: number | null }>> {
+  const { productId } = credentials();
+  const resources = {
+    sales: ["/payments/api/v1/sales/history", new URLSearchParams({ product_id: productId, max_results: "1" })],
+    subscriptions: ["/payments/api/v1/subscriptions", new URLSearchParams({ product_id: productId, max_results: "1" })],
+    commissions: ["/payments/api/v1/sales/commissions", new URLSearchParams({ product_id: productId, max_results: "1" })],
+    products: ["/products/api/v1/products", new URLSearchParams({ id: productId, max_results: "1" })],
+  } as const;
+  const entries = await Promise.all(Object.entries(resources).map(async ([name, [path, params]]) => {
+    try { await apiGet(path, params); return [name, { allowed: true, status: 200 }] as const; }
+    catch (error) { if (error instanceof HotmartApiError) return [name, { allowed: false, status: error.status }] as const; throw error; }
+  }));
+  return Object.fromEntries(entries) as Record<"sales" | "subscriptions" | "commissions" | "products", { allowed: boolean; status: number | null }>;
+}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { signUp } from "@/app/auth/actions";
 import { AuthCard, buttonClass, inputClass } from "@/components/commercial/auth-card";
+import { TurnstileField } from "@/components/security/turnstile-field";
 
 export default async function SignupPage({ searchParams }: { searchParams: Promise<{ mensagem?: string; next?: string }> }) {
   const { mensagem, next } = await searchParams;
@@ -20,6 +21,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
         <label className="block text-sm font-semibold text-slate-700">Senha
           <input className={inputClass} type="password" name="password" autoComplete="new-password" minLength={8} required />
         </label>
+        <TurnstileField inputName="captcha_token" />
         <button className={buttonClass} type="submit">Criar conta</button>
       </form>
       <p className="mt-5 text-center text-sm text-slate-600">Já tem conta? <Link className="font-bold text-blue-700" href={`/login?next=${encodeURIComponent(next ?? "/dashboard")}`}>Entrar</Link></p>

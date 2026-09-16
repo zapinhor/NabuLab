@@ -5,6 +5,7 @@ import {
   FREE_ENTITLEMENTS,
   PREMIUM_ENTITLEMENTS,
   PREMIUM_FEATURE_ROUTES,
+  contributesToMrr,
   filterAccessibleQuestions,
   getStudentEntitlements,
   hasActivePremium,
@@ -53,10 +54,27 @@ assert.equal(
   FREE_ENTITLEMENTS,
   "uma linha explicitamente Free deve manter os limites Free",
 );
+const entitlementNow = new Date("2026-09-20T12:00:00Z");
+const approvedFounder = subscription("active", "founder_477", {
+  provider: "hotmart",
+  currentPeriodEnd: "2026-10-14T03:00:00Z",
+});
+assert.equal(hasActivePremium(approvedFounder, entitlementNow), true, "PURCHASE_APPROVED libera Premium");
+assert.equal(contributesToMrr(approvedFounder), true, "assinatura ativa contribui para MRR");
+const normallyCanceledFounder = subscription("canceled", "founder_477", {
+  provider: "hotmart",
+  cancelAtPeriodEnd: true,
+  canceledAt: "2026-09-15T12:00:00Z",
+  terminationReason: "subscription_cancellation",
+  currentPeriodEnd: "2026-10-14T03:00:00Z",
+});
+assert.equal(contributesToMrr(normallyCanceledFounder), false, "cancelamento normal sai do MRR");
+assert.equal(hasActivePremium(normallyCanceledFounder, entitlementNow), true, "cancelamento normal preserva Premium no período pago");
+assert.equal(hasActivePremium(normallyCanceledFounder, new Date("2026-10-14T03:00:01Z")), false, "Premium expira após o período pago");
+assert.equal(hasActivePremium(approvedFounder, new Date("2026-10-14T03:00:01Z")), false, "estado active stale não prolonga Premium Hotmart além do período pago");
 assert.equal(getStudentEntitlements(subscription("active", "founder_477")), PREMIUM_ENTITLEMENTS);
 assert.equal(getStudentEntitlements(subscription("active", "standard_990")), PREMIUM_ENTITLEMENTS);
 assert.equal(getStudentEntitlements(subscription("canceled", "standard_990")), FREE_ENTITLEMENTS);
-const entitlementNow = new Date("2026-09-20T12:00:00Z");
 assert.equal(
   hasActivePremium(
     subscription("canceled", "founder_477", {

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { signIn } from "@/app/auth/actions";
-import { AuthCard, buttonClass, inputClass } from "@/components/commercial/auth-card";
+import { AuthCard } from "@/components/commercial/auth-card";
+import { LoginForm } from "@/components/security/login-form";
 
 export default async function LoginPage({
   searchParams,
@@ -14,18 +14,8 @@ export default async function LoginPage({
       description="Acesse sua conta para continuar seus estudos em qualquer dispositivo."
       message={mensagem}
     >
-      <form action={signIn} className="space-y-4">
-        <input type="hidden" name="next" value={next ?? "/dashboard"} />
-        <label className="block text-sm font-semibold text-slate-700">
-          E-mail
-          <input className={inputClass} type="email" name="email" autoComplete="email" required />
-        </label>
-        <label className="block text-sm font-semibold text-slate-700">
-          Senha
-          <input className={inputClass} type="password" name="password" autoComplete="current-password" minLength={8} required />
-        </label>
-        <button className={buttonClass} type="submit">Entrar</button>
-      </form>
+      <LoginForm next={next ?? "/dashboard"} />
+      <p className="mt-4 text-center text-sm"><Link className="font-bold text-blue-700" href="/recuperar-senha">Esqueci minha senha</Link></p>
       <p className="mt-5 text-center text-sm text-slate-600">
         Ainda não tem conta? <Link className="font-bold text-blue-700" href={`/cadastro?next=${encodeURIComponent(next ?? "/dashboard")}`}>Cadastre-se</Link>
       </p>

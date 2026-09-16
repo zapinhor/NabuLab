@@ -10,6 +10,7 @@ export const HOTMART_EVENT_STATUS = {
   PURCHASE_CHARGEBACK: "canceled",
   PURCHASE_EXPIRED: "expired",
   SUBSCRIPTION_CANCELLATION: "canceled",
+  UPDATE_SUBSCRIPTION_CHARGE_DATE: "active",
   SWITCH_PLAN: "active",
 } as const;
 

@@ -4,12 +4,12 @@ import { createClient } from "@supabase/supabase-js";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
 export function createAdminClient() {
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!serviceRoleKey) {
-    throw new Error("SUPABASE_SERVICE_ROLE_KEY não configurada no servidor.");
+  const secretKey = process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!secretKey) {
+    throw new Error("Chave administrativa do Supabase não configurada no servidor (SUPABASE_SECRET_KEY ou fallback SUPABASE_SERVICE_ROLE_KEY).");
   }
 
-  return createClient(getSupabaseConfig().url, serviceRoleKey, {
+  return createClient(getSupabaseConfig().url, secretKey, {
     auth: { autoRefreshToken: false, persistSession: false },
   });
 }

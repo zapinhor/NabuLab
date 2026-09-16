@@ -13,7 +13,9 @@ export async function GET(request: NextRequest) {
     if (!error) {
       const { data } = await supabase.auth.getUser();
       await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
-      return NextResponse.redirect(new URL(safeNext, request.url));
+      const destination = new URL(safeNext, request.url);
+      destination.searchParams.set("ga_event", "sign_up");
+      return NextResponse.redirect(destination);
     }
   }
 

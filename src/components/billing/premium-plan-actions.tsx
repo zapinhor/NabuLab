@@ -27,6 +27,7 @@ export default function PremiumPlanActions({ offer, standardPrice }: { offer: Of
       if (!response.ok || !result.checkoutUrl) {
         throw new Error(result.error ?? "Não foi possível abrir o checkout.");
       }
+      window.gtag?.("event", "begin_checkout", { currency: "BRL", tier });
       window.location.assign(result.checkoutUrl);
     } catch (checkoutError) {
       setError(

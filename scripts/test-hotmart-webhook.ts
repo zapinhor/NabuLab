@@ -199,6 +199,7 @@ const renewal = parseHotmartEvent(
 assert.equal(store.process(renewal, tier(renewal)), "processed");
 
 for (const [eventName, expectedStatus] of [
+  ["UPDATE_SUBSCRIPTION_CHARGE_DATE", "active"],
   ["PURCHASE_DELAYED", "past_due"],
   ["SUBSCRIPTION_CANCELLATION", "canceled"],
   ["PURCHASE_REFUNDED", "canceled"],

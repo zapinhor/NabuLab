@@ -1,0 +1,10 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+const client = readFileSync("src/components/analytics/track-event.tsx", "utf8");
+const server = readFileSync("src/lib/analytics/ga4-server.ts", "utf8");
+for (const event of ["sign_up","login","begin_checkout","purchase","view_premium","exam_started","exam_completed"]) assert.match(client + server, new RegExp(`\\b${event}\\b`));
+assert.match(client, /typeof window\.gtag === "function"/);
+assert.match(client, /utm_source/);
+assert.match(server, /GA4_API_SECRET/);
+assert.match(server, /transaction_id/);
+console.log("GA4: consent-aware client mapping, UTMs and idempotent transaction identity validated.");

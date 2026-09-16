@@ -120,7 +120,11 @@ export function hasActivePremium(
   now = new Date(),
 ): boolean {
   if (subscription?.plan !== "premium") return false;
-  if (subscription.status === "active") return true;
+  if (subscription.status === "active") {
+    if (subscription.provider !== "hotmart" || !subscription.currentPeriodEnd) return true;
+    const paidUntil = new Date(subscription.currentPeriodEnd);
+    return !Number.isNaN(paidUntil.getTime()) && now.getTime() < paidUntil.getTime();
+  }
   if (
     subscription.status === "canceled" &&
     subscription.cancelAtPeriodEnd &&
@@ -131,6 +135,10 @@ export function hasActivePremium(
     return !Number.isNaN(accessUntil.getTime()) && now.getTime() < accessUntil.getTime();
   }
   return false;
+}
+
+export function contributesToMrr(subscription: StudentSubscription | null): boolean {
+  return subscription?.status === "active" && !subscription.cancelAtPeriodEnd;
 }
 
 export function getStudentEntitlements(

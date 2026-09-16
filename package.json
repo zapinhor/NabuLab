@@ -12,8 +12,14 @@
     "test:entitlements": "node --import tsx scripts/test-entitlements.ts",
     "test:quota": "node --import tsx scripts/test-daily-exam-quota.ts",
     "test:hotmart": "node --import tsx scripts/test-hotmart-webhook.ts",
+    "test:hotmart-api": "node --import tsx scripts/test-hotmart-api.ts",
+    "test:hotmart-api:live": "node --env-file=.env.local --conditions=react-server --import tsx scripts/test-hotmart-api-live.ts",
+    "reconcile:hotmart": "node --import tsx scripts/reconcile-hotmart-subscription.ts",
     "test:c3": "node --import tsx scripts/test-c3.ts",
     "test:premium-offer": "node --import tsx scripts/test-premium-offer.ts",
+    "test:security": "node --import tsx scripts/test-security.ts",
+    "test:admin": "node --import tsx scripts/test-admin.ts",
+    "test:ga": "node --import tsx scripts/test-ga-events.ts",
     "start": "next start",
     "lint": "eslint"
   },
@@ -24,7 +30,8 @@
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "recharts": "^3.10.1"
+    "recharts": "^3.10.1",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

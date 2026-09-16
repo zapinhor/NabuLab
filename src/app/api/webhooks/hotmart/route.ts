@@ -2,6 +2,7 @@ import { getHotmartConfig } from "@/lib/billing/config";
 import { validateHotmartWebhookRequest } from "@/lib/billing/hotmart-request";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import { sendGa4Purchase } from "@/lib/analytics/ga4-server";
 
 export const runtime = "nodejs";
 
@@ -81,6 +82,9 @@ export async function POST(request: Request) {
           properties: { tier: priceTier ?? "unmapped" },
           sourceEventKey: `hotmart:purchase:${event.transactionId ?? event.providerSubscriptionId ?? event.eventId}`,
         });
+        const transactionId = event.transactionId ?? event.providerSubscriptionId ?? event.eventId;
+        try { await sendGa4Purchase({ transactionId, userId: resolvedUserId, tier: priceTier ?? "unmapped" }); }
+        catch (gaError) { console.error("[ga4] Falha ao registrar purchase:", gaError instanceof Error ? gaError.message : "erro desconhecido"); }
       } else if (event.eventType === "SUBSCRIPTION_CANCELLATION") {
         await recordAuthenticatedAnalyticsEvent("subscription_canceled", resolvedUserId, {
           properties: { provider: "hotmart" },

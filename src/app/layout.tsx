@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AcademicSyncBoundary } from "@/components/academic-sync-boundary";
 import { ConsentManager } from "@/components/analytics/consent-manager";
+import { GaRouteEvent } from "@/components/analytics/ga-route-event";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,6 +79,7 @@ export default function RootLayout({
           <AcademicSyncBoundary>{children}</AcademicSyncBoundary>
         </div>
         <ConsentManager />
+        <GaRouteEvent />
       </body>
     </html>
   );
