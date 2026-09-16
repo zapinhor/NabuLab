@@ -109,7 +109,11 @@ async function allPages(path: string, baseParams: URLSearchParams, step: Hotmart
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const params = new URLSearchParams(baseParams); params.set("max_results", "100"); if (pageToken) params.set("page_token", pageToken);
     const payload = await apiGet(path, params, step); items.push(...array(payload.items)); const next = string(at(payload, "page_info", "next_page_token"));
-    if (!next) return items; if (seen.has(next)) throw new HotmartApiError("A paginação da Hotmart retornou um cursor repetido.", 200, "invalid_response", null, path, step); seen.add(next); pageToken = next;
+    if (!next) {
+      if (step === "sales") console.info("[hotmart-api] sales status", { status: baseParams.get("transaction_status"), httpStatus: 200, pages: page + 1, items: items.length });
+      return items;
+    }
+    if (seen.has(next)) throw new HotmartApiError("A paginação da Hotmart retornou um cursor repetido.", 200, "invalid_response", null, path, step); seen.add(next); pageToken = next;
   }
   throw new HotmartApiError("A paginação da Hotmart excedeu o limite de segurança.", 200, "invalid_response", null, path, step);
 }
@@ -163,11 +167,14 @@ export async function getHotmartFinanceReport(from: string, to: string): Promise
   const offerCodes = new Set(offerItems.map((item) => firstString(item, [["code"]])).filter((code): code is string => code !== null));
   const founderCode = process.env.HOTMART_FOUNDER_PLAN_ID?.trim() ?? "v4h77zvh";
   const standardCode = process.env.HOTMART_STANDARD_PLAN_ID?.trim() ?? "7mqlgaln";
-  const salesParams = dateParams(productId, from, to);
-  for (const status of SALES_STATUSES) salesParams.append("transaction_status", status);
-  const salesItems = await allPages("/payments/api/v1/sales/history", salesParams, "sales");
+  const salesGroups: unknown[][] = [];
+  for (const status of SALES_STATUSES) {
+    const params = dateParams(productId, from, to);
+    params.set("transaction_status", status);
+    salesGroups.push(await allPages("/payments/api/v1/sales/history", params, "sales"));
+  }
   const transactionMap = new Map<string, HotmartTransaction>();
-  for (const item of salesItems) { if (!productMatches(item, productId)) continue; const sale = parseSale(item); if (sale) transactionMap.set(sale.transaction, sale); }
+  for (const item of salesGroups.flat()) { if (!productMatches(item, productId)) continue; const sale = parseSale(item); if (sale) transactionMap.set(sale.transaction, sale); }
   const transactions = [...transactionMap.values()].sort((a, b) => b.date.localeCompare(a.date));
   const subscriptionParams = new URLSearchParams({ product_id: productId, accession_date: "0", end_accession_date: String(Date.now()) });
   const [subscriptionItems, subscriptionSummaries] = await Promise.all([
