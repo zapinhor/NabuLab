@@ -5,7 +5,6 @@ import type { BillingPriceTier } from "@/lib/billing/config";
 import { hotmartSalesEpochRange, tierForOffer } from "@/lib/billing/hotmart-api-model";
 
 const AUTH_URL = "https://api-sec-vlc.hotmart.com/security/oauth/token";
-const API_ROOT = "https://developers.hotmart.com";
 const REQUEST_TIMEOUT_MS = 12_000;
 const MAX_PAGES = 100;
 const SALES_STATUSES = ["APPROVED", "COMPLETE", "CANCELLED", "REFUNDED", "CHARGEBACK"] as const;
@@ -69,19 +68,19 @@ async function fetchWithTimeout(url: string, init: RequestInit, step: HotmartApi
   catch (error) { if (error instanceof Error && error.name === "AbortError") throw new HotmartApiError("A Hotmart excedeu o tempo limite.", null, "timeout", null, null, step); throw new HotmartApiError("Não foi possível conectar à Hotmart.", null, "upstream", null, null, step, networkCode(error)); }
   finally { clearTimeout(timer); }
 }
-async function salesProxyGet(params: URLSearchParams) {
+async function hotmartProxyGet(path: string, params: URLSearchParams, step: HotmartApiStep) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   const supabaseSecret = (process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY)?.trim();
-  if (!supabaseUrl || !supabaseSecret) throw new HotmartApiError("Proxy seguro da Hotmart não configurado.", null, "configuration", null, null, "sales");
+  if (!supabaseUrl || !supabaseSecret) throw new HotmartApiError("Proxy seguro da Hotmart não configurado.", null, "configuration", null, null, step);
   const config = credentials();
   return fetchWithTimeout(
     `${supabaseUrl}/functions/v1/hotmart-api-proxy`,
     {
       method: "POST",
       headers: { Accept: "application/json", "Content-Type": "application/json", apikey: supabaseSecret },
-      body: JSON.stringify({ clientId: config.clientId, clientSecret: config.clientSecret, basicToken: config.basicToken, params: [...params.entries()] }),
+      body: JSON.stringify({ clientId: config.clientId, clientSecret: config.clientSecret, basicToken: config.basicToken, path, params: [...params.entries()] }),
     },
-    "sales",
+    step,
   );
 }
 async function responseError(response: Response, step: HotmartApiStep, resource: string | null = null): Promise<HotmartApiError> {
@@ -110,13 +109,8 @@ async function accessToken(): Promise<string> {
   cachedToken = { value: token, expiresAt: Date.now() + expiresIn * 1000 }; return token;
 }
 async function apiGet(path: string, params: URLSearchParams, step: HotmartApiStep): Promise<JsonRecord> {
-  const url = new URL(path, API_ROOT); url.search = params.toString(); let token = await accessToken();
-  const headers = (accessToken: string) => ({ Accept: "application/json", "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` });
-  const request = (accessToken: string) => step === "sales"
-    ? salesProxyGet(params)
-    : fetchWithTimeout(url.toString(), { headers: headers(accessToken) }, step);
-  let response = await request(token);
-  if (response.status === 401) { cachedToken = null; token = await accessToken(); response = await request(token); }
+  let response = await hotmartProxyGet(path, params, step);
+  if (response.status === 401) response = await hotmartProxyGet(path, params, step);
   if (!response.ok) {
     if (step === "sales") {
       console.error("[hotmart-api] sales query", {
