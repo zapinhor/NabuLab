@@ -4,7 +4,7 @@ declare const Deno: {
 };
 
 const HOTMART_AUTH_URL = "https://api-sec-vlc.hotmart.com/security/oauth/token";
-const HOTMART_SALES_URL = "https://developers.hotmart.com/payments/api/v1/sales/history";
+const HOTMART_API_ROOT = "https://developers.hotmart.com";
 const ALLOWED_PARAMS = new Set([
   "product_id",
   "start_date",
@@ -14,10 +14,28 @@ const ALLOWED_PARAMS = new Set([
   "page_token",
   "offer_code",
   "transaction",
+  "id",
+  "accession_date",
+  "end_accession_date",
 ]);
 const ALLOWED_OFFERS = new Set(["v4h77zvh", "7mqlgaln"]);
 
-type ProxyBody = { clientId?: unknown; clientSecret?: unknown; basicToken?: unknown; params?: unknown };
+type ProxyBody = { clientId?: unknown; clientSecret?: unknown; basicToken?: unknown; path?: unknown; params?: unknown };
+
+const FIXED_PATHS = new Set([
+  "/payments/api/v1/sales/history",
+  "/payments/api/v1/sales/commissions",
+  "/payments/api/v1/subscriptions",
+  "/payments/api/v1/subscriptions/summary",
+  "/products/api/v1/products",
+]);
+
+function safePath(input: unknown) {
+  if (typeof input !== "string") throw new Error("INVALID_PATH");
+  if (FIXED_PATHS.has(input)) return input;
+  if (/^\/products\/api\/v1\/products\/[A-Za-z0-9-]+\/(offers|plans)$/.test(input)) return input;
+  throw new Error("INVALID_PATH");
+}
 
 function secretKeys() {
   const keys = [Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")];
@@ -49,7 +67,10 @@ function safeParams(input: unknown) {
   return params;
 }
 
+let cachedToken: { value: string; expiresAt: number } | null = null;
+
 async function hotmartAccessToken(body: ProxyBody): Promise<{ response: Response } | { token: string }> {
+  if (cachedToken && cachedToken.expiresAt > Date.now() + 60_000) return { token: cachedToken.value };
   if (typeof body.clientId !== "string" || typeof body.clientSecret !== "string" || typeof body.basicToken !== "string") throw new Error("INVALID_CREDENTIALS");
   const clientId = body.clientId.trim();
   const clientSecret = body.clientSecret.trim();
@@ -67,6 +88,8 @@ async function hotmartAccessToken(body: ProxyBody): Promise<{ response: Response
   if (!response.ok) return { response } as const;
   const payload = await response.json();
   if (!payload || typeof payload.access_token !== "string") throw new Error("INVALID_OAUTH_RESPONSE");
+  const expiresIn = typeof payload.expires_in === "number" ? payload.expires_in : 300;
+  cachedToken = { value: payload.access_token, expiresAt: Date.now() + expiresIn * 1000 };
   return { token: payload.access_token as string } as const;
 }
 
@@ -76,18 +99,22 @@ Deno.serve(async (request) => {
 
   try {
     const body = await request.json() as ProxyBody;
+    const path = safePath(body.path);
     const params = safeParams(body.params);
-    const auth = await hotmartAccessToken(body);
+    let auth = await hotmartAccessToken(body);
     if ("response" in auth) return new Response(await auth.response.arrayBuffer(), { status: auth.response.status, headers: { "Content-Type": auth.response.headers.get("content-type") ?? "application/json" } });
-    const url = new URL(HOTMART_SALES_URL);
+    const url = new URL(path, HOTMART_API_ROOT);
     url.search = params.toString();
-    const response = await fetch(url, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${auth.token}`,
-      },
+    const apiRequest = (token: string) => fetch(url, {
+      headers: { Accept: "application/json", "Content-Type": "application/json", Authorization: `Bearer ${token}` },
     });
+    let response = await apiRequest(auth.token);
+    if (response.status === 401) {
+      cachedToken = null;
+      auth = await hotmartAccessToken(body);
+      if ("response" in auth) return new Response(await auth.response.arrayBuffer(), { status: auth.response.status, headers: { "Content-Type": auth.response.headers.get("content-type") ?? "application/json" } });
+      response = await apiRequest(auth.token);
+    }
     return new Response(await response.arrayBuffer(), {
       status: response.status,
       headers: {

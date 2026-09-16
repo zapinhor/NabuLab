@@ -21,7 +21,8 @@ assert.match(client, /\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\(\)[\s\S]*\.trim\
 assert.match(client, /\/\^Basic\\s\+\/i\.test\(config\.basicToken\)/, "Basic já prefixado não pode virar Basic Basic");
 assert.match(client, /application\/x-www-form-urlencoded/, "OAuth client_credentials usa content type oficial");
 assert.match(client, /"Content-Type": "application\/json"/, "GETs da API devem seguir os cabeçalhos oficiais da Hotmart");
-assert.match(client, /functions\/v1\/hotmart-api-proxy/, "Sales deve sair pelo proxy server-side do Supabase");
+assert.match(client, /functions\/v1\/hotmart-api-proxy/, "A API Hotmart deve sair pelo proxy server-side do Supabase");
+assert.match(client, /hotmartProxyGet\(path, params, step\)/, "Todos os recursos do Admin devem usar a mesma origem segura");
 assert.match(client, /clientId: config\.clientId, clientSecret: config\.clientSecret, basicToken: config\.basicToken/, "proxy deve emitir OAuth na mesma origem da consulta Sales");
 assert.match(client, /\[hotmart-api\] failure/);
 assert.match(client, /sales query/);
