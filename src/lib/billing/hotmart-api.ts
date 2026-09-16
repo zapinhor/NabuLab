@@ -1,7 +1,7 @@
 import "server-only";
 
 import type { BillingPriceTier } from "@/lib/billing/config";
-import { tierForOffer } from "@/lib/billing/hotmart-api-model";
+import { hotmartSalesEpochRange, tierForOffer } from "@/lib/billing/hotmart-api-model";
 
 const AUTH_URL = "https://api-sec-vlc.hotmart.com/security/oauth/token";
 const API_ROOT = "https://developers.hotmart.com";
@@ -136,17 +136,9 @@ function singleCurrency(values: Array<Money | null>): Money | null {
 }
 function dateParams(productId: string, from: string, to: string) {
   if (!/^\d{7}$/.test(productId)) throw new HotmartApiError("ID do produto Hotmart inválido.", null, "configuration", null, null, "sales");
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(from) || !/^\d{4}-\d{2}-\d{2}$/.test(to)) throw new HotmartApiError("Período da Hotmart inválido.", null, "invalid_response", null, null, "sales");
-  for (const value of [from, to]) {
-    const [year, month, day] = value.split("-").map(Number);
-    const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
-    if (month < 1 || month > 12 || day < 1 || day > daysInMonth) throw new HotmartApiError("Período da Hotmart inválido.", null, "invalid_response", null, null, "sales");
-  }
-  const startDate = new Date(`${from}T00:00:00.000-03:00`);
-  const endDate = new Date(`${to}T23:59:59.999-03:00`);
-  const start = startDate.getTime();
-  const end = endDate.getTime();
-  if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end) throw new HotmartApiError("Período da Hotmart inválido.", null, "invalid_response", null, null, "sales");
+  let start: number; let end: number;
+  try { ({ start, end } = hotmartSalesEpochRange(from, to)); }
+  catch { throw new HotmartApiError("Período da Hotmart inválido.", null, "invalid_response", null, null, "sales"); }
   return new URLSearchParams({ product_id: productId, start_date: String(start), end_date: String(end) });
 }
 
