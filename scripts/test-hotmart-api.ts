@@ -30,6 +30,8 @@ assert.match(client, /if \(mode === "product_only"\) break/, "consulta sem statu
 assert.match(client, /rejectedFilter: "product_id", nextFilter: "offer_code"/, "Sales deve recorrer às ofertas quando product_id for rejeitado");
 assert.match(client, /offerRange\.delete\("product_id"\)/, "fallback por oferta não deve manter o filtro rejeitado");
 assert.match(client, /offerRange\.set\("offer_code", offerCode\)/, "fallback deve consultar somente ofertas conhecidas do NabuLab");
+assert.match(client, /nextFilter: "known_transaction"/, "Sales deve recorrer às transações persistidas quando os filtros de catálogo forem rejeitados");
+assert.match(client, /new URLSearchParams\(\{ transaction \}\)/, "fallback final deve consultar uma transação conhecida por vez");
 assert.match(client, /salesGroups\.flat\(\)/);
 assert.match(client, /transactionMap\.set\(sale\.transaction, sale\)/, "transações devem ser deduplicadas pelo ID");
 assert.match(client, /\[hotmart-api\] sales status/);

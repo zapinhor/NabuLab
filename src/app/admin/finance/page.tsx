@@ -3,6 +3,7 @@ import { FinanceReport } from "@/components/admin/finance-report";
 import { requirePlatformAdmin } from "@/lib/admin/auth";
 import { count } from "@/lib/admin/metrics";
 import { getHotmartFinanceReport, hotmartApiConfigured, logHotmartApiFailure } from "@/lib/billing/hotmart-api";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 type Search = { period?: string; from?: string; to?: string };
 function dates(search: Search) {
@@ -18,14 +19,20 @@ function dates(search: Search) {
 export default async function FinancePage({ searchParams }: { searchParams: Promise<Search> }) {
   await requirePlatformAdmin({ superAdmin: true, aal2: true, returnTo: "/admin/finance" });
   const search = await searchParams; const { from, to } = dates(search);
-  const [events, refunds, chargebacks] = await Promise.all([
+  const productId = process.env.HOTMART_PRODUCT_ID?.trim();
+  const transactionQuery = createAdminClient().from("hotmart_webhook_events").select("transaction_id").not("transaction_id", "is", null).limit(1000);
+  if (productId) transactionQuery.eq("product_id", productId);
+  const [events, refunds, chargebacks, transactionResult] = await Promise.all([
     count("hotmart_webhook_events"),
     count("hotmart_webhook_events", [["event_type", "PURCHASE_REFUNDED"]]),
     count("hotmart_webhook_events", [["event_type", "PURCHASE_CHARGEBACK"]]),
+    transactionQuery,
   ]);
+  if (transactionResult.error) throw transactionResult.error;
+  const knownTransactions = [...new Set((transactionResult.data ?? []).map((row) => row.transaction_id).filter((value): value is string => Boolean(value)))];
   let report = null; let apiUnavailable = !hotmartApiConfigured();
   if (!apiUnavailable) {
-    try { report = await getHotmartFinanceReport(from, to); }
+    try { report = await getHotmartFinanceReport(from, to, knownTransactions); }
     catch (error) {
       apiUnavailable = true;
       logHotmartApiFailure(error);
