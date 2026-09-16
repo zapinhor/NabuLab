@@ -6,14 +6,21 @@ import { createAdminClient } from "@/lib/supabase/admin";
 export default async function SubscriptionsPage({ searchParams }: { searchParams: Promise<{ status?: string; tier?: string }> }) {
   await requirePlatformAdmin({ superAdmin: true, aal2: true, returnTo: "/admin/subscriptions" });
   const filters = await searchParams;
-  let query = createAdminClient().from("subscriptions").select("user_id,plan,status,price_tier,provider,provider_subscription_id,current_period_start,current_period_end,cancel_at_period_end,termination_reason").order("current_period_end", { ascending: false }).limit(100);
+  const admin = createAdminClient();
+  let query = admin.from("subscriptions").select("user_id,plan,status,price_tier,provider,provider_subscription_id,current_period_start,current_period_end,cancel_at_period_end,termination_reason").order("current_period_end", { ascending: false }).limit(100);
   if (filters.status) query = query.eq("status", filters.status);
   if (filters.tier) query = query.eq("price_tier", filters.tier);
-  const { data, error } = await query; if (error) throw error;
+  const productId = process.env.HOTMART_PRODUCT_ID?.trim();
+  const transactionQuery = admin.from("hotmart_webhook_events").select("transaction_id").not("transaction_id", "is", null).limit(1000);
+  if (productId) transactionQuery.eq("product_id", productId);
+  const [{ data, error }, transactionResult] = await Promise.all([query, transactionQuery]);
+  if (error) throw error;
+  if (transactionResult.error) throw transactionResult.error;
+  const knownTransactions = [...new Set((transactionResult.data ?? []).map((row) => row.transaction_id).filter((value): value is string => Boolean(value)))];
   let reconciliation = null;
   if (hotmartApiConfigured()) {
     const to = new Date().toISOString().slice(0, 10); const fromDate = new Date(); fromDate.setUTCDate(fromDate.getUTCDate() - 29);
-    try { reconciliation = await getHotmartFinanceReport(fromDate.toISOString().slice(0, 10), to); }
+    try { reconciliation = await getHotmartFinanceReport(fromDate.toISOString().slice(0, 10), to, knownTransactions); }
     catch (error) { logHotmartApiFailure(error); }
   }
   return <AdminShell title="Assinaturas" description="Estado persistido pelo webhook com reconciliação somente leitura pela API Hotmart.">

@@ -194,7 +194,7 @@ function dateParams(productId: string, from: string, to: string) {
   return new URLSearchParams({ product_id: productId, start_date: String(start), end_date: String(end) });
 }
 
-export async function getHotmartFinanceReport(from: string, to: string): Promise<HotmartFinanceReport> {
+export async function getHotmartFinanceReport(from: string, to: string, knownTransactions: string[] = []): Promise<HotmartFinanceReport> {
   const { productId } = credentials();
   let offerItems: unknown[] = []; let planItems: unknown[] = [];
   try {
@@ -220,12 +220,26 @@ export async function getHotmartFinanceReport(from: string, to: string): Promise
   } catch (error) {
     if (!isInvalidSalesParameter(error)) throw error;
     console.warn("[hotmart-api] sales retry", { rejectedFilter: "product_id", nextFilter: "offer_code" });
-    salesGroups = [];
-    for (const offerCode of new Set([founderCode, standardCode])) {
-      const offerRange = new URLSearchParams(requestedRange);
-      offerRange.delete("product_id");
-      offerRange.set("offer_code", offerCode);
-      salesGroups.push(...await salesGroupsForScope(offerRange));
+    try {
+      salesGroups = [];
+      for (const offerCode of new Set([founderCode, standardCode])) {
+        const offerRange = new URLSearchParams(requestedRange);
+        offerRange.delete("product_id");
+        offerRange.set("offer_code", offerCode);
+        salesGroups.push(...await salesGroupsForScope(offerRange));
+      }
+    } catch (offerError) {
+      if (!isInvalidSalesParameter(offerError) || knownTransactions.length === 0) throw offerError;
+      console.warn("[hotmart-api] sales retry", { rejectedFilter: "offer_code", nextFilter: "known_transaction", transactions: knownTransactions.length });
+      salesGroups = [];
+      for (const transaction of new Set(knownTransactions.filter(Boolean))) {
+        salesGroups.push(await allPages(
+          "/payments/api/v1/sales/history",
+          new URLSearchParams({ transaction }),
+          "sales",
+          "product_only",
+        ));
+      }
     }
   }
   const transactionMap = new Map<string, HotmartTransaction>();
