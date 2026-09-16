@@ -26,7 +26,10 @@ assert.match(client, /params\.set\("transaction_status", status\)/, "cada reques
 assert.doesNotMatch(client, /salesParams\.append\("transaction_status"/, "não deve repetir status na mesma URL");
 assert.match(client, /salesMode !== "unbounded_default_page"/, "fallback deve testar Sales sem max_results explícito");
 assert.match(client, /mode === "product_only"\) params\.delete\("transaction_status"\)/, "fallback mínimo deve testar somente product_id");
-assert.match(client, /if \(salesMode === "product_only"\) break/, "consulta sem status não deve ser repetida para cada status");
+assert.match(client, /if \(mode === "product_only"\) break/, "consulta sem status não deve ser repetida para cada status");
+assert.match(client, /rejectedFilter: "product_id", nextFilter: "offer_code"/, "Sales deve recorrer às ofertas quando product_id for rejeitado");
+assert.match(client, /offerRange\.delete\("product_id"\)/, "fallback por oferta não deve manter o filtro rejeitado");
+assert.match(client, /offerRange\.set\("offer_code", offerCode\)/, "fallback deve consultar somente ofertas conhecidas do NabuLab");
 assert.match(client, /salesGroups\.flat\(\)/);
 assert.match(client, /transactionMap\.set\(sale\.transaction, sale\)/, "transações devem ser deduplicadas pelo ID");
 assert.match(client, /\[hotmart-api\] sales status/);

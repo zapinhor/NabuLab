@@ -94,6 +94,7 @@ async function apiGet(path: string, params: URLSearchParams, step: HotmartApiSte
     if (step === "sales") {
       console.error("[hotmart-api] sales query", {
         parameterNames: [...new Set(params.keys())],
+        scope: params.has("product_id") ? "product_id" : params.has("offer_code") ? "offer_code" : "none",
         product_id: params.get("product_id"),
         start_date: params.get("start_date"),
         end_date: params.get("end_date"),
@@ -145,6 +146,21 @@ async function salesPages(base: URLSearchParams, initialMode: SalesQueryMode) {
   }
   throw new HotmartApiError("A Sales API não aceitou os filtros documentados.", 400, "invalid_response", null, "/payments/api/v1/sales/history", "sales");
 }
+async function salesGroupsForScope(base: URLSearchParams) {
+  const groups: unknown[][] = [];
+  let mode: SalesQueryMode = "bounded";
+  for (const status of SALES_STATUSES) {
+    const params = new URLSearchParams(base);
+    params.set("transaction_status", status);
+    const result = await salesPages(params, mode);
+    mode = result.mode;
+    groups.push(result.items);
+    // Sem transaction_status, a Hotmart retorna APPROVED e COMPLETE por padrão.
+    // A consulta é idêntica para os demais status, portanto não deve ser repetida.
+    if (mode === "product_only") break;
+  }
+  return groups;
+}
 function productMatches(item: unknown, productId: string): boolean { return firstString(item, [["product", "id"], ["purchase", "product", "id"]]) === productId; }
 function parseSale(item: unknown): HotmartTransaction | null {
   const transaction = firstString(item, [["purchase", "transaction"], ["transaction"]]); const status = firstString(item, [["purchase", "status"], ["status"]]);
@@ -187,20 +203,22 @@ export async function getHotmartFinanceReport(from: string, to: string): Promise
   const offerCodes = new Set(offerItems.map((item) => firstString(item, [["code"]])).filter((code): code is string => code !== null));
   const founderCode = process.env.HOTMART_FOUNDER_PLAN_ID?.trim() ?? "v4h77zvh";
   const standardCode = process.env.HOTMART_STANDARD_PLAN_ID?.trim() ?? "7mqlgaln";
-  const salesGroups: unknown[][] = [];
-  let salesMode: SalesQueryMode = "bounded";
   const requestedRange = dateParams(productId, from, to);
   const requestedStart = Number(requestedRange.get("start_date"));
   const requestedEnd = Number(requestedRange.get("end_date"));
-  for (const status of SALES_STATUSES) {
-    const params = new URLSearchParams(requestedRange);
-    params.set("transaction_status", status);
-    const result = await salesPages(params, salesMode);
-    salesMode = result.mode;
-    salesGroups.push(result.items);
-    // Sem transaction_status, a Hotmart retorna APPROVED e COMPLETE por padrão.
-    // A consulta é idêntica para os demais status, portanto não deve ser repetida.
-    if (salesMode === "product_only") break;
+  let salesGroups: unknown[][];
+  try {
+    salesGroups = await salesGroupsForScope(requestedRange);
+  } catch (error) {
+    if (!isInvalidSalesParameter(error)) throw error;
+    console.warn("[hotmart-api] sales retry", { rejectedFilter: "product_id", nextFilter: "offer_code" });
+    salesGroups = [];
+    for (const offerCode of new Set([founderCode, standardCode])) {
+      const offerRange = new URLSearchParams(requestedRange);
+      offerRange.delete("product_id");
+      offerRange.set("offer_code", offerCode);
+      salesGroups.push(...await salesGroupsForScope(offerRange));
+    }
   }
   const transactionMap = new Map<string, HotmartTransaction>();
   for (const item of salesGroups.flat()) {
