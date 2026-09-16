@@ -12,7 +12,7 @@ export type HotmartApiStep = "configuration" | "oauth" | "sales" | "subscription
 
 type JsonRecord = Record<string, unknown>;
 type Money = { value: number; currency: string };
-type SalesQueryMode = "bounded" | "start_only" | "unbounded";
+type SalesQueryMode = "bounded" | "start_only" | "unbounded" | "unbounded_default_page";
 
 export type HotmartTransaction = { transaction: string; status: string; date: string; offerCode: string | null; tier: BillingPriceTier | null; gross: Money | null; producerCommission: Money | null; paymentType: string | null };
 export type HotmartSubscription = { subscriberCode: string; status: string; offerCode: string | null; tier: BillingPriceTier | null; price: Money | null; accessionDate: string | null; endDate: string | null; nextChargeDate: string | null; cancellationDate: string | null };
@@ -108,7 +108,9 @@ async function apiGet(path: string, params: URLSearchParams, step: HotmartApiSte
 async function allPages(path: string, baseParams: URLSearchParams, step: HotmartApiStep, salesMode?: SalesQueryMode): Promise<unknown[]> {
   const items: unknown[] = []; let pageToken: string | null = null; const seen = new Set<string>();
   for (let page = 0; page < MAX_PAGES; page += 1) {
-    const params = new URLSearchParams(baseParams); params.set("max_results", "100"); if (pageToken) params.set("page_token", pageToken);
+    const params = new URLSearchParams(baseParams);
+    if (salesMode !== "unbounded_default_page") params.set("max_results", "100");
+    if (pageToken) params.set("page_token", pageToken);
     const payload = await apiGet(path, params, step); items.push(...array(payload.items)); const next = string(at(payload, "page_info", "next_page_token"));
     if (!next) {
       if (step === "sales") console.info("[hotmart-api] sales status", { status: baseParams.get("transaction_status"), mode: salesMode ?? "bounded", httpStatus: 200, pages: page + 1, items: items.length });
@@ -123,12 +125,12 @@ function isInvalidSalesParameter(error: unknown) {
 }
 function salesParamsForMode(base: URLSearchParams, mode: SalesQueryMode) {
   const params = new URLSearchParams(base);
-  if (mode === "start_only" || mode === "unbounded") params.delete("end_date");
-  if (mode === "unbounded") params.delete("start_date");
+  if (mode !== "bounded") params.delete("end_date");
+  if (mode === "unbounded" || mode === "unbounded_default_page") params.delete("start_date");
   return params;
 }
 async function salesPages(base: URLSearchParams, initialMode: SalesQueryMode) {
-  const modes: SalesQueryMode[] = ["bounded", "start_only", "unbounded"];
+  const modes: SalesQueryMode[] = ["bounded", "start_only", "unbounded", "unbounded_default_page"];
   const startIndex = Math.max(0, modes.indexOf(initialMode));
   for (let index = startIndex; index < modes.length; index += 1) {
     const mode = modes[index];
