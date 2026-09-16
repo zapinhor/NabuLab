@@ -37,6 +37,7 @@ assert.match(client, /SalesQueryMode = "bounded" \| "start_only" \| "unbounded"/
 assert.match(client, /isInvalidSalesParameter/);
 assert.match(client, /sales retry/);
 assert.match(client, /providerMessage: normalized\?\.providerMessage/, "diagnóstico deve registrar somente a mensagem segura do provedor");
+assert.match(client, /credentialSetFingerprint: credentialSetFingerprint\(\)/, "diagnóstico deve permitir comparar ambientes sem revelar credenciais");
 assert.match(client, /saleTime >= requestedStart && saleTime <= requestedEnd/, "fallback amplo deve ser filtrado localmente");
 assert.match(client, /hotmartSalesEpochRange\(from, to\)/);
 assert.doesNotMatch(client, /console\.(?:log|error|warn)\([^\n]*(?:clientSecret|basicToken|access_token)/, "segredos não podem ser registrados");

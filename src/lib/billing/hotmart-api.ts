@@ -1,5 +1,6 @@
 import "server-only";
 
+import { createHash } from "node:crypto";
 import type { BillingPriceTier } from "@/lib/billing/config";
 import { hotmartSalesEpochRange, tierForOffer } from "@/lib/billing/hotmart-api-model";
 
@@ -51,6 +52,11 @@ function credentials() {
   const clientId = process.env.HOTMART_CLIENT_ID?.trim(); const clientSecret = process.env.HOTMART_CLIENT_SECRET?.trim(); const basicToken = process.env.HOTMART_BASIC_TOKEN?.trim(); const productId = process.env.HOTMART_PRODUCT_ID?.trim();
   if (!clientId || !clientSecret || !basicToken || !productId) throw new HotmartApiError("Credenciais da API Hotmart não configuradas no servidor.", null, "configuration", null, null, "configuration");
   return { clientId, clientSecret, basicToken, productId };
+}
+function credentialSetFingerprint() {
+  const values = [process.env.HOTMART_CLIENT_ID, process.env.HOTMART_CLIENT_SECRET, process.env.HOTMART_BASIC_TOKEN, process.env.HOTMART_PRODUCT_ID]
+    .map((value) => value?.trim() ?? "");
+  return createHash("sha256").update(values.join("\u0000")).digest("hex").slice(0, 12);
 }
 function networkCode(error: unknown): string | null {
   if (!error || typeof error !== "object") return null;
@@ -262,6 +268,7 @@ export function logHotmartApiFailure(error: unknown) {
     errorCode: normalized?.providerCode ?? normalized?.code ?? "unknown",
     providerMessage: normalized?.providerMessage ?? null,
     safeMessage: normalized?.message ?? "Falha inesperada na integração Hotmart.",
+    credentialSetFingerprint: credentialSetFingerprint(),
     configuration: {
       HOTMART_CLIENT_ID: Boolean(process.env.HOTMART_CLIENT_ID?.trim()),
       HOTMART_CLIENT_SECRET: Boolean(process.env.HOTMART_CLIENT_SECRET?.trim()),
