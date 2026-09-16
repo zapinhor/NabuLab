@@ -1,6 +1,6 @@
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { safeNextPath } from "@/lib/routing";
-import { optionalCaptchaToken } from "@/lib/security/captcha";
+import { requiredCaptchaToken } from "@/lib/security/captcha";
 import { clearLoginFailures, getLoginLimit, loginBucket, recordLoginFailure, trustedRequestOrigin } from "@/lib/security/auth-rate-limit";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -27,6 +27,9 @@ export async function POST(request: Request) {
   const email = String(body.email ?? "").trim().toLowerCase();
   const password = String(body.password ?? "");
   if (!email || !password) return Response.json({ error: INVALID }, { status: 400 });
+  let captchaToken: string | undefined;
+  try { captchaToken = requiredCaptchaToken(body.captchaToken); }
+  catch { return Response.json({ error: "Conclua a verificação de segurança e tente novamente." }, { status: 400 }); }
 
   const bucket = loginBucket(email, trustedRequestOrigin(request.headers));
   const current = await getLoginLimit(bucket);
@@ -37,7 +40,7 @@ export async function POST(request: Request) {
 
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signInWithPassword({
-    email, password, options: { captchaToken: optionalCaptchaToken(body.captchaToken) },
+    email, password, options: { captchaToken },
   });
   if (error || !data.session || !data.user) {
     await recordLoginFailure(bucket);

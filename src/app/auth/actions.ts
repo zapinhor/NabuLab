@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { safeNextPath } from "@/lib/routing";
+import { requiredCaptchaToken } from "@/lib/security/captcha";
 
 function value(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -21,6 +22,9 @@ export async function signUp(formData: FormData) {
   const username = value(formData, "username").toLowerCase();
   const next = safeNextPath(value(formData, "next"));
   const origin = (await headers()).get("origin") ?? "http://localhost:3000";
+  let captchaToken: string | undefined;
+  try { captchaToken = requiredCaptchaToken(formData.get("captcha_token")); }
+  catch { authRedirect("/cadastro", "Conclua a verificação de segurança e tente novamente."); }
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -28,7 +32,7 @@ export async function signUp(formData: FormData) {
     options: {
       emailRedirectTo: `${origin}/auth/confirm?next=${encodeURIComponent(next)}`,
       data: { full_name: fullName, username },
-      captchaToken: value(formData, "captcha_token") || undefined,
+      captchaToken,
     },
   });
   if (error) authRedirect("/cadastro", "Não foi possível concluir o cadastro. Verifique os dados e tente novamente.");
@@ -48,10 +52,13 @@ export async function signOut() {
 export async function requestPasswordReset(formData: FormData) {
   const email = value(formData, "email").toLowerCase();
   const origin = (await headers()).get("origin") ?? "http://localhost:3000";
+  let captchaToken: string | undefined;
+  try { captchaToken = requiredCaptchaToken(formData.get("captcha_token")); }
+  catch { authRedirect("/recuperar-senha", "Conclua a verificação de segurança e tente novamente."); }
   const supabase = await createClient();
   await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: `${origin}/auth/confirm?next=%2Fredefinir-senha`,
-    captchaToken: value(formData, "captcha_token") || undefined,
+    captchaToken,
   });
   redirect(`/login?mensagem=${encodeURIComponent("Se houver uma conta para esse e-mail, enviaremos as instruções de recuperação.")}`);
 }

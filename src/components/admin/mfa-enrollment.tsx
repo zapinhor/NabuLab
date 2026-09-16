@@ -3,23 +3,23 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { decideMfaBootstrap } from "@/lib/admin/mfa-state";
 
 type Enrollment = { factorId: string; qrCode: string; secret: string };
 type MfaState = "checking" | "challenge" | "cleaning" | "enrolling" | "verifyEnrollment" | "verified" | "error";
 const REMOTE_TIMEOUT_MS = 12_000;
 
-function developmentLog(step: string, details?: Record<string, unknown>) {
-  if (process.env.NODE_ENV === "development") console.info(`[mfa] ${step}`, details ?? "");
+function authErrorDetails(error: { name: string; code?: string; status?: number }) {
+  return { name: error.name, code: error.code ?? null, status: error.status ?? null };
 }
 
-function authErrorDetails(error: { name: string; message: string; code?: string; status?: number }) {
-  return { name: error.name, code: error.code ?? null, status: error.status ?? null, message: error.message };
-}
-
-function logAuthError(step: string, error: unknown) {
+function logAuthError(step: string, runId: number, error: unknown, severity: "warn" | "error" = "error") {
   if (process.env.NODE_ENV !== "development") return;
-  if (error instanceof Error) console.error(`[mfa] ${step}`, authErrorDetails(error));
-  else console.error(`[mfa] ${step}`, { name: "UnknownError", code: null, status: null, message: "Erro não identificado." });
+  const details = error instanceof Error
+    ? { runId, ...authErrorDetails(error) }
+    : { runId, name: "UnknownError", code: null, status: null };
+  if (severity === "warn") console.warn(`[mfa] ${step}`, details);
+  else console.error(`[mfa] ${step}`, details);
 }
 
 async function withTimeout<T>(operation: PromiseLike<T>, step: string): Promise<T> {
@@ -38,7 +38,7 @@ async function withTimeout<T>(operation: PromiseLike<T>, step: string): Promise<
 
 export function MfaEnrollment({ returnTo }: { returnTo: string }) {
   const router = useRouter();
-  const initializedRef = useRef(false);
+  const runIdRef = useRef(0);
   const verifyingRef = useRef(false);
   const [run, setRun] = useState(0);
   const [state, setState] = useState<MfaState>("checking");
@@ -49,99 +49,77 @@ export function MfaEnrollment({ returnTo }: { returnTo: string }) {
   const qrCodeSrc = enrollment?.qrCode?.trim();
 
   useEffect(() => {
-    if (initializedRef.current) return;
-    initializedRef.current = true;
-    let active = true;
+    const runId = ++runIdRef.current;
+    const isCurrent = () => runIdRef.current === runId;
+    function transition(nextState: MfaState, nextMessage: string) {
+      if (!isCurrent()) return false;
+      setState(nextState);
+      setMessage(nextMessage);
+      return true;
+    }
 
     async function bootstrap() {
-      developmentLog("bootstrap:start");
-      setState("checking");
-      setMessage("Verificando sua autenticação…");
+      transition("checking", "Verificando sua autenticação…");
       setEnrollment(null);
       try {
         const supabase = createClient();
-        developmentLog("aal:start");
         const { data: assurance, error: assuranceError } = await withTimeout(supabase.auth.mfa.getAuthenticatorAssuranceLevel(), "getAuthenticatorAssuranceLevel");
-        if (!active) return;
+        if (!isCurrent()) return;
         if (assuranceError) throw assuranceError;
-        developmentLog("aal:done", { currentLevel: assurance.currentLevel, nextLevel: assurance.nextLevel });
-        if (assurance.currentLevel === "aal2" && assurance.nextLevel === "aal2") {
-          setState("verified");
-          setMessage("MFA ativado. Redirecionando…");
-          developmentLog("bootstrap:verified");
+        if (decideMfaBootstrap(assurance.currentLevel, assurance.nextLevel, 0) === "verified") {
+          transition("verified", "MFA ativado. Redirecionando…");
           router.push(returnTo);
           router.refresh();
           return;
         }
 
-        developmentLog("factors:list:start");
         const { data: factors, error: listError } = await withTimeout(supabase.auth.mfa.listFactors(), "listFactors");
-        if (!active) return;
+        if (!isCurrent()) return;
         if (listError) throw listError;
-        const totpFactors = factors.all.filter((factor) => factor.factor_type === "totp");
-        developmentLog("factors:list:done", {
-          total: totpFactors.length,
-          factors: totpFactors.map((factor) => ({ status: factor.status, friendlyName: factor.friendly_name ?? null, idPrefix: factor.id.slice(0, 8) })),
-        });
+        const verifiedFactors = factors.totp;
+        const abandoned = factors.all.filter((factor) => factor.factor_type === "totp" && factor.status === "unverified");
 
-        const verified = totpFactors.find((factor) => factor.status === "verified");
-        developmentLog("verified:detected", { found: Boolean(verified) });
-        if (verified) {
-          if (assurance.nextLevel !== "aal2") {
-            developmentLog("verified:inconsistent", { currentLevel: assurance.currentLevel, nextLevel: assurance.nextLevel });
-            throw new Error("Existe um fator TOTP verificado, mas a sessão não o reconhece como próximo nível AAL2.");
-          }
+        const decision = decideMfaBootstrap(assurance.currentLevel, assurance.nextLevel, verifiedFactors.length);
+        const verified = verifiedFactors[0];
+        if (decision === "inconsistent") throw new Error("Existe um fator TOTP verificado, mas a sessão não o reconhece como próximo nível AAL2.");
+        if (decision === "challenge" && verified) {
           setEnrollment({ factorId: verified.id, qrCode: "", secret: "" });
-          setState("challenge");
-          setMessage("Digite o código atual do seu aplicativo autenticador.");
-          developmentLog("bootstrap:challenge");
+          transition("challenge", "Digite o código atual do seu aplicativo autenticador.");
           return;
         }
 
-        const abandoned = totpFactors.filter((factor) => factor.status === "unverified");
-        developmentLog("unverified:detected", { total: abandoned.length });
         if (abandoned.length) {
-          setState("cleaning");
-          setMessage("Limpando um cadastro MFA incompleto…");
-          developmentLog("cleanup:start", { total: abandoned.length });
+          transition("cleaning", "Limpando um cadastro MFA incompleto…");
           for (const factor of abandoned) {
             const { error } = await withTimeout(supabase.auth.mfa.unenroll({ factorId: factor.id }), "unenroll");
-            if (!active) return;
+            if (!isCurrent()) return;
             if (error) throw error;
           }
-          developmentLog("cleanup:done");
         }
 
-        setState("enrolling");
-        setMessage("Preparando um novo autenticador…");
-        developmentLog("enroll:start");
+        transition("enrolling", "Preparando um novo autenticador…");
         const { data, error: enrollError } = await withTimeout(supabase.auth.mfa.enroll({ factorType: "totp", friendlyName: "NabuLab Admin" }), "enroll");
-        if (!active) return;
+        if (!isCurrent()) return;
         if (enrollError) {
-          logAuthError("enroll:error", enrollError);
+          logAuthError("enroll:error", runId, enrollError);
           throw enrollError;
         }
-        developmentLog("enroll:done", { factorIdPrefix: data.id.slice(0, 8) });
         setEnrollment({ factorId: data.id, qrCode: data.totp.qr_code, secret: data.totp.secret });
-        setState("verifyEnrollment");
-        setMessage("Escaneie o QR e confirme o código. O MFA ainda não está ativado.");
-        developmentLog("bootstrap:verifyEnrollment");
+        transition("verifyEnrollment", "Escaneie o QR e confirme o código. O MFA ainda não está ativado.");
       } catch (error) {
-        if (!active) return;
-        logAuthError("bootstrap:error", error);
-        setState("error");
-        setMessage("Não foi possível preparar a autenticação em duas etapas.");
-      } finally {
-        developmentLog("bootstrap:finish");
+        if (!isCurrent()) return;
+        logAuthError("bootstrap:error", runId, error);
+        transition("error", "Não foi possível preparar a autenticação em duas etapas.");
       }
     }
 
     void bootstrap();
-    return () => { active = false; };
+    return () => {
+      if (runIdRef.current === runId) runIdRef.current += 1;
+    };
   }, [returnTo, router, run]);
 
   function retry() {
-    initializedRef.current = false;
     verifyingRef.current = false;
     setCode("");
     setRun((value) => value + 1);
@@ -153,28 +131,28 @@ export function MfaEnrollment({ returnTo }: { returnTo: string }) {
       if (!verifyingRef.current) setMessage("Digite o código de 6 dígitos.");
       return;
     }
+    const runId = runIdRef.current;
+    const isCurrent = () => runIdRef.current === runId;
     verifyingRef.current = true;
     setVerifying(true);
+    let verifySucceeded = false;
     try {
       const supabase = createClient();
-      developmentLog("challenge:start");
       const { data: challenge, error: challengeError } = await withTimeout(supabase.auth.mfa.challenge({ factorId: enrollment.factorId }), "challenge");
+      if (!isCurrent()) return;
       if (challengeError) throw challengeError;
-      developmentLog("challenge:done");
-
-      developmentLog("verify:start");
       const { error: verifyError } = await withTimeout(supabase.auth.mfa.verify({ factorId: enrollment.factorId, challengeId: challenge.id, code }), "verify");
+      if (!isCurrent()) return;
       if (verifyError) throw verifyError;
-      developmentLog("verify:done");
+      verifySucceeded = true;
 
-      developmentLog("refreshSession:start");
       const { error: refreshError } = await withTimeout(supabase.auth.refreshSession(), "refreshSession");
+      if (!isCurrent()) return;
       if (refreshError) throw refreshError;
-      developmentLog("refreshSession:done");
 
       const { data: assurance, error: assuranceError } = await withTimeout(supabase.auth.mfa.getAuthenticatorAssuranceLevel(), "getAuthenticatorAssuranceLevel pós-verify");
+      if (!isCurrent()) return;
       if (assuranceError) throw assuranceError;
-      developmentLog("verify:aal", { currentLevel: assurance.currentLevel, nextLevel: assurance.nextLevel });
       if (assurance.currentLevel !== "aal2" || assurance.nextLevel !== "aal2") throw new Error("A sessão não chegou aos níveis currentLevel=aal2 e nextLevel=aal2.");
 
       setState("verified");
@@ -182,12 +160,33 @@ export function MfaEnrollment({ returnTo }: { returnTo: string }) {
       router.push(returnTo);
       router.refresh();
     } catch (error) {
-      logAuthError("verify:error", error);
+      if (!isCurrent()) return;
+      if (verifySucceeded) {
+        try {
+          const supabase = createClient();
+          const { data: assurance, error: assuranceError } = await withTimeout(
+            supabase.auth.mfa.getAuthenticatorAssuranceLevel(),
+            "getAuthenticatorAssuranceLevel de recuperação",
+          );
+          if (!isCurrent()) return;
+          if (!assuranceError && assurance.currentLevel === "aal2" && assurance.nextLevel === "aal2") {
+            logAuthError("verify:recovered", runId, error, "warn");
+            setState("verified");
+            setMessage("MFA ativado. Redirecionando…");
+            router.push(returnTo);
+            router.refresh();
+            return;
+          }
+        } catch {
+          // A falha original continua sendo a causa terminal da execução atual.
+        }
+      }
+      logAuthError("verify:error", runId, error);
       setState("error");
       setMessage("Não foi possível confirmar a autenticação em duas etapas.");
     } finally {
       verifyingRef.current = false;
-      setVerifying(false);
+      if (isCurrent()) setVerifying(false);
     }
   }
 

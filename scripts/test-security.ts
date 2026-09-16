@@ -12,6 +12,8 @@ assert.match(login, /status: 429/);
 assert.match(login, /E-mail ou senha inválidos/);
 assert.doesNotMatch(login, /error\.message/);
 assert.match(login, /clearLoginFailures/);
+assert.match(login, /requiredCaptchaToken\(body\.captchaToken\)/, "login rejeita token ausente no servidor");
+assert.ok(login.indexOf("requiredCaptchaToken(body.captchaToken)") < login.indexOf("getLoginLimit(bucket)"), "CAPTCHA precede rate limit");
 assert.match(migration, /revoke all on table public\.auth_login_limits from public, anon, authenticated/);
 assert.equal(migration.includes("grant execute on function public.record_login_failure(text,text,integer,integer,integer) to service_role"), true);
 const policy = { maxAttempts: 5, windowMs: 15 * 60_000, cooldownMs: 15 * 60_000 };
