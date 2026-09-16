@@ -3,8 +3,6 @@ import { requirePlatformAdmin } from "@/lib/admin/auth";
 import { getHotmartFinanceReport, hotmartApiConfigured, logHotmartApiFailure } from "@/lib/billing/hotmart-api";
 import { createAdminClient } from "@/lib/supabase/admin";
 
-export const preferredRegion = "gru1";
-
 export default async function SubscriptionsPage({ searchParams }: { searchParams: Promise<{ status?: string; tier?: string }> }) {
   await requirePlatformAdmin({ superAdmin: true, aal2: true, returnTo: "/admin/subscriptions" });
   const filters = await searchParams;
