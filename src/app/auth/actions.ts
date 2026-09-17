@@ -12,13 +12,17 @@ function value(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
 }
 
+function rawValue(formData: FormData, key: string) {
+  return String(formData.get(key) ?? "");
+}
+
 function authRedirect(path: string, message: string): never {
   redirect(`${path}?mensagem=${encodeURIComponent(message)}`);
 }
 
 export async function signUp(formData: FormData) {
   const email = value(formData, "email").toLowerCase();
-  const password = value(formData, "password");
+  const password = rawValue(formData, "password");
   const fullName = value(formData, "full_name");
   const username = value(formData, "username").toLowerCase();
   const next = safeNextPath(value(formData, "next"));
@@ -60,16 +64,22 @@ export async function requestPasswordReset(formData: FormData) {
   try { captchaToken = requiredCaptchaToken(formData.get("captcha_token")); }
   catch { authRedirect("/recuperar-senha", "Conclua a verificação de segurança e tente novamente."); }
   const supabase = await createClient();
-  await supabase.auth.resetPasswordForEmail(email, {
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: `${origin}/auth/confirm?next=%2Fredefinir-senha`,
     captchaToken,
   });
+  if (error?.code === "over_email_send_rate_limit" || error?.status === 429) {
+    authRedirect("/recuperar-senha", "O limite temporário de e-mails foi atingido. Aguarde alguns minutos antes de tentar novamente.");
+  }
+  if (error) {
+    authRedirect("/recuperar-senha", "Não foi possível enviar as instruções agora. Tente novamente mais tarde.");
+  }
   redirect(`/login?mensagem=${encodeURIComponent("Se houver uma conta para esse e-mail, enviaremos as instruções de recuperação.")}`);
 }
 
 export async function updatePassword(formData: FormData) {
-  const password = value(formData, "password");
-  const confirmation = value(formData, "password_confirmation");
+  const password = rawValue(formData, "password");
+  const confirmation = rawValue(formData, "password_confirmation");
   if (password.length < 8 || password !== confirmation) authRedirect("/redefinir-senha", "Use uma senha de pelo menos 8 caracteres e confirme-a corretamente.");
   const supabase = await createClient();
   const { error } = await supabase.auth.updateUser({ password });

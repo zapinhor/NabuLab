@@ -5,6 +5,10 @@ import { isValidUsername, ORGANIZATION_SLUG_HTML_PATTERN, USERNAME_HTML_PATTERN 
 
 const rate = readFileSync("src/lib/security/auth-rate-limit.ts", "utf8");
 const login = readFileSync("src/app/api/auth/login/route.ts", "utf8");
+const authActions = readFileSync("src/app/auth/actions.ts", "utf8");
+const authConfirm = readFileSync("src/app/auth/confirm/route.ts", "utf8");
+const recoverPage = readFileSync("src/app/recuperar-senha/page.tsx", "utf8");
+const redefinePage = readFileSync("src/app/redefinir-senha/page.tsx", "utf8");
 const migration = readFileSync("supabase/migrations/20260915084514_security_hardening_admin_control_center.sql", "utf8");
 assert.match(rate, /AUTH_LOGIN_MAX_ATTEMPTS", 5/);
 assert.match(rate, /createHmac\("sha256"/);
@@ -14,6 +18,16 @@ assert.match(login, /E-mail ou senha inválidos/);
 assert.doesNotMatch(login, /error\.message/);
 assert.match(login, /clearLoginFailures/);
 assert.match(login, /requiredCaptchaToken\(body\.captchaToken\)/, "login rejeita token ausente no servidor");
+assert.match(authActions, /const password = rawValue\(formData, "password"\)/, "cadastro preserva a senha exatamente como foi digitada");
+assert.doesNotMatch(authActions, /const password = value\(formData, "password"\)/, "senha não pode ser alterada silenciosamente com trim");
+assert.match(authActions, /error\?\.code === "over_email_send_rate_limit"/, "recuperação informa indisponibilidade temporária de e-mail");
+assert.match(authConfirm, /verifyOtp\(\{[\s\S]*token_hash: tokenHash/, "callback aceita token hash dos e-mails do Supabase");
+assert.match(authConfirm, /type === "recovery" \|\| safeNext === "\/redefinir-senha"/, "recovery PKCE não é contabilizado como cadastro");
+assert.match(authConfirm, /if \(type === "signup"\)/, "somente confirmação explícita por token hash registra cadastro");
+assert.match(recoverPage, /requestPasswordReset/, "rota de recuperação continua solicitando o e-mail");
+assert.match(recoverPage, /TurnstileField/, "solicitação de recuperação permanece protegida por CAPTCHA");
+assert.match(redefinePage, /name="password_confirmation"/, "confirmação usa o campo esperado pela action");
+assert.match(redefinePage, /supabase\.auth\.getUser\(\)/, "formulário de nova senha exige sessão de recovery válida");
 assert.ok(login.indexOf("requiredCaptchaToken(body.captchaToken)") < login.indexOf("getLoginLimit(bucket)"), "CAPTCHA precede rate limit");
 assert.match(migration, /revoke all on table public\.auth_login_limits from public, anon, authenticated/);
 assert.equal(migration.includes("grant execute on function public.record_login_failure(text,text,integer,integer,integer) to service_role"), true);
