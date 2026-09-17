@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { isBlocked, nextFailureState, type LoginFailureState } from "../src/lib/security/login-policy";
+import { isValidUsername, ORGANIZATION_SLUG_HTML_PATTERN, USERNAME_HTML_PATTERN } from "../src/lib/forms/patterns";
 
 const rate = readFileSync("src/lib/security/auth-rate-limit.ts", "utf8");
 const login = readFileSync("src/app/api/auth/login/route.ts", "utf8");
@@ -30,4 +31,8 @@ assert.equal(accountA.has("account-b:origin-a"), false, "another account is isol
 assert.equal(accountA.has("account-a:origin-b"), false, "another origin is isolated");
 state = null;
 assert.equal(isBlocked(state, 0), false, "successful login cleanup clears failures");
+assert.doesNotThrow(() => new RegExp(`^(?:${USERNAME_HTML_PATTERN})$`, "v"), "username pattern compila com as regras modernas do Chrome");
+assert.doesNotThrow(() => new RegExp(`^(?:${ORGANIZATION_SLUG_HTML_PATTERN})$`, "v"), "slug pattern compila com as regras modernas do Chrome");
+for (const username of ["aluno01", "aluno-real", "aluno.real", "aluno_real"]) assert.equal(isValidUsername(username), true, `${username} deve ser válido`);
+for (const username of ["ab", "-aluno", "aluno espaço", "aluno@real"]) assert.equal(isValidUsername(username), false, `${username} deve ser inválido`);
 console.log("Security: rate limit, generic messages, cleanup and least privilege validated.");

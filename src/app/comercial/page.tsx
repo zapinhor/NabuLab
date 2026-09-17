@@ -13,6 +13,7 @@ import {
   revokeOrganizationInvite,
   updateBranding,
 } from "@/app/comercial/actions";
+import { ORGANIZATION_SLUG_HTML_PATTERN } from "@/lib/forms/patterns";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 import { RevokeMemberForm } from "@/components/commercial/revoke-member-form";
@@ -406,7 +407,7 @@ export default async function CommercialPage({
                     <input
                       className={fieldClass}
                       name="slug"
-                      pattern="[a-z0-9][a-z0-9-]{1,62}[a-z0-9]"
+                      pattern={ORGANIZATION_SLUG_HTML_PATTERN}
                       required
                     />
                   </label>
