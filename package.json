@@ -21,6 +21,7 @@
     "test:admin": "node --import tsx scripts/test-admin.ts",
     "test:mfa": "node --import tsx scripts/test-mfa-lifecycle.ts",
     "test:turnstile": "node --import tsx scripts/test-turnstile.ts",
+    "test:support": "node --import tsx scripts/test-support.ts",
     "test:ga": "node --import tsx scripts/test-ga-events.ts",
     "start": "next start",
     "lint": "eslint"
