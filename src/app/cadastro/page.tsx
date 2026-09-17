@@ -2,6 +2,7 @@ import Link from "next/link";
 import { signUp } from "@/app/auth/actions";
 import { AuthCard, buttonClass, inputClass } from "@/components/commercial/auth-card";
 import { TurnstileField } from "@/components/security/turnstile-field";
+import { USERNAME_HTML_PATTERN } from "@/lib/forms/patterns";
 
 export default async function SignupPage({ searchParams }: { searchParams: Promise<{ mensagem?: string; next?: string }> }) {
   const { mensagem, next } = await searchParams;
@@ -13,7 +14,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
           <input className={inputClass} name="full_name" autoComplete="name" required minLength={2} />
         </label>
         <label className="block text-sm font-semibold text-slate-700">Username
-          <input className={inputClass} name="username" autoComplete="username" required minLength={3} maxLength={32} pattern="[a-zA-Z0-9][a-zA-Z0-9._-]{2,31}" />
+          <input className={inputClass} name="username" autoComplete="username" required minLength={3} maxLength={32} pattern={USERNAME_HTML_PATTERN} />
         </label>
         <label className="block text-sm font-semibold text-slate-700">E-mail
           <input className={inputClass} type="email" name="email" autoComplete="email" required />

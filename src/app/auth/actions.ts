@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
+import { isValidUsername } from "@/lib/forms/patterns";
 
 function value(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -21,6 +22,9 @@ export async function signUp(formData: FormData) {
   const fullName = value(formData, "full_name");
   const username = value(formData, "username").toLowerCase();
   const next = safeNextPath(value(formData, "next"));
+  if (!isValidUsername(username)) {
+    authRedirect("/cadastro", "Use um username de 3 a 32 caracteres, começando com letra ou número e usando apenas letras, números, ponto, hífen ou underline.");
+  }
   const origin = (await headers()).get("origin") ?? "http://localhost:3000";
   let captchaToken: string | undefined;
   try { captchaToken = requiredCaptchaToken(formData.get("captcha_token")); }
