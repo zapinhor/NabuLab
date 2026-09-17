@@ -1008,6 +1008,24 @@ export default function DashboardPage() {
         </nav>
 
         <div className="border-t border-white/10 px-5 py-5">
+          <Link
+            href="/suporte"
+            className="mb-3 flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left transition hover:border-white/20 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
+          >
+            <span
+              aria-hidden="true"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-lg"
+            >
+              💬
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-bold text-white">Suporte</span>
+              <span className="block truncate text-xs text-slate-400">
+                Relatar um problema
+              </span>
+            </span>
+          </Link>
+
           <StudentAccountMenu
             account={account}
             loading={accountLoading}
@@ -1290,6 +1308,12 @@ export default function DashboardPage() {
                   href="/comercial"
                   icon="🏫"
                   label="Gestão institucional"
+                  onNavigate={closeMobileMenu}
+                />
+                <MobileNavLink
+                  href="/suporte"
+                  icon="💬"
+                  label="Suporte"
                   onNavigate={closeMobileMenu}
                 />
               </nav>
