@@ -29,10 +29,11 @@ type Props = {
   inputName?: string;
   onToken?: (token: string) => void;
   onStateChange?: (state: TurnstileState) => void;
+  canSubmit?: () => boolean;
 };
 
 export const TurnstileField = forwardRef<TurnstileFieldHandle, Props>(function TurnstileField(
-  { inputName, onToken, onStateChange },
+  { inputName, onToken, onStateChange, canSubmit },
   ref,
 ) {
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
@@ -74,13 +75,14 @@ export const TurnstileField = forwardRef<TurnstileFieldHandle, Props>(function T
     const form = containerRef.current?.closest("form");
     if (!form) return;
     const protectSubmit = (event: SubmitEvent) => {
+      if (canSubmit && !canSubmit()) { event.preventDefault(); return; }
       if (tokenRef.current) { update("verifying", tokenRef.current); return; }
       event.preventDefault();
       setState((current) => current === "expired" ? "expired" : "error");
     };
     form.addEventListener("submit", protectSubmit);
     return () => form.removeEventListener("submit", protectSubmit);
-  }, [renderWidget, update]);
+  }, [canSubmit, renderWidget, update]);
 
   useEffect(() => () => {
     if (widgetIdRef.current && window.turnstile) window.turnstile.remove(widgetIdRef.current);
