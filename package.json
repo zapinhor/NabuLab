@@ -18,6 +18,7 @@
     "test:c3": "node --import tsx scripts/test-c3.ts",
     "test:premium-offer": "node --import tsx scripts/test-premium-offer.ts",
     "test:security": "node --import tsx scripts/test-security.ts",
+    "test:signup": "node --import tsx scripts/test-signup-validation.ts",
     "test:admin": "node --import tsx scripts/test-admin.ts",
     "test:mfa": "node --import tsx scripts/test-mfa-lifecycle.ts",
     "test:turnstile": "node --import tsx scripts/test-turnstile.ts",

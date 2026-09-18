@@ -13,6 +13,7 @@ assert.match(widget, /"error-callback"/);
 assert.match(widget, /window\.turnstile\.reset/);
 assert.doesNotMatch(widget, /turnstile\.ready/, "renderização não depende de turnstile.ready");
 assert.doesNotMatch(widget, /console\./, "token e estado do CAPTCHA não devem ser logados");
+assert.match(widget, /canSubmit && !canSubmit\(\)/, "validação dos campos ocorre antes do erro de CAPTCHA");
 assert.match(login, /requiredCaptchaToken\(body\.captchaToken\)/);
 assert.equal((actions.match(/requiredCaptchaToken\(formData\.get\("captcha_token"\)\)/g) ?? []).length, 2, "cadastro e recuperação exigem CAPTCHA");
 assert.doesNotMatch(resetPage, /TurnstileField/, "troca efetiva da senha não adiciona segundo CAPTCHA");

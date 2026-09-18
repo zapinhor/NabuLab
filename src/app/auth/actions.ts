@@ -7,6 +7,7 @@ import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
 import { isValidUsername } from "@/lib/forms/patterns";
+import { validateEmail, validateFullName, validatePassword, validateUsername } from "@/lib/forms/signup-validation";
 
 function value(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -26,9 +27,14 @@ export async function signUp(formData: FormData) {
   const fullName = value(formData, "full_name");
   const username = value(formData, "username").toLowerCase();
   const next = safeNextPath(value(formData, "next"));
-  if (!isValidUsername(username)) {
-    authRedirect("/cadastro", "Use um username de 3 a 32 caracteres, começando com letra ou número e usando apenas letras, números, ponto, hífen ou underline.");
-  }
+  const fullNameError = validateFullName(fullName);
+  if (fullNameError) authRedirect("/cadastro", `Nome: ${fullNameError}`);
+  const usernameError = validateUsername(username);
+  if (usernameError || !isValidUsername(username)) authRedirect("/cadastro", `Username: ${usernameError ?? "Use um username válido."}`);
+  const emailError = validateEmail(email);
+  if (emailError) authRedirect("/cadastro", `E-mail: ${emailError}`);
+  const passwordError = validatePassword(password);
+  if (passwordError) authRedirect("/cadastro", `Senha: ${passwordError}`);
   const origin = (await headers()).get("origin") ?? "http://localhost:3000";
   let captchaToken: string | undefined;
   try { captchaToken = requiredCaptchaToken(formData.get("captcha_token")); }
@@ -43,7 +49,11 @@ export async function signUp(formData: FormData) {
       captchaToken,
     },
   });
-  if (error) authRedirect("/cadastro", "Não foi possível concluir o cadastro. Verifique os dados e tente novamente.");
+  if (error?.code === "weak_password") authRedirect("/cadastro", "Senha: essa senha foi considerada insegura. Use uma senha mais longa e difícil de adivinhar.");
+  if (error?.code === "email_address_invalid" || error?.code === "validation_failed") authRedirect("/cadastro", "E-mail: o endereço informado não foi aceito. Confira se ele está completo e correto.");
+  if (error?.code === "over_email_send_rate_limit" || error?.status === 429) authRedirect("/cadastro", "Muitas tentativas de cadastro. Aguarde alguns minutos e tente novamente.");
+  if (error?.code === "signup_disabled") authRedirect("/cadastro", "Novos cadastros estão temporariamente indisponíveis.");
+  if (error) authRedirect("/cadastro", "Não foi possível concluir o cadastro. Confira os campos destacados e tente novamente.");
   if (!data.session) {
     redirect(`/login?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent("Confira seu e-mail para confirmar o cadastro.")}`);
   }
