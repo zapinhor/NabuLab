@@ -7,6 +7,7 @@ export const PUBLIC_APP_PATHS = [
   "/redefinir-senha",
   "/termos",
   "/privacidade",
+  "/premium",
   "/suporte",
   "/auth/confirm",
   "/api/analytics/events",

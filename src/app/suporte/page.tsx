@@ -5,11 +5,14 @@ import { PublicPageShell } from "@/components/public/public-page-shell";
 import { buttonClass, inputClass } from "@/components/commercial/auth-card";
 import { createClient } from "@/lib/supabase/server";
 import { SUPPORT_CATEGORIES } from "@/lib/support/validation";
+import { createPublicMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPublicMetadata({
   title: "Suporte",
-  description: "Envie um relato para o suporte do NabuLab.",
-};
+  description:
+    "Encontre ajuda sobre conta, simulados e assinatura ou envie um relato para o suporte do NabuLab.",
+  path: "/suporte",
+});
 
 const statusMessages = {
   enviado: "Recebemos seu relato. Nossa equipe responderá pelo e-mail da sua conta.",
