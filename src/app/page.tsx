@@ -5,9 +5,16 @@ import { TrackPageView } from "@/components/analytics/track-event";
 import { TrackedLink } from "@/components/analytics/tracked-link";
 import { getHotmartConfig } from "@/lib/billing/config";
 import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
+import { createPublicMetadata } from "@/lib/seo";
 import { createClient } from "@/lib/supabase/server";
 
-export const metadata: Metadata = { alternates: { canonical: "/" } };
+export const metadata: Metadata = createPublicMetadata({
+  title: "NabuLab — Simulados, revisão e evolução para vestibulares",
+  description:
+    "Pratique para vestibulares com 1.224 questões em 17 matérias, correção comentada, revisão de erros e acompanhamento do seu desempenho.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 const free = ["17 matérias", "2 simulados por dia", "Até 15 questões", "Níveis iniciante e médio", "Múltipla escolha e V/F", "Correções e explicações", "3 históricos recentes", "Recomendado limitado", "Resumo de desempenho", "Cloud Sync"];
 const premium = ["1.224 questões em 17 matérias", "Simulados ilimitados", "5, 10, 15, 20, 30 ou 50 questões", "Níveis iniciante, médio e avançado", "Histórico completo", "Treinar meus erros", "Recomendado completo", "Evolução, Análise e Domínio", "Metas de estudo", "Cloud Sync"];
@@ -103,7 +110,7 @@ export default async function LandingPage() {
 
       <section className="px-4 pb-16 sm:px-6"><div className="mx-auto max-w-6xl rounded-3xl bg-[#0B2D6B] px-6 py-12 text-center text-white sm:px-10"><p className="text-sm font-black uppercase tracking-[.16em] text-blue-200">Seu próximo passo</p><h2 className="mx-auto mt-3 max-w-2xl text-3xl font-black tracking-tight sm:text-4xl">Cada tentativa é um passo. Cada correção, uma evolução.</h2><TrackedLink event="signup_cta_clicked" properties={{ placement: "final_cta" }} href={primaryHref} className="mt-7 inline-block rounded-xl bg-[#F4C430] px-6 py-3.5 font-black text-[#0B2D6B]">{authenticated ? "Ir para o NabuLab" : "Começar grátis"}</TrackedLink></div></section>
 
-      <footer className="border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8"><Image src="/branding/logo-horizontal-mono.png" alt="NabuLab" width={145} height={38} className="h-8 w-auto opacity-75" /><nav aria-label="Links institucionais" className="flex flex-wrap gap-x-5 gap-y-2"><Link href="/termos">Termos</Link><Link href="/privacidade">Privacidade</Link><Link href="/suporte">Suporte</Link></nav><p>© {new Date().getFullYear()} NabuLab</p></div></footer>
+      <footer className="border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8"><Image src="/branding/logo-horizontal-mono.png" alt="NabuLab" width={145} height={38} className="h-8 w-auto opacity-75" /><nav aria-label="Navegação do rodapé" className="flex flex-wrap gap-x-5 gap-y-2"><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#planos">Planos</a><Link href="/cadastro">Criar conta</Link><Link href="/termos">Termos</Link><Link href="/privacidade">Privacidade</Link><Link href="/suporte">Suporte</Link></nav><p>© {new Date().getFullYear()} NabuLab</p></div></footer>
     </main>
   );
 }

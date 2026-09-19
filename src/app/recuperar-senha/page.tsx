@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { requestPasswordReset } from "@/app/auth/actions";
 import { AuthCard, buttonClass, inputClass } from "@/components/commercial/auth-card";
 import { TurnstileField } from "@/components/security/turnstile-field";
+import { createPrivateMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPrivateMetadata(
+  "Recuperar senha",
+  "Solicite com segurança as instruções para redefinir a senha da sua conta NabuLab.",
+);
 
 export default async function RecoverPasswordPage({
   searchParams,

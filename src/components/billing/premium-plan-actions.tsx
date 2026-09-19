@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { BillingPriceTier } from "@/lib/billing/config";
 
 type Offer = {
@@ -10,7 +11,7 @@ type Offer = {
   available: boolean;
 };
 
-export default function PremiumPlanActions({ offer, standardPrice }: { offer: Offer; standardPrice: string }) {
+export default function PremiumPlanActions({ offer, standardPrice, signupHref }: { offer: Offer; standardPrice: string; signupHref?: string }) {
   const [loadingTier, setLoadingTier] = useState<BillingPriceTier | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -64,7 +65,14 @@ export default function PremiumPlanActions({ offer, standardPrice }: { offer: Of
               Simulados ilimitados, até 50 questões, nível avançado e todos os recursos Premium.
             </p>
             {offer.tier === "founder_477" && <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950"><p className="font-bold">Condição especial de lançamento.</p><p>Você mantém {offer.price}/mês enquanto sua assinatura permanecer ativa.</p></div>}
-            <button
+            {signupHref ? (
+              <Link
+                href={signupHref}
+                className="mt-7 rounded-xl bg-[var(--nabu-blue-dark)] px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-900"
+              >
+                Criar conta para assinar
+              </Link>
+            ) : <button
               type="button"
               disabled={!offer.available || loadingTier !== null}
               onClick={() => void startCheckout(offer.tier)}
@@ -75,7 +83,7 @@ export default function PremiumPlanActions({ offer, standardPrice }: { offer: Of
                 : offer.available
                   ? `Assinar por ${offer.price}/mês`
                   : "Disponível em breve"}
-            </button>
+            </button>}
           </article>
       </div>
       <p className="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-6 text-blue-950">

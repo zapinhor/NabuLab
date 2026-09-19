@@ -1,21 +1,30 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import PremiumPlanActions from "@/components/billing/premium-plan-actions";
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { getHotmartConfig } from "@/lib/billing/config";
 import { createClient } from "@/lib/supabase/server";
 import { TrackPageView } from "@/components/analytics/track-event";
 import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
+import { createPublicMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPublicMetadata({
+  title: "Assine o NabuLab Premium",
+  description:
+    "Assine o NabuLab Premium para criar simulados ilimitados, estudar questões avançadas e acessar revisão de erros, recomendações e análises completas.",
+  path: "/premium",
+});
 
 export default async function PremiumPage() {
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
-  if (!data.user) redirect("/login?next=%2Fpremium");
-  const { data: subscriptionRow } = await supabase
-    .from("subscriptions")
-    .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end,cancel_at_period_end,canceled_at,termination_reason")
-    .eq("user_id", data.user.id)
-    .maybeSingle();
+  const { data: subscriptionRow } = data.user
+    ? await supabase
+        .from("subscriptions")
+        .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end,cancel_at_period_end,canceled_at,termination_reason")
+        .eq("user_id", data.user.id)
+        .maybeSingle()
+    : { data: null };
   const subscription = subscriptionFromRow(subscriptionRow);
   const premiumActive = hasActivePremium(subscription);
 
@@ -32,12 +41,12 @@ export default async function PremiumPage() {
       <TrackPageView event="premium_page_viewed" />
       <div className="mx-auto max-w-4xl">
         <header className="flex items-center justify-between gap-4">
-          <NabuLabBrand subtitle="Premium" href="/dashboard" />
+          <NabuLabBrand subtitle="Premium" href={data.user ? "/dashboard" : "/"} />
           <Link
-            href="/perfil"
+            href={data.user ? "/perfil" : "/login?next=%2Fpremium"}
             className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50"
           >
-            Voltar ao perfil
+            {data.user ? "Voltar ao perfil" : "Entrar"}
           </Link>
         </header>
 
@@ -60,7 +69,7 @@ export default async function PremiumPage() {
             <p className="mt-3 text-sm leading-6 text-slate-600">Plano: <strong>{subscription?.priceTier === "founder_477" ? "Founder" : "Standard"}</strong></p>
             <div className="mt-5 flex flex-wrap justify-center gap-3"><Link href="/perfil" className="inline-block rounded-xl bg-[#0B2D6B] px-5 py-3 font-bold text-white">Ver perfil</Link>{subscription?.provider === "hotmart" && <a href="https://consumer.hotmart.com/" target="_blank" rel="noreferrer" className="inline-block rounded-xl border border-emerald-300 bg-white px-5 py-3 font-bold text-emerald-900">Gerenciar assinatura</a>}</div>
           </section>
-        ) : <PremiumPlanActions offer={offer} standardPrice={config.plans.standard_990.displayPrice} />}
+        ) : <PremiumPlanActions offer={offer} standardPrice={config.plans.standard_990.displayPrice} signupHref={data.user ? undefined : "/cadastro?next=%2Fpremium"} />}
       </div>
     </main>
   );

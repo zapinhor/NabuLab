@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AuthCard } from "@/components/commercial/auth-card";
 import { LoginForm } from "@/components/security/login-form";
+import { createPrivateMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPrivateMetadata(
+  "Entrar",
+  "Entre na sua conta NabuLab para continuar seus estudos e acessar seu histórico acadêmico.",
+);
 
 export default async function LoginPage({
   searchParams,

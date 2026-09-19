@@ -5,6 +5,7 @@ import "./globals.css";
 import { AcademicSyncBoundary } from "@/components/academic-sync-boundary";
 import { ConsentManager } from "@/components/analytics/consent-manager";
 import { GaRouteEvent } from "@/components/analytics/ga-route-event";
+import { SITE_URL } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nabu-lab.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "NabuLab — Simulados, revisão e evolução para vestibulares",
     template: "%s | NabuLab",
@@ -27,6 +28,12 @@ export const metadata: Metadata = {
     "Pratique para vestibulares com simulados, correção comentada, revisão de erros e acompanhamento de desempenho em 17 matérias.",
 
   applicationName: "NabuLab",
+
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+  },
 
   keywords: [
     "NabuLab",
