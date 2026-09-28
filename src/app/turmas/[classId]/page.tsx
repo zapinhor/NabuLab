@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 type StudentRoom = { public_name: string; subject: string | null; school_name: string | null; teacher_name: string };
-type StudentActivity = { id: string; title: string; instructions: string | null; due_at: string | null; teacher_exams: { title: string } | null };
+type StudentActivity = { id: string; title: string; instructions: string | null; opens_at: string | null; due_at: string | null; max_attempts: number | null; teacher_exams: { title: string } | null };
 
 export default async function StudentClassPage({ params, searchParams }: { params: Promise<{ classId: string }>; searchParams: Promise<{ mensagem?: string }> }) {
   const { classId } = await params;
@@ -14,7 +14,7 @@ export default async function StudentClassPage({ params, searchParams }: { param
   const [roomResult, membershipResult, activitiesResult] = await Promise.all([
     supabase.rpc("get_teacher_class_for_member", { p_class_id: classId }),
     supabase.from("teacher_class_members").select("status,source,requested_at").eq("class_id", classId).eq("user_id", auth.user.id).maybeSingle(),
-    supabase.from("teacher_class_activities").select("id,title,instructions,due_at,status,teacher_exams(title)").eq("class_id", classId).eq("status", "published").order("due_at"),
+    supabase.from("teacher_class_activities").select("id,title,instructions,opens_at,due_at,max_attempts,status,teacher_exams(title)").eq("class_id", classId).eq("status", "published").order("due_at"),
   ]);
   if (!roomResult.data?.[0] || !membershipResult.data) notFound();
   const room = roomResult.data[0] as unknown as StudentRoom;
