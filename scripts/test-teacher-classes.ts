@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 
 const migration = readFileSync("supabase/migrations/20260927154011_teacher_classes_foundation.sql", "utf8");
 const closureMigration = readFileSync("supabase/migrations/20260928013236_close_teacher_foundation.sql", "utf8");
+const inviteFixMigration = readFileSync("supabase/migrations/20260928154149_fix_teacher_username_invites.sql", "utf8");
 const actions = readFileSync("src/app/turmas/actions.ts", "utf8");
 
 const expectedTables = [
@@ -40,5 +41,8 @@ assert.match(closureMigration, /where q\.owner_id = \(select auth\.uid\(\)\)/, "
 assert.match(closureMigration, /update_teacher_class_settings/, "configurações da turma devem usar RPC protegido");
 assert.match(closureMigration, /where id = p_class_id and owner_id = \(select auth\.uid\(\)\)/, "edição da turma deve exigir propriedade");
 assert.doesNotMatch(closureMigration, /grant execute[^;]+to anon/, "RPCs de fechamento não podem ser executados por usuários anônimos");
+assert.match(inviteFixMigration, /left\(normalized,1\)='@'/, "convite por username deve aceitar o prefixo @");
+assert.match(inviteFixMigration, /substr\(normalized,2\)/, "prefixo @ deve ser removido antes de buscar o username");
+assert.doesNotMatch(inviteFixMigration, /grant execute[^;]+to anon/, "convite não pode ser criado por usuário anônimo");
 
 console.log("Professores + Turmas: domínio separado, limites Free e contratos de RLS validados.");
