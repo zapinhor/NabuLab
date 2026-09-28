@@ -153,6 +153,26 @@ export async function regenerateClassAccess(formData: FormData) {
   withMessage(path, "Acesso da turma atualizado.");
 }
 
+export async function updateTeacherClassSettings(formData: FormData) {
+  const classId = text(formData, "class_id");
+  const path = `/professor/turmas/${classId}`;
+  const { supabase } = await authenticated(path);
+  const { error } = await supabase.rpc("update_teacher_class_settings", {
+    p_class_id: classId,
+    p_name: text(formData, "name"),
+    p_public_name: text(formData, "public_name"),
+    p_description: text(formData, "description"),
+    p_school_name: text(formData, "school_name"),
+    p_subject: text(formData, "subject"),
+    p_visibility: text(formData, "visibility"),
+  });
+  if (error) withMessage(path, error.message);
+  revalidatePath(path);
+  revalidatePath("/professor");
+  revalidatePath("/turmas");
+  withMessage(path, "Configurações da turma salvas.");
+}
+
 export async function createTeacherExam(formData: FormData) {
   const { supabase } = await authenticated("/professor");
   const { error } = await supabase.rpc("create_teacher_exam", {
@@ -184,6 +204,46 @@ export async function createTeacherQuestion(formData: FormData) {
   if (error) withMessage("/professor", error.message);
   revalidatePath("/professor");
   withMessage("/professor", "Questão criada.");
+}
+
+export async function updateTeacherQuestion(formData: FormData) {
+  const questionId = text(formData, "question_id");
+  const { supabase, user } = await authenticated("/professor");
+  const questionType = text(formData, "question_type");
+  const visibility = text(formData, "visibility");
+  const difficulty = text(formData, "difficulty");
+  const correctAnswer = text(formData, "correct_answer");
+  const alternatives = text(formData, "alternatives").split("\n").map((item) => item.trim()).filter(Boolean);
+
+  if (!['multiple_choice', 'true_false'].includes(questionType)) withMessage("/professor", "Tipo de questão inválido.");
+  if (!['private', 'shared'].includes(visibility)) withMessage("/professor", "Visibilidade inválida.");
+  if (difficulty && !['iniciante', 'medio', 'avancado'].includes(difficulty)) withMessage("/professor", "Dificuldade inválida.");
+  if (questionType === "multiple_choice" && (alternatives.length < 2 || !alternatives.includes(correctAnswer))) {
+    withMessage("/professor", "A resposta correta precisa corresponder a uma das alternativas.");
+  }
+  if (questionType === "true_false" && !['verdadeiro', 'falso', 'true', 'false'].includes(correctAnswer.toLowerCase())) {
+    withMessage("/professor", "Em V/F, use Verdadeiro ou Falso como resposta correta.");
+  }
+
+  const { error } = await supabase
+    .from("teacher_questions")
+    .update({
+      visibility,
+      statement: text(formData, "statement"),
+      alternatives: questionType === "multiple_choice" ? alternatives : null,
+      correct_answer: correctAnswer,
+      explanation: text(formData, "explanation") || null,
+      subject: text(formData, "subject") || null,
+      topic: text(formData, "topic") || null,
+      difficulty: difficulty || null,
+      question_type: questionType,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", questionId)
+    .eq("owner_id", user.id);
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", "Questão atualizada. Simulados existentes mantiveram a versão anterior.");
 }
 
 export async function addQuestionToTeacherExam(formData: FormData) {
