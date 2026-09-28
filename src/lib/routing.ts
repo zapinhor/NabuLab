@@ -8,6 +8,7 @@ export const PUBLIC_APP_PATHS = [
   "/termos",
   "/privacidade",
   "/premium",
+  "/turmas",
   "/suporte",
   "/auth/confirm",
   "/api/analytics/events",

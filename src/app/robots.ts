@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: ["/", "/premium", "/termos", "/privacidade", "/suporte"],
+      allow: ["/", "/premium", "/turmas", "/termos", "/privacidade", "/suporte"],
       disallow: [
         "/admin/",
         "/api/",
@@ -22,6 +22,7 @@ export default function robots(): MetadataRoute.Robots {
         "/login",
         "/metas",
         "/perfil",
+        "/professor/",
         "/recomendado",
         "/recuperar-senha",
         "/redefinir-senha",

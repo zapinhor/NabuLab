@@ -978,6 +978,14 @@ export default function DashboardPage() {
           </Link>
 
           <Link
+            href="/turmas"
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            <span aria-hidden="true">🏫</span>
+            Turmas
+          </Link>
+
+          <Link
             href="/auditoria"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
@@ -1285,6 +1293,13 @@ export default function DashboardPage() {
                   onNavigate={
                     closeMobileMenu
                   }
+                />
+
+                <MobileNavLink
+                  href="/turmas"
+                  icon="🏫"
+                  label="Turmas"
+                  onNavigate={closeMobileMenu}
                 />
 
                 <MobileNavLink
