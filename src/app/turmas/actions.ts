@@ -12,9 +12,18 @@ function safePath(value: string, fallback = "/turmas") {
   return value.startsWith("/") && !value.startsWith("//") ? value : fallback;
 }
 
+const friendlyMessages: Record<string, string> = {
+  teacher_active_class_limit_reached: "O Professor Free permite uma turma ativa por vez.",
+  teacher_weekly_exam_limit_reached: "O Professor Free permite criar até dois simulados por semana.",
+};
+
+function friendlyMessage(message: string) {
+  return friendlyMessages[message] ?? message;
+}
+
 function withMessage(path: string, message: string): never {
   const separator = path.includes("?") ? "&" : "?";
-  redirect(`${path}${separator}mensagem=${encodeURIComponent(message)}`);
+  redirect(`${path}${separator}mensagem=${encodeURIComponent(friendlyMessage(message))}`);
 }
 
 async function authenticated(returnTo: string) {
