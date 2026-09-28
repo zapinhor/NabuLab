@@ -17,7 +17,12 @@ type TestClient = SupabaseClient<any, "public", any>;
 
 async function userClient(email: string) {
   const client = createClient(url!, publishable!, { auth: { persistSession: false } });
-  const login = await client.auth.signInWithPassword({ email, password });
+  const link = await admin.auth.admin.generateLink({ type: "magiclink", email });
+  if (link.error) throw link.error;
+  const login = await client.auth.verifyOtp({
+    token_hash: link.data.properties.hashed_token,
+    type: "magiclink",
+  });
   if (login.error) throw login.error;
   return client;
 }
