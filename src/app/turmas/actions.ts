@@ -185,21 +185,72 @@ export async function createTeacherExam(formData: FormData) {
   withMessage("/professor", "Simulado do professor criado.");
 }
 
+export async function duplicateTeacherQuestion(formData: FormData) {
+  const { supabase } = await authenticated("/professor");
+  const { error } = await supabase.rpc("duplicate_teacher_question", { p_question_id: text(formData, "question_id") });
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", "Questão duplicada como um novo item independente.");
+}
+
+export async function setTeacherQuestionArchived(formData: FormData) {
+  const { supabase } = await authenticated("/professor");
+  const archived = text(formData, "archived") === "true";
+  const { error } = await supabase.rpc("set_teacher_question_archived", {
+    p_question_id: text(formData, "question_id"), p_archived: archived,
+  });
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", archived ? "Questão arquivada." : "Questão restaurada.");
+}
+
+export async function duplicateTeacherExam(formData: FormData) {
+  const { supabase } = await authenticated("/professor");
+  const { error } = await supabase.rpc("duplicate_teacher_exam", { p_exam_id: text(formData, "exam_id") });
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", "Simulado duplicado como rascunho.");
+}
+
+export async function setTeacherExamStatus(formData: FormData) {
+  const { supabase } = await authenticated("/professor");
+  const { error } = await supabase.rpc("set_teacher_exam_status", {
+    p_exam_id: text(formData, "exam_id"), p_status: text(formData, "status"),
+  });
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", text(formData, "status") === "published" ? "Simulado publicado." : "Simulado voltou para rascunho.");
+}
+
+export async function removeQuestionFromTeacherExam(formData: FormData) {
+  const { supabase } = await authenticated("/professor");
+  const { error } = await supabase.rpc("remove_teacher_exam_question", {
+    p_exam_id: text(formData, "exam_id"), p_position: Number(text(formData, "position")),
+  });
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", "Questão removida do simulado.");
+}
+
+export async function moveQuestionInTeacherExam(formData: FormData) {
+  const { supabase } = await authenticated("/professor");
+  const { error } = await supabase.rpc("move_teacher_exam_question", {
+    p_exam_id: text(formData, "exam_id"), p_position: Number(text(formData, "position")), p_direction: Number(text(formData, "direction")),
+  });
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", "Ordem do simulado atualizada.");
+}
+
 export async function createTeacherQuestion(formData: FormData) {
-  const { supabase, user } = await authenticated("/professor");
+  const { supabase } = await authenticated("/professor");
   const type = text(formData, "question_type");
-  const alternatives = text(formData, "alternatives");
-  const { error } = await supabase.from("teacher_questions").insert({
-    owner_id: user.id,
-    visibility: text(formData, "visibility") || "private",
-    statement: text(formData, "statement"),
-    alternatives: alternatives ? alternatives.split("\n").map((item) => item.trim()).filter(Boolean) : null,
-    correct_answer: text(formData, "correct_answer"),
-    explanation: text(formData, "explanation") || null,
-    subject: text(formData, "subject") || null,
-    topic: text(formData, "topic") || null,
-    difficulty: text(formData, "difficulty") || null,
-    question_type: type,
+  const alternatives = text(formData, "alternatives").split("\n").map((item) => item.trim()).filter(Boolean);
+  const { error } = await supabase.rpc("create_owned_teacher_question", {
+    p_statement: text(formData, "statement"), p_alternatives: type === "multiple_choice" ? alternatives : null,
+    p_correct_answer: text(formData, "correct_answer"), p_explanation: text(formData, "explanation"),
+    p_subject: text(formData, "subject"), p_topic: text(formData, "topic"), p_difficulty: text(formData, "difficulty") || null,
+    p_question_type: type, p_visibility: text(formData, "visibility") || "private",
   });
   if (error) withMessage("/professor", error.message);
   revalidatePath("/professor");
@@ -208,7 +259,7 @@ export async function createTeacherQuestion(formData: FormData) {
 
 export async function updateTeacherQuestion(formData: FormData) {
   const questionId = text(formData, "question_id");
-  const { supabase, user } = await authenticated("/professor");
+  const { supabase } = await authenticated("/professor");
   const questionType = text(formData, "question_type");
   const visibility = text(formData, "visibility");
   const difficulty = text(formData, "difficulty");
@@ -225,22 +276,12 @@ export async function updateTeacherQuestion(formData: FormData) {
     withMessage("/professor", "Em V/F, use Verdadeiro ou Falso como resposta correta.");
   }
 
-  const { error } = await supabase
-    .from("teacher_questions")
-    .update({
-      visibility,
-      statement: text(formData, "statement"),
-      alternatives: questionType === "multiple_choice" ? alternatives : null,
-      correct_answer: correctAnswer,
-      explanation: text(formData, "explanation") || null,
-      subject: text(formData, "subject") || null,
-      topic: text(formData, "topic") || null,
-      difficulty: difficulty || null,
-      question_type: questionType,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("id", questionId)
-    .eq("owner_id", user.id);
+  const { error } = await supabase.rpc("update_owned_teacher_question", {
+    p_question_id: questionId,p_visibility: visibility,p_statement: text(formData,"statement"),
+    p_alternatives: questionType === "multiple_choice" ? alternatives : null,p_correct_answer: correctAnswer,
+    p_explanation: text(formData,"explanation"),p_subject: text(formData,"subject"),p_topic: text(formData,"topic"),
+    p_difficulty: difficulty || null,p_question_type: questionType,
+  });
   if (error) withMessage("/professor", error.message);
   revalidatePath("/professor");
   withMessage("/professor", "Questão atualizada. Simulados existentes mantiveram a versão anterior.");
@@ -249,18 +290,7 @@ export async function updateTeacherQuestion(formData: FormData) {
 export async function addQuestionToTeacherExam(formData: FormData) {
   const examId = text(formData, "exam_id");
   const { supabase } = await authenticated("/professor");
-  const { data: positions, error: positionError } = await supabase
-    .from("teacher_exam_questions")
-    .select("position")
-    .eq("exam_id", examId)
-    .order("position", { ascending: false })
-    .limit(1);
-  if (positionError) withMessage("/professor", positionError.message);
-  const { error } = await supabase.from("teacher_exam_questions").insert({
-    exam_id: examId,
-    position: (positions?.[0]?.position ?? 0) + 1,
-    teacher_question_id: text(formData, "question_id"),
-  });
+  const { error } = await supabase.rpc("add_teacher_exam_question", { p_exam_id: examId, p_question_id: text(formData, "question_id") });
   if (error) withMessage("/professor", error.message);
   revalidatePath("/professor");
   withMessage("/professor", "Questão adicionada ao simulado.");
@@ -269,19 +299,33 @@ export async function addQuestionToTeacherExam(formData: FormData) {
 export async function createClassActivity(formData: FormData) {
   const classId = text(formData, "class_id");
   const path = `/professor/turmas/${classId}`;
-  const { supabase, user } = await authenticated(path);
-  const { error } = await supabase.from("teacher_class_activities").insert({
-    class_id: classId,
-    exam_id: text(formData, "exam_id"),
-    assigned_by: user.id,
-    title: text(formData, "title"),
-    instructions: text(formData, "instructions") || null,
-    status: "published",
-    due_at: text(formData, "due_at") || null,
+  const { supabase } = await authenticated(path);
+  const attempts = text(formData, "max_attempts");
+  const { error } = await supabase.rpc("create_teacher_activity", {
+    p_class_id: classId,
+    p_exam_id: text(formData, "exam_id"),
+    p_title: text(formData, "title"),
+    p_instructions: text(formData, "instructions") || null,
+    p_available_from: text(formData, "available_from") || null,
+    p_due_at: text(formData, "due_at") || null,
+    p_max_attempts: attempts === "unlimited" ? null : Number(attempts || "1"),
+    p_shuffle_questions: text(formData, "shuffle_questions") === "true",
+    p_shuffle_alternatives: text(formData, "shuffle_alternatives") === "true",
+    p_show_score: text(formData, "show_score") === "true",
+    p_answer_policy: text(formData, "answer_policy") || "never",
   });
   if (error) withMessage(path, error.message);
   revalidatePath(path);
   withMessage(path, "Atividade publicada para a turma.");
+}
+
+export async function startClassActivity(formData: FormData) {
+  const activityId = text(formData, "activity_id");
+  const path = `/turmas/atividades/${activityId}`;
+  const { supabase } = await authenticated(path);
+  const { data, error } = await supabase.rpc("start_teacher_activity_attempt", { p_activity_id: activityId });
+  if (error || !data) withMessage(path, error?.message ?? "Não foi possível iniciar a tentativa.");
+  redirect(`${path}?attempt=${data}`);
 }
 
 export async function submitClassActivity(formData: FormData) {
@@ -293,7 +337,8 @@ export async function submitClassActivity(formData: FormData) {
       .filter(([key]) => key.startsWith("question_"))
       .map(([key, value]) => [key.slice("question_".length), String(value)]),
   );
-  const { data, error } = await supabase.rpc("submit_teacher_activity", { p_activity_id: activityId, p_answers: answers });
+  const attemptId = text(formData, "attempt_id");
+  const { data, error } = await supabase.rpc("submit_teacher_activity_attempt", { p_attempt_id: attemptId, p_answers: answers });
   if (error || !data?.[0]) withMessage(path, error?.message ?? "Não foi possível salvar a atividade.");
   const result = data[0] as { correct_count: number; total_questions: number };
   revalidatePath(path);
