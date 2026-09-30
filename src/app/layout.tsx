@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { AcademicSyncBoundary } from "@/components/academic-sync-boundary";
 import { ConsentManager } from "@/components/analytics/consent-manager";
 import { GaRouteEvent } from "@/components/analytics/ga-route-event";
+import { TikTokRouteEvent } from "@/components/analytics/tiktok-route-event";
 import { SITE_URL } from "@/lib/seo";
 
 const geistSans = Geist({
@@ -87,6 +89,7 @@ export default function RootLayout({
         </div>
         <ConsentManager />
         <GaRouteEvent />
+        <Suspense fallback={null}><TikTokRouteEvent /></Suspense>
       </body>
     </html>
   );

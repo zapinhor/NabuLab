@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { BillingPriceTier } from "@/lib/billing/config";
+import { trackTikTokEvent } from "@/lib/analytics/tiktok";
 
 type Offer = {
   tier: BillingPriceTier;
@@ -29,6 +30,11 @@ export default function PremiumPlanActions({ offer, standardPrice, signupHref }:
         throw new Error(result.error ?? "Não foi possível abrir o checkout.");
       }
       window.gtag?.("event", "begin_checkout", { currency: "BRL", tier });
+      trackTikTokEvent("InitiateCheckout", {
+        content_type: "product",
+        content_id: tier,
+        currency: "BRL",
+      });
       window.location.assign(result.checkoutUrl);
     } catch (checkoutError) {
       setError(
