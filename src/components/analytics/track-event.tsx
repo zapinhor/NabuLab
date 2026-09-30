@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { AnalyticsEventName } from "@/lib/analytics/events";
+import { trackTikTokEvent } from "@/lib/analytics/tiktok";
 
 export async function trackEvent(
   event: AnalyticsEventName,
@@ -36,10 +37,19 @@ declare global { interface Window { gtag?: (...args: unknown[]) => void } }
 
 export function TrackPageView({ event }: { event: AnalyticsEventName }) {
   const sent = useRef(false);
+  const tiktokSent = useRef(false);
   useEffect(() => {
-    if (sent.current) return;
-    sent.current = true;
-    void trackEvent(event);
+    if (!sent.current) {
+      sent.current = true;
+      void trackEvent(event);
+    }
+    function sendTikTokViewContent() {
+      if (event !== "premium_page_viewed" || tiktokSent.current) return;
+      tiktokSent.current = trackTikTokEvent("ViewContent", { content_type: "product", content_id: "nabulab_premium" });
+    }
+    sendTikTokViewContent();
+    window.addEventListener("nabulab:consent-changed", sendTikTokViewContent);
+    return () => window.removeEventListener("nabulab:consent-changed", sendTikTokViewContent);
   }, [event]);
   return null;
 }
