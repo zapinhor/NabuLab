@@ -88,7 +88,7 @@ export default function RootLayout({
           <AcademicSyncBoundary>{children}</AcademicSyncBoundary>
         </div>
         <ConsentManager />
-        <GaRouteEvent />
+        <Suspense fallback={null}><GaRouteEvent /></Suspense>
         <Suspense fallback={null}><TikTokRouteEvent /></Suspense>
       </body>
     </html>

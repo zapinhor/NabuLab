@@ -4,6 +4,10 @@ import type { EmailOtpType } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { safeNextPath } from "@/lib/routing";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import {
+  REGISTRATION_COMPLETION_COOKIE,
+  REGISTRATION_COMPLETION_COOKIE_OPTIONS,
+} from "@/lib/analytics/registration-completion";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -11,6 +15,7 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get("code");
   const tokenHash = searchParams.get("token_hash");
   const type = searchParams.get("type") as EmailOtpType | null;
+  const flow = searchParams.get("flow");
   const safeNext = safeNextPath(searchParams.get("next"));
 
   const supabase = await createClient();
@@ -23,13 +28,17 @@ export async function GET(request: NextRequest) {
       const destination = new URL(safeNext, request.url);
 
       const isRecovery = type === "recovery" || safeNext === "/redefinir-senha";
-      if (!isRecovery) {
+      if (!isRecovery && flow === "signup") {
         const { data } = await supabase.auth.getUser();
         await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
         destination.searchParams.set("ga_event", "sign_up");
       }
 
-      return NextResponse.redirect(destination);
+      const response = NextResponse.redirect(destination);
+      if (!isRecovery && flow === "signup") {
+        response.cookies.set(REGISTRATION_COMPLETION_COOKIE, "1", REGISTRATION_COMPLETION_COOKIE_OPTIONS);
+      }
+      return response;
     }
   }
 
@@ -56,7 +65,11 @@ export async function GET(request: NextRequest) {
         destination.searchParams.set("ga_event", "sign_up");
       }
 
-      return NextResponse.redirect(destination);
+      const response = NextResponse.redirect(destination);
+      if (type === "signup") {
+        response.cookies.set(REGISTRATION_COMPLETION_COOKIE, "1", REGISTRATION_COMPLETION_COOKIE_OPTIONS);
+      }
+      return response;
     }
   }
 
