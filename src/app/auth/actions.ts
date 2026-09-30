@@ -1,6 +1,6 @@
 "use server";
 
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
@@ -8,6 +8,10 @@ import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
 import { isValidUsername } from "@/lib/forms/patterns";
 import { validateEmail, validateFullName, validatePassword, validateUsername } from "@/lib/forms/signup-validation";
+import {
+  REGISTRATION_COMPLETION_COOKIE,
+  REGISTRATION_COMPLETION_COOKIE_OPTIONS,
+} from "@/lib/analytics/registration-completion";
 
 function value(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -44,7 +48,7 @@ export async function signUp(formData: FormData) {
     email,
     password,
     options: {
-      emailRedirectTo: `${origin}/auth/confirm?next=${encodeURIComponent(next)}`,
+      emailRedirectTo: `${origin}/auth/confirm?flow=signup&next=${encodeURIComponent(next)}`,
       data: { full_name: fullName, username },
       captchaToken,
     },
@@ -58,6 +62,8 @@ export async function signUp(formData: FormData) {
     redirect(`/login?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent("Confira seu e-mail para confirmar o cadastro.")}`);
   }
   await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
+  const cookieStore = await cookies();
+  cookieStore.set(REGISTRATION_COMPLETION_COOKIE, "1", REGISTRATION_COMPLETION_COOKIE_OPTIONS);
   redirect(`${next}${next.includes("?") ? "&" : "?"}ga_event=sign_up`);
 }
 
