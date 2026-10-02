@@ -4,6 +4,9 @@ import { isAnalyticsEventName, sanitizeAnalyticsProperties } from "@/lib/analyti
 import { recordServerAnalyticsEvent } from "@/lib/analytics/server";
 import { createClient } from "@/lib/supabase/server";
 import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
+import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
+import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
+import { cookies } from "next/headers";
 
 const COOKIE_NAME = "nabulab_anonymous_session";
 const PUBLIC_EVENTS = new Set(["landing_view", "signup_cta_clicked", "premium_cta_clicked", "premium_page_viewed"]);
@@ -56,6 +59,11 @@ export async function POST(request: Request) {
     properties,
     sourceEventKey: data.user && examId ? `exam:${data.user.id}:${examId}:completed` : null,
   });
+  if (body.event === "premium_page_viewed" && path.split("?")[0] === "/premium") {
+    const campaignCookie = (await cookies()).get(ATTRIBUTION_COOKIE)?.value;
+    try { await recordAcquisitionMetric("premium_viewed", readAttribution(campaignCookie), ""); }
+    catch (metricError) { console.error("[acquisition] Visita Premium não agregada:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }
+  }
 
   const secure = new URL(request.url).protocol === "https:" ? "; Secure" : "";
   return Response.json(

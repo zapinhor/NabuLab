@@ -8,6 +8,8 @@ import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
 import { isValidUsername } from "@/lib/forms/patterns";
 import { validateEmail, validateFullName, validatePassword, validateUsername } from "@/lib/forms/signup-validation";
+import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
+import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import {
   REGISTRATION_COMPLETION_COOKIE,
   REGISTRATION_COMPLETION_COOKIE_OPTIONS,
@@ -63,6 +65,8 @@ export async function signUp(formData: FormData) {
   }
   await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
   const cookieStore = await cookies();
+  try { await recordAcquisitionMetric("signup_completed", readAttribution(cookieStore.get(ATTRIBUTION_COOKIE)?.value), ""); }
+  catch (metricError) { console.error("[acquisition] Cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }
   cookieStore.set(REGISTRATION_COMPLETION_COOKIE, "1", REGISTRATION_COMPLETION_COOKIE_OPTIONS);
   redirect(`${next}${next.includes("?") ? "&" : "?"}ga_event=sign_up`);
 }

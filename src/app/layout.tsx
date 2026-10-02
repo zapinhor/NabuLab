@@ -7,6 +7,7 @@ import { AcademicSyncBoundary } from "@/components/academic-sync-boundary";
 import { ConsentManager } from "@/components/analytics/consent-manager";
 import { GaRouteEvent } from "@/components/analytics/ga-route-event";
 import { TikTokRouteEvent } from "@/components/analytics/tiktok-route-event";
+import { CampaignAttribution } from "@/components/analytics/campaign-attribution";
 import { SITE_URL } from "@/lib/seo";
 
 const geistSans = Geist({
@@ -88,6 +89,7 @@ export default function RootLayout({
           <AcademicSyncBoundary>{children}</AcademicSyncBoundary>
         </div>
         <ConsentManager />
+        <Suspense fallback={null}><CampaignAttribution /></Suspense>
         <Suspense fallback={null}><GaRouteEvent /></Suspense>
         <Suspense fallback={null}><TikTokRouteEvent /></Suspense>
       </body>

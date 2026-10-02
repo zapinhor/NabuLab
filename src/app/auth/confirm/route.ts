@@ -4,6 +4,8 @@ import type { EmailOtpType } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { safeNextPath } from "@/lib/routing";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
+import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import {
   REGISTRATION_COMPLETION_COOKIE,
   REGISTRATION_COMPLETION_COOKIE_OPTIONS,
@@ -31,6 +33,8 @@ export async function GET(request: NextRequest) {
       if (!isRecovery && flow === "signup") {
         const { data } = await supabase.auth.getUser();
         await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
+        try { await recordAcquisitionMetric("signup_completed", readAttribution(request.cookies.get(ATTRIBUTION_COOKIE)?.value), ""); }
+        catch (metricError) { console.error("[acquisition] Cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }
         destination.searchParams.set("ga_event", "sign_up");
       }
 
@@ -61,6 +65,8 @@ export async function GET(request: NextRequest) {
           "signup_completed",
           data.user?.id ?? null,
         );
+        try { await recordAcquisitionMetric("signup_completed", readAttribution(request.cookies.get(ATTRIBUTION_COOKIE)?.value), ""); }
+        catch (metricError) { console.error("[acquisition] Cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }
 
         destination.searchParams.set("ga_event", "sign_up");
       }
