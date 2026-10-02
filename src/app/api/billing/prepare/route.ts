@@ -2,6 +2,9 @@ import { getConfiguredCheckout, getHotmartConfig, type BillingPriceTier } from "
 import { prepareBillingIdentity } from "@/lib/billing/server";
 import { createClient } from "@/lib/supabase/server";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
+import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
+import { cookies } from "next/headers";
 
 function isTier(value: unknown): value is BillingPriceTier {
   return value === "founder_477" || value === "standard_990";
@@ -42,6 +45,12 @@ export async function POST(request: Request) {
       path: "/premium",
       properties: { tier },
     });
+    try {
+      const campaignCookie = (await cookies()).get(ATTRIBUTION_COOKIE)?.value;
+      await recordAcquisitionMetric("checkout_started", readAttribution(campaignCookie), "");
+    } catch (metricError) {
+      console.error("[acquisition] Checkout não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido");
+    }
     return Response.json({
       checkoutUrl,
       notice: "Use no checkout o mesmo e-mail da sua conta NabuLab.",

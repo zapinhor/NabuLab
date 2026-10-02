@@ -6,6 +6,8 @@ const API_URL = "https://analyticsdata.googleapis.com/v1beta";
 
 export type Ga4Totals = { activeUsers: number; sessions: number; newUsers: number; screenPageViews: number };
 export type Ga4SeriesRow = Ga4Totals & { label: string };
+export type Ga4AttributionRow = Ga4Totals & { source: string; medium: string; campaign: string; content: string };
+export type Ga4Filters = { startDate: string; endDate: string; source?: string; medium?: string; campaign?: string; content?: string };
 export type Ga4AcquisitionReport = {
   connected: true;
   propertyId: string;
@@ -16,6 +18,8 @@ export type Ga4AcquisitionReport = {
   campaigns: Ga4SeriesRow[];
   devices: Ga4SeriesRow[];
   landingPages: Ga4SeriesRow[];
+  pagePaths: Ga4SeriesRow[];
+  attributedSessions: Ga4AttributionRow[];
   rowCount: number;
 };
 
@@ -49,17 +53,27 @@ async function accessToken(email: string, privateKey: string) {
   return (await response.json() as { access_token: string }).access_token;
 }
 
-async function runReport(propertyId: string, token: string, days: number, dimensions: string[], includeTotals = false) {
+async function runReport(propertyId: string, token: string, filters: Ga4Filters, dimensions: string[], includeTotals = false) {
+  const exact = (dimensionName: string, value: string) => ({ filter: { fieldName: dimensionName, stringFilter: { matchType: "EXACT", value, caseSensitive: false } } });
+  const conditions = [
+    filters.source ? exact("sessionSource", filters.source) : null,
+    filters.medium ? ["paid", "paid_social"].includes(filters.medium.toLowerCase()) && filters.source?.toLowerCase() === "tiktok"
+      ? { orGroup: { expressions: [exact("sessionMedium", "paid"), exact("sessionMedium", "paid_social")] } }
+      : exact("sessionMedium", filters.medium) : null,
+    filters.campaign ? exact("sessionCampaignName", filters.campaign) : null,
+    filters.content ? exact("sessionManualAdContent", filters.content) : null,
+  ].filter((item) => item !== null);
   const response = await fetch(`${API_URL}/properties/${encodeURIComponent(propertyId)}:runReport`, {
     method: "POST",
     headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
     body: JSON.stringify({
-      dateRanges: [{ startDate: `${days}daysAgo`, endDate: "today" }],
+      dateRanges: [{ startDate: filters.startDate, endDate: filters.endDate }],
       dimensions: dimensions.map((name) => ({ name })),
       metrics: METRICS.map((name) => ({ name })),
+      dimensionFilter: conditions.length ? { andGroup: { expressions: conditions } } : undefined,
       metricAggregations: includeTotals ? ["TOTAL"] : undefined,
-      orderBys: dimensions.includes("date") ? [{ dimension: { dimensionName: "date" } }] : [{ metric: { metricName: "sessions" }, desc: true }],
-      limit: 100,
+      orderBys: dimensions.includes("date") ? [{ dimension: { dimensionName: "date" } }] : [{ metric: { metricName: dimensions.includes("pagePath") ? "screenPageViews" : "sessions" }, desc: true }],
+      limit: 10000,
     }),
     cache: "no-store",
   });
@@ -79,7 +93,7 @@ function rowsFrom(data: ApiResponse, label: (values: string[]) => string): Ga4Se
   });
 }
 
-export async function getGa4Acquisition(days: number): Promise<Ga4AcquisitionReport | { connected: false; reason: "not_configured" }> {
+export async function getGa4Acquisition(days: number, filters?: Ga4Filters): Promise<Ga4AcquisitionReport | { connected: false; reason: "not_configured" }> {
   const propertyId = process.env.GA4_PROPERTY_ID;
   const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
   const privateKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY;
@@ -87,13 +101,18 @@ export async function getGa4Acquisition(days: number): Promise<Ga4AcquisitionRep
 
   try {
     const token = await accessToken(email, privateKey);
-    const [totals, daily, sources, campaigns, devices, landingPages] = await Promise.all([
-      runReport(propertyId, token, days, [], true),
-      runReport(propertyId, token, days, ["date"]),
-      runReport(propertyId, token, days, ["sessionSource", "sessionMedium"]),
-      runReport(propertyId, token, days, ["sessionCampaignName"]),
-      runReport(propertyId, token, days, ["deviceCategory"]),
-      runReport(propertyId, token, days, ["landingPage"]),
+    const today = new Date();
+    const start = new Date(today.getTime() - (days - 1) * 86_400_000);
+    const range = filters ?? { startDate: start.toISOString().slice(0, 10), endDate: today.toISOString().slice(0, 10) };
+    const [totals, daily, sources, campaigns, devices, landingPages, pagePaths, attributed] = await Promise.all([
+      runReport(propertyId, token, range, [], true),
+      runReport(propertyId, token, range, ["date"]),
+      runReport(propertyId, token, range, ["sessionSource", "sessionMedium"]),
+      runReport(propertyId, token, range, ["sessionCampaignName"]),
+      runReport(propertyId, token, range, ["deviceCategory"]),
+      runReport(propertyId, token, range, ["landingPage"]),
+      runReport(propertyId, token, range, ["pagePath"]),
+      runReport(propertyId, token, range, ["sessionSource", "sessionMedium", "sessionCampaignName", "sessionManualAdContent"]),
     ]);
     const report: Ga4AcquisitionReport = {
       connected: true,
@@ -105,7 +124,13 @@ export async function getGa4Acquisition(days: number): Promise<Ga4AcquisitionRep
       campaigns: rowsFrom(campaigns, ([campaign]) => campaign),
       devices: rowsFrom(devices, ([device]) => device),
       landingPages: rowsFrom(landingPages, ([landingPage]) => landingPage),
-      rowCount: [daily, sources, campaigns, devices, landingPages].reduce((sum, result) => sum + (result.rows?.length ?? 0), 0),
+      pagePaths: rowsFrom(pagePaths, ([path]) => path),
+      attributedSessions: (attributed.rows ?? []).map((row) => ({
+        source: row.dimensionValues?.[0]?.value ?? "", medium: row.dimensionValues?.[1]?.value ?? "",
+        campaign: row.dimensionValues?.[2]?.value ?? "", content: row.dimensionValues?.[3]?.value ?? "",
+        ...totalsFrom({ rows: [row] }),
+      })),
+      rowCount: [daily, sources, campaigns, devices, landingPages, pagePaths, attributed].reduce((sum, result) => sum + (result.rows?.length ?? 0), 0),
     };
     if (process.env.NODE_ENV === "development") console.info("[ga4-data]", { connected: true, propertyId, status: 200, rowCount: report.rowCount });
     return report;
