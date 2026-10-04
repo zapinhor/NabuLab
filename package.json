@@ -25,6 +25,7 @@
     "test:support": "node --import tsx scripts/test-support.ts",
     "test:teachers": "node --import tsx scripts/test-teacher-classes.ts",
     "test:teachers:p2": "node --import tsx scripts/test-teacher-p2.ts",
+    "test:teachers:p3": "node --import tsx scripts/test-teacher-p3.ts",
     "test:teachers:p2:staging": "node --import tsx scripts/test-teacher-p2-staging.ts",
     "test:ga": "node --import tsx scripts/test-ga-events.ts",
     "test:acquisition": "node --import tsx scripts/test-acquisition.ts",
