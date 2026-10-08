@@ -34,32 +34,18 @@ export interface StudentEntitlements {
   goals: boolean;
   cloudSync: boolean;
   maxQuestionsPerExam: number;
-  examsPerDay: number | null;
+  lifetimeQuestionLimit: number | null;
   historyLimit: number | null;
   recommendedLimit: number | null;
   allowedAmounts: readonly number[];
 }
 
-export interface DailyExamQuotaStatus {
+export interface StudentQuestionQuotaStatus {
   used: number;
   limit: number | null;
   remaining: number | null;
-  quotaDate: string;
   unlimited: boolean;
 }
-
-export function getStudentQuotaDate(date = new Date()): string {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: STUDENT_QUOTA_TIME_ZONE,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(date);
-  const value = Object.fromEntries(parts.map((part) => [part.type, part.value]));
-  return `${value.year}-${value.month}-${value.day}`;
-}
-
-export const STUDENT_QUOTA_TIME_ZONE = "America/Sao_Paulo";
 export const PREMIUM_FEATURE_ROUTES = [
   "/revisao",
   "/evolucao",
@@ -68,7 +54,7 @@ export const PREMIUM_FEATURE_ROUTES = [
   "/metas",
 ] as const;
 
-const FREE_AMOUNTS = [5, 10, 15] as const;
+const FREE_AMOUNTS = [5, 10] as const;
 const PREMIUM_AMOUNTS = [5, 10, 15, 20, 30, 50] as const;
 
 export const FREE_ENTITLEMENTS: StudentEntitlements = Object.freeze({
@@ -83,8 +69,8 @@ export const FREE_ENTITLEMENTS: StudentEntitlements = Object.freeze({
   domainAnalytics: false,
   goals: false,
   cloudSync: true,
-  maxQuestionsPerExam: 15,
-  examsPerDay: 2,
+  maxQuestionsPerExam: 10,
+  lifetimeQuestionLimit: 10,
   historyLimit: 3,
   recommendedLimit: 5,
   allowedAmounts: FREE_AMOUNTS,
@@ -103,7 +89,7 @@ export const PREMIUM_ENTITLEMENTS: StudentEntitlements = Object.freeze({
   goals: true,
   cloudSync: true,
   maxQuestionsPerExam: 50,
-  examsPerDay: null,
+  lifetimeQuestionLimit: null,
   historyLimit: null,
   recommendedLimit: null,
   allowedAmounts: PREMIUM_AMOUNTS,

@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/seo";
 
 const PUBLIC_ROUTES = [
   { path: "", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/comece", changeFrequency: "weekly" as const, priority: 0.9 },
   { path: "/premium", changeFrequency: "weekly" as const, priority: 0.8 },
   { path: "/turmas", changeFrequency: "weekly" as const, priority: 0.8 },
   { path: "/suporte", changeFrequency: "monthly" as const, priority: 0.6 },

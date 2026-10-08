@@ -48,6 +48,9 @@ import SubjectTrendSummary from "@/components/dashboard/subject-trend-summary";
 import StudentAccountMenu from "@/components/student/student-account-menu";
 import { useStudentAccount } from "@/lib/use-student-account";
 import { getStudentEntitlements, isPremiumFeatureRoute } from "@/lib/entitlements";
+import type { StudentQuestionQuotaStatus } from "@/lib/entitlements";
+import { getExamQuotaStatus } from "@/lib/exam-generation-client";
+import { trackEvent } from "@/components/analytics/track-event";
 
 import {
   ErrorState,
@@ -378,6 +381,11 @@ export default function DashboardPage() {
     );
 
   const [
+    questionQuota,
+    setQuestionQuota,
+  ] = useState<StudentQuestionQuotaStatus | null>(null);
+
+  const [
     loading,
     setLoading,
   ] =
@@ -432,6 +440,7 @@ export default function DashboardPage() {
             consistencyData,
             goalsData,
             evolutionData,
+            quotaData,
           ] =
             await Promise.all([
               getDashboardData(),
@@ -445,6 +454,8 @@ export default function DashboardPage() {
               ),
 
               getSubjectEvolutionSummary(),
+
+              getExamQuotaStatus(),
             ]);
 
           setDashboard(
@@ -466,6 +477,20 @@ export default function DashboardPage() {
           setEvolution(
             evolutionData
           );
+
+          setQuestionQuota(
+            quotaData
+          );
+
+          if (
+            dashboardData.totalExams === 0 &&
+            quotaData.used === 0
+          ) {
+            void trackEvent(
+              "first_student_use",
+              { surface: "dashboard" }
+            );
+          }
         } catch (
           loadError
         ) {
@@ -772,6 +797,10 @@ export default function DashboardPage() {
   const hasReviewQuestions =
     review.totalQuestionsWithErrors >
     0;
+
+  const firstAccess =
+    dashboard.totalExams === 0 &&
+    questionQuota?.used === 0;
 
   /*
    * =========================================================
@@ -1392,6 +1421,19 @@ export default function DashboardPage() {
               HERO
           ================================================== */}
 
+          {firstAccess ? (
+            <section className="overflow-hidden rounded-[24px] bg-[#0B2D6B] p-5 text-white shadow-lg shadow-blue-200/60 sm:rounded-[28px] sm:p-7 md:p-10">
+              <div className="max-w-3xl">
+                <h1 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">Bem-vindo ao NabuLab</h1>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-blue-50">Você tem 10 questões grátis para começar. Faça seu primeiro simulado e descubra quais conteúdos merecem mais atenção.</p>
+                <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
+                  <Link href="/simulado/novo" className="min-h-12 rounded-xl bg-[#F4C430] px-5 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-amber-300">Começar meu primeiro simulado</Link>
+                  <Link href="/simulado/novo" className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/15">Explorar questões</Link>
+                  <Link href="/turmas" className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/15">Entrar em uma turma</Link>
+                </div>
+              </div>
+            </section>
+          ) : (
           <section className="overflow-hidden rounded-[24px] bg-gradient-to-br from-[#0B2D6B] via-[#174EA6] to-[#3B82F6] p-5 text-white shadow-lg shadow-blue-200/60 sm:rounded-[28px] sm:p-7 md:p-10">
             <div className="flex flex-col gap-7 xl:flex-row xl:items-center xl:justify-between">
               <div className="min-w-0 max-w-3xl">
@@ -1503,6 +1545,18 @@ export default function DashboardPage() {
               </div>
             </div>
           </section>
+          )}
+
+          {questionQuota && !questionQuota.unlimited && (
+            <section className="mt-4 rounded-2xl border border-blue-100 bg-white p-4 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-5" aria-label="Franquia gratuita">
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center justify-between gap-3 text-sm"><span className="font-bold text-slate-800">Questões gratuitas</span><span className="font-bold text-blue-700">{questionQuota.used} de {questionQuota.limit}</span></div>
+                <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={questionQuota.limit ?? 10} aria-valuenow={questionQuota.used}><div className="h-full rounded-full bg-[#3B82F6]" style={{ width: `${Math.min(100, questionQuota.used * 10)}%` }} /></div>
+                <p className="mt-2 text-xs leading-5 text-slate-500">{questionQuota.remaining === 0 ? "Sua franquia foi concluída. Histórico e atividades de turmas continuam disponíveis." : `${questionQuota.remaining} questões grátis restantes.`}</p>
+              </div>
+              {questionQuota.remaining === 0 && <Link href="/premium" className="mt-3 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-sm font-bold text-white sm:mt-0">Conhecer o Premium</Link>}
+            </section>
+          )}
 
           {/* =================================================
               MÉTRICAS

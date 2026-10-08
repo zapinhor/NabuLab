@@ -1,5 +1,5 @@
 export type Campaign = { source: string; medium: string; campaign: string; content: string };
-export type AcquisitionEvent = "landing_request" | "signup_completed" | "premium_viewed" | "checkout_started";
+export type AcquisitionEvent = "landing_request" | "signup_started" | "signup_completed" | "premium_viewed" | "checkout_started";
 export const ATTRIBUTION_COOKIE = "nabulab_campaign_attribution";
 export const ATTRIBUTION_MAX_AGE = 24 * 60 * 60;
 
@@ -18,6 +18,16 @@ export function parseCampaign(params: URLSearchParams): Campaign | null {
   const content = clean(params.get("utm_content"), 100);
   if (!source || !medium || campaign === null || content === null) return null;
   return { source: source.toLowerCase(), medium: medium.toLowerCase(), campaign, content };
+}
+
+export function campaignQuery(params: URLSearchParams): string {
+  const output = new URLSearchParams();
+  const limits = { utm_source: 40, utm_medium: 40, utm_campaign: 100, utm_content: 100 } as const;
+  for (const [key, limit] of Object.entries(limits)) {
+    const normalized = clean(params.get(key), limit);
+    if (normalized) output.set(key, normalized);
+  }
+  return output.toString();
 }
 
 export function readAttribution(value: string | undefined): Campaign | null {
@@ -43,7 +53,7 @@ export function channelName(source: string, medium: string): string {
 }
 
 export function isPublicLanding(path: string): boolean {
-  return ["/", "/cadastro", "/premium", "/turmas", "/suporte"].includes(path);
+  return ["/", "/comece", "/cadastro", "/premium", "/turmas", "/suporte"].includes(path);
 }
 
 export function shouldCountLanding(input: { method: string; path: string; accept: string | null; userAgent: string | null; fetchMode: string | null; prefetch: string | null }): boolean {

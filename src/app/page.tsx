@@ -16,7 +16,7 @@ export const metadata: Metadata = createPublicMetadata({
   absoluteTitle: true,
 });
 
-const free = ["17 matérias", "2 simulados por dia", "Até 15 questões", "Níveis iniciante e médio", "Múltipla escolha e V/F", "Correções e explicações", "3 históricos recentes", "Recomendado limitado", "Resumo de desempenho", "Cloud Sync"];
+const free = ["10 questões gratuitas por conta", "17 matérias", "Níveis iniciante e médio", "Múltipla escolha e V/F", "Correções e explicações", "3 históricos recentes", "Recomendado limitado", "Resumo de desempenho", "Atividades de turmas não consomem a franquia", "Cloud Sync"];
 const premium = ["1.224 questões em 17 matérias", "Simulados ilimitados", "5, 10, 15, 20, 30 ou 50 questões", "Níveis iniciante, médio e avançado", "Histórico completo", "Treinar meus erros", "Recomendado completo", "Evolução, Análise e Domínio", "Metas de estudo", "Cloud Sync"];
 const features = [
   ["Simulados do seu jeito", "Escolha matérias, dificuldade, tipo e quantidade de questões para praticar com intenção."],
@@ -100,7 +100,7 @@ export default async function LandingPage() {
       <section className="border-y border-slate-200 bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8"><div><p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">Por que praticar</p><h2 className="mt-3 text-3xl font-black tracking-tight">Estudar também é decidir o que fazer depois de cada resposta.</h2></div><div className="space-y-4 text-base leading-7 text-slate-600"><p>O NabuLab reúne tentativa, correção e histórico para você não depender apenas da releitura passiva.</p><p>Com dados do que já foi feito, fica mais fácil identificar conteúdos frágeis, retomar erros e escolher a próxima prática.</p></div></div></section>
 
       <section id="faq" className="mx-auto max-w-4xl px-4 py-16 sm:px-6"><p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">FAQ</p><h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Perguntas frequentes</h2><div className="mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white px-5">{[
-        ["O NabuLab é gratuito?", "Sim. O plano Free oferece 17 matérias, dois simulados por dia com até 15 questões e recursos essenciais de correção, histórico e desempenho."],
+        ["O NabuLab é gratuito?", "Sim. O plano Free oferece 10 questões gratuitas por conta, 17 matérias e recursos essenciais de correção, histórico e desempenho. Atividades enviadas por professores não consomem essa franquia."],
         ["O que muda no Premium?", "O Premium libera simulados ilimitados, nível avançado, até 50 questões, histórico completo, revisão de erros, recomendado completo, evolução, análise, domínio e metas."],
         ["Posso cancelar quando quiser?", "Sim. O cancelamento é gerenciado pela Hotmart e interrompe a renovação automática."],
         ["O que acontece quando cancelo?", "Seu Premium permanece disponível até o fim do período já pago. Depois disso, sua conta volta ao Free e seus dados acadêmicos continuam preservados."],
