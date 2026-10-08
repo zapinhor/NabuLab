@@ -32,6 +32,7 @@
     "test:ga": "node --import tsx scripts/test-ga-events.ts",
     "test:acquisition": "node --import tsx scripts/test-acquisition.ts",
     "test:tiktok": "node --import tsx scripts/test-tiktok-pixel.ts",
+    "test:streak": "node --import tsx scripts/test-streak-override.ts",
     "start": "next start",
     "lint": "eslint"
   },
