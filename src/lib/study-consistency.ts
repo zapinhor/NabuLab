@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { createClient } from "@/lib/supabase/client";
 
 import type {
   StoredExam,
@@ -52,6 +53,11 @@ export interface StudyConsistency {
 
   studyDays:
     StudyDay[];
+}
+
+export interface StudentStreakOverride {
+  streakDays: number;
+  anchoredOn: string;
 }
 
 /*
@@ -479,6 +485,110 @@ function calculateCurrentStreak(
   return streak;
 }
 
+function parseLocalDateKey(value: string) {
+  const [year, month, day] = value.split("-").map(Number);
+
+  if (!year || !month || !day) {
+    return null;
+  }
+
+  const date = new Date(year, month - 1, day, 12);
+
+  return getLocalDateKey(date) === value ? date : null;
+}
+
+export function applyStudentStreakOverride({
+  calculatedCurrent,
+  calculatedLongest,
+  studyDays,
+  override,
+  today,
+}: {
+  calculatedCurrent: number;
+  calculatedLongest: number;
+  studyDays: StudyDay[];
+  override: StudentStreakOverride | null;
+  today: Date;
+}) {
+  if (!override) {
+    return {
+      currentStreak: calculatedCurrent,
+      longestStreak: calculatedLongest,
+    };
+  }
+
+  const anchor = parseLocalDateKey(override.anchoredOn);
+  const baseDays = Math.max(0, Math.trunc(override.streakDays));
+
+  if (!anchor || differenceInDays(today, anchor) < 0) {
+    return {
+      currentStreak: calculatedCurrent,
+      longestStreak: Math.max(calculatedLongest, baseDays),
+    };
+  }
+
+  const daysAfterAnchor = studyDays.filter(
+    (day) => differenceInDays(day.date, anchor) > 0,
+  );
+  let continuationDays = 0;
+  let expectedDate = addDays(anchor, 1);
+  let chainWasBroken = false;
+
+  for (const day of daysAfterAnchor) {
+    const difference = differenceInDays(day.date, expectedDate);
+
+    if (difference === 0) {
+      continuationDays++;
+      expectedDate = addDays(expectedDate, 1);
+      continue;
+    }
+
+    if (difference > 0) {
+      chainWasBroken = true;
+      break;
+    }
+  }
+
+  const lastCreditedDate = addDays(anchor, continuationDays);
+  const overrideIsCurrent =
+    !chainWasBroken && differenceInDays(today, lastCreditedDate) <= 1;
+  const currentStreak = overrideIsCurrent
+    ? baseDays + continuationDays
+    : calculatedCurrent;
+
+  return {
+    currentStreak,
+    longestStreak: Math.max(calculatedLongest, baseDays, currentStreak),
+  };
+}
+
+async function loadStudentStreakOverride(): Promise<StudentStreakOverride | null> {
+  const supabase = createClient();
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+
+  if (userError || !userData.user) {
+    return null;
+  }
+
+  const { data, error } = await supabase
+    .from("student_streak_overrides")
+    .select("streak_days,anchored_on")
+    .eq("user_id", userData.user.id)
+    .maybeSingle();
+
+  if (error) {
+    console.warn("[study-consistency] Não foi possível carregar o ajuste de sequência.");
+    return null;
+  }
+
+  return data
+    ? {
+        streakDays: data.streak_days,
+        anchoredOn: data.anchored_on,
+      }
+    : null;
+}
+
 /*
  * =========================================================
  * CONSULTA PRINCIPAL
@@ -486,8 +596,10 @@ function calculateCurrentStreak(
  */
 
 export async function getStudyConsistency(): Promise<StudyConsistency> {
-  const exams =
-    await db.exams.toArray();
+  const [exams, streakOverride] = await Promise.all([
+    db.exams.toArray(),
+    loadStudentStreakOverride(),
+  ]);
 
   const studyDays =
     buildStudyDays(
@@ -596,17 +708,20 @@ export async function getStudyConsistency(): Promise<StudyConsistency> {
       studyDays.length - 1
     ];
 
-  return {
-    currentStreak:
-      calculateCurrentStreak(
-        studyDays,
-        today
-      ),
+  const calculatedCurrentStreak = calculateCurrentStreak(studyDays, today);
+  const calculatedLongestStreak = calculateLongestStreak(studyDays);
+  const effectiveStreak = applyStudentStreakOverride({
+    calculatedCurrent: calculatedCurrentStreak,
+    calculatedLongest: calculatedLongestStreak,
+    studyDays,
+    override: streakOverride,
+    today,
+  });
 
-    longestStreak:
-      calculateLongestStreak(
-        studyDays
-      ),
+  return {
+    currentStreak: effectiveStreak.currentStreak,
+
+    longestStreak: effectiveStreak.longestStreak,
 
     totalStudyDays:
       studyDays.length,
