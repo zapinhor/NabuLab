@@ -2,60 +2,701 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import QRCode from "qrcode";
-import { createClassActivity, decideClassMember, inviteToTeacherClass, regenerateClassAccess, removeClassMember, updateTeacherClassSettings } from "@/app/turmas/actions";
+import {
+  decideClassMember,
+  inviteToTeacherClass,
+  regenerateClassAccess,
+  removeClassMember,
+  updateTeacherClassSettings,
+} from "@/app/turmas/actions";
 import { createClient } from "@/lib/supabase/server";
 import { AccessCopyButtons } from "./access-copy-buttons";
+import { TeacherActivityBuilder } from "@/components/professor/teacher-activity-builder";
+import {
+  TeacherBreadcrumbs,
+  teacherButton,
+  teacherSecondaryButton,
+} from "@/components/professor/teacher-ui";
 
-const button = "rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-sm font-bold text-white";
-const field = "mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3";
+const button =
+  "rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-sm font-bold text-white";
+const field =
+  "mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3";
 
-type ClassMember = { user_id: string; status: string; source: string; full_name: string; username: string | null };
-type ClassInvite = { id: string; email: string | null; status: string; full_name: string | null; username: string | null };
-type ClassActivity = { id: string; title: string; status: string; opens_at: string | null; due_at: string | null; max_attempts: number | null; teacher_exams: { title: string } | null };
-type ClassAttempt = { id: string; student_id: string; score: number | null; correct_count: number | null; total_questions: number | null; submitted_at: string | null; student_name: string; student_username: string | null; activity_title: string };
+type ClassMember = {
+  user_id: string;
+  status: string;
+  source: string;
+  full_name: string;
+  username: string | null;
+};
+type ClassInvite = {
+  id: string;
+  email: string | null;
+  status: string;
+  full_name: string | null;
+  username: string | null;
+};
+type ClassActivity = {
+  id: string;
+  title: string;
+  status: string;
+  opens_at: string | null;
+  due_at: string | null;
+  max_attempts: number | null;
+  teacher_exams: { title: string } | null;
+};
+type ClassAttempt = {
+  id: string;
+  student_id: string;
+  score: number | null;
+  correct_count: number | null;
+  total_questions: number | null;
+  submitted_at: string | null;
+  student_name: string;
+  student_username: string | null;
+  activity_title: string;
+};
 
-export default async function TeacherClassPage({ params, searchParams }: { params: Promise<{ classId: string }>; searchParams: Promise<{ mensagem?: string }> }) {
+export default async function TeacherClassPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ classId: string }>;
+  searchParams: Promise<{ mensagem?: string }>;
+}) {
   const { classId } = await params;
   const { mensagem } = await searchParams;
   const supabase = await createClient();
   const { data: auth } = await supabase.auth.getUser();
-  if (!auth.user) redirect(`/login?next=${encodeURIComponent(`/professor/turmas/${classId}`)}`);
-  const [classResult, membersResult, invitesResult, activitiesResult, examsResult, attemptsResult] = await Promise.all([
+  if (!auth.user)
+    redirect(
+      `/login?next=${encodeURIComponent(`/professor/turmas/${classId}`)}`,
+    );
+  const [
+    classResult,
+    membersResult,
+    invitesResult,
+    activitiesResult,
+    examsResult,
+    attemptsResult,
+  ] = await Promise.all([
     supabase.rpc("get_owned_teacher_class", { p_class_id: classId }),
     supabase.rpc("get_teacher_class_members", { p_class_id: classId }),
     supabase.rpc("get_teacher_class_invites", { p_class_id: classId }),
-    supabase.from("teacher_class_activities").select("id,title,status,opens_at,due_at,max_attempts,teacher_exams(title)").eq("class_id", classId).order("created_at", { ascending: false }),
-    supabase.from("teacher_exams").select("id,title").eq("owner_id", auth.user.id).eq("status", "published").order("created_at", { ascending: false }),
+    supabase
+      .from("teacher_class_activities")
+      .select(
+        "id,title,status,opens_at,due_at,max_attempts,teacher_exams(title)",
+      )
+      .eq("class_id", classId)
+      .order("created_at", { ascending: false }),
+    supabase
+      .from("teacher_exams")
+      .select("id,title")
+      .eq("owner_id", auth.user.id)
+      .eq("status", "published")
+      .order("created_at", { ascending: false }),
     supabase.rpc("get_teacher_class_attempts", { p_class_id: classId }),
   ]);
   const room = classResult.data?.[0];
   if (!room) notFound();
   const joinUrl = `https://nabulab.org/turmas/entrar/${room.join_token}`;
-  const qrCode = await QRCode.toDataURL(joinUrl, { width: 360, margin: 2, color: { dark: "#0B2D6B", light: "#FFFFFF" } });
+  const qrCode = await QRCode.toDataURL(joinUrl, {
+    width: 360,
+    margin: 2,
+    color: { dark: "#0B2D6B", light: "#FFFFFF" },
+  });
   const members = (membersResult.data ?? []) as unknown as ClassMember[];
   const invites = (invitesResult.data ?? []) as unknown as ClassInvite[];
-  const activities = (activitiesResult.data ?? []) as unknown as ClassActivity[];
+  const activities = (activitiesResult.data ??
+    []) as unknown as ClassActivity[];
   const attempts = (attemptsResult.data ?? []) as unknown as ClassAttempt[];
   const active = members.filter((item) => item.status === "active");
   const pending = members.filter((item) => item.status === "pending");
   const activityAverages = activities.map((activity) => {
-    const rows = attempts.filter((attempt) => attempt.activity_title === activity.title);
-    return { label: activity.title, value: rows.length ? Math.round(rows.reduce((sum, row) => sum + Number(row.score ?? 0), 0) / rows.length) : 0, count: rows.length };
+    const rows = attempts.filter(
+      (attempt) => attempt.activity_title === activity.title,
+    );
+    return {
+      label: activity.title,
+      value: rows.length
+        ? Math.round(
+            rows.reduce((sum, row) => sum + Number(row.score ?? 0), 0) /
+              rows.length,
+          )
+        : 0,
+      count: rows.length,
+    };
   });
   const studentAverages = active.map((member) => {
-    const rows = attempts.filter((attempt) => attempt.student_id === member.user_id);
-    return { label: member.full_name || member.username || "Aluno", value: rows.length ? Math.round(rows.reduce((sum, row) => sum + Number(row.score ?? 0), 0) / rows.length) : 0, count: rows.length };
+    const rows = attempts.filter(
+      (attempt) => attempt.student_id === member.user_id,
+    );
+    return {
+      label: member.full_name || member.username || "Aluno",
+      value: rows.length
+        ? Math.round(
+            rows.reduce((sum, row) => sum + Number(row.score ?? 0), 0) /
+              rows.length,
+          )
+        : 0,
+      count: rows.length,
+    };
   });
 
-  return <main className="min-h-screen bg-[#F5F7FB] px-4 py-8 sm:px-6"><div className="mx-auto max-w-7xl"><header className="flex flex-wrap items-start justify-between gap-4"><div><Link href="/professor" className="text-sm font-bold text-blue-700">← Área do Professor</Link><h1 className="mt-2 text-3xl font-black">{room.public_name}</h1><p className="mt-1 text-slate-600">{[room.subject, room.school_name].filter(Boolean).join(" · ") || "Turma do NabuLab"}</p></div><span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-black text-blue-900">{active.length} / {room.student_limit} alunos</span></header>{mensagem && <p role="status" className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 font-semibold text-blue-950">{mensagem}</p>}
-    <nav className="mt-7 flex flex-wrap gap-2"><a href="#visao" className="rounded-full bg-blue-100 px-4 py-2 text-sm font-bold">Visão geral</a><a href="#alunos" className="rounded-full bg-white px-4 py-2 text-sm font-bold">Alunos</a><a href="#atividades" className="rounded-full bg-white px-4 py-2 text-sm font-bold">Atividades</a><a href="#desempenho" className="rounded-full bg-white px-4 py-2 text-sm font-bold">Desempenho</a><Link href={`/professor/turmas/${classId}/analytics`} className="rounded-full bg-white px-4 py-2 text-sm font-bold text-blue-700">Relatórios detalhados →</Link><a href="#solicitacoes" className="rounded-full bg-white px-4 py-2 text-sm font-bold">Solicitações</a><a href="#configuracoes" className="rounded-full bg-white px-4 py-2 text-sm font-bold">Configurações</a></nav>
-    <section id="visao" className="mt-8 grid gap-4 sm:grid-cols-4"><article className="rounded-2xl bg-white p-5"><p className="text-sm text-slate-500">Alunos</p><p className="mt-2 text-3xl font-black">{active.length}</p></article><article className="rounded-2xl bg-white p-5"><p className="text-sm text-slate-500">Solicitações</p><p className="mt-2 text-3xl font-black">{pending.length}</p></article><article className="rounded-2xl bg-white p-5"><p className="text-sm text-slate-500">Atividades</p><p className="mt-2 text-3xl font-black">{(activitiesResult.data ?? []).length}</p></article><article className="rounded-2xl bg-white p-5"><p className="text-sm text-slate-500">Média da turma</p><p className="mt-2 text-3xl font-black">{attempts.length > 0 ? `${Math.round(attempts.reduce((sum, item) => sum + Number(item.score ?? 0), 0) / attempts.length)}%` : "—"}</p></article></section>
-    <div className="mt-8 grid gap-6 lg:grid-cols-2"><section id="alunos" className="rounded-3xl border border-slate-200 bg-white p-6"><h2 className="text-2xl font-black">Alunos</h2><div className="mt-4 space-y-3">{active.map((member) => <article key={member.user_id} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 p-4"><div><p className="font-black">{member.full_name || "Aluno"}</p><p className="text-xs text-slate-500">{member.username ? `@${member.username}` : "Conta NabuLab"}</p></div><form action={removeClassMember}><input type="hidden" name="class_id" value={classId}/><input type="hidden" name="user_id" value={member.user_id}/><button className="text-sm font-bold text-red-700">Remover</button></form></article>)}{active.length === 0 && <p className="text-sm text-slate-500">Nenhum aluno ativo.</p>}</div></section>
-      <section id="solicitacoes" className="rounded-3xl border border-slate-200 bg-white p-6"><h2 className="text-2xl font-black">Solicitações</h2><div className="mt-4 space-y-3">{pending.map((member) => <article key={member.user_id} className="rounded-xl bg-amber-50 p-4"><p className="font-black">{member.full_name || "Aluno"}</p><p className="text-xs text-slate-500">Entrada por {member.source}</p><form action={decideClassMember} className="mt-3 flex gap-2"><input type="hidden" name="class_id" value={classId}/><input type="hidden" name="user_id" value={member.user_id}/><button name="decision" value="approve" className={button}>Aprovar</button><button name="decision" value="reject" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold">Recusar</button></form></article>)}{pending.length === 0 && <p className="text-sm text-slate-500">Nenhuma solicitação aguardando aprovação.</p>}</div></section>
-      <section className="rounded-3xl border border-slate-200 bg-white p-6"><h2 className="text-2xl font-black">Convites</h2><form action={inviteToTeacherClass} className="mt-4"><input type="hidden" name="class_id" value={classId}/><label className="text-sm font-semibold">Username ou e-mail<input name="identifier" required className={field} placeholder="@usuario ou aluno@email.com"/></label><button className={`${button} mt-3`}>Criar convite</button></form><div className="mt-5 space-y-2">{invites.map((invite) => <p key={invite.id} className="rounded-xl bg-slate-50 p-3 text-sm"><strong>{invite.full_name ?? invite.email ?? "Convidado"}</strong> · {invite.status}</p>)}</div></section>
-      <section id="configuracoes" className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2"><h2 className="text-2xl font-black">Configurações da turma</h2><p className="mt-2 text-sm text-slate-600">Apenas o professor proprietário pode alterar estes dados.</p><form action={updateTeacherClassSettings} className="mt-5 grid gap-4 md:grid-cols-2"><input type="hidden" name="class_id" value={classId}/><label className="text-sm font-semibold">Nome interno<input name="name" required minLength={2} maxLength={120} defaultValue={room.name} className={field}/></label><label className="text-sm font-semibold">Nome público<input name="public_name" required minLength={2} maxLength={120} defaultValue={room.public_name} className={field}/></label><label className="text-sm font-semibold md:col-span-2">Descrição<textarea name="description" maxLength={600} defaultValue={room.description ?? ""} className={field}/></label><label className="text-sm font-semibold">Escola ou identificação<input name="school_name" maxLength={160} defaultValue={room.school_name ?? ""} className={field}/></label><label className="text-sm font-semibold">Matéria<input name="subject" maxLength={80} defaultValue={room.subject ?? ""} className={field}/></label><label className="text-sm font-semibold md:col-span-2">Visibilidade<select name="visibility" defaultValue={room.visibility} className={field}><option value="private">Privada</option><option value="unlisted">Não listada</option><option value="public_approval">Pública com aprovação</option></select></label><p className="text-xs leading-5 text-slate-500 md:col-span-2">Ao tornar a turma privada, código e link são desativados. Eles podem ser reativados depois com novas credenciais.</p><button className={`${button} md:col-span-2 md:w-fit`}>Salvar configurações</button></form></section>
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2"><h2 className="text-2xl font-black">Código, link e QR Code</h2><div className="mt-5 grid gap-6 lg:grid-cols-2"><div><p className="text-sm font-semibold text-slate-600">Código da turma · {room.access_code_enabled ? "ativo" : "desativado"}</p>{room.access_code_enabled ? <code className="mt-2 block rounded-xl bg-slate-950 p-3 font-black text-white">{room.access_code}</code> : <p className="mt-2 rounded-xl bg-slate-100 p-3 text-sm text-slate-500">Nenhum código ativo.</p>}<AccessCopyButtons code={room.access_code_enabled ? room.access_code : undefined}/><div className="mt-4 flex flex-wrap gap-2"><form action={regenerateClassAccess}><input type="hidden" name="class_id" value={classId}/><input type="hidden" name="kind" value="code"/><input type="hidden" name="enabled" value="true"/><button className={button}>{room.access_code_enabled ? "Regenerar código" : "Ativar novo código"}</button></form>{room.access_code_enabled && <form action={regenerateClassAccess}><input type="hidden" name="class_id" value={classId}/><input type="hidden" name="kind" value="code"/><input type="hidden" name="enabled" value="false"/><button className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold">Desativar código</button></form>}</div></div><div><p className="text-sm font-semibold text-slate-600">Link de entrada · {room.join_link_enabled ? "ativo" : "desativado"}</p>{room.join_link_enabled ? <p className="mt-2 break-all rounded-xl bg-blue-50 p-3 text-sm text-blue-800">{joinUrl}</p> : <p className="mt-2 rounded-xl bg-slate-100 p-3 text-sm text-slate-500">Nenhum link ativo.</p>}<AccessCopyButtons url={room.join_link_enabled ? joinUrl : undefined}/>{room.join_link_enabled && <Image src={qrCode} alt="QR Code para entrar na turma" width={220} height={220} unoptimized className="mx-auto mt-4 rounded-xl border bg-white p-2"/>}<div className="mt-4 flex flex-wrap gap-2"><form action={regenerateClassAccess}><input type="hidden" name="class_id" value={classId}/><input type="hidden" name="kind" value="link"/><input type="hidden" name="enabled" value="true"/><button className={button}>{room.join_link_enabled ? "Regenerar link" : "Ativar novo link"}</button></form>{room.join_link_enabled && <form action={regenerateClassAccess}><input type="hidden" name="class_id" value={classId}/><input type="hidden" name="kind" value="link"/><input type="hidden" name="enabled" value="false"/><button className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold">Desativar link</button></form>}</div></div></div></section>
-      <section id="atividades" className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2"><h2 className="text-2xl font-black">Atividades</h2><p className="mt-2 text-sm text-slate-600">Aplique o mesmo simulado em diferentes turmas sem duplicá-lo. Cada atividade preserva conteúdo e resultados próprios.</p><div className="mt-4 grid gap-3 md:grid-cols-2">{activities.map((activity) => <article key={activity.id} className="rounded-xl border border-slate-200 p-4"><h3 className="font-black">{activity.title}</h3><p className="mt-1 text-sm text-slate-500">{activity.teacher_exams?.title ?? "Simulado"} · {activity.opens_at?"Agendada":"Publicada"}</p><p className="mt-2 text-xs text-slate-500">{activity.opens_at?`Abre em ${new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short"}).format(new Date(activity.opens_at))}`:"Disponível imediatamente"}{activity.due_at?` · Prazo ${new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short"}).format(new Date(activity.due_at))}`:" · Sem prazo"}</p><p className="mt-2 text-xs font-semibold text-blue-800">{attempts.filter((attempt)=>attempt.activity_title===activity.title).length} respostas · {activity.max_attempts??"∞"} tentativa(s)</p></article>)}{activities.length===0&&<p className="rounded-xl border border-dashed border-slate-300 p-5 text-sm text-slate-600">Nenhuma atividade publicada para esta turma.</p>}</div><form action={createClassActivity} className="mt-5 grid gap-3 rounded-xl bg-slate-50 p-4 sm:grid-cols-2"><input type="hidden" name="class_id" value={classId}/><label className="text-sm font-semibold">Título<input name="title" required className={field}/></label><label className="text-sm font-semibold">Simulado publicado<select name="exam_id" required className={field}><option value="">Selecione</option>{(examsResult.data ?? []).map((exam) => <option key={exam.id} value={exam.id}>{exam.title}</option>)}</select></label><label className="text-sm font-semibold">Abertura<input type="datetime-local" name="available_from" className={field}/></label><label className="text-sm font-semibold">Prazo<input type="datetime-local" name="due_at" className={field}/></label><label className="text-sm font-semibold">Tentativas<select name="max_attempts" defaultValue="1" className={field}><option value="1">1 tentativa</option><option value="2">2 tentativas</option><option value="3">3 tentativas</option><option value="unlimited">Ilimitadas</option></select></label><label className="text-sm font-semibold">Gabarito<select name="answer_policy" defaultValue="never" className={field}><option value="never">Não mostrar</option><option value="immediate">Após cada envio</option><option value="after_due">Após o encerramento</option></select></label><label className="text-sm font-semibold sm:col-span-2">Instruções<textarea name="instructions" className={field}/></label><label className="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" name="shuffle_questions" value="true"/> Embaralhar questões</label><label className="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" name="shuffle_alternatives" value="true"/> Embaralhar alternativas</label><label className="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" name="show_score" value="true" defaultChecked/> Mostrar nota após envio</label><button className={`${button} sm:col-span-2`}>Publicar atividade</button></form></section>
-      <section id="desempenho" className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2"><h2 className="text-2xl font-black">Desempenho</h2><p className="mt-2 text-slate-600">Somente resultados das atividades desta turma são exibidos. Simulados independentes e dados pessoais do aluno permanecem privados.</p>{attempts.length > 0 && <div className="mt-6 grid gap-6 lg:grid-cols-2"><div><h3 className="font-black">Média por atividade</h3><div className="mt-3 space-y-3">{activityAverages.filter((item) => item.count > 0).map((item) => <div key={item.label}><div className="mb-1 flex justify-between gap-3 text-sm"><span className="truncate">{item.label}</span><strong>{item.value}%</strong></div><div className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-blue-600" style={{ width: `${item.value}%` }}/></div></div>)}</div></div><div><h3 className="font-black">Média por aluno</h3><div className="mt-3 space-y-3">{studentAverages.filter((item) => item.count > 0).map((item) => <div key={item.label}><div className="mb-1 flex justify-between gap-3 text-sm"><span className="truncate">{item.label}</span><strong>{item.value}%</strong></div><div className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-emerald-600" style={{ width: `${item.value}%` }}/></div></div>)}</div></div></div>}<div className="mt-5 overflow-x-auto">{attempts.length > 0 ? <table className="w-full min-w-[620px] text-left text-sm"><thead><tr className="border-b border-slate-200"><th className="p-3">Aluno</th><th className="p-3">Atividade</th><th className="p-3">Acertos</th><th className="p-3">Nota</th><th className="p-3">Envio</th></tr></thead><tbody>{attempts.map((attempt) => <tr key={attempt.id} className="border-b border-slate-100"><td className="p-3 font-bold">{attempt.student_name || attempt.student_username || "Aluno"}</td><td className="p-3">{attempt.activity_title || "Atividade"}</td><td className="p-3">{attempt.correct_count ?? 0}/{attempt.total_questions ?? 0}</td><td className="p-3 font-black">{attempt.score ?? 0}%</td><td className="p-3">{attempt.submitted_at ? new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" }).format(new Date(attempt.submitted_at)) : "—"}</td></tr>)}</tbody></table> : <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-500">Ainda não há atividades concluídas.</p>}</div></section>
-    </div></div></main>;
+  return (
+    <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6 sm:py-8">
+      <div className="mx-auto max-w-7xl">
+        <TeacherBreadcrumbs
+          items={[
+            { label: "Professor", href: "/professor" },
+            { label: "Turmas", href: "/professor#turmas" },
+            { label: room.public_name },
+          ]}
+        />
+        <header className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-black text-[#0B2D6B]">
+              {room.public_name}
+            </h1>
+            <p className="mt-1 text-slate-600">
+              {[room.subject, room.school_name].filter(Boolean).join(" · ") ||
+                "Turma do NabuLab"}
+            </p>
+            <p className="mt-2 text-sm font-semibold text-slate-500">
+              {active.length} de {room.student_limit} alunos ·{" "}
+              {room.status === "active" ? "Ativa" : room.status}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <a href="#nova-atividade" className={teacherButton}>
+              Nova atividade
+            </a>
+            <a href="#convites" className={teacherSecondaryButton}>
+              Convidar alunos
+            </a>
+            <Link
+              href={`/professor/turmas/${classId}/analytics`}
+              className={teacherSecondaryButton}
+            >
+              Ver desempenho
+            </Link>
+          </div>
+        </header>
+        {mensagem && (
+          <p
+            role="status"
+            className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 font-semibold text-blue-950"
+          >
+            {mensagem}
+          </p>
+        )}
+        <nav className="mt-7 overflow-x-auto rounded-2xl border border-slate-200 bg-white p-1.5">
+          <div className="flex min-w-max gap-1">
+            <a
+              href="#atividades"
+              className="rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-sm font-bold text-white"
+            >
+              Atividades
+            </a>
+            <a
+              href="#alunos"
+              className="rounded-xl px-4 py-2.5 text-sm font-bold text-slate-600 hover:bg-slate-100"
+            >
+              Alunos
+            </a>
+            <Link
+              href={`/professor/turmas/${classId}/analytics`}
+              className="rounded-xl px-4 py-2.5 text-sm font-bold text-slate-600 hover:bg-slate-100"
+            >
+              Desempenho
+            </Link>
+            <a
+              href="#configuracoes"
+              className="rounded-xl px-4 py-2.5 text-sm font-bold text-slate-600 hover:bg-slate-100"
+            >
+              Configurações
+            </a>
+          </div>
+        </nav>
+        <section id="visao" className="mt-8 grid gap-4 sm:grid-cols-4">
+          <article className="rounded-2xl bg-white p-5">
+            <p className="text-sm text-slate-500">Alunos</p>
+            <p className="mt-2 text-3xl font-black">{active.length}</p>
+          </article>
+          <article className="rounded-2xl bg-white p-5">
+            <p className="text-sm text-slate-500">Solicitações</p>
+            <p className="mt-2 text-3xl font-black">{pending.length}</p>
+          </article>
+          <article className="rounded-2xl bg-white p-5">
+            <p className="text-sm text-slate-500">Atividades</p>
+            <p className="mt-2 text-3xl font-black">
+              {(activitiesResult.data ?? []).length}
+            </p>
+          </article>
+          <article className="rounded-2xl bg-white p-5">
+            <p className="text-sm text-slate-500">Média da turma</p>
+            <p className="mt-2 text-3xl font-black">
+              {attempts.length > 0
+                ? `${Math.round(attempts.reduce((sum, item) => sum + Number(item.score ?? 0), 0) / attempts.length)}%`
+                : "—"}
+            </p>
+          </article>
+        </section>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <section
+            id="alunos"
+            className="rounded-3xl border border-slate-200 bg-white p-6"
+          >
+            <h2 className="text-2xl font-black">Alunos</h2>
+            <div className="mt-4 space-y-3">
+              {active.map((member) => (
+                <article
+                  key={member.user_id}
+                  className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 p-4"
+                >
+                  <div>
+                    <p className="font-black">{member.full_name || "Aluno"}</p>
+                    <p className="text-xs text-slate-500">
+                      {member.username
+                        ? `@${member.username}`
+                        : "Conta NabuLab"}
+                    </p>
+                  </div>
+                  <form action={removeClassMember}>
+                    <input type="hidden" name="class_id" value={classId} />
+                    <input
+                      type="hidden"
+                      name="user_id"
+                      value={member.user_id}
+                    />
+                    <button className="text-sm font-bold text-red-700">
+                      Remover
+                    </button>
+                  </form>
+                </article>
+              ))}
+              {active.length === 0 && (
+                <p className="text-sm text-slate-500">Nenhum aluno ativo.</p>
+              )}
+            </div>
+          </section>
+          <section
+            id="solicitacoes"
+            className="rounded-3xl border border-slate-200 bg-white p-6"
+          >
+            <h2 className="text-2xl font-black">Solicitações</h2>
+            <div className="mt-4 space-y-3">
+              {pending.map((member) => (
+                <article
+                  key={member.user_id}
+                  className="rounded-xl bg-amber-50 p-4"
+                >
+                  <p className="font-black">{member.full_name || "Aluno"}</p>
+                  <p className="text-xs text-slate-500">
+                    Entrada por {member.source}
+                  </p>
+                  <form action={decideClassMember} className="mt-3 flex gap-2">
+                    <input type="hidden" name="class_id" value={classId} />
+                    <input
+                      type="hidden"
+                      name="user_id"
+                      value={member.user_id}
+                    />
+                    <button name="decision" value="approve" className={button}>
+                      Aprovar
+                    </button>
+                    <button
+                      name="decision"
+                      value="reject"
+                      className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold"
+                    >
+                      Recusar
+                    </button>
+                  </form>
+                </article>
+              ))}
+              {pending.length === 0 && (
+                <p className="text-sm text-slate-500">
+                  Nenhuma solicitação aguardando aprovação.
+                </p>
+              )}
+            </div>
+          </section>
+          <section
+            id="convites"
+            className="scroll-mt-6 rounded-3xl border border-slate-200 bg-white p-6"
+          >
+            <h2 className="text-2xl font-black">Convites</h2>
+            <form action={inviteToTeacherClass} className="mt-4">
+              <input type="hidden" name="class_id" value={classId} />
+              <label className="text-sm font-semibold">
+                Username ou e-mail
+                <input
+                  name="identifier"
+                  required
+                  className={field}
+                  placeholder="@usuario ou aluno@email.com"
+                />
+              </label>
+              <button className={`${button} mt-3`}>Criar convite</button>
+            </form>
+            <div className="mt-5 space-y-2">
+              {invites.map((invite) => (
+                <p
+                  key={invite.id}
+                  className="rounded-xl bg-slate-50 p-3 text-sm"
+                >
+                  <strong>
+                    {invite.full_name ?? invite.email ?? "Convidado"}
+                  </strong>{" "}
+                  · {invite.status}
+                </p>
+              ))}
+            </div>
+          </section>
+          <section
+            id="configuracoes"
+            className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2"
+          >
+            <h2 className="text-2xl font-black">Configurações da turma</h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Apenas o professor proprietário pode alterar estes dados.
+            </p>
+            <form
+              action={updateTeacherClassSettings}
+              className="mt-5 grid gap-4 md:grid-cols-2"
+            >
+              <input type="hidden" name="class_id" value={classId} />
+              <label className="text-sm font-semibold">
+                Nome interno
+                <input
+                  name="name"
+                  required
+                  minLength={2}
+                  maxLength={120}
+                  defaultValue={room.name}
+                  className={field}
+                />
+              </label>
+              <label className="text-sm font-semibold">
+                Nome público
+                <input
+                  name="public_name"
+                  required
+                  minLength={2}
+                  maxLength={120}
+                  defaultValue={room.public_name}
+                  className={field}
+                />
+              </label>
+              <label className="text-sm font-semibold md:col-span-2">
+                Descrição
+                <textarea
+                  name="description"
+                  maxLength={600}
+                  defaultValue={room.description ?? ""}
+                  className={field}
+                />
+              </label>
+              <label className="text-sm font-semibold">
+                Escola ou identificação
+                <input
+                  name="school_name"
+                  maxLength={160}
+                  defaultValue={room.school_name ?? ""}
+                  className={field}
+                />
+              </label>
+              <label className="text-sm font-semibold">
+                Matéria
+                <input
+                  name="subject"
+                  maxLength={80}
+                  defaultValue={room.subject ?? ""}
+                  className={field}
+                />
+              </label>
+              <label className="text-sm font-semibold md:col-span-2">
+                Visibilidade
+                <select
+                  name="visibility"
+                  defaultValue={room.visibility}
+                  className={field}
+                >
+                  <option value="private">Privada</option>
+                  <option value="unlisted">Não listada</option>
+                  <option value="public_approval">Pública com aprovação</option>
+                </select>
+              </label>
+              <p className="text-xs leading-5 text-slate-500 md:col-span-2">
+                Ao tornar a turma privada, código e link são desativados. Eles
+                podem ser reativados depois com novas credenciais.
+              </p>
+              <button className={`${button} md:col-span-2 md:w-fit`}>
+                Salvar configurações
+              </button>
+            </form>
+          </section>
+          <section className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2">
+            <h2 className="text-2xl font-black">Código, link e QR Code</h2>
+            <div className="mt-5 grid gap-6 lg:grid-cols-2">
+              <div>
+                <p className="text-sm font-semibold text-slate-600">
+                  Código da turma ·{" "}
+                  {room.access_code_enabled ? "ativo" : "desativado"}
+                </p>
+                {room.access_code_enabled ? (
+                  <code className="mt-2 block rounded-xl bg-slate-950 p-3 font-black text-white">
+                    {room.access_code}
+                  </code>
+                ) : (
+                  <p className="mt-2 rounded-xl bg-slate-100 p-3 text-sm text-slate-500">
+                    Nenhum código ativo.
+                  </p>
+                )}
+                <AccessCopyButtons
+                  code={room.access_code_enabled ? room.access_code : undefined}
+                />
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <form action={regenerateClassAccess}>
+                    <input type="hidden" name="class_id" value={classId} />
+                    <input type="hidden" name="kind" value="code" />
+                    <input type="hidden" name="enabled" value="true" />
+                    <button className={button}>
+                      {room.access_code_enabled
+                        ? "Regenerar código"
+                        : "Ativar novo código"}
+                    </button>
+                  </form>
+                  {room.access_code_enabled && (
+                    <form action={regenerateClassAccess}>
+                      <input type="hidden" name="class_id" value={classId} />
+                      <input type="hidden" name="kind" value="code" />
+                      <input type="hidden" name="enabled" value="false" />
+                      <button className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold">
+                        Desativar código
+                      </button>
+                    </form>
+                  )}
+                </div>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-600">
+                  Link de entrada ·{" "}
+                  {room.join_link_enabled ? "ativo" : "desativado"}
+                </p>
+                {room.join_link_enabled ? (
+                  <p className="mt-2 break-all rounded-xl bg-blue-50 p-3 text-sm text-blue-800">
+                    {joinUrl}
+                  </p>
+                ) : (
+                  <p className="mt-2 rounded-xl bg-slate-100 p-3 text-sm text-slate-500">
+                    Nenhum link ativo.
+                  </p>
+                )}
+                <AccessCopyButtons
+                  url={room.join_link_enabled ? joinUrl : undefined}
+                />
+                {room.join_link_enabled && (
+                  <Image
+                    src={qrCode}
+                    alt="QR Code para entrar na turma"
+                    width={220}
+                    height={220}
+                    unoptimized
+                    className="mx-auto mt-4 rounded-xl border bg-white p-2"
+                  />
+                )}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <form action={regenerateClassAccess}>
+                    <input type="hidden" name="class_id" value={classId} />
+                    <input type="hidden" name="kind" value="link" />
+                    <input type="hidden" name="enabled" value="true" />
+                    <button className={button}>
+                      {room.join_link_enabled
+                        ? "Regenerar link"
+                        : "Ativar novo link"}
+                    </button>
+                  </form>
+                  {room.join_link_enabled && (
+                    <form action={regenerateClassAccess}>
+                      <input type="hidden" name="class_id" value={classId} />
+                      <input type="hidden" name="kind" value="link" />
+                      <input type="hidden" name="enabled" value="false" />
+                      <button className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold">
+                        Desativar link
+                      </button>
+                    </form>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            id="atividades"
+            className="order-first scroll-mt-6 rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2"
+          >
+            <h2 className="text-2xl font-black">Atividades</h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Aplique o mesmo simulado em diferentes turmas sem duplicá-lo. Cada
+              atividade preserva conteúdo e resultados próprios.
+            </p>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {activities.map((activity) => (
+                <article
+                  key={activity.id}
+                  className="rounded-xl border border-slate-200 p-4"
+                >
+                  <h3 className="font-black">{activity.title}</h3>
+                  <p className="mt-1 text-sm text-slate-500">
+                    {activity.teacher_exams?.title ?? "Simulado"} ·{" "}
+                    {activity.opens_at ? "Agendada" : "Publicada"}
+                  </p>
+                  <p className="mt-2 text-xs text-slate-500">
+                    {activity.opens_at
+                      ? `Abre em ${new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" }).format(new Date(activity.opens_at))}`
+                      : "Disponível imediatamente"}
+                    {activity.due_at
+                      ? ` · Prazo ${new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" }).format(new Date(activity.due_at))}`
+                      : " · Sem prazo"}
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-blue-800">
+                    {
+                      attempts.filter(
+                        (attempt) => attempt.activity_title === activity.title,
+                      ).length
+                    }{" "}
+                    respostas · {activity.max_attempts ?? "∞"} tentativa(s)
+                  </p>
+                </article>
+              ))}
+              {activities.length === 0 && (
+                <p className="rounded-xl border border-dashed border-slate-300 p-5 text-sm text-slate-600">
+                  Nenhuma atividade publicada para esta turma.
+                </p>
+              )}
+            </div>
+            <div className="mt-5">
+              <TeacherActivityBuilder
+                classId={classId}
+                exams={
+                  (examsResult.data ?? []) as { id: string; title: string }[]
+                }
+              />
+            </div>
+          </section>
+          <section
+            id="desempenho"
+            className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2"
+          >
+            <h2 className="text-2xl font-black">Desempenho</h2>
+            <p className="mt-2 text-slate-600">
+              Somente resultados das atividades desta turma são exibidos.
+              Simulados independentes e dados pessoais do aluno permanecem
+              privados.
+            </p>
+            {attempts.length > 0 && (
+              <div className="mt-6 grid gap-6 lg:grid-cols-2">
+                <div>
+                  <h3 className="font-black">Média por atividade</h3>
+                  <div className="mt-3 space-y-3">
+                    {activityAverages
+                      .filter((item) => item.count > 0)
+                      .map((item) => (
+                        <div key={item.label}>
+                          <div className="mb-1 flex justify-between gap-3 text-sm">
+                            <span className="truncate">{item.label}</span>
+                            <strong>{item.value}%</strong>
+                          </div>
+                          <div className="h-3 overflow-hidden rounded-full bg-slate-100">
+                            <div
+                              className="h-full rounded-full bg-blue-600"
+                              style={{ width: `${item.value}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-black">Média por aluno</h3>
+                  <div className="mt-3 space-y-3">
+                    {studentAverages
+                      .filter((item) => item.count > 0)
+                      .map((item) => (
+                        <div key={item.label}>
+                          <div className="mb-1 flex justify-between gap-3 text-sm">
+                            <span className="truncate">{item.label}</span>
+                            <strong>{item.value}%</strong>
+                          </div>
+                          <div className="h-3 overflow-hidden rounded-full bg-slate-100">
+                            <div
+                              className="h-full rounded-full bg-emerald-600"
+                              style={{ width: `${item.value}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="mt-5 overflow-x-auto">
+              {attempts.length > 0 ? (
+                <table className="w-full min-w-[620px] text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-200">
+                      <th className="p-3">Aluno</th>
+                      <th className="p-3">Atividade</th>
+                      <th className="p-3">Acertos</th>
+                      <th className="p-3">Nota</th>
+                      <th className="p-3">Envio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {attempts.map((attempt) => (
+                      <tr
+                        key={attempt.id}
+                        className="border-b border-slate-100"
+                      >
+                        <td className="p-3 font-bold">
+                          {attempt.student_name ||
+                            attempt.student_username ||
+                            "Aluno"}
+                        </td>
+                        <td className="p-3">
+                          {attempt.activity_title || "Atividade"}
+                        </td>
+                        <td className="p-3">
+                          {attempt.correct_count ?? 0}/
+                          {attempt.total_questions ?? 0}
+                        </td>
+                        <td className="p-3 font-black">
+                          {attempt.score ?? 0}%
+                        </td>
+                        <td className="p-3">
+                          {attempt.submitted_at
+                            ? new Intl.DateTimeFormat("pt-BR", {
+                                dateStyle: "short",
+                                timeStyle: "short",
+                              }).format(new Date(attempt.submitted_at))
+                            : "—"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-500">
+                  Ainda não há atividades concluídas.
+                </p>
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  );
 }
