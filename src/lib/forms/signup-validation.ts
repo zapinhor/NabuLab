@@ -1,4 +1,4 @@
-export type SignupField = "full_name" | "username" | "email" | "password";
+export type SignupField = "email" | "password";
 
 export type SignupValues = Record<SignupField, string>;
 
@@ -47,8 +47,6 @@ export function validatePassword(value: string) {
 export function validateSignup(values: SignupValues): SignupErrors {
   const errors: SignupErrors = {};
   const validators = {
-    full_name: validateFullName,
-    username: validateUsername,
     email: validateEmail,
     password: validatePassword,
   } as const;

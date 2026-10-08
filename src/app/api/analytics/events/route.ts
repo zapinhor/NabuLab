@@ -9,7 +9,13 @@ import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import { cookies } from "next/headers";
 
 const COOKIE_NAME = "nabulab_anonymous_session";
-const PUBLIC_EVENTS = new Set(["landing_view", "signup_cta_clicked", "premium_cta_clicked", "premium_page_viewed"]);
+const PUBLIC_EVENTS = new Set([
+  "landing_view",
+  "signup_cta_clicked",
+  "premium_cta_clicked",
+  "premium_page_viewed",
+  "signup_started",
+]);
 
 export async function POST(request: Request) {
   let payload: unknown;
@@ -57,8 +63,17 @@ export async function POST(request: Request) {
     anonymousSessionId,
     path,
     properties,
-    sourceEventKey: data.user && examId ? `exam:${data.user.id}:${examId}:completed` : null,
+    sourceEventKey: data.user && examId
+      ? `exam:${data.user.id}:${examId}:completed`
+      : data.user && body.event === "first_student_use"
+        ? `student:${data.user.id}:first-use`
+        : null,
   });
+  if (body.event === "signup_started" && path.split("?")[0] === "/cadastro") {
+    const campaignCookie = (await cookies()).get(ATTRIBUTION_COOKIE)?.value;
+    try { await recordAcquisitionMetric("signup_started", readAttribution(campaignCookie), ""); }
+    catch (metricError) { console.error("[acquisition] Início de cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }
+  }
   if (body.event === "premium_page_viewed" && path.split("?")[0] === "/premium") {
     const campaignCookie = (await cookies()).get(ATTRIBUTION_COOKIE)?.value;
     try { await recordAcquisitionMetric("premium_viewed", readAttribution(campaignCookie), ""); }

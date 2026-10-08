@@ -29,6 +29,7 @@ import {
 import {
   saveCompletedExam,
 } from "@/lib/exam-history";
+import { consumeQuestionQuota } from "@/lib/exam-generation-client";
 
 import {
   EmptyState,
@@ -178,6 +179,16 @@ export default function ExamPage() {
     useState(
       false
     );
+
+  const [
+    consumingQuestionId,
+    setConsumingQuestionId,
+  ] = useState<string | null>(null);
+
+  const [
+    quotaReached,
+    setQuotaReached,
+  ] = useState(false);
 
   const [
     interactionMessage,
@@ -739,12 +750,13 @@ export default function ExamPage() {
    * =========================================================
    */
 
-  function selectAnswer(
+  async function selectAnswer(
     alternativeId:
       string
   ) {
     if (
-      isSubmitting
+      isSubmitting ||
+      consumingQuestionId !== null
     ) {
       return;
     }
@@ -752,6 +764,51 @@ export default function ExamPage() {
     setSubmitError(
       null
     );
+
+    if (selectedAnswer === undefined) {
+      setConsumingQuestionId(
+        currentQuestion.id
+      );
+
+      try {
+        const quota =
+          await consumeQuestionQuota(
+            session!.id,
+            currentQuestion.id
+          );
+
+        if (!quota.allowed) {
+          setQuotaReached(
+            true
+          );
+          setSubmitError(
+            "Você usou suas 10 questões grátis. Conheça o Premium para continuar ou envie o simulado atual para revisar o que já respondeu."
+          );
+
+          setInteractionMessage(
+            "A franquia de 10 questões grátis foi concluída."
+          );
+
+          return;
+        }
+      } catch (error) {
+        setSubmitError(
+          error instanceof Error
+            ? error.message
+            : "Não foi possível registrar esta resposta."
+        );
+
+        setInteractionMessage(
+          "A resposta não foi registrada."
+        );
+
+        return;
+      } finally {
+        setConsumingQuestionId(
+          null
+        );
+      }
+    }
 
     updateProgress(
       (current) => ({
@@ -1520,10 +1577,11 @@ async function handleSubmit() {
                             selected
                           }
                           disabled={
-                            isSubmitting
+                            isSubmitting ||
+                            consumingQuestionId !== null
                           }
                           onChange={() =>
-                            selectAnswer(
+                            void selectAnswer(
                               alternative.id
                             )
                           }
@@ -1584,7 +1642,7 @@ async function handleSubmit() {
                 className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 outline-none"
               >
                 <p className="text-xs font-bold text-red-700">
-                  Não foi possível finalizar a prova
+                  Atenção
                 </p>
 
                 <p className="mt-1 break-words text-xs leading-5 text-red-600">
@@ -1592,6 +1650,17 @@ async function handleSubmit() {
                     submitError
                   }
                 </p>
+
+                {quotaReached && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <Link href="/premium" className="rounded-lg bg-[#0B2D6B] px-3 py-2 text-xs font-bold text-white">
+                      Conhecer o Premium
+                    </Link>
+                    <Link href="/revisao" className="rounded-lg border border-red-200 bg-white px-3 py-2 text-xs font-bold text-red-800">
+                      Revisar meus erros
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
 

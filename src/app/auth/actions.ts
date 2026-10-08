@@ -6,8 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
-import { isValidUsername } from "@/lib/forms/patterns";
-import { validateEmail, validateFullName, validatePassword, validateUsername } from "@/lib/forms/signup-validation";
+import { validateEmail, validatePassword } from "@/lib/forms/signup-validation";
 import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
 import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import {
@@ -30,40 +29,39 @@ function authRedirect(path: string, message: string): never {
 export async function signUp(formData: FormData) {
   const email = value(formData, "email").toLowerCase();
   const password = rawValue(formData, "password");
-  const fullName = value(formData, "full_name");
-  const username = value(formData, "username").toLowerCase();
   const next = safeNextPath(value(formData, "next"));
-  const fullNameError = validateFullName(fullName);
-  if (fullNameError) authRedirect("/cadastro", `Nome: ${fullNameError}`);
-  const usernameError = validateUsername(username);
-  if (usernameError || !isValidUsername(username)) authRedirect("/cadastro", `Username: ${usernameError ?? "Use um username válido."}`);
+  const signupError = (message: string): never => {
+    redirect(`/cadastro?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent(message)}`);
+  };
   const emailError = validateEmail(email);
-  if (emailError) authRedirect("/cadastro", `E-mail: ${emailError}`);
+  if (emailError) signupError(`E-mail: ${emailError}`);
   const passwordError = validatePassword(password);
-  if (passwordError) authRedirect("/cadastro", `Senha: ${passwordError}`);
+  if (passwordError) signupError(`Senha: ${passwordError}`);
   const origin = (await headers()).get("origin") ?? "http://localhost:3000";
   let captchaToken: string | undefined;
   try { captchaToken = requiredCaptchaToken(formData.get("captcha_token")); }
-  catch { authRedirect("/cadastro", "Conclua a verificação de segurança e tente novamente."); }
+  catch { signupError("Conclua a verificação de segurança e tente novamente."); }
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
       emailRedirectTo: `${origin}/auth/confirm?flow=signup&next=${encodeURIComponent(next)}`,
-      data: { full_name: fullName, username },
       captchaToken,
     },
   });
-  if (error?.code === "weak_password") authRedirect("/cadastro", "Senha: essa senha foi considerada insegura. Use uma senha mais longa e difícil de adivinhar.");
-  if (error?.code === "email_address_invalid" || error?.code === "validation_failed") authRedirect("/cadastro", "E-mail: o endereço informado não foi aceito. Confira se ele está completo e correto.");
-  if (error?.code === "over_email_send_rate_limit" || error?.status === 429) authRedirect("/cadastro", "Muitas tentativas de cadastro. Aguarde alguns minutos e tente novamente.");
-  if (error?.code === "signup_disabled") authRedirect("/cadastro", "Novos cadastros estão temporariamente indisponíveis.");
-  if (error) authRedirect("/cadastro", "Não foi possível concluir o cadastro. Confira os campos destacados e tente novamente.");
+  if (error?.code === "weak_password") signupError("Senha: essa senha foi considerada insegura. Use uma senha mais longa e difícil de adivinhar.");
+  if (error?.code === "email_address_invalid" || error?.code === "validation_failed") signupError("E-mail: o endereço informado não foi aceito. Confira se ele está completo e correto.");
+  if (error?.code === "user_already_exists") signupError("Já existe uma conta com este e-mail. Entre ou recupere sua senha.");
+  if (error?.code === "over_email_send_rate_limit" || error?.status === 429) signupError("Muitas tentativas de cadastro. Aguarde alguns minutos e tente novamente.");
+  if (error?.code === "signup_disabled") signupError("Novos cadastros estão temporariamente indisponíveis.");
+  if (error) signupError("Não foi possível concluir o cadastro. Confira os dados e tente novamente.");
   if (!data.session) {
     redirect(`/login?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent("Confira seu e-mail para confirmar o cadastro.")}`);
   }
-  await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
+  await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null, {
+    sourceEventKey: data.user?.id ? `signup:${data.user.id}:completed` : null,
+  });
   const cookieStore = await cookies();
   try { await recordAcquisitionMetric("signup_completed", readAttribution(cookieStore.get(ATTRIBUTION_COOKIE)?.value), ""); }
   catch (metricError) { console.error("[acquisition] Cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }

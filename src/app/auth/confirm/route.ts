@@ -32,7 +32,9 @@ export async function GET(request: NextRequest) {
       const isRecovery = type === "recovery" || safeNext === "/redefinir-senha";
       if (!isRecovery && flow === "signup") {
         const { data } = await supabase.auth.getUser();
-        await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null);
+        await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null, {
+          sourceEventKey: data.user?.id ? `signup:${data.user.id}:completed` : null,
+        });
         try { await recordAcquisitionMetric("signup_completed", readAttribution(request.cookies.get(ATTRIBUTION_COOKIE)?.value), ""); }
         catch (metricError) { console.error("[acquisition] Cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }
         destination.searchParams.set("ga_event", "sign_up");
@@ -64,6 +66,7 @@ export async function GET(request: NextRequest) {
         await recordAuthenticatedAnalyticsEvent(
           "signup_completed",
           data.user?.id ?? null,
+          { sourceEventKey: data.user?.id ? `signup:${data.user.id}:completed` : null },
         );
         try { await recordAcquisitionMetric("signup_completed", readAttribution(request.cookies.get(ATTRIBUTION_COOKIE)?.value), ""); }
         catch (metricError) { console.error("[acquisition] Cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }

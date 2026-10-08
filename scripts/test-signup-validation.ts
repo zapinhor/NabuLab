@@ -19,9 +19,7 @@ assert.equal(getPasswordStrength("").score, 0);
 assert.equal(getPasswordStrength("abcdefgh").label, "Muito fraca");
 assert.equal(getPasswordStrength("SenhaMuitoBoa123!").label, "Muito boa");
 
-assert.deepEqual(validateSignup({ full_name: "", username: "", email: "", password: "" }), {
-  full_name: "Informe seu nome completo.",
-  username: "Escolha um username.",
+assert.deepEqual(validateSignup({ email: "", password: "" }), {
   email: "Informe seu e-mail.",
   password: "Crie uma senha.",
 });
