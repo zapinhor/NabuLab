@@ -1,27 +1,6 @@
--- Administrative streak correction without fabricating exam attempts.
--- This table is read by the owner, but can only be written from privileged
--- database contexts (SQL Editor/postgres or service_role).
-
-create table public.student_streak_overrides (
-  user_id uuid primary key references public.profiles(id) on delete cascade,
-  streak_days integer not null check (streak_days between 0 and 10000),
-  anchored_on date not null,
-  updated_at timestamptz not null default now()
-);
-
-alter table public.student_streak_overrides enable row level security;
-
-create policy student_streak_overrides_select_own
-on public.student_streak_overrides
-for select
-to authenticated
-using ((select auth.uid()) = user_id);
-
-revoke all on table public.student_streak_overrides from public, anon, authenticated;
-grant select on table public.student_streak_overrides to authenticated;
-
-comment on table public.student_streak_overrides is
-  'Administrative correction anchor for the student study streak. It never creates or changes academic attempts.';
+-- Avoid the PL/pgSQL output-column variable `user_id` colliding with the
+-- table column in ON CONFLICT. Referencing the primary-key constraint is
+-- explicit and works for both inserts and updates.
 
 create or replace function private.set_student_streak(
   p_identifier text,
@@ -99,6 +78,3 @@ $$;
 
 revoke all on function private.set_student_streak(text, integer, date)
 from public, anon, authenticated;
-
-comment on function private.set_student_streak(text, integer, date) is
-  'SQL Editor helper. Example: select * from private.set_student_streak(''aluno@example.com'', 15);';
