@@ -12,7 +12,7 @@ export const teacherCard =
 export function TeacherNavigation({
   active = "overview",
 }: {
-  active?: "overview" | "classes" | "questions" | "exams" | "performance";
+  active?: "overview" | "classes" | "questions" | "exams" | "performance" | "plans";
 }) {
   const items = [
     ["overview", "Visão geral", "/professor#visao"],
@@ -20,6 +20,7 @@ export function TeacherNavigation({
     ["questions", "Questões", "/professor#questoes"],
     ["exams", "Simulados", "/professor#simulados"],
     ["performance", "Desempenho", "/professor#desempenho"],
+    ["plans", "Planos", "/professor/planos"],
   ] as const;
 
   return (

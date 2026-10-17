@@ -18,6 +18,14 @@ export default async function TeacherStudentAnalyticsPage({ params, searchParams
     <Link href={`/professor/turmas/${classId}/analytics`} className="text-sm font-bold text-blue-700">← Desempenho da turma</Link>
     <h1 className="mt-3 text-3xl font-black">{student?.name ?? "Aluno"}</h1>
     <p className="mt-2 mb-7 text-sm text-slate-600">Resultados somente das atividades em {result.room.public_name}. O histórico Student pessoal não é exibido.</p>
-    <TeacherAnalyticsReport classId={classId} report={result.report} filters={filters} studentId={studentId}/>
+    {!result.access.features.student_evolution ? (
+      <section className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+        <h2 className="font-black">Evolução individual detalhada</h2>
+        <p className="mt-2 text-sm">Disponível no Essencial.</p>
+        <Link href="/professor/planos" className="mt-4 inline-block font-bold text-blue-700">Desbloquear</Link>
+      </section>
+    ) : (
+      <TeacherAnalyticsReport classId={classId} report={result.report} filters={filters} studentId={studentId} features={result.access.features}/>
+    )}
   </div></main>;
 }

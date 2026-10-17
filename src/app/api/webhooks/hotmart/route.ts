@@ -3,6 +3,7 @@ import { validateHotmartWebhookRequest } from "@/lib/billing/hotmart-request";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { sendGa4Purchase } from "@/lib/analytics/ga4-server";
+import { getTeacherHotmartOffers } from "@/lib/billing/teacher-config";
 
 export const runtime = "nodejs";
 
@@ -18,17 +19,19 @@ export async function POST(request: Request) {
     productId: config.productId,
     founderPlanId: config.plans.founder_477.providerPlanId,
     standardPlanId: config.plans.standard_990.providerPlanId,
+    teacherOffers: Object.values(getTeacherHotmartOffers()),
   });
   if (validation instanceof Response) return validation;
-  const { event, priceTier } = validation;
+  const { event, priceTier, teacherOffer } = validation;
 
   try {
     const admin = createAdminClient();
     let normalizedEmail = event.buyerEmail;
 
     if (event.eventType === "SWITCH_PLAN" && !normalizedEmail) {
+      const sourceTable = teacherOffer ? "teacher_accounts" : "subscriptions";
       const { data: subscription, error: subscriptionError } = await admin
-        .from("subscriptions")
+        .from(sourceTable)
         .select("user_id")
         .eq("provider", "hotmart")
         .eq("provider_subscription_id", event.providerSubscriptionId ?? "")
@@ -57,7 +60,15 @@ export async function POST(request: Request) {
       }
     }
 
-    const { data, error } = await admin.rpc("process_hotmart_webhook_event", {
+    const rpcName = teacherOffer ? "process_teacher_hotmart_webhook_event" : "process_hotmart_webhook_event";
+    const rpcArguments = teacherOffer ? {
+      p_event_id: event.eventId, p_event_type: event.eventType, p_product_id: event.productId,
+      p_event_created_at: event.eventCreatedAt, p_transaction_id: event.transactionId,
+      p_subscription_id: event.providerSubscriptionId, p_provider_customer_id: event.providerCustomerId,
+      p_normalized_email: normalizedEmail, p_plan: teacherOffer.plan, p_cycle: teacherOffer.cycle,
+      p_subscription_status: event.status, p_current_period_start: event.currentPeriodStart,
+      p_current_period_end: event.currentPeriodEnd, p_sanitized_payload: { ...event.sanitizedPayload, domain: "teacher", offer: teacherOffer.key },
+    } : {
       p_event_id: event.eventId,
       p_event_type: event.eventType,
       p_product_id: event.productId,
@@ -71,20 +82,23 @@ export async function POST(request: Request) {
       p_current_period_start: event.currentPeriodStart,
       p_current_period_end: event.currentPeriodEnd,
       p_sanitized_payload: event.sanitizedPayload,
-    });
+    };
+    const { data, error } = await admin.rpc(rpcName, rpcArguments);
     if (error) throw error;
 
     const result = Array.isArray(data) ? data[0]?.result : data?.result;
     const resolvedUserId = Array.isArray(data) ? data[0]?.resolved_user_id : data?.resolved_user_id;
     if (result === "processed" && resolvedUserId) {
       if (event.eventType === "PURCHASE_APPROVED" || event.eventType === "PURCHASE_COMPLETE") {
-        await recordAuthenticatedAnalyticsEvent("purchase_approved", resolvedUserId, {
-          properties: { tier: priceTier ?? "unmapped" },
+        await recordAuthenticatedAnalyticsEvent(teacherOffer ? "teacher_plan_activated" : "purchase_approved", resolvedUserId, {
+          properties: teacherOffer ? { domain: "teacher", plan: teacherOffer.plan, cycle: teacherOffer.cycle } : { tier: priceTier ?? "unmapped" },
           sourceEventKey: `hotmart:purchase:${event.transactionId ?? event.providerSubscriptionId ?? event.eventId}`,
         });
-        const transactionId = event.transactionId ?? event.providerSubscriptionId ?? event.eventId;
-        try { await sendGa4Purchase({ transactionId, userId: resolvedUserId, tier: priceTier ?? "unmapped" }); }
-        catch (gaError) { console.error("[ga4] Falha ao registrar purchase:", gaError instanceof Error ? gaError.message : "erro desconhecido"); }
+        if (!teacherOffer) {
+          const transactionId = event.transactionId ?? event.providerSubscriptionId ?? event.eventId;
+          try { await sendGa4Purchase({ transactionId, userId: resolvedUserId, tier: priceTier ?? "unmapped" }); }
+          catch (gaError) { console.error("[ga4] Falha ao registrar purchase:", gaError instanceof Error ? gaError.message : "erro desconhecido"); }
+        }
       } else if (event.eventType === "SUBSCRIPTION_CANCELLATION") {
         await recordAuthenticatedAnalyticsEvent("subscription_canceled", resolvedUserId, {
           properties: { provider: "hotmart" },

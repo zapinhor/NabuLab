@@ -31,6 +31,7 @@ type TeacherClass = {
   status: string;
   student_limit: number;
 };
+type TeacherAccount = { user_id: string; plan: "free" | "essential" | "pro" | "advanced"; activated_at: string };
 type TeacherExam = {
   id: string;
   title: string;
@@ -110,6 +111,7 @@ export default async function TeacherPage({
       </main>
     );
 
+  const teacherAccount = account.data as TeacherAccount;
   const classes = (classesResult.data ?? []) as TeacherClass[];
   const exams = (examsResult.data ?? []) as TeacherExam[];
   const examItems = (examQuestionsResult.data ?? []) as ExamQuestion[];
@@ -162,6 +164,10 @@ export default async function TeacherPage({
           </p>
         )}
         <TeacherNavigation />
+        <section className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-blue-200 bg-blue-50 p-4">
+          <p className="font-bold text-blue-950">Plano Professor: <span className="capitalize">{teacherAccount.plan === "essential" ? "Essencial" : teacherAccount.plan === "advanced" ? "Avançado" : teacherAccount.plan}</span></p>
+          <Link href="/professor/planos" className="text-sm font-bold text-blue-700">Ver plano</Link>
+        </section>
         <section id="visao" className="mt-8 scroll-mt-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
