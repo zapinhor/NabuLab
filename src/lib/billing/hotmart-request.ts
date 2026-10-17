@@ -1,4 +1,5 @@
 import type { BillingPriceTier } from "@/lib/billing/config";
+import type { TeacherOfferKey, TeacherPlan, TeacherBillingCycle } from "@/lib/teacher-plans";
 import {
   parseHotmartEvent,
   resolveHotmartTier,
@@ -11,6 +12,7 @@ const MAX_WEBHOOK_BYTES = 256_000;
 export type ValidatedHotmartRequest = {
   event: ParsedHotmartEvent;
   priceTier: BillingPriceTier | null;
+  teacherOffer: { key: TeacherOfferKey; plan: Exclude<TeacherPlan, "free">; cycle: TeacherBillingCycle } | null;
 };
 
 export async function validateHotmartWebhookRequest(
@@ -20,6 +22,7 @@ export async function validateHotmartWebhookRequest(
     productId: string;
     founderPlanId: string | null;
     standardPlanId: string | null;
+    teacherOffers?: Array<{ key: TeacherOfferKey; plan: Exclude<TeacherPlan, "free">; cycle: TeacherBillingCycle; productId: string | null; offerCode: string | null; available: boolean }>;
   },
 ): Promise<ValidatedHotmartRequest | Response> {
   if (!secureTokenMatches(request.headers.get("x-hotmart-hottok"), config.hottok)) {
@@ -52,7 +55,10 @@ export async function validateHotmartWebhookRequest(
     return Response.json({ error: "Payload Hotmart inválido." }, { status: 400 });
   }
 
-  if (event.productId !== config.productId) {
+  const teacherOffer = config.teacherOffers?.find((offer) => offer.available && offer.productId === event.productId
+    && Boolean(offer.offerCode && event.providerPlanIdentifiers.includes(offer.offerCode))) ?? null;
+  const isStudentProduct = event.productId === config.productId;
+  if (!isStudentProduct && !teacherOffer) {
     return Response.json({ received: true, ignored: "unexpected_product" }, { status: 202 });
   }
 
@@ -69,10 +75,11 @@ export async function validateHotmartWebhookRequest(
 
   return {
     event,
-    priceTier: resolveHotmartTier(
+    priceTier: isStudentProduct ? resolveHotmartTier(
       event.providerPlanIdentifiers,
       config.founderPlanId,
       config.standardPlanId,
-    ),
+    ) : null,
+    teacherOffer: teacherOffer ? { key: teacherOffer.key, plan: teacherOffer.plan, cycle: teacherOffer.cycle } : null,
   };
 }

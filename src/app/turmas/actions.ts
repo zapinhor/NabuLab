@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { createClient } from "@/lib/supabase/server";
 
 function text(formData: FormData, key: string) {
@@ -13,12 +14,20 @@ function safePath(value: string, fallback = "/turmas") {
 }
 
 const friendlyMessages: Record<string, string> = {
-  teacher_active_class_limit_reached: "O Professor Free permite uma turma ativa por vez.",
-  teacher_weekly_exam_limit_reached: "O Professor Free permite criar até dois simulados por semana.",
+  teacher_active_class_limit_reached: "Você atingiu o limite de turmas ativas do seu plano. Consulte os planos Professor para ampliar a capacidade.",
+  teacher_weekly_exam_limit_reached: "Você atingiu o limite semanal de simulados do seu plano. Consulte os planos Professor para ampliar a capacidade.",
+  teacher_class_student_limit_reached: "Esta turma atingiu o limite de alunos do plano atual.",
 };
 
 function friendlyMessage(message: string) {
   return friendlyMessages[message] ?? message;
+}
+
+async function recordTeacherLimit(userId: string, message: string, resource: string) {
+  if (!Object.hasOwn(friendlyMessages, message)) return;
+  await recordAuthenticatedAnalyticsEvent("teacher_limit_reached", userId, {
+    properties: { reason: message, resource },
+  });
 }
 
 function withMessage(path: string, message: string): never {
@@ -42,7 +51,7 @@ export async function activateTeacherAccount() {
 }
 
 export async function createTeacherClass(formData: FormData) {
-  const { supabase } = await authenticated("/professor");
+  const { supabase, user } = await authenticated("/professor");
   const { data, error } = await supabase.rpc("create_teacher_class", {
     p_name: text(formData, "name"),
     p_public_name: text(formData, "public_name"),
@@ -51,6 +60,7 @@ export async function createTeacherClass(formData: FormData) {
     p_subject: text(formData, "subject") || null,
     p_visibility: text(formData, "visibility") || "private",
   });
+  if (error) await recordTeacherLimit(user.id, error.message, "class");
   if (error || !data) withMessage("/professor", error?.message ?? "Não foi possível criar a turma.");
   redirect(`/professor/turmas/${data}`);
 }
@@ -174,12 +184,13 @@ export async function updateTeacherClassSettings(formData: FormData) {
 }
 
 export async function createTeacherExam(formData: FormData) {
-  const { supabase } = await authenticated("/professor");
+  const { supabase, user } = await authenticated("/professor");
   const { error } = await supabase.rpc("create_teacher_exam", {
     p_title: text(formData, "title"),
     p_description: text(formData, "description") || null,
     p_is_shared: text(formData, "is_shared") === "true",
   });
+  if (error) await recordTeacherLimit(user.id, error.message, "exam");
   if (error) withMessage("/professor", error.message);
   revalidatePath("/professor");
   withMessage("/professor", "Simulado do professor criado.");

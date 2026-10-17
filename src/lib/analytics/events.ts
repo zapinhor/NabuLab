@@ -14,6 +14,11 @@ export const ANALYTICS_EVENT_NAMES = [
   "checkout_started",
   "purchase_approved",
   "subscription_canceled",
+  "teacher_plan_viewed",
+  "teacher_limit_reached",
+  "teacher_upgrade_clicked",
+  "teacher_checkout_started",
+  "teacher_plan_activated",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENT_NAMES)[number];
