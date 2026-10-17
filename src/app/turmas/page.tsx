@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { createPublicMetadata } from "@/lib/seo";
 import { joinClassByCode, requestClassJoin, respondClassInvite } from "@/app/turmas/actions";
+import { NotificationBell } from "@/components/notifications/notification-bell";
 
 export const metadata: Metadata = createPublicMetadata({
   title: "Turmas NabuLab",
@@ -32,7 +33,7 @@ export default async function ClassesPage({ searchParams }: { searchParams: Prom
 
   return <main className="min-h-screen bg-[#F5F7FB] px-4 py-8 text-slate-950 sm:px-6">
     <div className="mx-auto max-w-6xl">
-      <header className="flex flex-wrap items-center justify-between gap-4"><Link href="/" className="text-xl font-black text-[#0B2D6B]">NabuLab</Link><div className="flex gap-2"><Link href={auth.user ? "/dashboard" : "/login?next=%2Fturmas"} className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold">{auth.user ? "Voltar ao painel" : "Entrar"}</Link><Link href="/professor" className={button}>Para professores</Link></div></header>
+      <header className="flex flex-wrap items-center justify-between gap-4"><Link href="/" className="text-xl font-black text-[#0B2D6B]">NabuLab</Link><div className="flex items-center gap-2">{auth.user&&<NotificationBell/>}<Link href={auth.user ? "/dashboard" : "/login?next=%2Fturmas"} className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold">{auth.user ? "Voltar ao painel" : "Entrar"}</Link><Link href="/professor" className={button}>Para professores</Link></div></header>
       <section className="py-12 text-center"><p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">Turmas</p><h1 className="mt-3 text-4xl font-black">Estude com seu professor no NabuLab.</h1><p className="mx-auto mt-4 max-w-2xl text-slate-600">Encontre uma turma pública, use o código fornecido pelo professor ou acompanhe seus convites.</p></section>
       {mensagem && <p role="status" className="mb-6 rounded-xl border border-blue-200 bg-blue-50 p-4 font-semibold text-blue-950">{mensagem}</p>}
       <div className="grid gap-6 lg:grid-cols-2">

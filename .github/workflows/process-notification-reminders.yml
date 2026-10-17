@@ -1,0 +1,76 @@
+name: Process notification reminders
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: process-notification-reminders
+  cancel-in-progress: false
+
+jobs:
+  process-reminders:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Validate scheduler configuration
+        env:
+          NABULAB_CRON_URL: ${{ secrets.NABULAB_CRON_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        shell: bash
+        run: |
+          if [[ -z "${NABULAB_CRON_URL}" || -z "${CRON_SECRET}" ]]; then
+            echo "::error::Required notification scheduler secrets are not configured."
+            exit 1
+          fi
+
+      - name: Process notification reminders
+        env:
+          NABULAB_CRON_URL: ${{ secrets.NABULAB_CRON_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          response_file="$(mktemp)"
+          trap 'rm -f "${response_file}"' EXIT
+
+          echo "Reminder processing started at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+          set +e
+          http_status="$(curl \
+            --silent \
+            --show-error \
+            --fail-with-body \
+            --connect-timeout 10 \
+            --max-time 60 \
+            --retry 1 \
+            --retry-delay 5 \
+            --retry-connrefused \
+            --output "${response_file}" \
+            --write-out '%{http_code}' \
+            --header "Authorization: Bearer ${CRON_SECRET}" \
+            "${NABULAB_CRON_URL}")"
+          curl_exit=$?
+          set -e
+
+          echo "HTTP status: ${http_status:-000}"
+
+          if [[ ${curl_exit} -ne 0 ]]; then
+            echo "::error::Notification reminder request failed."
+            exit "${curl_exit}"
+          fi
+
+          jq -c '{
+            ok,
+            eligible,
+            notificationsCreated,
+            emailSent,
+            emailFailed,
+            emailSkipped
+          }' "${response_file}"
+
+          echo "Notification reminders processed successfully."

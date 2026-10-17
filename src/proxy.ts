@@ -1,9 +1,12 @@
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/lib/supabase/proxy";
 import { parseCampaign, shouldCountLanding } from "@/lib/analytics/acquisition";
 import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 
 export async function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname === "/api/internal/notifications/process-reminders") {
+    return NextResponse.next({ request });
+  }
   const response = await updateSession(request);
   const campaign = parseCampaign(request.nextUrl.searchParams);
   if (campaign && response.status === 200 && shouldCountLanding({

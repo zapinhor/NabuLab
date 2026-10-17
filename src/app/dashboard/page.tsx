@@ -51,6 +51,8 @@ import { getStudentEntitlements, isPremiumFeatureRoute } from "@/lib/entitlement
 import type { StudentQuestionQuotaStatus } from "@/lib/entitlements";
 import { getExamQuotaStatus } from "@/lib/exam-generation-client";
 import { trackEvent } from "@/components/analytics/track-event";
+import { NotificationBell } from "@/components/notifications/notification-bell";
+import { UpcomingActivities } from "@/components/notifications/upcoming-activities";
 
 import {
   ErrorState,
@@ -1015,6 +1017,14 @@ export default function DashboardPage() {
           </Link>
 
           <Link
+            href="/notificacoes"
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            <span aria-hidden="true">🔔</span>
+            Notificações
+          </Link>
+
+          <Link
             href="/auditoria"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
@@ -1142,6 +1152,7 @@ export default function DashboardPage() {
             </Link>
 
             <div className="flex shrink-0 items-center gap-2">
+              <NotificationBell />
               <Link
                 href="/simulado/novo"
                 className="hidden min-h-10 items-center rounded-xl bg-[#0B2D6B] px-3 text-xs font-bold text-white transition hover:bg-[#174EA6] sm:flex"
@@ -1546,6 +1557,8 @@ export default function DashboardPage() {
             </div>
           </section>
           )}
+
+          <UpcomingActivities />
 
           {questionQuota && !questionQuota.unlimited && (
             <section className="mt-4 rounded-2xl border border-blue-100 bg-white p-4 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-5" aria-label="Franquia gratuita">

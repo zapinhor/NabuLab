@@ -1,0 +1,66 @@
+import assert from "node:assert/strict";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+
+const url=process.env.STAGING_SUPABASE_URL; const secret=process.env.STAGING_SUPABASE_SECRET_KEY;
+const publishableKey=process.env.STAGING_SUPABASE_PUBLISHABLE_KEY||process.env.STAGING_SUPABASE_ANON_KEY;
+if(!url||!secret||!publishableKey) throw new Error("Staging Supabase configuration is required.");
+const stagingUrl:string=url; const stagingSecret:string=secret; const stagingPublishableKey:string=publishableKey;
+const admin=createClient(stagingUrl,stagingSecret,{auth:{persistSession:false}}); const suffix=Date.now().toString(36);
+const users:Array<{id:string;email:string}>=[];
+async function user(role:string){const email=`p5-${role}-${suffix}@nabulab.test`; const password=`P5-${suffix}!Aa9`; const created=await admin.auth.admin.createUser({email,password,email_confirm:true,user_metadata:{full_name:`P5 ${role}`,username:`p5_${role}_${suffix}`}}); if(created.error)throw created.error; users.push({id:created.data.user.id,email}); const client=createClient(stagingUrl,stagingPublishableKey,{auth:{persistSession:false}}); const signed=await client.auth.signInWithPassword({email,password}); if(signed.error)throw signed.error; return {id:created.data.user.id,client};}
+async function notifications(client:SupabaseClient){const result=await client.from("notifications").select("id,type,title,body,read_at,aggregation_count").order("created_at"); if(result.error)throw result.error; return result.data??[];}
+async function main(){let classId:string|undefined; try{
+  const [professorA,professorB,student]=await Promise.all([user("professor-a"),user("professor-b"),user("student")]);
+  await admin.from("teacher_accounts").insert([{user_id:professorA.id},{user_id:professorB.id}]);
+  const room=await admin.from("teacher_classes").insert({owner_id:professorA.id,name:"P5 Staging",public_name:"P5 Staging",subject:"Física",visibility:"private"}).select("id").single(); if(room.error)throw room.error; classId=room.data.id;
+  const pending=await admin.from("teacher_class_members").insert({class_id:classId,user_id:student.id,status:"pending",source:"search"}); if(pending.error)throw pending.error;
+  assert.equal((await notifications(professorA.client)).filter(n=>n.type==="class_join_request").length,1);
+  assert.equal((await notifications(professorB.client)).length,0);
+  assert.equal((await notifications(student.client)).length,0);
+  const approved=await admin.from("teacher_class_members").update({status:"active",joined_at:new Date().toISOString(),decided_at:new Date().toISOString()}).eq("class_id",classId).eq("user_id",student.id); if(approved.error)throw approved.error;
+  assert.equal((await notifications(student.client)).filter(n=>n.type==="class_join_approved").length,1);
+  const invite=await admin.from("teacher_class_invites").insert({class_id:classId,invitee_user_id:student.id,created_by:professorA.id}).select("id").single(); if(invite.error)throw invite.error;
+  assert.equal((await notifications(student.client)).filter(n=>n.type==="class_invite").length,1);
+  const exam=await admin.from("teacher_exams").insert({owner_id:professorA.id,title:"P5 Avaliação",status:"draft"}).select("id").single(); if(exam.error)throw exam.error;
+  const question=await admin.from("teacher_questions").insert({owner_id:professorA.id,statement:"Questão descartável P5?",alternatives:["A","B"],correct_answer:"A",subject:"Física",topic:"P5",question_type:"multiple_choice"}).select("id").single(); if(question.error)throw question.error;
+  const examQuestion=await admin.from("teacher_exam_questions").insert({exam_id:exam.data.id,position:1,teacher_question_id:question.data.id,question_snapshot:{statement:"Questão descartável P5?",alternatives:["A","B"],correct_answer:"A",subject:"Física",topic:"P5",question_type:"multiple_choice"}}); if(examQuestion.error)throw examQuestion.error;
+  const publishExam=await admin.from("teacher_exams").update({status:"published"}).eq("id",exam.data.id); if(publishExam.error)throw publishExam.error;
+  const dueAt=new Date(Date.now()+23*60*60*1000).toISOString();
+  const activity=await admin.from("teacher_class_activities").insert({class_id:classId,exam_id:exam.data.id,assigned_by:professorA.id,title:"Revisão P5",status:"published",due_at:dueAt,show_score:true}).select("id").single(); if(activity.error)throw activity.error;
+  assert.equal((await notifications(student.client)).filter(n=>n.type==="activity_published").length,1);
+  const attempt=await admin.from("teacher_activity_attempts").insert({activity_id:activity.data.id,student_id:student.id,status:"in_progress"}).select("id").single(); if(attempt.error)throw attempt.error;
+  const submitted=await admin.from("teacher_activity_attempts").update({status:"submitted",submitted_at:new Date().toISOString(),correct_count:1,total_questions:2,score:50}).eq("id",attempt.data.id); if(submitted.error)throw submitted.error;
+  const teacherItems=await notifications(professorA.client); assert.equal(teacherItems.filter(n=>n.type==="activity_progress").length,1);
+  assert.equal((await notifications(student.client)).filter(n=>n.type==="activity_result_available").length,1);
+  const pendingActivity=await admin.from("teacher_class_activities").insert({class_id:classId,exam_id:exam.data.id,assigned_by:professorA.id,title:"Prazo P5",status:"published",due_at:new Date(Date.now()+23*60*60*1000).toISOString(),show_score:true}).select("id").single(); if(pendingActivity.error)throw pendingActivity.error;
+  const closedActivity=await admin.from("teacher_class_activities").insert({class_id:classId,exam_id:exam.data.id,assigned_by:professorA.id,title:"Encerrada P5",status:"published",due_at:new Date(Date.now()-30*60*1000).toISOString(),show_score:true}).select("id").single(); if(closedActivity.error)throw closedActivity.error;
+  const reminderRuns=await Promise.all([admin.rpc("process_teacher_notification_reminders",{p_now:new Date().toISOString()}),admin.rpc("process_teacher_notification_reminders",{p_now:new Date().toISOString()})]); for(const run of reminderRuns)if(run.error)throw run.error;
+  const reminderItems=await notifications(student.client);
+  assert.equal(reminderItems.filter(n=>n.type==="activity_due_soon"||n.type==="activity_due_today").length,1);
+  assert.equal(reminderItems.filter(n=>n.type==="activity_closed").length,1);
+  const reminderCount=reminderItems.length;
+  const closedNotice=reminderItems.find(n=>n.type==="activity_closed"); assert.ok(closedNotice);
+  await student.client.from("notifications").update({read_at:new Date().toISOString()}).eq("id",closedNotice.id);
+  const rerun=await admin.rpc("process_teacher_notification_reminders",{p_now:new Date().toISOString()}); if(rerun.error)throw rerun.error;
+  const afterRerun=await notifications(student.client); assert.equal(afterRerun.length,reminderCount); assert.ok(afterRerun.find(n=>n.id===closedNotice.id)?.read_at);
+  const firstUnread=await student.client.from("notifications").select("id").is("read_at",null).limit(1).single(); assert.ok(firstUnread.data?.id);
+  const marked=await student.client.from("notifications").update({read_at:new Date().toISOString()}).eq("id",firstUnread.data!.id); if(marked.error)throw marked.error;
+  const allRead=await student.client.rpc("mark_all_notifications_read"); if(allRead.error)throw allRead.error;
+  assert.equal((await student.client.from("notifications").select("id",{count:"exact",head:true}).is("read_at",null)).count,0);
+  const pref=await student.client.from("notification_preferences").upsert({user_id:student.id,in_app_activities:false,email_activities:false}); if(pref.error)throw pref.error;
+  const second=await admin.from("teacher_class_activities").insert({class_id:classId,exam_id:exam.data.id,assigned_by:professorA.id,title:"Silenciada P5",status:"published",show_score:true}); if(second.error)throw second.error;
+  assert.equal((await notifications(student.client)).filter(n=>n.body.includes("Silenciada P5")).length,0);
+  process.env.NEXT_PUBLIC_SUPABASE_URL=stagingUrl; process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=stagingPublishableKey; process.env.SUPABASE_SECRET_KEY=stagingSecret; process.env.RESEND_API_KEY="invalid-staging-test-key";
+  const {sendNabuNotificationEmail}=await import("../src/lib/notifications-email");
+  await student.client.from("notification_preferences").upsert({user_id:student.id,email_deadlines:false});
+  const skipped=await sendNabuNotificationEmail({dedupeKey:`p5-pref-${suffix}`,category:"deadlines",recipientUserId:student.id,subject:"Teste",heading:"Teste",body:"Teste controlado",actionLabel:"Abrir",actionPath:"/notificacoes"}); assert.equal(skipped.reason,"preference_disabled");
+  await student.client.from("notification_preferences").upsert({user_id:student.id,email_deadlines:true});
+  const concurrentEmail=await Promise.all([sendNabuNotificationEmail({dedupeKey:`p5-failure-${suffix}`,category:"deadlines",recipientUserId:student.id,subject:"Teste",heading:"Teste",body:"Teste controlado",actionLabel:"Abrir",actionPath:"/notificacoes"}),sendNabuNotificationEmail({dedupeKey:`p5-failure-${suffix}`,category:"deadlines",recipientUserId:student.id,subject:"Teste",heading:"Teste",body:"Teste controlado",actionLabel:"Abrir",actionPath:"/notificacoes"})]); assert.equal(concurrentEmail.filter(result=>result.reason==="duplicate").length,1);
+  const delivery=await admin.from("notification_email_deliveries").select("status,safe_error").eq("dedupe_key",`p5-failure-${suffix}`); if(delivery.error)throw delivery.error; assert.equal(delivery.data.length,1); assert.equal(delivery.data[0].status,"failed");
+  const crossRead=await professorB.client.from("notifications").select("id").eq("recipient_user_id",professorA.id); assert.equal(crossRead.data?.length,0);
+  const crossUpdate=await professorB.client.from("notifications").update({read_at:new Date().toISOString()}).eq("recipient_user_id",professorA.id).select("id"); assert.equal(crossUpdate.data?.length,0);
+  const quotaBefore=await admin.from("daily_exam_usage").select("user_id",{count:"exact",head:true}).eq("user_id",student.id);
+  assert.equal(quotaBefore.count,0);
+  console.log(JSON.stringify({staging:"ok",joinRequest:"ok",approval:"ok",invite:"ok",activity:"ok",result:"ok",deadline:"ok",closed:"ok",concurrency:"ok",emailFailure:"ok",readState:"ok",preferences:"ok",professorIsolation:"ok",studentQuota:"untouched"}));
+ }finally{for(const item of users)await admin.auth.admin.deleteUser(item.id);}}
+void main().catch((error:unknown)=>{const e=error as {message?:string;code?:string}; console.error(JSON.stringify({message:e.message??String(error),code:e.code})); process.exitCode=1;});
