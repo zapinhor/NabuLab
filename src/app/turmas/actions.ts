@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { sendNabuNotificationEmail } from "@/lib/notifications-email";
 
 function text(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -94,6 +96,9 @@ export async function requestClassJoin(formData: FormData) {
     p_class_id: classId,
   });
   if (error) withMessage(returnTo, error.message);
+  const admin=createAdminClient();
+  const {data:room}=await admin.from("teacher_classes").select("owner_id,public_name").eq("id",classId).maybeSingle();
+  if(room) await sendNabuNotificationEmail({dedupeKey:`join-request:${classId}:${(await supabase.auth.getUser()).data.user?.id}`,category:"classes",recipientUserId:room.owner_id,subject:"Nova solicitação de entrada",heading:"Solicitação aguardando aprovação",body:`Um aluno quer entrar em ${room.public_name}.`,actionLabel:"Revisar solicitação",actionPath:`/professor/turmas/${classId}#solicitacoes`});
   revalidatePath("/turmas");
   withMessage(returnTo, "Solicitação enviada ao professor.");
 }
@@ -118,6 +123,10 @@ export async function inviteToTeacherClass(formData: FormData) {
     p_identifier: text(formData, "identifier"),
   });
   if (error) withMessage(path, error.message);
+  const identifier=text(formData,"identifier").replace(/^@/,"").toLowerCase();
+  const admin=createAdminClient();
+  const {data:invite}=await admin.from("teacher_class_invites").select("id,invitee_user_id,email,teacher_classes(public_name)").eq("class_id",classId).eq("status","pending").order("created_at",{ascending:false}).limit(1).maybeSingle();
+  if(invite){const related=invite.teacher_classes as unknown as {public_name:string}|null; await sendNabuNotificationEmail({dedupeKey:`class-invite:${invite.id}`,category:"classes",recipientUserId:invite.invitee_user_id,recipientEmail:invite.email??(identifier.includes("@")?identifier:null),subject:"Convite para uma turma no NabuLab",heading:"Você recebeu um convite",body:`Você foi convidado para ${related?.public_name??"uma turma"}.`,actionLabel:"Ver convite",actionPath:"/turmas"});}
   revalidatePath(path);
   withMessage(path, "Convite criado. Ele ficará disponível após o cadastro se o e-mail ainda não existir.");
 }
@@ -326,6 +335,10 @@ export async function createClassActivity(formData: FormData) {
     p_answer_policy: text(formData, "answer_policy") || "never",
   });
   if (error) withMessage(path, error.message);
+  const admin=createAdminClient();
+  const {data:activity}=await admin.from("teacher_class_activities").select("id,title,due_at").eq("class_id",classId).order("created_at",{ascending:false}).limit(1).maybeSingle();
+  const {data:members}=await admin.from("teacher_class_members").select("user_id").eq("class_id",classId).eq("status","active");
+  if(activity) await Promise.allSettled((members??[]).map(member=>sendNabuNotificationEmail({dedupeKey:`activity-published:${activity.id}:${member.user_id}`,category:"activities",recipientUserId:member.user_id,subject:"Nova atividade disponível",heading:"Nova atividade disponível",body:`Seu professor publicou “${activity.title}”.${activity.due_at?` Prazo: ${new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short"}).format(new Date(activity.due_at))}.`:""}`,actionLabel:"Ver atividade",actionPath:`/turmas/atividades/${activity.id}`})));
   revalidatePath(path);
   withMessage(path, "Atividade publicada para a turma.");
 }

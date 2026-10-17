@@ -18,6 +18,7 @@ import {
   TeacherNavigation,
 } from "@/components/professor/teacher-ui";
 import { createClient } from "@/lib/supabase/server";
+import { NotificationBell } from "@/components/notifications/notification-bell";
 
 type ExamQuestion = {
   exam_id: string;
@@ -138,6 +139,13 @@ export default async function TeacherPage({
   ] as string[];
   const activeClasses = classes.filter((item) => item.status === "active");
   const draftExams = exams.filter((exam) => exam.status !== "published");
+  const classIds=activeClasses.map(item=>item.id);
+  const now=new Date(); const tomorrow=new Date(now.getTime()+24*60*60*1000);
+  const [pendingResult,dueResult]=classIds.length?await Promise.all([
+    supabase.from("teacher_class_members").select("class_id",{count:"exact",head:true}).in("class_id",classIds).eq("status","pending"),
+    supabase.from("teacher_class_activities").select("id,title,class_id,due_at").in("class_id",classIds).eq("status","published").gte("due_at",now.toISOString()).lte("due_at",tomorrow.toISOString()).order("due_at").limit(5),
+  ]):[{count:0},{data:[]}];
+  const pendingRequests=pendingResult.count??0; const dueActivities=dueResult.data??[];
 
   return (
     <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6 sm:py-8">
@@ -151,9 +159,7 @@ export default async function TeacherPage({
               Organize seu conteúdo, aplique atividades e acompanhe suas turmas.
             </p>
           </div>
-          <Link href="/dashboard" className={teacherSecondaryButton}>
-            Painel Student
-          </Link>
+          <div className="flex items-center gap-2"><NotificationBell/><Link href="/dashboard" className={teacherSecondaryButton}>Painel Student</Link></div>
         </header>
         {filters.mensagem && (
           <p
@@ -216,6 +222,7 @@ export default async function TeacherPage({
               </p>
             </article>
           </div>
+          {(pendingRequests>0||dueActivities.length>0)&&<div className="mt-5 grid gap-3 md:grid-cols-2">{pendingRequests>0&&<Link href="#turmas" className="rounded-2xl border border-amber-200 bg-amber-50 p-5"><strong>{pendingRequests} solicitação(ões) aguardando aprovação</strong><span className="mt-1 block text-sm text-slate-600">Abra a turma para revisar.</span></Link>}{dueActivities.map(activity=><Link key={activity.id} href={`/professor/turmas/${activity.class_id}`} className="rounded-2xl border border-blue-200 bg-blue-50 p-5"><strong>“{activity.title}” encerra em breve</strong><span className="mt-1 block text-sm text-slate-600">Confira entregas pendentes.</span></Link>)}</div>}
           {draftExams.length > 0 && (
             <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-5">
               <p className="font-black text-amber-950">

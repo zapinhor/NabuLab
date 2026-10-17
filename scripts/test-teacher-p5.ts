@@ -1,0 +1,21 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+
+const migration=fs.readFileSync("supabase/migrations/20261017011806_teacher_p5_notifications.sql","utf8");
+const actions=fs.readFileSync("src/app/notificacoes/actions.ts","utf8");
+const email=fs.readFileSync("src/lib/notifications-email.ts","utf8");
+const bell=fs.readFileSync("src/components/notifications/notification-bell.tsx","utf8");
+assert.match(migration,/alter table public\.notifications enable row level security/);
+assert.match(migration,/recipient_user_id\s*=\s*\(select auth\.uid\(\)\)/);
+assert.match(migration,/unique \(recipient_user_id, dedupe_key\)/);
+assert.match(migration,/aggregation_count=.*aggregation_count \+ 1/);
+assert.match(migration,/grant execute on function public\.process_teacher_notification_reminders.*service_role/);
+assert.doesNotMatch(migration,/grant execute on function public\.process_teacher_notification_reminders.*authenticated/);
+assert.match(actions,/eq\("recipient_user_id", user\.id\)/);
+assert.match(email,/idempotency-key/);
+assert.match(email,/preference_disabled/);
+assert.match(email,/delivery failed/);
+assert.doesNotMatch(email,/throw new Error/);
+assert.match(bell,/api\/notifications\/summary/);
+assert.match(bell,/Tudo em dia/);
+console.log("P5: schema, RLS, deduplication, preferences, resilient email and UI contracts validated.");
