@@ -34,7 +34,7 @@ export interface StudentEntitlements {
   goals: boolean;
   cloudSync: boolean;
   maxQuestionsPerExam: number;
-  lifetimeQuestionLimit: number | null;
+  dailyQuestionLimit: number | null;
   historyLimit: number | null;
   recommendedLimit: number | null;
   allowedAmounts: readonly number[];
@@ -70,7 +70,7 @@ export const FREE_ENTITLEMENTS: StudentEntitlements = Object.freeze({
   goals: false,
   cloudSync: true,
   maxQuestionsPerExam: 10,
-  lifetimeQuestionLimit: 10,
+  dailyQuestionLimit: 10,
   historyLimit: 3,
   recommendedLimit: 5,
   allowedAmounts: FREE_AMOUNTS,
@@ -89,7 +89,7 @@ export const PREMIUM_ENTITLEMENTS: StudentEntitlements = Object.freeze({
   goals: true,
   cloudSync: true,
   maxQuestionsPerExam: 50,
-  lifetimeQuestionLimit: null,
+  dailyQuestionLimit: null,
   historyLimit: null,
   recommendedLimit: null,
   allowedAmounts: PREMIUM_AMOUNTS,

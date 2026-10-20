@@ -131,7 +131,7 @@ assert.equal(getStudentEntitlements(subscription("past_due", "standard_990")), F
 assert.equal(FREE_ENTITLEMENTS.historyLimit, 3);
 assert.equal(FREE_ENTITLEMENTS.recommendedLimit, 5);
 assert.equal(FREE_ENTITLEMENTS.cloudSync, true);
-assert.equal(FREE_ENTITLEMENTS.lifetimeQuestionLimit, 10);
+assert.equal(FREE_ENTITLEMENTS.dailyQuestionLimit, 10);
 assert.equal(PREMIUM_ENTITLEMENTS.historyLimit, null);
 assert.equal(PREMIUM_ENTITLEMENTS.maxQuestionsPerExam, 50);
 assert.deepEqual(
@@ -139,7 +139,7 @@ assert.deepEqual(
   PREMIUM_FEATURE_ROUTES,
   "a mesma metadata identifica os badges Premium para Free, Founder e Standard",
 );
-assert.equal(PREMIUM_ENTITLEMENTS.lifetimeQuestionLimit, null);
+assert.equal(PREMIUM_ENTITLEMENTS.dailyQuestionLimit, null);
 
 const freeBank = filterAccessibleQuestions(questionBank, FREE_ENTITLEMENTS);
 assert.equal(questionBank.length, 1224, "o banco integral deve permanecer com 1.224 questões");

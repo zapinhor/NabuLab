@@ -3,7 +3,10 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 const url = process.env.STAGING_SUPABASE_URL;
 const publishable = process.env.STAGING_SUPABASE_PUBLISHABLE_KEY;
-if (!url || !publishable) throw new Error("Staging Supabase URL and publishable key are required.");
+const secret = process.env.STAGING_SUPABASE_SECRET_KEY;
+if (!url || !publishable || !secret) {
+  throw new Error("Staging Supabase URL, publishable key and secret key are required.");
+}
 
 const suffix = Date.now().toString(36);
 const password = `Onboarding-${suffix}!Aa9`;
@@ -29,8 +32,10 @@ async function rpc<T>(client: Client, name: string, args: Record<string, unknown
 }
 
 async function main() {
+  const admin = createClient(url!, secret!, { auth: { persistSession: false } });
   const teacher = await signup(emails.teacher);
   const student = await signup(emails.student);
+
 
   const consumptions = await Promise.all(
     Array.from({ length: 11 }, (_, index) => rpc<Array<{ allowed: boolean; counted: boolean; used_count: number; remaining: number }>>(
@@ -97,6 +102,37 @@ async function main() {
   if (usage.error) throw usage.error;
   assert.equal(usage.data.used_count, 10, "teacher activity must not consume Student quota");
 
+  const yesterday = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(Date.now() - 36 * 60 * 60 * 1000));
+  const resetPreparation = await admin
+    .from("student_question_usage")
+    .update({ usage_date: yesterday, used_count: 10 })
+    .eq("user_id", student.userId);
+  if (resetPreparation.error) throw resetPreparation.error;
+
+  const afterReset = (await rpc<Array<{ allowed: boolean; counted: boolean; used_count: number; remaining: number }>>(
+    student.client,
+    "consume_student_question_quota",
+    { p_exam_id: "onboarding-next-day", p_question_id: "question-1" },
+  ))[0];
+  assert.equal(afterReset.allowed, true);
+  assert.equal(afterReset.counted, true);
+  assert.equal(afterReset.used_count, 1);
+  assert.equal(afterReset.remaining, 9);
+
+  const afterResetDuplicate = (await rpc<Array<{ allowed: boolean; counted: boolean; used_count: number }>>(
+    student.client,
+    "consume_student_question_quota",
+    { p_exam_id: "onboarding-next-day", p_question_id: "question-1" },
+  ))[0];
+  assert.equal(afterResetDuplicate.allowed, true);
+  assert.equal(afterResetDuplicate.counted, false);
+  assert.equal(afterResetDuplicate.used_count, 1);
+
   console.log(JSON.stringify({
     signupSession: "immediate",
     studentUserId: student.userId,
@@ -105,6 +141,9 @@ async function main() {
     eleventhBlocked: true,
     duplicateCounted: false,
     teacherActivityUsage: usage.data.used_count,
+    nextDayUsed: afterReset.used_count,
+    nextDayRemaining: afterReset.remaining,
+    nextDayDuplicateCounted: afterResetDuplicate.counted,
   }));
 }
 
