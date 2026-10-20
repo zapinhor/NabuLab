@@ -682,9 +682,9 @@ export default function NewExamPage() {
                 >
                   {entitlements.fullQuestionBank
                     ? "Premium permite provas de até 50 questões."
-                    : "Free inclui 10 questões no total. O próximo simulado usa apenas as questões que ainda restam na sua franquia."}
+                    : "Free inclui 10 questões por dia. O próximo simulado usa apenas as questões que ainda restam hoje."}
                 </p>
-                {entitlements.lifetimeQuestionLimit !== null && (
+                {entitlements.dailyQuestionLimit !== null && (
                   <div className="mt-3 flex items-center justify-between gap-3 border-t border-slate-200 pt-3">
                     <span className="font-semibold text-slate-700">Questões utilizadas</span>
                     <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-800">
@@ -694,7 +694,7 @@ export default function NewExamPage() {
                 )}
                 {quota && !quota.unlimited && quota.remaining === 0 && (
                   <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
-                    <p className="font-bold text-amber-950">Você usou suas 10 questões grátis.</p>
+                    <p className="font-bold text-amber-950">Você usou suas 10 questões grátis de hoje.</p>
                     <p className="mt-1 text-xs leading-5 text-amber-900">Seu histórico, resultados e atividades de turmas continuam disponíveis.</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       <Link href="/premium" className="rounded-lg bg-[#0B2D6B] px-3 py-2 text-xs font-bold text-white">Conhecer o Premium</Link>

@@ -782,11 +782,11 @@ export default function ExamPage() {
             true
           );
           setSubmitError(
-            "Você usou suas 10 questões grátis. Conheça o Premium para continuar ou envie o simulado atual para revisar o que já respondeu."
+            "Você usou suas 10 questões grátis de hoje. Volte amanhã, conheça o Premium para continuar ou envie o simulado atual para revisar o que já respondeu."
           );
 
           setInteractionMessage(
-            "A franquia de 10 questões grátis foi concluída."
+            "A franquia diária de 10 questões grátis foi concluída."
           );
 
           return;

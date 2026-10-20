@@ -37,23 +37,31 @@ export async function getCurrentStudentAccess(): Promise<{
 export async function getStudentQuestionQuotaStatus(): Promise<StudentQuestionQuotaStatus> {
   const { userId, entitlements } = await getCurrentStudentAccess();
 
-  if (entitlements.lifetimeQuestionLimit === null) {
+  if (entitlements.dailyQuestionLimit === null) {
     return { used: 0, limit: null, remaining: null, unlimited: true };
   }
 
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("student_question_usage")
-    .select("used_count")
+    .select("used_count,usage_date")
     .eq("user_id", userId)
     .maybeSingle();
   if (error) throw error;
 
-  const used = typeof data?.used_count === "number" ? data.used_count : 0;
+  const todayInSaoPaulo = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  const used = data?.usage_date === todayInSaoPaulo && typeof data.used_count === "number"
+    ? data.used_count
+    : 0;
   return {
     used,
-    limit: entitlements.lifetimeQuestionLimit,
-    remaining: Math.max(0, entitlements.lifetimeQuestionLimit - used),
+    limit: entitlements.dailyQuestionLimit,
+    remaining: Math.max(0, entitlements.dailyQuestionLimit - used),
     unlimited: false,
   };
 }

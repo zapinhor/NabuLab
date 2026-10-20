@@ -56,7 +56,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const { entitlements, userId } = await getCurrentStudentAccess();
-    const isPremium = entitlements.lifetimeQuestionLimit === null;
+    const isPremium = entitlements.dailyQuestionLimit === null;
     const quota = await getStudentQuestionQuotaStatus();
     if (!quota.unlimited && quota.remaining === 0) {
       return quotaReachedResponse(quota.limit ?? 10);

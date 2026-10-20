@@ -10,7 +10,7 @@ import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = createPublicMetadata({
   title: "Comece grátis e descubra o que revisar",
-  description: "Faça 10 questões grátis, revise seus erros e acompanhe sua evolução no NabuLab. Sem cartão de crédito.",
+  description: "Faça 10 questões grátis por dia, revise seus erros e acompanhe sua evolução no NabuLab. Sem cartão de crédito.",
   path: "/comece",
 });
 
@@ -64,7 +64,7 @@ export default async function StartPage({
           <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">Faça questões e simulados, revise seus erros e acompanhe sua evolução no NabuLab.</p>
           <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <TrackedLink event="signup_cta_clicked" properties={{ placement: "campaign_hero" }} href={primaryHref} className="min-h-12 rounded-xl bg-[#F4C430] px-6 py-3.5 text-center font-black text-[#0B2D6B] shadow-lg shadow-amber-950/10 transition hover:bg-amber-300">{data.user ? "Continuar estudando" : "Começar grátis"}</TrackedLink>
-            <p className="text-center text-sm font-semibold text-slate-500 sm:text-left">10 questões grátis. Sem cartão.</p>
+            <p className="text-center text-sm font-semibold text-slate-500 sm:text-left">10 questões grátis por dia. Sem cartão.</p>
           </div>
         </div>
 
@@ -85,7 +85,7 @@ export default async function StartPage({
 
       <section className="px-4 py-12 sm:px-6 sm:py-16">
         <div className="mx-auto max-w-3xl rounded-[28px] bg-[#0B2D6B] px-6 py-9 text-center text-white sm:px-10 sm:py-11">
-          <h2 className="text-3xl font-black tracking-[-0.025em]">10 questões grátis para começar</h2>
+          <h2 className="text-3xl font-black tracking-[-0.025em]">10 questões grátis por dia para começar</h2>
           <p className="mx-auto mt-3 max-w-xl leading-7 text-blue-100">Crie sua conta em poucos segundos e comece a praticar. Não pedimos cartão de crédito.</p>
           <TrackedLink event="signup_cta_clicked" properties={{ placement: "campaign_final" }} href={primaryHref} className="mt-7 inline-flex min-h-12 items-center justify-center rounded-xl bg-[#F4C430] px-6 py-3.5 font-black text-[#0B2D6B] hover:bg-amber-300">{data.user ? "Ir para o NabuLab" : "Criar conta grátis"}</TrackedLink>
         </div>
