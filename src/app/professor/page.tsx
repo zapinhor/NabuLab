@@ -19,6 +19,8 @@ import {
 } from "@/components/professor/teacher-ui";
 import { createClient } from "@/lib/supabase/server";
 import { NotificationBell } from "@/components/notifications/notification-bell";
+import { TeacherCreationPresets, TeacherOnboarding } from "@/components/professor/teacher-onboarding";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 
 type ExamQuestion = {
   exam_id: string;
@@ -53,6 +55,7 @@ export default async function TeacherPage({
     type?: string;
     visibility?: string;
     status?: string;
+    preset?: string;
   }>;
 }) {
   const filters = await searchParams;
@@ -68,7 +71,7 @@ export default async function TeacherPage({
   ] = await Promise.all([
     supabase
       .from("teacher_accounts")
-      .select("user_id,plan,activated_at")
+      .select("user_id,plan,activated_at,onboarding_dismissed_at")
       .eq("user_id", auth.user.id)
       .maybeSingle(),
     supabase
@@ -112,7 +115,7 @@ export default async function TeacherPage({
       </main>
     );
 
-  const teacherAccount = account.data as TeacherAccount;
+  const teacherAccount = account.data as TeacherAccount & { onboarding_dismissed_at: string | null };
   const classes = (classesResult.data ?? []) as TeacherClass[];
   const exams = (examsResult.data ?? []) as TeacherExam[];
   const examItems = (examQuestionsResult.data ?? []) as ExamQuestion[];
@@ -140,6 +143,14 @@ export default async function TeacherPage({
   const activeClasses = classes.filter((item) => item.status === "active");
   const draftExams = exams.filter((exam) => exam.status !== "published");
   const classIds=activeClasses.map(item=>item.id);
+  const examIds=exams.map(item=>item.id);
+  const [activityResult,studentResult,submissionResult]=classIds.length?await Promise.all([
+    supabase.from("teacher_class_activities").select("id",{count:"exact",head:true}).in("class_id",classIds).in("status",["published","closed"]),
+    supabase.from("teacher_class_members").select("user_id",{count:"exact",head:true}).in("class_id",classIds).eq("status","active"),
+    supabase.from("teacher_activity_attempts").select("id,teacher_class_activities!inner(class_id)",{count:"exact",head:true}).in("teacher_class_activities.class_id",classIds).eq("status","submitted"),
+  ]):[{count:0},{count:0},{count:0}];
+  const onboarding={hasClass:classes.length>0,hasQuestion:allQuestions.length>0,hasExam:examIds.length>0,hasActivity:(activityResult.count??0)>0,hasStudent:(studentResult.count??0)>0,hasSubmission:(submissionResult.count??0)>0};
+  await recordAuthenticatedAnalyticsEvent("teacher_onboarding_viewed",auth.user.id,{sourceEventKey:`teacher:${auth.user.id}:onboarding-viewed`});
   const now=new Date(); const tomorrow=new Date(now.getTime()+24*60*60*1000);
   const [pendingResult,dueResult]=classIds.length?await Promise.all([
     supabase.from("teacher_class_members").select("class_id",{count:"exact",head:true}).in("class_id",classIds).eq("status","pending"),
@@ -170,6 +181,8 @@ export default async function TeacherPage({
           </p>
         )}
         <TeacherNavigation />
+        <TeacherOnboarding progress={onboarding} dismissed={Boolean(teacherAccount.onboarding_dismissed_at)} />
+        <TeacherCreationPresets />
         <section className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-blue-200 bg-blue-50 p-4">
           <p className="font-bold text-blue-950">Plano Professor: <span className="capitalize">{teacherAccount.plan === "essential" ? "Essencial" : teacherAccount.plan === "advanced" ? "Avançado" : teacherAccount.plan}</span></p>
           <Link href="/professor/planos" className="text-sm font-bold text-blue-700">Ver plano</Link>
@@ -347,6 +360,7 @@ export default async function TeacherPage({
             exams={exams}
             examItems={examItems}
             questions={allQuestions}
+            preset={typeof filters.preset === "string" ? filters.preset : undefined}
           />
         </div>
         <section id="desempenho" className={`${teacherCard} mt-8 scroll-mt-6`}>

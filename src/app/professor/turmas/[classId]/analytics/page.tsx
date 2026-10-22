@@ -6,6 +6,8 @@ import {
 } from "@/components/professor/teacher-ui";
 import { parseTeacherFilters } from "@/lib/teacher-analytics";
 import { getTeacherAnalytics } from "@/lib/teacher-analytics-server";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function TeacherClassAnalyticsPage({
   params,
@@ -22,6 +24,11 @@ export default async function TeacherClassAnalyticsPage({
       `/login?next=${encodeURIComponent(`/professor/turmas/${classId}/analytics`)}`,
     );
   if (result.state === "not_found") notFound();
+  const { data: auth } = await (await createClient()).auth.getUser();
+  if (auth.user) {
+    await recordAuthenticatedAnalyticsEvent("teacher_first_analytics_viewed", auth.user.id, { sourceEventKey: `teacher:${auth.user.id}:first-analytics` });
+    if (result.insights?.hasEnoughData) await recordAuthenticatedAnalyticsEvent("teacher_first_insight_viewed", auth.user.id, { sourceEventKey: `teacher:${auth.user.id}:first-insight` });
+  }
   return (
     <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6 sm:py-8">
       <div className="mx-auto max-w-7xl">

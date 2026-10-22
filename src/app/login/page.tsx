@@ -15,10 +15,11 @@ export default async function LoginPage({
   searchParams: Promise<{ mensagem?: string; next?: string }>;
 }) {
   const { mensagem, next } = await searchParams;
+  const teacherIntent = next?.startsWith("/professor") ?? false;
   return (
     <AuthCard
-      title="Entrar no NabuLab"
-      description="Acesse sua conta para continuar seus estudos em qualquer dispositivo."
+      title={teacherIntent ? "Entre para continuar como professor" : "Entrar no NabuLab"}
+      description={teacherIntent ? "Use sua conta existente. O módulo Professor será ativado sem criar outra conta." : "Acesse sua conta para continuar seus estudos em qualquer dispositivo."}
       message={mensagem}
     >
       <LoginForm next={next ?? "/dashboard"} />

@@ -5,6 +5,7 @@ import { TeacherCheckoutButton } from "@/components/professor/teacher-checkout-b
 import { getTeacherHotmartOffers } from "@/lib/billing/teacher-config";
 import { createClient } from "@/lib/supabase/server";
 import { formatTeacherPrice, TEACHER_PLANS, teacherOfferKey, type TeacherBillingCycle, type TeacherPlan } from "@/lib/teacher-plans";
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 
 export const metadata: Metadata = { title: "Planos para professores | NabuLab", description: "Compare os planos Free, Essencial, Pro e Avançado do NabuLab Professor." };
 
@@ -21,6 +22,7 @@ export default async function TeacherPlansPage({ searchParams }: { searchParams:
   const { data: auth } = await supabase.auth.getUser();
   const { data: account } = auth.user ? await supabase.from("teacher_accounts").select("plan,billing_cycle,billing_status,current_period_end,cancel_at_period_end").eq("user_id", auth.user.id).maybeSingle() : { data: null };
   const offers = getTeacherHotmartOffers();
+  if (auth.user) await recordAuthenticatedAnalyticsEvent("teacher_plans_viewed", auth.user.id, { sourceEventKey: `teacher:${auth.user.id}:plans-viewed` });
   return <main className="min-h-screen bg-[#F5F7FB] px-4 py-8"><div className="mx-auto max-w-7xl">
     <TrackPageView event="teacher_plan_viewed" />
     <div className="flex flex-wrap items-center justify-between gap-4"><div><p className="font-bold text-blue-700">NabuLab Professor</p><h1 className="mt-2 text-4xl font-black text-[#0B2D6B]">Planos para cada fase do seu trabalho</h1><p className="mt-3 max-w-2xl text-slate-600">Comece gratuitamente e aumente a capacidade quando suas turmas crescerem.</p></div><Link href="/professor" className="font-bold text-blue-700">Voltar ao Professor</Link></div>

@@ -9,6 +9,7 @@ export const PUBLIC_APP_PATHS = [
   "/termos",
   "/privacidade",
   "/premium",
+  "/para-professores",
   "/turmas",
   "/suporte",
   "/auth/confirm",

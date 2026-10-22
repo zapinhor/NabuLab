@@ -54,7 +54,7 @@ export default async function LandingPage() {
         <nav aria-label="Navegação principal" className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <Link href="/" aria-label="NabuLab — início"><Image src="/branding/logo-horizontal.png" alt="NabuLab" width={172} height={44} className="h-9 w-auto" priority /></Link>
           <div className="hidden items-center gap-6 text-sm font-semibold text-slate-600 md:flex">
-            <a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><Link href="/turmas">Turmas</Link><a href="#professores">Professores</a><a href="#planos">Planos</a><a href="#faq">FAQ</a>
+            <a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><Link href="/turmas">Turmas</Link><Link href="/para-professores">Para Professores</Link><a href="#planos">Planos</a><a href="#faq">FAQ</a>
           </div>
           <div className="flex items-center gap-2">
             {!authenticated && <Link href="/login?next=/dashboard" className="hidden rounded-xl px-3 py-2 text-sm font-bold text-[#0B2D6B] sm:block">Entrar</Link>}
