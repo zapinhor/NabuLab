@@ -25,7 +25,7 @@ export default async function TeacherStudentAnalyticsPage({ params, searchParams
         <Link href="/professor/planos" className="mt-4 inline-block font-bold text-blue-700">Desbloquear</Link>
       </section>
     ) : (
-      <TeacherAnalyticsReport classId={classId} report={result.report} filters={filters} studentId={studentId} features={result.access.features}/>
+      <TeacherAnalyticsReport classId={classId} report={result.report} filters={filters} studentId={studentId} features={result.access.features} insights={result.insights}/>
     )}
   </div></main>;
 }

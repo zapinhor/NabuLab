@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { TeacherAnalyticsCharts } from "@/components/professor/teacher-analytics-charts";
+import { TeacherInsights } from "@/components/professor/teacher-insights";
 import type { buildTeacherReport, ContentMetric, TeacherAnalyticsFilters } from "@/lib/teacher-analytics";
+import type { buildTeacherInsights } from "@/lib/teacher-insights";
 import type { TeacherFeature } from "@/lib/teacher-plans";
 
 type Report = ReturnType<typeof buildTeacherReport>;
@@ -24,7 +26,7 @@ function LockedFeature({ title }: { title: string }) {
   return <section className="rounded-2xl border border-amber-200 bg-amber-50 p-5"><h2 className="font-black">{title}</h2><p className="mt-2 text-sm text-amber-950">Disponível no Essencial.</p><Link href="/professor/planos" className="mt-3 inline-block text-sm font-bold text-blue-700">Desbloquear</Link></section>;
 }
 
-export function TeacherAnalyticsReport({ classId, report, filters, studentId, features }: { classId: string; report: Report; filters: TeacherAnalyticsFilters; studentId?: string; features: Record<TeacherFeature, boolean> }) {
+export function TeacherAnalyticsReport({ classId, report, filters, studentId, features, insights }: { classId: string; report: Report; filters: TeacherAnalyticsFilters; studentId?: string; features: Record<TeacherFeature, boolean>; insights?: ReturnType<typeof buildTeacherInsights> | null }) {
   const base = studentId ? `/professor/turmas/${classId}/analytics/alunos/${studentId}` : `/professor/turmas/${classId}/analytics`;
   const query = new URLSearchParams({ from: filters.from, to: filters.to });
   for (const [name, value] of Object.entries({ activity: filters.activityId, subject: filters.subject, topic: filters.topic, difficulty: filters.difficulty })) if (value) query.set(name, value);
@@ -51,6 +53,7 @@ export function TeacherAnalyticsReport({ classId, report, filters, studentId, fe
       <Card label="Evolução recente" value={delta(summary.recentChange)} detail="Variação entre primeiro e último dia com resultados"/>
       <Card label="Alunos com pendências" value={number(summary.pendingStudents)}/>
     </section>
+    {features.content_analytics && insights ? <TeacherInsights classId={classId} insights={insights} base={base}/> : <LockedFeature title="Insights pedagógicos"/>}
     {!report.history.length ? <p className="rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-sm text-slate-600">Ainda não há respostas suficientes para gerar este relatório. As atividades publicadas e os alunos ativos continuam visíveis.</p> : null}
     <TeacherAnalyticsCharts distribution={report.distribution} evolution={report.evolution}/>
     {!studentId ? <section className="overflow-x-auto rounded-2xl border border-slate-200 bg-white p-5"><div className="flex flex-wrap items-center justify-between gap-3"><h2 className="font-black">Desempenho por aluno</h2><Link href={download("students")} className="text-sm font-bold text-blue-700">Baixar CSV de alunos</Link></div><table className="mt-3 w-full min-w-[820px] text-left text-sm"><thead><tr className="text-slate-500">{["Aluno", "Realizadas", "Pendentes", "Média", "Acerto", "Evolução", "Última atividade"].map((label) => <th key={label} className={cell}>{label}</th>)}</tr></thead><tbody>{report.students.map((student) => <tr key={student.id}><td className={cell}><Link href={`${base}/alunos/${student.id}?${query}`} className="font-bold text-blue-700 underline-offset-2 hover:underline">{student.name}</Link>{student.username ? <small className="block text-slate-500">@{student.username}</small> : null}</td><td className={cell}>{student.completed}</td><td className={cell}>{student.pending}</td><td className={cell}>{rate(student.average)}</td><td className={cell}>{rate(student.accuracy)}</td><td className={cell}>{delta(student.evolution)}</td><td className={cell}>{student.lastActivity ?? "—"}</td></tr>)}</tbody></table>{!report.students.length ? <p className="mt-4 text-sm text-slate-500">Nenhum aluno ativo nesta turma.</p> : null}</section> : <section className="overflow-x-auto rounded-2xl border border-slate-200 bg-white p-5"><h2 className="font-black">Histórico de atividades nesta turma</h2>{report.history.length ? <table className="mt-3 w-full min-w-[600px] text-left text-sm"><thead><tr className="text-slate-500">{["Atividade", "Nota", "Acertos", "Tentativa", "Conclusão"].map((label) => <th key={label} className={cell}>{label}</th>)}</tr></thead><tbody>{report.history.map((item) => <tr key={item.id}><td className={cell}>{item.activity}</td><td className={cell}>{rate(item.score)}</td><td className={cell}>{item.correct}/{item.total}</td><td className={cell}>{item.attemptNumber}</td><td className={cell}>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(new Date(item.submittedAt))}</td></tr>)}</tbody></table> : <p className="mt-4 text-sm text-slate-500">Este aluno ainda não concluiu atividades no período.</p>}</section>}

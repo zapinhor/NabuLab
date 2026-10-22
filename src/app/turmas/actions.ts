@@ -205,6 +205,23 @@ export async function createTeacherExam(formData: FormData) {
   withMessage("/professor", "Simulado do professor criado.");
 }
 
+export async function createTeacherP6Review(formData: FormData) {
+  const classId = text(formData, "class_id");
+  const path = `/professor/turmas/${classId}/analytics`;
+  const { supabase } = await authenticated(path);
+  const { error } = await supabase.rpc("create_teacher_p6_review", {
+    p_class_id: classId,
+    p_subject: text(formData, "subject"),
+    p_topic: text(formData, "topic"),
+    p_difficulty: text(formData, "difficulty") || null,
+    p_question_count: 8,
+    p_prefer_easier: text(formData, "prefer_easier") === "true",
+  });
+  if (error) withMessage(path, error.message);
+  revalidatePath("/professor");
+  withMessage("/professor", "Rascunho de revisão criado. Revise as questões antes de publicar ou aplicar uma atividade.");
+}
+
 export async function duplicateTeacherQuestion(formData: FormData) {
   const { supabase } = await authenticated("/professor");
   const { error } = await supabase.rpc("duplicate_teacher_question", { p_question_id: text(formData, "question_id") });
