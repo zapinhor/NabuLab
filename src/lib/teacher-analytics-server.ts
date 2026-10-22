@@ -2,6 +2,7 @@ import "server-only";
 import { createClient } from "@/lib/supabase/server";
 import { buildTeacherReport, type TeacherActivity, type TeacherAnswer, type TeacherAnalyticsFilters, type TeacherAttempt, type TeacherMember } from "@/lib/teacher-analytics";
 import { getCurrentTeacherAccess } from "@/lib/teacher-entitlements-server";
+import { buildTeacherInsights, type P6Evidence } from "@/lib/teacher-insights";
 
 export async function getTeacherAnalytics(classId: string, filters: TeacherAnalyticsFilters, studentId?: string) {
   const supabase = await createClient();
@@ -16,7 +17,7 @@ export async function getTeacherAnalytics(classId: string, filters: TeacherAnaly
   const from = `${filters.from}T00:00:00-03:00`;
   const to = new Date(Date.parse(`${filters.to}T00:00:00-03:00`) + 86_400_000).toISOString();
   const activityId = filters.activityId || null;
-  const [membersResult, activitiesResult, attemptsResult, answersResult] = await Promise.all([
+  const [membersResult, activitiesResult, attemptsResult, answersResult, evidenceResult] = await Promise.all([
     supabase.rpc("get_teacher_class_members", { p_class_id: classId }),
     supabase.from("teacher_class_activities").select("id,title,status,created_at,due_at")
       .eq("class_id", classId).in("status", ["published", "closed"]).order("created_at", { ascending: true }),
@@ -24,8 +25,11 @@ export async function getTeacherAnalytics(classId: string, filters: TeacherAnaly
     access.features.content_analytics
       ? supabase.rpc("get_teacher_class_p3_answers", { p_class_id: classId, p_from: from, p_to: to, p_activity_id: activityId, p_student_id: studentId ?? null })
       : Promise.resolve({ data: [], error: null }),
+    access.features.content_analytics
+      ? supabase.rpc("get_teacher_class_p6_evidence", { p_class_id: classId, p_from: from, p_to: to, p_activity_id: activityId, p_subject: filters.subject || null, p_topic: filters.topic || null, p_difficulty: filters.difficulty || null, p_student_id: studentId ?? null })
+      : Promise.resolve({ data: null, error: null }),
   ]);
-  if (membersResult.error || activitiesResult.error || attemptsResult.error || answersResult.error) {
+  if (membersResult.error || activitiesResult.error || attemptsResult.error || answersResult.error || evidenceResult.error) {
     throw new Error("Não foi possível carregar o desempenho desta turma.");
   }
   const members = (membersResult.data ?? []) as TeacherMember[];
@@ -37,5 +41,7 @@ export async function getTeacherAnalytics(classId: string, filters: TeacherAnaly
   const report = buildTeacherReport({ members: selectedMembers, activities: (activitiesResult.data ?? []) as TeacherActivity[],
     attempts: studentId ? attempts.filter((attempt) => attempt.student_id === studentId) : attempts,
     answers: (answersResult.data ?? []) as TeacherAnswer[], filters });
-  return { state: "ready" as const, room, report, filters, access };
+  const evidence = evidenceResult.data as P6Evidence | null;
+  const insights = access.features.content_analytics && evidence ? buildTeacherInsights(report, evidence, studentId) : null;
+  return { state: "ready" as const, room, report, filters, access, insights };
 }

@@ -58,6 +58,7 @@ export default async function TeacherClassAnalyticsPage({
           report={result.report}
           filters={filters}
           features={result.access.features}
+          insights={result.insights}
         />
       </div>
     </main>
