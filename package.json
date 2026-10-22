@@ -33,6 +33,8 @@
     "test:teachers:p5": "node --import tsx scripts/test-teacher-p5.ts",
     "test:teachers:p6": "node --import tsx scripts/test-teacher-p6.ts",
     "test:teachers:p6:staging": "node --import tsx scripts/test-teacher-p6-staging.ts",
+    "test:teachers:p7": "node --import tsx scripts/test-teacher-p7.ts",
+    "test:teachers:p7:staging": "node --import tsx scripts/test-teacher-p7-staging.ts",
     "test:teachers:p5:scheduler": "node --conditions=react-server --import tsx scripts/test-notification-scheduler.ts",
     "test:teachers:p5:staging": "node --conditions=react-server --import tsx scripts/test-teacher-p5-staging.ts",
     "test:teachers:p2:staging": "node --import tsx scripts/test-teacher-p2-staging.ts",

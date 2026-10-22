@@ -19,6 +19,20 @@ export const ANALYTICS_EVENT_NAMES = [
   "teacher_upgrade_clicked",
   "teacher_checkout_started",
   "teacher_plan_activated",
+  "teacher_landing_viewed",
+  "teacher_cta_started",
+  "teacher_profile_activated",
+  "teacher_onboarding_viewed",
+  "teacher_first_class_created",
+  "teacher_first_question_created",
+  "teacher_first_exam_created",
+  "teacher_first_activity_published",
+  "teacher_first_student_joined",
+  "teacher_first_submission_received",
+  "teacher_first_analytics_viewed",
+  "teacher_first_insight_viewed",
+  "teacher_plans_viewed",
+  "teacher_upgrade_completed",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENT_NAMES)[number];

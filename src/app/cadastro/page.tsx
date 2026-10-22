@@ -11,9 +11,10 @@ export const metadata: Metadata = createPrivateMetadata(
 
 export default async function SignupPage({ searchParams }: { searchParams: Promise<{ mensagem?: string; next?: string }> }) {
   const { mensagem, next } = await searchParams;
+  const teacherIntent = next?.startsWith("/professor") ?? false;
   return (
-    <AuthCard title="Comece grátis" description="Crie sua conta com e-mail e senha. Você entra direto no NabuLab e recebe 10 questões gratuitas por dia." message={mensagem}>
-      <SignupForm next={next ?? "/dashboard"} />
+    <AuthCard title={teacherIntent ? "Comece grátis como professor" : "Comece grátis"} description={teacherIntent ? "Use sua conta NabuLab para criar turmas, atividades e acompanhar seus alunos." : "Crie sua conta com e-mail e senha. Você entra direto no NabuLab e recebe 10 questões gratuitas por dia."} message={mensagem}>
+      <SignupForm next={next ?? "/dashboard"} intent={teacherIntent ? "teacher" : "student"} />
       <p className="mt-5 text-center text-sm text-slate-600">Já tem conta? <Link className="font-bold text-blue-700" href={`/login?next=${encodeURIComponent(next ?? "/dashboard")}`}>Entrar</Link></p>
     </AuthCard>
   );

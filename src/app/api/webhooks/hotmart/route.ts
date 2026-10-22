@@ -94,6 +94,10 @@ export async function POST(request: Request) {
           properties: teacherOffer ? { domain: "teacher", plan: teacherOffer.plan, cycle: teacherOffer.cycle } : { tier: priceTier ?? "unmapped" },
           sourceEventKey: `hotmart:purchase:${event.transactionId ?? event.providerSubscriptionId ?? event.eventId}`,
         });
+        if (teacherOffer) await recordAuthenticatedAnalyticsEvent("teacher_upgrade_completed", resolvedUserId, {
+          properties: { domain: "teacher", plan: teacherOffer.plan, cycle: teacherOffer.cycle },
+          sourceEventKey: `hotmart:teacher-upgrade:${event.transactionId ?? event.providerSubscriptionId ?? event.eventId}`,
+        });
         if (!teacherOffer) {
           const transactionId = event.transactionId ?? event.providerSubscriptionId ?? event.eventId;
           try { await sendGa4Purchase({ transactionId, userId: resolvedUserId, tier: priceTier ?? "unmapped" }); }

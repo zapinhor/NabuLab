@@ -15,6 +15,8 @@ const PUBLIC_EVENTS = new Set([
   "premium_cta_clicked",
   "premium_page_viewed",
   "signup_started",
+  "teacher_landing_viewed",
+  "teacher_cta_started",
 ]);
 
 export async function POST(request: Request) {

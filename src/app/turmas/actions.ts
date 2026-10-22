@@ -45,11 +45,20 @@ async function authenticated(returnTo: string) {
 }
 
 export async function activateTeacherAccount() {
-  const { supabase } = await authenticated("/professor");
+  const { supabase, user } = await authenticated("/professor");
   const { error } = await supabase.rpc("activate_teacher_account");
   if (error) withMessage("/professor", error.message);
+  await recordAuthenticatedAnalyticsEvent("teacher_profile_activated", user.id, { sourceEventKey: `teacher:${user.id}:profile-activated` });
   revalidatePath("/professor");
   withMessage("/professor", "Recursos de professor ativados na sua conta.");
+}
+
+export async function dismissTeacherOnboarding() {
+  const { supabase } = await authenticated("/professor");
+  const { error } = await supabase.rpc("set_teacher_onboarding_dismissed", { p_dismissed: true });
+  if (error) withMessage("/professor", error.message);
+  revalidatePath("/professor");
+  redirect("/professor");
 }
 
 export async function createTeacherClass(formData: FormData) {
@@ -64,6 +73,7 @@ export async function createTeacherClass(formData: FormData) {
   });
   if (error) await recordTeacherLimit(user.id, error.message, "class");
   if (error || !data) withMessage("/professor", error?.message ?? "Não foi possível criar a turma.");
+  await recordAuthenticatedAnalyticsEvent("teacher_first_class_created", user.id, { sourceEventKey: `teacher:${user.id}:first-class` });
   redirect(`/professor/turmas/${data}`);
 }
 
@@ -134,13 +144,14 @@ export async function inviteToTeacherClass(formData: FormData) {
 export async function decideClassMember(formData: FormData) {
   const classId = text(formData, "class_id");
   const path = `/professor/turmas/${classId}`;
-  const { supabase } = await authenticated(path);
+  const { supabase, user } = await authenticated(path);
   const { error } = await supabase.rpc("decide_teacher_class_member", {
     p_class_id: classId,
     p_user_id: text(formData, "user_id"),
     p_approve: text(formData, "decision") === "approve",
   });
   if (error) withMessage(path, error.message);
+  if (text(formData, "decision") === "approve") await recordAuthenticatedAnalyticsEvent("teacher_first_student_joined", user.id, { sourceEventKey: `teacher:${user.id}:first-student` });
   revalidatePath(path);
   withMessage(path, "Solicitação atualizada.");
 }
@@ -201,6 +212,7 @@ export async function createTeacherExam(formData: FormData) {
   });
   if (error) await recordTeacherLimit(user.id, error.message, "exam");
   if (error) withMessage("/professor", error.message);
+  await recordAuthenticatedAnalyticsEvent("teacher_first_exam_created", user.id, { sourceEventKey: `teacher:${user.id}:first-exam` });
   revalidatePath("/professor");
   withMessage("/professor", "Simulado do professor criado.");
 }
@@ -280,7 +292,7 @@ export async function moveQuestionInTeacherExam(formData: FormData) {
 }
 
 export async function createTeacherQuestion(formData: FormData) {
-  const { supabase } = await authenticated("/professor");
+  const { supabase, user } = await authenticated("/professor");
   const type = text(formData, "question_type");
   const alternatives = text(formData, "alternatives").split("\n").map((item) => item.trim()).filter(Boolean);
   const { error } = await supabase.rpc("create_owned_teacher_question", {
@@ -290,6 +302,7 @@ export async function createTeacherQuestion(formData: FormData) {
     p_question_type: type, p_visibility: text(formData, "visibility") || "private",
   });
   if (error) withMessage("/professor", error.message);
+  await recordAuthenticatedAnalyticsEvent("teacher_first_question_created", user.id, { sourceEventKey: `teacher:${user.id}:first-question` });
   revalidatePath("/professor");
   withMessage("/professor", "Questão criada.");
 }
@@ -336,7 +349,7 @@ export async function addQuestionToTeacherExam(formData: FormData) {
 export async function createClassActivity(formData: FormData) {
   const classId = text(formData, "class_id");
   const path = `/professor/turmas/${classId}`;
-  const { supabase } = await authenticated(path);
+  const { supabase, user } = await authenticated(path);
   const attempts = text(formData, "max_attempts");
   const { error } = await supabase.rpc("create_teacher_activity", {
     p_class_id: classId,
@@ -352,6 +365,7 @@ export async function createClassActivity(formData: FormData) {
     p_answer_policy: text(formData, "answer_policy") || "never",
   });
   if (error) withMessage(path, error.message);
+  await recordAuthenticatedAnalyticsEvent("teacher_first_activity_published", user.id, { sourceEventKey: `teacher:${user.id}:first-activity` });
   const admin=createAdminClient();
   const {data:activity}=await admin.from("teacher_class_activities").select("id,title,due_at").eq("class_id",classId).order("created_at",{ascending:false}).limit(1).maybeSingle();
   const {data:members}=await admin.from("teacher_class_members").select("user_id").eq("class_id",classId).eq("status","active");
@@ -382,6 +396,10 @@ export async function submitClassActivity(formData: FormData) {
   const { data, error } = await supabase.rpc("submit_teacher_activity_attempt", { p_attempt_id: attemptId, p_answers: answers });
   if (error || !data?.[0]) withMessage(path, error?.message ?? "Não foi possível salvar a atividade.");
   const result = data[0] as { correct_count: number; total_questions: number };
+  const admin = createAdminClient();
+  const { data: activity } = await admin.from("teacher_class_activities").select("teacher_classes(owner_id)").eq("id", activityId).maybeSingle();
+  const ownerId = (activity?.teacher_classes as unknown as { owner_id?: string } | null)?.owner_id;
+  if (ownerId) await recordAuthenticatedAnalyticsEvent("teacher_first_submission_received", ownerId, { sourceEventKey: `teacher:${ownerId}:first-submission` });
   revalidatePath(path);
   withMessage(path, `Atividade concluída: ${result.correct_count} de ${result.total_questions} acertos.`);
 }

@@ -32,7 +32,7 @@ function FieldMessage({ field, error }: { field: SignupField; error?: string }) 
   return <p id={`${field}-help`} className={`mt-1.5 text-xs leading-5 ${error ? "font-semibold text-red-700" : "text-slate-500"}`} aria-live="polite">{error ?? FIELD_HELP[field]}</p>;
 }
 
-export function SignupForm({ next }: { next: string }) {
+export function SignupForm({ next, intent = "student" }: { next: string; intent?: "student" | "teacher" }) {
   const [values, setValues] = useState(INITIAL_VALUES);
   const [errors, setErrors] = useState<SignupErrors>({});
   const [touched, setTouched] = useState<Partial<Record<SignupField, boolean>>>({});
@@ -44,7 +44,7 @@ export function SignupForm({ next }: { next: string }) {
   function trackStarted() {
     if (startedRef.current) return;
     startedRef.current = true;
-    void trackEvent("signup_started", { form: "student_fast_signup" });
+    void trackEvent("signup_started", { form: intent === "teacher" ? "teacher_fast_signup" : "student_fast_signup", intent });
   }
 
   function updateField(field: SignupField, nextValue: string) {

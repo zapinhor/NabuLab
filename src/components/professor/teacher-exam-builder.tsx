@@ -34,10 +34,12 @@ export function TeacherExamBuilder({
   exams,
   examItems,
   questions,
+  preset,
 }: {
   exams: Exam[];
   examItems: ExamQuestion[];
   questions: TeacherQuestionView[];
+  preset?: string;
 }) {
   const activeQuestions = questions.filter((question) => !question.archived_at);
   return (
@@ -318,6 +320,7 @@ export function TeacherExamBuilder({
               required
               className={teacherField}
               placeholder="Ex.: Revisão de Cinemática"
+              defaultValue={preset}
             />
           </label>
           <label className="text-sm font-bold text-slate-800">
@@ -328,6 +331,7 @@ export function TeacherExamBuilder({
               rows={3}
               className={teacherField}
               placeholder="Objetivo ou contexto do simulado"
+              defaultValue={preset ? `Objetivo: ${preset}. Selecione e revise as questões antes de publicar.` : undefined}
             />
           </label>
           <label className="flex items-start gap-3 text-sm font-semibold text-slate-700">
