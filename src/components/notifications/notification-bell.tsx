@@ -3,12 +3,10 @@
 
 import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import type { AppNotification } from "@/lib/notifications";
+import { useNotificationSummary } from "@/components/notifications/use-notification-summary";
 
 export function NotificationBell() {
-  const [summary,setSummary]=useState<{unread:number;items:AppNotification[]}|null>(null);
-  useEffect(()=>{let active=true; void fetch("/api/notifications/summary").then(r=>r.ok?r.json():null).then(data=>{if(active&&data)setSummary(data)}).catch(()=>null); return()=>{active=false};},[]);
+  const { summary } = useNotificationSummary();
   if(!summary) return <span className="block h-11 w-11" aria-hidden/>;
   return <details className="relative z-40">
     <summary aria-label={`Notificações${summary.unread ? `, ${summary.unread} não lidas` : ""}`} className="relative flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-slate-200 bg-white text-xl shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C430]">
