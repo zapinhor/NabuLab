@@ -679,7 +679,7 @@ export default function ExamHistoryDetailPage() {
                 </span>
 
                 <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-blue-50 sm:px-3 sm:text-xs">
-                  <span aria-hidden="true">
+                  <span aria-hidden="true" className="shrink-0">
                     <Icon name="duracao" size={14} />
                   </span>{" "}
                   {formatDuration(

@@ -93,7 +93,7 @@ export default function SubjectTrendSummary({
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
         <div className="min-w-0">
           <p className="text-sm font-bold text-blue-600">
-            <span aria-hidden="true">
+            <span aria-hidden="true" className="shrink-0">
               <Icon name="evolucao" size={16} />
             </span>{" "}
             Evolução das matérias
@@ -146,7 +146,7 @@ export default function SubjectTrendSummary({
           <div className="flex items-center justify-between gap-3">
             <div>
               <dt className="text-xs font-bold text-emerald-600">
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="shrink-0">
                   <Icon name="tendencia-sobe" size={14} />
                 </span>{" "}
                 Melhorando
@@ -184,7 +184,7 @@ export default function SubjectTrendSummary({
           <div className="flex items-center justify-between gap-3">
             <div>
               <dt className="text-xs font-bold text-blue-600">
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="shrink-0">
                   <Icon name="estavel" size={14} />
                 </span>{" "}
                 Estáveis
@@ -222,7 +222,7 @@ export default function SubjectTrendSummary({
           <div className="flex items-center justify-between gap-3">
             <div>
               <dt className="text-xs font-bold text-red-600">
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="shrink-0">
                   <Icon name="tendencia-desce" size={14} />
                 </span>{" "}
                 Em queda
@@ -283,14 +283,14 @@ export default function SubjectTrendSummary({
                   {attentionSubject.trend ===
                   "caindo" ? (
                     <>
-                      <span aria-hidden="true">
+                      <span aria-hidden="true" className="shrink-0">
                         <Icon name="atencao" size={14} />
                       </span>{" "}
                       Maior atenção no momento
                     </>
                   ) : (
                     <>
-                      <span aria-hidden="true">
+                      <span aria-hidden="true" className="shrink-0">
                         <Icon name="analise" size={18} />
                       </span>{" "}
                       Menor desempenho recente
@@ -402,7 +402,7 @@ export default function SubjectTrendSummary({
               href="/recomendado"
               className="shrink-0 text-xs font-bold text-indigo-600"
             >
-              <span aria-hidden="true">
+              <span aria-hidden="true" className="shrink-0">
                 <Icon name="recomendado" size={14} />
               </span>{" "}
               Treinar agora<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />

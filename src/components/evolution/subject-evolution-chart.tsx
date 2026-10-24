@@ -96,7 +96,7 @@ function EvolutionTooltip({
         <span
           className={`inline-flex rounded-full border px-2 py-1 text-[9px] font-bold sm:px-2.5 sm:text-[10px] ${modeInfo.badgeClass}`}
         >
-          <span aria-hidden="true">
+          <span aria-hidden="true" className="shrink-0">
             <Icon name={modeInfo.icon} size={18} />
           </span>{" "}
           {

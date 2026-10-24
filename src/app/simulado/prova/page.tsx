@@ -1298,7 +1298,7 @@ async function handleSubmit() {
               {reviewCount >
                 0 && (
                 <span className="text-amber-600">
-                  <span aria-hidden="true">
+                  <span aria-hidden="true" className="shrink-0">
                     <Icon name="bandeira-marcada" size={18} />
                   </span>{" "}
                   {
