@@ -7,6 +7,10 @@ import {
 import { createExamSession, createExamSessionFromQuestionIds, getPublicSessionQuestions } from "@/lib/quiz-engine";
 import { signExamSession } from "@/lib/exam-grading";
 import { getHotmartConfig } from "@/lib/billing/config";
+import { createAdminClient } from "@/lib/supabase/admin";
+
+/** Tamanho do treino de erros liberado no plano gratuito. */
+const FREE_REVIEW_SIZE = 5;
 import type { ExamConfig, ExamMode } from "@/types/exam";
 import type { ExamSession } from "@/types/exam";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
@@ -102,8 +106,22 @@ export async function POST(request: Request) {
       Array.isArray(body.questionIds) &&
       isQuestionMode(body.mode)
     ) {
+      // Free: um treino curto de erros (até 5 questões, contando na cota do dia),
+      // só com questões que a própria pessoa errou antes.
+      let requestedIds = body.questionIds.filter((id): id is string => typeof id === "string").slice(0, 100);
       if (body.mode === "review" && !entitlements.trainErrors) {
-        return NextResponse.json({ error: "O treino de erros está disponível no plano Premium." }, { status: 403 });
+        const { data: wrong, error: wrongError } = await createAdminClient()
+          .from("exam_answers")
+          .select("question_id")
+          .eq("user_id", userId)
+          .eq("is_correct", false)
+          .in("question_id", requestedIds.slice(0, FREE_REVIEW_SIZE));
+        if (wrongError) throw wrongError;
+        const allowed = new Set((wrong ?? []).map((row) => row.question_id as string));
+        requestedIds = requestedIds.slice(0, FREE_REVIEW_SIZE).filter((id) => allowed.has(id));
+        if (!requestedIds.length) {
+          return NextResponse.json({ error: "Não encontramos erros seus para treinar agora." }, { status: 422 });
+        }
       }
 
       const planLimit =
@@ -114,7 +132,7 @@ export async function POST(request: Request) {
         ? planLimit
         : Math.min(planLimit, quota.remaining ?? 0);
       const session = createExamSessionFromQuestionIds(
-        body.questionIds.slice(0, limit),
+        requestedIds.slice(0, limit),
         Boolean(body.shuffleAlternatives),
         body.mode,
         entitlements,

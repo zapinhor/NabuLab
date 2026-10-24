@@ -17,6 +17,7 @@ import {
 import { getTotalQuestions } from "@/data/question-index";
 import { FirstExamQuickStart } from "@/components/student/first-exam-quick-start";
 import { FreeLimitCard } from "@/components/student/free-limit-card";
+import { DailyReviewCard } from "@/components/student/daily-review-card";
 import { subjects } from "@/data/subjects";
 
 import {
@@ -1567,6 +1568,14 @@ export default function DashboardPage() {
           </section>
           )}
 
+          {hasReviewQuestions && review && (
+            <DailyReviewCard
+              review={review}
+              premium={studentEntitlements.trainErrors}
+              remainingToday={questionQuota?.unlimited ? null : (questionQuota?.remaining ?? null)}
+            />
+          )}
+
           <UpcomingActivities />
 
           {questionQuota && !questionQuota.unlimited && questionQuota.remaining === 0 && (
@@ -1942,106 +1951,6 @@ export default function DashboardPage() {
               </p>
             </Link>
           </section>
-
-          {/* =================================================
-              REVISÃO
-          ================================================== */}
-
-          {hasReviewQuestions && (
-            <section className="mt-5 sm:mt-7">
-              <div className="overflow-hidden rounded-2xl border border-[#F4C430]/50 bg-white shadow-sm">
-                <div className="grid lg:grid-cols-[minmax(0,1fr)_250px]">
-                  <div className="min-w-0 p-5 sm:p-6 md:p-7">
-                    <p className="text-sm font-bold text-[#8A6A00]">
-                      <span aria-hidden="true" className="shrink-0">
-                        <Icon name="treinar-erros" size={16} />
-                      </span>{" "}
-                      Revisão recomendada
-                    </p>
-
-                    <h2 className="mt-1 break-words text-lg font-bold text-slate-900 sm:text-xl md:text-2xl">
-                      Você tem{" "}
-                      {
-                        review.totalQuestionsWithErrors
-                      }{" "}
-                      questões no histórico
-                      de erros.
-                    </h2>
-
-                    <p className="mt-2 text-xs leading-5 text-slate-500">
-                      A prioridade considera
-                      quantidade de erros,
-                      taxa de erro e sua
-                      tentativa mais recente.
-                    </p>
-
-                    <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-3">
-                      <div className="rounded-xl bg-red-50 p-4">
-                        <p className="text-xs text-red-500">
-                          Alta prioridade
-                        </p>
-
-                        <p className="mt-1 text-2xl font-bold text-red-600">
-                          {
-                            review.highPriority
-                          }
-                        </p>
-                      </div>
-
-                      <div className="rounded-xl bg-amber-50 p-4">
-                        <p className="text-xs text-amber-600">
-                          Prioridade média
-                        </p>
-
-                        <p className="mt-1 text-2xl font-bold text-amber-700">
-                          {
-                            review.mediumPriority
-                          }
-                        </p>
-                      </div>
-
-                      <div className="rounded-xl bg-blue-50 p-4">
-                        <p className="text-xs text-blue-500">
-                          Baixa prioridade
-                        </p>
-
-                        <p className="mt-1 text-2xl font-bold text-blue-600">
-                          {
-                            review.lowPriority
-                          }
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex min-w-0 flex-col justify-center border-t border-[#FFEFB3] bg-[#FFF7DA] p-5 sm:p-6 lg:border-l lg:border-t-0">
-                    <p className="text-xs font-bold uppercase text-[#C8970F]">
-                      Erros registrados
-                    </p>
-
-                    <p className="mt-2 text-4xl font-bold text-[#8A6A00]">
-                      {
-                        review.totalHistoricalErrors
-                      }
-                    </p>
-
-                    <p className="mt-2 text-xs leading-5 text-slate-500">
-                      Erros acumulados nas
-                      questões disponíveis
-                      para revisão.
-                    </p>
-
-                    <Link
-                      href="/revisao"
-                      className="mt-5 min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
-                    >
-                      Treinar meus erros<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
 
           {/* =================================================
               MATÉRIAS
