@@ -1,13 +1,17 @@
 import {
-  questionBank,
-} from "@/data/questions";
+  questionIndex,
+} from "@/data/question-index";
 
 import type {
   ExamConfig,
 } from "@/types/exam";
 
+/*
+ * A seleção usa só a classificação das questões (índice sem gabarito),
+ * então funciona igual no navegador (contagens) e no servidor (sorteio).
+ */
 import type {
-  Question,
+  QuestionMeta as Question,
 } from "@/types/question";
 
 import {
@@ -89,7 +93,7 @@ function getBaseQuestionPool(
     return [];
   }
 
-  return filterAccessibleQuestions(questionBank, entitlements).filter(
+  return filterAccessibleQuestions(questionIndex, entitlements).filter(
     (question) => {
       /*
        * ===================================================

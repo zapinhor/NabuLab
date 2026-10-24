@@ -1,5 +1,6 @@
 import type {
   Difficulty,
+  PublicQuestion,
   QuestionType,
   SubjectId,
 } from "@/types/question";
@@ -67,6 +68,15 @@ export interface ExamSession {
 
   alternativeOrders:
     Record<string, string[]>;
+
+  /*
+   * Preenchidos pelo servidor ao gerar a prova:
+   * - questions: enunciados e alternativas, sem gabarito;
+   * - token: assinatura exigida para corrigir a prova.
+   */
+  questions?: PublicQuestion[];
+
+  token?: string;
 }
 
 /*

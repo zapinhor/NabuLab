@@ -4,7 +4,8 @@ import {
   getCurrentStudentAccess,
   getStudentQuestionQuotaStatus,
 } from "@/lib/entitlements/server";
-import { createExamSession, createExamSessionFromQuestionIds } from "@/lib/quiz-engine";
+import { createExamSession, createExamSessionFromQuestionIds, getPublicSessionQuestions } from "@/lib/quiz-engine";
+import { signExamSession } from "@/lib/exam-grading";
 import type { ExamConfig, ExamMode } from "@/types/exam";
 import type { ExamSession } from "@/types/exam";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
@@ -39,7 +40,11 @@ async function finishGeneration(session: ExamSession, userId: string, isPremium:
       properties: { mode: session.mode, questions: session.questionIds.length },
     });
   }
-  return NextResponse.json({ session, quota });
+  // O navegador recebe enunciados e alternativas, nunca o gabarito; a correção vem na entrega.
+  return NextResponse.json({
+    session: { ...session, questions: getPublicSessionQuestions(session), token: signExamSession(session, userId) },
+    quota,
+  });
 }
 
 export async function GET() {

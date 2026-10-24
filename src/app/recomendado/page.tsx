@@ -1002,11 +1002,18 @@ export default function RecommendedQuizPage() {
                             }
                           </p>
 
-                          <p className="mt-2 break-words text-sm font-bold leading-6 text-slate-900 sm:text-[15px]">
-                            {
-                              item.question.statement
-                            }
-                          </p>
+                          {item.question.statement ? (
+                            <p className="mt-2 break-words text-sm font-bold leading-6 text-slate-900 sm:text-[15px]">
+                              {item.question.statement}
+                            </p>
+                          ) : (
+                            <p className="mt-2 break-words text-sm font-bold leading-6 text-slate-900 sm:text-[15px]">
+                              Questão nova sobre {item.question.subtopic.toLowerCase()}
+                              <span className="ml-2 font-semibold text-slate-500">
+                                · {item.question.difficulty === "medio" ? "nível médio" : item.question.difficulty === "avancado" ? "nível avançado" : "nível iniciante"}
+                              </span>
+                            </p>
+                          )}
 
                           {/* ===============================
                               MOTIVOS

@@ -25,13 +25,10 @@ import {
 } from "@/lib/exam-session";
 
 import {
-  getSessionQuestions,
-} from "@/lib/quiz-engine";
-
-import {
   saveCompletedExam,
 } from "@/lib/exam-history";
-import { consumeQuestionQuota } from "@/lib/exam-generation-client";
+import { ExamGradeError, consumeQuestionQuota, gradeExamOnServer } from "@/lib/exam-generation-client";
+import { saveGradedQuestions } from "@/lib/exam-session";
 
 import {
   EmptyState,
@@ -46,7 +43,7 @@ import type {
 } from "@/types/exam";
 
 import type {
-  Question,
+  PublicQuestion as Question,
 } from "@/types/question";
 
 /*
@@ -268,17 +265,17 @@ export default function ExamPage() {
             return;
           }
 
+          // As questões (sem gabarito) chegam do servidor junto com a sessão.
           const storedQuestions =
-            getSessionQuestions(
-              storedSession
-            );
+            storedSession.questions ?? [];
 
           if (
             storedQuestions.length ===
-            0
+              0 ||
+            !storedSession.token
           ) {
             throw new Error(
-              "A sessão ativa não possui questões válidas."
+              "Este simulado foi criado numa versão anterior do NabuLab. Gere um novo simulado para continuar."
             );
           }
 
@@ -1067,15 +1064,25 @@ async function handleSubmit() {
     }
 
     try {
+      // A correção é feita no servidor; só então o gabarito chega ao navegador.
+      const graded =
+        await gradeExamOnServer(
+          session.token ?? "",
+          submission.answers
+        );
+      saveGradedQuestions(
+        session.id,
+        graded.questions
+      );
       await saveCompletedExam({
         session,
         progress,
         submission,
-        questions,
+        questions: graded.questions,
       });
     } catch (error) {
-      console.error("Erro ao salvar o histórico da prova:", error);
-      setSubmitError("Não foi possível salvar o resultado. Tente novamente.");
+      console.error("Erro ao corrigir ou salvar a prova:", error);
+      setSubmitError(error instanceof ExamGradeError ? error.message : "Não foi possível salvar o resultado. Tente novamente.");
       setInteractionMessage("");
       setIsSubmitting(false);
       return;

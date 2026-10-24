@@ -15,12 +15,9 @@ import NabuLabBrand from "@/components/ui/nabulab-brand";
 
 import {
   loadExamSession,
+  loadGradedQuestions,
   loadExamSubmission,
 } from "@/lib/exam-session";
-
-import {
-  getSessionQuestions,
-} from "@/lib/quiz-engine";
 
 import {
   EmptyState,
@@ -273,7 +270,7 @@ export default function ExamResultPage() {
     questions,
     setQuestions,
   ] =
-    useState<Question[]>(
+    useState<(Question & { locked?: boolean })[]>(
       []
     );
 
@@ -343,10 +340,11 @@ export default function ExamResultPage() {
             return;
           }
 
+          // Correção feita pelo servidor na entrega da prova.
           const storedQuestions =
-            getSessionQuestions(
-              storedSession
-            );
+            loadGradedQuestions(
+              storedSession.id
+            ) ?? [];
 
           if (
             storedQuestions.length ===
@@ -1177,6 +1175,12 @@ export default function ExamResultPage() {
                           EXPLICAÇÃO
                       ====================================== */}
 
+                      {"locked" in question && question.locked ? (
+                        <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-6 text-[#0B2D6B] sm:p-5">
+                          <p className="font-bold">Gabarito disponível para questões respondidas</p>
+                          <p className="mt-1 text-slate-600">No plano gratuito, a correção comentada aparece nas questões que você respondeu. No Premium, você vê o gabarito de todas.</p>
+                        </div>
+                      ) : (
                       <div className="mt-6 rounded-2xl bg-slate-50 p-4 sm:p-5">
                         <p className="text-sm font-bold text-slate-800">
                           Explicação
@@ -1237,6 +1241,7 @@ export default function ExamResultPage() {
                           </div>
                         )}
                       </div>
+                      )}
                     </div>
                   </article>
                 );

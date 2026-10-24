@@ -16,17 +16,9 @@ import {
 } from "next/navigation";
 
 import {
-  questionBank,
-} from "@/data/questions";
-
-import {
   getExamAnswers,
   getExamById,
 } from "@/lib/history-queries";
-
-import {
-  applyAlternativeOrder,
-} from "@/lib/quiz-engine";
 
 import {
   questionFromSnapshot,
@@ -337,21 +329,8 @@ export default function ExamHistoryDetailPage() {
         return [];
       }
 
-      const questionMap =
-        new Map<
-          string,
-          Question
-        >(
-          questionBank.map(
-            (
-              question
-            ) => [
-              question.id,
-              question,
-            ]
-          )
-        );
-
+      // O histórico usa a cópia da questão salva junto com a resposta,
+      // que já está na ordem e com as letras que o aluno viu.
       const storedAnswerMap =
         new Map(
           storedAnswers.map(
@@ -367,15 +346,6 @@ export default function ExamHistoryDetailPage() {
           (
             questionId
           ) => {
-            const currentQuestion =
-              questionMap.get(
-                questionId
-              );
-
-            if (currentQuestion) {
-              return currentQuestion;
-            }
-
             return questionFromSnapshot(
               questionId,
               storedAnswerMap.get(
@@ -390,18 +360,6 @@ export default function ExamHistoryDetailPage() {
           ): question is Question =>
             question !==
             undefined
-        )
-        .map(
-          (
-            question
-          ) =>
-            applyAlternativeOrder(
-              question,
-              exam
-                .alternativeOrders?.[
-                question.id
-              ]
-            )
         );
     }, [
       exam,
@@ -1225,9 +1183,9 @@ export default function ExamHistoryDetailPage() {
                       </p>
 
                       <p className="mt-2 break-words text-sm leading-7 text-slate-700">
-                        {
-                          question.explanation
-                        }
+                        {question.correctAnswer
+                          ? question.explanation
+                          : "Esta questão ficou em branco. No plano gratuito, o gabarito comentado aparece nas questões respondidas."}
                       </p>
                     </div>
                   </article>

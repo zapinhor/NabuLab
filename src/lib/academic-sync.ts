@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { AcademicSyncAuthError } from "@/lib/academic-sync-error";
 import { db } from "@/lib/db";
-import { getQuestionById } from "@/data/questions";
+import { getQuestionMeta } from "@/data/question-index";
 import {
   createQuestionSnapshot,
   questionFromSnapshot,
@@ -139,8 +139,6 @@ function rowToAttempt(row: AttemptRow): StoredExam {
 }
 
 export function answerToRow(userId: string, answer: StoredAnswer): AnswerRow {
-  const currentQuestion = getQuestionById(answer.questionId);
-
   return {
     user_id: userId,
     id: answer.id,
@@ -150,19 +148,17 @@ export function answerToRow(userId: string, answer: StoredAnswer): AnswerRow {
     is_correct: answer.isCorrect,
     was_answered: answer.wasAnswered,
     marked_for_review: answer.markedForReview,
-    question_snapshot:
-      answer.questionSnapshot ??
-      (currentQuestion ? createQuestionSnapshot(currentQuestion) : null),
+    // Cópia da questão como o aluno viu (ordem e letras exibidas).
+    question_snapshot: answer.questionSnapshot ?? null,
   };
 }
 
 export function rowToAnswer(row: AnswerRow): StoredAnswer | null {
-  const currentQuestion = getQuestionById(row.question_id);
-  const snapshotQuestion = questionFromSnapshot(
+  // O histórico depende só da cópia salva: o banco completo não fica no navegador.
+  const question = questionFromSnapshot(
     row.question_id,
     row.question_snapshot,
   );
-  const question = currentQuestion ?? snapshotQuestion;
 
   if (!question) {
     console.warn(
@@ -171,25 +167,25 @@ export function rowToAnswer(row: AnswerRow): StoredAnswer | null {
     return null;
   }
 
+  // Classificação atual do banco (se a questão ainda existir); senão, a da cópia.
+  const meta = getQuestionMeta(row.question_id) ?? question;
+
   return {
     id: row.id,
     examId: row.exam_id,
     questionId: row.question_id,
-    subject: question.subject,
-    subjectName: question.subjectName,
-    area: question.area,
-    topic: question.topic,
-    subtopic: question.subtopic,
-    difficulty: question.difficulty,
+    subject: meta.subject,
+    subjectName: meta.subjectName,
+    area: meta.area,
+    topic: meta.topic,
+    subtopic: meta.subtopic,
+    difficulty: meta.difficulty,
     selectedAnswer: row.selected_answer,
     correctAnswer: question.correctAnswer,
     isCorrect: row.is_correct,
     wasAnswered: row.was_answered,
     markedForReview: row.marked_for_review,
-    questionSnapshot:
-      snapshotQuestion
-        ? createQuestionSnapshot(snapshotQuestion)
-        : createQuestionSnapshot(question),
+    questionSnapshot: createQuestionSnapshot(question),
   };
 }
 

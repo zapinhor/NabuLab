@@ -1,3 +1,4 @@
+import type { Question } from "@/types/question";
 import type {
   ExamMode,
   ExamProgress,
@@ -25,6 +26,8 @@ const PROGRESS_KEY =
 
 const SUBMISSION_KEY =
   "nabulab:exam:current-submission:v1";
+const GRADED_KEY =
+  "nabulab:exam:current-graded:v1";
 
 /*
  * =========================================================
@@ -165,6 +168,14 @@ export function loadExamSession():
       alternativeOrders:
         parsed.alternativeOrders ??
         {},
+      questions:
+        Array.isArray(parsed.questions)
+          ? parsed.questions
+          : undefined,
+      token:
+        typeof parsed.token === "string"
+          ? parsed.token
+          : undefined,
     };
   } catch (error) {
     console.error(
@@ -370,4 +381,43 @@ export function clearCurrentExam() {
   sessionStorage.removeItem(
     SUBMISSION_KEY
   );
+
+  sessionStorage.removeItem(
+    GRADED_KEY
+  );
+}
+/*
+ * =========================================================
+ * CORREÇÃO DO SERVIDOR
+ * =========================================================
+ *
+ * Questões corrigidas (com gabarito) da última prova entregue,
+ * para a tela de resultado.
+ */
+
+export function saveGradedQuestions(
+  sessionId: string,
+  questions: Question[]
+) {
+  if (typeof window === "undefined") return;
+  sessionStorage.setItem(
+    GRADED_KEY,
+    JSON.stringify({ sessionId, questions })
+  );
+}
+
+export function loadGradedQuestions(
+  sessionId: string
+): (Question & { locked?: boolean })[] | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const parsed = JSON.parse(
+      sessionStorage.getItem(GRADED_KEY) ?? "null"
+    ) as { sessionId?: string; questions?: Question[] } | null;
+    return parsed?.sessionId === sessionId && Array.isArray(parsed.questions)
+      ? parsed.questions
+      : null;
+  } catch {
+    return null;
+  }
 }

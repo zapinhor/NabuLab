@@ -1,6 +1,6 @@
 import {
-  questionBank,
-} from "@/data/questions";
+  questionIndex,
+} from "@/data/question-index";
 
 import {
   db,
@@ -12,9 +12,17 @@ import {
 } from "@/lib/subject-evolution";
 
 import type {
-  Question,
+  QuestionMeta,
   SubjectId,
 } from "@/types/question";
+
+/*
+ * O navegador conhece só a classificação das questões. O enunciado
+ * aparece quando a pessoa já respondeu a questão (cópia salva).
+ */
+export type RecommendedQuestionInfo = QuestionMeta & {
+  statement?: string;
+};
 
 import type {
   StoredAnswer,
@@ -41,7 +49,7 @@ export type RecommendationCategory =
 
 export interface RecommendedQuestion {
   question:
-    Question;
+    RecommendedQuestionInfo;
 
   category:
     RecommendationCategory;
@@ -793,8 +801,13 @@ export async function getRecommendedQuizSummary(): Promise<RecommendedQuizSummar
 
   const questions:
     RecommendedQuestion[] =
-    questionBank.map(
-      (question) => {
+    questionIndex.map(
+      (meta) => {
+        const seen = answersByQuestion.get(meta.id) ?? [];
+        const statement = seen
+          .map((answer) => answer.questionSnapshot?.statement)
+          .find((value): value is string => typeof value === "string");
+        const question: RecommendedQuestionInfo = statement ? { ...meta, statement } : { ...meta };
         const history =
           buildQuestionHistory(
             answersByQuestion.get(

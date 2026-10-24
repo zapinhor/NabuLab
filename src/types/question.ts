@@ -105,3 +105,26 @@ export interface Question {
 
   origin?: QuestionOrigin;
 }
+
+/*
+ * =========================================================
+ * VERSÕES SEGURAS PARA O NAVEGADOR
+ * =========================================================
+ *
+ * O banco completo (com gabarito e explicações) fica só no
+ * servidor. O navegador recebe:
+ *
+ * - QuestionMeta: classificação da questão, para contagens,
+ *   filtros, domínio e recomendações (sem enunciado).
+ * - PublicQuestion: o que aparece durante a prova
+ *   (enunciado e alternativas, sem a resposta).
+ *
+ * A correção completa só chega depois da entrega.
+ */
+
+export type QuestionMeta = Pick<
+  Question,
+  "id" | "area" | "subject" | "subjectName" | "topic" | "subtopic" | "difficulty" | "type"
+>;
+
+export type PublicQuestion = QuestionMeta & Pick<Question, "statement" | "alternatives">;

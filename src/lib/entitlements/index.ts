@@ -140,10 +140,10 @@ export function canAccessDifficulty(
   return entitlements.advancedDifficulty || difficulty === "iniciante" || difficulty === "medio";
 }
 
-export function filterAccessibleQuestions(
-  questions: readonly Question[],
+export function filterAccessibleQuestions<T extends Pick<Question, "difficulty">>(
+  questions: readonly T[],
   entitlements: StudentEntitlements,
-): Question[] {
+): T[] {
   if (entitlements.fullQuestionBank) return [...questions];
   return questions.filter((question) => question.difficulty !== "avancado");
 }

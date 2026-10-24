@@ -14,7 +14,7 @@ import {
   type Ref,
 } from "react";
 
-import { getTotalQuestions } from "@/data/questions";
+import { getTotalQuestions } from "@/data/question-index";
 import { subjects } from "@/data/subjects";
 
 import {

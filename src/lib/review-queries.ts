@@ -1,8 +1,8 @@
 import { db } from "@/lib/db";
 
 import {
-  questionBank,
-} from "@/data/questions";
+  questionFromSnapshot,
+} from "@/lib/question-snapshot";
 
 import type {
   Question,
@@ -243,18 +243,29 @@ export async function getReviewSummary(): Promise<ReviewSummary> {
    * =======================================================
    */
 
+/*
+   * A questão vem da cópia salva na resposta mais recente
+   * (o banco completo não fica no navegador).
+   */
+
   const questionMap =
     new Map<
       string,
       Question
-    >(
-      questionBank.map(
-        (question) => [
-          question.id,
-          question,
-        ]
-      )
+    >();
+
+  for (const [questionId, attempts] of answerGroups.entries()) {
+    const latest = [...attempts].sort(
+      (a, b) => (examDateMap.get(b.examId) ?? 0) - (examDateMap.get(a.examId) ?? 0)
     );
+    for (const attempt of latest) {
+      const question = questionFromSnapshot(questionId, attempt.questionSnapshot);
+      if (question) {
+        questionMap.set(questionId, question);
+        break;
+      }
+    }
+  }
 
   const reviewQuestions:
     ReviewQuestionStat[] =

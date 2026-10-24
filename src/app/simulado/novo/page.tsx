@@ -23,7 +23,7 @@ import {
 
 import {
   getTotalQuestions,
-} from "@/data/questions";
+} from "@/data/question-index";
 
 import {
   countAvailableQuestions,

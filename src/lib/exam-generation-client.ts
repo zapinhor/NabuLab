@@ -1,5 +1,6 @@
 import type { ExamConfig, ExamMode, ExamSession } from "@/types/exam";
 import type { StudentQuestionQuotaStatus } from "@/lib/entitlements";
+import type { Question } from "@/types/question";
 
 async function requestSession(body: object): Promise<ExamSession> {
   const response = await fetch("/api/exams/generate", {
@@ -49,4 +50,34 @@ export async function consumeQuestionQuota(examId: string, questionId: string) {
     throw new Error(payload.error ?? "Não foi possível registrar esta resposta.");
   }
   return payload.quota;
+}
+
+/** Erro de correção com mensagem pronta para mostrar ao aluno. */
+export class ExamGradeError extends Error {}
+
+export type GradedQuestion = Question & { locked?: boolean };
+
+/** Envia as respostas para o servidor corrigir; devolve as questões com gabarito. */
+export async function gradeExamOnServer(token: string, answers: Record<string, string>) {
+  let response: Response;
+  try {
+    response = await fetch("/api/exams/grade", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token, answers }),
+    });
+  } catch {
+    throw new ExamGradeError("Sem conexão para corrigir o simulado. Verifique a internet e tente enviar de novo.");
+  }
+  const payload = (await response.json().catch(() => ({}))) as {
+    questions?: GradedQuestion[];
+    correct?: number;
+    answered?: number;
+    total?: number;
+    error?: string;
+  };
+  if (!response.ok || !Array.isArray(payload.questions)) {
+    throw new ExamGradeError(payload.error ?? "Não foi possível corrigir o simulado agora. Tente novamente.");
+  }
+  return { questions: payload.questions, correct: payload.correct ?? 0, answered: payload.answered ?? 0, total: payload.total ?? payload.questions.length };
 }

@@ -1,10 +1,10 @@
 import type { IconName } from "@/components/ui/icon";
 import { db } from "@/lib/db";
-import { questionBank } from "@/data/questions";
+import { questionIndex as questionBank } from "@/data/question-index";
 import { subjects } from "@/data/subjects";
 
 import type {
-  Question,
+  QuestionMeta as Question,
   SubjectId,
 } from "@/types/question";
 
