@@ -44,7 +44,7 @@ export function WorkspaceSwitch({
     );
   }
 
-  const base = "flex min-h-10 flex-1 items-center justify-center gap-2 rounded-lg px-3 text-sm font-bold transition";
+  const base = "flex min-h-10 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg px-2 text-[13px] font-bold transition";
   const active = dark ? "bg-white text-[#0B2D6B] shadow-sm" : "bg-[#0B2D6B] text-white shadow-sm";
   const idle = dark ? "text-slate-300 hover:bg-white/10 hover:text-white" : "text-slate-600 hover:bg-white hover:text-[#0B2D6B]";
 
@@ -59,7 +59,7 @@ export function WorkspaceSwitch({
         aria-current={current === "student" ? "page" : undefined}
         className={`${base} ${current === "student" ? active : idle}`}
       >
-        <Icon name="materias" size={16} />
+        <Icon name="materias" size={14} />
         Estudante
       </Link>
       <Link
@@ -68,7 +68,7 @@ export function WorkspaceSwitch({
         aria-current={current === "teacher" ? "page" : undefined}
         className={`${base} ${current === "teacher" ? active : idle}`}
       >
-        <Icon name="turmas" size={16} />
+        <Icon name="turmas" size={14} />
         Professor
       </Link>
     </nav>
