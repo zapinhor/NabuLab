@@ -16,6 +16,7 @@ import {
 
 import { getTotalQuestions } from "@/data/question-index";
 import { FirstExamQuickStart } from "@/components/student/first-exam-quick-start";
+import { FreeLimitCard } from "@/components/student/free-limit-card";
 import { subjects } from "@/data/subjects";
 
 import {
@@ -1568,14 +1569,19 @@ export default function DashboardPage() {
 
           <UpcomingActivities />
 
-          {questionQuota && !questionQuota.unlimited && (
+          {questionQuota && !questionQuota.unlimited && questionQuota.remaining === 0 && (
+            <div className="mt-4">
+              <FreeLimitCard placement="dashboard" limit={questionQuota.limit ?? 10} />
+            </div>
+          )}
+
+          {questionQuota && !questionQuota.unlimited && questionQuota.remaining !== 0 && (
             <section className="mt-4 rounded-2xl border border-blue-100 bg-white p-4 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-5" aria-label="Franquia gratuita">
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-3 text-sm"><span className="font-bold text-slate-800">Questões gratuitas</span><span className="font-bold text-blue-700">{questionQuota.used} de {questionQuota.limit}</span></div>
                 <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={questionQuota.limit ?? 10} aria-valuenow={questionQuota.used}><div className="h-full rounded-full bg-[#3B82F6]" style={{ width: `${Math.min(100, questionQuota.used * 10)}%` }} /></div>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{questionQuota.remaining === 0 ? "Sua franquia foi concluída. Histórico e atividades de turmas continuam disponíveis." : `${questionQuota.remaining} questões grátis restantes.`}</p>
+                <p className="mt-2 text-xs leading-5 text-slate-500">{`${questionQuota.remaining} questões grátis restantes hoje.`}</p>
               </div>
-              {questionQuota.remaining === 0 && <Link href="/premium" className="mt-3 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-sm font-bold text-white sm:mt-0">Conhecer o Premium</Link>}
             </section>
           )}
 

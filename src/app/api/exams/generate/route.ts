@@ -6,6 +6,7 @@ import {
 } from "@/lib/entitlements/server";
 import { createExamSession, createExamSessionFromQuestionIds, getPublicSessionQuestions } from "@/lib/quiz-engine";
 import { signExamSession } from "@/lib/exam-grading";
+import { getHotmartConfig } from "@/lib/billing/config";
 import type { ExamConfig, ExamMode } from "@/types/exam";
 import type { ExamSession } from "@/types/exam";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
@@ -47,9 +48,21 @@ async function finishGeneration(session: ExamSession, userId: string, isPremium:
   });
 }
 
+/** Oferta do Premium mostrada a quem está no plano gratuito (ex.: ao atingir o limite). */
+function premiumOffer() {
+  const billing = getHotmartConfig();
+  const founder = billing.currentOffer.tier === "founder_477";
+  return {
+    price: billing.currentOffer.displayPrice,
+    regularPrice: founder ? billing.plans.standard_990.displayPrice : null,
+    founder,
+  };
+}
+
 export async function GET() {
   try {
-    return NextResponse.json({ quota: await getStudentQuestionQuotaStatus() });
+    const quota = await getStudentQuestionQuotaStatus();
+    return NextResponse.json({ quota, offer: quota.unlimited ? null : premiumOffer() });
   } catch (error) {
     if (error instanceof Error && error.message === "AUTH_REQUIRED") {
       return NextResponse.json({ error: "Sessão expirada. Entre novamente." }, { status: 401 });

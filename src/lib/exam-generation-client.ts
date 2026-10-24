@@ -91,3 +91,15 @@ export async function gradeExamOnServer(token: string, answers: Record<string, s
     upsell: payload.upsell ?? null,
   };
 }
+
+/** Oferta vigente do Premium (só vem para o plano gratuito). */
+export type PremiumOffer = { price: string; regularPrice: string | null; founder: boolean };
+
+export async function getQuotaAndOffer(): Promise<{ quota: StudentQuestionQuotaStatus; offer: PremiumOffer | null }> {
+  const response = await fetch("/api/exams/generate", { method: "GET", cache: "no-store" });
+  const payload = (await response.json()) as { quota?: StudentQuestionQuotaStatus; offer?: PremiumOffer | null; error?: string };
+  if (!response.ok || !payload.quota) {
+    throw new Error(payload.error ?? "Não foi possível consultar suas questões gratuitas.");
+  }
+  return { quota: payload.quota, offer: payload.offer ?? null };
+}

@@ -30,6 +30,7 @@ import {
 } from "@/lib/question-selector";
 
 import { generateManualExam, getExamQuotaStatus } from "@/lib/exam-generation-client";
+import { FreeLimitCard } from "@/components/student/free-limit-card";
 import {
   getStudentEntitlements,
   type StudentQuestionQuotaStatus,
@@ -389,7 +390,7 @@ export default function NewExamPage() {
       }
 
       if (quota && !quota.unlimited && quota.remaining === 0) {
-        return `Você usou suas ${quota.limit} questões grátis. Continue praticando sem limites com o NabuLab Premium.`;
+        return `Você usou suas ${quota.limit} questões grátis de hoje. Amanhã você ganha mais, ou continue agora no Premium.`;
       }
 
       return null;
@@ -695,13 +696,8 @@ export default function NewExamPage() {
                   </div>
                 )}
                 {quota && !quota.unlimited && quota.remaining === 0 && (
-                  <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
-                    <p className="font-bold text-amber-950">Você usou suas 10 questões grátis de hoje.</p>
-                    <p className="mt-1 text-xs leading-5 text-amber-900">Seu histórico, resultados e atividades de turmas continuam disponíveis.</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <Link href="/premium" className="rounded-lg bg-[#0B2D6B] px-3 py-2 text-xs font-bold text-white">Conhecer o Premium</Link>
-                      <Link href="/revisao" className="rounded-lg border border-amber-300 bg-white px-3 py-2 text-xs font-bold text-amber-950">Revisar meus erros</Link>
-                    </div>
+                  <div className="mt-4">
+                    <FreeLimitCard placement="new_exam" limit={quota.limit ?? 10} />
                   </div>
                 )}
                 {entitlements.unlimitedExams && (

@@ -29,6 +29,7 @@ import {
 } from "@/lib/exam-history";
 import { ExamGradeError, consumeQuestionQuota, gradeExamOnServer } from "@/lib/exam-generation-client";
 import { saveGradedQuestions } from "@/lib/exam-session";
+import { FreeLimitCard } from "@/components/student/free-limit-card";
 
 import {
   EmptyState,
@@ -121,6 +122,7 @@ function getPreferredScrollBehavior():
 
 export default function ExamPage() {
   const [confirmBlankOpen, setConfirmBlankOpen] = useState(false);
+  const [limitDismissed, setLimitDismissed] = useState(false);
   const router =
     useRouter();
 
@@ -1657,12 +1659,9 @@ async function submitExam(confirmedBlank: boolean) {
 
                 {quotaReached && (
                   <div className="mt-3 flex flex-wrap gap-2">
-                    <Link href="/premium" className="rounded-lg bg-[#0B2D6B] px-3 py-2 text-xs font-bold text-white">
-                      Conhecer o Premium
-                    </Link>
-                    <Link href="/revisao" className="rounded-lg border border-red-200 bg-white px-3 py-2 text-xs font-bold text-red-800">
-                      Revisar meus erros
-                    </Link>
+                    <button type="button" onClick={() => setLimitDismissed(false)} className="rounded-lg bg-[#0B2D6B] px-3 py-2 text-xs font-bold text-white">
+                      Ver opções
+                    </button>
                   </div>
                 )}
               </div>
@@ -2100,6 +2099,18 @@ async function submitExam(confirmedBlank: boolean) {
           </Link>
         </section>
       </div>
+      {quotaReached && !limitDismissed && (
+        <div className="fixed inset-0 z-[60] flex items-end justify-center bg-slate-950/50 p-4 sm:items-center" role="presentation" onClick={() => setLimitDismissed(true)}>
+          <div role="dialog" aria-modal="true" className="w-full max-w-lg" onClick={(event) => event.stopPropagation()}>
+            <FreeLimitCard
+              placement="exam"
+              answeredInExam={Object.keys(progress?.answers ?? {}).length}
+              onSubmitExam={() => { setLimitDismissed(true); handleSubmit(); }}
+              onClose={() => setLimitDismissed(true)}
+            />
+          </div>
+        </div>
+      )}
       {confirmBlankOpen && (
         <div className="fixed inset-0 z-[60] flex items-end justify-center bg-slate-950/50 p-4 sm:items-center" role="presentation" onClick={() => setConfirmBlankOpen(false)}>
           <div
