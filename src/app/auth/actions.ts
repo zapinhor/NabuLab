@@ -7,6 +7,7 @@ import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
 import { validateEmail, validatePassword } from "@/lib/forms/signup-validation";
+import { isSignupProfile, profileLandingPath, type SignupProfile } from "@/lib/forms/signup-profile";
 import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
 import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import {
@@ -30,8 +31,10 @@ export async function signUp(formData: FormData) {
   const email = value(formData, "email").toLowerCase();
   const password = rawValue(formData, "password");
   const next = safeNextPath(value(formData, "next"));
+  const profileInput = value(formData, "signup_profile");
+  const profile: SignupProfile | null = isSignupProfile(profileInput) ? profileInput : null;
   const signupError = (message: string): never => {
-    redirect(`/cadastro?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent(message)}`);
+    redirect(`/cadastro?next=${encodeURIComponent(next)}${profile ? `&perfil=${profile}` : ""}&mensagem=${encodeURIComponent(message)}`);
   };
   const emailError = validateEmail(email);
   if (emailError) signupError(`E-mail: ${emailError}`);
@@ -46,8 +49,9 @@ export async function signUp(formData: FormData) {
     email,
     password,
     options: {
-      emailRedirectTo: `${origin}/auth/confirm?flow=signup&next=${encodeURIComponent(next)}`,
+      emailRedirectTo: `${origin}/auth/confirm?flow=signup&next=${encodeURIComponent(profile ? profileLandingPath(profile, next) : next)}`,
       captchaToken,
+      data: profile ? { signup_profile: profile } : undefined,
     },
   });
   if (error?.code === "weak_password") signupError("Senha: essa senha foi considerada insegura. Use uma senha mais longa e difícil de adivinhar.");
@@ -60,13 +64,16 @@ export async function signUp(formData: FormData) {
     redirect(`/login?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent("Confira seu e-mail para confirmar o cadastro.")}`);
   }
   await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null, {
+    properties: profile ? { profile } : undefined,
     sourceEventKey: data.user?.id ? `signup:${data.user.id}:completed` : null,
   });
   const cookieStore = await cookies();
   try { await recordAcquisitionMetric("signup_completed", readAttribution(cookieStore.get(ATTRIBUTION_COOKIE)?.value), ""); }
   catch (metricError) { console.error("[acquisition] Cadastro não agregado:", metricError instanceof Error ? metricError.message : "erro desconhecido"); }
   cookieStore.set(REGISTRATION_COMPLETION_COOKIE, "1", REGISTRATION_COMPLETION_COOKIE_OPTIONS);
-  redirect(`${next}${next.includes("?") ? "&" : "?"}ga_event=sign_up`);
+  const landing = profile ? profileLandingPath(profile, next) : next;
+  const [landingPath, landingHash] = landing.split("#");
+  redirect(`${landingPath}${landingPath.includes("?") ? "&" : "?"}ga_event=sign_up${landingHash ? `#${landingHash}` : ""}`);
 }
 
 export async function signOut() {
