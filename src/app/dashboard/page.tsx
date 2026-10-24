@@ -866,7 +866,7 @@ export default function DashboardPage() {
             }
             className="flex items-center gap-3 rounded-xl border border-[#3B82F6]/30 bg-[#0B2D6B] px-4 py-3 text-sm font-semibold shadow-sm"
           >
-            <span aria-hidden="true">
+            <span aria-hidden="true" className="shrink-0">
               <Icon name="inicio" size={16} />
             </span>
 
@@ -882,7 +882,7 @@ export default function DashboardPage() {
             }
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
+            <span aria-hidden="true" className="shrink-0">
               <Icon name="materias" size={16} />
             </span>
 
@@ -898,7 +898,7 @@ export default function DashboardPage() {
             }
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
+            <span aria-hidden="true" className="shrink-0">
               <Icon name="desempenho" size={16} />
             </span>
 
@@ -943,7 +943,7 @@ export default function DashboardPage() {
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span className="flex items-center gap-3">
-              <span aria-hidden="true">
+              <span aria-hidden="true" className="shrink-0">
                 <Icon name="metas" size={18} />
               </span>
 
@@ -981,7 +981,7 @@ export default function DashboardPage() {
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span className="flex items-center gap-3">
-              <span aria-hidden="true">
+              <span aria-hidden="true" className="shrink-0">
                 <Icon name="treinar-erros" size={18} />
               </span>
 
@@ -1030,7 +1030,7 @@ export default function DashboardPage() {
             href="/auditoria"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
+            <span aria-hidden="true" className="shrink-0">
               <Icon name="auditoria" size={16} />
             </span>
 
@@ -1041,7 +1041,7 @@ export default function DashboardPage() {
             href="/simulado/novo"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">
+            <span aria-hidden="true" className="shrink-0">
               <Icon name="novo-simulado" size={16} />
             </span>
 
@@ -1088,7 +1088,7 @@ export default function DashboardPage() {
                 </p>
 
                 <p className="mt-1 text-xl font-bold">
-                  <span aria-hidden="true">
+                  <span aria-hidden="true" className="shrink-0">
                     <Icon name="sequencia" size={22} />
                   </span>{" "}
                   {
@@ -1172,7 +1172,7 @@ export default function DashboardPage() {
                     : "dias"
                 }. Abrir metas.`}
               >
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="shrink-0">
                   <Icon name="sequencia" size={14} />
                 </span>{" "}
                 {
@@ -1391,7 +1391,7 @@ export default function DashboardPage() {
                   </p>
 
                   <p className="mt-1 text-sm font-bold text-orange-700">
-                    <span aria-hidden="true">
+                    <span aria-hidden="true" className="shrink-0">
                       <Icon name="sequencia" size={16} />
                     </span>{" "}
                     {
@@ -1474,7 +1474,7 @@ export default function DashboardPage() {
                     href="/recomendado"
                     className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:border-[#F4C430]/60 hover:bg-white/15"
                   >
-                    <span aria-hidden="true">
+                    <span aria-hidden="true" className="shrink-0">
                       <Icon name="recomendado" size={16} />
                     </span>{" "}
                     Simulado recomendado
@@ -1485,7 +1485,7 @@ export default function DashboardPage() {
                       href="/revisao"
                       className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:border-[#F4C430]/60 hover:bg-white/15"
                     >
-                      <span aria-hidden="true">
+                      <span aria-hidden="true" className="shrink-0">
                         <Icon name="treinar-erros" size={16} />
                       </span>{" "}
                       Treinar meus erros
@@ -1543,7 +1543,7 @@ export default function DashboardPage() {
                   </p>
 
                   <p className="mt-2 text-lg font-bold sm:text-2xl">
-                    <span aria-hidden="true">
+                    <span aria-hidden="true" className="shrink-0">
                       <Icon name="sequencia" size={24} />
                     </span>{" "}
                     {
@@ -1669,7 +1669,7 @@ export default function DashboardPage() {
           <section className="mt-5 grid gap-4 sm:mt-7 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
             <div className="min-w-0 rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-5 shadow-sm sm:p-6">
               <p className="text-sm font-bold text-orange-600">
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="shrink-0">
                   <Icon name="sequencia" size={16} />
                 </span>{" "}
                 Consistência
@@ -1882,7 +1882,7 @@ export default function DashboardPage() {
               className="min-w-0 rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-violet-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-6"
             >
               <p className="text-sm font-bold text-indigo-600">
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="shrink-0">
                   <Icon name="recomendado" size={16} />
                 </span>{" "}
                 Estudo adaptativo
@@ -1909,7 +1909,7 @@ export default function DashboardPage() {
               className="min-w-0 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-6"
             >
               <p className="text-sm font-bold text-blue-600">
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="shrink-0">
                   <Icon name="dominio" size={16} />
                 </span>{" "}
                 Mapa de aprendizagem
@@ -1941,7 +1941,7 @@ export default function DashboardPage() {
                 <div className="grid lg:grid-cols-[minmax(0,1fr)_250px]">
                   <div className="min-w-0 p-5 sm:p-6 md:p-7">
                     <p className="text-sm font-bold text-violet-600">
-                      <span aria-hidden="true">
+                      <span aria-hidden="true" className="shrink-0">
                         <Icon name="treinar-erros" size={16} />
                       </span>{" "}
                       Revisão recomendada
@@ -2284,7 +2284,7 @@ export default function DashboardPage() {
                               <span
                                 className={`inline-flex rounded-full border px-2.5 py-1 text-[10px] font-bold ${modeInfo.badgeClass}`}
                               >
-                                <span aria-hidden="true">
+                                <span aria-hidden="true" className="shrink-0">
                                   <Icon name={modeInfo.icon} size={18} />
                                 </span>{" "}
                                 {
