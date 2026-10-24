@@ -72,7 +72,7 @@ export function useNotificationSummary() {
     };
   }, [instanceId, refresh]);
 
-  useTabBadge(summary?.unread ?? 0);
+  useTabBadge(instanceId, summary?.unread ?? 0);
 
   return { summary, refresh };
 }
@@ -124,26 +124,56 @@ async function setFaviconBadge(unread: number) {
   originalIcons.forEach(({ link }) => { link.href = badged; });
 }
 
-function useTabBadge(unread: number) {
-  useEffect(() => {
-    const label = unread > 99 ? "99+" : String(unread);
-    const applyTitle = () => {
-      const clean = document.title.replace(COUNT_PREFIX, "");
-      const next = unread > 0 ? `(${label}) ${clean}` : clean;
-      if (document.title !== next) document.title = next;
-    };
-    applyTitle();
+/*
+ * A página pode ter mais de um sino (ex.: barra do desktop + menu do celular).
+ * Por isso o aviso na aba é único: cada sino informa seu total e a aba mostra
+ * o maior. Um único observador reaplica o contador quando o Next troca o
+ * título — e como todos miram o mesmo valor, não há disputa (antes, dois
+ * observadores com totais diferentes reescreviam o título em laço infinito
+ * e travavam o navegador).
+ */
+const badgeCounts = new Map<string, number>();
+let titleObserver: MutationObserver | null = null;
+let faviconCount = 0;
+
+function desiredUnread() {
+  let max = 0;
+  badgeCounts.forEach((value) => { if (value > max) max = value; });
+  return max;
+}
+
+function applyTitle() {
+  const unread = desiredUnread();
+  const clean = document.title.replace(COUNT_PREFIX, "");
+  const next = unread > 0 ? `(${unread > 99 ? "99+" : unread}) ${clean}` : clean;
+  if (document.title !== next) document.title = next;
+}
+
+function syncTabBadge() {
+  applyTitle();
+
+  const unread = desiredUnread();
+  if (unread !== faviconCount) {
+    faviconCount = unread;
     void setFaviconBadge(unread);
+  }
 
-    // O Next pode trocar o título ao navegar; reaplica o contador quando isso acontece.
-    const titleElement = document.querySelector("title");
-    const observer = titleElement ? new MutationObserver(applyTitle) : null;
-    if (titleElement && observer) observer.observe(titleElement, { childList: true });
+  if (badgeCounts.size > 0 && !titleObserver) {
+    titleObserver = new MutationObserver(applyTitle);
+    titleObserver.observe(document.head, { childList: true, subtree: true, characterData: true });
+  } else if (badgeCounts.size === 0 && titleObserver) {
+    titleObserver.disconnect();
+    titleObserver = null;
+  }
+}
 
+function useTabBadge(id: string, unread: number) {
+  useEffect(() => {
+    badgeCounts.set(id, unread);
+    syncTabBadge();
     return () => {
-      observer?.disconnect();
-      document.title = document.title.replace(COUNT_PREFIX, "");
-      void setFaviconBadge(0);
+      badgeCounts.delete(id);
+      syncTabBadge();
     };
-  }, [unread]);
+  }, [id, unread]);
 }
