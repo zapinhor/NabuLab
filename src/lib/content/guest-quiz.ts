@@ -59,10 +59,22 @@ const publicPool: GuestQuestion[] = contentCatalog.flatMap((subject) =>
   ),
 );
 
-function shuffle<T>(items: T[]) {
+/** Gerador determinístico (mulberry32): a mesma semente sempre sorteia as mesmas questões. */
+function seededRandom(seed: number) {
+  let state = seed >>> 0;
+  return () => {
+    state = (state + 0x6d2b79f5) >>> 0;
+    let t = state;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function shuffle<T>(items: T[], random: () => number) {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
@@ -72,8 +84,8 @@ function shuffle<T>(items: T[]) {
  * Sorteia as questões do teste: começa por uma de nível iniciante (primeiro
  * acerto rápido) e evita repetir matéria enquanto houver opção.
  */
-export function pickGuestQuestions(track: GuestTrack, size = GUEST_QUIZ_SIZE) {
-  const pool = shuffle(publicPool.filter((question) => track.subjects.includes(question.subject)));
+export function pickGuestQuestions(track: GuestTrack, seed: number, size = GUEST_QUIZ_SIZE) {
+  const pool = shuffle(publicPool.filter((question) => track.subjects.includes(question.subject)), seededRandom(seed));
   const picks: GuestQuestion[] = [];
   const usedSubjects = new Set<SubjectId>();
   const take = (question: GuestQuestion | undefined) => {
@@ -93,3 +105,25 @@ export function pickGuestQuestions(track: GuestTrack, size = GUEST_QUIZ_SIZE) {
 }
 
 export const guestPoolSize = publicPool.length;
+
+/*
+ * Limite do teste: cada navegador faz UM teste de 3 questões. Ao escolher a
+ * área, o servidor grava a área e a semente do sorteio neste cookie; depois
+ * disso a página sempre mostra as mesmas 3 questões (ou o resultado), mesmo
+ * que a pessoa recarregue ou tente outra área.
+ */
+export const GUEST_QUIZ_COOKIE = "nabulab_guest_quiz";
+export const GUEST_QUIZ_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+
+export type GuestQuizLock = { track: GuestTrack; seed: number };
+
+export function encodeGuestLock(trackId: GuestTrackId, seed: number) {
+  return `${trackId}.${seed >>> 0}`;
+}
+
+export function parseGuestLock(value: string | undefined): GuestQuizLock | null {
+  const match = value?.match(/^([a-z]+)\.(\d{1,10})$/);
+  const track = findGuestTrack(match?.[1]);
+  if (!match || !track) return null;
+  return { track, seed: Number(match[2]) >>> 0 };
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { trackEvent } from "@/components/analytics/track-event";
 import { Icon } from "@/components/ui/icon";
@@ -18,34 +18,59 @@ export type GuestQuizResult = {
   finishedAt: string;
 };
 
+/** Progresso do teste em andamento: quem recarrega a página continua de onde parou. */
+const PROGRESS_KEY = "nabulab_guest_quiz_progress";
+type Progress = { lockKey: string; index: number; choices: Record<string, string>; finished: boolean };
+
+function readProgressRaw(): string | null {
+  try { return localStorage.getItem(PROGRESS_KEY); } catch { return null; }
+}
+
+function parseProgress(raw: string | null, lockKey: string): Progress | null {
+  if (!raw) return null;
+  try {
+    const saved = JSON.parse(raw) as Progress;
+    return saved?.lockKey === lockKey && saved.choices && typeof saved.index === "number" ? saved : null;
+  } catch {
+    return null;
+  }
+}
+
 const difficultyLabel = { iniciante: "Iniciante", medio: "Médio", avancado: "Avançado" } as const;
 
 export function GuestQuiz({
+  lockKey,
   track,
   trackLabel,
   questions,
   signupHref,
-  retryHref,
   authenticated,
 }: {
+  lockKey: string;
   track: GuestTrackId;
   trackLabel: string;
   questions: GuestQuestion[];
   signupHref: string;
-  retryHref: string;
   authenticated: boolean;
 }) {
-  const [index, setIndex] = useState(0);
-  const [choices, setChoices] = useState<Record<string, string>>({});
-  const [finished, setFinished] = useState(false);
+  // Progresso salvo (lido do navegador sem efeito colateral) até a pessoa interagir nesta visita.
+  const savedRaw = useSyncExternalStore(() => () => {}, readProgressRaw, () => null);
+  const [local, setLocal] = useState<Progress | null>(null);
+  const progress = local ?? parseProgress(savedRaw, lockKey) ?? { lockKey, index: 0, choices: {}, finished: false };
+  const { index, choices, finished } = progress;
   const started = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
+
+  function save(nextProgress: Progress) {
+    setLocal(nextProgress);
+    try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(nextProgress)); } catch { /* navegação privada */ }
+  }
 
   useEffect(() => {
     if (started.current) return;
     started.current = true;
-    void trackEvent("guest_quiz_started", { track });
-  }, [track]);
+    if (!parseProgress(readProgressRaw(), lockKey)) void trackEvent("guest_quiz_started", { track });
+  }, [lockKey, track]);
 
   const question = questions[index];
   const chosen = question ? choices[question.id] : undefined;
@@ -55,13 +80,13 @@ export function GuestQuiz({
   function choose(alternativeId: string) {
     if (!question || answered) return;
     const correct = alternativeId === question.correctAnswer;
-    setChoices((current) => ({ ...current, [question.id]: alternativeId }));
+    save({ ...progress, choices: { ...choices, [question.id]: alternativeId } });
     void trackEvent("guest_question_answered", { track, position: index + 1, correct, subject: question.subject });
   }
 
   function next() {
     if (index < questions.length - 1) {
-      setIndex(index + 1);
+      save({ ...progress, index: index + 1 });
       requestAnimationFrame(() => headingRef.current?.focus());
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -78,7 +103,7 @@ export function GuestQuiz({
     };
     try { localStorage.setItem(GUEST_RESULT_KEY, JSON.stringify(result)); } catch { /* navegação privada */ }
     void trackEvent("guest_quiz_completed", { track, correct: correctCount, total: questions.length });
-    setFinished(true);
+    save({ ...progress, finished: true });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -144,10 +169,7 @@ export function GuestQuiz({
               <p className="mt-2 text-center text-xs font-semibold text-slate-500">Leva menos de 1 minuto. Sem cartão.</p>
             </>
           )}
-          <div className="mt-5 flex flex-col gap-2 border-t border-slate-100 pt-5 text-sm font-bold sm:flex-row sm:justify-center sm:gap-6">
-            <a href={retryHref} className="text-center text-[#3B82F6] hover:underline">Responder outras 3</a>
-            <Link href="/experimente" className="text-center text-slate-500 hover:underline">Trocar de área</Link>
-          </div>
+          <p className="mt-5 border-t border-slate-100 pt-4 text-center text-xs leading-5 text-slate-500">O teste grátis sem cadastro vale uma vez. {authenticated ? "No painel você continua praticando." : "Com a conta você continua praticando todos os dias."}</p>
         </div>
       </section>
     );

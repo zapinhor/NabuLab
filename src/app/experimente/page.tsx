@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 import { GuestQuiz } from "@/components/guest-quiz/guest-quiz";
 import { Icon } from "@/components/ui/icon";
 import { campaignQuery } from "@/lib/analytics/acquisition";
-import { GUEST_QUIZ_SIZE, GUEST_TRACKS, findGuestTrack, pickGuestQuestions } from "@/lib/content/guest-quiz";
+import { GUEST_QUIZ_COOKIE, GUEST_QUIZ_SIZE, GUEST_TRACKS, encodeGuestLock, parseGuestLock, pickGuestQuestions } from "@/lib/content/guest-quiz";
 import { createPublicMetadata } from "@/lib/seo";
 import { createClient } from "@/lib/supabase/server";
 
@@ -30,8 +32,13 @@ export default async function TryPage({
   const { data } = await supabase.auth.getUser();
   const authenticated = Boolean(data.user);
 
-  const track = findGuestTrack(typeof values.area === "string" ? values.area : undefined);
-  const questions = track ? pickGuestQuestions(track) : [];
+  // Um teste por navegador: a área e o sorteio ficam presos no cookie gravado em /experimente/iniciar.
+  const lock = parseGuestLock((await cookies()).get(GUEST_QUIZ_COOKIE)?.value);
+  if (!lock && typeof values.area === "string") {
+    redirect(withCampaign(`/experimente/iniciar?area=${encodeURIComponent(values.area)}`));
+  }
+  const track = lock?.track ?? null;
+  const questions = lock ? pickGuestQuestions(lock.track, lock.seed) : [];
   const dashboardPath = withCampaign("/dashboard?origem=teste");
   const signupHref = withCampaign(`/cadastro?next=${encodeURIComponent(dashboardPath)}`);
 
@@ -49,12 +56,12 @@ export default async function TryPage({
       <div className="px-4 pb-48 pt-8 sm:px-6 sm:pb-40 sm:pt-12">
         {track && questions.length > 0 ? (
           <GuestQuiz
-            key={questions.map((question) => question.id).join("-")}
+            key={encodeGuestLock(track.id, lock!.seed)}
+            lockKey={encodeGuestLock(track.id, lock!.seed)}
             track={track.id}
             trackLabel={track.label}
             questions={questions}
             signupHref={signupHref}
-            retryHref={withCampaign(`/experimente?area=${track.id}`)}
             authenticated={authenticated}
           />
         ) : (
@@ -65,12 +72,12 @@ export default async function TryPage({
             <h1 id="escolha" className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] text-[#0B2D6B] sm:text-4xl">
               Responda {GUEST_QUIZ_SIZE} questões e veja a correção na hora
             </h1>
-            <p className="mt-3 text-base leading-7 text-slate-600">Escolha uma área para começar. Depois de cada resposta você vê a explicação comentada.</p>
+            <p className="mt-3 text-base leading-7 text-slate-600">Escolha uma área para começar. Depois de cada resposta você vê a explicação comentada. O teste grátis pode ser feito uma vez.</p>
             <ul className="mt-7 grid gap-3">
               {GUEST_TRACKS.map((item) => (
                 <li key={item.id}>
-                  <Link
-                    href={withCampaign(`/experimente?area=${item.id}`)}
+                  <a
+                    href={withCampaign(`/experimente/iniciar?area=${item.id}`)}
                     className="group flex min-h-16 items-center gap-4 rounded-2xl border-2 border-slate-200 bg-white px-4 py-3 transition hover:border-[#3B82F6] hover:bg-blue-50"
                   >
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-100 text-[#0B2D6B]"><Icon name={item.icon} size={22} /></span>
@@ -79,7 +86,7 @@ export default async function TryPage({
                       <span className="block text-sm text-slate-500">{item.hint}</span>
                     </span>
                     <Icon name="avancar" size={20} className="text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-[#3B82F6]" />
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
