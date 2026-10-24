@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-const links = [["/admin", "Visão geral"], ["/admin/product", "Produto"], ["/admin/acquisition", "Aquisição"], ["/admin/conversion", "Conversão"], ["/admin/finance", "Financeiro"], ["/admin/subscriptions", "Assinaturas"], ["/admin/system", "Sistema"]] as const;
+const links = [["/admin", "Visão geral"], ["/admin/product", "Produto"], ["/admin/content", "Conteúdo"], ["/admin/acquisition", "Aquisição"], ["/admin/conversion", "Conversão"], ["/admin/finance", "Financeiro"], ["/admin/subscriptions", "Assinaturas"], ["/admin/system", "Sistema"]] as const;
 
 export function AdminShell({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   return <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6"><div className="mx-auto max-w-7xl">

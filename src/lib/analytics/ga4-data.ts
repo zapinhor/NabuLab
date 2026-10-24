@@ -1,5 +1,6 @@
 import "server-only";
 import { createSign } from "node:crypto";
+import { fetchWithTimeout } from "@/lib/observability";
 
 const METRICS = ["activeUsers", "sessions", "newUsers", "screenPageViews"] as const;
 const API_URL = "https://analyticsdata.googleapis.com/v1beta";
@@ -43,12 +44,12 @@ async function accessToken(email: string, privateKey: string) {
   const unsigned = `${header}.${claims}`;
   const normalizedPrivateKey = privateKey.replace(/\\n/g, "\n");
   const signature = createSign("RSA-SHA256").update(unsigned).sign(normalizedPrivateKey, "base64url");
-  const response = await fetch("https://oauth2.googleapis.com/token", {
+  const response = await fetchWithTimeout("https://oauth2.googleapis.com/token", {
     method: "POST",
     headers: { "content-type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({ grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer", assertion: `${unsigned}.${signature}` }),
     cache: "no-store",
-  });
+  }, 10_000);
   if (!response.ok) throw new Ga4DataError("GA4_OAUTH", response.status);
   return (await response.json() as { access_token: string }).access_token;
 }
@@ -63,7 +64,7 @@ async function runReport(propertyId: string, token: string, filters: Ga4Filters,
     filters.campaign ? exact("sessionCampaignName", filters.campaign) : null,
     filters.content ? exact("sessionManualAdContent", filters.content) : null,
   ].filter((item) => item !== null);
-  const response = await fetch(`${API_URL}/properties/${encodeURIComponent(propertyId)}:runReport`, {
+  const response = await fetchWithTimeout(`${API_URL}/properties/${encodeURIComponent(propertyId)}:runReport`, {
     method: "POST",
     headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
     body: JSON.stringify({
@@ -76,7 +77,7 @@ async function runReport(propertyId: string, token: string, filters: Ga4Filters,
       limit: 10000,
     }),
     cache: "no-store",
-  });
+  }, 10_000);
   if (!response.ok) throw new Ga4DataError("GA4_DATA_API", response.status);
   return await response.json() as ApiResponse;
 }

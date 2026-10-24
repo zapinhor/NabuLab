@@ -42,6 +42,10 @@
     "test:acquisition": "node --import tsx scripts/test-acquisition.ts",
     "test:tiktok": "node --import tsx scripts/test-tiktok-pixel.ts",
     "test:streak": "node --import tsx scripts/test-streak-override.ts",
+    "test:hardening": "node --import tsx scripts/test-hardening.ts",
+    "test:scale": "node --import tsx scripts/test-scale.ts",
+    "test:content": "node --import tsx scripts/test-content.ts",
+    "test:seo": "node --import tsx scripts/test-seo.ts",
     "start": "next start",
     "lint": "eslint"
   },
@@ -49,7 +53,7 @@
     "@supabase/ssr": "0.12.6",
     "@supabase/supabase-js": "2.116.0",
     "dexie": "^4.4.5",
-    "next": "16.3.4",
+    "next": "16.4.2",
     "qrcode": "1.5.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -63,7 +67,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
     "tsx": "^4.20.6",
     "typescript": "^5"
