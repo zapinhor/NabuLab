@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { BillingPriceTier } from "@/lib/billing/config";
 import { trackTikTokEvent } from "@/lib/analytics/tiktok";
+import { discountPercent, pricePerDay } from "@/lib/billing/price-display";
 
 type Offer = {
   tier: BillingPriceTier;
@@ -14,6 +15,8 @@ type Offer = {
 
 export default function PremiumPlanActions({ offer, standardPrice, signupHref }: { offer: Offer; standardPrice: string; signupHref?: string }) {
   const [loadingTier, setLoadingTier] = useState<BillingPriceTier | null>(null);
+  const discount = offer.tier === "founder_477" ? discountPercent(offer.price, standardPrice) : null;
+  const perDay = pricePerDay(offer.price);
   const [error, setError] = useState<string | null>(null);
 
   async function startCheckout(tier: BillingPriceTier) {
@@ -63,10 +66,16 @@ export default function PremiumPlanActions({ offer, standardPrice, signupHref }:
                 </span>
               )}
             </div>
-            {offer.tier === "founder_477" && <p className="mt-6 text-sm font-semibold text-slate-500">De <span className="line-through decoration-slate-500">{standardPrice}/mês</span></p>}
+            {offer.tier === "founder_477" && (
+              <p className="mt-6 flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-500">
+                <span>De <span className="line-through decoration-slate-500">{standardPrice}/mês</span></span>
+                {discount !== null && <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-black text-emerald-800">{discount}% de desconto</span>}
+              </p>
+            )}
             <p className={offer.tier === "founder_477" ? "mt-1 text-4xl font-black text-slate-950" : "mt-6 text-4xl font-black text-slate-950"}>
               {offer.tier === "founder_477" && <span className="mr-2 text-base font-bold text-amber-800">por</span>}{offer.price}<span className="text-sm font-semibold text-slate-500">/mês</span>
             </p>
+            {perDay && <p className="mt-1 text-sm font-bold text-blue-700">Isso é {perDay}.</p>}
             <p className="mt-3 text-sm leading-6 text-slate-600">
               Simulados ilimitados, até 50 questões, nível avançado e todos os recursos Premium.
             </p>

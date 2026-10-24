@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { TrackedLink } from "@/components/analytics/tracked-link";
 import { Icon } from "@/components/ui/icon";
 import { getQuotaAndOffer, type PremiumOffer } from "@/lib/exam-generation-client";
+import { discountPercent, pricePerDay } from "@/lib/billing/price-display";
 
 /**
  * Aviso de fim das questões grátis do dia, com o próximo passo:
@@ -57,6 +58,15 @@ export function FreeLimitCard({
         )}
       </div>
 
+      {offer && (discountPercent(offer.price, offer.regularPrice) !== null || pricePerDay(offer.price)) && (
+        <p className="mt-3 flex flex-wrap items-center gap-2 text-sm font-bold text-[#0B2D6B]">
+          {discountPercent(offer.price, offer.regularPrice) !== null && (
+            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-black text-emerald-800">{discountPercent(offer.price, offer.regularPrice)}% de desconto</span>
+          )}
+          {pricePerDay(offer.price) && <span>Premium por {pricePerDay(offer.price)}</span>}
+        </p>
+      )}
+
       <div className="mt-4 grid gap-2 sm:grid-cols-2">
         <TrackedLink
           event="premium_cta_clicked"
@@ -67,7 +77,8 @@ export function FreeLimitCard({
           Continuar sem limite
           {offer && (
             <span className="text-xs font-semibold text-blue-100">
-              {offer.founder ? "Preço Fundador " : ""}{offer.price}/mês{offer.regularPrice ? ` (de ${offer.regularPrice})` : ""}
+              {offer.founder ? "Preço Fundador " : ""}{offer.price}/mês
+              {offer.regularPrice ? <> (de <span className="line-through">{offer.regularPrice}</span>)</> : null}
             </span>
           )}
         </TrackedLink>

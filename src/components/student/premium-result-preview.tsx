@@ -3,6 +3,7 @@
 import { TrackedLink } from "@/components/analytics/tracked-link";
 import { Icon, type IconName } from "@/components/ui/icon";
 import type { PremiumUpsell } from "@/lib/exam-generation-client";
+import { discountPercent, pricePerDay } from "@/lib/billing/price-display";
 
 const BENEFITS: Array<{ icon: IconName; text: string }> = [
   { icon: "treinar-erros", text: "Treinar só os seus erros" },
@@ -16,6 +17,8 @@ const BENEFITS: Array<{ icon: IconName; text: string }> = [
  * Usa o resultado da própria prova para mostrar o próximo passo.
  */
 export function PremiumResultPreview({ upsell, mistakes }: { upsell: PremiumUpsell; mistakes: number }) {
+  const discount = discountPercent(upsell.price, upsell.regularPrice);
+  const perDay = pricePerDay(upsell.price);
   const headline = mistakes > 0
     ? `Você errou ou deixou em branco ${mistakes} ${mistakes === 1 ? "questão" : "questões"}. No Premium, elas viram um treino só seu.`
     : "Você foi muito bem. No Premium, você vai além com simulados maiores e questões avançadas.";
@@ -43,7 +46,13 @@ export function PremiumResultPreview({ upsell, mistakes }: { upsell: PremiumUpse
             <span className="text-3xl font-black text-[#0B2D6B]">{upsell.price}</span>
             <span className="text-sm font-semibold text-slate-500">/mês</span>
           </p>
-          {upsell.regularPrice && <p className="text-xs font-semibold text-slate-400 line-through">{upsell.regularPrice}/mês</p>}
+          {upsell.regularPrice && (
+            <p className="flex items-center justify-center gap-2 text-xs font-semibold">
+              <span className="text-slate-400 line-through">{upsell.regularPrice}/mês</span>
+              {discount !== null && <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-black text-emerald-800">{discount}% off</span>}
+            </p>
+          )}
+          {perDay && <p className="mt-1 text-xs font-bold text-blue-700">Isso é {perDay}.</p>}
           <TrackedLink
             event="premium_cta_clicked"
             properties={{ placement: upsell.firstExam ? "result_first_exam" : "result", mistakes }}
