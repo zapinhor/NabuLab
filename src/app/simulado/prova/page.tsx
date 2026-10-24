@@ -120,6 +120,7 @@ function getPreferredScrollBehavior():
  */
 
 export default function ExamPage() {
+  const [confirmBlankOpen, setConfirmBlankOpen] = useState(false);
   const router =
     useRouter();
 
@@ -964,7 +965,11 @@ export default function ExamPage() {
    * =========================================================
    */
 
-async function handleSubmit() {
+function handleSubmit() {
+  void submitExam(false);
+}
+
+async function submitExam(confirmedBlank: boolean) {
   if (
     isSubmitting
   ) {
@@ -986,29 +991,18 @@ async function handleSubmit() {
     null
   );
 
+    // Questões em branco: confirma numa janela do próprio site (a confirmação
+    // nativa do navegador trava a página e não combina com o app).
     if (
       unansweredCount >
-      0
+        0 &&
+      !confirmedBlank
     ) {
-      const confirmed =
-        window.confirm(
-          `Você ainda possui ${unansweredCount} ${
-            unansweredCount ===
-            1
-              ? "questão"
-              : "questões"
-          } sem resposta. Deseja submeter a prova mesmo assim?`
-        );
+      setConfirmBlankOpen(
+        true
+      );
 
-      if (
-        !confirmed
-      ) {
-        setInteractionMessage(
-          "Envio cancelado. Você pode continuar respondendo o simulado."
-        );
-
-        return;
-      }
+      return;
     }
 
     setIsSubmitting(
@@ -1072,7 +1066,8 @@ async function handleSubmit() {
         );
       saveGradedQuestions(
         session.id,
-        graded.questions
+        graded.questions,
+        graded.upsell
       );
       await saveCompletedExam({
         session,
@@ -2105,6 +2100,26 @@ async function handleSubmit() {
           </Link>
         </section>
       </div>
+      {confirmBlankOpen && (
+        <div className="fixed inset-0 z-[60] flex items-end justify-center bg-slate-950/50 p-4 sm:items-center" role="presentation" onClick={() => setConfirmBlankOpen(false)}>
+          <div
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="confirmar-branco"
+            className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <h2 id="confirmar-branco" className="text-lg font-black text-[#0B2D6B]">
+              {unansweredCount} {unansweredCount === 1 ? "questão ficou" : "questões ficaram"} em branco
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Questões em branco contam como não respondidas. Quer voltar e responder ou entregar assim mesmo?</p>
+            <div className="mt-5 grid gap-2 sm:grid-cols-2">
+              <button type="button" autoFocus onClick={() => { setConfirmBlankOpen(false); setInteractionMessage("Envio cancelado. Você pode continuar respondendo o simulado."); }} className="min-h-12 rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">Continuar respondendo</button>
+              <button type="button" onClick={() => { setConfirmBlankOpen(false); void submitExam(true); }} className="min-h-12 rounded-xl bg-[#0B2D6B] px-4 py-3 text-sm font-bold text-white hover:bg-[#174EA6]">Entregar assim mesmo</button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

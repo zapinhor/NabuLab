@@ -57,6 +57,9 @@ export class ExamGradeError extends Error {}
 
 export type GradedQuestion = Question & { locked?: boolean };
 
+/** Prévia do Premium devolvida pelo servidor para quem está no plano gratuito. */
+export type PremiumUpsell = { price: string; regularPrice: string | null; founder: boolean; firstExam: boolean };
+
 /** Envia as respostas para o servidor corrigir; devolve as questões com gabarito. */
 export async function gradeExamOnServer(token: string, answers: Record<string, string>) {
   let response: Response;
@@ -74,10 +77,17 @@ export async function gradeExamOnServer(token: string, answers: Record<string, s
     correct?: number;
     answered?: number;
     total?: number;
+    upsell?: PremiumUpsell | null;
     error?: string;
   };
   if (!response.ok || !Array.isArray(payload.questions)) {
     throw new ExamGradeError(payload.error ?? "Não foi possível corrigir o simulado agora. Tente novamente.");
   }
-  return { questions: payload.questions, correct: payload.correct ?? 0, answered: payload.answered ?? 0, total: payload.total ?? payload.questions.length };
+  return {
+    questions: payload.questions,
+    correct: payload.correct ?? 0,
+    answered: payload.answered ?? 0,
+    total: payload.total ?? payload.questions.length,
+    upsell: payload.upsell ?? null,
+  };
 }

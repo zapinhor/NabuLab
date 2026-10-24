@@ -12,10 +12,13 @@ import {
 } from "react";
 
 import NabuLabBrand from "@/components/ui/nabulab-brand";
+import { PremiumResultPreview } from "@/components/student/premium-result-preview";
+import type { PremiumUpsell } from "@/lib/exam-generation-client";
 
 import {
   loadExamSession,
   loadGradedQuestions,
+  loadGradedUpsell,
   loadExamSubmission,
 } from "@/lib/exam-session";
 
@@ -275,6 +278,11 @@ export default function ExamResultPage() {
     );
 
   const [
+    upsell,
+    setUpsell,
+  ] = useState<PremiumUpsell | null>(null);
+
+  const [
     loading,
     setLoading,
   ] =
@@ -365,6 +373,12 @@ export default function ExamResultPage() {
 
           setQuestions(
             storedQuestions
+          );
+
+          setUpsell(
+            loadGradedUpsell(
+              storedSession.id
+            )
           );
         } catch (
           loadError
@@ -806,6 +820,14 @@ export default function ExamResultPage() {
             Ver histórico
           </Link>
         </section>
+
+        {/* Prévia do Premium (só plano gratuito; vem da correção do servidor). */}
+        {upsell && (
+          <PremiumResultPreview
+            upsell={upsell}
+            mistakes={result.incorrect + result.unanswered}
+          />
+        )}
 
         {/* ===================================================
             DESEMPENHO POR MATÉRIA

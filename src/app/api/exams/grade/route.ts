@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import { getHotmartConfig } from "@/lib/billing/config";
 import { getCurrentStudentAccess } from "@/lib/entitlements/server";
 import { gradeExam, verifyExamToken } from "@/lib/exam-grading";
 import { consumeApiRateLimit, rateLimitIdentity } from "@/lib/security/api-rate-limit";
@@ -50,7 +52,38 @@ export async function POST(request: Request) {
       revealIds = new Set((data ?? []).map((row) => row.question_id as string));
     }
 
-    return NextResponse.json(gradeExam(session, answers, revealIds));
+    const result = gradeExam(session, answers, revealIds);
+
+    // Primeiro simulado da conta: a correção acontece antes de a prova ser salva,
+    // então "nenhuma prova salva ainda" identifica a primeira.
+    const { count: previousExams } = await createAdminClient()
+      .from("exam_attempts")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", userId)
+      .neq("id", session.id);
+    const firstExam = (previousExams ?? 0) === 0;
+    if (firstExam) {
+      await recordAuthenticatedAnalyticsEvent("first_exam_completed", userId, {
+        sourceEventKey: `student:${userId}:first-exam`,
+        path: "/simulado/resultado",
+        properties: { questions: result.total, correct: result.correct, mode: session.mode },
+      });
+    }
+
+    // Prévia do Premium no resultado de quem está no plano gratuito.
+    let upsell: { price: string; regularPrice: string | null; founder: boolean; firstExam: boolean } | null = null;
+    if (entitlements.dailyQuestionLimit !== null) {
+      const billing = getHotmartConfig();
+      const founder = billing.currentOffer.tier === "founder_477";
+      upsell = {
+        price: billing.currentOffer.displayPrice,
+        regularPrice: founder ? billing.plans.standard_990.displayPrice : null,
+        founder,
+        firstExam,
+      };
+    }
+
+    return NextResponse.json({ ...result, firstExam, upsell });
   } catch (error) {
     if (error instanceof Error && error.message === "AUTH_REQUIRED") {
       return NextResponse.json({ error: "Sessão expirada. Entre novamente." }, { status: 401 });

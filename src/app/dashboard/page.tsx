@@ -15,6 +15,7 @@ import {
 } from "react";
 
 import { getTotalQuestions } from "@/data/question-index";
+import { FirstExamQuickStart } from "@/components/student/first-exam-quick-start";
 import { subjects } from "@/data/subjects";
 
 import {
@@ -1441,11 +1442,13 @@ export default function DashboardPage() {
             <section className="overflow-hidden rounded-[24px] bg-[#0B2D6B] p-5 text-white shadow-lg shadow-blue-200/60 sm:rounded-[28px] sm:p-7 md:p-10">
               <div className="max-w-3xl">
                 <h1 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">Bem-vindo ao NabuLab</h1>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-blue-50">Você tem 10 questões grátis por dia. Faça seu primeiro simulado e descubra quais conteúdos merecem mais atenção.</p>
-                <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
-                  <Link href="/simulado/novo" className="min-h-12 rounded-xl bg-[#F4C430] px-5 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-amber-300">Começar meu primeiro simulado</Link>
-                  <Link href="/simulado/novo" className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/15">Explorar questões</Link>
-                  <Link href="/turmas" className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/15">Entrar em uma turma</Link>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-blue-50">Comece com um simulado curto: você responde, vê a correção comentada e descobre o que revisar.</p>
+                <div className="mt-6">
+                  <FirstExamQuickStart />
+                </div>
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
+                  <Link href="/simulado/novo" className="text-white underline-offset-4 hover:underline">Prefiro escolher as matérias</Link>
+                  <Link href="/turmas" className="text-blue-100 underline-offset-4 hover:underline">Entrar em uma turma</Link>
                 </div>
               </div>
             </section>

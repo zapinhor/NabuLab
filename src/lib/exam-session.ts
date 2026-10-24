@@ -1,4 +1,5 @@
 import type { Question } from "@/types/question";
+import type { PremiumUpsell } from "@/lib/exam-generation-client";
 import type {
   ExamMode,
   ExamProgress,
@@ -397,13 +398,29 @@ export function clearCurrentExam() {
 
 export function saveGradedQuestions(
   sessionId: string,
-  questions: Question[]
+  questions: Question[],
+  upsell: PremiumUpsell | null = null
 ) {
   if (typeof window === "undefined") return;
   sessionStorage.setItem(
     GRADED_KEY,
-    JSON.stringify({ sessionId, questions })
+    JSON.stringify({ sessionId, questions, upsell })
   );
+}
+
+/** Prévia do Premium da última correção (só plano gratuito). */
+export function loadGradedUpsell(
+  sessionId: string
+): PremiumUpsell | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const parsed = JSON.parse(
+      sessionStorage.getItem(GRADED_KEY) ?? "null"
+    ) as { sessionId?: string; upsell?: PremiumUpsell | null } | null;
+    return parsed?.sessionId === sessionId ? parsed.upsell ?? null : null;
+  } catch {
+    return null;
+  }
 }
 
 export function loadGradedQuestions(
