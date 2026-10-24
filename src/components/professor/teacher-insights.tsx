@@ -10,7 +10,7 @@ const color = {
   trend: "border-blue-200 bg-blue-50 text-blue-950",
   attention: "border-orange-200 bg-orange-50 text-orange-950",
   recurring: "border-orange-200 bg-orange-50 text-orange-950",
-  question: "border-violet-200 bg-violet-50 text-violet-950",
+  question: "border-[#F4C430]/50 bg-[#FFF7DA] text-[#4A3900]",
   pending: "border-slate-200 bg-slate-50 text-slate-950",
 } as const;
 

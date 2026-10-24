@@ -47,7 +47,9 @@ import {
 
 import ScoreEvolutionChart from "@/components/dashboard/score-evolution-chart";
 import SubjectTrendSummary from "@/components/dashboard/subject-trend-summary";
-import StudentAccountMenu from "@/components/student/student-account-menu";
+import StudentAccountMenu, { type AccountMenuLink } from "@/components/student/student-account-menu";
+import { WorkspaceSwitch } from "@/components/workspace-switch";
+import { useAccountRoles } from "@/lib/use-account-roles";
 import { useStudentAccount } from "@/lib/use-student-account";
 import { getStudentEntitlements, isPremiumFeatureRoute } from "@/lib/entitlements";
 import type { StudentQuestionQuotaStatus } from "@/lib/entitlements";
@@ -343,6 +345,16 @@ export default function DashboardPage() {
   const { account, loading: accountLoading } =
     useStudentAccount();
   const studentEntitlements = getStudentEntitlements(account?.subscription ?? null);
+  const roles = useAccountRoles();
+  const accountLinks: AccountMenuLink[] = [
+    ...(roles.isTeacher ? [{ href: "/professor", label: "Área do professor", icon: "turmas" as const }] : []),
+    { href: "/premium", label: studentEntitlements.fullHistory ? "Minha assinatura" : "Conhecer o Premium", icon: "recomendado" },
+    ...(roles.hasOrganization || roles.isPlatformAdmin ? [{ href: "/comercial", label: "Gestão institucional", icon: "gestao-institucional" as const }] : []),
+    ...(roles.isPlatformAdmin ? [
+      { href: "/admin", label: "Painel admin", icon: "desempenho" as const },
+      { href: "/auditoria", label: "Auditoria do banco", icon: "auditoria" as const },
+    ] : []),
+  ];
 
   const [
     dashboard,
@@ -853,8 +865,19 @@ export default function DashboardPage() {
           </Link>
         </div>
 
+        <div className="space-y-3 px-4 pt-5">
+          {roles.isTeacher && <WorkspaceSwitch current="student" isTeacher />}
+          <Link
+            href="/simulado/novo"
+            className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#F4C430] px-4 text-sm font-bold text-[#0B2D6B] shadow-sm transition hover:bg-[#FFD24D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C430]"
+          >
+            <Icon name="novo-simulado" size={18} />
+            Novo simulado
+          </Link>
+        </div>
+
         <nav
-          className="flex-1 space-y-1 overflow-y-auto px-4 py-6"
+          className="flex-1 space-y-1 overflow-y-auto px-4 py-4"
           aria-label="Navegação principal"
         >
           <a
@@ -1010,77 +1033,15 @@ export default function DashboardPage() {
             />
           </Link>
 
-          <Link
-            href="/turmas"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
-          >
-            <Icon name="turmas" size={16} />
-            Turmas
-          </Link>
-
-          <Link
-            href="/notificacoes"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
-          >
-            <Icon name="notificacoes" size={16} />
-            Notificações
-          </Link>
-
-          <Link
-            href="/auditoria"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
-          >
-            <span aria-hidden="true" className="shrink-0">
-              <Icon name="auditoria" size={16} />
-            </span>
-
-            Auditoria
-          </Link>
-
-          <Link
-            href="/simulado/novo"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
-          >
-            <span aria-hidden="true" className="shrink-0">
-              <Icon name="novo-simulado" size={16} />
-            </span>
-
-            Novo simulado
-          </Link>
-          <Link
-            href="/comercial"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
-          >
-            <Icon name="gestao-institucional" size={16} />
-            Gestão institucional
-          </Link>
         </nav>
 
         <div className="border-t border-white/10 px-5 py-5">
-          <Link
-            href="/suporte"
-            className="mb-3 flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left transition hover:border-white/20 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
-          >
-            <span
-              aria-hidden="true"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-lg"
-            >
-              <Icon name="suporte" size={20} />
-            </span>
-            <span className="min-w-0">
-              <span className="block text-sm font-bold text-white">Suporte</span>
-              <span className="block truncate text-xs text-slate-400">
-                Relatar um problema
-              </span>
-            </span>
-          </Link>
-
-          <StudentAccountMenu
-            account={account}
-            loading={accountLoading}
-          />
-
-          <div className="mt-3 rounded-xl bg-white/5 p-4">
+          {!roles.loading && !roles.isTeacher && (
+            <div className="mb-3">
+              <WorkspaceSwitch current="student" isTeacher={false} />
+            </div>
+          )}
+          <div className="rounded-xl bg-white/5 p-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs text-slate-400">
@@ -1220,6 +1181,20 @@ export default function DashboardPage() {
               id="mobile-navigation-panel"
               className="max-h-[calc(100vh-65px)] overflow-y-auto border-t border-slate-100 bg-[#F5F7FB] px-4 py-4 shadow-lg sm:px-5 md:px-8"
             >
+              <div className="mx-auto mb-3 max-w-3xl space-y-2">
+                {roles.isTeacher && (
+                  <WorkspaceSwitch current="student" isTeacher tone="light" onNavigate={closeMobileMenu} />
+                )}
+                <Link
+                  href="/simulado/novo"
+                  onClick={closeMobileMenu}
+                  className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#F4C430] px-4 text-sm font-bold text-[#0B2D6B] shadow-sm"
+                >
+                  <Icon name="novo-simulado" size={18} />
+                  Novo simulado
+                </Link>
+              </div>
+
               <nav
                 aria-label="Navegação principal"
                 className="mx-auto grid max-w-3xl gap-2 sm:grid-cols-2"
@@ -1337,51 +1312,40 @@ export default function DashboardPage() {
                   }
                 />
 
+              </nav>
+
+              <p className="mx-auto mt-5 max-w-3xl px-1 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                Sua conta
+              </p>
+              <nav
+                aria-label="Conta e ajuda"
+                className="mx-auto mt-2 grid max-w-3xl grid-cols-2 gap-2"
+              >
                 <MobileNavLink
                   href="/turmas"
                   icon="turmas"
-                  label="Turmas"
-                  onNavigate={closeMobileMenu}
-                />
-
-                <MobileNavLink
-                  href="/auditoria"
-                  icon="auditoria"
-                  label="Auditoria"
-                  onNavigate={
-                    closeMobileMenu
-                  }
-                />
-
-                <MobileNavLink
-                  href="/simulado/novo"
-                  icon="novo-simulado"
-                  label="Novo simulado"
-                  onNavigate={
-                    closeMobileMenu
-                  }
-                />
-                <MobileNavLink
-                  href="/comercial"
-                  icon="gestao-institucional"
-                  label="Gestão institucional"
+                  label={roles.activeClassCount > 0 ? `Minhas turmas (${roles.activeClassCount})` : "Minhas turmas"}
                   onNavigate={closeMobileMenu}
                 />
                 <MobileNavLink
                   href="/suporte"
                   icon="suporte"
-                  label="Suporte"
+                  label="Ajuda"
                   onNavigate={closeMobileMenu}
                 />
               </nav>
 
-              <div className="mx-auto mt-3 max-w-3xl">
+              <div className="mx-auto mt-3 max-w-3xl space-y-3">
                 <StudentAccountMenu
                   account={account}
                   loading={accountLoading}
                   variant="light"
+                  links={accountLinks}
                   onNavigate={closeMobileMenu}
                 />
+                {!roles.loading && !roles.isTeacher && (
+                  <WorkspaceSwitch current="student" isTeacher={false} tone="light" onNavigate={closeMobileMenu} />
+                )}
               </div>
 
               <div className="mx-auto mt-3 grid max-w-3xl grid-cols-2 gap-2">
@@ -1424,6 +1388,45 @@ export default function DashboardPage() {
         {/* ===================================================
             MAIN
         ==================================================== */}
+
+        {/* ===================================================
+            BARRA SUPERIOR DESKTOP
+        ==================================================== */}
+        <header className="sticky top-0 z-30 hidden border-b border-slate-200 bg-white/90 backdrop-blur lg:block">
+          <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-8 py-3">
+            <p className="text-sm font-semibold text-slate-500">
+              Painel do estudante
+            </p>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/turmas"
+                className="flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 text-sm font-bold text-[#0B2D6B] shadow-sm transition hover:border-blue-200 hover:bg-blue-50"
+              >
+                <Icon name="turmas" size={18} className="text-[#3B82F6]" />
+                Minhas turmas
+                {roles.activeClassCount > 0 && (
+                  <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-black text-[#0B2D6B]">
+                    {roles.activeClassCount}
+                  </span>
+                )}
+              </Link>
+              <Link
+                href="/suporte"
+                className="flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 text-sm font-bold text-[#0B2D6B] shadow-sm transition hover:border-blue-200 hover:bg-blue-50"
+              >
+                <Icon name="suporte" size={18} className="text-[#3B82F6]" />
+                Ajuda
+              </Link>
+              <NotificationBell />
+              <StudentAccountMenu
+                account={account}
+                loading={accountLoading}
+                variant="compact"
+                links={accountLinks}
+              />
+            </div>
+          </div>
+        </header>
 
         <main
           id="inicio"
@@ -1879,9 +1882,9 @@ export default function DashboardPage() {
           <section className="mt-5 grid gap-4 sm:mt-7 md:grid-cols-2">
             <Link
               href="/recomendado"
-              className="min-w-0 rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-violet-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-6"
+              className="min-w-0 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-[#FFF7DA] p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-6"
             >
-              <p className="text-sm font-bold text-indigo-600">
+              <p className="text-sm font-bold text-[#0B2D6B]">
                 <span aria-hidden="true" className="shrink-0">
                   <Icon name="recomendado" size={16} />
                 </span>{" "}
@@ -1899,7 +1902,7 @@ export default function DashboardPage() {
                 evolução recente e reforço.
               </p>
 
-              <p className="mt-4 text-sm font-bold text-indigo-600">
+              <p className="mt-4 text-sm font-bold text-[#0B2D6B]">
                 Criar recomendação<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
               </p>
             </Link>
@@ -1937,10 +1940,10 @@ export default function DashboardPage() {
 
           {hasReviewQuestions && (
             <section className="mt-5 sm:mt-7">
-              <div className="overflow-hidden rounded-2xl border border-violet-200 bg-white shadow-sm">
+              <div className="overflow-hidden rounded-2xl border border-[#F4C430]/50 bg-white shadow-sm">
                 <div className="grid lg:grid-cols-[minmax(0,1fr)_250px]">
                   <div className="min-w-0 p-5 sm:p-6 md:p-7">
-                    <p className="text-sm font-bold text-violet-600">
+                    <p className="text-sm font-bold text-[#8A6A00]">
                       <span aria-hidden="true" className="shrink-0">
                         <Icon name="treinar-erros" size={16} />
                       </span>{" "}
@@ -2002,12 +2005,12 @@ export default function DashboardPage() {
                     </div>
                   </div>
 
-                  <div className="flex min-w-0 flex-col justify-center border-t border-violet-100 bg-violet-50 p-5 sm:p-6 lg:border-l lg:border-t-0">
-                    <p className="text-xs font-bold uppercase text-violet-500">
+                  <div className="flex min-w-0 flex-col justify-center border-t border-[#FFEFB3] bg-[#FFF7DA] p-5 sm:p-6 lg:border-l lg:border-t-0">
+                    <p className="text-xs font-bold uppercase text-[#C8970F]">
                       Erros registrados
                     </p>
 
-                    <p className="mt-2 text-4xl font-bold text-violet-700">
+                    <p className="mt-2 text-4xl font-bold text-[#8A6A00]">
                       {
                         review.totalHistoricalErrors
                       }
@@ -2021,7 +2024,7 @@ export default function DashboardPage() {
 
                     <Link
                       href="/revisao"
-                      className="mt-5 min-h-12 rounded-xl bg-violet-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-violet-700"
+                      className="mt-5 min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
                     >
                       Treinar meus erros<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                     </Link>
@@ -2071,7 +2074,7 @@ export default function DashboardPage() {
 
                 <Link
                   href="/dominio"
-                  className="text-sm font-bold text-violet-600"
+                  className="text-sm font-bold text-[#8A6A00]"
                 >
                   Ver domínio<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                 </Link>

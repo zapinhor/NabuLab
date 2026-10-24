@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Icon } from "@/components/ui/icon";
+import { WorkspaceSwitch } from "@/components/workspace-switch";
 import { redirect } from "next/navigation";
 import {
   activateTeacherAccount,
@@ -170,7 +172,7 @@ export default async function TeacherPage({
               Organize seu conteúdo, aplique atividades e acompanhe suas turmas.
             </p>
           </div>
-          <div className="flex items-center gap-2"><NotificationBell/><Link href="/dashboard" className={teacherSecondaryButton}>Painel Student</Link></div>
+          <div className="flex flex-wrap items-center gap-2"><div className="w-full sm:w-64"><WorkspaceSwitch current="teacher" isTeacher tone="light" /></div><Link href="/suporte" className={teacherSecondaryButton}><Icon name="suporte" size={18} className="mr-2 text-[#3B82F6]" />Ajuda</Link><NotificationBell/></div>
         </header>
         {filters.mensagem && (
           <p
