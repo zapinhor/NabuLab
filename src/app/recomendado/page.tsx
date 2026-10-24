@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -59,7 +61,7 @@ function getCategoryInfo(
           "Erro recorrente",
 
         icon:
-          "🎯",
+          "erro-recorrente" as IconName,
 
         className:
           "border-red-200 bg-red-50 text-red-700",
@@ -71,7 +73,7 @@ function getCategoryInfo(
           "Baixo domínio",
 
         icon:
-          "🧠",
+          "baixo-dominio" as IconName,
 
         className:
           "border-amber-200 bg-amber-50 text-amber-700",
@@ -83,7 +85,7 @@ function getCategoryInfo(
           "Pouco explorado",
 
         icon:
-          "🧭",
+          "pouco-explorado" as IconName,
 
         className:
           "border-blue-200 bg-blue-50 text-blue-700",
@@ -95,7 +97,7 @@ function getCategoryInfo(
           "Reforço",
 
         icon:
-          "✅",
+          "reforco" as IconName,
 
         className:
           "border-emerald-200 bg-emerald-50 text-emerald-700",
@@ -117,16 +119,16 @@ function getTrendLabel(
     trend
   ) {
     case "subindo":
-      return "↗ Melhorando";
+      return <><Icon name="tendencia-sobe" size={12} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Melhorando</>;
 
     case "caindo":
-      return "↘ Em queda";
+      return <><Icon name="tendencia-desce" size={12} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Em queda</>;
 
     case "estavel":
-      return "→ Estável";
+      return <><Icon name="estavel" size={12} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Estável</>;
 
     default:
-      return "• Poucos dados";
+      return "Poucos dados";
   }
 }
 
@@ -487,7 +489,7 @@ export default function RecommendedQuizPage() {
     return (
       <EmptyState
         fullScreen
-        icon="✨"
+        icon="recomendado"
         eyebrow="Simulado recomendado"
         title="Nenhuma questão disponível"
         description="O banco atual não possui questões que possam ser utilizadas."
@@ -522,11 +524,11 @@ export default function RecommendedQuizPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -567,7 +569,7 @@ export default function RecommendedQuizPage() {
         <section className="mt-5 grid grid-cols-2 gap-3 sm:mt-7 sm:gap-4 xl:grid-cols-4">
           <div className="min-w-0 rounded-2xl border border-red-200 bg-red-50 p-4 sm:p-5">
             <p className="text-[10px] font-bold leading-5 text-red-600 sm:text-sm">
-              🎯 Erros recorrentes
+              <Icon name="treinar-erros" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Erros recorrentes
             </p>
 
             <p className="mt-1 text-2xl font-bold text-red-700 sm:mt-2 sm:text-3xl">
@@ -579,7 +581,7 @@ export default function RecommendedQuizPage() {
 
           <div className="min-w-0 rounded-2xl border border-amber-200 bg-amber-50 p-4 sm:p-5">
             <p className="text-[10px] font-bold leading-5 text-amber-600 sm:text-sm">
-              🧠 Baixo domínio
+              <Icon name="analise" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Baixo domínio
             </p>
 
             <p className="mt-1 text-2xl font-bold text-amber-700 sm:mt-2 sm:text-3xl">
@@ -591,7 +593,7 @@ export default function RecommendedQuizPage() {
 
           <div className="min-w-0 rounded-2xl border border-blue-200 bg-blue-50 p-4 sm:p-5">
             <p className="text-[10px] font-bold leading-5 text-blue-600 sm:text-sm">
-              🧭 Pouco exploradas
+              <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Pouco exploradas
             </p>
 
             <p className="mt-1 text-2xl font-bold text-blue-700 sm:mt-2 sm:text-3xl">
@@ -603,7 +605,7 @@ export default function RecommendedQuizPage() {
 
           <div className="min-w-0 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 sm:p-5">
             <p className="text-[10px] font-bold leading-5 text-emerald-600 sm:text-sm">
-              ✅ Reforço
+              <Icon name="correta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Reforço
             </p>
 
             <p className="mt-1 text-2xl font-bold text-emerald-700 sm:mt-2 sm:text-3xl">
@@ -846,12 +848,12 @@ export default function RecommendedQuizPage() {
             >
               {isStarting
                 ? "Preparando simulado..."
-                : `✨ Iniciar com ${selected.length} ${
+                : <><Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />{`Iniciar com ${selected.length} ${
                     selected.length ===
                     1
                       ? "questão"
                       : "questões"
-                  }`}
+                  }`}</>}
             </button>
           </aside>
 
@@ -977,9 +979,7 @@ export default function RecommendedQuizPage() {
                             <span
                               className={`rounded-full border px-2.5 py-1 text-[9px] font-bold sm:text-[10px] ${category.className}`}
                             >
-                              {
-                                category.icon
-                              }{" "}
+                              <Icon name={category.icon} size={18} />{" "}
                               {
                                 category.label
                               }
@@ -1135,7 +1135,7 @@ export default function RecommendedQuizPage() {
             href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
-            ← Voltar ao painel
+            <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
           </Link>
 
           <div className="grid gap-3 sm:flex sm:flex-wrap">
@@ -1143,7 +1143,7 @@ export default function RecommendedQuizPage() {
               href="/dominio"
               className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
             >
-              🧭 Ver domínio
+              <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>
 
             <Link

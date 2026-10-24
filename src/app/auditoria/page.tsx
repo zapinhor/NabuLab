@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -154,11 +155,11 @@ export default function AuditPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -208,8 +209,8 @@ export default function AuditPage() {
 
               <p className="mt-2 break-words text-xl font-bold sm:text-2xl">
                 {audit.structureValid
-                  ? "✅ Banco válido"
-                  : "❌ Problemas encontrados"}
+                  ? <><Icon name="correta" size={22} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Banco válido</>
+                  : <><Icon name="incorreta" size={22} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Problemas encontrados</>}
               </p>
 
               <p className="mt-3 text-xs leading-5 text-white/70">
@@ -355,7 +356,7 @@ export default function AuditPage() {
                     .duplicateIds
                     .length ===
                   0
-                    ? "✓ 0"
+                    ? <><Icon name="check" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />0</>
                     : audit
                         .duplicateIds
                         .length}
@@ -552,8 +553,8 @@ export default function AuditPage() {
                 }`}
               >
                 {audit.difficultyBalanced
-                  ? "✓ Equilibrado"
-                  : "⚠ Revisar"}
+                  ? <><Icon name="check" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Equilibrado</>
+                  : <><Icon name="alerta" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Revisar</>}
               </span>
             </div>
 
@@ -638,8 +639,8 @@ export default function AuditPage() {
               }`}
             >
               {audit.subjectBalanced
-                ? "✓ Matérias equilibradas"
-                : "⚠ Distribuição desigual"}
+                ? <><Icon name="check" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Matérias equilibradas</>
+                : <><Icon name="alerta" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Distribuição desigual</>}
             </span>
           </div>
 
@@ -803,7 +804,7 @@ export default function AuditPage() {
                 className="text-4xl sm:text-5xl"
                 aria-hidden="true"
               >
-                ✅
+                <Icon name="correta" size={32} />
               </div>
 
               <h3 className="mt-4 text-lg font-bold text-emerald-800 sm:text-xl">
@@ -825,7 +826,7 @@ export default function AuditPage() {
                 0 && (
                 <div>
                   <h3 className="text-lg font-bold text-red-700">
-                    ❌ Erros (
+                    <Icon name="incorreta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Erros (
                     {
                       errors.length
                     }
@@ -854,7 +855,7 @@ export default function AuditPage() {
                 0 && (
                 <div>
                   <h3 className="text-lg font-bold text-amber-700">
-                    ⚠️ Avisos (
+                    <Icon name="alerta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Avisos (
                     {
                       warnings.length
                     }
@@ -893,63 +894,63 @@ export default function AuditPage() {
 
           <div className="mt-4 grid gap-2 text-sm leading-6 text-slate-600 md:grid-cols-2">
             <p>
-              ✓ IDs únicos
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />IDs únicos
             </p>
 
             <p>
-              ✓ Campos obrigatórios
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Campos obrigatórios
             </p>
 
             <p>
-              ✓ Matérias cadastradas
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Matérias cadastradas
             </p>
 
             <p>
-              ✓ Dificuldades válidas
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Dificuldades válidas
             </p>
 
             <p>
-              ✓ Tipos válidos
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Tipos válidos
             </p>
 
             <p>
-              ✓ 4 alternativas em MC
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />4 alternativas em MC
             </p>
 
             <p>
-              ✓ V/F com V e F
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />V/F com V e F
             </p>
 
             <p>
-              ✓ Resposta correta existente
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Resposta correta existente
             </p>
 
             <p>
-              ✓ Explicação para cada alternativa
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Explicação para cada alternativa
             </p>
 
             <p>
-              ✓ Alternativas duplicadas
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Alternativas duplicadas
             </p>
 
             <p>
-              ✓ Enunciados duplicados
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Enunciados duplicados
             </p>
 
             <p>
-              ✓ Tags e metadados
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Tags e metadados
             </p>
 
             <p>
-              ✓ 1.224 questões e 72 por matéria
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />1.224 questões e 72 por matéria
             </p>
 
             <p>
-              ✓ 12 questões em cada combinação
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />12 questões em cada combinação
             </p>
 
             <p>
-              ✓ examTags, nível, habilidades e origem
+              <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />examTags, nível, habilidades e origem
             </p>
           </div>
         </section>
@@ -963,7 +964,7 @@ export default function AuditPage() {
             href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
-            ← Voltar ao painel
+            <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
           </Link>
 
           <Link

@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon } from "@/components/ui/icon";
 import {
   useId,
 } from "react";
@@ -95,9 +97,7 @@ function EvolutionTooltip({
           className={`inline-flex rounded-full border px-2 py-1 text-[9px] font-bold sm:px-2.5 sm:text-[10px] ${modeInfo.badgeClass}`}
         >
           <span aria-hidden="true">
-            {
-              modeInfo.icon
-            }
+            <Icon name={modeInfo.icon} size={18} />
           </span>{" "}
           {
             modeInfo.shortLabel
@@ -238,7 +238,7 @@ export default function SubjectEvolutionChart({
             className="text-3xl sm:text-4xl"
             aria-hidden="true"
           >
-            📊
+            <Icon name="desempenho" size={32} />
           </div>
 
           <p className="mt-3 text-sm font-bold text-slate-700">

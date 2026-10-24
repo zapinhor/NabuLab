@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -60,6 +62,7 @@ const historyFilters: {
   id: HistoryFilter;
   label: string;
   shortLabel: string;
+  icon?: IconName;
 }[] = [
   {
     id:
@@ -76,33 +79,39 @@ const historyFilters: {
     id:
       "manual",
 
+    icon: "modo-manual",
+
     label:
-      "📝 Manual",
+      "Manual",
 
     shortLabel:
-      "📝 Manual",
+      "Manual",
   },
 
   {
     id:
       "review",
 
+    icon: "treinar-erros",
+
     label:
-      "🎯 Revisão",
+      "Revisão",
 
     shortLabel:
-      "🎯 Revisão",
+      "Revisão",
   },
 
   {
     id:
       "recommended",
 
+    icon: "recomendado",
+
     label:
-      "✨ Recomendado",
+      "Recomendado",
 
     shortLabel:
-      "✨ Recom.",
+      "Recom.",
   },
 ];
 
@@ -252,9 +261,7 @@ function ModeStatsCard({
             className="text-2xl"
             aria-hidden="true"
           >
-            {
-              info.icon
-            }
+            <Icon name={info.icon} size={24} />
           </div>
 
           <p
@@ -597,7 +604,7 @@ export default function HistoryPage() {
     return (
       <EmptyState
         fullScreen
-        icon="🕘"
+        icon="historico"
         eyebrow="Histórico"
         title="Nenhum simulado realizado ainda"
         description="Quando você concluir seu primeiro simulado, os resultados, médias e comparações aparecerão aqui."
@@ -632,11 +639,11 @@ export default function HistoryPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -964,6 +971,7 @@ export default function HistoryPage() {
                           : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
                       }`}
                     >
+                      {item.icon && <Icon name={item.icon} size={14} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />}
                       <span className="sm:hidden">
                         {
                           item.shortLabel
@@ -993,7 +1001,7 @@ export default function HistoryPage() {
                 className="text-4xl"
                 aria-hidden="true"
               >
-                🔎
+                <Icon name="busca-vazia" size={32} />
               </div>
 
               <h3 className="mt-4 font-bold text-slate-900">
@@ -1055,9 +1063,7 @@ export default function HistoryPage() {
                             <span
                               className={`rounded-full border px-2.5 py-1 text-[10px] font-bold sm:px-3 sm:text-[11px] ${modeInfo.badgeClass}`}
                             >
-                              {
-                                modeInfo.icon
-                              }{" "}
+                              <Icon name={modeInfo.icon} size={18} />{" "}
                               {
                                 modeInfo.label
                               }
@@ -1167,7 +1173,7 @@ export default function HistoryPage() {
             href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
-            ← Voltar ao painel
+            <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
           </Link>
 
           <div className="grid gap-3 sm:flex sm:flex-wrap">
@@ -1175,14 +1181,14 @@ export default function HistoryPage() {
               href="/recomendado"
               className="min-h-12 rounded-xl border border-indigo-200 bg-indigo-50 px-5 py-3 text-center text-sm font-bold text-indigo-700 transition hover:bg-indigo-100"
             >
-              ✨ Recomendado
+              <Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Recomendado
             </Link>
 
             <Link
               href="/revisao"
               className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
             >
-              🎯 Treinar erros
+              <Icon name="treinar-erros" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Treinar erros
             </Link>
 
             <Link

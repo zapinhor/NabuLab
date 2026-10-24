@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
 
 import type {
@@ -93,7 +94,7 @@ export default function SubjectTrendSummary({
         <div className="min-w-0">
           <p className="text-sm font-bold text-blue-600">
             <span aria-hidden="true">
-              📈
+              <Icon name="evolucao" size={16} />
             </span>{" "}
             Evolução das matérias
           </p>
@@ -125,7 +126,7 @@ export default function SubjectTrendSummary({
           href="/evolucao"
           className="shrink-0 text-sm font-bold text-blue-600 transition hover:text-blue-700"
         >
-          Ver evolução completa →
+          Ver evolução completa<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
         </Link>
       </div>
 
@@ -146,7 +147,7 @@ export default function SubjectTrendSummary({
             <div>
               <dt className="text-xs font-bold text-emerald-600">
                 <span aria-hidden="true">
-                  ↗
+                  <Icon name="tendencia-sobe" size={14} />
                 </span>{" "}
                 Melhorando
               </dt>
@@ -170,7 +171,7 @@ export default function SubjectTrendSummary({
               className="shrink-0 text-3xl"
               aria-hidden="true"
             >
-              📈
+              <Icon name="evolucao" size={28} />
             </div>
           </div>
         </div>
@@ -184,7 +185,7 @@ export default function SubjectTrendSummary({
             <div>
               <dt className="text-xs font-bold text-blue-600">
                 <span aria-hidden="true">
-                  →
+                  <Icon name="estavel" size={14} />
                 </span>{" "}
                 Estáveis
               </dt>
@@ -208,7 +209,7 @@ export default function SubjectTrendSummary({
               className="shrink-0 text-3xl"
               aria-hidden="true"
             >
-              ➡️
+              <Icon name="estavel" size={28} />
             </div>
           </div>
         </div>
@@ -222,7 +223,7 @@ export default function SubjectTrendSummary({
             <div>
               <dt className="text-xs font-bold text-red-600">
                 <span aria-hidden="true">
-                  ↘
+                  <Icon name="tendencia-desce" size={14} />
                 </span>{" "}
                 Em queda
               </dt>
@@ -246,7 +247,7 @@ export default function SubjectTrendSummary({
               className="shrink-0 text-3xl"
               aria-hidden="true"
             >
-              📉
+              <Icon name="tendencia-desce" size={28} />
             </div>
           </div>
         </div>
@@ -267,9 +268,7 @@ export default function SubjectTrendSummary({
                 className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-2xl shadow-sm"
                 aria-hidden="true"
               >
-                {
-                  attentionSubject.icon
-                }
+                <Icon name={attentionSubject.icon} size={24} />
               </div>
 
               <div className="min-w-0">
@@ -285,14 +284,14 @@ export default function SubjectTrendSummary({
                   "caindo" ? (
                     <>
                       <span aria-hidden="true">
-                        ⚠️
+                        <Icon name="atencao" size={14} />
                       </span>{" "}
                       Maior atenção no momento
                     </>
                   ) : (
                     <>
                       <span aria-hidden="true">
-                        🧠
+                        <Icon name="analise" size={18} />
                       </span>{" "}
                       Menor desempenho recente
                     </>
@@ -404,9 +403,9 @@ export default function SubjectTrendSummary({
               className="shrink-0 text-xs font-bold text-indigo-600"
             >
               <span aria-hidden="true">
-                ✨
+                <Icon name="recomendado" size={14} />
               </span>{" "}
-              Treinar agora →
+              Treinar agora<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
             </Link>
           </div>
         </article>

@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 import {
   useEffect,
@@ -104,14 +106,14 @@ const questionTypes: {
   id: ExamQuestionType;
   label: string;
   description: string;
-  icon: string;
+  icon: IconName;
 }[] = [
   {
     id: "multiple-choice",
     label: "Múltipla escolha",
     description:
       "Questões com quatro alternativas.",
-    icon: "🔤",
+    icon: "multipla-escolha",
   },
 
   {
@@ -119,7 +121,7 @@ const questionTypes: {
     label: "Verdadeiro ou falso",
     description:
       "Afirmações para julgar como verdadeiras ou falsas.",
-    icon: "⚖️",
+    icon: "verdadeiro-falso",
   },
 
   {
@@ -127,7 +129,7 @@ const questionTypes: {
     label: "Misto",
     description:
       "Combina múltipla escolha e verdadeiro ou falso.",
-    icon: "🔀",
+    icon: "misto",
   },
 ];
 
@@ -530,11 +532,11 @@ export default function NewExamPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:px-4 sm:text-sm"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -812,7 +814,7 @@ export default function NewExamPage() {
                   className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3"
                 >
                   <p className="text-sm font-medium text-[#0B2D6B]">
-                    ✓ Todas as{" "}
+                    <Icon name="check" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Todas as{" "}
                     {
                       subjects.length
                     }{" "}
@@ -859,12 +861,10 @@ export default function NewExamPage() {
                       >
                         <div className="flex items-start gap-3 sm:gap-4">
                           <div
-                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-xl shadow-sm"
+                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#3B82F6] shadow-sm"
                             aria-hidden="true"
                           >
-                            {
-                              subject.icon
-                            }
+                            <Icon name={subject.icon} size={22} />
                           </div>
 
                           <div className="min-w-0 flex-1">
@@ -903,7 +903,7 @@ export default function NewExamPage() {
                           >
                             {selected && (
                               <span className="text-[10px]">
-                                ✓
+                                <Icon name="check" size={18} />
                               </span>
                             )}
                           </div>
@@ -1096,9 +1096,7 @@ export default function NewExamPage() {
                           className="text-xl"
                           aria-hidden="true"
                         >
-                          {
-                            questionType.icon
-                          }
+                          <Icon name={questionType.icon} size={22} />
                         </div>
 
                         <p
