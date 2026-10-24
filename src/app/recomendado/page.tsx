@@ -100,7 +100,7 @@ function getCategoryInfo(
           "reforco" as IconName,
 
         className:
-          "border-emerald-200 bg-emerald-50 text-emerald-700",
+          "border-[#0B2D6B]/15 bg-[#0B2D6B]/5 text-[#0B2D6B]",
       };
   }
 }
@@ -603,12 +603,12 @@ export default function RecommendedQuizPage() {
             </p>
           </div>
 
-          <div className="min-w-0 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 sm:p-5">
-            <p className="text-[10px] font-bold leading-5 text-emerald-600 sm:text-sm">
+          <div className="min-w-0 rounded-2xl border border-[#0B2D6B]/15 bg-[#0B2D6B]/5 p-4 sm:p-5">
+            <p className="text-[10px] font-bold leading-5 text-[#0B2D6B] sm:text-sm">
               <Icon name="correta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Reforço
             </p>
 
-            <p className="mt-1 text-2xl font-bold text-emerald-700 sm:mt-2 sm:text-3xl">
+            <p className="mt-1 text-2xl font-bold text-[#0B2D6B] sm:mt-2 sm:text-3xl">
               {
                 summary.reinforcement
               }
@@ -1141,7 +1141,7 @@ export default function RecommendedQuizPage() {
           <div className="grid gap-3 sm:flex sm:flex-wrap">
             <Link
               href="/dominio"
-              className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
+              className="min-h-12 rounded-xl border border-[#F4C430]/50 bg-[#FFF7DA] px-5 py-3 text-center text-sm font-bold text-[#8A6A00] transition hover:bg-[#FFEFB3]"
             >
               <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>

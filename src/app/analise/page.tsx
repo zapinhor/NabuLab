@@ -1093,7 +1093,7 @@ export default function AnalysisPage() {
           <div className="grid gap-3 sm:flex sm:flex-wrap">
             <Link
               href="/dominio"
-              className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
+              className="min-h-12 rounded-xl border border-[#F4C430]/50 bg-[#FFF7DA] px-5 py-3 text-center text-sm font-bold text-[#8A6A00] transition hover:bg-[#FFEFB3]"
             >
               <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>

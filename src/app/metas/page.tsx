@@ -1283,12 +1283,12 @@ export default function GoalsPage() {
                 </strong>
               </div>
 
-              <div className="col-span-2 rounded-xl bg-violet-50 p-3 xl:col-span-1 xl:flex xl:items-center xl:justify-between xl:gap-4 xl:bg-transparent xl:p-0">
+              <div className="col-span-2 rounded-xl bg-[#FFF7DA] p-3 xl:col-span-1 xl:flex xl:items-center xl:justify-between xl:gap-4 xl:bg-transparent xl:p-0">
                 <span className="text-xs text-slate-500 sm:text-sm">
                   Dias ativos
                 </span>
 
-                <strong className="mt-1 block text-xl text-violet-600 xl:mt-0 xl:text-base">
+                <strong className="mt-1 block text-xl text-[#8A6A00] xl:mt-0 xl:text-base">
                   {
                     consistency.activeDaysThisWeek
                   }

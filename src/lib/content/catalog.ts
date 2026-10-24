@@ -108,3 +108,27 @@ export function searchContent(query: { q?: string; subject?: string; difficulty?
     .filter(({ subject, topic }) => !term || normalizedText(`${subject.name} ${topic.name} ${topic.subtopics.join(" ")}`).includes(term))
     .slice(0, 60);
 }
+
+/** Quantas questões de amostra cada página de assunto mostra publicamente. */
+export const TOPIC_SAMPLE_QUESTIONS = 2;
+
+/**
+ * Questões de amostra para a página pública de um assunto: uma de nível
+ * iniciante e uma de nível médio, sempre as mesmas (ordem por id), para o
+ * conteúdo da página não mudar entre builds. Questões avançadas ficam só no app.
+ */
+export function getTopicSamples(subjectId: SubjectId, topicName: string, limit = TOPIC_SAMPLE_QUESTIONS) {
+  const pool = questionBank
+    .filter((question) => question.subject === subjectId && question.topic === topicName && question.explanation.trim())
+    .sort((a, b) => a.id.localeCompare(b.id));
+  const picks: Question[] = [];
+  for (const difficulty of ["iniciante", "medio"] as Difficulty[]) {
+    const found = pool.find((question) => question.difficulty === difficulty && !picks.includes(question));
+    if (found) picks.push(found);
+  }
+  for (const question of pool) {
+    if (picks.length >= limit) break;
+    if (question.difficulty !== "avancado" && !picks.includes(question)) picks.push(question);
+  }
+  return picks.slice(0, limit);
+}

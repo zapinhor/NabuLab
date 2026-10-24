@@ -400,7 +400,7 @@ export default function SubjectTrendSummary({
 
             <Link
               href="/recomendado"
-              className="shrink-0 text-xs font-bold text-indigo-600"
+              className="shrink-0 text-xs font-bold text-[#0B2D6B]"
             >
               <span aria-hidden="true" className="shrink-0">
                 <Icon name="recomendado" size={14} />
