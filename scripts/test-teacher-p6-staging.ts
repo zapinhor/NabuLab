@@ -16,6 +16,10 @@ const prefix = `p6-${suffix}`;
 const password = `P6-${suffix}!Aa9`;
 const users: string[] = [];
 const keepFixture = process.env.P6_KEEP_FIXTURE === "true";
+const studentCount = Number(process.env.P6_STAGING_STUDENT_COUNT ?? 20);
+if (!Number.isInteger(studentCount) || studentCount < 20 || studentCount > 100) {
+  throw new Error("P6_STAGING_STUDENT_COUNT must be an integer between 20 and 100.");
+}
 
 type Actor = { id: string; email: string; client?: SupabaseClient };
 
@@ -87,7 +91,7 @@ async function main() {
       return;
     }
     const [professorA, professorB] = await Promise.all([actor("professor-a"), actor("professor-b")]);
-    const students = await createActors(20);
+    const students = await createActors(studentCount);
     students[0].client = createClient(url!, publishableKey!, { auth: { persistSession: false } });
     const studentSignIn = await withAuthRateLimitRetry(() => students[0].client!.auth.signInWithPassword({ email: students[0].email, password }));
     if (studentSignIn.error) throw studentSignIn.error;
@@ -146,7 +150,7 @@ async function main() {
     const attemptRows: Array<Record<string, unknown>> = [];
     const answerRows: Array<Record<string, unknown>> = [];
     for (let activityIndex = 0; activityIndex < activities.length; activityIndex += 1) {
-      const participantCount = activityIndex >= 20 ? 12 : 20;
+      const participantCount = activityIndex >= 20 ? Math.ceil(studentCount * 0.6) : studentCount;
       for (let studentIndex = 0; studentIndex < participantCount; studentIndex += 1) {
         const attemptId = crypto.randomUUID();
         const early = activityIndex < 27;
@@ -167,7 +171,9 @@ async function main() {
         }));
       }
     }
-    await admin.from("teacher_activity_attempts").insert(attemptRows).throwOnError();
+    for (let offset = 0; offset < attemptRows.length; offset += 500) {
+      await admin.from("teacher_activity_attempts").insert(attemptRows.slice(offset, offset + 500)).throwOnError();
+    }
     for (let offset = 0; offset < answerRows.length; offset += 500) {
       await admin.from("teacher_activity_answers").insert(answerRows.slice(offset, offset + 500)).throwOnError();
     }
@@ -181,9 +187,12 @@ async function main() {
     const elapsedMs = Math.round(performance.now() - started);
     if (evidenceResult.error) throw evidenceResult.error;
     const evidence = evidenceResult.data as P6Evidence;
-    assert.equal(evidence.content.find((row) => row.topic === "Álgebra")?.responses, 520);
-    assert.ok((evidence.content.find((row) => row.topic === "Álgebra")?.correct ?? 0) > 450, "Álgebra is the strong area");
-    assert.ok((evidence.content.find((row) => row.topic === "Cinemática")?.correct ?? 999) < 400, "Cinemática is the weak area");
+    const expectedResponsesPerQuestion = 20 * studentCount + 10 * Math.ceil(studentCount * 0.6);
+    const algebraEvidence = evidence.content.find((row) => row.topic === "Álgebra");
+    const cinematicEvidence = evidence.content.find((row) => row.topic === "Cinemática");
+    assert.equal(algebraEvidence?.responses, expectedResponsesPerQuestion);
+    assert.ok((algebraEvidence?.correct ?? 0) > expectedResponsesPerQuestion * 0.85, "Álgebra is the strong area");
+    assert.ok((cinematicEvidence?.correct ?? Number.POSITIVE_INFINITY) < (cinematicEvidence?.responses ?? 0) * 0.5, "Cinemática is the weak area");
 
     const members: TeacherMember[] = students.map((student, index) => ({ user_id: student.id, status: "active", full_name: `Student ${index + 1}`, username: `${prefix}_student_${index + 1}` }));
     const attempts: TeacherAttempt[] = attemptRows.map((row) => ({
@@ -248,7 +257,7 @@ async function main() {
     assert.equal(personalHistory.count, 0, "teacher analytics does not write Student history");
 
     console.log(JSON.stringify({
-      staging: "ok", fixture: { students: 20, activities: 30, attempts: attemptRows.length, answers: answerRows.length },
+      staging: "ok", fixture: { students: studentCount, activities: 30, attempts: attemptRows.length, answers: answerRows.length },
       insights: insights.all.map((item) => ({ kind: item.kind, title: item.title, priority: item.priority })),
       review: { status: "draft", questions: reviewQuestions.data?.length, activityCreated: false },
       gates: { free: "blocked", essential: "allowed", pro: "allowed", advanced: "allowed" },

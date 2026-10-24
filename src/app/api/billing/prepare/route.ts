@@ -5,17 +5,27 @@ import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
 import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import { cookies } from "next/headers";
+import { consumeApiRateLimit, rateLimitIdentity } from "@/lib/security/api-rate-limit";
+import { getRequestId, logServerEvent } from "@/lib/observability";
+import { isRequestBodyTooLarge, isTrustedMutationOrigin } from "@/lib/security/request";
 
 function isTier(value: unknown): value is BillingPriceTier {
   return value === "founder_477" || value === "standard_990";
 }
 
 export async function POST(request: Request) {
+  const requestId = getRequestId(request);
+  if (!isTrustedMutationOrigin(request)) return Response.json({ error: "Origem não permitida." }, { status: 403 });
+  if (isRequestBodyTooLarge(request, 4096)) return Response.json({ error: "Payload muito grande." }, { status: 413 });
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) {
     return Response.json({ error: "Sessão necessária." }, { status: 401 });
   }
+  const limit = await consumeApiRateLimit({
+    bucketDigest: rateLimitIdentity(request, data.user.id), action: "student_checkout_prepare", limit: 10, windowSeconds: 300,
+  });
+  if (!limit.allowed) return Response.json({ error: "Muitas tentativas. Aguarde e tente novamente." }, { status: 429, headers: { "Retry-After": String(limit.retryAfterSeconds) } });
 
   let body: unknown;
   try {
@@ -56,10 +66,7 @@ export async function POST(request: Request) {
       notice: "Use no checkout o mesmo e-mail da sua conta NabuLab.",
     });
   } catch (error) {
-    console.error(
-      "[billing-prepare] Não foi possível preparar a identidade de cobrança:",
-      error instanceof Error ? error.message : "erro desconhecido",
-    );
+    logServerEvent({ level: "error", subsystem: "billing", event: "student_checkout_prepare_failed", outcome: "failure", requestId, httpStatus: 500, metadata: { errorName: error instanceof Error ? error.name : "UnknownError" } });
     return Response.json({ error: "Não foi possível iniciar a contratação." }, { status: 500 });
   }
 }

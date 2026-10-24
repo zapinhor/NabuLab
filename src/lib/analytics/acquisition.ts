@@ -53,7 +53,7 @@ export function channelName(source: string, medium: string): string {
 }
 
 export function isPublicLanding(path: string): boolean {
-  return ["/", "/comece", "/cadastro", "/premium", "/para-professores", "/turmas", "/suporte"].includes(path);
+  return path === "/questoes" || path.startsWith("/questoes/") || ["/", "/comece", "/cadastro", "/premium", "/para-professores", "/turmas", "/suporte"].includes(path);
 }
 
 export function shouldCountLanding(input: { method: string; path: string; accept: string | null; userAgent: string | null; fetchMode: string | null; prefetch: string | null }): boolean {

@@ -7,6 +7,8 @@ import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
 import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
 import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import { cookies } from "next/headers";
+import { consumeApiRateLimit, rateLimitIdentity } from "@/lib/security/api-rate-limit";
+import { isRequestBodyTooLarge, isTrustedMutationOrigin } from "@/lib/security/request";
 
 const COOKIE_NAME = "nabulab_anonymous_session";
 const PUBLIC_EVENTS = new Set([
@@ -17,9 +19,18 @@ const PUBLIC_EVENTS = new Set([
   "signup_started",
   "teacher_landing_viewed",
   "teacher_cta_started",
+  "seo_landing_viewed",
+  "seo_cta_clicked",
+  "seo_practice_started",
 ]);
 
 export async function POST(request: Request) {
+  if (!isTrustedMutationOrigin(request)) {
+    return Response.json({ error: "Origem não permitida." }, { status: 403 });
+  }
+  if (isRequestBodyTooLarge(request, 16_384)) {
+    return Response.json({ error: "Payload muito grande." }, { status: 413 });
+  }
   let payload: unknown;
   try {
     payload = await request.json();
@@ -39,6 +50,18 @@ export async function POST(request: Request) {
   const cookieHeader = request.headers.get("cookie") ?? "";
   const existing = cookieHeader.match(/(?:^|;\s*)nabulab_anonymous_session=([0-9a-f-]{36})(?:;|$)/i)?.[1];
   const anonymousSessionId = existing ?? randomUUID();
+  const limit = await consumeApiRateLimit({
+    bucketDigest: rateLimitIdentity(request, existing ?? null),
+    action: "analytics_ingest",
+    limit: 120,
+    windowSeconds: 60,
+  });
+  if (!limit.allowed) {
+    return Response.json(
+      { error: "Muitas solicitações." },
+      { status: 429, headers: { "Retry-After": String(limit.retryAfterSeconds) } },
+    );
+  }
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
   if (!PUBLIC_EVENTS.has(body.event) && !data.user) {
