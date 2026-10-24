@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -300,7 +302,7 @@ function SectionEmpty({
   description,
 }: {
   icon:
-    string;
+    IconName;
 
   title:
     string;
@@ -314,9 +316,7 @@ function SectionEmpty({
         className="text-3xl"
         aria-hidden="true"
       >
-        {
-          icon
-        }
+        <Icon name={icon} size={28} />
       </div>
 
       <p className="mt-3 text-sm font-bold text-slate-800">
@@ -538,7 +538,7 @@ export default function AnalysisPage() {
     return (
       <EmptyState
         fullScreen
-        icon="📊"
+        icon="desempenho"
         eyebrow="Análise de desempenho"
         title="Ainda não há dados para analisar"
         description="Finalize alguns simulados para começarmos a identificar seus pontos fortes, dificuldades e conteúdos que precisam de revisão."
@@ -582,11 +582,11 @@ export default function AnalysisPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -696,7 +696,7 @@ export default function AnalysisPage() {
                   className="text-2xl"
                   aria-hidden="true"
                 >
-                  🏆
+                  <Icon name="trofeu" size={24} />
                 </span>
               </div>
 
@@ -735,7 +735,7 @@ export default function AnalysisPage() {
                   className="text-2xl"
                   aria-hidden="true"
                 >
-                  🎯
+                  <Icon name="metas" size={24} />
                 </span>
               </div>
 
@@ -775,7 +775,7 @@ export default function AnalysisPage() {
           {subjectRanking.length ===
           0 ? (
             <SectionEmpty
-              icon="📚"
+              icon="materias"
               title="Nenhuma matéria possui dados"
               description="Conclua simulados com questões de diferentes matérias para construir este comparativo."
             />
@@ -927,7 +927,7 @@ export default function AnalysisPage() {
           {analysis.weakestTopics.length ===
           0 ? (
             <SectionEmpty
-              icon="🎯"
+              icon="metas"
               title="Nenhum tópico priorizado"
               description="Ainda não existem dados suficientes para definir quais tópicos precisam de maior revisão."
             />
@@ -972,7 +972,7 @@ export default function AnalysisPage() {
           {analysis.strongestTopics.length ===
           0 ? (
             <SectionEmpty
-              icon="🌱"
+              icon="pontos-fortes"
               title="Seus pontos fortes ainda estão se formando"
               description="Conforme você responder mais questões, os tópicos com melhor desempenho aparecerão aqui."
             />
@@ -1024,7 +1024,7 @@ export default function AnalysisPage() {
                 className="text-3xl"
                 aria-hidden="true"
               >
-                🔬
+                <Icon name="ciencias" size={28} />
               </div>
 
               <p className="mt-3 text-sm font-bold text-slate-800">
@@ -1087,7 +1087,7 @@ export default function AnalysisPage() {
             href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
-            ← Voltar ao painel
+            <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
           </Link>
 
           <div className="grid gap-3 sm:flex sm:flex-wrap">
@@ -1095,14 +1095,14 @@ export default function AnalysisPage() {
               href="/dominio"
               className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
             >
-              🧭 Ver domínio
+              <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>
 
             <Link
               href="/revisao"
               className="min-h-12 rounded-xl border border-red-200 bg-red-50 px-5 py-3 text-center text-sm font-bold text-red-700 transition hover:bg-red-100"
             >
-              🎯 Treinar erros
+              <Icon name="treinar-erros" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Treinar erros
             </Link>
 
             <Link

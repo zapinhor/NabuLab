@@ -1,3 +1,4 @@
+import type { IconName } from "@/components/ui/icon";
 import { db } from "@/lib/db";
 import { subjects } from "@/data/subjects";
 
@@ -16,7 +17,7 @@ export interface DashboardSubjectStats {
 
   area: string;
 
-  icon: string;
+  icon: IconName;
 
   totalQuestions: number;
 

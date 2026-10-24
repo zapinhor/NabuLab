@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -48,7 +50,7 @@ function getTrendInfo(
           "Melhorando",
 
         icon:
-          "↗",
+          "tendencia-sobe" as IconName,
 
         badge:
           "border-emerald-200 bg-emerald-50 text-emerald-700",
@@ -66,7 +68,7 @@ function getTrendInfo(
           "Em queda",
 
         icon:
-          "↘",
+          "tendencia-desce" as IconName,
 
         badge:
           "border-red-200 bg-red-50 text-red-700",
@@ -84,7 +86,7 @@ function getTrendInfo(
           "Estável",
 
         icon:
-          "→",
+          "estavel" as IconName,
 
         badge:
           "border-blue-200 bg-blue-50 text-blue-700",
@@ -102,7 +104,7 @@ function getTrendInfo(
           "Poucos dados",
 
         icon:
-          "•",
+          "em-branco" as IconName,
 
         badge:
           "border-slate-200 bg-slate-50 text-slate-500",
@@ -186,10 +188,8 @@ function SubjectEvolutionCard({
 
       <div className="flex min-w-0 items-start justify-between gap-3 sm:gap-4">
         <div className="flex min-w-0 items-center gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-xl sm:h-12 sm:w-12 sm:text-2xl">
-            {
-              subject.icon
-            }
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#3B82F6] sm:h-12 sm:w-12">
+            <Icon name={subject.icon} size={24} />
           </div>
 
           <div className="min-w-0">
@@ -230,9 +230,7 @@ function SubjectEvolutionCard({
         <span
           className={`rounded-full border px-2.5 py-1 text-[9px] font-bold sm:text-[10px] ${trendInfo.badge}`}
         >
-          {
-            trendInfo.icon
-          }{" "}
+          <Icon name={trendInfo.icon} size={18} />{" "}
           {
             trendInfo.label
           }
@@ -529,11 +527,11 @@ export default function SubjectEvolutionPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -661,9 +659,7 @@ export default function SubjectEvolutionPage() {
               <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                 <div className="flex min-w-0 items-start gap-3 sm:items-center sm:gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-2xl sm:h-14 sm:w-14 sm:text-3xl">
-                    {
-                      selectedSubject.icon
-                    }
+                    <Icon name={selectedSubject.icon} size={28} />
                   </div>
 
                   <div className="min-w-0">
@@ -684,9 +680,7 @@ export default function SubjectEvolutionPage() {
                         <span
                           className={`rounded-full border px-2.5 py-1 text-[9px] font-bold sm:text-[10px] ${selectedTrendInfo.badge}`}
                         >
-                          {
-                            selectedTrendInfo.icon
-                          }{" "}
+                          <Icon name={selectedTrendInfo.icon} size={18} />{" "}
                           {
                             selectedTrendInfo.label
                           }
@@ -951,7 +945,7 @@ export default function SubjectEvolutionPage() {
                             </p>
 
                             <p className="mt-0.5 text-[9px] font-semibold text-blue-500 opacity-0 transition group-hover:opacity-100 sm:text-[10px]">
-                              Detalhes →
+                              Detalhes<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                             </p>
                           </div>
                         </Link>
@@ -990,7 +984,7 @@ export default function SubjectEvolutionPage() {
             href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
-            ← Voltar ao painel
+            <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
           </Link>
 
           <div className="grid gap-3 sm:flex sm:flex-wrap">
@@ -998,14 +992,14 @@ export default function SubjectEvolutionPage() {
               href="/dominio"
               className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
             >
-              🧭 Ver domínio
+              <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>
 
             <Link
               href="/recomendado"
               className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
-              ✨ Simulado recomendado
+              <Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Simulado recomendado
             </Link>
           </div>
         </div>

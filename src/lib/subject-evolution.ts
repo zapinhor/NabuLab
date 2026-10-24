@@ -1,3 +1,4 @@
+import type { IconName } from "@/components/ui/icon";
 import { db } from "@/lib/db";
 
 import {
@@ -75,7 +76,7 @@ export interface SubjectEvolution {
 
   area: string;
 
-  icon: string;
+  icon: IconName;
 
   /*
    * Quantas provas diferentes
@@ -509,7 +510,7 @@ function buildSubjectEvolution({
 
     area: string;
 
-    icon: string;
+    icon: IconName;
   };
 
   exams: StoredExam[];

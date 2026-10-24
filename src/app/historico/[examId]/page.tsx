@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -586,7 +588,7 @@ export default function ExamHistoryDetailPage() {
     return (
       <EmptyState
         fullScreen
-        icon="🧾"
+        icon="simulado-nao-encontrado"
         eyebrow="Histórico"
         title="Simulado não encontrado"
         description="Não foi possível localizar esta prova no histórico armazenado neste navegador."
@@ -626,11 +628,11 @@ export default function ExamHistoryDetailPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
-              ← Histórico
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Histórico
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao histórico
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao histórico
             </span>
           </Link>
         </div>
@@ -647,9 +649,7 @@ export default function ExamHistoryDetailPage() {
               <span
                 className={`inline-flex rounded-full border px-2.5 py-1 text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs ${modeInfo.badgeClass}`}
               >
-                {
-                  modeInfo.icon
-                }{" "}
+                <Icon name={modeInfo.icon} size={14} />{" "}
                 {
                   modeInfo.label
                 }
@@ -680,7 +680,7 @@ export default function ExamHistoryDetailPage() {
 
                 <span className="rounded-full bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-blue-50 sm:px-3 sm:text-xs">
                   <span aria-hidden="true">
-                    ⏱️
+                    <Icon name="duracao" size={14} />
                   </span>{" "}
                   {formatDuration(
                     exam.durationSeconds
@@ -804,9 +804,7 @@ export default function ExamHistoryDetailPage() {
                 className="shrink-0 text-2xl sm:text-3xl"
                 aria-hidden="true"
               >
-                {
-                  modeInfo.icon
-                }
+                <Icon name={modeInfo.icon} size={28} />
               </div>
 
               <div className="min-w-0">
@@ -877,7 +875,7 @@ export default function ExamHistoryDetailPage() {
             className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 sm:p-5"
           >
             <p className="text-sm font-bold text-amber-800">
-              ⚠️ Parte do conteúdo original não está mais disponível
+              <Icon name="alerta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Parte do conteúdo original não está mais disponível
             </p>
 
             <p className="mt-2 text-xs leading-6 text-amber-700 sm:text-sm">
@@ -1076,13 +1074,13 @@ export default function ExamHistoryDetailPage() {
 
                         {markedForReview && (
                           <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[9px] font-bold text-indigo-600 sm:text-[10px]">
-                            🔖 Marcada para revisão
+                            <Icon name="marcada" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Marcada para revisão
                           </span>
                         )}
 
                         {isCorrect ? (
                           <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-bold text-emerald-600 sm:text-[10px]">
-                            ✓ Correta
+                            <Icon name="correta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Correta
                           </span>
                         ) : !wasAnswered ? (
                           <span className="rounded-full bg-amber-50 px-2.5 py-1 text-[9px] font-bold text-amber-600 sm:text-[10px]">
@@ -1090,7 +1088,7 @@ export default function ExamHistoryDetailPage() {
                           </span>
                         ) : (
                           <span className="rounded-full bg-red-50 px-2.5 py-1 text-[9px] font-bold text-red-600 sm:text-[10px]">
-                            ✕ Incorreta
+                            <Icon name="incorreta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Incorreta
                           </span>
                         )}
                       </div>
@@ -1248,7 +1246,7 @@ export default function ExamHistoryDetailPage() {
             href="/historico"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
-            ← Histórico
+            <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Histórico
           </Link>
 
           <div className="grid gap-3 sm:flex sm:flex-wrap">
@@ -1256,21 +1254,21 @@ export default function ExamHistoryDetailPage() {
               href="/analise"
               className="min-h-12 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-center text-sm font-bold text-blue-700 transition hover:bg-blue-100"
             >
-              📊 Analisar desempenho
+              <Icon name="desempenho" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Analisar desempenho
             </Link>
 
             <Link
               href="/dominio"
               className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
             >
-              🧭 Ver domínio
+              <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>
 
             <Link
               href="/recomendado"
               className="min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
-              ✨ Próximo recomendado
+              <Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Próximo recomendado
             </Link>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import type { IconName } from "@/components/ui/icon";
 import type {
   ExamMode,
 } from "@/types/exam";
@@ -15,7 +16,7 @@ export interface ExamModeInfo {
 
   shortLabel: string;
 
-  icon: string;
+  icon: IconName;
 
   badgeClass: string;
 
@@ -77,7 +78,7 @@ export function getExamModeInfo(
           "Revisão",
 
         icon:
-          "🎯",
+          "treinar-erros",
 
         badgeClass:
           "border-violet-200 bg-violet-50 text-violet-700",
@@ -101,7 +102,7 @@ export function getExamModeInfo(
           "Recomendado",
 
         icon:
-          "✨",
+          "recomendado",
 
         badgeClass:
           "border-indigo-200 bg-indigo-50 text-indigo-700",
@@ -125,7 +126,7 @@ export function getExamModeInfo(
           "Manual",
 
         icon:
-          "📝",
+          "modo-manual",
 
         badgeClass:
           "border-blue-200 bg-blue-50 text-blue-700",

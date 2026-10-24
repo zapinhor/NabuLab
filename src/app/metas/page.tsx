@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -116,7 +118,7 @@ function GoalProgressBar({
 
   description: string;
 
-  icon: string;
+  icon: IconName;
 }) {
   const visualPercentage =
     Math.min(
@@ -139,9 +141,7 @@ function GoalProgressBar({
       <div className="flex min-w-0 items-start justify-between gap-3 sm:gap-4">
         <div className="flex min-w-0 items-start gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-lg sm:h-11 sm:w-11 sm:text-xl">
-            {
-              icon
-            }
+            <Icon name={icon} size={22} />
           </div>
 
           <div className="min-w-0">
@@ -162,11 +162,11 @@ function GoalProgressBar({
         {completed && (
           <span className="shrink-0 rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-bold text-emerald-600 sm:px-2.5 sm:text-[10px]">
             <span className="sm:hidden">
-              ✓
+              <Icon name="check" size={18} />
             </span>
 
             <span className="hidden sm:inline">
-              ✓ Meta concluída
+              <Icon name="correta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Meta concluída
             </span>
           </span>
         )}
@@ -812,11 +812,11 @@ export default function GoalsPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:border-0 sm:px-0 sm:py-0 sm:text-sm sm:hover:bg-transparent sm:hover:text-slate-900"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -914,7 +914,7 @@ export default function GoalsPage() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="min-w-0">
                 <p className="text-sm font-bold text-blue-800">
-                  📅 Sua semana ainda está começando
+                  <Icon name="calendario" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Sua semana ainda está começando
                 </p>
 
                 <p className="mt-1 max-w-3xl text-sm leading-6 text-slate-600">
@@ -955,7 +955,7 @@ export default function GoalsPage() {
 
           <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             <GoalProgressBar
-              icon="❓"
+              icon="questoes"
               label="Questões"
               description="Quantidade total de questões respondidas nesta semana."
               current={
@@ -976,7 +976,7 @@ export default function GoalsPage() {
             />
 
             <GoalProgressBar
-              icon="📝"
+              icon="novo-simulado"
               label="Simulados"
               description="Quantidade de provas concluídas nesta semana."
               current={
@@ -997,7 +997,7 @@ export default function GoalsPage() {
             />
 
             <GoalProgressBar
-              icon="📅"
+              icon="dias-estudo"
               label="Dias de estudo"
               description="Dias diferentes em que pelo menos um simulado foi concluído."
               current={
@@ -1204,7 +1204,7 @@ export default function GoalsPage() {
                     role="status"
                     className="text-sm font-bold text-emerald-600"
                   >
-                    ✓ Metas salvas
+                    <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Metas salvas
                   </div>
                 ) : !hasChanges ? (
                   <div className="text-xs text-slate-400">
@@ -1315,7 +1315,7 @@ export default function GoalsPage() {
                 {progress.completedGoals ===
                   progress.totalGoals && (
                   <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-bold text-emerald-700">
-                    ✓ Semana completa
+                    <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Semana completa
                   </span>
                 )}
               </div>
@@ -1325,7 +1325,7 @@ export default function GoalsPage() {
               href="/recomendado"
               className="mt-5 block min-h-12 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
             >
-              ✨ Fazer simulado recomendado
+              <Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Fazer simulado recomendado
             </Link>
           </aside>
         </section>
@@ -1359,7 +1359,7 @@ export default function GoalsPage() {
             href="/dashboard"
             className="min-h-12 rounded-xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
-            ← Voltar ao painel
+            <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
           </Link>
 
           <div className="grid gap-3 sm:flex sm:flex-wrap">
@@ -1367,7 +1367,7 @@ export default function GoalsPage() {
               href="/recomendado"
               className="min-h-12 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-center text-sm font-bold text-blue-700 transition hover:bg-blue-100"
             >
-              ✨ Recomendado
+              <Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Recomendado
             </Link>
 
             <Link

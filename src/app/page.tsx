@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -26,7 +27,7 @@ const features = [
 ] as const;
 
 function Check({ children }: { children: React.ReactNode }) {
-  return <li className="flex gap-3 text-sm leading-6 text-slate-700"><span aria-hidden="true" className="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-100 text-xs font-black text-blue-800">✓</span><span>{children}</span></li>;
+  return <li className="flex gap-3 text-sm leading-6 text-slate-700"><span aria-hidden="true" className="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-100 text-xs font-black text-blue-800"><Icon name="check" size={12} strokeWidth={3} /></span><span>{children}</span></li>;
 }
 
 export default async function LandingPage() {

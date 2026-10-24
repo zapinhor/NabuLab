@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { TeacherAnalyticsReport } from "@/components/professor/teacher-analytics-report";
@@ -15,7 +16,7 @@ export default async function TeacherStudentAnalyticsPage({ params, searchParams
   if (result.state === "not_found") notFound();
   const student = result.report.students[0];
   return <main className="min-h-screen bg-[#F5F7FB] px-4 py-8 sm:px-6"><div className="mx-auto max-w-7xl">
-    <Link href={`/professor/turmas/${classId}/analytics`} className="text-sm font-bold text-blue-700">← Desempenho da turma</Link>
+    <Link href={`/professor/turmas/${classId}/analytics`} className="text-sm font-bold text-blue-700"><Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Desempenho da turma</Link>
     <h1 className="mt-3 text-3xl font-black">{student?.name ?? "Aluno"}</h1>
     <p className="mt-2 mb-7 text-sm text-slate-600">Resultados somente das atividades em {result.room.public_name}. O histórico Student pessoal não é exibido.</p>
     {!result.access.features.student_evolution ? (

@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon } from "@/components/ui/icon";
 import {
   useId,
 } from "react";
@@ -246,7 +248,7 @@ export default function ScoreEvolutionChart({
             className="text-4xl"
             aria-hidden="true"
           >
-            📈
+            <Icon name="evolucao" size={32} />
           </div>
 
           <p className="mt-3 text-sm font-bold text-slate-700">

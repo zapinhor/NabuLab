@@ -1,3 +1,4 @@
+import type { IconName } from "@/components/ui/icon";
 import { db } from "@/lib/db";
 import { questionBank } from "@/data/questions";
 import { subjects } from "@/data/subjects";
@@ -100,7 +101,7 @@ export interface MasteryItem {
 
 export interface SubjectMastery
   extends MasteryItem {
-  icon: string;
+  icon: IconName;
 
   topics: MasteryItem[];
 

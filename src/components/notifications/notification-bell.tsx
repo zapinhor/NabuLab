@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { AppNotification } from "@/lib/notifications";
@@ -10,7 +12,7 @@ export function NotificationBell() {
   if(!summary) return <span className="block h-11 w-11" aria-hidden/>;
   return <details className="relative z-40">
     <summary aria-label={`Notificações${summary.unread ? `, ${summary.unread} não lidas` : ""}`} className="relative flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-slate-200 bg-white text-xl shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C430]">
-      <span aria-hidden>🔔</span>{summary.unread > 0 && <span className="absolute -right-1 -top-1 min-w-5 rounded-full bg-red-600 px-1.5 py-0.5 text-center text-[11px] font-black text-white">{summary.unread > 99 ? "99+" : summary.unread}</span>}
+      <Icon name="notificacoes" size={20} />{summary.unread > 0 && <span className="absolute -right-1 -top-1 min-w-5 rounded-full bg-red-600 px-1.5 py-0.5 text-center text-[11px] font-black text-white">{summary.unread > 99 ? "99+" : summary.unread}</span>}
     </summary>
     <div className="absolute right-0 mt-2 w-[min(22rem,calc(100vw-2rem))] rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
       <div className="flex items-center justify-between gap-3 px-2 py-1"><strong>Notificações</strong><Link href="/notificacoes" className="text-sm font-bold text-blue-700">Ver todas</Link></div>

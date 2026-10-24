@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -682,7 +684,7 @@ export default function ExamPage() {
     return (
       <EmptyState
         fullScreen
-        icon="📝"
+        icon="novo-simulado"
         eyebrow="Simulado"
         title="Nenhum simulado ativo"
         description="Crie um novo simulado antes de acessar a tela da prova."
@@ -1297,7 +1299,7 @@ async function handleSubmit() {
                 0 && (
                 <span className="text-amber-600">
                   <span aria-hidden="true">
-                    ⚑
+                    <Icon name="bandeira-marcada" size={18} />
                   </span>{" "}
                   {
                     reviewCount
@@ -1386,7 +1388,7 @@ async function handleSubmit() {
                           aria-hidden="true"
                           className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[8px] text-white"
                         >
-                          ⚑
+                          <Icon name="bandeira-marcada" size={18} />
                         </span>
                       )}
                     </button>
@@ -1473,8 +1475,8 @@ async function handleSubmit() {
               >
                 <span aria-hidden="true">
                   {isMarkedForReview
-                    ? "⚑"
-                    : "⚐"}
+                    ? <Icon name="bandeira-marcada" size={14} className="inline-block align-[-0.2em]" />
+                    : <Icon name="bandeira" size={14} className="inline-block align-[-0.2em]" />}
                 </span>{" "}
                 {isMarkedForReview
                   ? "Marcada para revisão"
@@ -1687,7 +1689,7 @@ async function handleSubmit() {
                 }
                 className="min-h-12 rounded-xl border border-slate-200 px-3 py-3 text-xs font-bold text-slate-600 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40 sm:px-5 sm:text-sm"
               >
-                ← Anterior
+                <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Anterior
               </button>
 
               {currentIndex <
@@ -1706,7 +1708,7 @@ async function handleSubmit() {
                   }
                   className="min-h-12 rounded-xl bg-[#0B2D6B] px-3 py-3 text-xs font-bold text-white transition hover:bg-[#174EA6] disabled:cursor-not-allowed disabled:bg-slate-300 sm:px-5 sm:text-sm"
                 >
-                  Próxima →
+                  Próxima<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                 </button>
               ) : (
                 <button
@@ -1870,7 +1872,7 @@ async function handleSubmit() {
                           aria-hidden="true"
                           className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[8px] text-white"
                         >
-                          ⚑
+                          <Icon name="bandeira-marcada" size={18} />
                         </span>
                       )}
                     </button>
@@ -1916,7 +1918,7 @@ async function handleSubmit() {
                   className="text-amber-500"
                   aria-hidden="true"
                 >
-                  ⚑
+                  <Icon name="bandeira-marcada" size={18} />
                 </span>
 
                 Revisão
