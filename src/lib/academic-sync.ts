@@ -218,12 +218,17 @@ export function prepareLegacyMigrationRows(
   };
 }
 
+/*
+ * Provas e respostas entregues não mudam depois. Por isso o envio só inclui
+ * o que ainda não está na conta e nunca sobrescreve: uma cópia antiga guardada
+ * no navegador não pode desfazer o que já está salvo no servidor.
+ */
 async function upsertInChunks(table: "exam_attempts" | "exam_answers", rows: object[]) {
   const { supabase } = await getAuthenticatedUserId();
   for (let index = 0; index < rows.length; index += PAGE_SIZE) {
     const { error } = await supabase
       .from(table)
-      .upsert(rows.slice(index, index + PAGE_SIZE), { onConflict: "user_id,id" });
+      .upsert(rows.slice(index, index + PAGE_SIZE), { onConflict: "user_id,id", ignoreDuplicates: true });
     if (error) throw error;
   }
 }
