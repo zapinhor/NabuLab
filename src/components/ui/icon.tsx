@@ -94,7 +94,7 @@ type IconProps = Omit<SVGProps<SVGSVGElement>, "name"> & {
   label?: string;
 };
 
-export function Icon({ name, size = 20, strokeWidth = 2, label, ...rest }: IconProps) {
+export function Icon({ name, size = 20, strokeWidth = 2, label, className, ...rest }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -110,6 +110,8 @@ export function Icon({ name, size = 20, strokeWidth = 2, label, ...rest }: IconP
       role={label ? "img" : undefined}
       aria-label={label}
       focusable="false"
+      // Inline por padrão: o preflight do Tailwind deixa SVG como bloco, o que joga o ícone para a linha de cima do texto.
+      className={`inline-block shrink-0 align-[-0.2em]${className ? ` ${className}` : ""}`}
       {...rest}
     >
       {paths[name]}
