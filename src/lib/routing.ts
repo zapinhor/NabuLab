@@ -4,6 +4,7 @@ export const PUBLIC_APP_PATHS = [
   "/entrar",
   "/cadastro",
   "/comece",
+  "/experimente",
   "/recuperar-senha",
   "/redefinir-senha",
   "/termos",

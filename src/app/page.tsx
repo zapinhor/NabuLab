@@ -71,11 +71,18 @@ export default async function LandingPage() {
             <h1 className="max-w-3xl text-4xl font-black tracking-[-.045em] text-[#0B2D6B] sm:text-5xl lg:text-6xl">Prepare-se praticando, não apenas relendo.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">Simulados, correção comentada e acompanhamento do seu desempenho em um só lugar.</p>
             <p className="mt-4 border-l-4 border-[#F4C430] pl-4 font-bold text-slate-800">Cada tentativa é um passo. Cada correção, uma evolução.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <TrackedLink event="signup_cta_clicked" properties={{ placement: "hero" }} href={primaryHref} className="rounded-xl bg-[#0B2D6B] px-6 py-3.5 text-center font-bold text-white shadow-lg shadow-blue-950/15 transition hover:-translate-y-0.5 hover:bg-blue-900">{authenticated ? "Ir para o NabuLab" : "Começar grátis"}</TrackedLink>
-              <TrackedLink event="premium_cta_clicked" properties={{ placement: "hero" }} href={premiumHref} className="rounded-xl border border-blue-200 bg-white px-6 py-3.5 text-center font-bold text-[#0B2D6B] transition hover:border-blue-400 hover:bg-blue-50">Conhecer o Premium</TrackedLink>
-            </div>
-            <p className="mt-4 text-sm text-slate-500">Crie sua conta sem custo. Não é necessário instalar nada.</p>
+            {authenticated ? (
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <TrackedLink event="signup_cta_clicked" properties={{ placement: "hero" }} href={primaryHref} className="rounded-xl bg-[#0B2D6B] px-6 py-3.5 text-center font-bold text-white shadow-lg shadow-blue-950/15 transition hover:-translate-y-0.5 hover:bg-blue-900">Ir para o NabuLab</TrackedLink>
+                <TrackedLink event="premium_cta_clicked" properties={{ placement: "hero" }} href={premiumHref} className="rounded-xl border border-blue-200 bg-white px-6 py-3.5 text-center font-bold text-[#0B2D6B] transition hover:border-blue-400 hover:bg-blue-50">Conhecer o Premium</TrackedLink>
+              </div>
+            ) : (
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <TrackedLink event="signup_cta_clicked" properties={{ placement: "hero_try" }} href="/experimente" className="rounded-xl bg-[#F4C430] px-6 py-3.5 text-center font-black text-[#0B2D6B] shadow-lg shadow-amber-950/10 transition hover:-translate-y-0.5 hover:bg-amber-300">Responder 3 questões grátis</TrackedLink>
+                <TrackedLink event="signup_cta_clicked" properties={{ placement: "hero" }} href={primaryHref} className="rounded-xl bg-[#0B2D6B] px-6 py-3.5 text-center font-bold text-white shadow-lg shadow-blue-950/15 transition hover:-translate-y-0.5 hover:bg-blue-900">Criar conta grátis</TrackedLink>
+              </div>
+            )}
+            <p className="mt-4 text-sm text-slate-500">{authenticated ? "Crie sua conta sem custo. Não é necessário instalar nada." : "Teste sem cadastro em 2 minutos. Não é necessário instalar nada."}</p>
           </div>
           <div aria-label="Demonstração do painel NabuLab" className="relative mx-auto w-full max-w-xl rounded-[2rem] border border-slate-200 bg-[#071A3D] p-3 shadow-2xl shadow-blue-950/20">
             <div className="rounded-[1.4rem] bg-[#F5F7FB] p-4 sm:p-6">

@@ -47,6 +47,7 @@ export default async function StartPage({
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
   const primaryHref = data.user ? dashboardPath : signupHref;
+  const tryHref = campaign ? `/experimente?${campaign}` : "/experimente";
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#F5F7FB] text-slate-950">
@@ -62,10 +63,17 @@ export default async function StartPage({
         <div>
           <h1 className="max-w-2xl text-4xl font-black leading-[1.08] tracking-[-0.035em] text-[#0B2D6B] sm:text-5xl lg:text-6xl">Teste seus conhecimentos. Descubra seus erros. Evolua.</h1>
           <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">Faça questões e simulados, revise seus erros e acompanhe sua evolução no NabuLab.</p>
-          <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-            <TrackedLink event="signup_cta_clicked" properties={{ placement: "campaign_hero" }} href={primaryHref} className="min-h-12 rounded-xl bg-[#F4C430] px-6 py-3.5 text-center font-black text-[#0B2D6B] shadow-lg shadow-amber-950/10 transition hover:bg-amber-300">{data.user ? "Continuar estudando" : "Começar grátis"}</TrackedLink>
-            <p className="text-center text-sm font-semibold text-slate-500 sm:text-left">10 questões grátis por dia. Sem cartão.</p>
-          </div>
+          {data.user ? (
+            <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+              <TrackedLink event="signup_cta_clicked" properties={{ placement: "campaign_hero" }} href={primaryHref} className="min-h-12 rounded-xl bg-[#F4C430] px-6 py-3.5 text-center font-black text-[#0B2D6B] shadow-lg shadow-amber-950/10 transition hover:bg-amber-300">Continuar estudando</TrackedLink>
+            </div>
+          ) : (
+            <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+              <TrackedLink event="signup_cta_clicked" properties={{ placement: "campaign_hero_try" }} href={tryHref} className="min-h-12 rounded-xl bg-[#F4C430] px-6 py-3.5 text-center font-black text-[#0B2D6B] shadow-lg shadow-amber-950/10 transition hover:bg-amber-300">Responder 3 questões grátis</TrackedLink>
+              <TrackedLink event="signup_cta_clicked" properties={{ placement: "campaign_hero" }} href={primaryHref} className="min-h-12 rounded-xl border border-blue-200 bg-white px-6 py-3.5 text-center font-bold text-[#0B2D6B] transition hover:border-blue-400 hover:bg-blue-50">Criar conta grátis</TrackedLink>
+            </div>
+          )}
+          <p className="mt-3 text-center text-sm font-semibold text-slate-500 sm:text-left">{data.user ? "10 questões grátis por dia. Sem cartão." : "Teste sem cadastro. Depois, 10 questões grátis por dia, sem cartão."}</p>
         </div>
 
         <div className="rounded-[28px] bg-[#0B2D6B] p-4 shadow-2xl shadow-blue-950/15 sm:p-6" aria-label="Prévia do painel NabuLab">

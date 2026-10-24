@@ -36,6 +36,10 @@ export const ANALYTICS_EVENT_NAMES = [
   "seo_landing_viewed",
   "seo_cta_clicked",
   "seo_practice_started",
+  "guest_quiz_started",
+  "guest_question_answered",
+  "guest_quiz_completed",
+  "guest_signup_clicked",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENT_NAMES)[number];
