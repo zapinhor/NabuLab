@@ -836,7 +836,7 @@ export default function ExamHistoryDetailPage() {
               "review" && (
               <Link
                 href="/revisao"
-                className="min-h-12 shrink-0 rounded-xl bg-violet-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-violet-700"
+                className="min-h-12 shrink-0 rounded-xl bg-[#0B2D6B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#174EA6]"
               >
                 Nova revisão
               </Link>
@@ -846,7 +846,7 @@ export default function ExamHistoryDetailPage() {
               "recommended" && (
               <Link
                 href="/recomendado"
-                className="min-h-12 shrink-0 rounded-xl bg-indigo-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-indigo-700"
+                className="min-h-12 shrink-0 rounded-xl bg-[#3B82F6] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-600"
               >
                 Novo recomendado
               </Link>
@@ -979,7 +979,7 @@ export default function ExamHistoryDetailPage() {
         ==================================================== */}
 
         <section className="mt-8 sm:mt-10">
-          <p className="text-sm font-bold text-violet-600">
+          <p className="text-sm font-bold text-[#8A6A00]">
             Correção
           </p>
 
@@ -1066,14 +1066,14 @@ export default function ExamHistoryDetailPage() {
                           }
                         </span>
 
-                        <span className="rounded-full bg-violet-50 px-2.5 py-1 text-[9px] font-bold text-violet-600 sm:text-[10px]">
+                        <span className="rounded-full bg-[#FFF7DA] px-2.5 py-1 text-[9px] font-bold text-[#8A6A00] sm:text-[10px]">
                           {getSingleQuestionTypeLabel(
                             question
                           )}
                         </span>
 
                         {markedForReview && (
-                          <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[9px] font-bold text-indigo-600 sm:text-[10px]">
+                          <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[9px] font-bold text-[#0B2D6B] sm:text-[10px]">
                             <Icon name="marcada" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Marcada para revisão
                           </span>
                         )}
@@ -1259,7 +1259,7 @@ export default function ExamHistoryDetailPage() {
 
             <Link
               href="/dominio"
-              className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
+              className="min-h-12 rounded-xl border border-[#F4C430]/50 bg-[#FFF7DA] px-5 py-3 text-center text-sm font-bold text-[#8A6A00] transition hover:bg-[#FFEFB3]"
             >
               <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>

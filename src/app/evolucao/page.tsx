@@ -767,8 +767,8 @@ export default function SubjectEvolutionPage() {
                   </p>
                 </div>
 
-                <div className="col-span-2 min-w-0 rounded-xl bg-violet-50 p-3 sm:col-span-1 sm:p-4">
-                  <p className="text-[10px] text-violet-500 sm:text-xs">
+                <div className="col-span-2 min-w-0 rounded-xl bg-[#FFF7DA] p-3 sm:col-span-1 sm:p-4">
+                  <p className="text-[10px] text-[#C8970F] sm:text-xs">
                     Variação total
                   </p>
 
@@ -990,7 +990,7 @@ export default function SubjectEvolutionPage() {
           <div className="grid gap-3 sm:flex sm:flex-wrap">
             <Link
               href="/dominio"
-              className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
+              className="min-h-12 rounded-xl border border-[#F4C430]/50 bg-[#FFF7DA] px-5 py-3 text-center text-sm font-bold text-[#8A6A00] transition hover:bg-[#FFEFB3]"
             >
               <Icon name="dominio" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Ver domínio
             </Link>

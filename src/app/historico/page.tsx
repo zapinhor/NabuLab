@@ -816,7 +816,7 @@ export default function HistoryPage() {
         ==================================================== */}
 
         <section className="mt-7 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:mt-9 sm:p-6 md:p-7">
-          <p className="text-sm font-bold text-violet-600">
+          <p className="text-sm font-bold text-[#8A6A00]">
             Comparativo
           </p>
 
@@ -1179,14 +1179,14 @@ export default function HistoryPage() {
           <div className="grid gap-3 sm:flex sm:flex-wrap">
             <Link
               href="/recomendado"
-              className="min-h-12 rounded-xl border border-indigo-200 bg-indigo-50 px-5 py-3 text-center text-sm font-bold text-indigo-700 transition hover:bg-indigo-100"
+              className="min-h-12 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-blue-100"
             >
               <Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Recomendado
             </Link>
 
             <Link
               href="/revisao"
-              className="min-h-12 rounded-xl border border-violet-200 bg-violet-50 px-5 py-3 text-center text-sm font-bold text-violet-700 transition hover:bg-violet-100"
+              className="min-h-12 rounded-xl border border-[#F4C430]/50 bg-[#FFF7DA] px-5 py-3 text-center text-sm font-bold text-[#8A6A00] transition hover:bg-[#FFEFB3]"
             >
               <Icon name="treinar-erros" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Treinar erros
             </Link>

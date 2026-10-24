@@ -81,13 +81,13 @@ export function getExamModeInfo(
           "treinar-erros",
 
         badgeClass:
-          "border-violet-200 bg-violet-50 text-violet-700",
+          "border-[#F4C430]/50 bg-[#FFF7DA] text-[#8A6A00]",
 
         cardClass:
-          "border-violet-200 bg-violet-50",
+          "border-[#F4C430]/50 bg-[#FFF7DA]",
 
         textClass:
-          "text-violet-700",
+          "text-[#8A6A00]",
       };
 
     case "recommended":
@@ -105,13 +105,13 @@ export function getExamModeInfo(
           "recomendado",
 
         badgeClass:
-          "border-indigo-200 bg-indigo-50 text-indigo-700",
+          "border-blue-200 bg-blue-50 text-[#0B2D6B]",
 
         cardClass:
-          "border-indigo-200 bg-indigo-50",
+          "border-blue-200 bg-blue-50",
 
         textClass:
-          "text-indigo-700",
+          "text-[#0B2D6B]",
       };
 
     default:

@@ -1,7 +1,7 @@
 "use client";
 
 
-import { Icon } from "@/components/ui/icon";
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { signOut } from "@/app/auth/actions";
@@ -20,21 +20,28 @@ function accountLabels(account: StudentAccount) {
   };
 }
 
+export type AccountMenuLink = { href: string; label: string; icon: IconName };
+
 export default function StudentAccountMenu({
   account,
   loading = false,
   variant = "dark",
+  links = [],
   onNavigate,
 }: {
   account: StudentAccount | null;
   loading?: boolean;
-  variant?: "dark" | "light";
+  /** "compact" mostra só o avatar, para a barra do topo. */
+  variant?: "dark" | "light" | "compact";
+  /** Atalhos extras no menu, conforme os papéis da conta. */
+  links?: AccountMenuLink[];
   onNavigate?: () => void;
 }) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const menuId = useId();
   const dark = variant === "dark";
+  const compact = variant === "compact";
 
   useEffect(() => {
     if (!open) return;
@@ -60,7 +67,7 @@ export default function StudentAccountMenu({
     return (
       <div
         aria-label="Carregando dados da conta"
-        className={`h-[66px] animate-pulse rounded-xl ${
+        className={`${compact ? "h-11 w-11" : "h-[66px]"} animate-pulse rounded-xl ${
           dark ? "bg-white/5" : "border border-slate-200 bg-white"
         }`}
       />
@@ -115,6 +122,23 @@ export default function StudentAccountMenu({
 
   return (
     <div ref={containerRef} className="relative">
+      {compact ? (
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-haspopup="menu"
+          aria-controls={menuId}
+          aria-label={`Conta de ${labels.name}`}
+          onClick={() => setOpen((current) => !current)}
+          className="flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white py-1 pl-1 pr-2.5 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+        >
+          <StudentAvatar name={labels.name} avatarUrl={account.avatarUrl} />
+          <span className={`hidden rounded-full px-2 py-0.5 text-[10px] font-bold sm:inline ${premium ? "bg-amber-100 text-amber-800" : "bg-slate-100 text-slate-600"}`}>
+            {premium ? "Premium" : "Free"}
+          </span>
+          <Icon name="proxima" size={14} className="rotate-90 text-slate-500" />
+        </button>
+      ) : (
       <button
         type="button"
         aria-expanded={open}
@@ -153,22 +177,29 @@ export default function StudentAccountMenu({
             {premium ? "Premium" : "Free"}
           </span>
         </span>
-        <span aria-hidden="true" className={dark ? "text-slate-400" : "text-slate-500"}>
-          ⋮
-        </span>
+        <Icon name="proxima" size={14} className={`rotate-90 ${dark ? "text-slate-400" : "text-slate-500"}`} />
       </button>
+      )}
 
       {open && (
         <div
           id={menuId}
           role="menu"
           aria-label="Opções da conta"
-          className={`absolute z-50 w-full overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl ${
-            dark
-              ? "bottom-[calc(100%+8px)] left-0"
-              : "left-0 top-[calc(100%+8px)]"
+          className={`absolute z-50 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl ${
+            compact
+              ? "right-0 top-[calc(100%+8px)] w-64"
+              : dark
+                ? "bottom-[calc(100%+8px)] left-0 w-full"
+                : "left-0 top-[calc(100%+8px)] w-full"
           }`}
         >
+          {compact && (
+            <div className="border-b border-slate-100 px-3 pb-2 pt-1">
+              <p className="truncate text-sm font-bold text-slate-900">{labels.name}</p>
+              <p className="truncate text-xs text-slate-500">{labels.secondary}</p>
+            </div>
+          )}
           <Link
             href="/perfil"
             role="menuitem"
@@ -181,6 +212,21 @@ export default function StudentAccountMenu({
             <Icon name="perfil" size={16} />
             Ver perfil
           </Link>
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              role="menuitem"
+              onClick={() => {
+                setOpen(false);
+                onNavigate?.();
+              }}
+              className="flex min-h-10 items-center gap-2 rounded-lg px-3 text-sm font-semibold text-slate-700 transition hover:bg-blue-50 hover:text-[#0B2D6B]"
+            >
+              <Icon name={link.icon} size={16} />
+              {link.label}
+            </Link>
+          ))}
           <form
             action={signOut}
             onSubmit={() => {
