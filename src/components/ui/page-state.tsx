@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 
+import { Icon, type IconName } from "@/components/ui/icon";
+
 import type {
   ReactNode,
 } from "react";
 
 interface BaseStateProps {
-  icon?: string;
+  icon?: IconName;
   eyebrow?: string;
   title: string;
   description?: string;
@@ -33,8 +35,8 @@ function StateContainer({
     >
       <div className="w-full max-w-xl rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm md:p-10">
         {icon && (
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 text-3xl">
-            {icon}
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-[#3B82F6]">
+            <Icon name={icon} size={30} className={icon === "carregando" ? "animate-spin motion-reduce:animate-none" : undefined} />
           </div>
         )}
 
@@ -71,7 +73,7 @@ export function LoadingState({
 }) {
   return (
     <StateContainer
-      icon="⏳"
+      icon="carregando"
       eyebrow="Aguarde"
       title={title}
       description={description}
@@ -85,7 +87,7 @@ export function LoadingState({
 }
 
 export function EmptyState({
-  icon = "📭",
+  icon = "vazio",
   eyebrow = "Nada por aqui ainda",
   title,
   description,
@@ -95,7 +97,7 @@ export function EmptyState({
   secondaryHref,
   fullScreen = false,
 }: {
-  icon?: string;
+  icon?: IconName;
   eyebrow?: string;
   title: string;
   description?: string;
@@ -160,7 +162,7 @@ export function ErrorState({
 }) {
   return (
     <StateContainer
-      icon="⚠️"
+      icon="alerta"
       eyebrow="Erro"
       title={title}
       description={description}

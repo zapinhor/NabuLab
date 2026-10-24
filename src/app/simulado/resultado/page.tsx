@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Link from "next/link";
 
 import {
@@ -149,7 +151,7 @@ function ResultCard({
 
   detail: string;
 
-  icon: string;
+  icon: IconName;
 
   tone?:
     | "default"
@@ -231,9 +233,7 @@ function ResultCard({
           className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-base sm:h-10 sm:w-10 ${style.icon}`}
           aria-hidden="true"
         >
-          {
-            icon
-          }
+          <Icon name={icon} size={18} />
         </div>
       </div>
 
@@ -618,7 +618,7 @@ export default function ExamResultPage() {
     return (
       <EmptyState
         fullScreen
-        icon="📊"
+        icon="desempenho"
         eyebrow="Resultado"
         title="Resultado não encontrado"
         description="Nenhuma prova submetida foi encontrada nesta sessão."
@@ -656,11 +656,11 @@ export default function ExamResultPage() {
             className="shrink-0 rounded-xl border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:px-4 sm:text-sm"
           >
             <span className="sm:hidden">
-              ← Painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Painel
             </span>
 
             <span className="hidden sm:inline">
-              ← Voltar ao painel
+              <Icon name="voltar" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Voltar ao painel
             </span>
           </Link>
         </div>
@@ -735,7 +735,7 @@ export default function ExamResultPage() {
           aria-label="Resumo do resultado"
         >
           <ResultCard
-            icon="✓"
+            icon="correta"
             title="Acertos"
             value={
               result.correct
@@ -745,7 +745,7 @@ export default function ExamResultPage() {
           />
 
           <ResultCard
-            icon="✕"
+            icon="incorreta"
             title="Erros"
             value={
               result.incorrect
@@ -755,7 +755,7 @@ export default function ExamResultPage() {
           />
 
           <ResultCard
-            icon="✎"
+            icon="em-branco"
             title="Respondidas"
             value={
               result.answered
@@ -764,7 +764,7 @@ export default function ExamResultPage() {
           />
 
           <ResultCard
-            icon="—"
+            icon="em-branco"
             title="Em branco"
             value={
               result.unanswered
@@ -798,7 +798,7 @@ export default function ExamResultPage() {
             href="/revisao"
             className="min-h-12 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-blue-100"
           >
-            🎯 Treinar erros
+            <Icon name="treinar-erros" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Treinar erros
           </Link>
 
           <Link
@@ -1004,10 +1004,10 @@ export default function ExamResultPage() {
                           }`}
                         >
                           {correct
-                            ? "✓ Correta"
+                            ? <><Icon name="correta" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Correta</>
                             : wasAnswered
-                              ? "✕ Incorreta"
-                              : "— Em branco"}
+                              ? <><Icon name="incorreta" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Incorreta</>
+                              : <><Icon name="em-branco" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Em branco</>}
                         </span>
 
                         <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-semibold text-slate-600 sm:px-3 sm:text-xs">
@@ -1038,7 +1038,7 @@ export default function ExamResultPage() {
 
                         {markedForReview && (
                           <span className="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-700 sm:px-3 sm:text-xs">
-                            ⚑ Revisão
+                            <Icon name="bandeira-marcada" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Revisão
                           </span>
                         )}
                       </div>
@@ -1128,7 +1128,7 @@ export default function ExamResultPage() {
                                     <div className="mt-2 flex flex-wrap gap-2">
                                       {isCorrect && (
                                         <span className="rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-bold text-emerald-700">
-                                          ✓ Resposta correta
+                                          <Icon name="correta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Resposta correta
                                         </span>
                                       )}
 
@@ -1264,7 +1264,7 @@ export default function ExamResultPage() {
             href="/recomendado"
             className="min-h-12 rounded-xl border border-[#F4C430]/60 bg-[#FFFBEB] px-6 py-3 text-center text-sm font-bold text-[#0B2D6B] transition hover:bg-[#FEF3C7]"
           >
-            ✨ Simulado recomendado
+            <Icon name="recomendado" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Simulado recomendado
           </Link>
 
           <Link

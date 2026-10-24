@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <EmptyState
       fullScreen
-      icon="🧭"
+      icon="nao-encontrado"
       eyebrow="404"
       title="Página não encontrada"
       description="O endereço acessado não existe ou pode ter sido alterado."

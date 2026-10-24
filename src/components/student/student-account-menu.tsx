@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { signOut } from "@/app/auth/actions";
@@ -74,7 +76,7 @@ export default function StudentAccountMenu({
       >
         <div className="flex items-start gap-3">
           <span aria-hidden="true" className="text-lg">
-            👤
+            <Icon name="avatar" size={20} />
           </span>
           <div className="min-w-0">
             <p
@@ -176,7 +178,7 @@ export default function StudentAccountMenu({
             }}
             className="flex min-h-10 items-center gap-2 rounded-lg px-3 text-sm font-semibold text-slate-700 transition hover:bg-blue-50 hover:text-[#0B2D6B]"
           >
-            <span aria-hidden="true">👤</span>
+            <Icon name="perfil" size={16} />
             Ver perfil
           </Link>
           <form
@@ -191,7 +193,7 @@ export default function StudentAccountMenu({
               role="menuitem"
               className="flex min-h-10 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-red-600 transition hover:bg-red-50"
             >
-              <span aria-hidden="true">↪</span>
+              <Icon name="sair" size={16} />
               Sair
             </button>
           </form>

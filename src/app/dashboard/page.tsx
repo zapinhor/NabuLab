@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Icon, type IconName } from "@/components/ui/icon";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -164,7 +166,7 @@ function GoalBar({
   percentage,
 }: {
   label: string;
-  icon: string;
+  icon: IconName;
   current: number;
   target: number;
   percentage: number;
@@ -189,7 +191,7 @@ function GoalBar({
             className="shrink-0"
             aria-hidden="true"
           >
-            {icon}
+            <Icon name={icon} size={18} />
           </span>
 
           <span className="truncate">
@@ -238,7 +240,7 @@ function GoalBar({
 
         {completed && (
           <span className="font-bold text-emerald-600">
-            ✓ Concluída
+            <Icon name="check" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Concluída
           </span>
         )}
       </div>
@@ -261,7 +263,7 @@ function MobileNavLink({
   linkRef,
 }: {
   href: string;
-  icon: string;
+  icon: IconName;
   label: string;
   badge?: number | string;
   onNavigate: () => void;
@@ -279,7 +281,7 @@ function MobileNavLink({
           className="shrink-0"
           aria-hidden="true"
         >
-          {icon}
+          <Icon name={icon} size={18} />
         </span>
 
         <span className="truncate">
@@ -865,7 +867,7 @@ export default function DashboardPage() {
             className="flex items-center gap-3 rounded-xl border border-[#3B82F6]/30 bg-[#0B2D6B] px-4 py-3 text-sm font-semibold shadow-sm"
           >
             <span aria-hidden="true">
-              🏠
+              <Icon name="inicio" size={16} />
             </span>
 
             Início
@@ -881,7 +883,7 @@ export default function DashboardPage() {
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span aria-hidden="true">
-              📚
+              <Icon name="materias" size={16} />
             </span>
 
             Matérias
@@ -897,7 +899,7 @@ export default function DashboardPage() {
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span aria-hidden="true">
-              📊
+              <Icon name="desempenho" size={16} />
             </span>
 
             Desempenho
@@ -908,7 +910,7 @@ export default function DashboardPage() {
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span className="flex min-w-0 items-center gap-3">
-              <span aria-hidden="true">📈</span>
+              <Icon name="evolucao" size={18} />
               <span className="truncate">Evolução</span>
             </span>
             <NavItemMeta href="/evolucao" dark />
@@ -919,7 +921,7 @@ export default function DashboardPage() {
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span className="flex min-w-0 items-center gap-3">
-              <span aria-hidden="true">🧠</span>
+              <Icon name="analise" size={18} />
               <span className="truncate">Análise</span>
             </span>
             <NavItemMeta href="/analise" dark />
@@ -930,7 +932,7 @@ export default function DashboardPage() {
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span className="flex min-w-0 items-center gap-3">
-              <span aria-hidden="true">🧭</span>
+              <Icon name="dominio" size={18} />
               <span className="truncate">Domínio</span>
             </span>
             <NavItemMeta href="/dominio" dark />
@@ -942,7 +944,7 @@ export default function DashboardPage() {
           >
             <span className="flex items-center gap-3">
               <span aria-hidden="true">
-                🔥
+                <Icon name="metas" size={18} />
               </span>
 
               Metas
@@ -964,7 +966,7 @@ export default function DashboardPage() {
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span className="flex min-w-0 items-center gap-3">
-              <span aria-hidden="true">✨</span>
+              <Icon name="recomendado" size={18} />
               <span className="truncate">Recomendado</span>
             </span>
             <NavItemMeta
@@ -980,7 +982,7 @@ export default function DashboardPage() {
           >
             <span className="flex items-center gap-3">
               <span aria-hidden="true">
-                🎯
+                <Icon name="treinar-erros" size={18} />
               </span>
 
               Treinar erros
@@ -998,7 +1000,7 @@ export default function DashboardPage() {
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span className="flex min-w-0 items-center gap-3">
-              <span aria-hidden="true">🕘</span>
+              <Icon name="historico" size={18} />
               <span className="truncate">Histórico</span>
             </span>
             <NavItemMeta
@@ -1012,7 +1014,7 @@ export default function DashboardPage() {
             href="/turmas"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">🏫</span>
+            <Icon name="turmas" size={16} />
             Turmas
           </Link>
 
@@ -1020,7 +1022,7 @@ export default function DashboardPage() {
             href="/notificacoes"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">🔔</span>
+            <Icon name="notificacoes" size={16} />
             Notificações
           </Link>
 
@@ -1029,7 +1031,7 @@ export default function DashboardPage() {
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span aria-hidden="true">
-              ✅
+              <Icon name="auditoria" size={16} />
             </span>
 
             Auditoria
@@ -1040,7 +1042,7 @@ export default function DashboardPage() {
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
             <span aria-hidden="true">
-              ✏️
+              <Icon name="novo-simulado" size={16} />
             </span>
 
             Novo simulado
@@ -1049,7 +1051,7 @@ export default function DashboardPage() {
             href="/comercial"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
-            <span aria-hidden="true">🏫</span>
+            <Icon name="gestao-institucional" size={16} />
             Gestão institucional
           </Link>
         </nav>
@@ -1063,7 +1065,7 @@ export default function DashboardPage() {
               aria-hidden="true"
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-lg"
             >
-              💬
+              <Icon name="suporte" size={20} />
             </span>
             <span className="min-w-0">
               <span className="block text-sm font-bold text-white">Suporte</span>
@@ -1087,7 +1089,7 @@ export default function DashboardPage() {
 
                 <p className="mt-1 text-xl font-bold">
                   <span aria-hidden="true">
-                    🔥
+                    <Icon name="sequencia" size={22} />
                   </span>{" "}
                   {
                     consistency.currentStreak
@@ -1171,7 +1173,7 @@ export default function DashboardPage() {
                 }. Abrir metas.`}
               >
                 <span aria-hidden="true">
-                  🔥
+                  <Icon name="sequencia" size={14} />
                 </span>{" "}
                 {
                   consistency.currentStreak
@@ -1202,8 +1204,8 @@ export default function DashboardPage() {
               >
                 <span aria-hidden="true">
                   {mobileMenuOpen
-                    ? "✕"
-                    : "☰"}
+                    ? <Icon name="fechar" size={20} />
+                    : <Icon name="menu" size={20} />}
                 </span>
               </button>
             </div>
@@ -1227,7 +1229,7 @@ export default function DashboardPage() {
                     mobileMenuFirstLinkRef
                   }
                   href="#inicio"
-                  icon="🏠"
+                  icon="inicio"
                   label="Início"
                   onNavigate={() =>
                     navigateToMobileSection(
@@ -1238,7 +1240,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="#materias"
-                  icon="📚"
+                  icon="materias"
                   label="Matérias"
                   onNavigate={() =>
                     navigateToMobileSection(
@@ -1249,7 +1251,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="#desempenho"
-                  icon="📊"
+                  icon="desempenho"
                   label="Desempenho"
                   onNavigate={() =>
                     navigateToMobileSection(
@@ -1260,7 +1262,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/evolucao"
-                  icon="📈"
+                  icon="evolucao"
                   label="Evolução"
                   onNavigate={
                     closeMobileMenu
@@ -1269,7 +1271,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/analise"
-                  icon="🧠"
+                  icon="analise"
                   label="Análise"
                   onNavigate={
                     closeMobileMenu
@@ -1278,7 +1280,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/dominio"
-                  icon="🧭"
+                  icon="dominio"
                   label="Domínio"
                   onNavigate={
                     closeMobileMenu
@@ -1287,7 +1289,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/metas"
-                  icon="🔥"
+                  icon="metas"
                   label="Metas"
                   badge={
                     goalsProgress.completedGoals >
@@ -1302,7 +1304,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/recomendado"
-                  icon="✨"
+                  icon="recomendado"
                   label="Recomendado"
                   badge={!studentEntitlements.fullRecommended ? "Prévia" : undefined}
                   onNavigate={
@@ -1312,7 +1314,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/revisao"
-                  icon="🎯"
+                  icon="treinar-erros"
                   label="Treinar erros"
                   badge={
                     review.highPriority >
@@ -1327,7 +1329,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/historico"
-                  icon="🕘"
+                  icon="historico"
                   label="Histórico"
                   badge={!studentEntitlements.fullHistory ? "3 recentes" : undefined}
                   onNavigate={
@@ -1337,14 +1339,14 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/turmas"
-                  icon="🏫"
+                  icon="turmas"
                   label="Turmas"
                   onNavigate={closeMobileMenu}
                 />
 
                 <MobileNavLink
                   href="/auditoria"
-                  icon="✅"
+                  icon="auditoria"
                   label="Auditoria"
                   onNavigate={
                     closeMobileMenu
@@ -1353,7 +1355,7 @@ export default function DashboardPage() {
 
                 <MobileNavLink
                   href="/simulado/novo"
-                  icon="✏️"
+                  icon="novo-simulado"
                   label="Novo simulado"
                   onNavigate={
                     closeMobileMenu
@@ -1361,13 +1363,13 @@ export default function DashboardPage() {
                 />
                 <MobileNavLink
                   href="/comercial"
-                  icon="🏫"
+                  icon="gestao-institucional"
                   label="Gestão institucional"
                   onNavigate={closeMobileMenu}
                 />
                 <MobileNavLink
                   href="/suporte"
-                  icon="💬"
+                  icon="suporte"
                   label="Suporte"
                   onNavigate={closeMobileMenu}
                 />
@@ -1390,7 +1392,7 @@ export default function DashboardPage() {
 
                   <p className="mt-1 text-sm font-bold text-orange-700">
                     <span aria-hidden="true">
-                      🔥
+                      <Icon name="sequencia" size={16} />
                     </span>{" "}
                     {
                       consistency.currentStreak
@@ -1473,7 +1475,7 @@ export default function DashboardPage() {
                     className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:border-[#F4C430]/60 hover:bg-white/15"
                   >
                     <span aria-hidden="true">
-                      ✨
+                      <Icon name="recomendado" size={16} />
                     </span>{" "}
                     Simulado recomendado
                   </Link>
@@ -1484,7 +1486,7 @@ export default function DashboardPage() {
                       className="min-h-12 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:border-[#F4C430]/60 hover:bg-white/15"
                     >
                       <span aria-hidden="true">
-                        🎯
+                        <Icon name="treinar-erros" size={16} />
                       </span>{" "}
                       Treinar meus erros
                     </Link>
@@ -1542,7 +1544,7 @@ export default function DashboardPage() {
 
                   <p className="mt-2 text-lg font-bold sm:text-2xl">
                     <span aria-hidden="true">
-                      🔥
+                      <Icon name="sequencia" size={24} />
                     </span>{" "}
                     {
                       consistency.currentStreak
@@ -1668,7 +1670,7 @@ export default function DashboardPage() {
             <div className="min-w-0 rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-5 shadow-sm sm:p-6">
               <p className="text-sm font-bold text-orange-600">
                 <span aria-hidden="true">
-                  🔥
+                  <Icon name="sequencia" size={16} />
                 </span>{" "}
                 Consistência
               </p>
@@ -1734,7 +1736,7 @@ export default function DashboardPage() {
                     }`}
                   >
                     {consistency.studiedToday
-                      ? "✓ Estudo registrado"
+                      ? <><Icon name="check" size={14} className="mr-1 inline-block shrink-0 align-[-0.2em]" />Estudo registrado</>
                       : "Ainda não estudou"}
                   </p>
 
@@ -1777,14 +1779,14 @@ export default function DashboardPage() {
                   href="/metas"
                   className="shrink-0 text-sm font-bold text-blue-600"
                 >
-                  Configurar metas →
+                  Configurar metas<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                 </Link>
               </div>
 
               <div className="mt-5 grid gap-3 md:grid-cols-3">
                 <GoalBar
                   label="Questões"
-                  icon="❓"
+                  icon="questoes"
                   current={
                     goalsProgress.questions.current
                   }
@@ -1798,7 +1800,7 @@ export default function DashboardPage() {
 
                 <GoalBar
                   label="Simulados"
-                  icon="📝"
+                  icon="novo-simulado"
                   current={
                     goalsProgress.exams.current
                   }
@@ -1812,7 +1814,7 @@ export default function DashboardPage() {
 
                 <GoalBar
                   label="Dias"
-                  icon="📅"
+                  icon="dias-estudo"
                   current={
                     goalsProgress.studyDays.current
                   }
@@ -1881,7 +1883,7 @@ export default function DashboardPage() {
             >
               <p className="text-sm font-bold text-indigo-600">
                 <span aria-hidden="true">
-                  ✨
+                  <Icon name="recomendado" size={16} />
                 </span>{" "}
                 Estudo adaptativo
               </p>
@@ -1898,7 +1900,7 @@ export default function DashboardPage() {
               </p>
 
               <p className="mt-4 text-sm font-bold text-indigo-600">
-                Criar recomendação →
+                Criar recomendação<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
               </p>
             </Link>
 
@@ -1908,7 +1910,7 @@ export default function DashboardPage() {
             >
               <p className="text-sm font-bold text-blue-600">
                 <span aria-hidden="true">
-                  🧭
+                  <Icon name="dominio" size={16} />
                 </span>{" "}
                 Mapa de aprendizagem
               </p>
@@ -1924,7 +1926,7 @@ export default function DashboardPage() {
               </p>
 
               <p className="mt-4 text-sm font-bold text-blue-600">
-                Abrir mapa de domínio →
+                Abrir mapa de domínio<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
               </p>
             </Link>
           </section>
@@ -1940,7 +1942,7 @@ export default function DashboardPage() {
                   <div className="min-w-0 p-5 sm:p-6 md:p-7">
                     <p className="text-sm font-bold text-violet-600">
                       <span aria-hidden="true">
-                        🎯
+                        <Icon name="treinar-erros" size={16} />
                       </span>{" "}
                       Revisão recomendada
                     </p>
@@ -2021,7 +2023,7 @@ export default function DashboardPage() {
                       href="/revisao"
                       className="mt-5 min-h-12 rounded-xl bg-violet-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-violet-700"
                     >
-                      Treinar meus erros →
+                      Treinar meus erros<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                     </Link>
                   </div>
                 </div>
@@ -2064,14 +2066,14 @@ export default function DashboardPage() {
                   href="/analise"
                   className="text-sm font-bold text-blue-600"
                 >
-                  Análise completa →
+                  Análise completa<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                 </Link>
 
                 <Link
                   href="/dominio"
                   className="text-sm font-bold text-violet-600"
                 >
-                  Ver domínio →
+                  Ver domínio<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                 </Link>
               </div>
             </div>
@@ -2100,12 +2102,10 @@ export default function DashboardPage() {
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex min-w-0 items-center gap-3">
                           <div
-                            className="shrink-0 text-2xl"
+                            className="shrink-0 text-[#3B82F6]"
                             aria-hidden="true"
                           >
-                            {
-                              subject.icon
-                            }
+                            <Icon name={subject.icon} size={24} />
                           </div>
 
                           <div className="min-w-0">
@@ -2195,7 +2195,7 @@ export default function DashboardPage() {
                   href="/evolucao"
                   className="shrink-0 text-sm font-bold text-blue-600"
                 >
-                  Evolução por matéria →
+                  Evolução por matéria<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                 </Link>
               </div>
 
@@ -2229,7 +2229,7 @@ export default function DashboardPage() {
                 href="/historico"
                 className="text-sm font-bold text-blue-600"
               >
-                Ver todos →
+                Ver todos<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
               </Link>
             </div>
 
@@ -2240,7 +2240,7 @@ export default function DashboardPage() {
                   className="text-4xl"
                   aria-hidden="true"
                 >
-                  📝
+                  <Icon name="novo-simulado" size={32} />
                 </div>
 
                 <p className="mt-3 font-bold text-slate-800">
@@ -2285,9 +2285,7 @@ export default function DashboardPage() {
                                 className={`inline-flex rounded-full border px-2.5 py-1 text-[10px] font-bold ${modeInfo.badgeClass}`}
                               >
                                 <span aria-hidden="true">
-                                  {
-                                    modeInfo.icon
-                                  }
+                                  <Icon name={modeInfo.icon} size={18} />
                                 </span>{" "}
                                 {
                                   modeInfo.shortLabel
@@ -2351,7 +2349,7 @@ export default function DashboardPage() {
                             href={`/historico/${exam.id}`}
                             className="font-bold text-blue-600"
                           >
-                            Detalhes →
+                            Detalhes<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
                           </Link>
                         </div>
                       </article>

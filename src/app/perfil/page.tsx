@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/icon";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { signOut } from "@/app/auth/actions";
@@ -181,7 +182,7 @@ export default async function ProfilePage({
             )}
 
             <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900">
-              <span aria-hidden="true" className="mt-0.5">☁️</span>
+              <Icon name="sincronizado" size={18} className="mt-0.5 shrink-0 text-[#3B82F6]" />
               <div>
                 <p className="font-bold">NabuLab Cloud conectado</p>
                 <p className="mt-1 text-sm leading-6 text-emerald-700">

@@ -1,3 +1,4 @@
+import type { IconName } from "@/components/ui/icon";
 import type {
   SubjectId,
 } from "@/types/question";
@@ -7,7 +8,7 @@ export interface SubjectInfo {
   name: string;
   area: string;
   description: string;
-  icon: string;
+  icon: IconName;
 }
 
 /*
@@ -23,7 +24,7 @@ export const subjects: SubjectInfo[] = [
     area: "Linguagens",
     description:
       "Interpretação de texto, gramática, ortografia, pontuação, sintaxe e semântica.",
-    icon: "📖",
+    icon: "portugues",
   },
 
   {
@@ -32,7 +33,7 @@ export const subjects: SubjectInfo[] = [
     area: "Linguagens",
     description:
       "Teoria literária, escolas literárias, literatura brasileira, portuguesa e africana em língua portuguesa.",
-    icon: "📚",
+    icon: "literatura",
   },
 
   {
@@ -41,7 +42,7 @@ export const subjects: SubjectInfo[] = [
     area: "Linguagens",
     description:
       "Interpretação, vocabulário, gramática, estruturas da língua e compreensão de textos em inglês.",
-    icon: "🌐",
+    icon: "ingles",
   },
 
   {
@@ -50,7 +51,7 @@ export const subjects: SubjectInfo[] = [
     area: "Linguagens",
     description:
       "Compreensão textual, vocabulário, gramática, conectores e variações da língua espanhola.",
-    icon: "🗣️",
+    icon: "espanhol",
   },
 
   {
@@ -59,7 +60,7 @@ export const subjects: SubjectInfo[] = [
     area: "Linguagens",
     description:
       "História da arte, linguagens visuais, música, teatro, dança, cinema e cultura brasileira.",
-    icon: "🎨",
+    icon: "arte",
   },
 
   {
@@ -68,7 +69,7 @@ export const subjects: SubjectInfo[] = [
     area: "Linguagens",
     description:
       "Cultura corporal, esportes, jogos, lutas, dança, saúde, inclusão e corpo em sociedade.",
-    icon: "🏃",
+    icon: "educacao-fisica",
   },
 
   {
@@ -77,7 +78,7 @@ export const subjects: SubjectInfo[] = [
     area: "Matemática",
     description:
       "Aritmética, porcentagem, proporção, álgebra, geometria, estatística e probabilidade.",
-    icon: "📐",
+    icon: "matematica",
   },
 
   {
@@ -86,7 +87,7 @@ export const subjects: SubjectInfo[] = [
     area: "Matemática",
     description:
       "Sequências, proposições, conectivos, equivalências, diagramas e organização lógica de informações.",
-    icon: "🧩",
+    icon: "raciocinio-logico",
   },
 
   {
@@ -95,7 +96,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências da Natureza",
     description:
       "Movimento, forças, energia, termologia, ondas, óptica, eletricidade e física moderna.",
-    icon: "⚛️",
+    icon: "fisica",
   },
 
   {
@@ -104,7 +105,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências da Natureza",
     description:
       "Estrutura da matéria, reações, soluções, equilíbrio, eletroquímica, química orgânica e ambiental.",
-    icon: "🧪",
+    icon: "quimica",
   },
 
   {
@@ -113,7 +114,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências da Natureza",
     description:
       "Citologia, genética, evolução, ecologia, fisiologia, microbiologia e diversidade dos seres vivos.",
-    icon: "🧬",
+    icon: "biologia",
   },
 
   {
@@ -122,7 +123,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências da Natureza",
     description:
       "Matéria, energia, corpo humano, seres vivos, Terra, ambiente e saúde no Ensino Fundamental.",
-    icon: "🔬",
+    icon: "ciencias",
   },
 
   {
@@ -131,7 +132,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências Humanas",
     description:
       "Processos históricos mundiais e brasileiros, sociedades, conflitos, revoluções e cidadania.",
-    icon: "🏛️",
+    icon: "historia",
   },
 
   {
@@ -140,7 +141,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências Humanas",
     description:
       "Espaço geográfico, população, economia, cartografia, geopolítica e questões ambientais.",
-    icon: "🌎",
+    icon: "geografia",
   },
 
   {
@@ -149,7 +150,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências Humanas",
     description:
       "Pensamento filosófico, ética, política, conhecimento e autores da Antiguidade à contemporaneidade.",
-    icon: "💭",
+    icon: "filosofia",
   },
 
   {
@@ -158,7 +159,7 @@ export const subjects: SubjectInfo[] = [
     area: "Ciências Humanas",
     description:
       "Cultura, sociedade, trabalho, desigualdade, Estado, cidadania, identidade e globalização.",
-    icon: "👥",
+    icon: "sociologia",
   },
 
   {
@@ -167,7 +168,7 @@ export const subjects: SubjectInfo[] = [
     area: "Tecnologia",
     description:
       "Hardware, software, sistemas operacionais, internet, segurança digital e ferramentas de produtividade.",
-    icon: "💻",
+    icon: "informatica",
   },
 
 ];
