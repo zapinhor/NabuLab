@@ -151,6 +151,14 @@ const CONCURSO_SUBJECTS = new Set<SubjectId>(
   subjects.filter((subject) => subject.area.startsWith("Concursos")).map((subject) => subject.id)
 );
 
+/* Bancas como a IBFC (Correios) usam 4 alternativas; as demais provas de concurso usam 5. */
+const FOUR_ALTERNATIVE_CONCURSO_AREAS = new Set(["Concursos Correios"]);
+const FIVE_ALTERNATIVE_SUBJECTS = new Set<SubjectId>(
+  subjects
+    .filter((subject) => subject.area.startsWith("Concursos") && !FOUR_ALTERNATIVE_CONCURSO_AREAS.has(subject.area))
+    .map((subject) => subject.id)
+);
+
 const TRUE_FALSE_IDS = [
   "V",
   "F",
@@ -164,6 +172,8 @@ const VALID_EXAM_TAGS: ExamTag[] = [
   "etec",
   "bancarios",
   "concursos",
+  "correios",
+  "petrobras",
 ];
 
 const VALID_EDUCATION_LEVELS: EducationLevel[] = [
@@ -691,7 +701,7 @@ export function auditQuestionBank(): QuestionBankAudit {
         question.type ===
           "multiple-choice" &&
         alternatives.length !==
-          (CONCURSO_SUBJECTS.has(question.subject) ? 5 : 4)
+          (FIVE_ALTERNATIVE_SUBJECTS.has(question.subject) ? 5 : 4)
       ) {
         addIssue(
           {
@@ -704,7 +714,7 @@ export function auditQuestionBank(): QuestionBankAudit {
             questionId,
 
             message:
-              `Questões de múltipla escolha devem possuir ${CONCURSO_SUBJECTS.has(question.subject) ? 5 : 4} alternativas. Esta possui ${alternatives.length}.`,
+              `Questões de múltipla escolha devem possuir ${FIVE_ALTERNATIVE_SUBJECTS.has(question.subject) ? 5 : 4} alternativas. Esta possui ${alternatives.length}.`,
           },
           questionIndex
         );
@@ -861,7 +871,7 @@ export function auditQuestionBank(): QuestionBankAudit {
           "multiple-choice" &&
         !arraysContainSameValues(
           alternativeIds,
-          CONCURSO_SUBJECTS.has(question.subject)
+          FIVE_ALTERNATIVE_SUBJECTS.has(question.subject)
             ? CONCURSO_MULTIPLE_CHOICE_IDS
             : MULTIPLE_CHOICE_IDS
         )
@@ -877,7 +887,7 @@ export function auditQuestionBank(): QuestionBankAudit {
             questionId,
 
             message:
-              CONCURSO_SUBJECTS.has(question.subject)
+              FIVE_ALTERNATIVE_SUBJECTS.has(question.subject)
                 ? "Questão MC de concurso não utiliza exatamente os IDs A, B, C, D e E."
                 : "Questão MC não utiliza exatamente os IDs A, B, C e D.",
           }

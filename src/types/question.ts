@@ -37,6 +37,10 @@ export type SubjectId =
   | "direito-constitucional"
   | "direito-administrativo"
   | "etica-servico-publico"
+  | "conhecimentos-gerais-correios"
+  | "codigo-conduta-correios"
+  | "sms-petrobras"
+  | "lei-das-estatais"
 ;
 
 export type ExamTag =
@@ -46,7 +50,9 @@ export type ExamTag =
   | "fatec"
   | "etec"
   | "bancarios"
-  | "concursos";
+  | "concursos"
+  | "correios"
+  | "petrobras";
 
 export type EducationLevel =
   | "ensino-fundamental"

@@ -231,4 +231,40 @@ export const subjects: SubjectInfo[] = [
       "Código de Ética do servidor, deveres e proibições, Lei de Acesso à Informação, conflito de interesses, LGPD e combate à corrupção.",
     icon: "check",
   },
+
+  {
+    id: "conhecimentos-gerais-correios",
+    name: "Conhecimentos Gerais",
+    area: "Concursos Correios",
+    description:
+      "Geografia do Brasil cobrada nos Correios: cartografia, aspectos físicos e biomas, espaço agrário e urbano, população e divisão político-administrativa.",
+    icon: "geografia",
+  },
+
+  {
+    id: "codigo-conduta-correios",
+    name: "Código de Conduta dos Correios",
+    area: "Concursos Correios",
+    description:
+      "Código de Conduta Ética e Integridade dos Correios: valores, princípios, compromissos, presentes e brindes, Comissão de Ética e canais de denúncia.",
+    icon: "gestao-institucional",
+  },
+
+  {
+    id: "sms-petrobras",
+    name: "Segurança, Meio Ambiente e Saúde (SMS)",
+    area: "Concursos Petrobras",
+    description:
+      "Gestão de riscos, normas regulamentadoras, acidentes de trabalho, prevenção de incêndios, meio ambiente e a política de SMS e as Regras de Ouro da Petrobras.",
+    icon: "atencao",
+  },
+
+  {
+    id: "lei-das-estatais",
+    name: "Lei das Estatais",
+    area: "Concursos Petrobras",
+    description:
+      "Lei 13.303/2016: empresas públicas e sociedades de economia mista, governança, integridade, licitações e contratos das estatais.",
+    icon: "auditoria",
+  },
 ];

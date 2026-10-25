@@ -6,6 +6,10 @@ import { vendasNegociacaoQuestions } from "@/data/questions/concursos/vendas-neg
 import { direitoConstitucionalQuestions } from "@/data/questions/concursos/direito-constitucional-bank";
 import { direitoAdministrativoQuestions } from "@/data/questions/concursos/direito-administrativo-bank";
 import { eticaServicoPublicoQuestions } from "@/data/questions/concursos/etica-servico-publico-bank";
+import { conhecimentosGeraisCorreiosQuestions } from "@/data/questions/concursos/conhecimentos-gerais-correios-bank";
+import { codigoCondutaCorreiosQuestions } from "@/data/questions/concursos/codigo-conduta-correios-bank";
+import { smsPetrobrasQuestions } from "@/data/questions/concursos/sms-petrobras-bank";
+import { leiDasEstataisQuestions } from "@/data/questions/concursos/lei-das-estatais-bank";
 
 export const concursoQuestions: Question[] = [
   ...conhecimentosBancariosQuestions,
@@ -14,4 +18,8 @@ export const concursoQuestions: Question[] = [
   ...direitoConstitucionalQuestions,
   ...direitoAdministrativoQuestions,
   ...eticaServicoPublicoQuestions,
+  ...conhecimentosGeraisCorreiosQuestions,
+  ...codigoCondutaCorreiosQuestions,
+  ...smsPetrobrasQuestions,
+  ...leiDasEstataisQuestions,
 ];
