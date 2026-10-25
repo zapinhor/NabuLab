@@ -54,6 +54,17 @@ export const DEFAULT_STUDY_GOALS:
 };
 
 /*
+ * Metas leves do plano gratuito: alcançáveis com 10 questões por dia
+ * (o máximo do Free é 70 por semana). Personalizar metas é do Premium.
+ */
+export const FREE_STUDY_GOALS: StudyGoals = {
+  weeklyQuestions: 30,
+  weeklyExams: 3,
+  weeklyStudyDays: 3,
+  updatedAt: "1970-01-01T00:00:00.000Z",
+};
+
+/*
  * =========================================================
  * LIMITES
  * =========================================================

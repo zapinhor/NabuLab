@@ -35,6 +35,7 @@ import {
 } from "@/components/ui/page-state";
 
 import NabuLabBrand from "@/components/ui/nabulab-brand";
+import { FavoriteButton } from "@/components/student/favorite-button";
 
 import type {
   Question,
@@ -1049,6 +1050,9 @@ export default function ExamHistoryDetailPage() {
                             <Icon name="incorreta" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Incorreta
                           </span>
                         )}
+                        <span className="ml-auto">
+                          <FavoriteButton questionId={question.id} />
+                        </span>
                       </div>
 
                       <p className="mt-4 break-words text-[10px] font-semibold leading-5 text-slate-400 sm:text-xs">
