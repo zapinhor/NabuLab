@@ -34,6 +34,9 @@ export type SubjectId =
   | "conhecimentos-bancarios"
   | "matematica-financeira"
   | "vendas-negociacao"
+  | "direito-constitucional"
+  | "direito-administrativo"
+  | "etica-servico-publico"
 ;
 
 export type ExamTag =
@@ -42,7 +45,8 @@ export type ExamTag =
   | "unesp"
   | "fatec"
   | "etec"
-  | "bancarios";
+  | "bancarios"
+  | "concursos";
 
 export type EducationLevel =
   | "ensino-fundamental"

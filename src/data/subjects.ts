@@ -204,4 +204,31 @@ export const subjects: SubjectInfo[] = [
       "Técnicas de vendas, negociação, marketing de relacionamento, qualidade no atendimento e direitos do consumidor.",
     icon: "pontos-fortes",
   },
+
+  {
+    id: "direito-constitucional",
+    name: "Direito Constitucional",
+    area: "Concursos Públicos",
+    description:
+      "Princípios fundamentais, direitos e garantias, remédios constitucionais, organização do Estado, administração pública e processo legislativo.",
+    icon: "bandeira",
+  },
+
+  {
+    id: "direito-administrativo",
+    name: "Direito Administrativo",
+    area: "Concursos Públicos",
+    description:
+      "Princípios, organização administrativa, poderes e atos administrativos, licitações, servidores públicos, responsabilidade do Estado e improbidade.",
+    icon: "auditoria",
+  },
+
+  {
+    id: "etica-servico-publico",
+    name: "Ética no Serviço Público",
+    area: "Concursos Públicos",
+    description:
+      "Código de Ética do servidor, deveres e proibições, Lei de Acesso à Informação, conflito de interesses, LGPD e combate à corrupção.",
+    icon: "check",
+  },
 ];

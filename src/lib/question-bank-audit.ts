@@ -163,6 +163,7 @@ const VALID_EXAM_TAGS: ExamTag[] = [
   "fatec",
   "etec",
   "bancarios",
+  "concursos",
 ];
 
 const VALID_EDUCATION_LEVELS: EducationLevel[] = [
