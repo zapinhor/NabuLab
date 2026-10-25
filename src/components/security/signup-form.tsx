@@ -16,6 +16,7 @@ import {
   type SignupValues,
 } from "@/lib/forms/signup-validation";
 import type { SignupProfile } from "@/lib/forms/signup-profile";
+import type { StudyFocus } from "@/lib/study-focus";
 
 const INITIAL_VALUES: SignupValues = { email: "", password: "" };
 const FIELD_HELP: Record<SignupField, string> = {
@@ -33,7 +34,7 @@ function FieldMessage({ field, error }: { field: SignupField; error?: string }) 
   return <p id={`${field}-help`} className={`mt-1.5 text-xs leading-5 ${error ? "font-semibold text-red-700" : "text-slate-500"}`} aria-live="polite">{error ?? FIELD_HELP[field]}</p>;
 }
 
-export function SignupForm({ next, intent = "student", profile }: { next: string; intent?: "student" | "teacher"; profile?: SignupProfile | null }) {
+export function SignupForm({ next, intent = "student", profile, studyFocus }: { next: string; intent?: "student" | "teacher"; profile?: SignupProfile | null; studyFocus?: StudyFocus | null }) {
   const [values, setValues] = useState(INITIAL_VALUES);
   const [errors, setErrors] = useState<SignupErrors>({});
   const [touched, setTouched] = useState<Partial<Record<SignupField, boolean>>>({});
@@ -82,6 +83,7 @@ export function SignupForm({ next, intent = "student", profile }: { next: string
     <form action={signUp} onSubmitCapture={handleSubmit} noValidate className="space-y-4">
       <input type="hidden" name="next" value={next} />
       {profile && <input type="hidden" name="signup_profile" value={profile} />}
+      {studyFocus && <input type="hidden" name="study_focus" value={studyFocus} />}
       <label className="block text-sm font-semibold text-slate-700" htmlFor="email">
         E-mail
         <input id="email" className={fieldClasses("email")} type="email" inputMode="email" name="email" autoComplete="email" value={values.email} onChange={(event) => updateField("email", event.target.value)} onBlur={() => validateField("email")} aria-invalid={Boolean(errors.email)} aria-describedby="email-help" autoFocus />

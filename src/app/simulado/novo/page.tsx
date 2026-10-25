@@ -31,6 +31,10 @@ import {
 
 import { generateManualExam, getExamQuotaStatus } from "@/lib/exam-generation-client";
 import { FreeLimitCard } from "@/components/student/free-limit-card";
+import { SubjectPicker } from "@/components/student/subject-picker";
+import { trackEvent } from "@/components/analytics/track-event";
+import { createClient } from "@/lib/supabase/client";
+import { defaultSubjectsForFocus, type StudyFocus } from "@/lib/study-focus";
 import {
   getStudentEntitlements,
   type StudentQuestionQuotaStatus,
@@ -195,10 +199,7 @@ export default function NewExamPage() {
       amount: 10,
 
       subjects:
-        subjects.map(
-          (subject) =>
-            subject.id
-        ),
+        defaultSubjectsForFocus(null),
 
       difficulty:
         "medio",
@@ -284,12 +285,53 @@ export default function NewExamPage() {
    * =========================================================
    */
 
+  /*
+   * Foco de estudo (vestibular, concursos ou os dois): define o que vem
+   * marcado. Depois que a pessoa mexe nas matérias, a escolha dela vale.
+   */
+  const [studyFocus, setStudyFocus] = useState<StudyFocus | null>(null);
+  const subjectsTouched = useRef(false);
+
+  useEffect(() => {
+    if (accountLoading || !account?.studyFocus) return;
+    const focus = account.studyFocus;
+    setStudyFocus(focus);
+    if (!subjectsTouched.current) {
+      setConfig((current) => ({ ...current, subjects: defaultSubjectsForFocus(focus) }));
+    }
+  }, [accountLoading, account?.studyFocus]);
+
+  function changeStudyFocus(focus: StudyFocus) {
+    setGenerationError(null);
+    setStudyFocus(focus);
+    subjectsTouched.current = true;
+    setConfig((current) => ({ ...current, subjects: defaultSubjectsForFocus(focus) }));
+    void trackEvent("signup_cta_clicked", { placement: "new_exam_focus", focus });
+    if (account) {
+      void createClient().auth.updateUser({ data: { study_focus: focus } }).then(({ error }) => {
+        if (error) console.error("[study-focus] Não foi possível salvar o foco:", error.message);
+      });
+    }
+  }
+
+  function setManySubjects(ids: SubjectId[], selected: boolean) {
+    setGenerationError(null);
+    subjectsTouched.current = true;
+    setConfig((current) => ({
+      ...current,
+      subjects: selected
+        ? [...new Set([...current.subjects, ...ids])]
+        : current.subjects.filter((id) => !ids.includes(id)),
+    }));
+  }
+
   function toggleSubject(
     subjectId: SubjectId
   ) {
     setGenerationError(
       null
     );
+    subjectsTouched.current = true;
 
     setConfig(
       (current) => {
@@ -329,6 +371,7 @@ export default function NewExamPage() {
     setGenerationError(
       null
     );
+    subjectsTouched.current = true;
 
     setConfig(
       (current) => ({
@@ -347,6 +390,7 @@ export default function NewExamPage() {
     setGenerationError(
       null
     );
+    subjectsTouched.current = true;
 
     setConfig(
       (current) => ({
@@ -733,8 +777,9 @@ export default function NewExamPage() {
                     id="subjects-description"
                     className="mt-2 text-sm leading-6 text-slate-500"
                   >
-                    Selecione uma ou várias
-                    matérias.
+                    Escolha matérias de vestibular,
+                    de concursos ou misture as
+                    duas áreas no mesmo simulado.
                   </p>
                 </div>
 
@@ -821,93 +866,17 @@ export default function NewExamPage() {
               )}
 
               <div
-                className="mt-5 grid gap-3 lg:grid-cols-2"
                 role="group"
                 aria-labelledby="subjects-heading"
                 aria-describedby="subjects-description subjects-selection-status"
               >
-                {subjects.map(
-                  (
-                    subject
-                  ) => {
-                    const selected =
-                      config.subjects.includes(
-                        subject.id
-                      );
-
-                    return (
-                      <button
-                        key={
-                          subject.id
-                        }
-                        type="button"
-                        aria-pressed={
-                          selected
-                        }
-                        onClick={() =>
-                          toggleSubject(
-                            subject.id
-                          )
-                        }
-                        className={`w-full rounded-2xl border p-4 text-left transition ${
-                          selected
-                            ? "border-[#3B82F6] bg-blue-50 ring-2 ring-blue-100"
-                            : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
-                        }`}
-                      >
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <div
-                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#3B82F6] shadow-sm"
-                            aria-hidden="true"
-                          >
-                            <Icon name={subject.icon} size={22} />
-                          </div>
-
-                          <div className="min-w-0 flex-1">
-                            <p
-                              className={`break-words text-sm font-bold ${
-                                selected
-                                  ? "text-[#0B2D6B]"
-                                  : "text-slate-800"
-                              }`}
-                            >
-                              {
-                                subject.name
-                              }
-                            </p>
-
-                            <p className="mt-1 break-words text-[10px] font-semibold uppercase tracking-wider text-slate-400 sm:text-xs">
-                              {
-                                subject.area
-                              }
-                            </p>
-
-                            <p className="mt-2 text-xs leading-5 text-slate-500">
-                              {
-                                subject.description
-                              }
-                            </p>
-                          </div>
-
-                          <div
-                            className={`ml-auto flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-                              selected
-                                ? "border-[#0B2D6B] bg-[#0B2D6B] text-white"
-                                : "border-slate-300"
-                            }`}
-                            aria-hidden="true"
-                          >
-                            {selected && (
-                              <span className="text-[10px]">
-                                <Icon name="check" size={18} />
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      </button>
-                    );
-                  }
-                )}
+                <SubjectPicker
+                  selected={config.subjects}
+                  focus={studyFocus}
+                  onToggle={toggleSubject}
+                  onSetMany={setManySubjects}
+                  onChangeFocus={changeStudyFocus}
+                />
               </div>
             </section>
 

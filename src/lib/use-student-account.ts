@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { StudentAccount } from "@/types/student-account";
 import { subscriptionFromRow } from "@/lib/entitlements";
+import { isStudyFocus } from "@/lib/study-focus";
 
 type StudentAccountState = {
   account: StudentAccount | null;
@@ -68,6 +69,7 @@ export function useStudentAccount(): StudentAccountState {
           fullName: profile?.full_name ?? metadata.full_name ?? null,
           avatarUrl: profile?.avatar_url ?? metadata.avatar_url ?? null,
           subscription: subscriptionFromRow(subscriptionRow),
+          studyFocus: isStudyFocus(metadata.study_focus) ? metadata.study_focus : null,
         },
         loading: false,
       });

@@ -8,6 +8,7 @@ import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
 import { validateEmail, validatePassword } from "@/lib/forms/signup-validation";
 import { isSignupProfile, profileLandingPath, type SignupProfile } from "@/lib/forms/signup-profile";
+import { isStudyFocus } from "@/lib/study-focus";
 import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
 import { recordAcquisitionMetric } from "@/lib/analytics/acquisition-server";
 import {
@@ -33,6 +34,8 @@ export async function signUp(formData: FormData) {
   const next = safeNextPath(value(formData, "next"));
   const profileInput = value(formData, "signup_profile");
   const profile: SignupProfile | null = isSignupProfile(profileInput) ? profileInput : null;
+  const focusInput = value(formData, "study_focus");
+  const studyFocus = profile === "estudante" && isStudyFocus(focusInput) ? focusInput : null;
   const signupError = (message: string): never => {
     redirect(`/cadastro?next=${encodeURIComponent(next)}${profile ? `&perfil=${profile}` : ""}&mensagem=${encodeURIComponent(message)}`);
   };
@@ -51,7 +54,7 @@ export async function signUp(formData: FormData) {
     options: {
       emailRedirectTo: `${origin}/auth/confirm?flow=signup&next=${encodeURIComponent(profile ? profileLandingPath(profile, next) : next)}`,
       captchaToken,
-      data: profile ? { signup_profile: profile } : undefined,
+      data: profile ? { signup_profile: profile, ...(studyFocus ? { study_focus: studyFocus } : {}) } : undefined,
     },
   });
   if (error?.code === "weak_password") signupError("Senha: essa senha foi considerada insegura. Use uma senha mais longa e difícil de adivinhar.");
@@ -64,7 +67,7 @@ export async function signUp(formData: FormData) {
     redirect(`/login?next=${encodeURIComponent(next)}&mensagem=${encodeURIComponent("Confira seu e-mail para confirmar o cadastro.")}`);
   }
   await recordAuthenticatedAnalyticsEvent("signup_completed", data.user?.id ?? null, {
-    properties: profile ? { profile } : undefined,
+    properties: profile ? { profile, ...(studyFocus ? { focus: studyFocus } : {}) } : undefined,
     sourceEventKey: data.user?.id ? `signup:${data.user.id}:completed` : null,
   });
   const cookieStore = await cookies();

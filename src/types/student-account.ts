@@ -1,4 +1,5 @@
 import type { StudentSubscription } from "@/lib/entitlements";
+import type { StudyFocus } from "@/lib/study-focus";
 
 export interface StudentAccount {
   id: string;
@@ -7,4 +8,5 @@ export interface StudentAccount {
   fullName: string | null;
   avatarUrl: string | null;
   subscription: StudentSubscription | null;
+  studyFocus: StudyFocus | null;
 }
