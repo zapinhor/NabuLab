@@ -137,6 +137,20 @@ const MULTIPLE_CHOICE_IDS = [
   "D",
 ];
 
+/* Provas de concurso (Cesgranrio) usam 5 alternativas. */
+const CONCURSO_MULTIPLE_CHOICE_IDS = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+];
+
+/** Matérias de concurso seguem regras próprias de distribuição (40 por matéria). */
+const CONCURSO_SUBJECTS = new Set<SubjectId>(
+  subjects.filter((subject) => subject.area.startsWith("Concursos")).map((subject) => subject.id)
+);
+
 const TRUE_FALSE_IDS = [
   "V",
   "F",
@@ -148,6 +162,7 @@ const VALID_EXAM_TAGS: ExamTag[] = [
   "unesp",
   "fatec",
   "etec",
+  "bancarios",
 ];
 
 const VALID_EDUCATION_LEVELS: EducationLevel[] = [
@@ -675,7 +690,7 @@ export function auditQuestionBank(): QuestionBankAudit {
         question.type ===
           "multiple-choice" &&
         alternatives.length !==
-          4
+          (CONCURSO_SUBJECTS.has(question.subject) ? 5 : 4)
       ) {
         addIssue(
           {
@@ -688,7 +703,7 @@ export function auditQuestionBank(): QuestionBankAudit {
             questionId,
 
             message:
-              `Questões de múltipla escolha devem possuir 4 alternativas. Esta possui ${alternatives.length}.`,
+              `Questões de múltipla escolha devem possuir ${CONCURSO_SUBJECTS.has(question.subject) ? 5 : 4} alternativas. Esta possui ${alternatives.length}.`,
           },
           questionIndex
         );
@@ -845,7 +860,9 @@ export function auditQuestionBank(): QuestionBankAudit {
           "multiple-choice" &&
         !arraysContainSameValues(
           alternativeIds,
-          MULTIPLE_CHOICE_IDS
+          CONCURSO_SUBJECTS.has(question.subject)
+            ? CONCURSO_MULTIPLE_CHOICE_IDS
+            : MULTIPLE_CHOICE_IDS
         )
       ) {
         addIssue(
@@ -859,7 +876,9 @@ export function auditQuestionBank(): QuestionBankAudit {
             questionId,
 
             message:
-              "Questão MC não utiliza exatamente os IDs A, B, C e D.",
+              CONCURSO_SUBJECTS.has(question.subject)
+                ? "Questão MC de concurso não utiliza exatamente os IDs A, B, C, D e E."
+                : "Questão MC não utiliza exatamente os IDs A, B, C e D.",
           }
         );
       }
@@ -1467,21 +1486,33 @@ export function auditQuestionBank(): QuestionBankAudit {
       ).length,
   };
 
-  if (questionBank.length !== 1224) {
+  // As metas fixas abaixo valem para o Banco Vestibulares v1; concursos têm regra própria.
+  const vestibularBank = questionBank.filter((question) => !CONCURSO_SUBJECTS.has(question.subject));
+  const vestibularByType = {
+    multipleChoice: vestibularBank.filter((question) => question.type === "multiple-choice").length,
+    trueFalse: vestibularBank.filter((question) => question.type === "true-false").length,
+  };
+  const vestibularByDifficulty = {
+    iniciante: vestibularBank.filter((question) => question.difficulty === "iniciante").length,
+    medio: vestibularBank.filter((question) => question.difficulty === "medio").length,
+    avancado: vestibularBank.filter((question) => question.difficulty === "avancado").length,
+  };
+
+  if (vestibularBank.length !== 1224) {
     addIssue({
       severity: "error",
       code: "INVALID_TOTAL_COUNT",
       questionId: "BANCO",
-      message: `O Banco Vestibulares v1 deve possuir 1224 questões, mas possui ${questionBank.length}.`,
+      message: `O Banco Vestibulares v1 deve possuir 1224 questões, mas possui ${vestibularBank.length}.`,
     });
   }
 
   const expectedGlobalCounts = [
-    ["multiple-choice", byType.multipleChoice, 612],
-    ["true-false", byType.trueFalse, 612],
-    ["iniciante", byDifficulty.iniciante, 408],
-    ["medio", byDifficulty.medio, 408],
-    ["avancado", byDifficulty.avancado, 408],
+    ["multiple-choice", vestibularByType.multipleChoice, 612],
+    ["true-false", vestibularByType.trueFalse, 612],
+    ["iniciante", vestibularByDifficulty.iniciante, 408],
+    ["medio", vestibularByDifficulty.medio, 408],
+    ["avancado", vestibularByDifficulty.avancado, 408],
   ] as const;
 
   for (const [label, actual, expected] of expectedGlobalCounts) {
@@ -1496,14 +1527,24 @@ export function auditQuestionBank(): QuestionBankAudit {
   }
 
   for (const subject of subjectStats) {
-    const expectedSubjectCounts = [
+    const concurso = CONCURSO_SUBJECTS.has(subject.subject);
+    const expectedSubjectCounts = (concurso
+      ? [
+          ["total", subject.total, 40],
+          ["múltipla escolha", subject.multipleChoice, 20],
+          ["verdadeiro/falso", subject.trueFalse, 20],
+          ["iniciante", subject.iniciante, 14],
+          ["médio", subject.medio, 14],
+          ["avançado", subject.avancado, 12],
+        ]
+      : [
       ["total", subject.total, 72],
-      ["múltipla escolha", subject.multipleChoice, 36],
-      ["verdadeiro/falso", subject.trueFalse, 36],
-      ["iniciante", subject.iniciante, 24],
-      ["médio", subject.medio, 24],
-      ["avançado", subject.avancado, 24],
-    ] as const;
+          ["múltipla escolha", subject.multipleChoice, 36],
+          ["verdadeiro/falso", subject.trueFalse, 36],
+          ["iniciante", subject.iniciante, 24],
+          ["médio", subject.medio, 24],
+          ["avançado", subject.avancado, 24],
+        ]) as ReadonlyArray<readonly [string, number, number]>;
 
     for (const [label, actual, expected] of expectedSubjectCounts) {
       if (actual !== expected) {
@@ -1519,13 +1560,13 @@ export function auditQuestionBank(): QuestionBankAudit {
     for (const type of VALID_TYPES) {
       for (const difficulty of VALID_DIFFICULTIES) {
         const actual = subject.combinations[type][difficulty];
-
-        if (actual !== 12) {
+        const expectedCell = concurso ? (difficulty === "avancado" ? 6 : 7) : 12;
+        if (actual !== expectedCell) {
           addIssue({
             severity: "error",
             code: "INVALID_SUBJECT_CELL",
             questionId: subject.subject,
-            message: `${subject.subjectName}: ${type} + ${difficulty} deveria conter 12 questões, mas contém ${actual}.`,
+            message: `${subject.subjectName}: ${type} + ${difficulty} deveria conter ${expectedCell} questões, mas contém ${actual}.`,
           });
         }
       }
@@ -1539,7 +1580,7 @@ export function auditQuestionBank(): QuestionBankAudit {
    */
 
   const subjectTotals =
-    subjectStats.map(
+    subjectStats.filter((subject) => !CONCURSO_SUBJECTS.has(subject.subject)).map(
       (subject) =>
         subject.total
     );
@@ -1566,9 +1607,9 @@ export function auditQuestionBank(): QuestionBankAudit {
     1;
 
   const difficultyTotals = [
-    byDifficulty.iniciante,
-    byDifficulty.medio,
-    byDifficulty.avancado,
+    vestibularByDifficulty.iniciante,
+    vestibularByDifficulty.medio,
+    vestibularByDifficulty.avancado,
   ];
 
   const difficultyBalanceSpread =

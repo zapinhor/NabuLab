@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { questionBank } from "../src/data/questions";
 import { CONTENT_BASELINE, contentCatalog, contentDiagnostics, searchContent, slugifyContent } from "../src/lib/content/catalog";
 
-assert.equal(questionBank.length, CONTENT_BASELINE.questions, "O banco deve preservar 1.224 questões.");
-assert.equal(contentCatalog.length, CONTENT_BASELINE.subjects, "O banco deve preservar 17 matérias.");
+assert.equal(questionBank.length, CONTENT_BASELINE.questions, "O banco deve preservar 1.344 questões (1.224 de vestibulares + 120 de concursos).");
+assert.equal(contentCatalog.length, CONTENT_BASELINE.subjects, "O banco deve preservar 20 matérias.");
 assert.equal(new Set(questionBank.map((question) => question.id)).size, questionBank.length, "IDs devem continuar únicos.");
 assert.equal(contentDiagnostics().problems.length, 0, "Não pode haver problema estrutural novo.");
 assert.equal(contentDiagnostics().duplicateCandidates.length, 0, "Não pode haver enunciado exatamente duplicado.");

@@ -31,6 +31,9 @@ export type SubjectId =
   | "filosofia"
   | "sociologia"
   | "informatica"
+  | "conhecimentos-bancarios"
+  | "matematica-financeira"
+  | "vendas-negociacao"
 ;
 
 export type ExamTag =
@@ -38,7 +41,8 @@ export type ExamTag =
   | "fuvest"
   | "unesp"
   | "fatec"
-  | "etec";
+  | "etec"
+  | "bancarios";
 
 export type EducationLevel =
   | "ensino-fundamental"

@@ -171,4 +171,37 @@ export const subjects: SubjectInfo[] = [
     icon: "informatica",
   },
 
+
+  /*
+   * =======================================================
+   * CONCURSOS BANCÁRIOS (Banco do Brasil, Caixa, Bradesco…)
+   * =======================================================
+   */
+
+  {
+    id: "conhecimentos-bancarios",
+    name: "Conhecimentos Bancários",
+    area: "Concursos Bancários",
+    description:
+      "Sistema Financeiro Nacional, política monetária, produtos e serviços bancários, garantias, Pix, FGC e prevenção à lavagem de dinheiro.",
+    icon: "gestao-institucional",
+  },
+
+  {
+    id: "matematica-financeira",
+    name: "Matemática Financeira",
+    area: "Concursos Bancários",
+    description:
+      "Juros simples e compostos, taxas equivalentes, descontos, inflação, séries de pagamentos e sistemas de amortização.",
+    icon: "tendencia-sobe",
+  },
+
+  {
+    id: "vendas-negociacao",
+    name: "Vendas e Negociação",
+    area: "Concursos Bancários",
+    description:
+      "Técnicas de vendas, negociação, marketing de relacionamento, qualidade no atendimento e direitos do consumidor.",
+    icon: "pontos-fortes",
+  },
 ];
