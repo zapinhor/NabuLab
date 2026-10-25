@@ -1036,6 +1036,16 @@ export default function DashboardPage() {
             />
           </Link>
 
+          <Link
+            href="/favoritos"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            <span className="flex min-w-0 items-center gap-3">
+              <Icon name="bandeira-marcada" size={18} />
+              <span className="truncate">Favoritas</span>
+            </span>
+          </Link>
+
         </nav>
 
         <div className="border-t border-white/10 px-5 py-5">
@@ -1310,6 +1320,15 @@ export default function DashboardPage() {
                   icon="historico"
                   label="Histórico"
                   badge={!studentEntitlements.fullHistory ? "3 recentes" : undefined}
+                  onNavigate={
+                    closeMobileMenu
+                  }
+                />
+
+                <MobileNavLink
+                  href="/favoritos"
+                  icon="bandeira-marcada"
+                  label="Favoritas"
                   onNavigate={
                     closeMobileMenu
                   }

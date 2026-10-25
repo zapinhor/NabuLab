@@ -13,6 +13,7 @@ import {
 
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { PremiumResultPreview } from "@/components/student/premium-result-preview";
+import { FavoriteButton } from "@/components/student/favorite-button";
 import type { PremiumUpsell } from "@/lib/exam-generation-client";
 
 import {
@@ -1061,6 +1062,9 @@ export default function ExamResultPage() {
                             <Icon name="bandeira-marcada" size={16} className="mr-1.5 inline-block shrink-0 align-[-0.2em]" />Revisão
                           </span>
                         )}
+                        <span className="ml-auto">
+                          <FavoriteButton questionId={question.id} />
+                        </span>
                       </div>
 
                       {/* =====================================
