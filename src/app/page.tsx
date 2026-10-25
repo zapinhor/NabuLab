@@ -8,19 +8,20 @@ import { HeroSampleQuestion } from "@/components/public/hero-sample-question";
 import { discountPercent, pricePerDay } from "@/lib/billing/price-display";
 import { getHotmartConfig } from "@/lib/billing/config";
 import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
+import { BANK_QUESTIONS_LABEL, BANK_SUBJECTS, CONCURSO_GROUPS_LABEL, CONCURSO_SUBJECTS, VESTIBULAR_AREAS_LABEL, VESTIBULAR_SUBJECTS } from "@/lib/bank-summary";
 import { createPublicMetadata } from "@/lib/seo";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = createPublicMetadata({
-  title: "NabuLab — Simulados, revisão e evolução para vestibulares",
+  title: "NabuLab — Simulados para vestibulares e concursos",
   description:
-    "Pratique para vestibulares com 1.224 questões em 17 matérias, correção comentada, revisão de erros e acompanhamento do seu desempenho.",
+    `Pratique para vestibulares e concursos com ${BANK_QUESTIONS_LABEL} questões em ${BANK_SUBJECTS} matérias, correção comentada, revisão de erros e acompanhamento do seu desempenho.`,
   path: "/",
   absoluteTitle: true,
 });
 
-const free = ["10 questões gratuitas por dia", "17 matérias", "Níveis iniciante e médio", "Múltipla escolha e V/F", "Correções e explicações", "3 históricos recentes", "Recomendado limitado", "Resumo de desempenho", "Atividades de turmas não consomem a franquia", "Cloud Sync"];
-const premium = ["1.224 questões em 17 matérias", "Simulados ilimitados", "5, 10, 15, 20, 30 ou 50 questões", "Níveis iniciante, médio e avançado", "Histórico completo", "Treinar meus erros", "Recomendado completo", "Evolução, Análise e Domínio", "Metas de estudo", "Cloud Sync"];
+const free = ["10 questões gratuitas por dia", `${BANK_SUBJECTS} matérias de vestibular e concursos`, "Níveis iniciante e médio", "Múltipla escolha e V/F", "Correções e explicações", "3 históricos recentes", "Recomendado limitado", "Resumo de desempenho", "Atividades de turmas não consomem a franquia", "Cloud Sync"];
+const premium = [`${BANK_QUESTIONS_LABEL} questões em ${BANK_SUBJECTS} matérias`, "Simulados ilimitados", "5, 10, 15, 20, 30 ou 50 questões", "Níveis iniciante, médio e avançado", "Histórico completo", "Treinar meus erros", "Recomendado completo", "Evolução, Análise e Domínio", "Metas de estudo", "Cloud Sync"];
 const features = [
   ["Simulados do seu jeito", "Escolha matérias, dificuldade, tipo e quantidade de questões para praticar com intenção."],
   ["Correção que ensina", "Entenda a resposta correta e o raciocínio por trás das alternativas após cada tentativa."],
@@ -69,7 +70,7 @@ export default async function LandingPage() {
       <section className="relative border-b border-blue-100 bg-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:py-24">
           <div>
-            <p className="mb-5 inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-black uppercase tracking-[.16em] text-blue-800">17 matérias · 1.224 questões</p>
+            <p className="mb-5 inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-black uppercase tracking-[.16em] text-blue-800">Vestibulares e concursos · {BANK_QUESTIONS_LABEL} questões</p>
             <h1 className="max-w-3xl text-4xl font-black tracking-[-.045em] text-[#0B2D6B] sm:text-5xl lg:text-6xl">Prepare-se praticando, não apenas relendo.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">Simulados, correção comentada e acompanhamento do seu desempenho em um só lugar.</p>
             <p className="mt-4 border-l-4 border-[#F4C430] pl-4 font-bold text-slate-800">Cada tentativa é um passo. Cada correção, uma evolução.</p>
@@ -104,14 +105,14 @@ export default async function LandingPage() {
       <section className="border-y border-slate-200 bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8"><div><p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">Por que praticar</p><h2 className="mt-3 text-3xl font-black tracking-tight">Estudar também é decidir o que fazer depois de cada resposta.</h2></div><div className="space-y-4 text-base leading-7 text-slate-600"><p>O NabuLab reúne tentativa, correção e histórico para você não depender apenas da releitura passiva.</p><p>Com dados do que já foi feito, fica mais fácil identificar conteúdos frágeis, retomar erros e escolher a próxima prática.</p></div></div></section>
 
       <section id="faq" className="mx-auto max-w-4xl px-4 py-16 sm:px-6"><p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">FAQ</p><h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Perguntas frequentes</h2><div className="mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white px-5">{[
-        ["O NabuLab é gratuito?", "Sim. O plano Free oferece 10 questões gratuitas por dia, 17 matérias e recursos essenciais de correção, histórico e desempenho. Atividades enviadas por professores não consomem essa franquia."],
+        ["O NabuLab é gratuito?", `Sim. O plano Free oferece 10 questões gratuitas por dia, ${BANK_SUBJECTS} matérias e recursos essenciais de correção, histórico e desempenho. Atividades enviadas por professores não consomem essa franquia.`],
         ["O que muda no Premium?", "O Premium libera simulados ilimitados, nível avançado, até 50 questões, histórico completo, revisão de erros, recomendado completo, evolução, análise, domínio e metas."],
         ["Posso cancelar quando quiser?", "Sim. O cancelamento é gerenciado pela Hotmart e interrompe a renovação automática."],
         ["O que acontece quando cancelo?", "Seu Premium permanece disponível até o fim do período já pago. Depois disso, sua conta volta ao Free e seus dados acadêmicos continuam preservados."],
         ["Como o pagamento é feito?", "O pagamento e a gestão da assinatura são realizados pela Hotmart. Antes do checkout, você cria sua identidade NabuLab para vincular o Premium automaticamente."],
         ["Preciso instalar alguma coisa?", "Não. O NabuLab funciona no navegador em celular, tablet e computador."],
         ["Meu progresso fica salvo?", "Sim. O Cloud Sync vincula histórico, respostas, desempenho e metas à sua conta."],
-        ["Quais matérias estão disponíveis?", "São 17 matérias das áreas de Linguagens, Matemática, Ciências da Natureza, Ciências Humanas e Tecnologia."],
+        ["Quais matérias estão disponíveis?", `São ${BANK_SUBJECTS} matérias: ${VESTIBULAR_SUBJECTS} de vestibular (${VESTIBULAR_AREAS_LABEL}) e ${CONCURSO_SUBJECTS} de concursos (${CONCURSO_GROUPS_LABEL}). Você pode misturar as duas no mesmo simulado.`],
       ].map(([q,a]) => <details key={q} className="group py-5"><summary className="cursor-pointer list-none pr-8 font-bold text-slate-900 marker:hidden">{q}<span aria-hidden="true" className="float-right text-blue-700 group-open:rotate-45">+</span></summary><p className="mt-3 pr-6 text-sm leading-6 text-slate-600">{a}</p></details>)}</div></section>
 
       <section className="px-4 pb-16 sm:px-6"><div className="mx-auto max-w-6xl rounded-3xl bg-[#0B2D6B] px-6 py-12 text-center text-white sm:px-10"><p className="text-sm font-black uppercase tracking-[.16em] text-blue-200">Seu próximo passo</p><h2 className="mx-auto mt-3 max-w-2xl text-3xl font-black tracking-tight sm:text-4xl">Cada tentativa é um passo. Cada correção, uma evolução.</h2><TrackedLink event="signup_cta_clicked" properties={{ placement: "final_cta" }} href={primaryHref} className="mt-7 inline-block rounded-xl bg-[#F4C430] px-6 py-3.5 font-black text-[#0B2D6B]">{authenticated ? "Ir para o NabuLab" : "Começar grátis"}</TrackedLink></div></section>

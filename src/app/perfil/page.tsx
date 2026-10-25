@@ -6,6 +6,7 @@ import StudentAvatar from "@/components/student/student-avatar";
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { createClient } from "@/lib/supabase/server";
 import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
+import { BANK_SUBJECTS } from "@/lib/bank-summary";
 
 export default async function ProfilePage({
   searchParams,
@@ -133,7 +134,7 @@ export default async function ProfilePage({
                 <p className="mt-2 text-sm leading-6 text-slate-600">
                   {premium
                     ? "Acesso completo ao banco, simulados e análises avançadas."
-                    : "Acesso às 17 matérias, simulados de até 15 questões e sincronização na nuvem."}
+                    : `Acesso às ${BANK_SUBJECTS} matérias, simulados de até 15 questões e sincronização na nuvem.`}
                 </p>
                 {paidCancellationAccess && accessUntil && (
                   <div className="mt-3 rounded-xl border border-amber-200 bg-white/70 p-3 text-sm text-amber-950">

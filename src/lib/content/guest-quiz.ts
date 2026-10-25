@@ -1,6 +1,7 @@
 import "server-only";
 
 import { subjects } from "@/data/subjects";
+import { concursoSubjects, vestibularSubjects } from "@/lib/study-focus";
 import type { IconName } from "@/components/ui/icon";
 import { contentCatalog, getTopicSamples } from "@/lib/content/catalog";
 import type { Question, SubjectId } from "@/types/question";
@@ -8,7 +9,7 @@ import type { Question, SubjectId } from "@/types/question";
 /** Quantas questões o visitante responde antes de criar a conta. */
 export const GUEST_QUIZ_SIZE = 3;
 
-export type GuestTrackId = "misturado" | "matematica" | "linguagens" | "natureza" | "humanas";
+export type GuestTrackId = "misturado" | "matematica" | "linguagens" | "natureza" | "humanas" | "concursos";
 
 export type GuestTrack = {
   id: GuestTrackId;
@@ -21,11 +22,12 @@ export type GuestTrack = {
 const byArea = (area: string) => subjects.filter((subject) => subject.area === area).map((subject) => subject.id);
 
 export const GUEST_TRACKS: GuestTrack[] = [
-  { id: "misturado", label: "Um pouco de tudo", hint: "Estilo ENEM, várias matérias", icon: "misto", subjects: subjects.map((subject) => subject.id) },
+  { id: "misturado", label: "Um pouco de tudo", hint: "Estilo ENEM, várias matérias", icon: "misto", subjects: vestibularSubjects.map((subject) => subject.id) },
   { id: "matematica", label: "Matemática", hint: "Matemática e raciocínio lógico", icon: "matematica", subjects: byArea("Matemática") },
   { id: "linguagens", label: "Linguagens", hint: "Português, literatura e idiomas", icon: "portugues", subjects: byArea("Linguagens") },
   { id: "natureza", label: "Ciências da Natureza", hint: "Física, química e biologia", icon: "biologia", subjects: byArea("Ciências da Natureza") },
   { id: "humanas", label: "Ciências Humanas", hint: "História, geografia, filosofia e sociologia", icon: "historia", subjects: byArea("Ciências Humanas") },
+  { id: "concursos", label: "Concursos", hint: "Bancários, públicos, Correios e Petrobras", icon: "gestao-institucional", subjects: concursoSubjects.map((subject) => subject.id) },
 ];
 
 export function findGuestTrack(id: string | undefined) {

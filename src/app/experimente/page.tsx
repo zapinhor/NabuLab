@@ -13,7 +13,7 @@ import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = createPublicMetadata({
   title: "Teste grátis: responda 3 questões sem cadastro",
-  description: "Escolha uma área, responda 3 questões estilo vestibular e veja a correção comentada na hora. Sem cadastro e sem cartão.",
+  description: "Escolha uma área, responda 3 questões de vestibular ou concurso e veja a correção comentada na hora. Sem cadastro e sem cartão.",
   path: "/experimente",
 });
 

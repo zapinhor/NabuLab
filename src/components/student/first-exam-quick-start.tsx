@@ -6,6 +6,7 @@ import { useState, useSyncExternalStore } from "react";
 import { trackEvent } from "@/components/analytics/track-event";
 import { Icon } from "@/components/ui/icon";
 import { subjects } from "@/data/subjects";
+import { concursoSubjects, vestibularSubjects, type StudyFocus } from "@/lib/study-focus";
 import { generateManualExam } from "@/lib/exam-generation-client";
 import {
   clearExamSubmission,
@@ -14,17 +15,32 @@ import {
   saveExamSession,
 } from "@/lib/exam-session";
 import type { ExamConfig } from "@/types/exam";
+import type { SubjectId } from "@/types/question";
 
 /** Mesma chave do teste sem conta (components/guest-quiz). */
 const GUEST_RESULT_KEY = "nabulab_guest_quiz";
 const FIRST_EXAM_SIZE = 5;
 
-const TRACK_AREAS: Record<string, { label: string; area: string | null }> = {
-  misturado: { label: "várias matérias", area: null },
-  matematica: { label: "Matemática", area: "Matemática" },
-  linguagens: { label: "Linguagens", area: "Linguagens" },
-  natureza: { label: "Ciências da Natureza", area: "Ciências da Natureza" },
-  humanas: { label: "Ciências Humanas", area: "Ciências Humanas" },
+type Track = { label: string; subjectIds: SubjectId[] };
+
+const ids = (list: { id: SubjectId }[]) => list.map((subject) => subject.id);
+const byArea = (area: string) => ids(subjects.filter((subject) => subject.area === area));
+
+/** Áreas do teste sem conta (mesmos ids de GUEST_TRACKS). */
+const TRACK_AREAS: Record<string, Track> = {
+  misturado: { label: "várias matérias de vestibular", subjectIds: ids(vestibularSubjects) },
+  matematica: { label: "Matemática", subjectIds: byArea("Matemática") },
+  linguagens: { label: "Linguagens", subjectIds: byArea("Linguagens") },
+  natureza: { label: "Ciências da Natureza", subjectIds: byArea("Ciências da Natureza") },
+  humanas: { label: "Ciências Humanas", subjectIds: byArea("Ciências Humanas") },
+  concursos: { label: "matérias de concursos", subjectIds: ids(concursoSubjects) },
+};
+
+/** Sem teste sem conta, vale o foco escolhido no cadastro. */
+const FOCUS_TRACKS: Record<StudyFocus, Track> = {
+  vestibular: TRACK_AREAS.misturado,
+  concursos: TRACK_AREAS.concursos,
+  ambos: { label: "vestibular e concursos", subjectIds: ids(subjects) },
 };
 
 function readGuestTrack(): string | null {
@@ -39,25 +55,25 @@ function readGuestTrack(): string | null {
 
 /**
  * Primeiro simulado em um toque: 5 questões de nível iniciante, sem passar
- * pela tela de configuração. Se a pessoa fez o teste sem conta, usa a mesma área.
+ * pela tela de configuração. Se a pessoa fez o teste sem conta, usa a mesma área;
+ * senão, o foco de estudo do cadastro (vestibular, concursos ou os dois).
  */
-export function FirstExamQuickStart() {
+export function FirstExamQuickStart({ studyFocus = null }: { studyFocus?: StudyFocus | null }) {
   const router = useRouter();
   const guestTrack = useSyncExternalStore(() => () => {}, readGuestTrack, () => null);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const track = guestTrack ? TRACK_AREAS[guestTrack] : TRACK_AREAS.misturado;
-  const areaSubjects = track.area ? subjects.filter((subject) => subject.area === track.area) : subjects;
+  const track = guestTrack ? TRACK_AREAS[guestTrack] : FOCUS_TRACKS[studyFocus ?? "vestibular"];
 
   async function start() {
     if (starting) return;
     setStarting(true);
     setError(null);
-    void trackEvent("first_exam_quickstart_clicked", { track: guestTrack ?? "misturado" });
+    void trackEvent("first_exam_quickstart_clicked", { track: guestTrack ?? "misturado", focus: studyFocus ?? "none" });
     const config: ExamConfig = {
       amount: FIRST_EXAM_SIZE,
-      subjects: areaSubjects.map((subject) => subject.id),
+      subjects: track.subjectIds,
       difficulty: "iniciante",
       questionType: "misto",
       shuffleQuestions: true,
@@ -87,7 +103,7 @@ export function FirstExamQuickStart() {
         {starting ? "Preparando suas questões…" : `Começar meu primeiro simulado · ${FIRST_EXAM_SIZE} questões`}
       </button>
       <p className="mt-2 text-xs leading-5 text-blue-100">
-        Nível iniciante, {track.label}{guestTrack ? " (a área do seu teste)" : ""}. Leva uns 5 minutos.
+        Nível iniciante, {track.label}{guestTrack ? " (a área do seu teste)" : studyFocus ? " (seu foco de estudo)" : ""}. Leva uns 5 minutos.
       </p>
       {error && <p role="alert" className="mt-2 rounded-lg bg-white/10 px-3 py-2 text-sm font-semibold text-amber-200">{error}</p>}
     </div>

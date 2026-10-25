@@ -23,12 +23,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NabuLab — Simulados, revisão e evolução para vestibulares",
+    default: "NabuLab — Simulados para vestibulares e concursos",
     template: "%s | NabuLab",
   },
 
   description:
-    "Pratique para vestibulares com simulados, correção comentada, revisão de erros e acompanhamento de desempenho em 17 matérias.",
+    "Pratique para vestibulares e concursos com simulados, correção comentada, revisão de erros e acompanhamento de desempenho.",
 
   applicationName: "NabuLab",
 
@@ -52,14 +52,14 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     siteName: "NabuLab",
-    title: "NabuLab — Simulados, revisão e evolução para vestibulares",
+    title: "NabuLab — Simulados para vestibulares e concursos",
     description: "Simulados, correção comentada e acompanhamento do seu desempenho em um só lugar.",
     images: [{ url: "/branding/Logo-principal.png", width: 1024, height: 1024, alt: "NabuLab" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NabuLab — Simulados, revisão e evolução para vestibulares",
-    description: "Pratique, corrija e acompanhe sua evolução para os vestibulares.",
+    title: "NabuLab — Simulados para vestibulares e concursos",
+    description: "Pratique, corrija e acompanhe sua evolução para vestibulares e concursos.",
     images: ["/branding/Logo-principal.png"],
   },
 };

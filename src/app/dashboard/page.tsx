@@ -1470,7 +1470,7 @@ export default function DashboardPage() {
                 <h1 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">Bem-vindo ao NabuLab</h1>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-blue-50">Comece com um simulado curto: você responde, vê a correção comentada e descobre o que revisar.</p>
                 <div className="mt-6">
-                  <FirstExamQuickStart />
+                  <FirstExamQuickStart studyFocus={account?.studyFocus ?? null} />
                 </div>
                 <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
                   <Link href="/simulado/novo" className="text-white underline-offset-4 hover:underline">Prefiro escolher as matérias</Link>
