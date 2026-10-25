@@ -37,6 +37,12 @@ import {
 } from "@/components/ui/page-state";
 
 import NabuLabBrand from "@/components/ui/nabulab-brand";
+import {
+  EMPTY_MISTAKE_FILTERS,
+  MistakeFilters,
+  applyMistakeFilters,
+  type MistakeFilterState,
+} from "@/components/student/mistake-filters";
 
 /*
  * =========================================================
@@ -233,6 +239,30 @@ export default function ReviewPage() {
     loadReview,
   ]);
 
+  const [
+    filters,
+    setFilters,
+  ] =
+    useState<MistakeFilterState>(
+      EMPTY_MISTAKE_FILTERS
+    );
+
+  // Erros que passam nos filtros, mantendo a ordem de prioridade.
+  const filteredQuestions =
+    useMemo(
+      () =>
+        summary
+          ? applyMistakeFilters(
+              summary.questions,
+              filters
+            )
+          : [],
+      [
+        summary,
+        filters,
+      ]
+    );
+
   /*
    * =========================================================
    * QUANTIDADE REAL
@@ -251,16 +281,17 @@ export default function ReviewPage() {
         amount ===
         "all"
       ) {
-        return summary.questions.length;
+        return filteredQuestions.length;
       }
 
       return Math.min(
         amount,
-        summary.questions.length
+        filteredQuestions.length
       );
     }, [
       amount,
       summary,
+      filteredQuestions,
     ]);
 
   /*
@@ -277,12 +308,13 @@ export default function ReviewPage() {
         return [];
       }
 
-      return summary.questions.slice(
+      return filteredQuestions.slice(
         0,
         actualAmount
       );
     }, [
       summary,
+      filteredQuestions,
       actualAmount,
     ]);
 
@@ -312,7 +344,7 @@ export default function ReviewPage() {
 
     try {
       const selectedQuestions =
-        summary.questions.slice(
+        filteredQuestions.slice(
           0,
           actualAmount
         );
@@ -595,13 +627,24 @@ export default function ReviewPage() {
             </p>
 
             <h2 className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">
-              Quantas questões deseja revisar?
+              Quais erros deseja treinar?
             </h2>
 
             <p className="mt-2 text-sm leading-6 text-slate-500">
-              As questões com maior
+              Filtre por matéria, prioridade ou
+              situação. As questões com maior
               prioridade aparecem primeiro.
             </p>
+
+            <MistakeFilters
+              questions={summary.questions}
+              filters={filters}
+              onChange={(next) => {
+                setFilters(next);
+                setGenerationError(null);
+              }}
+              resultCount={filteredQuestions.length}
+            />
 
             {/* ===============================================
                 QUANTIDADE
@@ -620,7 +663,7 @@ export default function ReviewPage() {
                     option !==
                       "all" &&
                     option >
-                      summary.questions.length;
+                      filteredQuestions.length;
 
                   const selected =
                     amount ===
@@ -655,7 +698,7 @@ export default function ReviewPage() {
                     >
                       {option ===
                       "all"
-                        ? `Todas (${summary.questions.length})`
+                        ? `Todas (${filteredQuestions.length})`
                         : option}
                     </button>
                   );
