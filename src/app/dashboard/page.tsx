@@ -16,6 +16,7 @@ import {
 
 import { getTotalQuestions } from "@/data/question-index";
 import { FirstExamQuickStart } from "@/components/student/first-exam-quick-start";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 import { FreeLimitCard } from "@/components/student/free-limit-card";
 import { DailyReviewCard } from "@/components/student/daily-review-card";
 import { subjects } from "@/data/subjects";
@@ -39,6 +40,7 @@ import {
 import {
   calculateStudyGoalsProgress,
   loadStudyGoals,
+  FREE_STUDY_GOALS,
 } from "@/lib/study-goals";
 
 import { getExamModeInfo } from "@/lib/exam-mode";
@@ -731,11 +733,14 @@ export default function DashboardPage() {
 
       return calculateStudyGoalsProgress(
         consistency,
-        goals
+        studentEntitlements.goals
+          ? goals
+          : FREE_STUDY_GOALS
       );
     }, [
       consistency,
       goals,
+      studentEntitlements.goals,
     ]);
 
   /*
@@ -1792,16 +1797,29 @@ export default function DashboardPage() {
                   </h2>
 
                   <p className="mt-1 text-xs text-slate-500">
-                    Segunda-feira a domingo
+                    {studentEntitlements.goals
+                      ? "Segunda-feira a domingo"
+                      : "Meta leve do plano gratuito · segunda a domingo"}
                   </p>
                 </div>
 
-                <Link
-                  href="/metas"
-                  className="shrink-0 text-sm font-bold text-blue-600"
-                >
-                  Configurar metas<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
-                </Link>
+                {studentEntitlements.goals ? (
+                  <Link
+                    href="/metas"
+                    className="shrink-0 text-sm font-bold text-blue-600"
+                  >
+                    Configurar metas<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
+                  </Link>
+                ) : (
+                  <TrackedLink
+                    event="premium_cta_clicked"
+                    properties={{ placement: "dashboard_goals" }}
+                    href="/premium"
+                    className="shrink-0 text-sm font-bold text-blue-600"
+                  >
+                    Personalizar no Premium<Icon name="avancar" size={16} className="ml-1.5 inline-block shrink-0 align-[-0.2em]" />
+                  </TrackedLink>
+                )}
               </div>
 
               <div className="mt-5 grid gap-3 md:grid-cols-3">
