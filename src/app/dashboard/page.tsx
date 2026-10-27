@@ -18,6 +18,7 @@ import { getTotalQuestions } from "@/data/question-index";
 import { FirstExamQuickStart } from "@/components/student/first-exam-quick-start";
 import { TrackedLink } from "@/components/analytics/tracked-link";
 import { FreeLimitCard } from "@/components/student/free-limit-card";
+import { DailyGoalCard } from "@/components/student/daily-goal-card";
 import { DailyReviewCard } from "@/components/student/daily-review-card";
 import { subjects } from "@/data/subjects";
 
@@ -1590,6 +1591,17 @@ export default function DashboardPage() {
               </div>
             </div>
           </section>
+          )}
+
+          {!firstAccess && consistency && (
+            <DailyGoalCard
+              reviewsDue={review?.dueToday ?? 0}
+              questionsToday={consistency.questionsToday}
+              currentStreak={consistency.currentStreak}
+              streakAtRisk={consistency.streakAtRisk}
+              freezesInCurrent={consistency.freezesInCurrent}
+              freezeAvailableThisWeek={consistency.freezeAvailableThisWeek}
+            />
           )}
 
           {hasReviewQuestions && review && (

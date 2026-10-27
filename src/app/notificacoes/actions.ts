@@ -43,6 +43,7 @@ export async function saveNotificationPreferences(formData: FormData) {
     user_id: user.id,
     in_app_activities: enabled("in_app_activities"), in_app_deadlines: enabled("in_app_deadlines"), in_app_classes: enabled("in_app_classes"),
     email_activities: enabled("email_activities"), email_deadlines: enabled("email_deadlines"), email_classes: enabled("email_classes"),
+    email_study_reminders: enabled("email_study_reminders"),
     updated_at: new Date().toISOString(),
   }, { onConflict: "user_id" });
   revalidatePath("/notificacoes");

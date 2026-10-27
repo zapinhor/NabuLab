@@ -108,6 +108,11 @@ export function pickGuestQuestions(track: GuestTrack, seed: number, size = GUEST
 
 export const guestPoolSize = publicPool.length;
 
+/** Questões já públicas nas páginas de assunto (seguras para enviar ao navegador). */
+export function getPublicQuestionPool(): readonly GuestQuestion[] {
+  return publicPool;
+}
+
 /*
  * Limite do teste: cada navegador faz UM teste de 3 questões. Ao escolher a
  * área, o servidor grava a área e a semente do sorteio neste cookie; depois

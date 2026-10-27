@@ -46,6 +46,7 @@
     "test:acquisition": "node --import tsx scripts/test-acquisition.ts",
     "test:tiktok": "node --import tsx scripts/test-tiktok-pixel.ts",
     "test:streak": "node --import tsx scripts/test-streak-override.ts",
+    "test:retention": "node --conditions=react-server --import tsx scripts/test-retention.ts",
     "test:hardening": "node --import tsx scripts/test-hardening.ts",
     "test:scale": "node --import tsx scripts/test-scale.ts",
     "test:content": "node --conditions=react-server --import tsx scripts/test-content.ts",

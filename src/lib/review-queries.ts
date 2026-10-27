@@ -4,6 +4,9 @@ import {
   questionFromSnapshot,
 } from "@/lib/question-snapshot";
 
+import { isDue, spacedReviewState } from "@/lib/spaced-review";
+import { localDateKey } from "@/lib/streak";
+
 import type {
   Question,
   SubjectId,
@@ -40,6 +43,15 @@ export interface ReviewQuestionStat {
   priority: ReviewPriority;
 
   priorityScore: number;
+
+  /** Revisão espaçada: quando a questão volta (null = concluída). */
+  dueKey: string | null;
+
+  /** Venceu hoje ou antes. */
+  dueToday: boolean;
+
+  /** Intervalo atual da revisão espaçada (0 a 3; 4 = concluída). */
+  reviewStage: number;
 }
 
 export interface ReviewSummary {
@@ -54,6 +66,12 @@ export interface ReviewSummary {
   lowPriority: number;
 
   questions: ReviewQuestionStat[];
+
+  /** Quantas revisões venceram hoje (ou antes). */
+  dueToday: number;
+
+  /** Próxima data com revisão, quando nada vence hoje. */
+  nextDueKey: string | null;
 }
 
 /*
@@ -267,6 +285,8 @@ export async function getReviewSummary(): Promise<ReviewSummary> {
     }
   }
 
+  const todayKey = localDateKey();
+
   const reviewQuestions:
     ReviewQuestionStat[] =
     [];
@@ -392,6 +412,13 @@ export async function getReviewSummary(): Promise<ReviewSummary> {
         lastAttemptCorrect,
       });
 
+    const spaced = spacedReviewState(
+      sortedAttempts.map((attempt) => ({
+        dateKey: localDateKey(examDateMap.get(attempt.examId) ?? 0),
+        correct: attempt.isCorrect,
+      }))
+    );
+
     reviewQuestions.push({
       questionId,
 
@@ -423,6 +450,12 @@ export async function getReviewSummary(): Promise<ReviewSummary> {
       priority,
 
       priorityScore,
+
+      dueKey: spaced.dueKey,
+
+      dueToday: isDue(spaced, todayKey),
+
+      reviewStage: spaced.stage,
     });
   }
 
@@ -510,5 +543,12 @@ export async function getReviewSummary(): Promise<ReviewSummary> {
 
     questions:
       reviewQuestions,
+    dueToday:
+      reviewQuestions.filter((item) => item.dueToday).length,
+    nextDueKey:
+      reviewQuestions
+        .map((item) => item.dueKey)
+        .filter((key): key is string => key !== null && key > todayKey)
+        .sort()[0] ?? null,
   };
 }

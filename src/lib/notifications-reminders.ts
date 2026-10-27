@@ -3,6 +3,7 @@ import "server-only";
 import { timingSafeEqual } from "node:crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { sendNabuNotificationEmail } from "@/lib/notifications-email";
+import { processStudyReminders } from "@/lib/study-reminders";
 
 const REMINDER_TYPES = ["activity_due_soon", "activity_due_today", "activity_closed"] as const;
 
@@ -51,7 +52,11 @@ export async function processNotificationReminders(now = new Date()) {
   const emailFailed = deliveries.filter((item) => item.status === "rejected" || (item.status === "fulfilled" && !item.value.sent && item.value.reason !== "duplicate" && item.value.reason !== "preference_disabled")).length;
   const emailSkipped = deliveries.length - emailSent - emailFailed;
 
+  // Lembrete diário de estudo (só age às 19h de Brasília); falha aqui não derruba os avisos de prazo.
+  const study = await processStudyReminders(now).catch(() => ({ studyReminderWindow: true, studyEligible: 0, studySent: 0, studySkipped: 0, studyFailed: -1 }));
+
   return {
+    ...study,
     eligible: processed.data ?? 0,
     notificationsCreated: Math.max(0, (after.count ?? 0) - (before.count ?? 0)),
     emailSent,

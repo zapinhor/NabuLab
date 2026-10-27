@@ -13,6 +13,11 @@ import type { ReviewSummary } from "@/lib/review-queries";
 /** Quantas questões o treino do dia tem (no Free, é o máximo liberado). */
 const DAILY_REVIEW_SIZE = 5;
 
+function formatDueKey(key: string) {
+  const [year, month, day] = key.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("pt-BR", { day: "numeric", month: "long" });
+}
+
 const priorityLabel = { alta: "Prioridade alta", media: "Prioridade média", baixa: "Prioridade baixa" } as const;
 
 /**
@@ -35,7 +40,11 @@ export function DailyReviewCard({
   const [error, setError] = useState<string | null>(null);
 
   // No Free, o banco só libera níveis iniciante e médio.
-  const candidates = review.questions.filter((item) => premium || item.question.difficulty !== "avancado");
+  const allowed = review.questions.filter((item) => premium || item.question.difficulty !== "avancado");
+  // Revisão espaçada: primeiro o que venceu hoje; sem vencidas, dá para adiantar.
+  const due = allowed.filter((item) => item.dueToday);
+  const ahead = due.length === 0;
+  const candidates = ahead ? allowed.filter((item) => item.dueKey !== null) : due;
   const picks = candidates.slice(0, DAILY_REVIEW_SIZE);
   const amount = Math.min(picks.length, remainingToday ?? DAILY_REVIEW_SIZE);
   const blockedToday = !premium && remainingToday === 0;
@@ -45,7 +54,7 @@ export function DailyReviewCard({
     if (starting || amount < 1) return;
     setStarting(true);
     setError(null);
-    void trackEvent("daily_review_started", { plan: premium ? "premium" : "free", questions: amount });
+    void trackEvent("daily_review_started", { plan: premium ? "premium" : "free", questions: amount, due: due.length, ahead });
     try {
       const session = await generateExamFromQuestionIds(picks.slice(0, amount).map((item) => item.questionId), true, "review");
       clearCurrentExam();
@@ -66,8 +75,15 @@ export function DailyReviewCard({
             <Icon name="treinar-erros" size={16} /> O que revisar hoje
           </p>
           <h2 id="revisar-hoje" className="mt-1 text-lg font-black text-slate-900 sm:text-xl">
-            {picks.length} {picks.length === 1 ? "questão que você errou" : "questões que você errou"} para treinar agora
+            {ahead
+              ? "Nenhuma revisão vence hoje"
+              : `${due.length} ${due.length === 1 ? "revisão vence hoje" : "revisões vencem hoje"}`}
           </h2>
+          <p className="mt-1 text-sm leading-6 text-slate-600">
+            {ahead
+              ? `Seus erros voltam em 1, 3, 7 e 14 dias.${review.nextDueKey ? ` A próxima vence em ${formatDueKey(review.nextDueKey)}.` : ""} Se quiser, adiante agora.`
+              : "Cada erro volta depois de 1, 3, 7 e 14 dias. Acertando, ele espaça; errando, volta para amanhã."}
+          </p>
           <ul className="mt-3 grid gap-2">
             {picks.slice(0, 3).map((item) => (
               <li key={item.questionId} className="flex min-w-0 items-start gap-2 rounded-xl bg-slate-50 px-3 py-2 text-sm">
@@ -98,7 +114,7 @@ export function DailyReviewCard({
                 className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#0B2D6B] px-4 py-3 text-sm font-black text-white transition hover:bg-[#174EA6] disabled:cursor-wait disabled:opacity-80"
               >
                 <Icon name={starting ? "carregando" : "treinar-erros"} size={18} className={starting ? "animate-spin" : undefined} />
-                {starting ? "Preparando…" : `Treinar ${amount} ${amount === 1 ? "erro" : "erros"}`}
+                {starting ? "Preparando…" : ahead ? `Adiantar ${amount} ${amount === 1 ? "revisão" : "revisões"}` : `Revisar ${amount} ${amount === 1 ? "erro" : "erros"}`}
               </button>
               <p className="mt-2 text-xs leading-5 text-slate-600">
                 {premium

@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import { createClient } from "@/lib/supabase/client";
+import { computeStreak } from "@/lib/streak";
 
 import type {
   StoredExam,
@@ -50,6 +51,15 @@ export interface StudyConsistency {
 
   lastStudyDate:
     string | null;
+
+  /** Dias sem estudo perdoados pela folga semanal na sequência atual. */
+  freezesInCurrent: string[];
+
+  /** Ainda há folga disponível nesta semana. */
+  freezeAvailableThisWeek: boolean;
+
+  /** A sequência está viva, mas ainda não houve estudo hoje. */
+  streakAtRisk: boolean;
 
   studyDays:
     StudyDay[];
@@ -337,154 +347,6 @@ function buildStudyDays(
   );
 }
 
-/*
- * =========================================================
- * MAIOR STREAK
- * =========================================================
- */
-
-function calculateLongestStreak(
-  studyDays: StudyDay[]
-) {
-  if (
-    studyDays.length ===
-    0
-  ) {
-    return 0;
-  }
-
-  let longest = 1;
-
-  let current = 1;
-
-  for (
-    let index = 1;
-    index <
-    studyDays.length;
-    index++
-  ) {
-    const previous =
-      studyDays[
-        index - 1
-      ];
-
-    const currentDay =
-      studyDays[
-        index
-      ];
-
-    const difference =
-      differenceInDays(
-        currentDay.date,
-        previous.date
-      );
-
-    if (
-      difference === 1
-    ) {
-      current++;
-
-      longest =
-        Math.max(
-          longest,
-          current
-        );
-    } else {
-      current = 1;
-    }
-  }
-
-  return longest;
-}
-
-/*
- * =========================================================
- * STREAK ATUAL
- * =========================================================
- *
- * Regra:
- *
- * Se estudou hoje:
- * contamos até hoje.
- *
- * Se ainda não estudou hoje, mas estudou
- * ontem:
- * a sequência ainda está viva.
- *
- * Se o último estudo foi antes de ontem:
- * streak = 0.
- */
-
-function calculateCurrentStreak(
-  studyDays: StudyDay[],
-  today: Date
-) {
-  if (
-    studyDays.length ===
-    0
-  ) {
-    return 0;
-  }
-
-  const lastDay =
-    studyDays[
-      studyDays.length - 1
-    ];
-
-  const distanceFromToday =
-    differenceInDays(
-      today,
-      lastDay.date
-    );
-
-  /*
-   * Mais de um dia sem estudar
-   * encerra a sequência.
-   */
-
-  if (
-    distanceFromToday >
-    1
-  ) {
-    return 0;
-  }
-
-  let streak = 1;
-
-  for (
-    let index =
-      studyDays.length - 1;
-    index > 0;
-    index--
-  ) {
-    const current =
-      studyDays[
-        index
-      ];
-
-    const previous =
-      studyDays[
-        index - 1
-      ];
-
-    const difference =
-      differenceInDays(
-        current.date,
-        previous.date
-      );
-
-    if (
-      difference !== 1
-    ) {
-      break;
-    }
-
-    streak++;
-  }
-
-  return streak;
-}
-
 function parseLocalDateKey(value: string) {
   const [year, month, day] = value.split("-").map(Number);
 
@@ -708,8 +570,10 @@ export async function getStudyConsistency(): Promise<StudyConsistency> {
       studyDays.length - 1
     ];
 
-  const calculatedCurrentStreak = calculateCurrentStreak(studyDays, today);
-  const calculatedLongestStreak = calculateLongestStreak(studyDays);
+  // Sequência com uma folga por semana (ver lib/streak).
+  const streak = computeStreak(studyDays.map((day) => day.dateKey), todayKey);
+  const calculatedCurrentStreak = streak.current;
+  const calculatedLongestStreak = streak.longest;
   const effectiveStreak = applyStudentStreakOverride({
     calculatedCurrent: calculatedCurrentStreak,
     calculatedLongest: calculatedLongestStreak,
@@ -757,5 +621,8 @@ export async function getStudyConsistency(): Promise<StudyConsistency> {
       null,
 
     studyDays,
+    freezesInCurrent: streak.freezesInCurrent,
+    freezeAvailableThisWeek: streak.freezeAvailableThisWeek,
+    streakAtRisk: streak.atRisk,
   };
 }

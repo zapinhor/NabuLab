@@ -5,6 +5,7 @@ export const PUBLIC_APP_PATHS = [
   "/cadastro",
   "/comece",
   "/experimente",
+  "/questao-do-dia",
   "/recuperar-senha",
   "/redefinir-senha",
   "/termos",
@@ -19,6 +20,7 @@ export const PUBLIC_APP_PATHS = [
   "/api/auth/login",
   "/api/webhooks/hotmart",
   "/api/health",
+  "/api/notifications/lembrete",
   "/sitemap.xml",
   "/robots.txt",
 ] as const;
