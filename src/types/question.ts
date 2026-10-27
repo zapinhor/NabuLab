@@ -54,6 +54,10 @@ export type SubjectId =
   | "oab-processo-penal"
   | "oab-administrativo"
   | "oab-trabalho"
+  | "oab-processo-trabalho"
+  | "oab-tributario"
+  | "oab-empresarial"
+  | "oab-consumidor"
 ;
 
 export type ExamTag =

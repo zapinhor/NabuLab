@@ -142,9 +142,9 @@ assert.deepEqual(
 assert.equal(PREMIUM_ENTITLEMENTS.dailyQuestionLimit, null);
 
 const freeBank = filterAccessibleQuestions(questionBank, FREE_ENTITLEMENTS);
-assert.equal(questionBank.length, 2144, "o banco integral deve ter 2.144 questões (1.224 de vestibulares + 400 de concursos + 200 do DETRAN + 320 da OAB)");
-assert.equal(freeBank.length, 1460, "Free deve acessar o subconjunto iniciante e médio");
-assert.equal(new Set(freeBank.map((question) => question.subject)).size, 40);
+assert.equal(questionBank.length, 2304, "o banco integral deve ter 2.304 questões (1.224 de vestibulares + 400 de concursos + 200 do DETRAN + 480 da OAB)");
+assert.equal(freeBank.length, 1572, "Free deve acessar o subconjunto iniciante e médio");
+assert.equal(new Set(freeBank.map((question) => question.subject)).size, 44);
 assert.ok(freeBank.every((question) => question.difficulty !== "avancado"));
 
 const baseConfig: ExamConfig = {

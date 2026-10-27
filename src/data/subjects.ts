@@ -384,4 +384,40 @@ export const subjects: SubjectInfo[] = [
       "Relação de emprego, jornada, férias, remuneração, estabilidades, extinção do contrato e Reforma Trabalhista.",
     icon: "pontos-fortes",
   },
+
+  {
+    id: "oab-processo-trabalho",
+    name: "Processo do Trabalho (OAB)",
+    area: "OAB",
+    description:
+      "Competência, audiência, provas, recursos, depósito recursal, execução e procedimentos da CLT após a Reforma Trabalhista.",
+    icon: "auditoria",
+  },
+
+  {
+    id: "oab-tributario",
+    name: "Direito Tributário (OAB)",
+    area: "OAB",
+    description:
+      "Conceito e espécies de tributos, competência, princípios, imunidades, crédito tributário, responsabilidade e Reforma Tributária.",
+    icon: "tendencia-sobe",
+  },
+
+  {
+    id: "oab-empresarial",
+    name: "Direito Empresarial (OAB)",
+    area: "OAB",
+    description:
+      "Empresário, sociedades, estabelecimento, títulos de crédito, propriedade industrial, falência e recuperação judicial.",
+    icon: "gestao-institucional",
+  },
+
+  {
+    id: "oab-consumidor",
+    name: "Direito do Consumidor (OAB)",
+    area: "OAB",
+    description:
+      "Relação de consumo, responsabilidade, vícios, prazos, oferta, publicidade, práticas e cláusulas abusivas e superendividamento.",
+    icon: "check",
+  },
 ];
