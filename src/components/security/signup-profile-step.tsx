@@ -6,7 +6,7 @@ import { trackEvent } from "@/components/analytics/track-event";
 import { SignupForm } from "@/components/security/signup-form";
 import { Icon, type IconName } from "@/components/ui/icon";
 import type { SignupProfile } from "@/lib/forms/signup-profile";
-import { STUDY_FOCUS_LABELS, type StudyFocus } from "@/lib/study-focus";
+import { STUDY_FOCUS_LABELS, type StudyFocus, AVAILABLE_STUDY_FOCUSES } from "@/lib/study-focus";
 
 const OPTIONS: Array<{ id: SignupProfile; title: string; text: string; icon: IconName }> = [
   { id: "estudante", title: "Estudante", text: "Treino sozinho para vestibulares e concursos.", icon: "materias" },
@@ -14,11 +14,14 @@ const OPTIONS: Array<{ id: SignupProfile; title: string; text: string; icon: Ico
   { id: "professor", title: "Professor", text: "Quero criar turmas e acompanhar meus alunos.", icon: "gestao-institucional" },
 ];
 
-const FOCUS_OPTIONS: Array<{ id: StudyFocus; title: string; text: string; icon: IconName }> = [
+const ALL_FOCUS_OPTIONS: Array<{ id: StudyFocus; title: string; text: string; icon: IconName }> = [
   { id: "vestibular", title: "Vestibular", text: "ENEM, Fuvest, Unesp, Fatec e outros.", icon: "materias" },
   { id: "concursos", title: "Concursos", text: "Bancários, públicos, Correios e Petrobras.", icon: "gestao-institucional" },
-  { id: "ambos", title: "Os dois", text: "Quero treinar vestibular e concursos.", icon: "misto" },
+  { id: "oab", title: "OAB", text: "1ª fase do Exame de Ordem.", icon: "auditoria" },
+  { id: "detran", title: "CNH (DETRAN)", text: "Prova teórica para tirar a carteira.", icon: "atencao" },
+  { id: "ambos", title: "Vários", text: "Quero treinar mais de uma área.", icon: "misto" },
 ];
+const FOCUS_OPTIONS = ALL_FOCUS_OPTIONS.filter((option) => AVAILABLE_STUDY_FOCUSES.includes(option.id));
 
 /**
  * Cadastro em dois passos: primeiro "quem é você" (um toque), depois e-mail e senha.
@@ -93,7 +96,7 @@ export function SignupProfileStep({ next, initialProfile }: { next: string; init
         </div>
         <p className="mt-4 flex items-start gap-2 rounded-xl bg-slate-50 px-3 py-2.5 text-xs leading-5 text-slate-600">
           <Icon name="check" size={14} className="mt-0.5 text-emerald-600" />
-          Isso só organiza seus simulados. Você pode misturar vestibular e concursos quando quiser.
+          Isso só organiza seus simulados. Você pode misturar áreas quando quiser.
         </p>
       </fieldset>
     );

@@ -3,16 +3,16 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import { DailyQuestion } from "@/components/student/daily-question";
-import { dailyFocusFor, getDailyQuestion, type DailyQuestionFocus } from "@/lib/content/daily-question";
+import { dailyFocusFor, getDailyQuestion, isDailyQuestionFocus } from "@/lib/content/daily-question";
 import { createPublicMetadata } from "@/lib/seo";
-import { isStudyFocus } from "@/lib/study-focus";
+import { AVAILABLE_CATEGORIES, CATEGORY_LABELS, isStudyFocus } from "@/lib/study-focus";
 import { dateKeyInTimeZone } from "@/lib/streak";
 import { createClient } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = createPublicMetadata({
-  title: "Questão do dia: vestibular e concursos",
+  title: "Questão do dia: vestibular, concursos e CNH",
   description: "Uma questão nova por dia, com correção comentada na hora. Responda grátis, sem cadastro, e volte amanhã para a próxima.",
   path: "/questao-do-dia",
 });
@@ -29,10 +29,10 @@ export default async function DailyQuestionPage({
   const accountFocus = data.user?.user_metadata?.study_focus;
 
   const dateKey = dateKeyInTimeZone(new Date());
-  const requested = params.foco === "concursos" || params.foco === "vestibular" ? (params.foco as DailyQuestionFocus) : null;
+  const requested = isDailyQuestionFocus(params.foco) ? params.foco : null;
   const focus = requested ?? dailyFocusFor(isStudyFocus(accountFocus) ? accountFocus : null, dateKey);
   const question = getDailyQuestion(focus, dateKey);
-  const other: DailyQuestionFocus = focus === "concursos" ? "vestibular" : "concursos";
+  const other = AVAILABLE_CATEGORIES.find((item) => item !== focus) ?? "vestibular";
   const dateLabel = new Date(`${dateKey}T12:00:00-03:00`).toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long", timeZone: "America/Sao_Paulo" });
 
   return (
@@ -50,15 +50,15 @@ export default async function DailyQuestionPage({
         <p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">Questão do dia</p>
         <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
           <h1 className="text-3xl font-black tracking-tight text-[#0B2D6B] first-letter:uppercase sm:text-4xl">{dateLabel}</h1>
-          <nav aria-label="Escolher a área" className="flex rounded-xl border border-slate-200 bg-white p-1 text-sm font-bold">
-            {(["vestibular", "concursos"] as const).map((item) => (
+          <nav aria-label="Escolher a área" className="flex flex-wrap rounded-xl border border-slate-200 bg-white p-1 text-sm font-bold">
+            {AVAILABLE_CATEGORIES.map((item) => (
               <Link
                 key={item}
                 href={`/questao-do-dia?foco=${item}`}
                 aria-current={item === focus ? "page" : undefined}
                 className={`rounded-lg px-3 py-1.5 ${item === focus ? "bg-[#0B2D6B] text-white" : "text-slate-600 hover:bg-slate-100"}`}
               >
-                {item === "vestibular" ? "Vestibular" : "Concursos"}
+                {CATEGORY_LABELS[item]}
               </Link>
             ))}
           </nav>
@@ -69,7 +69,7 @@ export default async function DailyQuestionPage({
           <DailyQuestion key={`${dateKey}-${focus}`} question={question} dateKey={dateKey} focus={focus} authenticated={authenticated} />
         ) : (
           <p className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-slate-600">
-            A questão de hoje não está disponível. <Link href={`/questao-do-dia?foco=${other}`} className="font-bold text-[#3B82F6]">Ver a de {other}</Link>.
+            A questão de hoje não está disponível. <Link href={`/questao-do-dia?foco=${other}`} className="font-bold text-[#3B82F6]">Ver a de {CATEGORY_LABELS[other]}</Link>.
           </p>
         )}
       </div>

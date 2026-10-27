@@ -6,7 +6,7 @@ import { useState, useSyncExternalStore } from "react";
 import { trackEvent } from "@/components/analytics/track-event";
 import { Icon } from "@/components/ui/icon";
 import { subjects } from "@/data/subjects";
-import { concursoSubjects, vestibularSubjects, type StudyFocus } from "@/lib/study-focus";
+import { concursoSubjects, detranSubjects, oabSubjects, vestibularSubjects, type StudyFocus } from "@/lib/study-focus";
 import { generateManualExam } from "@/lib/exam-generation-client";
 import {
   clearExamSubmission,
@@ -34,13 +34,17 @@ const TRACK_AREAS: Record<string, Track> = {
   natureza: { label: "Ciências da Natureza", subjectIds: byArea("Ciências da Natureza") },
   humanas: { label: "Ciências Humanas", subjectIds: byArea("Ciências Humanas") },
   concursos: { label: "matérias de concursos", subjectIds: ids(concursoSubjects) },
+  detran: { label: "a prova teórica do DETRAN", subjectIds: ids(detranSubjects) },
+  oab: { label: "matérias da OAB", subjectIds: ids(oabSubjects) },
 };
 
 /** Sem teste sem conta, vale o foco escolhido no cadastro. */
 const FOCUS_TRACKS: Record<StudyFocus, Track> = {
   vestibular: TRACK_AREAS.misturado,
   concursos: TRACK_AREAS.concursos,
-  ambos: { label: "vestibular e concursos", subjectIds: ids(subjects) },
+  oab: oabSubjects.length ? TRACK_AREAS.oab : TRACK_AREAS.misturado,
+  detran: detranSubjects.length ? TRACK_AREAS.detran : TRACK_AREAS.misturado,
+  ambos: { label: "matérias de todas as áreas", subjectIds: ids(subjects) },
 };
 
 function readGuestTrack(): string | null {

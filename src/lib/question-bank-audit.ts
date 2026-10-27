@@ -6,6 +6,8 @@ import {
   subjects,
 } from "@/data/subjects";
 
+import { subjectCategory } from "@/lib/study-focus";
+
 import type {
   Difficulty,
   EducationLevel,
@@ -146,12 +148,12 @@ const CONCURSO_MULTIPLE_CHOICE_IDS = [
   "E",
 ];
 
-/** Matérias de concurso seguem regras próprias de distribuição (40 por matéria). */
+/** Matérias fora do vestibular (concursos, OAB, DETRAN) seguem regras próprias de distribuição (40 por matéria). */
 const CONCURSO_SUBJECTS = new Set<SubjectId>(
-  subjects.filter((subject) => subject.area.startsWith("Concursos")).map((subject) => subject.id)
+  subjects.filter((subject) => subjectCategory(subject) !== "vestibular").map((subject) => subject.id)
 );
 
-/* Bancas como a IBFC (Correios) usam 4 alternativas; as demais provas de concurso usam 5. */
+/* Bancas como a IBFC (Correios), a FGV na OAB e a prova do DETRAN usam 4 alternativas; os demais concursos usam 5. */
 const FOUR_ALTERNATIVE_CONCURSO_AREAS = new Set(["Concursos Correios"]);
 const FIVE_ALTERNATIVE_SUBJECTS = new Set<SubjectId>(
   subjects
@@ -174,6 +176,7 @@ const VALID_EXAM_TAGS: ExamTag[] = [
   "concursos",
   "correios",
   "petrobras",
+  "detran",
 ];
 
 const VALID_EDUCATION_LEVELS: EducationLevel[] = [

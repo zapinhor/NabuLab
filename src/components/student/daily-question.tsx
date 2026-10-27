@@ -18,7 +18,7 @@ export function DailyQuestion({
 }: {
   question: GuestQuestion;
   dateKey: string;
-  focus: "vestibular" | "concursos";
+  focus: string;
   authenticated: boolean;
 }) {
   // Resposta já dada hoje (neste aparelho) volta mostrada.

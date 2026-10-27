@@ -1,3 +1,4 @@
+import { AUDIENCE_LABEL, AUDIENCE_SHORT_LABEL } from "@/lib/bank-summary";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -23,12 +24,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NabuLab — Simulados para vestibulares e concursos",
+    default: `NabuLab — Simulados para ${AUDIENCE_SHORT_LABEL.toLowerCase()}`,
     template: "%s | NabuLab",
   },
 
   description:
-    "Pratique para vestibulares e concursos com simulados, correção comentada, revisão de erros e acompanhamento de desempenho.",
+    `Pratique para ${AUDIENCE_LABEL} com simulados, correção comentada, revisão de erros e acompanhamento de desempenho.`,
 
   applicationName: "NabuLab",
 
@@ -52,14 +53,14 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     siteName: "NabuLab",
-    title: "NabuLab — Simulados para vestibulares e concursos",
+    title: `NabuLab — Simulados para ${AUDIENCE_SHORT_LABEL.toLowerCase()}`,
     description: "Simulados, correção comentada e acompanhamento do seu desempenho em um só lugar.",
     images: [{ url: "/branding/Logo-principal.png", width: 1024, height: 1024, alt: "NabuLab" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NabuLab — Simulados para vestibulares e concursos",
-    description: "Pratique, corrija e acompanhe sua evolução para vestibulares e concursos.",
+    title: `NabuLab — Simulados para ${AUDIENCE_SHORT_LABEL.toLowerCase()}`,
+    description: `Pratique, corrija e acompanhe sua evolução para ${AUDIENCE_LABEL}.`,
     images: ["/branding/Logo-principal.png"],
   },
 };

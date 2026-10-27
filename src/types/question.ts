@@ -41,6 +41,11 @@ export type SubjectId =
   | "codigo-conduta-correios"
   | "sms-petrobras"
   | "lei-das-estatais"
+  | "legislacao-transito"
+  | "sinalizacao-transito"
+  | "direcao-defensiva"
+  | "primeiros-socorros"
+  | "meio-ambiente-cidadania"
 ;
 
 export type ExamTag =
@@ -52,7 +57,8 @@ export type ExamTag =
   | "bancarios"
   | "concursos"
   | "correios"
-  | "petrobras";
+  | "petrobras"
+  | "detran";
 
 export type EducationLevel =
   | "ensino-fundamental"

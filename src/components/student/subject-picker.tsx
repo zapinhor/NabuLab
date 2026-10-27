@@ -3,19 +3,22 @@
 import { Icon } from "@/components/ui/icon";
 import type { SubjectInfo } from "@/data/subjects";
 import {
-  STUDY_FOCUSES,
+  AVAILABLE_CATEGORIES,
+  AVAILABLE_STUDY_FOCUSES,
+  CATEGORY_LABELS,
   STUDY_FOCUS_LABELS,
   concursoGroups,
-  concursoSubjects,
-  vestibularSubjects,
+  focusCategory,
+  subjectsInCategory,
   type StudyFocus,
+  type SubjectCategory,
 } from "@/lib/study-focus";
 import type { SubjectId } from "@/types/question";
 
 /*
- * Seleção de matérias do simulado em dois blocos bem separados:
- * Vestibular e Concursos. A pessoa pode marcar matérias dos dois e misturar.
- * O foco de estudo só decide qual bloco aparece primeiro e o que vem marcado.
+ * Seleção de matérias do simulado em blocos bem separados por categoria:
+ * Vestibular, Concursos, OAB e CNH (DETRAN). A pessoa pode marcar matérias de
+ * várias categorias e misturar. O foco só decide a ordem e o que vem marcado.
  */
 
 type Props = {
@@ -56,14 +59,28 @@ function SubjectCard({ subject, selected, onToggle, tag }: { subject: SubjectInf
   );
 }
 
+const TONES: Record<SubjectCategory, { section: string; badge: string; icon: "materias" | "gestao-institucional" | "auditoria" | "atencao"; group: string }> = {
+  vestibular: { section: "border-blue-100 bg-blue-50/40", badge: "bg-blue-100 text-[#0B2D6B]", icon: "materias", group: "text-[#0B2D6B]" },
+  concursos: { section: "border-amber-200 bg-amber-50/40", badge: "bg-amber-100 text-amber-900", icon: "gestao-institucional", group: "text-amber-900" },
+  oab: { section: "border-rose-200 bg-rose-50/40", badge: "bg-rose-100 text-rose-900", icon: "auditoria", group: "text-rose-900" },
+  detran: { section: "border-emerald-200 bg-emerald-50/40", badge: "bg-emerald-100 text-emerald-900", icon: "atencao", group: "text-emerald-900" },
+};
+
+const DESCRIPTIONS: Record<SubjectCategory, string> = {
+  vestibular: "ENEM, Fuvest, Unesp, Fatec, Etec e outros.",
+  concursos: "Questões no estilo das bancas, separadas por concurso.",
+  oab: "1ª fase do Exame de Ordem, no estilo da FGV.",
+  detran: "Prova teórica para a CNH: leis, placas, direção defensiva e socorros.",
+};
+
 function BlockHeader({ title, description, count, total, onAll, onNone, tone }: {
-  title: string; description: string; count: number; total: number; onAll: () => void; onNone: () => void; tone: "vestibular" | "concursos";
+  title: string; description: string; count: number; total: number; onAll: () => void; onNone: () => void; tone: SubjectCategory;
 }) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex items-center gap-3">
-        <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${tone === "vestibular" ? "bg-blue-100 text-[#0B2D6B]" : "bg-amber-100 text-amber-900"}`}>
-          <Icon name={tone === "vestibular" ? "materias" : "gestao-institucional"} size={18} />
+        <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${TONES[tone].badge}`}>
+          <Icon name={TONES[tone].icon} size={18} />
         </span>
         <div>
           <h3 className="text-base font-black text-slate-950">{title} <span className="text-sm font-bold text-slate-400">· {count} de {total}</span></h3>
@@ -80,72 +97,68 @@ function BlockHeader({ title, description, count, total, onAll, onNone, tone }: 
 
 export function SubjectPicker({ selected, focus, onToggle, onSetMany, onChangeFocus }: Props) {
   const isSelected = (id: SubjectId) => selected.includes(id);
-  const vestibularIds = vestibularSubjects.map((subject) => subject.id);
-  const concursoIds = concursoSubjects.map((subject) => subject.id);
-  const vestibularCount = vestibularIds.filter(isSelected).length;
-  const concursoCount = concursoIds.filter(isSelected).length;
-  const mixing = vestibularCount > 0 && concursoCount > 0;
+  const counts = AVAILABLE_CATEGORIES.map((category) => subjectsInCategory(category).filter((subject) => isSelected(subject.id)).length);
+  const mixing = counts.filter((count) => count > 0).length > 1;
 
-  const vestibularBlock = (
-    <section key="vestibular" aria-label="Matérias de vestibular" className="rounded-2xl border border-blue-100 bg-blue-50/40 p-3 sm:p-4">
-      <BlockHeader
-        title="Vestibular"
-        description="ENEM, Fuvest, Unesp, Fatec, Etec e outros."
-        count={vestibularCount}
-        total={vestibularIds.length}
-        onAll={() => onSetMany(vestibularIds, true)}
-        onNone={() => onSetMany(vestibularIds, false)}
-        tone="vestibular"
-      />
-      <div className="mt-4 grid gap-3 lg:grid-cols-2">
-        {vestibularSubjects.map((subject) => (
-          <SubjectCard key={subject.id} subject={subject} selected={isSelected(subject.id)} onToggle={() => onToggle(subject.id)} tag={subject.area} />
-        ))}
-      </div>
-    </section>
-  );
+  const block = (category: SubjectCategory) => {
+    const list = subjectsInCategory(category);
+    const ids = list.map((subject) => subject.id);
+    const count = ids.filter(isSelected).length;
+    const label = CATEGORY_LABELS[category];
+    return (
+      <section key={category} aria-label={`Matérias: ${label}`} className={`rounded-2xl border p-3 sm:p-4 ${TONES[category].section}`}>
+        <BlockHeader
+          title={label}
+          description={DESCRIPTIONS[category]}
+          count={count}
+          total={ids.length}
+          onAll={() => onSetMany(ids, true)}
+          onNone={() => onSetMany(ids, false)}
+          tone={category}
+        />
+        {category === "concursos" ? (
+          <div className="mt-4 space-y-4">
+            {concursoGroups().map((group) => {
+              const groupIds = group.subjects.map((subject) => subject.id);
+              const all = groupIds.every(isSelected);
+              return (
+                <div key={group.name}>
+                  <div className="mb-2 flex items-center justify-between gap-3">
+                    <p className={`text-xs font-black uppercase tracking-[.14em] ${TONES.concursos.group}`}>{group.name}</p>
+                    <button type="button" onClick={() => onSetMany(groupIds, !all)} className="rounded-lg px-2 py-1 text-xs font-bold text-[#3B82F6] hover:bg-white">
+                      {all ? "Desmarcar grupo" : "Marcar grupo"}
+                    </button>
+                  </div>
+                  <div className="grid gap-3 lg:grid-cols-2">
+                    {group.subjects.map((subject) => (
+                      <SubjectCard key={subject.id} subject={subject} selected={isSelected(subject.id)} onToggle={() => onToggle(subject.id)} tag={`Concurso · ${group.name}`} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="mt-4 grid gap-3 lg:grid-cols-2">
+            {list.map((subject) => (
+              <SubjectCard key={subject.id} subject={subject} selected={isSelected(subject.id)} onToggle={() => onToggle(subject.id)} tag={category === "vestibular" ? subject.area : label} />
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  };
 
-  const concursoBlock = (
-    <section key="concursos" aria-label="Matérias de concursos" className="rounded-2xl border border-amber-200 bg-amber-50/40 p-3 sm:p-4">
-      <BlockHeader
-        title="Concursos"
-        description="Questões no estilo das bancas, separadas por concurso."
-        count={concursoCount}
-        total={concursoIds.length}
-        onAll={() => onSetMany(concursoIds, true)}
-        onNone={() => onSetMany(concursoIds, false)}
-        tone="concursos"
-      />
-      <div className="mt-4 space-y-4">
-        {concursoGroups().map((group) => {
-          const ids = group.subjects.map((subject) => subject.id);
-          const all = ids.every(isSelected);
-          return (
-            <div key={group.name}>
-              <div className="mb-2 flex items-center justify-between gap-3">
-                <p className="text-xs font-black uppercase tracking-[.14em] text-amber-900">{group.name}</p>
-                <button type="button" onClick={() => onSetMany(ids, !all)} className="rounded-lg px-2 py-1 text-xs font-bold text-[#3B82F6] hover:bg-white">
-                  {all ? "Desmarcar grupo" : "Marcar grupo"}
-                </button>
-              </div>
-              <div className="grid gap-3 lg:grid-cols-2">
-                {group.subjects.map((subject) => (
-                  <SubjectCard key={subject.id} subject={subject} selected={isSelected(subject.id)} onToggle={() => onToggle(subject.id)} tag={`Concurso · ${group.name}`} />
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
+  // O foco escolhido vem primeiro; as demais categorias seguem na ordem padrão.
+  const first = focusCategory(focus);
+  const order = first && AVAILABLE_CATEGORIES.includes(first) ? [first, ...AVAILABLE_CATEGORIES.filter((item) => item !== first)] : [...AVAILABLE_CATEGORIES];
 
   return (
     <div className="mt-5 space-y-4">
       <div className="flex flex-col gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs font-semibold text-slate-600">Seu foco de estudo</p>
-        <div className="grid grid-cols-3 gap-1 rounded-lg bg-white p-1" role="radiogroup" aria-label="Foco de estudo">
-          {STUDY_FOCUSES.map((option) => (
+        <div className="flex flex-wrap gap-1 rounded-lg bg-white p-1" role="radiogroup" aria-label="Foco de estudo">
+          {AVAILABLE_STUDY_FOCUSES.map((option) => (
             <button
               key={option}
               type="button"
@@ -163,11 +176,11 @@ export function SubjectPicker({ selected, focus, onToggle, onSetMany, onChangeFo
       {mixing && (
         <p role="status" className="flex items-start gap-2 rounded-xl border border-blue-100 bg-white px-3 py-2.5 text-xs leading-5 text-slate-600">
           <Icon name="misto" size={14} className="mt-0.5 shrink-0 text-[#3B82F6]" />
-          Simulado misto: você marcou matérias de vestibular e de concursos. As questões das duas áreas vão aparecer juntas.
+          Simulado misto: você marcou matérias de mais de uma área. As questões delas vão aparecer juntas.
         </p>
       )}
 
-      {focus === "concursos" ? [concursoBlock, vestibularBlock] : [vestibularBlock, concursoBlock]}
+      {order.map((category) => block(category))}
     </div>
   );
 }

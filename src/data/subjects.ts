@@ -267,4 +267,49 @@ export const subjects: SubjectInfo[] = [
       "Lei 13.303/2016: empresas públicas e sociedades de economia mista, governança, integridade, licitações e contratos das estatais.",
     icon: "auditoria",
   },
+
+  {
+    id: "legislacao-transito",
+    name: "Legislação de Trânsito",
+    area: "DETRAN",
+    description:
+      "Código de Trânsito Brasileiro: habilitação, normas de circulação, infrações, pontuação, Lei Seca e crimes de trânsito.",
+    icon: "auditoria",
+  },
+
+  {
+    id: "sinalizacao-transito",
+    name: "Sinalização de Trânsito",
+    area: "DETRAN",
+    description:
+      "Placas de regulamentação, advertência e indicação, marcas viárias, semáforos, gestos e apitos do agente e a hierarquia da sinalização.",
+    icon: "atencao",
+  },
+
+  {
+    id: "direcao-defensiva",
+    name: "Direção Defensiva",
+    area: "DETRAN",
+    description:
+      "Condições adversas, distância de seguimento, aquaplanagem, ponto cego, ultrapassagem segura e noções de mecânica básica.",
+    icon: "check",
+  },
+
+  {
+    id: "primeiros-socorros",
+    name: "Primeiros Socorros",
+    area: "DETRAN",
+    description:
+      "Sinalização do local, acionamento do socorro, cuidados com a vítima, hemorragias, queimaduras, fraturas e reanimação.",
+    icon: "reforco",
+  },
+
+  {
+    id: "meio-ambiente-cidadania",
+    name: "Meio Ambiente e Cidadania",
+    area: "DETRAN",
+    description:
+      "Poluição do ar e sonora, resíduos, convivência com pedestres e ciclistas, acessibilidade e educação para o trânsito.",
+    icon: "geografia",
+  },
 ];
