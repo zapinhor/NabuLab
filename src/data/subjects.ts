@@ -348,4 +348,40 @@ export const subjects: SubjectInfo[] = [
       "Normas fundamentais, prazos, competência, tutela provisória, procedimento comum, recursos e execução no CPC/2015.",
     icon: "auditoria",
   },
+
+  {
+    id: "oab-penal",
+    name: "Direito Penal (OAB)",
+    area: "OAB",
+    description:
+      "Aplicação da lei penal, teoria do crime, excludentes, penas, prescrição e crimes contra a pessoa, o patrimônio e a Administração.",
+    icon: "atencao",
+  },
+
+  {
+    id: "oab-processo-penal",
+    name: "Processo Penal (OAB)",
+    area: "OAB",
+    description:
+      "Inquérito, ação penal, competência, provas, prisões e cautelares, procedimentos, júri, recursos e Juizados Especiais Criminais.",
+    icon: "auditoria",
+  },
+
+  {
+    id: "oab-administrativo",
+    name: "Direito Administrativo (OAB)",
+    area: "OAB",
+    description:
+      "Princípios, atos e poderes administrativos, Administração indireta, licitações, servidores, improbidade e responsabilidade do Estado.",
+    icon: "gestao-institucional",
+  },
+
+  {
+    id: "oab-trabalho",
+    name: "Direito do Trabalho (OAB)",
+    area: "OAB",
+    description:
+      "Relação de emprego, jornada, férias, remuneração, estabilidades, extinção do contrato e Reforma Trabalhista.",
+    icon: "pontos-fortes",
+  },
 ];

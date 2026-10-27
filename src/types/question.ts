@@ -50,6 +50,10 @@ export type SubjectId =
   | "oab-constitucional"
   | "oab-civil"
   | "oab-processo-civil"
+  | "oab-penal"
+  | "oab-processo-penal"
+  | "oab-administrativo"
+  | "oab-trabalho"
 ;
 
 export type ExamTag =
