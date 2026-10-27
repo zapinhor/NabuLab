@@ -312,4 +312,40 @@ export const subjects: SubjectInfo[] = [
       "Poluição do ar e sonora, resíduos, convivência com pedestres e ciclistas, acessibilidade e educação para o trânsito.",
     icon: "geografia",
   },
+
+  {
+    id: "oab-etica",
+    name: "Ética Profissional (OAB)",
+    area: "OAB",
+    description:
+      "Estatuto da Advocacia (Lei 8.906/94), Código de Ética e Disciplina, prerrogativas, honorários, incompatibilidades e infrações.",
+    icon: "check",
+  },
+
+  {
+    id: "oab-constitucional",
+    name: "Direito Constitucional (OAB)",
+    area: "OAB",
+    description:
+      "Direitos fundamentais, remédios constitucionais, organização do Estado e dos Poderes e controle de constitucionalidade.",
+    icon: "bandeira",
+  },
+
+  {
+    id: "oab-civil",
+    name: "Direito Civil (OAB)",
+    area: "OAB",
+    description:
+      "Parte geral, negócio jurídico, prescrição, obrigações, contratos, responsabilidade civil, direitos reais, família e sucessões.",
+    icon: "gestao-institucional",
+  },
+
+  {
+    id: "oab-processo-civil",
+    name: "Processo Civil (OAB)",
+    area: "OAB",
+    description:
+      "Normas fundamentais, prazos, competência, tutela provisória, procedimento comum, recursos e execução no CPC/2015.",
+    icon: "auditoria",
+  },
 ];

@@ -46,6 +46,10 @@ export type SubjectId =
   | "direcao-defensiva"
   | "primeiros-socorros"
   | "meio-ambiente-cidadania"
+  | "oab-etica"
+  | "oab-constitucional"
+  | "oab-civil"
+  | "oab-processo-civil"
 ;
 
 export type ExamTag =
@@ -58,7 +62,8 @@ export type ExamTag =
   | "concursos"
   | "correios"
   | "petrobras"
-  | "detran";
+  | "detran"
+  | "oab";
 
 export type EducationLevel =
   | "ensino-fundamental"

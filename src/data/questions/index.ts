@@ -59,6 +59,9 @@ import {
 import {
   detranQuestions,
 } from "@/data/questions/detran";
+import {
+  oabQuestions,
+} from "@/data/questions/oab";
 
 import type {
   Difficulty,
@@ -149,6 +152,7 @@ export const questionBank: Question[] = [
   ...vestibularQuestions,
   ...concursoQuestions,
   ...detranQuestions,
+  ...oabQuestions,
 ];
 
 /*
