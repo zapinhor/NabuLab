@@ -32,14 +32,14 @@ export const quimicaTermoquimicaLesson: Lesson = {
     {
       heading: "Proporção: energia por mol",
       paragraphs: [
-        "O calor é proporcional à quantidade de matéria. Se 2 mol liberam 120 kJ, 1 mol libera 60 kJ. Como é liberação, ΔH = −60 kJ/mol.",
-        "Para converter massa em mol, use a massa molar: n = m / M. Por exemplo, 8,0 g de CH₄ (M = 16 g/mol) correspondem a 0,50 mol.",
+        "O calor é proporcional à quantidade de matéria. Se 4 mol liberam 200 kJ, 1 mol libera 50 kJ. Como é liberação, ΔH = −50 kJ/mol.",
+        "Para converter massa em mol, use a massa molar: n = m / M. Por exemplo, 11 g de CO₂ (M = 44 g/mol) correspondem a 0,25 mol.",
       ],
     },
     {
       heading: "Inversão e gráfico de entalpia",
       paragraphs: [
-        "Ao inverter uma equação, o valor do ΔH se mantém e o sinal troca. Se A → B tem ΔH = −120 kJ/mol, então B → A tem ΔH = +120 kJ/mol.",
+        "Ao inverter uma equação, o valor do ΔH se mantém e o sinal troca. Se A → B tem ΔH = −75 kJ/mol, então B → A tem ΔH = +75 kJ/mol.",
         "No gráfico de entalpia, a reação exotérmica termina mais baixo do que começou; a endotérmica termina mais alto. A diferença de altura entre o início e o fim é o ΔH.",
       ],
     },
@@ -47,13 +47,13 @@ export const quimicaTermoquimicaLesson: Lesson = {
   workedExamples: [
     {
       statement:
-        "A combustão de 0,50 mol de CH₄ libera 445 kJ. Qual é a entalpia molar de combustão e quanta energia 8,0 g de CH₄ liberam? (M = 16 g/mol)",
+        "A combustão de 2,0 mol de H₂ libera 572 kJ. Qual é a entalpia molar de combustão e quanta energia 1,0 g de H₂ libera? (M = 2 g/mol)",
       steps: [
-        "Por mol: 445 kJ ÷ 0,50 mol = 890 kJ/mol. Como é liberação, ΔH = −890 kJ/mol.",
-        "Massa em mol: 8,0 g ÷ 16 g/mol = 0,50 mol.",
-        "0,50 mol × 890 kJ/mol = 445 kJ liberados.",
+        "Por mol: 572 kJ ÷ 2,0 mol = 286 kJ/mol. Como é liberação, ΔH = −286 kJ/mol.",
+        "Massa em mol: 1,0 g ÷ 2 g/mol = 0,50 mol.",
+        "0,50 mol × 286 kJ/mol = 143 kJ liberados.",
       ],
-      answer: "ΔH de combustão = −890 kJ/mol; 8,0 g de CH₄ liberam 445 kJ.",
+      answer: "ΔH de combustão = −286 kJ/mol; 1,0 g de H₂ libera 143 kJ.",
     },
     {
       statement: "Uma reação tem ΔH = +50 kJ/mol. Ela libera ou absorve calor? E a reação inversa?",
@@ -65,7 +65,7 @@ export const quimicaTermoquimicaLesson: Lesson = {
     },
   ],
   commonMistakes: [
-    "Achar que ΔH negativo significa que a reação \"perde\" e por isso é endotérmica: negativo é exotérmico.",
+    "Trocar os sinais: ΔH negativo indica reação exotérmica (libera calor), e não endotérmica.",
     "Dizer que, na exotérmica, os produtos têm mais entalpia que os reagentes.",
     "Inverter a reação e manter o mesmo sinal do ΔH.",
     "Esquecer de converter massa em mol antes de usar o ΔH molar.",

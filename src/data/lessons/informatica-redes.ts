@@ -11,7 +11,7 @@ export const informaticaRedesLesson: Lesson = {
     {
       heading: "Endereço IP",
       paragraphs: [
-        "O endereço IP identifica logicamente uma interface de rede, para que os dados saibam de onde vêm e para onde vão. No IPv4, ele tem 32 bits, escritos em quatro números de 0 a 255 (ex.: 192.168.1.10).",
+        "O endereço IP identifica logicamente uma interface de rede, para que os dados saibam de onde vêm e para onde vão. No IPv4, ele tem 32 bits, escritos em quatro números de 0 a 255 (ex.: 172.20.4.7).",
         "Dois dispositivos não podem usar o mesmo IP na mesma rede ao mesmo tempo: isso gera conflito de endereço.",
       ],
       bullets: [
@@ -23,8 +23,8 @@ export const informaticaRedesLesson: Lesson = {
       heading: "Máscara de sub-rede",
       paragraphs: [
         "A máscara indica quais bits do IP formam a parte da rede. Com 255.255.255.0 (/24), os três primeiros números identificam a rede, e o último, o host.",
-        "Exemplo: 192.168.10.25 com máscara /24 está na rede 192.168.10.0. O endereço 192.168.10.80 está na mesma rede; 192.168.11.80, não.",
-        "Para calcular o tamanho de uma sub-rede, use 2 elevado ao número de bits de host. Em uma /26, sobram 6 bits: 2⁶ = 64 endereços, dos quais 62 podem ser usados por hosts (um é o endereço de rede e outro o de broadcast).",
+        "Exemplo: 10.1.5.40 com máscara /24 está na rede 10.1.5.0. O endereço 10.1.5.200 está na mesma rede; 10.1.6.200, não.",
+        "Para calcular o tamanho de uma sub-rede, use 2 elevado ao número de bits de host. Em uma /27, sobram 5 bits: 2⁵ = 32 endereços, dos quais 30 podem ser usados por hosts (um é o endereço de rede e outro o de broadcast).",
       ],
     },
     {
@@ -40,7 +40,7 @@ export const informaticaRedesLesson: Lesson = {
         "Os dois são protocolos da camada de transporte, mas funcionam de jeitos diferentes.",
       ],
       table: {
-        headers: ["", "TCP", "UDP"],
+        headers: ["Característica", "TCP", "UDP"],
         rows: [
           ["Conexão", "Orientado à conexão", "Sem conexão"],
           ["Confiabilidade", "Confirma entrega, ordena e retransmite segmentos perdidos", "Não garante entrega nem ordem"],
@@ -53,21 +53,21 @@ export const informaticaRedesLesson: Lesson = {
   workedExamples: [
     {
       statement:
-        "Um computador usa IP 192.168.10.25 com máscara 255.255.255.0. Qual destes está na mesma rede local: 192.168.1.80, 192.168.10.80 ou 10.168.10.80?",
+        "Um computador usa IP 172.16.3.9 com máscara 255.255.255.0. Qual destes está na mesma rede local: 172.16.30.9, 172.16.3.150 ou 172.61.3.9?",
       steps: [
-        "Com máscara 255.255.255.0, os três primeiros números definem a rede: 192.168.10.",
-        "Só 192.168.10.80 começa com 192.168.10.",
+        "Com máscara 255.255.255.0, os três primeiros números definem a rede: 172.16.3.",
+        "Só 172.16.3.150 começa com 172.16.3.",
       ],
-      answer: "192.168.10.80",
+      answer: "172.16.3.150",
     },
     {
-      statement: "Quantos hosts utilizáveis há na sub-rede 192.168.1.0/26?",
+      statement: "Quantos hosts utilizáveis há na sub-rede 10.0.0.0/28?",
       steps: [
-        "IPv4 tem 32 bits. Com /26, sobram 32 − 26 = 6 bits para hosts.",
-        "2⁶ = 64 endereços no total.",
-        "Tire o endereço de rede e o de broadcast: 64 − 2 = 62.",
+        "IPv4 tem 32 bits. Com /28, sobram 32 − 28 = 4 bits para hosts.",
+        "2⁴ = 16 endereços no total.",
+        "Tire o endereço de rede e o de broadcast: 16 − 2 = 14.",
       ],
-      answer: "62 hosts utilizáveis.",
+      answer: "14 hosts utilizáveis.",
     },
   ],
   commonMistakes: [

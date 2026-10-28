@@ -26,7 +26,7 @@ export const fisicaOndasLesson: Lesson = {
     {
       heading: "Calculando a frequência",
       paragraphs: [
-        "Frequência = número de oscilações ÷ tempo. Se a fonte faz 10 oscilações em 2 s, f = 5 Hz.",
+        "Frequência = número de oscilações ÷ tempo. Se a fonte faz 12 oscilações em 3 s, f = 4 Hz.",
         "A frequência é imposta pela fonte. Quem decide quantas vezes por segundo a corda sobe e desce é a mão ou o motor que a agita.",
       ],
     },
@@ -34,7 +34,7 @@ export const fisicaOndasLesson: Lesson = {
       heading: "Equação fundamental: v = λ · f",
       paragraphs: [
         "Em um meio, a velocidade da onda é o produto do comprimento de onda pela frequência. Isolando: λ = v / f.",
-        "Exemplo: f = 50 Hz e v = 200 m/s → λ = 200 / 50 = 4 m.",
+        "Exemplo: f = 40 Hz e v = 320 m/s → λ = 320 / 40 = 8 m.",
       ],
     },
     {
@@ -42,25 +42,25 @@ export const fisicaOndasLesson: Lesson = {
       paragraphs: [
         "Ao passar de um meio para outro, a frequência se mantém, porque depende da fonte. O que muda é a velocidade e, junto com ela, o comprimento de onda.",
         "Se a velocidade cai à metade e a frequência é a mesma, o comprimento de onda também cai à metade.",
-        "Em cordas, a velocidade depende da tensão e da densidade linear: v = √(T/μ). Com densidade quatro vezes maior e mesma tensão, a velocidade cai à metade.",
+        "Em cordas, a velocidade depende da força de tração (F) e da densidade linear (μ): v = √(F/μ). Com densidade quatro vezes maior e mesma tração, a velocidade cai à metade.",
       ],
     },
   ],
   workedExamples: [
     {
-      statement: "Uma onda de 25 Hz se propaga a 100 m/s. Qual é o comprimento de onda?",
-      steps: ["λ = v / f.", "λ = 100 / 25 = 4 m."],
-      answer: "4 m",
+      statement: "Uma onda de 30 Hz se propaga a 150 m/s. Qual é o comprimento de onda?",
+      steps: ["λ = v / f.", "λ = 150 / 30 = 5 m."],
+      answer: "5 m",
     },
     {
       statement:
-        "Uma fonte produz ondas de 8 Hz em uma corda onde v = 12 m/s. A onda passa para um trecho em que a velocidade cai à metade. Qual é o novo comprimento de onda?",
+        "Uma fonte produz ondas de 10 Hz em uma corda onde v = 16 m/s. A onda passa para um trecho em que a velocidade cai à metade. Qual é o novo comprimento de onda?",
       steps: [
-        "A frequência não muda na troca de meio: continua 8 Hz.",
-        "Nova velocidade: 12 ÷ 2 = 6 m/s.",
-        "λ = v / f = 6 / 8 = 0,75 m.",
+        "A frequência não muda na troca de meio: continua 10 Hz.",
+        "Nova velocidade: 16 ÷ 2 = 8 m/s.",
+        "λ = v / f = 8 / 10 = 0,8 m.",
       ],
-      answer: "0,75 m",
+      answer: "0,8 m",
     },
   ],
   commonMistakes: [
@@ -73,6 +73,6 @@ export const fisicaOndasLesson: Lesson = {
     "f = oscilações ÷ tempo; T = 1/f.",
     "v = λ · f.",
     "Na mudança de meio, f fica igual; v e λ mudam juntos.",
-    "Em cordas, v = √(T/μ).",
+    "Em cordas, v = √(F/μ).",
   ],
 };

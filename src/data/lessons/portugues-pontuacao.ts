@@ -19,20 +19,20 @@ export const portuguesPontuacaoLesson: Lesson = {
       heading: "Vocativo e termos intercalados",
       paragraphs: [
         "Vocativo é o termo usado para chamar ou se dirigir a alguém. Ele sempre vem separado por vírgula, em qualquer posição da frase.",
-        "Termos intercalados (aposto explicativo, conjunções deslocadas, expressões como \"segundo o relatório\") ficam entre duas vírgulas. Se você tirar uma das vírgulas, a frase fica errada; se tirar as duas, muda a organização do período.",
+        "Termos intercalados (aposto explicativo, conjunções deslocadas, expressões como \"de acordo com o boletim\") ficam entre duas vírgulas. Se você tirar uma das vírgulas, a frase fica errada; se tirar as duas, muda a organização do período.",
       ],
       bullets: [
-        "Vocativo: \"Maria, venha aqui, por favor.\"",
-        "Aposto explicativo: \"Paulo, meu vizinho, viajou ontem.\"",
-        "Conjunção deslocada: \"O projeto, porém, foi aprovado.\"",
-        "Expressão intercalada: \"Os pesquisadores, segundo o relatório, repetiram o teste.\"",
+        "Vocativo: \"Pedro, feche a janela, por favor.\"",
+        "Aposto explicativo: \"Ana, minha prima, mudou de cidade.\"",
+        "Conjunção deslocada: \"A reunião, contudo, foi adiada.\"",
+        "Expressão intercalada: \"Os médicos, de acordo com o boletim, mantiveram o tratamento.\"",
       ],
     },
     {
       heading: "Oração adverbial deslocada",
       paragraphs: [
         "A oração adverbial (de tempo, condição, causa etc.) costuma vir depois da principal. Quando ela vem antes, no início do período, usa-se vírgula para separá-la.",
-        "Ordem direta: \"Os alunos saíram quando a aula terminou.\" Ordem inversa: \"Quando a aula terminou, os alunos saíram.\"",
+        "Ordem direta: \"Os torcedores comemoraram quando o jogo acabou.\" Ordem inversa: \"Quando o jogo acabou, os torcedores comemoraram.\"",
       ],
     },
     {
@@ -44,8 +44,8 @@ export const portuguesPontuacaoLesson: Lesson = {
       table: {
         headers: ["Frase", "Tipo", "Sentido"],
         rows: [
-          ["Os alunos que estudaram foram aprovados.", "Restritiva", "Só os alunos que estudaram foram aprovados; outros, não."],
-          ["Os alunos, que estudaram, foram aprovados.", "Explicativa", "Todos os alunos foram aprovados, e todos estudaram."],
+          ["Os candidatos que treinaram passaram na prova.", "Restritiva", "Só os candidatos que treinaram passaram; outros, não."],
+          ["Os candidatos, que treinaram, passaram na prova.", "Explicativa", "Todos os candidatos passaram, e todos treinaram."],
         ],
       },
     },
@@ -76,7 +76,7 @@ export const portuguesPontuacaoLesson: Lesson = {
     "Colocar vírgula entre sujeito longo e verbo.",
     "Usar só uma vírgula em termo intercalado, abrindo e não fechando.",
     "Achar que vírgula em oração adjetiva é opcional: ela muda o sentido.",
-    "Esquecer a vírgula do vocativo quando ele aparece no fim da frase (\"Venha cá, Maria.\").",
+    "Esquecer a vírgula do vocativo quando ele aparece no fim da frase (\"Venha cá, Joana.\").",
   ],
   summary: [
     "Não separe sujeito e verbo, nem verbo e complemento.",

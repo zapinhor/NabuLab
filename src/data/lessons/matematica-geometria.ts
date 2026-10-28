@@ -29,7 +29,7 @@ export const matematicaGeometriaLesson: Lesson = {
       paragraphs: [
         "No triângulo retângulo, o lado oposto ao ângulo reto é a hipotenusa (o maior lado). Os outros dois são os catetos.",
         "Pitágoras: hipotenusa² = cateto² + cateto², ou a² = b² + c².",
-        "Ternos que aparecem muito em prova: 3, 4, 5 e seus múltiplos (6, 8, 10; 9, 12, 15).",
+        "Ternos que aparecem muito em prova: 3, 4, 5 e seus múltiplos (6, 8, 10; 30, 40, 50) e 5, 12, 13.",
       ],
     },
     {
@@ -49,18 +49,18 @@ export const matematicaGeometriaLesson: Lesson = {
   ],
   workedExamples: [
     {
-      statement: "Um triângulo retângulo tem catetos de 9 cm e 12 cm. Qual é a hipotenusa?",
+      statement: "Um triângulo retângulo tem catetos de 5 cm e 12 cm. Qual é a hipotenusa?",
       steps: [
-        "a² = 9² + 12² = 81 + 144 = 225.",
-        "a = √225 = 15 cm.",
-        "Confira: 9, 12, 15 é o terno 3, 4, 5 multiplicado por 3.",
+        "a² = 5² + 12² = 25 + 144 = 169.",
+        "a = √169 = 13 cm.",
+        "Confira: 5, 12, 13 é um terno pitagórico conhecido.",
       ],
-      answer: "15 cm",
+      answer: "13 cm",
     },
     {
-      statement: "Qual é o comprimento de uma circunferência de raio 5 cm? Use π ≈ 3,14.",
-      steps: ["C = 2πr = 2 × 3,14 × 5.", "C = 31,4 cm."],
-      answer: "31,4 cm",
+      statement: "Qual é o comprimento de uma circunferência de raio 3 cm? Use π ≈ 3,14.",
+      steps: ["C = 2πr = 2 × 3,14 × 3.", "C = 18,84 cm."],
+      answer: "18,84 cm",
     },
   ],
   commonMistakes: [
