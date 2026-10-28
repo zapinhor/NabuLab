@@ -58,6 +58,11 @@ export type SubjectId =
   | "oab-tributario"
   | "oab-empresarial"
   | "oab-consumidor"
+  | "oab-direitos-humanos"
+  | "oab-eca"
+  | "oab-ambiental"
+  | "oab-internacional"
+  | "oab-filosofia"
 ;
 
 export type ExamTag =

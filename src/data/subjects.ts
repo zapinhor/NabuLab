@@ -420,4 +420,49 @@ export const subjects: SubjectInfo[] = [
       "Relação de consumo, responsabilidade, vícios, prazos, oferta, publicidade, práticas e cláusulas abusivas e superendividamento.",
     icon: "check",
   },
+
+  {
+    id: "oab-direitos-humanos",
+    name: "Direitos Humanos (OAB)",
+    area: "OAB",
+    description:
+      "Sistemas global e interamericano, tratados, incorporação no Brasil, TPI e casos contra o Brasil.",
+    icon: "bandeira",
+  },
+
+  {
+    id: "oab-eca",
+    name: "ECA (OAB)",
+    area: "OAB",
+    description:
+      "Estatuto da Criança e do Adolescente: direitos fundamentais, adoção, Conselho Tutelar, ato infracional e medidas socioeducativas.",
+    icon: "pontos-fortes",
+  },
+
+  {
+    id: "oab-ambiental",
+    name: "Direito Ambiental (OAB)",
+    area: "OAB",
+    description:
+      "Princípios, art. 225, responsabilidade, licenciamento, unidades de conservação, Código Florestal e resíduos sólidos.",
+    icon: "geografia",
+  },
+
+  {
+    id: "oab-internacional",
+    name: "Direito Internacional (OAB)",
+    area: "OAB",
+    description:
+      "LINDB, tratados, cooperação jurídica, imunidade de jurisdição, extradição, migração e Mercosul.",
+    icon: "geografia",
+  },
+
+  {
+    id: "oab-filosofia",
+    name: "Filosofia do Direito (OAB)",
+    area: "OAB",
+    description:
+      "Jusnaturalismo, positivismo, pós-positivismo, teorias da justiça e grandes pensadores do direito.",
+    icon: "filosofia",
+  },
 ];

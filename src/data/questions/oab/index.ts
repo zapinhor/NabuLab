@@ -12,6 +12,11 @@ import { oabProcessoTrabalhoQuestions } from "@/data/questions/oab/oab-processo-
 import { oabTributarioQuestions } from "@/data/questions/oab/oab-tributario-bank";
 import { oabEmpresarialQuestions } from "@/data/questions/oab/oab-empresarial-bank";
 import { oabConsumidorQuestions } from "@/data/questions/oab/oab-consumidor-bank";
+import { oabDireitosHumanosQuestions } from "@/data/questions/oab/oab-direitos-humanos-bank";
+import { oabEcaQuestions } from "@/data/questions/oab/oab-eca-bank";
+import { oabAmbientalQuestions } from "@/data/questions/oab/oab-ambiental-bank";
+import { oabInternacionalQuestions } from "@/data/questions/oab/oab-internacional-bank";
+import { oabFilosofiaQuestions } from "@/data/questions/oab/oab-filosofia-bank";
 
 export const oabQuestions: Question[] = [
   ...oabEticaQuestions,
@@ -26,4 +31,9 @@ export const oabQuestions: Question[] = [
   ...oabTributarioQuestions,
   ...oabEmpresarialQuestions,
   ...oabConsumidorQuestions,
+  ...oabDireitosHumanosQuestions,
+  ...oabEcaQuestions,
+  ...oabAmbientalQuestions,
+  ...oabInternacionalQuestions,
+  ...oabFilosofiaQuestions,
 ];
