@@ -2,7 +2,7 @@ import { questionBank } from "@/data/questions";
 import { subjects } from "@/data/subjects";
 import type { Difficulty, Question, SubjectId } from "@/types/question";
 
-export const CONTENT_BASELINE = { subjects: 53, questions: 2664 } as const;
+export const CONTENT_BASELINE = { subjects: 57, questions: 2824 } as const;
 export const TOPIC_INDEX_MIN_QUESTIONS = 6;
 
 export function slugifyContent(value: string) {

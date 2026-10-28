@@ -311,6 +311,42 @@ export const subjects: SubjectInfo[] = [
   },
 
   {
+    id: "processo-penal-policial",
+    name: "Processo Penal (Polícia)",
+    area: "Concursos Policiais",
+    description:
+      "Inquérito policial, prisão em flagrante, prisões cautelares, audiência de custódia, provas, cadeia de custódia, ação penal e termo circunstanciado.",
+    icon: "auditoria",
+  },
+
+  {
+    id: "legislacao-penal-especial",
+    name: "Legislação Penal Especial",
+    area: "Concursos Policiais",
+    description:
+      "Lei de Drogas, Estatuto do Desarmamento, crimes hediondos, tortura, abuso de autoridade, Maria da Penha, organizações criminosas, racismo e crimes de trânsito.",
+    icon: "atencao",
+  },
+
+  {
+    id: "direitos-humanos-policial",
+    name: "Direitos Humanos (Polícia)",
+    area: "Concursos Policiais",
+    description:
+      "Teoria geral, sistemas global e interamericano, tratados, uso da força e da arma de fogo, abordagem, algemas e garantias do preso.",
+    icon: "check",
+  },
+
+  {
+    id: "criminologia",
+    name: "Criminologia",
+    area: "Concursos Policiais",
+    description:
+      "Objeto e método, escolas clássica e positiva, teorias sociológicas do crime, vitimologia, controle social, prevenção e cifras da criminalidade.",
+    icon: "pontos-fortes",
+  },
+
+  {
     id: "legislacao-transito",
     name: "Legislação de Trânsito",
     area: "DETRAN",

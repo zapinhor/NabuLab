@@ -14,6 +14,10 @@ import { direitoPrevidenciarioQuestions } from "@/data/questions/concursos/direi
 import { lei8112Questions } from "@/data/questions/concursos/lei-8112-bank";
 import { legislacaoBancariaQuestions } from "@/data/questions/concursos/legislacao-bancaria-bank";
 import { direitoPenalPolicialQuestions } from "@/data/questions/concursos/direito-penal-policial-bank";
+import { processoPenalPolicialQuestions } from "@/data/questions/concursos/processo-penal-policial-bank";
+import { legislacaoPenalEspecialQuestions } from "@/data/questions/concursos/legislacao-penal-especial-bank";
+import { direitosHumanosPolicialQuestions } from "@/data/questions/concursos/direitos-humanos-policial-bank";
+import { criminologiaQuestions } from "@/data/questions/concursos/criminologia-bank";
 
 export const concursoQuestions: Question[] = [
   ...conhecimentosBancariosQuestions,
@@ -30,4 +34,8 @@ export const concursoQuestions: Question[] = [
   ...lei8112Questions,
   ...legislacaoBancariaQuestions,
   ...direitoPenalPolicialQuestions,
+  ...processoPenalPolicialQuestions,
+  ...legislacaoPenalEspecialQuestions,
+  ...direitosHumanosPolicialQuestions,
+  ...criminologiaQuestions,
 ];
