@@ -49,6 +49,7 @@
     "test:retention": "node --conditions=react-server --import tsx scripts/test-retention.ts",
     "test:hardening": "node --import tsx scripts/test-hardening.ts",
     "test:scale": "node --import tsx scripts/test-scale.ts",
+    "test:lessons": "node --conditions=react-server --import tsx scripts/test-lessons.ts",
     "test:content": "node --conditions=react-server --import tsx scripts/test-content.ts",
     "test:seo": "node --conditions=react-server --import tsx scripts/test-seo.ts",
     "start": "next start",

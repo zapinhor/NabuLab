@@ -292,6 +292,15 @@ export default function NewExamPage() {
   const [studyFocus, setStudyFocus] = useState<StudyFocus | null>(null);
   const subjectsTouched = useRef(false);
 
+  // Vindo de uma aula (/estudar), "?materia=<id>" já seleciona aquela matéria.
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("materia");
+    const match = subjects.find((subject) => subject.id === requested);
+    if (!match) return;
+    subjectsTouched.current = true;
+    setConfig((current) => ({ ...current, subjects: [match.id] }));
+  }, []);
+
   useEffect(() => {
     if (accountLoading || !account?.studyFocus) return;
     const focus = account.studyFocus;

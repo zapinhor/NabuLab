@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { contentCatalog } from "@/lib/content/catalog";
+import { lessonCatalog } from "@/lib/content/lessons";
 
 const PUBLIC_ROUTES = [
   { path: "", changeFrequency: "weekly" as const, priority: 1 },
@@ -18,6 +19,8 @@ const PUBLIC_ROUTES = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const contentRoutes = [
     { path: "/questoes", changeFrequency: "weekly" as const, priority: 0.9 },
+    { path: "/estudar", changeFrequency: "weekly" as const, priority: 0.9 },
+    ...lessonCatalog.map((entry) => ({ path: entry.href, changeFrequency: "monthly" as const, priority: 0.8 })),
     ...contentCatalog.filter((subject) => subject.indexable).map((subject) => ({ path: `/questoes/${subject.slug}`, changeFrequency: "weekly" as const, priority: 0.8 })),
     ...contentCatalog.flatMap((subject) => subject.topics.filter((topic) => topic.indexable).map((topic) => ({ path: `/questoes/${subject.slug}/${topic.slug}`, changeFrequency: "weekly" as const, priority: 0.7 }))),
   ];

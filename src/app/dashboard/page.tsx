@@ -994,6 +994,16 @@ export default function DashboardPage() {
           </Link>
 
           <Link
+            href="/estudar"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            <span className="flex min-w-0 items-center gap-3">
+              <Icon name="materias" size={18} />
+              <span className="truncate">Estudar</span>
+            </span>
+          </Link>
+
+          <Link
             href="/recomendado"
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >

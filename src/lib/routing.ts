@@ -13,6 +13,7 @@ export const PUBLIC_APP_PATHS = [
   "/premium",
   "/para-professores",
   "/questoes",
+  "/estudar",
   "/turmas",
   "/suporte",
   "/auth/confirm",
