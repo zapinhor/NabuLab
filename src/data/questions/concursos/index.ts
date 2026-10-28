@@ -10,6 +10,10 @@ import { conhecimentosGeraisCorreiosQuestions } from "@/data/questions/concursos
 import { codigoCondutaCorreiosQuestions } from "@/data/questions/concursos/codigo-conduta-correios-bank";
 import { smsPetrobrasQuestions } from "@/data/questions/concursos/sms-petrobras-bank";
 import { leiDasEstataisQuestions } from "@/data/questions/concursos/lei-das-estatais-bank";
+import { direitoPrevidenciarioQuestions } from "@/data/questions/concursos/direito-previdenciario-bank";
+import { lei8112Questions } from "@/data/questions/concursos/lei-8112-bank";
+import { legislacaoBancariaQuestions } from "@/data/questions/concursos/legislacao-bancaria-bank";
+import { direitoPenalPolicialQuestions } from "@/data/questions/concursos/direito-penal-policial-bank";
 
 export const concursoQuestions: Question[] = [
   ...conhecimentosBancariosQuestions,
@@ -22,4 +26,8 @@ export const concursoQuestions: Question[] = [
   ...codigoCondutaCorreiosQuestions,
   ...smsPetrobrasQuestions,
   ...leiDasEstataisQuestions,
+  ...direitoPrevidenciarioQuestions,
+  ...lei8112Questions,
+  ...legislacaoBancariaQuestions,
+  ...direitoPenalPolicialQuestions,
 ];

@@ -206,6 +206,15 @@ export const subjects: SubjectInfo[] = [
   },
 
   {
+    id: "legislacao-bancaria",
+    name: "Atendimento e Legislação Bancária",
+    area: "Concursos Bancários",
+    description:
+      "CDC e súmulas do STJ para bancos, sigilo bancário, LGPD, prevenção à lavagem de dinheiro, ouvidoria, cheque, superendividamento e suitability.",
+    icon: "check",
+  },
+
+  {
     id: "direito-constitucional",
     name: "Direito Constitucional",
     area: "Concursos Públicos",
@@ -266,6 +275,39 @@ export const subjects: SubjectInfo[] = [
     description:
       "Lei 13.303/2016: empresas públicas e sociedades de economia mista, governança, integridade, licitações e contratos das estatais.",
     icon: "auditoria",
+  },
+
+  /*
+   * =======================================================
+   * CONCURSOS INSS E POLICIAIS
+   * =======================================================
+   */
+
+  {
+    id: "direito-previdenciario",
+    name: "Direito Previdenciário",
+    area: "Concursos INSS",
+    description:
+      "Seguridade social, segurados e dependentes, carência, qualidade de segurado, benefícios do RGPS, BPC, custeio e as regras da EC 103/2019.",
+    icon: "gestao-institucional",
+  },
+
+  {
+    id: "lei-8112",
+    name: "Regime Jurídico dos Servidores (Lei 8.112)",
+    area: "Concursos INSS",
+    description:
+      "Provimento, vacância, remoção e redistribuição, direitos e vantagens, licenças, regime disciplinar, sindicância e processo administrativo disciplinar.",
+    icon: "auditoria",
+  },
+
+  {
+    id: "direito-penal-policial",
+    name: "Direito Penal (Polícia)",
+    area: "Concursos Policiais",
+    description:
+      "Lei penal, teoria do crime, excludentes, imputabilidade, penas e os crimes contra a pessoa, o patrimônio e a administração pública mais cobrados em PM e PC.",
+    icon: "atencao",
   },
 
   {

@@ -178,6 +178,8 @@ const VALID_EXAM_TAGS: ExamTag[] = [
   "petrobras",
   "detran",
   "oab",
+  "inss",
+  "policia",
 ];
 
 const VALID_EDUCATION_LEVELS: EducationLevel[] = [
