@@ -49,6 +49,8 @@ export type SubjectId =
   | "legislacao-penal-especial"
   | "direitos-humanos-policial"
   | "criminologia"
+  | "nocoes-logistica"
+  | "nocoes-administracao"
   | "legislacao-transito"
   | "sinalizacao-transito"
   | "direcao-defensiva"

@@ -18,6 +18,8 @@ import { processoPenalPolicialQuestions } from "@/data/questions/concursos/proce
 import { legislacaoPenalEspecialQuestions } from "@/data/questions/concursos/legislacao-penal-especial-bank";
 import { direitosHumanosPolicialQuestions } from "@/data/questions/concursos/direitos-humanos-policial-bank";
 import { criminologiaQuestions } from "@/data/questions/concursos/criminologia-bank";
+import { nocoesLogisticaQuestions } from "@/data/questions/concursos/nocoes-logistica-bank";
+import { nocoesAdministracaoQuestions } from "@/data/questions/concursos/nocoes-administracao-bank";
 
 export const concursoQuestions: Question[] = [
   ...conhecimentosBancariosQuestions,
@@ -38,4 +40,6 @@ export const concursoQuestions: Question[] = [
   ...legislacaoPenalEspecialQuestions,
   ...direitosHumanosPolicialQuestions,
   ...criminologiaQuestions,
+  ...nocoesLogisticaQuestions,
+  ...nocoesAdministracaoQuestions,
 ];

@@ -347,6 +347,24 @@ export const subjects: SubjectInfo[] = [
   },
 
   {
+    id: "nocoes-logistica",
+    name: "Noções de Logística",
+    area: "Concursos Correios",
+    description:
+      "Cadeia de suprimentos, modais de transporte, armazenagem, estoques (PEPS, curva ABC, ponto de pedido, lote econômico), distribuição, última milha, logística reversa e indicadores.",
+    icon: "metas",
+  },
+
+  {
+    id: "nocoes-administracao",
+    name: "Noções de Administração",
+    area: "Concursos Petrobras",
+    description:
+      "Funções administrativas, planejamento, SWOT, estruturas organizacionais, liderança, motivação, controle, eficiência e eficácia, PDCA, 5S e ferramentas da qualidade.",
+    icon: "gestao-institucional",
+  },
+
+  {
     id: "legislacao-transito",
     name: "Legislação de Trânsito",
     area: "DETRAN",
