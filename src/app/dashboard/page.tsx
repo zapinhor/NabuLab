@@ -1611,6 +1611,7 @@ export default function DashboardPage() {
               streakAtRisk={consistency.streakAtRisk}
               freezesInCurrent={consistency.freezesInCurrent}
               freezeAvailableThisWeek={consistency.freezeAvailableThisWeek}
+              reviewTopics={review?.questions ?? []}
             />
           )}
 

@@ -4,6 +4,7 @@
  * 1. Questão do dia (não usa a cota do Free)
  * 2. Revisões que venceram hoje (revisão espaçada)
  * 3. Algumas questões novas
+ * 4. Uma aula curta, só quando algum assunto errado tem aula no NabuLab
  *
  * O que é só deste aparelho (a resposta da questão do dia e se a meta já foi
  * comemorada) fica no localStorage; o resto vem do histórico de estudo.
@@ -50,16 +51,23 @@ export function markDailyGoalCelebrated(dateKey: string) {
   return true;
 }
 
-export type DailyGoalStep = { id: "question" | "review" | "practice"; label: string; detail: string; done: boolean; href: string };
+export type DailyGoalStep = { id: "question" | "review" | "practice" | "lesson"; label: string; detail: string; done: boolean; href: string };
+
+export type DailyGoalLesson = { href: string; topic: string; readingMinutes: number };
 
 export function buildDailyGoal({
   dailyQuestionDone,
   reviewsDue,
   questionsToday,
+  lesson = null,
+  lessonReadToday = false,
 }: {
   dailyQuestionDone: boolean;
   reviewsDue: number;
   questionsToday: number;
+  /** Aula de um assunto que a pessoa errou; sem ela, a meta fica com 3 passos. */
+  lesson?: DailyGoalLesson | null;
+  lessonReadToday?: boolean;
 }) {
   const steps: DailyGoalStep[] = [
     {
@@ -84,6 +92,15 @@ export function buildDailyGoal({
       href: "/simulado/novo",
     },
   ];
+  if (lesson) {
+    steps.push({
+      id: "lesson",
+      label: `Aula: ${lesson.topic}`,
+      detail: lessonReadToday ? "Lida hoje" : `${lesson.readingMinutes} min, um assunto que você errou`,
+      done: lessonReadToday,
+      href: lesson.href,
+    });
+  }
   const completed = steps.filter((step) => step.done).length;
-  return { steps, completed, total: steps.length, done: completed === steps.length };
+  return { steps, completed, total: steps.length, done: completed === steps.length, minutes: lesson ? 10 : 5 };
 }

@@ -50,6 +50,7 @@ export const ANALYTICS_EVENT_NAMES = [
   "study_reminder_disabled",
   "lesson_viewed",
   "lesson_practice_started",
+  "lesson_review_clicked",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENT_NAMES)[number];

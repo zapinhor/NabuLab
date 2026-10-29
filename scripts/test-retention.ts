@@ -105,6 +105,15 @@ assert.equal(goal.done, false);
 goal = buildDailyGoal({ dailyQuestionDone: true, reviewsDue: 0, questionsToday: 7 });
 assert.equal(goal.done, true);
 assert.equal(goal.steps.find((step) => step.id === "practice")?.detail, "5 de 5");
+assert.equal(goal.total, 3, "Sem aula sugerida, a meta tem 3 passos.");
+assert.equal(goal.minutes, 5);
+const lessonGoal = { href: "/estudar/portugues/pontuacao", topic: "Pontuação", readingMinutes: 7 } as const;
+goal = buildDailyGoal({ dailyQuestionDone: true, reviewsDue: 0, questionsToday: 7, lesson: lessonGoal });
+assert.equal(goal.total, 4);
+assert.equal(goal.done, false, "Com aula sugerida e não lida, a meta não fecha.");
+assert.equal(goal.minutes, 10);
+goal = buildDailyGoal({ dailyQuestionDone: true, reviewsDue: 0, questionsToday: 7, lesson: lessonGoal, lessonReadToday: true });
+assert.equal(goal.done, true);
 
 async function testReminders() {
 process.env.CRON_SECRET = "test-secret-for-unsubscribe";

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { LessonReviewLink } from "@/components/content/lesson-review-link";
 import { useState, useSyncExternalStore } from "react";
 
 import { trackEvent } from "@/components/analytics/track-event";
@@ -110,6 +111,7 @@ export function DailyQuestion({
             {question.topicHref && (
               <Link href={question.topicHref} className="mt-3 inline-block text-sm font-bold text-[#3B82F6] hover:underline">Mais questões de {question.topic}</Link>
             )}
+            {!gotItRight && <LessonReviewLink subject={question.subject} topic={question.topic} placement="daily_question" className="mt-4 bg-white" />}
           </div>
         )}
       </article>

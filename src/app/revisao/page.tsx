@@ -37,6 +37,7 @@ import {
 } from "@/components/ui/page-state";
 
 import NabuLabBrand from "@/components/ui/nabulab-brand";
+import { LessonsForMistakes } from "@/components/content/lesson-review-link";
 import {
   EMPTY_MISTAKE_FILTERS,
   MistakeFilters,
@@ -915,6 +916,8 @@ export default function ReviewPage() {
             </button>
           </aside>
         </section>
+
+        <LessonsForMistakes items={summary.questions} placement="review_page" />
 
         {/* ===================================================
             PREVIEW

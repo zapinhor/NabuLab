@@ -14,6 +14,7 @@ import {
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { PremiumResultPreview } from "@/components/student/premium-result-preview";
 import { FavoriteButton } from "@/components/student/favorite-button";
+import { LessonReviewLink } from "@/components/content/lesson-review-link";
 import type { PremiumUpsell } from "@/lib/exam-generation-client";
 
 import {
@@ -1265,6 +1266,10 @@ export default function ExamResultPage() {
                               }
                             </p>
                           </div>
+                        )}
+
+                        {!correct && (
+                          <LessonReviewLink subject={question.subject} topic={question.topic} placement="exam_result" className="mt-4" />
                         )}
                       </div>
                       )}

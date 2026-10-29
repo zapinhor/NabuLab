@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node --conditions=react-server --import tsx scripts/generate-question-index.ts",
+    "prebuild": "node --conditions=react-server --import tsx scripts/generate-question-index.ts && node --conditions=react-server --import tsx scripts/generate-lesson-links.ts",
     "build": "next build",
     "generate:question-index": "node --conditions=react-server --import tsx scripts/generate-question-index.ts",
     "check:question-index": "node --conditions=react-server --import tsx scripts/generate-question-index.ts --check",
@@ -54,7 +54,9 @@
     "test:seo": "node --conditions=react-server --import tsx scripts/test-seo.ts",
     "start": "next start",
     "lint": "eslint",
-    "test:exam-grading": "node --conditions=react-server --import tsx scripts/test-exam-grading.ts"
+    "test:exam-grading": "node --conditions=react-server --import tsx scripts/test-exam-grading.ts",
+    "generate:lesson-links": "node --conditions=react-server --import tsx scripts/generate-lesson-links.ts",
+    "check:lesson-links": "node --conditions=react-server --import tsx scripts/generate-lesson-links.ts --check"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.6",

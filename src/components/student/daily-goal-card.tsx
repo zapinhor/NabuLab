@@ -6,6 +6,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { trackEvent } from "@/components/analytics/track-event";
 import { Icon } from "@/components/ui/icon";
 import { buildDailyGoal, markDailyGoalCelebrated, readDailyQuestionResult } from "@/lib/daily-goal";
+import { readLessonReadToday, suggestLesson } from "@/lib/lesson-links";
 import { addDaysToKey, localDateKey } from "@/lib/streak";
 import { createClient } from "@/lib/supabase/client";
 
@@ -20,6 +21,7 @@ export function DailyGoalCard({
   streakAtRisk,
   freezesInCurrent,
   freezeAvailableThisWeek,
+  reviewTopics = [],
 }: {
   reviewsDue: number;
   questionsToday: number;
@@ -27,6 +29,8 @@ export function DailyGoalCard({
   streakAtRisk: boolean;
   freezesInCurrent: string[];
   freezeAvailableThisWeek: boolean;
+  /** Assuntos errados, do mais prioritário para o menos. */
+  reviewTopics?: { subject: string; topic: string }[];
 }) {
   const todayKey = localDateKey();
   const dailyQuestionDone = useSyncExternalStore(
@@ -34,7 +38,14 @@ export function DailyGoalCard({
     () => readDailyQuestionResult(todayKey) !== null,
     () => false,
   );
-  const goal = buildDailyGoal({ dailyQuestionDone, reviewsDue, questionsToday });
+  const lessonReadHref = useSyncExternalStore(
+    () => () => {},
+    () => readLessonReadToday(todayKey),
+    () => null,
+  );
+  const suggestion = suggestLesson(reviewTopics);
+  const lesson = suggestion?.fromErrors ? { href: suggestion.link.href, topic: suggestion.link.topic, readingMinutes: suggestion.link.readingMinutes } : null;
+  const goal = buildDailyGoal({ dailyQuestionDone, reviewsDue, questionsToday, lesson, lessonReadToday: lessonReadHref !== null });
   const usedFreezeYesterday = freezesInCurrent.includes(addDaysToKey(todayKey, -1));
 
   useEffect(() => {
@@ -59,7 +70,7 @@ export function DailyGoalCard({
             <h2 id="meta-do-dia" className="flex items-center gap-2 text-lg font-black text-[#0B2D6B] sm:text-xl">
               <Icon name="metas" size={20} className="text-[#3B82F6]" /> Meta do dia
             </h2>
-            <span className="text-sm font-bold text-slate-500">{goal.done ? "Concluída!" : `${goal.completed} de ${goal.total} · uns 5 minutos`}</span>
+            <span className="text-sm font-bold text-slate-500">{goal.done ? "Concluída!" : `${goal.completed} de ${goal.total} · uns ${goal.minutes} minutos`}</span>
           </div>
           <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={goal.total} aria-valuenow={goal.completed} aria-label="Progresso da meta do dia">
             <div className={`h-full rounded-full transition-all ${goal.done ? "bg-emerald-500" : "bg-[#3B82F6]"}`} style={{ width: `${(goal.completed / goal.total) * 100}%` }} />
@@ -69,6 +80,7 @@ export function DailyGoalCard({
               <li key={step.id}>
                 <Link
                   href={step.href}
+                  onClick={step.id === "lesson" ? () => void trackEvent("lesson_review_clicked", { placement: "daily_goal", topic: step.label }) : undefined}
                   className={`flex min-h-12 items-center gap-3 rounded-xl border px-3 py-2.5 transition ${step.done ? "border-emerald-100 bg-emerald-50/60" : "border-slate-200 hover:border-blue-300 hover:bg-blue-50"}`}
                 >
                   <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full ${step.done ? "bg-emerald-500 text-white" : "border-2 border-slate-300 text-transparent"}`} aria-hidden="true">

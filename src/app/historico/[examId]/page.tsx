@@ -36,6 +36,7 @@ import {
 
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { FavoriteButton } from "@/components/student/favorite-button";
+import { LessonReviewLink } from "@/components/content/lesson-review-link";
 
 import type {
   Question,
@@ -1191,6 +1192,10 @@ export default function ExamHistoryDetailPage() {
                           ? question.explanation
                           : "Esta questão ficou em branco. No plano gratuito, o gabarito comentado aparece nas questões respondidas."}
                       </p>
+
+                      {!isCorrect && (
+                        <LessonReviewLink subject={question.subject} topic={question.topic} placement="exam_history" className="mt-4 bg-white" />
+                      )}
                     </div>
                   </article>
                 );

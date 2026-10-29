@@ -33,7 +33,7 @@ export default async function LessonPage({ params }: { params: Promise<{ subject
   const crumbs = [{ name: "Estudar", item: `${SITE_URL}/estudar` }, { name: lesson.topic, item: `${SITE_URL}${entry.href}` }];
 
   return <ContentShell>
-    <LessonViewTracking subject={lesson.subject} topic={entry.topicSlug} />
+    <LessonViewTracking subject={lesson.subject} topic={entry.topicSlug} href={entry.href} />
     <JsonLd value={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbs.map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })) }} />
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <Breadcrumbs items={[{ label: "Estudar", href: "/estudar" }, { label: entry.subjectName }, { label: lesson.topic }]} />

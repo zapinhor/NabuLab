@@ -4,6 +4,8 @@ import { lessonCatalog, lessonDiagnostics, getLessonEntry, getLessonForTopic } f
 import { getTopicContent } from "../src/lib/content/catalog";
 import { isPublicAppPath } from "../src/lib/routing";
 import { ANALYTICS_EVENT_NAMES } from "../src/lib/analytics/events";
+import { findLessonLink, suggestLesson } from "../src/lib/lesson-links";
+import { lessonLinks } from "../src/data/lessons/links.generated";
 
 assert.deepEqual(lessonDiagnostics(), [], "As aulas não podem ter problemas estruturais.");
 assert.ok(lessonCatalog.length >= 8, "O MVP deve ter ao menos 8 aulas.");
@@ -19,4 +21,15 @@ for (const entry of lessonCatalog) {
 assert.equal(isPublicAppPath("/estudar"), true);
 assert.equal(isPublicAppPath(lessonCatalog[0].href), true);
 assert.ok(ANALYTICS_EVENT_NAMES.includes("lesson_viewed") && ANALYTICS_EVENT_NAMES.includes("lesson_practice_started"));
+assert.equal(lessonLinks.length, lessonCatalog.length, "links.generated.ts desatualizado: rode npm run generate:lesson-links.");
+for (const entry of lessonCatalog) {
+  const link = findLessonLink(entry.lesson.subject, entry.lesson.topic);
+  assert.equal(link?.href, entry.href, `Índice leve sem a aula ${entry.href}`);
+  assert.equal(link?.readingMinutes, entry.lesson.readingMinutes);
+}
+assert.equal(findLessonLink("portugues", "Assunto que não existe"), null);
+const first = lessonCatalog[0].lesson;
+assert.deepEqual(suggestLesson([{ subject: "portugues", topic: "Assunto que não existe" }, { subject: first.subject, topic: first.topic }])?.fromErrors, true);
+assert.equal(suggestLesson([])?.fromErrors, false);
+assert.ok(ANALYTICS_EVENT_NAMES.includes("lesson_review_clicked"));
 console.log(`Estudos MVP validado: ${lessonCatalog.length} aulas, sitemap, rotas públicas e eventos.`);
