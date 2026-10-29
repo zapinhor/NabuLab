@@ -8,10 +8,24 @@ import { informaticaRedesLesson } from "@/data/lessons/informatica-redes";
 import { matematicaAlgebraLesson } from "@/data/lessons/matematica-algebra";
 import { fisicaOndasLesson } from "@/data/lessons/fisica-ondas";
 import { informaticaSegurancaLesson } from "@/data/lessons/informatica-seguranca";
+import { inglesInterpretacaoLesson } from "@/data/lessons/ingles-interpretacao";
+import { educacaoFisicaJogosLesson } from "@/data/lessons/educacao-fisica-jogos";
+import { matematicaFinanceiraLesson } from "@/data/lessons/matematica-financeira";
+import { historiaBrasilImperioLesson } from "@/data/lessons/historia-brasil-imperio";
+import { detranNormasCirculacaoLesson } from "@/data/lessons/detran-normas-circulacao";
+import { detranInfracoesPenalidadesLesson } from "@/data/lessons/detran-infracoes-penalidades";
+import { detranMarcasViariasLesson } from "@/data/lessons/detran-marcas-viarias";
+import { detranCondicoesAdversasLesson } from "@/data/lessons/detran-condicoes-adversas";
+import { oabSancoesDisciplinaresLesson } from "@/data/lessons/oab-sancoes-disciplinares";
+import { oabControleConstitucionalidadeLesson } from "@/data/lessons/oab-controle-constitucionalidade";
+import { lei8112ProvimentoLesson } from "@/data/lessons/lei-8112-provimento";
+import { constitucionalDireitosGarantiasLesson } from "@/data/lessons/constitucional-direitos-garantias";
 
 /*
- * Ordem = assuntos com mais respostas registradas no NabuLab (exam_answers,
- * outubro de 2026). A lista abre a área de estudos em "Mais estudados".
+ * Vestibular: ordem = assuntos com mais respostas registradas no NabuLab
+ * (exam_answers, outubro de 2026). DETRAN, OAB e concursos ainda não têm
+ * respostas suficientes; ali a escolha seguiu o peso dos assuntos nas provas
+ * e a quantidade de questões no banco.
  */
 export const lessons: Lesson[] = [
   portuguesPontuacaoLesson,
@@ -22,4 +36,16 @@ export const lessons: Lesson[] = [
   matematicaAlgebraLesson,
   fisicaOndasLesson,
   informaticaSegurancaLesson,
+  inglesInterpretacaoLesson,
+  educacaoFisicaJogosLesson,
+  matematicaFinanceiraLesson,
+  historiaBrasilImperioLesson,
+  detranNormasCirculacaoLesson,
+  detranInfracoesPenalidadesLesson,
+  detranMarcasViariasLesson,
+  detranCondicoesAdversasLesson,
+  oabSancoesDisciplinaresLesson,
+  oabControleConstitucionalidadeLesson,
+  lei8112ProvimentoLesson,
+  constitucionalDireitosGarantiasLesson,
 ];
