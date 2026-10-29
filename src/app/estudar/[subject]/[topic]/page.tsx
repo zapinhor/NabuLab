@@ -46,13 +46,13 @@ export default async function LessonPage({ params }: { params: Promise<{ subject
       {lesson.sections.map((section) => <section key={section.heading} className="mt-10">
         <h2 className="text-2xl font-black">{section.heading}</h2>
         {section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-4 leading-8 text-slate-800">{paragraph}</p>)}
-        {section.bullets && <ul className="mt-4 grid gap-2">{section.bullets.map((bullet) => <li key={bullet} className="rounded-xl border border-slate-200 bg-white px-4 py-3 leading-7 text-slate-800">{bullet}</li>)}</ul>}
         {section.table && <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
           <table className="w-full min-w-[480px] text-left text-sm">
             <thead className="bg-slate-50 text-slate-700"><tr>{section.table.headers.map((header, index) => <th key={`${header}-${index}`} scope="col" className="px-4 py-3 font-black">{header}</th>)}</tr></thead>
             <tbody>{section.table.rows.map((row) => <tr key={row.join("|")} className="border-t border-slate-200">{row.map((cell, index) => <td key={`${cell}-${index}`} className={`px-4 py-3 leading-6 ${index === 0 ? "font-bold text-slate-900" : "text-slate-700"}`}>{cell}</td>)}</tr>)}</tbody>
           </table>
         </div>}
+        {section.bullets && <ul className="mt-4 grid gap-2">{section.bullets.map((bullet) => <li key={bullet} className="rounded-xl border border-slate-200 bg-white px-4 py-3 leading-7 text-slate-800">{bullet}</li>)}</ul>}
       </section>)}
 
       <section className="mt-12" aria-labelledby="exemplos-resolvidos">

@@ -46,7 +46,7 @@ export const historiaBrasilImperioLesson: Lesson = {
       bullets: [
         "1850 — Lei Eusébio de Queirós: fim do tráfico negreiro. No mesmo ano, a Lei de Terras passou a permitir o acesso à terra só por compra.",
         "1871 — Lei do Ventre Livre: filhos de escravizadas nascidos a partir dela eram considerados livres.",
-        "1885 — Lei dos Sexagenários: libertava escravizados com mais de 60 anos.",
+        "1885 — Lei dos Sexagenários: libertava escravizados com 60 anos ou mais, mas os obrigava a trabalhar ainda alguns anos como indenização ao senhor.",
         "1888 — Lei Áurea: extinção da escravidão, sem política de terra, trabalho ou reparação para os libertos.",
       ],
     },

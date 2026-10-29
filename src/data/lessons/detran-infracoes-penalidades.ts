@@ -36,7 +36,10 @@ export const detranInfracoesPenalidadesLesson: Lesson = {
           ["Nenhuma", "40 pontos"],
         ],
       },
-      bullets: [
+    },
+    {
+      heading: "Exceções à regra dos pontos",
+      paragraphs: [
         "Quem trabalha dirigindo (atividade remunerada ao volante) tem limite de 40 pontos mesmo que tenha cometido gravíssimas (art. 261, § 5º).",
         "Algumas infrações suspendem o direito de dirigir por si só, sem depender de pontos, como dirigir sob influência de álcool (art. 165).",
       ],
