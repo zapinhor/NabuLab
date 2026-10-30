@@ -5,6 +5,7 @@ const migration=fs.readFileSync("supabase/migrations/20261017011806_teacher_p5_n
 const actions=fs.readFileSync("src/app/notificacoes/actions.ts","utf8");
 const email=fs.readFileSync("src/lib/notifications-email.ts","utf8");
 const bell=fs.readFileSync("src/components/notifications/notification-bell.tsx","utf8");
+const summaryHook=fs.readFileSync("src/components/notifications/use-notification-summary.ts","utf8");
 assert.match(migration,/alter table public\.notifications enable row level security/);
 assert.match(migration,/recipient_user_id\s*=\s*\(select auth\.uid\(\)\)/);
 assert.match(migration,/unique \(recipient_user_id, dedupe_key\)/);
@@ -16,6 +17,7 @@ assert.match(email,/idempotency-key/);
 assert.match(email,/preference_disabled/);
 assert.match(email,/delivery failed/);
 assert.doesNotMatch(email,/throw new Error/);
-assert.match(bell,/api\/notifications\/summary/);
+assert.match(bell,/useNotificationSummary/);
+assert.match(summaryHook,/api\/notifications\/summary/);
 assert.match(bell,/Tudo em dia/);
 console.log("P5: schema, RLS, deduplication, preferences, resilient email and UI contracts validated.");

@@ -10,6 +10,7 @@ const events = read("src/lib/analytics/events.ts");
 const analyticsRoute = read("src/app/api/analytics/events/route.ts");
 const migration = read("supabase/migrations/20261022203000_teacher_p7_onboarding_and_funnel.sql");
 const signup = read("src/app/cadastro/page.tsx");
+const profileStep = read("src/components/security/signup-profile-step.tsx");
 const acquisition = read("src/lib/analytics/acquisition.ts");
 const sitemap = read("src/app/sitemap.ts");
 
@@ -19,7 +20,9 @@ assert.match(sitemap, /\/para-professores/);
 assert.match(landing, /Começar grátis como professor/);
 assert.match(landing, /Dados ilustrativos/);
 assert.doesNotMatch(landing, /depoimento|estrelas|professores atendidos/i);
-assert.match(signup, /teacherIntent[\s\S]*intent=\{teacherIntent \? "teacher"/);
+assert.match(signup, /teacherIntent = next\.startsWith\("\/professor"\)/);
+assert.match(signup, /SignupProfileStep/);
+assert.match(profileStep, /intent=\{profile === "professor" \? "teacher" : "student"\}/);
 assert.match(acquisition, /\/para-professores/);
 
 for (const step of ["hasClass", "hasQuestion", "hasExam", "hasActivity", "hasStudent", "hasSubmission"]) {
