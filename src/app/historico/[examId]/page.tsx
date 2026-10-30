@@ -36,6 +36,7 @@ import {
 
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { FavoriteButton } from "@/components/student/favorite-button";
+import { ReportQuestionButton } from "@/components/support/report-question-button";
 import { LessonReviewLink } from "@/components/content/lesson-review-link";
 
 import type {
@@ -1054,6 +1055,7 @@ export default function ExamHistoryDetailPage() {
                         <span className="ml-auto">
                           <FavoriteButton questionId={question.id} />
                         </span>
+                        <ReportQuestionButton question={{ id: question.id, subjectName: question.subjectName, topic: question.topic, subtopic: question.subtopic }} />
                       </div>
 
                       <p className="mt-4 break-words text-[10px] font-semibold leading-5 text-slate-400 sm:text-xs">

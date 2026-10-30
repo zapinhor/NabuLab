@@ -19,6 +19,7 @@ import { FirstExamQuickStart } from "@/components/student/first-exam-quick-start
 import { TrackedLink } from "@/components/analytics/tracked-link";
 import { FreeLimitCard } from "@/components/student/free-limit-card";
 import { DailyGoalCard } from "@/components/student/daily-goal-card";
+import { ProfileCompletionCard } from "@/components/profile/profile-completion-card";
 import { DailyReviewCard } from "@/components/student/daily-review-card";
 import { subjects } from "@/data/subjects";
 
@@ -353,6 +354,7 @@ export default function DashboardPage() {
   const studentEntitlements = getStudentEntitlements(account?.subscription ?? null);
   const roles = useAccountRoles();
   const accountLinks: AccountMenuLink[] = [
+    { href: "/aluno", label: "Área do aluno", icon: "turmas" },
     ...(roles.isTeacher ? [{ href: "/professor", label: "Área do professor", icon: "turmas" as const }] : []),
     { href: "/premium", label: studentEntitlements.fullHistory ? "Minha assinatura" : "Conhecer o Premium", icon: "recomendado" },
     ...(roles.hasOrganization || roles.isPlatformAdmin ? [{ href: "/comercial", label: "Gestão institucional", icon: "gestao-institucional" as const }] : []),
@@ -994,6 +996,19 @@ export default function DashboardPage() {
           </Link>
 
           <Link
+            href="/aluno"
+            className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            <span className="flex min-w-0 items-center gap-3">
+              <Icon name="turmas" size={18} />
+              <span className="truncate">Área do aluno</span>
+            </span>
+            {roles.activeClassCount > 0 && (
+              <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-black">{roles.activeClassCount}</span>
+            )}
+          </Link>
+
+          <Link
             href="/estudar"
             className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
           >
@@ -1360,9 +1375,9 @@ export default function DashboardPage() {
                 className="mx-auto mt-2 grid max-w-3xl grid-cols-2 gap-2"
               >
                 <MobileNavLink
-                  href="/turmas"
+                  href="/aluno"
                   icon="turmas"
-                  label={roles.activeClassCount > 0 ? `Minhas turmas (${roles.activeClassCount})` : "Minhas turmas"}
+                  label={roles.activeClassCount > 0 ? `Área do aluno (${roles.activeClassCount})` : "Área do aluno"}
                   onNavigate={closeMobileMenu}
                 />
                 <MobileNavLink
@@ -1437,11 +1452,11 @@ export default function DashboardPage() {
             </p>
             <div className="flex items-center gap-2">
               <Link
-                href="/turmas"
+                href="/aluno"
                 className="flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 text-sm font-bold text-[#0B2D6B] shadow-sm transition hover:border-blue-200 hover:bg-blue-50"
               >
                 <Icon name="turmas" size={18} className="text-[#3B82F6]" />
-                Minhas turmas
+                Área do aluno
                 {roles.activeClassCount > 0 && (
                   <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-black text-[#0B2D6B]">
                     {roles.activeClassCount}
@@ -1602,6 +1617,8 @@ export default function DashboardPage() {
             </div>
           </section>
           )}
+
+          {!firstAccess && <ProfileCompletionCard />}
 
           {!firstAccess && consistency && (
             <DailyGoalCard

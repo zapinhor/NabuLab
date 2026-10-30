@@ -4,6 +4,7 @@
 import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 import Link from "next/link";
+import { ReportQuestionButton } from "@/components/support/report-question-button";
 
 import {
   useCallback,
@@ -1505,15 +1506,18 @@ async function submitExam(confirmedBlank: boolean) {
             ================================================== */}
 
             <div className="mt-5 sm:mt-6">
-              <p className="break-words text-[10px] font-semibold uppercase leading-5 tracking-wider text-slate-400 sm:text-xs">
-                {
-                  currentQuestion.topic
-                }{" "}
-                •{" "}
-                {
-                  currentQuestion.subtopic
-                }
-              </p>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="break-words text-[10px] font-semibold uppercase leading-5 tracking-wider text-slate-400 sm:text-xs">
+                  {
+                    currentQuestion.topic
+                  }{" "}
+                  •{" "}
+                  {
+                    currentQuestion.subtopic
+                  }
+                </p>
+                <ReportQuestionButton question={{ id: currentQuestion.id, subjectName: currentQuestion.subjectName, topic: currentQuestion.topic, subtopic: currentQuestion.subtopic }} />
+              </div>
 
               <h1
                 ref={

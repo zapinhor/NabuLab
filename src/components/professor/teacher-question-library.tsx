@@ -11,6 +11,8 @@ import {
   teacherField,
   teacherSecondaryButton,
 } from "./teacher-ui";
+import { QuestionImageField } from "./question-image-field";
+import { questionImageUrl } from "@/lib/question-images";
 
 export type TeacherQuestionView = {
   id: string;
@@ -25,6 +27,7 @@ export type TeacherQuestionView = {
   visibility: string;
   updated_at: string;
   archived_at: string | null;
+  image_path?: string | null;
 };
 
 function answerText(value: unknown) {
@@ -87,6 +90,7 @@ function QuestionForm({ question }: { question?: TeacherQuestionView }) {
           <option value="shared">Compartilhada com professores</option>
         </select>
       </label>
+      <QuestionImageField initialPath={question?.image_path ?? null} />
       <label className="text-sm font-bold text-slate-800 md:col-span-2">
         2. Alternativas
         <textarea
@@ -266,6 +270,10 @@ export function TeacherQuestionLibrary({
                 <p className="line-clamp-2 font-bold text-slate-950">
                   {question.statement}
                 </p>
+                {questionImageUrl(question.image_path) && (
+                  // eslint-disable-next-line @next/next/no-img-element -- imagem do Supabase Storage enviada pelo professor
+                  <img src={questionImageUrl(question.image_path)!} alt="" className="mt-2 max-h-24 rounded-lg border border-slate-200 object-contain" />
+                )}
                 <div className="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
                   <span>{question.subject || "Sem matéria"}</span>
                   <span aria-hidden="true">·</span>

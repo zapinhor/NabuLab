@@ -14,6 +14,7 @@ import {
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { PremiumResultPreview } from "@/components/student/premium-result-preview";
 import { FavoriteButton } from "@/components/student/favorite-button";
+import { ReportQuestionButton } from "@/components/support/report-question-button";
 import { LessonReviewLink } from "@/components/content/lesson-review-link";
 import type { PremiumUpsell } from "@/lib/exam-generation-client";
 
@@ -1066,6 +1067,7 @@ export default function ExamResultPage() {
                         <span className="ml-auto">
                           <FavoriteButton questionId={question.id} />
                         </span>
+                        <ReportQuestionButton question={{ id: question.id, subjectName: question.subjectName, topic: question.topic, subtopic: question.subtopic }} />
                       </div>
 
                       {/* =====================================

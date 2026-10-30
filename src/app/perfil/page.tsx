@@ -3,6 +3,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { signOut } from "@/app/auth/actions";
 import StudentAvatar from "@/components/student/student-avatar";
+import { AvatarUploader } from "@/components/profile/avatar-uploader";
+import { ProfileIdentityForm } from "@/components/profile/profile-identity-form";
 import NabuLabBrand from "@/components/ui/nabulab-brand";
 import { createClient } from "@/lib/supabase/server";
 import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
@@ -19,7 +21,7 @@ export default async function ProfilePage({
 
   if (!userData.user) redirect("/login?next=%2Fperfil");
 
-  const [profileResult, subscriptionResult] = await Promise.all([
+  const [profileResult, subscriptionResult, privateResult] = await Promise.all([
     supabase
       .from("profiles")
       .select("full_name,username,email,avatar_url")
@@ -30,6 +32,7 @@ export default async function ProfilePage({
       .select("id,user_id,plan,status,price_tier,provider,current_period_start,current_period_end,cancel_at_period_end,canceled_at,termination_reason")
       .eq("user_id", userData.user.id)
       .maybeSingle(),
+    supabase.from("profile_private").select("birth_date").eq("user_id", userData.user.id).maybeSingle(),
   ]);
   const profile = profileResult.data;
   const subscription = subscriptionFromRow(subscriptionResult.data);
@@ -103,6 +106,15 @@ export default async function ProfilePage({
           </div>
 
           <div className="space-y-6 p-6 sm:p-8">
+            <section aria-labelledby="seus-dados" className="rounded-2xl border border-slate-200 p-5">
+              <h2 id="seus-dados" className="text-lg font-black text-slate-900">Foto e dados do perfil</h2>
+              <div className="mt-4">
+                <AvatarUploader userId={userData.user.id} name={fullName} avatarUrl={avatarUrl} />
+              </div>
+              <div className="mt-6 border-t border-slate-100 pt-5">
+                <ProfileIdentityForm currentUsername={profile?.username ?? null} currentBirthDate={privateResult.data?.birth_date ?? null} />
+              </div>
+            </section>
             {query.premium === "required" && !premium && (
               <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-950">
                 <p className="font-bold">Disponível no NabuLab Premium</p>

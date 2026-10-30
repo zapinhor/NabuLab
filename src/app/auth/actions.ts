@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
 import { safeNextPath } from "@/lib/routing";
 import { requiredCaptchaToken } from "@/lib/security/captcha";
-import { validateEmail, validatePassword } from "@/lib/forms/signup-validation";
+import { GUARDIAN_CONSENT_AGE, ageOn, normalizeUsername, validateBirthDate, validateEmail, validatePassword, validateUsername } from "@/lib/forms/signup-validation";
 import { isSignupProfile, profileLandingPath, type SignupProfile } from "@/lib/forms/signup-profile";
 import { isStudyFocus } from "@/lib/study-focus";
 import { ATTRIBUTION_COOKIE, readAttribution } from "@/lib/analytics/acquisition";
@@ -39,6 +39,14 @@ export async function signUp(formData: FormData) {
   const signupError = (message: string): never => {
     redirect(`/cadastro?next=${encodeURIComponent(next)}${profile ? `&perfil=${profile}` : ""}&mensagem=${encodeURIComponent(message)}`);
   };
+  const username = normalizeUsername(value(formData, "username"));
+  const birthDate = value(formData, "birth_date");
+  const guardianConsent = value(formData, "guardian_consent") === "1";
+  const usernameError = validateUsername(username);
+  if (usernameError) signupError(`@username: ${usernameError}`);
+  const birthError = validateBirthDate(birthDate);
+  if (birthError) signupError(`Data de nascimento: ${birthError}`);
+  if (ageOn(birthDate) < GUARDIAN_CONSENT_AGE && !guardianConsent) signupError("Para quem tem menos de 12 anos, é preciso a autorização do pai, da mãe ou do responsável.");
   const emailError = validateEmail(email);
   if (emailError) signupError(`E-mail: ${emailError}`);
   const passwordError = validatePassword(password);
@@ -48,13 +56,21 @@ export async function signUp(formData: FormData) {
   try { captchaToken = requiredCaptchaToken(formData.get("captcha_token")); }
   catch { signupError("Conclua a verificação de segurança e tente novamente."); }
   const supabase = await createClient();
+  const { data: usernameFree } = await supabase.rpc("username_available", { p_username: username });
+  if (usernameFree === false) signupError(`@username: @${username} já está em uso. Escolha outro.`);
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
       emailRedirectTo: `${origin}/auth/confirm?flow=signup&next=${encodeURIComponent(profile ? profileLandingPath(profile, next) : next)}`,
       captchaToken,
-      data: profile ? { signup_profile: profile, ...(studyFocus ? { study_focus: studyFocus } : {}) } : undefined,
+      data: {
+        username,
+        birth_date: birthDate,
+        ...(guardianConsent ? { guardian_consent: true } : {}),
+        ...(profile ? { signup_profile: profile } : {}),
+        ...(studyFocus ? { study_focus: studyFocus } : {}),
+      },
     },
   });
   if (error?.code === "weak_password") signupError("Senha: essa senha foi considerada insegura. Use uma senha mais longa e difícil de adivinhar.");

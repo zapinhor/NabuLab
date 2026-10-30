@@ -17,7 +17,7 @@ export function profileLandingPath(profile: SignupProfile, next: string) {
   const keep = new URLSearchParams(query);
   const suffix = keep.toString() ? `?${keep.toString()}` : "";
   if (profile === "professor") return `/professor${suffix}`;
-  if (profile === "aluno") return `/turmas${suffix}#codigo`;
+  if (profile === "aluno") return `/aluno${suffix}`;
   return next;
 }
 

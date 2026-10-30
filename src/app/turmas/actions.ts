@@ -114,14 +114,16 @@ export async function requestClassJoin(formData: FormData) {
 }
 
 export async function respondClassInvite(formData: FormData) {
-  const { supabase } = await authenticated("/turmas");
+  const returnTo = safePath(text(formData, "return_to") || "/turmas");
+  const { supabase } = await authenticated(returnTo);
   const { error } = await supabase.rpc("respond_teacher_class_invite", {
     p_invite_id: text(formData, "invite_id"),
     p_accept: text(formData, "decision") === "accept",
   });
-  if (error) withMessage("/turmas", error.message);
+  if (error) withMessage(returnTo, error.message);
   revalidatePath("/turmas");
-  withMessage("/turmas", "Convite atualizado.");
+  revalidatePath("/aluno");
+  withMessage(returnTo, "Convite atualizado.");
 }
 
 export async function inviteToTeacherClass(formData: FormData) {
@@ -300,6 +302,7 @@ export async function createTeacherQuestion(formData: FormData) {
     p_correct_answer: text(formData, "correct_answer"), p_explanation: text(formData, "explanation"),
     p_subject: text(formData, "subject"), p_topic: text(formData, "topic"), p_difficulty: text(formData, "difficulty") || null,
     p_question_type: type, p_visibility: text(formData, "visibility") || "private",
+    p_image_path: text(formData, "image_path") || null,
   });
   if (error) withMessage("/professor", error.message);
   await recordAuthenticatedAnalyticsEvent("teacher_first_question_created", user.id, { sourceEventKey: `teacher:${user.id}:first-question` });
@@ -331,6 +334,7 @@ export async function updateTeacherQuestion(formData: FormData) {
     p_alternatives: questionType === "multiple_choice" ? alternatives : null,p_correct_answer: correctAnswer,
     p_explanation: text(formData,"explanation"),p_subject: text(formData,"subject"),p_topic: text(formData,"topic"),
     p_difficulty: difficulty || null,p_question_type: questionType,
+    p_image_path: text(formData, "image_path") || null,
   });
   if (error) withMessage("/professor", error.message);
   revalidatePath("/professor");

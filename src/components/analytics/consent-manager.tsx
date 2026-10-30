@@ -37,7 +37,7 @@ export function ConsentManager() {
       {consent === null && (
         <aside aria-label="Preferências de cookies" className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl sm:flex sm:items-center sm:gap-4">
           <p className="text-sm leading-6 text-slate-600">
-            Usamos cookies necessários para o NabuLab funcionar. Analytics e marketing são opcionais.
+            Usamos cookies necessários para o NabuLab funcionar. Analytics e marketing são opcionais. A data de nascimento informada no cadastro serve só para estatísticas de idade do público, sem aparecer para ninguém. <a href="/privacidade" className="font-bold text-blue-800 underline">Saiba mais</a>
           </p>
           <div className="mt-3 flex shrink-0 flex-wrap gap-2 sm:mt-0">
             <button onClick={() => choose({ analytics: false, marketing: false })} className="rounded-xl border border-slate-300 px-3 py-2 text-sm font-bold text-slate-700">Só necessários</button>

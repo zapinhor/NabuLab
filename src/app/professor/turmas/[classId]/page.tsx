@@ -1,4 +1,5 @@
 import Image from "next/image";
+import StudentAvatar from "@/components/student/student-avatar";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import QRCode from "qrcode";
@@ -29,6 +30,7 @@ type ClassMember = {
   source: string;
   full_name: string;
   username: string | null;
+  avatar_url: string | null;
 };
 type ClassInvite = {
   id: string;
@@ -256,13 +258,16 @@ export default async function TeacherClassPage({
                   key={member.user_id}
                   className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 p-4"
                 >
-                  <div>
-                    <p className="font-black">{member.full_name || "Aluno"}</p>
-                    <p className="text-xs text-slate-500">
-                      {member.username
-                        ? `@${member.username}`
-                        : "Conta NabuLab"}
-                    </p>
+                  <div className="flex min-w-0 items-center gap-3">
+                    <StudentAvatar name={member.full_name || member.username || "Aluno"} avatarUrl={member.avatar_url} />
+                    <div className="min-w-0">
+                      <p className="font-black">{member.full_name || "Aluno"}</p>
+                      <p className="text-xs text-slate-500">
+                        {member.username
+                          ? `@${member.username}`
+                          : "Conta NabuLab"}
+                      </p>
+                    </div>
                   </div>
                   <form action={removeClassMember}>
                     <input type="hidden" name="class_id" value={classId} />
@@ -293,10 +298,15 @@ export default async function TeacherClassPage({
                   key={member.user_id}
                   className="rounded-xl bg-amber-50 p-4"
                 >
-                  <p className="font-black">{member.full_name || "Aluno"}</p>
-                  <p className="text-xs text-slate-500">
-                    Entrada por {member.source}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <StudentAvatar name={member.full_name || member.username || "Aluno"} avatarUrl={member.avatar_url} />
+                    <div className="min-w-0">
+                      <p className="font-black">{member.full_name || "Aluno"}</p>
+                      <p className="text-xs text-slate-500">
+                        {member.username ? `@${member.username} · ` : ""}Entrada por {member.source}
+                      </p>
+                    </div>
+                  </div>
                   <form action={decideClassMember} className="mt-3 flex gap-2">
                     <input type="hidden" name="class_id" value={classId} />
                     <input

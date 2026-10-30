@@ -19,7 +19,10 @@ assert.match(confirmRoute, /verifyOtp/, "callback de recuperação por token dev
 assert.match(actions, /if \(!data\.session\)/, "fluxo legado de confirmação continua suportado");
 assert.match(actions, /REGISTRATION_COMPLETION_COOKIE/);
 assert.doesNotMatch(actions, /createAdminClient|SERVICE_ROLE/, "cadastro não pode auto-confirmar por service role");
-assert.doesNotMatch(signup, /name="full_name"|name="username"/, "cadastro rápido deve pedir somente credenciais necessárias");
+assert.doesNotMatch(signup, /name="full_name"/, "cadastro rápido não pede nome completo");
+assert.match(signup, /name="username"/, "cadastro pede @username único");
+assert.match(signup, /name="birth_date"/, "cadastro pede data de nascimento");
+assert.match(signup, /name="guardian_consent"/, "menores de 12 precisam de autorização do responsável");
 assert.match(signup, /name="email"/);
 assert.match(signup, /name="password"/);
 assert.match(signup, /TurnstileField/);
