@@ -1322,6 +1322,12 @@ export default function DashboardPage() {
                 />
 
                 <MobileNavLink
+                  href="/estudar"
+                  icon="materias"
+                  label="Estudar"
+                  onNavigate={closeMobileMenu}
+                />
+                <MobileNavLink
                   href="/recomendado"
                   icon="recomendado"
                   label="Recomendado"

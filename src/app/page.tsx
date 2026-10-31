@@ -1,6 +1,7 @@
 import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 import Link from "next/link";
+import { MobileHeaderMenu } from "@/components/layout/mobile-header-menu";
 import type { Metadata } from "next";
 import { TrackPageView } from "@/components/analytics/track-event";
 import { TrackedLink } from "@/components/analytics/tracked-link";
@@ -62,6 +63,17 @@ export default async function LandingPage() {
           </div>
           <div className="flex items-center gap-2">
             {!authenticated && <Link href="/login?next=/dashboard" className="hidden rounded-xl px-3 py-2 text-sm font-bold text-[#0B2D6B] sm:block">Entrar</Link>}
+            <MobileHeaderMenu links={[
+              ...(authenticated ? [] : [{ href: "/login?next=/dashboard", label: "Entrar", primary: true }]),
+              { href: "#como-funciona", label: "Como funciona" },
+              { href: "#recursos", label: "Recursos" },
+              { href: "/estudar", label: "Estudar" },
+              { href: "/questoes", label: "Questões" },
+              { href: "/turmas", label: "Turmas" },
+              { href: "/para-professores", label: "Para Professores" },
+              { href: "#planos", label: "Planos" },
+              { href: "#faq", label: "FAQ" },
+            ]} />
             <TrackedLink event="signup_cta_clicked" properties={{ placement: "header" }} href={primaryHref} className="rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-blue-900">{authenticated ? "Ir para o NabuLab" : "Começar grátis"}</TrackedLink>
           </div>
         </nav>
