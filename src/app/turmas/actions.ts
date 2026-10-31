@@ -19,6 +19,13 @@ const friendlyMessages: Record<string, string> = {
   teacher_active_class_limit_reached: "Você atingiu o limite de turmas ativas do seu plano. Consulte os planos Professor para ampliar a capacidade.",
   teacher_weekly_exam_limit_reached: "Você atingiu o limite semanal de simulados do seu plano. Consulte os planos Professor para ampliar a capacidade.",
   teacher_class_student_limit_reached: "Esta turma atingiu o limite de alunos do plano atual.",
+  activity_attempt_limit_reached: "Você já usou todas as tentativas desta atividade.",
+  activity_already_submitted: "Esta tentativa já foi entregue.",
+  attempt_not_available: "Esta tentativa não está mais disponível. Veja sua entrega abaixo.",
+  activity_closed: "O prazo desta atividade terminou.",
+  activity_not_open: "Esta atividade ainda não abriu.",
+  activity_not_available: "Esta atividade não está disponível para você.",
+  invalid_activity_answers: "Não foi possível ler suas respostas. Tente enviar de novo.",
 };
 
 function friendlyMessage(message: string) {
@@ -399,11 +406,10 @@ export async function submitClassActivity(formData: FormData) {
   const attemptId = text(formData, "attempt_id");
   const { data, error } = await supabase.rpc("submit_teacher_activity_attempt", { p_attempt_id: attemptId, p_answers: answers });
   if (error || !data?.[0]) withMessage(path, error?.message ?? "Não foi possível salvar a atividade.");
-  const result = data[0] as { correct_count: number; total_questions: number };
   const admin = createAdminClient();
   const { data: activity } = await admin.from("teacher_class_activities").select("teacher_classes(owner_id)").eq("id", activityId).maybeSingle();
   const ownerId = (activity?.teacher_classes as unknown as { owner_id?: string } | null)?.owner_id;
   if (ownerId) await recordAuthenticatedAnalyticsEvent("teacher_first_submission_received", ownerId, { sourceEventKey: `teacher:${ownerId}:first-submission` });
   revalidatePath(path);
-  withMessage(path, `Atividade concluída: ${result.correct_count} de ${result.total_questions} acertos.`);
+  withMessage(`${path}?attempt=${encodeURIComponent(attemptId)}`, "Atividade entregue.");
 }
