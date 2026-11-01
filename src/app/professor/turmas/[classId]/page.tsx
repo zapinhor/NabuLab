@@ -1,3 +1,4 @@
+import { LiveRefresh } from "@/components/realtime/live-refresh";
 import Image from "next/image";
 import StudentAvatar from "@/components/student/student-avatar";
 import Link from "next/link";
@@ -148,7 +149,7 @@ export default async function TeacherClassPage({
   });
 
   return (
-    <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6 sm:py-8">
+    <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6 sm:py-8"><LiveRefresh subscriptions={[{ table: "teacher_class_members", filter: `class_id=eq.${classId}` }, { table: "teacher_class_invites", filter: `class_id=eq.${classId}` }, { table: "teacher_activity_attempts" }]} />
       <div className="mx-auto max-w-7xl">
         <TeacherBreadcrumbs
           items={[

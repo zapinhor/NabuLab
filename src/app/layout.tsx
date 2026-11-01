@@ -6,6 +6,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AcademicSyncBoundary } from "@/components/academic-sync-boundary";
 import { ConsentManager } from "@/components/analytics/consent-manager";
+import { DailyPremiumPopup } from "@/components/premium/daily-premium-popup";
 import { GaRouteEvent } from "@/components/analytics/ga-route-event";
 import { TikTokRouteEvent } from "@/components/analytics/tiktok-route-event";
 import { CampaignAttribution } from "@/components/analytics/campaign-attribution";
@@ -90,6 +91,7 @@ export default function RootLayout({
           <AcademicSyncBoundary>{children}</AcademicSyncBoundary>
         </div>
         <ConsentManager />
+        <DailyPremiumPopup />
         <Suspense fallback={null}><CampaignAttribution /></Suspense>
         <Suspense fallback={null}><GaRouteEvent /></Suspense>
         <Suspense fallback={null}><TikTokRouteEvent /></Suspense>

@@ -23,6 +23,7 @@ import { createClient } from "@/lib/supabase/server";
 import { NotificationBell } from "@/components/notifications/notification-bell";
 import { TeacherCreationPresets, TeacherOnboarding } from "@/components/professor/teacher-onboarding";
 import { recordAuthenticatedAnalyticsEvent } from "@/lib/analytics/server";
+import { LiveRefresh } from "@/components/realtime/live-refresh";
 
 type ExamQuestion = {
   exam_id: string;
@@ -161,7 +162,7 @@ export default async function TeacherPage({
   const pendingRequests=pendingResult.count??0; const dueActivities=dueResult.data??[];
 
   return (
-    <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6 sm:py-8">
+    <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 sm:px-6 sm:py-8"><LiveRefresh subscriptions={[{ table: "teacher_class_members" }, { table: "teacher_activity_attempts" }]} />
       <div className="mx-auto max-w-7xl">
         <header className="flex flex-wrap items-start justify-between gap-4">
           <div>

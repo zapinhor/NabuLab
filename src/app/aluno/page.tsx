@@ -8,6 +8,7 @@ import StudentAvatar from "@/components/student/student-avatar";
 import { Icon } from "@/components/ui/icon";
 import { createPrivateMetadata } from "@/lib/seo";
 import { createClient } from "@/lib/supabase/server";
+import { LiveRefresh } from "@/components/realtime/live-refresh";
 
 export const metadata: Metadata = createPrivateMetadata("Área do aluno", "Suas turmas, atividades do professor e notas no NabuLab.");
 
@@ -67,7 +68,7 @@ export default async function StudentAreaPage({ searchParams }: { searchParams: 
   const name = profile?.full_name?.trim() || profile?.username || "Aluno";
 
   return (
-    <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 text-slate-950 sm:px-6 sm:py-10">
+    <main className="min-h-screen bg-[#F5F7FB] px-4 py-6 text-slate-950 sm:px-6 sm:py-10"><LiveRefresh subscriptions={[{ table: "teacher_class_members", filter: `user_id=eq.${userId}` }, { table: "teacher_class_invites" }, { table: "teacher_class_activities" }, { table: "teacher_activity_attempts", filter: `student_id=eq.${userId}` }]} />
       <div className="mx-auto max-w-5xl">
         <header className="flex flex-wrap items-center justify-between gap-3">
           <Link href="/dashboard" className="inline-flex items-center gap-1.5 text-sm font-bold text-blue-700"><Icon name="voltar" size={16} /> Painel</Link>

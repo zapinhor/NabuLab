@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createPublicMetadata } from "@/lib/seo";
 import { joinClassByCode, requestClassJoin, respondClassInvite } from "@/app/turmas/actions";
 import { NotificationBell } from "@/components/notifications/notification-bell";
+import { LiveRefresh } from "@/components/realtime/live-refresh";
 
 export const metadata: Metadata = createPublicMetadata({
   title: "Turmas NabuLab",
@@ -31,7 +32,7 @@ export default async function ClassesPage({ searchParams }: { searchParams: Prom
   const inviteRows = (invites.data ?? []) as unknown as PendingInvite[];
   const searchRows = (results ?? []) as SearchClass[];
 
-  return <main className="min-h-screen bg-[#F5F7FB] px-4 py-8 text-slate-950 sm:px-6">
+  return <main className="min-h-screen bg-[#F5F7FB] px-4 py-8 text-slate-950 sm:px-6">{auth.user && <LiveRefresh subscriptions={[{ table: "teacher_class_members", filter: `user_id=eq.${auth.user.id}` }, { table: "teacher_class_invites" }]} />}
     <div className="mx-auto max-w-6xl">
       <header className="flex flex-wrap items-center justify-between gap-4"><Link href="/" className="text-xl font-black text-[#0B2D6B]">NabuLab</Link><div className="flex items-center gap-2">{auth.user&&<NotificationBell/>}<Link href={auth.user ? "/dashboard" : "/login?next=%2Fturmas"} className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold">{auth.user ? "Voltar ao painel" : "Entrar"}</Link><Link href="/professor" className={button}>Para professores</Link></div></header>
       <section className="py-12 text-center"><p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">Turmas</p><h1 className="mt-3 text-4xl font-black">Estude com seu professor no NabuLab.</h1><p className="mx-auto mt-4 max-w-2xl text-slate-600">Encontre uma turma pública, use o código fornecido pelo professor ou acompanhe seus convites.</p></section>
