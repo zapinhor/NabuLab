@@ -14,7 +14,7 @@ export const metadata: Metadata = createPrivateMetadata("Área do aluno", "Suas 
 
 type ClassRow = { class_id: string; status: string; teacher_classes: { id: string; public_name: string; subject: string | null; school_name: string | null } | null };
 type ActivityRow = { id: string; class_id: string; title: string; status: string; due_at: string | null; opens_at: string | null; teacher_classes: { public_name: string } | null };
-type AttemptRow = { activity_id: string; status: string; score: number | null; submitted_at: string | null };
+type AttemptRow = { id: string; activity_id: string; status: string; submitted_at: string | null };
 type InviteRow = { id: string; teacher_classes: { public_name: string } | null };
 type Room = { teacher_name: string; teacher_avatar_url: string | null };
 
@@ -41,7 +41,7 @@ export default async function StudentAreaPage({ searchParams }: { searchParams: 
     activeIds.length
       ? supabase.from("teacher_class_activities").select("id,class_id,title,status,due_at,opens_at,teacher_classes(public_name)").in("class_id", activeIds).in("status", ["published", "closed"]).order("due_at", { ascending: true, nullsFirst: false }).limit(60)
       : Promise.resolve({ data: [] }),
-    supabase.from("teacher_activity_attempts").select("activity_id,status,score,submitted_at").eq("student_id", userId),
+    supabase.from("teacher_activity_attempts").select("id,activity_id,status,submitted_at").eq("student_id", userId),
     Promise.all(memberships.map(async (item) => {
       const { data } = await supabase.rpc("get_teacher_class_for_member", { p_class_id: item.class_id });
       return [item.class_id, ((data ?? [])[0] ?? null) as Room | null] as const;
@@ -62,7 +62,12 @@ export default async function StudentAreaPage({ searchParams }: { searchParams: 
     .map((activity) => ({ activity, attempt: bestAttempt(activity.id) }))
     .filter((item): item is { activity: ActivityRow; attempt: AttemptRow } => item.attempt?.status === "submitted")
     .sort((a, b) => (b.attempt.submitted_at ?? "").localeCompare(a.attempt.submitted_at ?? ""));
-  const recentDelivered = delivered.slice(0, 8);
+  // A nota vem pela função do professor, que respeita a opção de mostrar ou não a nota ao aluno.
+  const recentDelivered = await Promise.all(delivered.slice(0, 8).map(async (item) => {
+    const { data } = await supabase.rpc("get_teacher_attempt_result", { p_attempt_id: item.attempt.id });
+    const score = (data?.[0] as { score: number | string | null } | undefined)?.score ?? null;
+    return { ...item, score: score === null ? null : Number(score) };
+  }));
 
   const profile = profileResult.data;
   const name = profile?.full_name?.trim() || profile?.username || "Aluno";
@@ -136,10 +141,10 @@ export default async function StudentAreaPage({ searchParams }: { searchParams: 
         <section aria-labelledby="entregues" className="mt-8">
           <h2 id="entregues" className="text-xl font-black">Entregues</h2>
           <div className="mt-3 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-            {recentDelivered.map(({ activity, attempt }) => (
+            {recentDelivered.map(({ activity, attempt, score }) => (
               <Link key={activity.id} href={`/turmas/atividades/${activity.id}`} className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-4 py-3 last:border-0 hover:bg-slate-50">
                 <span className="min-w-0"><strong className="block">{activity.title}</strong><span className="text-xs text-slate-500">{activity.teacher_classes?.public_name ?? "Turma"}{attempt.submitted_at ? ` · ${dateTime.format(new Date(attempt.submitted_at))}` : ""}</span></span>
-                <span className="text-sm font-black text-[#0B2D6B]">{attempt.score === null ? "Entregue" : `${Math.round(Number(attempt.score))}%`}</span>
+                <span className="text-sm font-black text-[#0B2D6B]">{score === null ? "Entregue" : `${Math.round(score)}%`}</span>
               </Link>
             ))}
             {delivered.length === 0 && <p className="p-5 text-sm text-slate-600">Nenhuma atividade entregue ainda.</p>}

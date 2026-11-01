@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { isDailyPopupPath, saoPauloDay } from "../src/components/premium/daily-premium-popup";
+import { isDailyPopupPath, POPUP_INTERVAL_MS, POPUP_TAB_RETURN_GAP_MS, saoPauloDay, shouldShowPopup } from "../src/components/premium/daily-premium-popup";
 
 assert.equal(isDailyPopupPath("/dashboard"), true);
 assert.equal(isDailyPopupPath("/historico/abc"), true);
@@ -9,6 +9,13 @@ assert.equal(isDailyPopupPath("/premium"), false);
 assert.equal(isDailyPopupPath("/professor"), false);
 assert.equal(isDailyPopupPath("/"), false);
 assert.equal(saoPauloDay(new Date("2026-11-01T02:30:00Z")), "2026-10-31", "dia no fuso de São Paulo");
+const base = new Date("2026-11-01T15:00:00Z").getTime();
+assert.equal(shouldShowPopup(0, base, POPUP_INTERVAL_MS), true, "primeira vez");
+assert.equal(shouldShowPopup(base, base + 5 * 60_000, POPUP_INTERVAL_MS), false, "não repete antes de 12 min");
+assert.equal(shouldShowPopup(base, base + 12 * 60_000, POPUP_INTERVAL_MS), true, "a cada 12 min de uso");
+assert.equal(shouldShowPopup(base, base + 4 * 60_000, POPUP_TAB_RETURN_GAP_MS), false, "voltar à aba logo em seguida não reabre");
+assert.equal(shouldShowPopup(base, base + 6 * 60_000, POPUP_TAB_RETURN_GAP_MS), true, "voltar à aba depois de 5 min reabre");
+assert.equal(shouldShowPopup(new Date("2026-11-01T02:00:00Z").getTime(), new Date("2026-11-01T03:05:00Z").getTime(), POPUP_INTERVAL_MS), true, "virada do dia em São Paulo");
 const popup = readFileSync("src/components/premium/daily-premium-popup.tsx", "utf8");
 assert.match(popup, /hasActivePremium/, "assinantes não veem o convite");
 assert.match(popup, /showModal/, "bloqueia o resto do site até fechar");

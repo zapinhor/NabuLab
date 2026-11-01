@@ -28,27 +28,37 @@ const BENEFITS = [
   "Treinar erros, histórico completo, evolução e domínio por matéria",
 ];
 
-let shownThisSession = false;
+/** Enquanto a pessoa usa o site: a cada 12 min, ou ao voltar à aba depois de 5 min do último convite. */
+export const POPUP_INTERVAL_MS = 12 * 60_000;
+export const POPUP_TAB_RETURN_GAP_MS = 5 * 60_000;
 
-function alreadyShownToday(userId: string) {
-  if (shownThisSession) return true;
+let lastShownInMemory = 0;
+
+function lastShownAt(userId: string) {
   try {
-    return window.localStorage.getItem(`nabulab_premium_popup:${userId}`) === saoPauloDay();
+    return Math.max(lastShownInMemory, Number(window.localStorage.getItem(`nabulab_premium_popup_at:${userId}`) ?? 0) || 0);
   } catch {
-    return false;
+    return lastShownInMemory;
   }
 }
 
 function markShown(userId: string) {
-  shownThisSession = true;
+  lastShownInMemory = Date.now();
   try {
-    window.localStorage.setItem(`nabulab_premium_popup:${userId}`, saoPauloDay());
+    window.localStorage.setItem(`nabulab_premium_popup_at:${userId}`, String(lastShownInMemory));
   } catch {
     // Sem armazenamento: vale só para esta sessão.
   }
 }
 
-/** Convite diário ao Premium para quem está no plano grátis. Só some ao fechar ou ir assinar. */
+/** Primeira vez no dia (São Paulo) ou intervalo mínimo desde o último convite. */
+export function shouldShowPopup(last: number, now: number, minGap: number) {
+  if (!last) return true;
+  if (saoPauloDay(new Date(last)) !== saoPauloDay(new Date(now))) return true;
+  return now - last >= minGap;
+}
+
+/** Convite ao Premium para quem está no plano grátis: ao abrir o site no dia, a cada 12 min de uso e ao voltar à aba. Só some ao fechar ou ir assinar. */
 export function DailyPremiumPopup() {
   const pathname = usePathname() ?? "";
   if (!isDailyPopupPath(pathname)) return null;
@@ -61,14 +71,33 @@ function DailyPremiumPopupInner() {
   const [offer, setOffer] = useState<PremiumOffer | null>(null);
   const [open, setOpen] = useState(false);
 
+  const openRef = useRef(false);
+
   useEffect(() => {
-    if (loading || !account || hasActivePremium(account.subscription) || alreadyShownToday(account.id)) return;
-    markShown(account.id);
-    // Abre depois de buscar a oferta, para o preço já aparecer junto; sem preço, abre mesmo assim.
-    getQuotaAndOffer()
-      .then(({ offer: current }) => setOffer(current))
-      .catch(() => { /* sem preço, o botão leva ao Premium */ })
-      .finally(() => setOpen(true));
+    if (loading || !account || hasActivePremium(account.subscription)) return;
+    const userId = account.id;
+    let offerLoaded = false;
+    const show = (minGap: number) => {
+      if (openRef.current || document.visibilityState !== "visible") return;
+      if (!shouldShowPopup(lastShownAt(userId), Date.now(), minGap)) return;
+      openRef.current = true;
+      markShown(userId);
+      if (offerLoaded) { setOpen(true); return; }
+      // Abre depois de buscar a oferta, para o preço já aparecer junto; sem preço, abre mesmo assim.
+      getQuotaAndOffer()
+        .then(({ offer: current }) => { offerLoaded = true; setOffer(current); })
+        .catch(() => { /* sem preço, o botão leva ao Premium */ })
+        .finally(() => setOpen(true));
+    };
+    const initial = window.setTimeout(() => show(POPUP_INTERVAL_MS), 0);
+    const timer = window.setInterval(() => show(POPUP_INTERVAL_MS), 60_000);
+    const onVisible = () => show(POPUP_TAB_RETURN_GAP_MS);
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      window.clearTimeout(initial);
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
   }, [account, loading]);
 
   useEffect(() => {
@@ -83,7 +112,7 @@ function DailyPremiumPopupInner() {
     <dialog
       ref={dialog}
       aria-labelledby="premium-popup-title"
-      onClose={() => setOpen(false)}
+      onClose={() => { openRef.current = false; setOpen(false); }}
       className="m-auto w-[min(28rem,calc(100vw-2rem))] overflow-hidden rounded-3xl p-0 shadow-2xl backdrop:bg-slate-950/60"
     >
       <div className="bg-[#0B2D6B] px-6 pb-5 pt-6 text-white">
