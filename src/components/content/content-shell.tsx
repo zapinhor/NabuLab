@@ -8,7 +8,7 @@ export function ContentShell({ children }: { children: ReactNode }) {
       <Link href="/" aria-label="NabuLab — início"><Image src="/branding/logo-horizontal.png" alt="NabuLab" width={172} height={44} className="h-9 w-auto" priority /></Link>
       <div className="flex items-center gap-4 text-sm font-bold"><Link href="/estudar" className="text-[#0B2D6B]">Estudar</Link><Link href="/questoes" className="text-[#0B2D6B]">Questões</Link><Link href="/para-professores" className="hidden text-slate-600 sm:block">Para professores</Link><Link href="/cadastro?next=/simulado/novo" className="rounded-xl bg-[#0B2D6B] px-4 py-2.5 text-white">Começar grátis</Link></div>
     </nav></header>{children}
-    <footer className="mt-16 border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-7xl flex-wrap gap-5 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:px-8"><Link href="/">Início</Link><Link href="/estudar">Estudar</Link><Link href="/questoes">Questões</Link><Link href="/premium">Premium</Link><Link href="/para-professores">Para professores</Link><Link href="/suporte">Suporte</Link></div></footer>
+    <footer className="mt-16 border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-7xl flex-wrap gap-5 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:px-8"><Link href="/">Início</Link><Link href="/simulado-enem">Simulado ENEM</Link><Link href="/simulado-detran">Simulado DETRAN</Link><Link href="/simulado-oab">Simulado OAB</Link><Link href="/simulado-concurso">Simulado para concursos</Link><Link href="/estudar">Estudar</Link><Link href="/questoes">Questões</Link><Link href="/premium">Premium</Link><Link href="/para-professores">Para professores</Link><Link href="/suporte">Suporte</Link></div></footer>
   </main>;
 }
 

@@ -18,7 +18,14 @@ export async function generateMetadata({ params }: { params: Promise<{ subject: 
   const p = await params;
   const entry = getLessonEntry(p.subject, p.topic);
   if (!entry) return {};
-  return createPublicMetadata({ title: entry.lesson.title, description: entry.lesson.intro.slice(0, 155), path: entry.href });
+  return createPublicMetadata({ title: entry.lesson.title, description: shortDescription(entry.lesson.intro), path: entry.href });
+}
+
+/** Corta a descrição em até 155 caracteres sem quebrar palavra. */
+function shortDescription(text: string, max = 155) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,:;.]$/, "")}…`;
 }
 
 const difficultyLabel = { iniciante: "Iniciante", medio: "Médio", avancado: "Avançado" } as const;
@@ -35,6 +42,7 @@ export default async function LessonPage({ params }: { params: Promise<{ subject
   return <ContentShell>
     <LessonViewTracking subject={lesson.subject} topic={entry.topicSlug} href={entry.href} />
     <JsonLd value={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbs.map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })) }} />
+    <JsonLd value={{ "@context": "https://schema.org", "@type": "LearningResource", name: lesson.title, description: lesson.intro, url: `${SITE_URL}${entry.href}`, inLanguage: "pt-BR", learningResourceType: "Aula", educationalLevel: entry.category, about: [entry.subjectName, lesson.topic], timeRequired: `PT${lesson.readingMinutes}M`, isAccessibleForFree: true, provider: { "@type": "Organization", name: "NabuLab", url: SITE_URL } }} />
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <Breadcrumbs items={[{ label: "Estudar", href: "/estudar" }, { label: entry.subjectName }, { label: lesson.topic }]} />
       <header className="mt-7">

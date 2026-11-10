@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { contentCatalog } from "@/lib/content/catalog";
+import { EXAM_LANDINGS } from "@/lib/content/exam-landings";
 import { lessonCatalog } from "@/lib/content/lessons";
 
 const PUBLIC_ROUTES = [
@@ -18,6 +19,7 @@ const PUBLIC_ROUTES = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const contentRoutes = [
+    ...EXAM_LANDINGS.map((entry) => ({ path: entry.path, changeFrequency: "weekly" as const, priority: 0.95 })),
     { path: "/questoes", changeFrequency: "weekly" as const, priority: 0.9 },
     { path: "/estudar", changeFrequency: "weekly" as const, priority: 0.9 },
     ...lessonCatalog.map((entry) => ({ path: entry.href, changeFrequency: "monthly" as const, priority: 0.8 })),

@@ -10,7 +10,8 @@ import { discountPercent, pricePerDay } from "@/lib/billing/price-display";
 import { getHotmartConfig } from "@/lib/billing/config";
 import { hasActivePremium, subscriptionFromRow } from "@/lib/entitlements";
 import { AUDIENCE_LABEL, AUDIENCE_SHORT_LABEL, BANK_QUESTIONS_LABEL, BANK_SUBJECTS, CATEGORY_BREAKDOWN_LABEL } from "@/lib/bank-summary";
-import { createPublicMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/content/content-shell";
+import { createPublicMetadata, SITE_URL } from "@/lib/seo";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = createPublicMetadata({
@@ -54,6 +55,10 @@ export default async function LandingPage() {
 
   return (
     <main className="overflow-x-clip bg-[#F5F7FB] text-slate-950">
+      <JsonLd value={{ "@context": "https://schema.org", "@graph": [
+        { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "NabuLab", url: SITE_URL, logo: `${SITE_URL}/branding/Logo-principal.png` },
+        { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "NabuLab", url: SITE_URL, inLanguage: "pt-BR", publisher: { "@id": `${SITE_URL}/#organization` } },
+      ] }} />
       <TrackPageView event="landing_view" />
       <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
         <nav aria-label="Navegação principal" className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -126,6 +131,13 @@ export default async function LandingPage() {
         ["Meu progresso fica salvo?", "Sim. O Cloud Sync vincula histórico, respostas, desempenho e metas à sua conta."],
         ["Quais matérias estão disponíveis?", `São ${BANK_SUBJECTS} matérias: ${CATEGORY_BREAKDOWN_LABEL}. Você pode misturar áreas no mesmo simulado.`],
       ].map(([q,a]) => <details key={q} className="group py-5"><summary className="cursor-pointer list-none pr-8 font-bold text-slate-900 marker:hidden">{q}<span aria-hidden="true" className="float-right text-blue-700 group-open:rotate-45">+</span></summary><p className="mt-3 pr-6 text-sm leading-6 text-slate-600">{a}</p></details>)}</div></section>
+
+      <section aria-labelledby="simulados-por-prova" className="px-4 pb-16 sm:px-6"><div className="mx-auto max-w-6xl"><h2 id="simulados-por-prova" className="text-2xl font-black text-[#0B2D6B] sm:text-3xl">Simulados grátis por prova</h2><p className="mt-2 text-slate-600">Escolha sua prova, veja como ela funciona e responda 3 questões sem cadastro.</p><ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{[
+        ["/simulado-enem", "Simulado ENEM", "Linguagens, humanas, natureza e matemática"],
+        ["/simulado-detran", "Simulado DETRAN", "Prova teórica da CNH"],
+        ["/simulado-oab", "Simulado OAB", "1ª fase do Exame de Ordem"],
+        ["/simulado-concurso", "Simulado para concursos", "Públicos, bancários, Correios e polícia"],
+      ].map(([href, label, hint]) => <li key={href}><Link href={href} className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-blue-300 hover:shadow-sm"><strong className="text-lg text-[#0B2D6B]">{label}</strong><span className="mt-1 text-sm text-slate-600">{hint}</span></Link></li>)}</ul></div></section>
 
       <section className="px-4 pb-16 sm:px-6"><div className="mx-auto max-w-6xl rounded-3xl bg-[#0B2D6B] px-6 py-12 text-center text-white sm:px-10"><p className="text-sm font-black uppercase tracking-[.16em] text-blue-200">Seu próximo passo</p><h2 className="mx-auto mt-3 max-w-2xl text-3xl font-black tracking-tight sm:text-4xl">Cada tentativa é um passo. Cada correção, uma evolução.</h2><TrackedLink event="signup_cta_clicked" properties={{ placement: "final_cta" }} href={primaryHref} className="mt-7 inline-block rounded-xl bg-[#F4C430] px-6 py-3.5 font-black text-[#0B2D6B]">{authenticated ? "Ir para o NabuLab" : "Começar grátis"}</TrackedLink></div></section>
 
