@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { AnalyticsEventName } from "@/lib/analytics/events";
+import { trackMetaEvent } from "@/lib/analytics/meta";
 import { trackTikTokEvent } from "@/lib/analytics/tiktok";
 
 export async function trackEvent(
@@ -46,6 +47,7 @@ export function TrackPageView({ event }: { event: AnalyticsEventName }) {
     function sendTikTokViewContent() {
       if (event !== "premium_page_viewed" || tiktokSent.current) return;
       tiktokSent.current = trackTikTokEvent("ViewContent", { content_type: "product", content_id: "nabulab_premium" });
+      trackMetaEvent("ViewContent", { content_type: "product", content_ids: "nabulab_premium" });
     }
     sendTikTokViewContent();
     window.addEventListener("nabulab:consent-changed", sendTikTokViewContent);

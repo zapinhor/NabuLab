@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { trackEvent } from "@/components/analytics/track-event";
 import { Icon } from "@/components/ui/icon";
 import type { GuestQuestion, GuestTrackId } from "@/lib/content/guest-quiz";
+import { trackMetaEvent } from "@/lib/analytics/meta";
 
 /** Chave do resultado no navegador; a tela de cadastro lê para dar continuidade. */
 export const GUEST_RESULT_KEY = "nabulab_guest_quiz";
@@ -103,6 +104,7 @@ export function GuestQuiz({
     };
     try { localStorage.setItem(GUEST_RESULT_KEY, JSON.stringify(result)); } catch { /* navegação privada */ }
     void trackEvent("guest_quiz_completed", { track, correct: correctCount, total: questions.length });
+    trackMetaEvent("Lead", { content_category: `guest_quiz_${track}` });
     save({ ...progress, finished: true });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }

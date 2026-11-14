@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { trackMetaEvent } from "@/lib/analytics/meta";
 import { getTrackingConsent, trackTikTokEvent } from "@/lib/analytics/tiktok";
 
 export function GaRouteEvent() {
@@ -44,7 +45,7 @@ export function GaRouteEvent() {
         });
         if (!response.ok) return;
         const result = await response.json() as { shouldTrack?: boolean };
-        if (result.shouldTrack === true) trackTikTokEvent("CompleteRegistration");
+        if (result.shouldTrack === true) { trackTikTokEvent("CompleteRegistration"); trackMetaEvent("CompleteRegistration"); }
       } finally {
         registrationCheckInFlight.current = false;
       }

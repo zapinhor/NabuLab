@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       "form-action 'self' https://pay.hotmart.com", "img-src 'self' data: https:",
       "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://connect.facebook.net https://analytics.tiktok.com",
       "style-src 'self' 'unsafe-inline'", "font-src 'self' data:",
-      "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.hotmart.com",
+      "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.facebook.com https://connect.facebook.net https://analytics.tiktok.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.hotmart.com",
       "frame-src https://challenges.cloudflare.com https://pay.hotmart.com",
     ].join("; ");
     return [{ source: "/(.*)", headers: [

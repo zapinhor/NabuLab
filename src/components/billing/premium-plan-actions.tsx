@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { BillingPriceTier } from "@/lib/billing/config";
+import { trackMetaEvent } from "@/lib/analytics/meta";
 import { trackTikTokEvent } from "@/lib/analytics/tiktok";
 import { discountPercent, pricePerDay } from "@/lib/billing/price-display";
 
@@ -38,6 +39,7 @@ export default function PremiumPlanActions({ offer, standardPrice, signupHref }:
         content_id: tier,
         currency: "BRL",
       });
+      trackMetaEvent("InitiateCheckout", { content_type: "product", content_ids: tier, currency: "BRL" });
       window.location.assign(result.checkoutUrl);
     } catch (checkoutError) {
       setError(
