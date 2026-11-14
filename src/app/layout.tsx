@@ -24,6 +24,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  // Verificação do domínio nabulab.org no portfólio empresarial da Meta.
+  other: { "facebook-domain-verification": "zqsfpk43vylxmw3506ur2tysnszasp" },
   title: {
     default: `NabuLab — Simulados para ${AUDIENCE_SHORT_LABEL.toLowerCase()}`,
     template: "%s | NabuLab",
