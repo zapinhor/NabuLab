@@ -41,9 +41,17 @@ export function readAttribution(value: string | undefined): Campaign | null {
   } catch { return null; }
 }
 
+const META_SOURCES = ["meta", "facebook", "fb", "instagram", "ig"];
+const PAID_MEDIUMS = ["paid", "paid_social", "cpc", "ads"];
+/** Anúncios Meta (Facebook/Instagram) identificados pelas UTMs dos anúncios: utm_source=meta&utm_medium=paid. */
+export function isMetaPaid(source: string, medium: string): boolean {
+  return META_SOURCES.includes(source.trim().toLowerCase()) && PAID_MEDIUMS.includes(medium.trim().toLowerCase());
+}
+
 export function channelName(source: string, medium: string): string {
   const s = source.toLowerCase();
   const m = medium.toLowerCase();
+  if (isMetaPaid(s, m)) return "Meta Ads";
   if (s === "tiktok" && ["paid", "paid_social"].includes(m)) return "TikTok Ads";
   if (s === "google" && m === "organic") return "Google Orgânico";
   if (s === "(direct)" && m === "(none)") return "Acesso direto";
@@ -53,7 +61,7 @@ export function channelName(source: string, medium: string): string {
 }
 
 export function isPublicLanding(path: string): boolean {
-  return path === "/questoes" || path.startsWith("/questoes/") || ["/", "/comece", "/cadastro", "/premium", "/para-professores", "/turmas", "/suporte"].includes(path);
+  return path === "/questoes" || path.startsWith("/questoes/") || /^\/simulado-[a-z]+$/.test(path) || ["/", "/comece", "/cadastro", "/premium", "/para-professores", "/turmas", "/suporte"].includes(path);
 }
 
 export function shouldCountLanding(input: { method: string; path: string; accept: string | null; userAgent: string | null; fetchMode: string | null; prefetch: string | null }): boolean {

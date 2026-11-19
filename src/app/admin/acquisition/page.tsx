@@ -12,7 +12,7 @@ const saoPauloDay = (date: Date) => new Intl.DateTimeFormat("sv-SE", { timeZone:
 export default async function AcquisitionPage({ searchParams }: { searchParams: Promise<Search> }) {
   await requirePlatformAdmin({ aal2: true, returnTo: "/admin/acquisition" });
   const params = await searchParams;
-  const days = params.days === "7" ? 7 : 30;
+  const days = params.days === "7" ? 7 : params.days === "90" ? 90 : 30;
   const today = new Date();
   const beginning = new Date(today.getTime() - (days - 1) * 86_400_000);
   const proposedFrom = safe(params.from, 10);
@@ -33,7 +33,7 @@ export default async function AcquisitionPage({ searchParams }: { searchParams: 
 
   return <AdminShell title="Aquisição" description="Da chegada ao site até o checkout, com campanhas e criativos sem dados pessoais.">
     <form className="mb-5 flex flex-wrap items-end gap-3 rounded-2xl border border-slate-200 bg-white p-4" aria-label="Filtros de aquisição">
-      <label className="text-sm">Período<select name="days" defaultValue={String(days)} className="mt-1 block rounded-lg border border-slate-300 p-2"><option value="7">7 dias</option><option value="30">30 dias</option></select></label>
+      <label className="text-sm">Período<select name="days" defaultValue={String(days)} className="mt-1 block rounded-lg border border-slate-300 p-2"><option value="7">7 dias</option><option value="30">30 dias</option><option value="90">90 dias</option></select></label>
       <label className="text-sm">De<input name="from" type="date" defaultValue={custom ? filters.startDate : ""} className="mt-1 block rounded-lg border border-slate-300 p-2"/></label>
       <label className="text-sm">Até<input name="to" type="date" defaultValue={custom ? filters.endDate : ""} className="mt-1 block rounded-lg border border-slate-300 p-2"/></label>
       <label className="text-sm">Source<input name="source" defaultValue={filters.source} placeholder="tiktok" className="mt-1 block w-32 rounded-lg border border-slate-300 p-2"/></label>
@@ -41,6 +41,7 @@ export default async function AcquisitionPage({ searchParams }: { searchParams: 
       <label className="text-sm">Campaign<input name="campaign" defaultValue={filters.campaign} className="mt-1 block w-40 rounded-lg border border-slate-300 p-2"/></label>
       <label className="text-sm">Content<input name="content" defaultValue={filters.content} className="mt-1 block w-40 rounded-lg border border-slate-300 p-2"/></label>
       <button type="submit" className="rounded-lg bg-[#0B2D6B] px-5 py-2 font-bold text-white">Aplicar</button>
+      <a href={`?days=${days}&source=meta&medium=paid`} className="rounded-lg border border-[#1877F2] px-4 py-2 text-sm font-bold text-[#1877F2]">Só anúncios Meta</a>
     </form>
     {gaResult.status === "fulfilled" && !gaResult.value.connected ? <p className="mb-5 rounded-xl border border-slate-200 bg-white p-4 text-sm">Google Analytics não conectado. Configure as credenciais somente no servidor.</p> : null}
     <AcquisitionReport report={report} summary={summary} gaUnavailable={gaResult.status === "rejected"} firstPartyUnavailable={rows === null}/>

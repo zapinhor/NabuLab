@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { ATTRIBUTION_MAX_AGE, channelName, parseCampaign, readAttribution, shouldCountLanding } from "../src/lib/analytics/acquisition";
+import { ATTRIBUTION_MAX_AGE, channelName, isMetaPaid, isPublicLanding, parseCampaign, readAttribution, shouldCountLanding } from "../src/lib/analytics/acquisition";
 
 const campaign = parseCampaign(new URLSearchParams("utm_source=tiktok&utm_medium=paid&utm_campaign=NabuLab%20Cadastro&utm_content=quiz_01"));
 assert.deepEqual(campaign, { source: "tiktok", medium: "paid", campaign: "NabuLab Cadastro", content: "quiz_01" });
@@ -40,3 +40,15 @@ assert.match(signup, /type === "signup"[\s\S]*signup_completed/);
 assert.match(checkout, /getConfiguredCheckout[\s\S]*checkout_started/);
 assert.match(admin, /requirePlatformAdmin\(\{ aal2: true/);
 console.log("Acquisition: parsing, consent, attribution, atomic aggregation and admin guard validated.");
+
+// Anúncios Meta: destinos /simulado-* contam como landing e atribuição é reconhecida.
+assert.equal(isPublicLanding("/simulado-enem"), true);
+assert.equal(isPublicLanding("/simulado-concurso"), true);
+assert.equal(isPublicLanding("/simulado/abc"), false);
+assert.equal(shouldCountLanding({ ...landing, path: "/simulado-enem" }), true);
+assert.equal(isMetaPaid("meta", "paid"), true);
+assert.equal(isMetaPaid("Instagram", "paid_social"), true);
+assert.equal(isMetaPaid("ig", "social"), false, "link na bio não é anúncio");
+assert.equal(channelName("meta", "paid"), "Meta Ads");
+assert.deepEqual(parseCampaign(new URLSearchParams("utm_source=meta&utm_medium=paid&utm_campaign=enem_teste1&utm_content=enem3_mito")), { source: "meta", medium: "paid", campaign: "enem_teste1", content: "enem3_mito" });
+console.log("meta ads attribution ok");

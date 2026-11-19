@@ -1,6 +1,6 @@
 import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { channelName, type AcquisitionEvent } from "@/lib/analytics/acquisition";
+import { channelName, isMetaPaid, type AcquisitionEvent } from "@/lib/analytics/acquisition";
 import type { Ga4AcquisitionReport } from "@/lib/analytics/ga4-data";
 
 export type AcquisitionFilters = { startDate: string; endDate: string; source: string; medium: string; campaign: string; content: string };
@@ -28,6 +28,43 @@ export async function getAcquisitionRows(filters: AcquisitionFilters): Promise<M
     if (!data || data.length < 1000) break;
   }
   return rows.filter((row) => matchesCampaign(row, filters));
+}
+
+export type MetaAdsSummary = { arrivals: number; sessions: number; signupStarts: number; signups: number; premium: number; checkouts: number; campaigns: CampaignPerformance[]; creatives: CreativePerformance[] };
+
+function emptyCampaign(key: string, row: { campaign: string; source: string; medium: string }): CampaignPerformance {
+  return { key, campaign: row.campaign || "(sem campanha)", source: row.source, medium: row.medium, channel: channelName(row.source, row.medium), arrivals: 0, sessions: 0, signupStarts: 0, signups: 0, premium: 0, checkouts: 0 };
+}
+const FIELD = { landing_request: "arrivals", signup_started: "signupStarts", signup_completed: "signups", premium_viewed: "premium", checkout_started: "checkouts" } as const;
+
+/** Recorte só dos anúncios Meta, agrupado por campanha (utm_campaign) e criativo (utm_content). */
+export function summarizeMetaAds(rows: MetricRow[], ga: Ga4AcquisitionReport | null): MetaAdsSummary {
+  const total: MetaAdsSummary = { arrivals: 0, sessions: 0, signupStarts: 0, signups: 0, premium: 0, checkouts: 0, campaigns: [], creatives: [] };
+  const campaigns = new Map<string, CampaignPerformance>();
+  const creatives = new Map<string, CreativePerformance>();
+  const creative = (content: string) => creatives.get(content) ?? { content, arrivals: 0, sessions: 0, signupStarts: 0, signups: 0, checkouts: 0 };
+  for (const row of rows) {
+    if (!isMetaPaid(row.source, row.medium)) continue;
+    const field = FIELD[row.event_type];
+    if (!field) continue;
+    total[field] += row.event_count;
+    const key = row.campaign || "(sem campanha)";
+    const item = campaigns.get(key) ?? emptyCampaign(key, { ...row, source: "meta", medium: "paid" });
+    item[field] += row.event_count; campaigns.set(key, item);
+    if (row.content && field !== "premium") { const c = creative(row.content); c[field] += row.event_count; creatives.set(row.content, c); }
+  }
+  for (const row of ga?.attributedSessions ?? []) {
+    if (!isMetaPaid(row.source, row.medium)) continue;
+    total.sessions += row.sessions;
+    const key = row.campaign && row.campaign !== "(not set)" ? row.campaign : "(sem campanha)";
+    const item = campaigns.get(key) ?? emptyCampaign(key, { campaign: key, source: "meta", medium: "paid" });
+    item.sessions += row.sessions; campaigns.set(key, item);
+    if (row.content && row.content !== "(not set)") { const c = creative(row.content); c.sessions += row.sessions; creatives.set(row.content, c); }
+  }
+  const weight = (item: { arrivals: number; sessions: number; signups: number }) => item.signups * 1e6 + Math.max(item.arrivals, item.sessions);
+  total.campaigns = [...campaigns.values()].sort((a, b) => weight(b) - weight(a));
+  total.creatives = [...creatives.values()].sort((a, b) => weight(b) - weight(a));
+  return total;
 }
 
 export function summarizeAcquisition(rows: MetricRow[], ga: Ga4AcquisitionReport | null) {
@@ -64,6 +101,8 @@ export function summarizeAcquisition(rows: MetricRow[], ga: Ga4AcquisitionReport
   }
   return {
     arrivals: count("landing_request"), signupStarts: count("signup_started"), signups: count("signup_completed"), premium: count("premium_viewed"), checkouts: count("checkout_started"),
+    metaSignups: rows.filter((row) => row.event_type === "signup_completed" && isMetaPaid(row.source, row.medium)).reduce((sum, row) => sum + row.event_count, 0),
+    meta: summarizeMetaAds(rows, ga),
     tiktokSignups: rows.filter((row) => row.event_type === "signup_completed" && row.source.toLowerCase() === "tiktok" && ["paid", "paid_social"].includes(row.medium.toLowerCase())).reduce((sum, row) => sum + row.event_count, 0),
     campaigns: [...campaigns.values()].sort((a, b) => b.arrivals - a.arrivals),
     creatives: [...creatives.values()].sort((a, b) => b.arrivals - a.arrivals),
