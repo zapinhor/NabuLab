@@ -26,6 +26,9 @@ const PUBLIC_EVENTS = new Set([
   "guest_question_answered",
   "guest_quiz_completed",
   "guest_signup_clicked",
+  "signup_step_completed",
+  "signup_submit_blocked",
+  "signup_failed",
 ]);
 
 export async function POST(request: Request) {

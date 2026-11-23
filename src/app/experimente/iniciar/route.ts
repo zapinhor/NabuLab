@@ -7,6 +7,7 @@ import {
   encodeGuestLock,
   findGuestTrack,
   parseGuestLock,
+  parseGuestSeed,
 } from "@/lib/content/guest-quiz";
 
 /**
@@ -17,7 +18,7 @@ import {
 export function GET(request: NextRequest) {
   const destination = new URL("/experimente", request.url);
   request.nextUrl.searchParams.forEach((value, key) => {
-    if (key !== "area") destination.searchParams.set(key, value);
+    if (key !== "area" && key !== "seed") destination.searchParams.set(key, value);
   });
   const response = NextResponse.redirect(destination, 303);
 
@@ -26,7 +27,7 @@ export function GET(request: NextRequest) {
   const track = findGuestTrack(request.nextUrl.searchParams.get("area") ?? undefined);
   if (!track) return response;
 
-  response.cookies.set(GUEST_QUIZ_COOKIE, encodeGuestLock(track.id, randomInt(0, 2 ** 32 - 1)), {
+  response.cookies.set(GUEST_QUIZ_COOKIE, encodeGuestLock(track.id, parseGuestSeed(request.nextUrl.searchParams.get("seed")) ?? randomInt(0, 2 ** 32 - 1)), {
     path: "/",
     maxAge: GUEST_QUIZ_COOKIE_MAX_AGE,
     httpOnly: true,

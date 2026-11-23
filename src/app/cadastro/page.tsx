@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AuthCard } from "@/components/commercial/auth-card";
 import { SignupProfileStep } from "@/components/security/signup-profile-step";
+import { SignupFailureTracker } from "@/components/security/signup-failure-tracker";
 import { GuestResultNote } from "@/components/guest-quiz/guest-result-note";
 import { isSignupProfile, profileFromNext } from "@/lib/forms/signup-profile";
 import { safeNextPath } from "@/lib/routing";
@@ -19,6 +20,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
   const initialProfile = isSignupProfile(perfil) ? perfil : profileFromNext(next);
   return (
     <AuthCard title={teacherIntent ? "Comece grátis como professor" : "Comece grátis"} description={teacherIntent ? "Use sua conta NabuLab para criar turmas, atividades e acompanhar seus alunos." : "Crie sua conta em poucos segundos. Você entra direto no NabuLab e recebe 10 questões gratuitas por dia."} message={mensagem}>
+      <SignupFailureTracker message={mensagem} />
       {!teacherIntent && <GuestResultNote />}
       <SignupProfileStep next={next} initialProfile={initialProfile} />
       <p className="mt-5 text-center text-sm text-slate-600">Já tem conta? <Link className="font-bold text-blue-700" href={`/login?next=${encodeURIComponent(next)}`}>Entrar</Link></p>

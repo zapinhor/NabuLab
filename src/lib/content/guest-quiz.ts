@@ -113,6 +113,35 @@ export function pickGuestQuestions(track: GuestTrack, seed: number, size = GUEST
 
 export const guestPoolSize = publicPool.length;
 
+const questionLength = (question: GuestQuestion) => question.statement.length + question.alternatives.reduce((sum, alternative) => sum + alternative.text.length, 0);
+
+/**
+ * Sorteio fixo das landings de anúncio: entre as primeiras sementes, a que abre
+ * com uma questão de tamanho médio (cabe na primeira tela do celular). A mesma semente
+ * vai para /experimente/iniciar, então a questão respondida na landing é a 1 de 3.
+ */
+export function landingGuestQuiz(trackId: GuestTrackId, candidates = 300) {
+  const track = findGuestTrack(trackId);
+  if (!track) return null;
+  let best: { seed: number; questions: GuestQuestion[]; size: number } | null = null;
+  for (let seed = 1; seed <= candidates; seed += 1) {
+    const questions = pickGuestQuestions(track, seed);
+    const first = questions[0];
+    if (!first || questions.length < GUEST_QUIZ_SIZE) continue;
+    // Curta o bastante para caber na tela do celular, mas não uma conta trivial.
+    const size = Math.abs(questionLength(first) - 260) + (first.statement.length < 70 ? 1000 : 0);
+    if (!best || size < best.size) best = { seed, questions, size };
+  }
+  return best ? { track, seed: best.seed, question: best.questions[0] } : null;
+}
+
+/** Semente informada pela landing (?seed=); só vale se for um inteiro de 32 bits. */
+export function parseGuestSeed(value: string | null | undefined) {
+  if (!value || !/^\d{1,10}$/.test(value)) return null;
+  const seed = Number(value);
+  return seed <= 0xffffffff ? seed : null;
+}
+
 /** Questões já públicas nas páginas de assunto (seguras para enviar ao navegador). */
 export function getPublicQuestionPool(): readonly GuestQuestion[] {
   return publicPool;
@@ -129,9 +158,7 @@ export const GUEST_QUIZ_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
 export type GuestQuizLock = { track: GuestTrack; seed: number };
 
-export function encodeGuestLock(trackId: GuestTrackId, seed: number) {
-  return `${trackId}.${seed >>> 0}`;
-}
+export { encodeGuestLock } from "@/lib/content/guest-lock";
 
 export function parseGuestLock(value: string | undefined): GuestQuizLock | null {
   const match = value?.match(/^([a-z]+)\.(\d{1,10})$/);

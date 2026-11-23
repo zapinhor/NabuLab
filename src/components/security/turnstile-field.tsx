@@ -30,10 +30,12 @@ type Props = {
   onToken?: (token: string) => void;
   onStateChange?: (state: TurnstileState) => void;
   canSubmit?: () => boolean;
+  /** Envio barrado porque a verificação ainda não terminou (ou expirou). */
+  onSubmitBlocked?: () => void;
 };
 
 export const TurnstileField = forwardRef<TurnstileFieldHandle, Props>(function TurnstileField(
-  { inputName, onToken, onStateChange, canSubmit },
+  { inputName, onToken, onStateChange, canSubmit, onSubmitBlocked },
   ref,
 ) {
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
@@ -78,11 +80,12 @@ export const TurnstileField = forwardRef<TurnstileFieldHandle, Props>(function T
       if (canSubmit && !canSubmit()) { event.preventDefault(); return; }
       if (tokenRef.current) { update("verifying", tokenRef.current); return; }
       event.preventDefault();
+      onSubmitBlocked?.();
       setState((current) => current === "expired" ? "expired" : "error");
     };
     form.addEventListener("submit", protectSubmit);
     return () => form.removeEventListener("submit", protectSubmit);
-  }, [canSubmit, renderWidget, update]);
+  }, [canSubmit, onSubmitBlocked, renderWidget, update]);
 
   useEffect(() => () => {
     if (widgetIdRef.current && window.turnstile) window.turnstile.remove(widgetIdRef.current);

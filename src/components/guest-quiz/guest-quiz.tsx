@@ -20,8 +20,8 @@ export type GuestQuizResult = {
 };
 
 /** Progresso do teste em andamento: quem recarrega a página continua de onde parou. */
-const PROGRESS_KEY = "nabulab_guest_quiz_progress";
-type Progress = { lockKey: string; index: number; choices: Record<string, string>; finished: boolean };
+export const PROGRESS_KEY = "nabulab_guest_quiz_progress";
+export type Progress = { lockKey: string; index: number; choices: Record<string, string>; finished: boolean };
 
 function readProgressRaw(): string | null {
   try { return localStorage.getItem(PROGRESS_KEY); } catch { return null; }
@@ -37,7 +37,7 @@ function parseProgress(raw: string | null, lockKey: string): Progress | null {
   }
 }
 
-const difficultyLabel = { iniciante: "Iniciante", medio: "Médio", avancado: "Avançado" } as const;
+export const difficultyLabel = { iniciante: "Iniciante", medio: "Médio", avancado: "Avançado" } as const;
 
 export function GuestQuiz({
   lockKey,

@@ -4,6 +4,8 @@ import { TrackedLink } from "@/components/analytics/tracked-link";
 import { Breadcrumbs, ContentShell, JsonLd } from "@/components/content/content-shell";
 import { SeoPageTracking } from "@/components/content/seo-tracking";
 import { Icon } from "@/components/ui/icon";
+import { LandingQuestion } from "@/components/guest-quiz/landing-question";
+import { GUEST_QUIZ_SIZE, landingGuestQuiz, type GuestTrackId } from "@/lib/content/guest-quiz";
 import { EXAM_LANDINGS, getExamLanding, type ExamLandingId } from "@/lib/content/exam-landings";
 import { SITE_URL } from "@/lib/seo";
 
@@ -14,6 +16,7 @@ export function ExamLanding({ id }: { id: ExamLandingId }) {
   const tryHref = `/experimente/iniciar?area=${page.guestTrack}`;
   const signupHref = `/cadastro?next=${encodeURIComponent("/simulado/novo")}`;
   const others = EXAM_LANDINGS.filter((item) => item.id !== id);
+  const quiz = landingGuestQuiz(page.guestTrack as GuestTrackId);
 
   return (
     <ContentShell>
@@ -27,18 +30,31 @@ export function ExamLanding({ id }: { id: ExamLandingId }) {
       <section className="border-b border-blue-100 bg-white">
         <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
           <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: page.eyebrow }]} />
-          <p className="mt-7 text-sm font-black uppercase tracking-[.16em] text-blue-700">{page.eyebrow}</p>
-          <h1 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-[-0.03em] text-[#0B2D6B] sm:text-5xl">{page.h1}</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">{page.intro}</p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <TrackedLink event="seo_cta_clicked" properties={{ placement: `exam_${id}_hero` }} href={tryHref} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#0B2D6B] px-6 py-3 text-center font-black text-white shadow-lg shadow-blue-950/15 hover:bg-blue-900">
-              Responder 3 questões grátis <Icon name="avancar" size={18} />
-            </TrackedLink>
-            <TrackedLink event="seo_cta_clicked" properties={{ placement: `exam_${id}_signup` }} href={signupHref} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-blue-200 bg-white px-6 py-3 text-center font-bold text-[#0B2D6B] hover:bg-blue-50">
-              Criar conta grátis
-            </TrackedLink>
+          <div className="mt-7 grid gap-x-10 gap-y-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,28rem)]">
+            <div className="lg:col-start-1 lg:row-start-1">
+              <p className="text-sm font-black uppercase tracking-[.16em] text-blue-700">{page.eyebrow}</p>
+              <h1 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-[-0.03em] text-[#0B2D6B] sm:text-5xl lg:text-[2.75rem]">{page.h1}</h1>
+            </div>
+            {quiz && (
+              <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">
+                <LandingQuestion question={quiz.question} track={quiz.track.id} seed={quiz.seed} total={GUEST_QUIZ_SIZE} placement={`exam_${id}_hero`} />
+              </div>
+            )}
+            <div className="lg:col-start-1 lg:row-start-2">
+              <p className="max-w-2xl text-lg leading-8 text-slate-600">{page.intro}</p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                {!quiz && (
+                  <TrackedLink event="seo_cta_clicked" properties={{ placement: `exam_${id}_hero` }} href={tryHref} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#0B2D6B] px-6 py-3 text-center font-black text-white shadow-lg shadow-blue-950/15 hover:bg-blue-900">
+                    Responder {GUEST_QUIZ_SIZE} questões grátis <Icon name="avancar" size={18} />
+                  </TrackedLink>
+                )}
+                <TrackedLink event="seo_cta_clicked" properties={{ placement: `exam_${id}_signup` }} href={signupHref} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-blue-200 bg-white px-6 py-3 text-center font-bold text-[#0B2D6B] hover:bg-blue-50">
+                  Criar conta grátis
+                </TrackedLink>
+              </div>
+              <p className="mt-3 text-sm text-slate-500">Sem cadastro e sem cartão. {number.format(page.questionCount)} questões comentadas nesta área.</p>
+            </div>
           </div>
-          <p className="mt-3 text-sm text-slate-500">Sem cadastro e sem cartão. {number.format(page.questionCount)} questões comentadas nesta área.</p>
         </div>
       </section>
 

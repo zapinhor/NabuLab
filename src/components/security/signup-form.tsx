@@ -5,7 +5,7 @@ import { useFormStatus } from "react-dom";
 import { signUp } from "@/app/auth/actions";
 import { trackEvent } from "@/components/analytics/track-event";
 import { buttonClass, inputClass } from "@/components/commercial/auth-card";
-import { TurnstileField } from "@/components/security/turnstile-field";
+import { TurnstileField, type TurnstileState } from "@/components/security/turnstile-field";
 import { createClient } from "@/lib/supabase/client";
 import {
   GUARDIAN_CONSENT_AGE,
@@ -74,6 +74,7 @@ export function SignupForm({ next, intent = "student", profile, studyFocus }: { 
   const [touched, setTouched] = useState<Partial<Record<SignupField, boolean>>>({});
   const [showPassword, setShowPassword] = useState(false);
   const startedRef = useRef(false);
+  const stepsRef = useRef(new Set<string>());
   const [guardianConsent, setGuardianConsent] = useState(false);
   const strength = getPasswordStrength(values.password);
   const availability = useUsernameAvailability(values.username);
@@ -86,6 +87,24 @@ export function SignupForm({ next, intent = "student", profile, studyFocus }: { 
     startedRef.current = true;
     void trackEvent("signup_started", { form: intent === "teacher" ? "teacher_fast_signup" : "student_fast_signup", intent, ...(profile ? { profile } : {}) });
   }
+
+  const formName = intent === "teacher" ? "teacher_fast_signup" : "student_fast_signup";
+  /** Cada etapa conta uma vez por visita: mostra em qual campo as pessoas param. */
+  const trackStep = useCallback((step: SignupField | "captcha") => {
+    if (stepsRef.current.has(step)) return;
+    stepsRef.current.add(step);
+    void trackEvent("signup_step_completed", { step, form: formName });
+  }, [formName]);
+
+  const trackBlocked = useCallback((reason: string, field?: SignupField) => {
+    void trackEvent("signup_submit_blocked", { reason, form: formName, ...(field ? { field } : {}) });
+  }, [formName]);
+
+  const onCaptchaState = useCallback((state: TurnstileState) => {
+    if (state === "verified") trackStep("captcha");
+    if (state === "error") trackBlocked("captcha_error");
+  }, [trackStep, trackBlocked]);
+  const onCaptchaMissing = useCallback(() => trackBlocked("captcha_missing"), [trackBlocked]);
 
   function updateField(field: SignupField, nextValue: string) {
     trackStarted();
@@ -100,21 +119,25 @@ export function SignupForm({ next, intent = "student", profile, studyFocus }: { 
     setTouched((current) => ({ ...current, [field]: true }));
     const error = VALIDATORS[field](values[field]);
     setErrors((current) => ({ ...current, [field]: error ?? undefined }));
+    if (!error) trackStep(field);
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     trackStarted();
     const nextErrors = validateSignup(values);
     if (availability === "taken") nextErrors.username = "Esse @username já está em uso. Escolha outro.";
+    for (const field of Object.keys(VALIDATORS) as SignupField[]) if (!nextErrors[field]) trackStep(field);
     if (Object.keys(nextErrors).length === 0 && !(needsGuardian && !guardianConsent)) return;
     event.preventDefault();
     if (Object.keys(nextErrors).length === 0) {
+      trackBlocked("guardian_consent");
       requestAnimationFrame(() => document.getElementById("guardian_consent")?.focus());
       return;
     }
     setErrors(nextErrors);
     setTouched(ALL_TOUCHED);
     const firstInvalid = (Object.keys(nextErrors) as SignupField[])[0];
+    trackBlocked(nextErrors.username && availability === "taken" ? "username_taken" : "invalid_field", firstInvalid);
     requestAnimationFrame(() => document.getElementById(firstInvalid)?.focus());
   }
 
@@ -168,7 +191,7 @@ export function SignupForm({ next, intent = "student", profile, studyFocus }: { 
           <div className="mt-1.5 grid grid-cols-5 gap-1" aria-hidden="true">{[1, 2, 3, 4, 5].map((step) => <span key={step} className={`h-1.5 rounded-full ${step <= strength.score ? strength.color : "bg-slate-200"}`} />)}</div>
         </div>
       </div>
-      <TurnstileField inputName="captcha_token" canSubmit={canSubmit} />
+      <TurnstileField inputName="captcha_token" canSubmit={canSubmit} onStateChange={onCaptchaState} onSubmitBlocked={onCaptchaMissing} />
       <SubmitButton />
       <p className="text-center text-xs leading-5 text-slate-500">Ao criar sua conta, você concorda com os <a className="font-bold underline" href="/termos">termos</a> e a <a className="font-bold underline" href="/privacidade">política de privacidade</a> do NabuLab.</p>
     </form>

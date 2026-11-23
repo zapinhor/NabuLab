@@ -53,3 +53,36 @@ export async function birthDates() {
   }
   return values;
 }
+
+const SIGNUP_FUNNEL_EVENTS = ["signup_cta_clicked", "signup_started", "signup_step_completed", "signup_submit_blocked", "signup_failed", "signup_completed"] as const;
+export type SignupFunnel = { opened: number; typing: number; steps: Record<string, number>; completed: number; blocked: Array<[string, number]>; failed: Array<[string, number]> };
+
+/** Funil do formulário de cadastro, contando visitantes (sessões anônimas) distintos em cada etapa. */
+export async function signupFunnel(range: Pick<AdminRange, "start" | "end">): Promise<SignupFunnel> {
+  const sessions = new Map<string, Set<string>>();
+  const add = (key: string, session: string) => { const set = sessions.get(key) ?? new Set<string>(); set.add(session); sessions.set(key, set); };
+  let completed = 0;
+  for (let from = 0; ; from += 1000) {
+    const { data, error } = await createAdminClient().from("analytics_events").select("event_name, anonymous_session_id, user_id, properties").in("event_name", [...SIGNUP_FUNNEL_EVENTS]).gte("created_at", range.start).lt("created_at", range.end).order("created_at", { ascending: true }).range(from, from + 999);
+    if (error) throw error;
+    for (const row of data ?? []) {
+      const session = row.anonymous_session_id ?? row.user_id ?? "";
+      const props = (row.properties ?? {}) as Record<string, unknown>;
+      if (row.event_name === "signup_completed") { completed += 1; continue; }
+      if (!session) continue;
+      if (row.event_name === "signup_cta_clicked") { if (props.placement === "signup_profile") add("opened", session); continue; }
+      if (row.event_name === "signup_started") { add("typing", session); continue; }
+      if (row.event_name === "signup_step_completed") { add(`step:${String(props.step ?? "?")}`, session); continue; }
+      if (row.event_name === "signup_submit_blocked") { add(`blocked:${String(props.reason ?? "?")}${props.field ? ` (${String(props.field)})` : ""}`, session); continue; }
+      if (row.event_name === "signup_failed") add(`failed:${String(props.reason ?? "?")}`, session);
+    }
+    if (!data || data.length < 1000) break;
+  }
+  const size = (key: string) => sessions.get(key)?.size ?? 0;
+  const list = (prefix: string) => [...sessions.entries()].filter(([key]) => key.startsWith(prefix)).map(([key, set]) => [key.slice(prefix.length), set.size] as [string, number]).sort((a, b) => b[1] - a[1]);
+  return {
+    opened: size("opened"), typing: size("typing"), completed,
+    steps: Object.fromEntries(["username", "birth_date", "email", "password", "captcha"].map((step) => [step, size(`step:${step}`)])),
+    blocked: list("blocked:"), failed: list("failed:"),
+  };
+}
